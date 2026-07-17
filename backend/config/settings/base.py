@@ -84,7 +84,9 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -110,9 +112,7 @@ REST_FRAMEWORK = {
         # the agreed cookie-based JWT authentication class is integrated.
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
-    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
 }
@@ -129,7 +129,10 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
 
-# Custom settings reserved for the users app's future httpOnly JWT views.
+# Reserved for a future httpOnly-cookie-based JWT flow (login/refresh/logout).
+# Not implemented yet — current auth is header-based (Authorization: Bearer <token>)
+# via SimpleJWT's default TokenObtainPairView. These settings have no effect until
+# that flow is built.
 JWT_ACCESS_COOKIE_NAME = env("JWT_ACCESS_COOKIE_NAME", default="access_token")
 JWT_REFRESH_COOKIE_NAME = env("JWT_REFRESH_COOKIE_NAME", default="refresh_token")
 JWT_COOKIE_DOMAIN = env("JWT_COOKIE_DOMAIN", default=None)

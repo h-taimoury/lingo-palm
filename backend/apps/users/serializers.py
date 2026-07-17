@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
 
@@ -27,8 +26,6 @@ class UserSerializer(serializers.ModelSerializer):
             "first_name",
             "last_name",
             "full_name",
-            "is_staff",
-            "is_active",
             "created_at",
             "password",
         )
@@ -81,24 +78,12 @@ class UserSerializer(serializers.ModelSerializer):
     #     return instance
 
 
-class UserSerializerWithToken(UserSerializer):
-    token = serializers.SerializerMethodField(read_only=True)
+class UserSerializerForAdmins(UserSerializer):
+    """Admin-only serializer: used for /api/users/ list and detail views.
 
-    class Meta:
-        model = User
-        fields = (
-            "id",
-            "email",
-            "first_name",
-            "last_name",
-            "full_name",
-            "is_staff",
-            "is_active",
-            "created_at",
-            "password",
-            "token",
-        )
+    Adds is_staff and is_active as writable fields — safe here because
+    IsAdminUser already restricts these views to staff.
+    """
 
-    def get_token(self, obj):
-        token = RefreshToken.for_user(obj)
-        return str(token.access_token)
+    class Meta(UserSerializer.Meta):
+        fields = UserSerializer.Meta.fields + ("is_staff", "is_active")

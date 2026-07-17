@@ -1,24 +1,23 @@
-from rest_framework import generics, permissions
-from .serializers import UserSerializer, UserSerializerWithToken
+from rest_framework import generics, permissions, status
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
+from .serializers import UserSerializer, UserSerializerForAdmins
 from .models import User
 
 
-# --- 1. User Registration (Replaces register_user FBV) ---
 class UserRegistrationView(generics.CreateAPIView):
-    """
-    Handles user registration via POST request.
-    Uses UserSerializerWithToken to return a token on creation.
-    """
-
-    queryset = User.objects.all()
-    # Use the serializer that handles token creation in its save() method
-    serializer_class = UserSerializerWithToken
-    # Allow anyone to access the registration endpoint
+    serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
 
-    # The CreateAPIView's perform_create method is called on serializer.save().
-    # The default implementation calls serializer.save() which handles validation
-    # and the custom create() logic in UserSerializerWithToken.
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+
+        token = RefreshToken.for_user(user)
+        data = serializer.data
+        data["token"] = str(token.access_token)
+        return Response(data, status=status.HTTP_201_CREATED)
 
 
 # --- 2. List All Users (Replaces get_users FBV) ---
@@ -29,7 +28,7 @@ class UserListView(generics.ListAPIView):
     """
 
     queryset = User.objects.all().order_by("id")
-    serializer_class = UserSerializer
+    serializer_class = UserSerializerForAdmins
     # Custom permission: IsAdminUser (from your FBV)
     permission_classes = [permissions.IsAdminUser]
 
@@ -42,7 +41,7 @@ class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     """
 
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserSerializerForAdmins
     # The URL pattern provides the 'pk' argument, which is automatically handled by the CBV.
     permission_classes = [permissions.IsAdminUser]
 
