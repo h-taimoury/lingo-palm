@@ -1,6 +1,5 @@
 from django.db.models import Prefetch
-from rest_framework import filters, status, viewsets
-from rest_framework.response import Response
+from rest_framework import filters, viewsets
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
 from .permissions import IsStaffOrPublishedReadOnly
@@ -99,8 +98,3 @@ class SubtitleWordViewSet(viewsets.ModelViewSet):
             section__is_published=True,
             section__course__is_published=True,
         )
-
-    def destroy(self, request, *args, **kwargs):  # noqa: ANN001, ANN201
-        instance = self.get_object()
-        instance.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)

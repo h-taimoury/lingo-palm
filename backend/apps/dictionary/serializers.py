@@ -1,3 +1,4 @@
+from django.conf import settings
 from rest_framework import serializers
 
 from .models import Entry, Sense
@@ -54,8 +55,27 @@ class SenseSerializer(serializers.ModelSerializer):
         )
 
 
+def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
+    """Turn the bare audio filenames the scraper saves (e.g. 'book_Br.mp3')
+    into URLs the frontend can actually fetch, the same way ImageField/FileField
+    do automatically for other fields.
+    """
+    if not pronunciation:
+        return pronunciation
+
+    resolved = dict(pronunciation)
+    for key in ("br_audio", "am_audio"):
+        filename = resolved.get(key)
+        if not filename:
+            continue
+        path = f"{settings.MEDIA_URL}pronunciation_audios/{filename}"
+        resolved[key] = request.build_absolute_uri(path) if request else path
+    return resolved
+
+
 class EntrySerializer(serializers.ModelSerializer):
     senses = SenseSerializer(many=True, read_only=True)
+    pronunciation = serializers.SerializerMethodField()
 
     class Meta:
         model = Entry
@@ -71,3 +91,6 @@ class EntrySerializer(serializers.ModelSerializer):
             "senses",
         )
         read_only_fields = ("created_at",)
+
+    def get_pronunciation(self, obj: Entry):  # noqa: ANN201
+        return _resolve_pronunciation_urls(obj.pronunciation, self.context.get("request"))

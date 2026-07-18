@@ -97,6 +97,19 @@ class SubtitleWordSerializer(serializers.ModelSerializer):
                 )
         return attrs
 
+    @transaction.atomic
+    def update(self, instance, validated_data):  # noqa: ANN001, ANN201
+        # If this write moves the word to a different mapping (e.g. PATCH mapping_id),
+        # the SubtitleWord post_delete signal that cleans up empty mappings never
+        # fires here — nothing gets deleted, it just gets reassigned. Without this,
+        # the old mapping can be left behind with senses but no subtitle words.
+        previous_mapping_id = instance.mapping_id
+        instance = super().update(instance, validated_data)
+        if previous_mapping_id != instance.mapping_id:
+            if not SubtitleWord.objects.filter(mapping_id=previous_mapping_id).exists():
+                WordSenseMapping.objects.filter(pk=previous_mapping_id).delete()
+        return instance
+
 
 class SubtitleWordReadSerializer(serializers.ModelSerializer):
     class Meta:

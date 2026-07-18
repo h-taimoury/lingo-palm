@@ -25,7 +25,16 @@ def scrape_and_save_word(word: str) -> list[Entry]:
     # this app nor imports longman_scraper.
     from longman_scraper import scrape_word
 
-    result = async_to_sync(scrape_word)(word, audio_dir=str(_audio_directory()))
+    try:
+        result = async_to_sync(scrape_word)(word, audio_dir=str(_audio_directory()))
+    except Exception:
+        # scrape_word() can fail (e.g. AudioDownloadError) after it has already
+        # saved some audio files for this word to disk. The scraper's exceptions
+        # don't tell us which files were written before the failure, so we can't
+        # target them precisely — do a best-effort sweep for this word instead.
+        _cleanup_orphaned_audio_for_word(word)
+        raise
+
     audio_filenames = _audio_filenames_from_result(result)
 
     try:
@@ -145,6 +154,36 @@ def _delete_unreferenced_audio_files(filenames: set[str]) -> None:
             path.unlink(missing_ok=True)
         except OSError:
             logger.exception("Could not remove rejected pronunciation audio: %s", path)
+
+
+def _cleanup_orphaned_audio_for_word(word: str) -> None:
+    """Best-effort cleanup for partial audio downloads left behind when
+    scrape_word() itself raises (e.g. AudioDownloadError after some audio for
+    this word already saved successfully). longman_scraper's exceptions don't
+    report which files were written before the failure, so this scans the
+    audio directory for filenames that look like they belong to this word
+    (per the scraper's own "{word}_Br.mp3" / "{word}_Am.mp3" convention) and
+    removes any that aren't referenced by an existing Entry.
+    """
+    directory = _audio_directory()
+    if not directory.exists():
+        return
+
+    referenced: set[str] = set()
+    for pronunciation in Entry.objects.values_list("pronunciation", flat=True):
+        pronunciation = pronunciation or {}
+        for key in ("br_audio", "am_audio"):
+            filename = pronunciation.get(key)
+            if filename:
+                referenced.add(filename)
+
+    prefix = f"{word.strip().lower()}_"
+    for path in directory.glob("*"):
+        if path.name.lower().startswith(prefix) and path.name not in referenced:
+            try:
+                path.unlink(missing_ok=True)
+            except OSError:
+                logger.exception("Could not remove orphaned pronunciation audio: %s", path)
 
 
 class DuplicateScrapeError(Exception):

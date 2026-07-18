@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError as DjangoValidationError
 
 User = get_user_model()
 
@@ -36,6 +38,17 @@ class UserSerializer(serializers.ModelSerializer):
     def get_full_name(self, obj):
         # Uses the method defined in your User model
         return obj.get_full_name()
+
+    def validate_password(self, value):
+        # AUTH_PASSWORD_VALIDATORS in settings isn't applied automatically by DRF —
+        # it only runs through Django's forms/management commands unless we call it
+        # here ourselves. Without this, registration and /me/ password updates would
+        # silently accept anything (e.g. "1").
+        try:
+            validate_password(value, user=self.instance)
+        except DjangoValidationError as exc:
+            raise serializers.ValidationError(list(exc.messages))
+        return value
 
     # Create method (for POST/Registration)
     def create(self, validated_data):
