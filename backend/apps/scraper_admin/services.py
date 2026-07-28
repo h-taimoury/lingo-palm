@@ -7,6 +7,7 @@ from pathlib import Path
 from asgiref.sync import async_to_sync
 from django.conf import settings
 from django.db import transaction
+from longman_scraper import scrape_word
 
 from apps.dictionary.models import Entry, Sense
 
@@ -20,10 +21,6 @@ def _audio_directory() -> Path:
 def scrape_and_save_word(word: str) -> list[Entry]:
     if Entry.objects.filter(word__iexact=word).exists():
         raise DuplicateScrapeError(word)
-
-    # Imported only inside the development-only app. Production neither installs
-    # this app nor imports longman_scraper.
-    from longman_scraper import scrape_word
 
     try:
         result = async_to_sync(scrape_word)(word, audio_dir=str(_audio_directory()))
@@ -80,9 +77,9 @@ def scrape_and_save_word(word: str) -> list[Entry]:
         raise
 
     return list(
-        Entry.objects.filter(id__in=[entry.id for entry in created_entries]).prefetch_related(
-            "senses"
-        )
+        Entry.objects.filter(
+            id__in=[entry.id for entry in created_entries]
+        ).prefetch_related("senses")
     )
 
 
@@ -183,7 +180,9 @@ def _cleanup_orphaned_audio_for_word(word: str) -> None:
             try:
                 path.unlink(missing_ok=True)
             except OSError:
-                logger.exception("Could not remove orphaned pronunciation audio: %s", path)
+                logger.exception(
+                    "Could not remove orphaned pronunciation audio: %s", path
+                )
 
 
 class DuplicateScrapeError(Exception):

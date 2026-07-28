@@ -30,12 +30,6 @@ class ScrapeWordView(APIView):
         serializer.is_valid(raise_exception=True)
         word = serializer.validated_data["word"]
 
-        if Entry.objects.filter(word__iexact=word).exists():
-            return Response(
-                {"detail": f"{word!r} has already been scraped."},
-                status=status.HTTP_409_CONFLICT,
-            )
-
         try:
             entries = scrape_and_save_word(word)
         except DuplicateScrapeError as exc:
@@ -109,7 +103,9 @@ class RejectScrapeView(APIView):
             )
         except EntriesInUseError:
             return Response(
-                {"detail": "These entries cannot be rejected because one or more senses are in use."},
+                {
+                    "detail": "These entries cannot be rejected because one or more senses are in use."
+                },
                 status=status.HTTP_409_CONFLICT,
             )
 

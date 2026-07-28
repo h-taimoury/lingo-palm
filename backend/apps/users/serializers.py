@@ -50,6 +50,25 @@ class UserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(list(exc.messages))
         return value
 
+    ## Using the above validate_password method, the UserAttributeSimilarityValidator in AUTH_PASSWORD_VALIDATORS setting will not have any effect when registering a new user because self.instance is None. To fix this, we can override the validate method to create a temporary user instance for password validation.
+    # def validate(self, attrs):
+    #     password = attrs.get("password")
+    #     if password is not None:
+    #         temp_user = User(
+    #             email=attrs.get("email", getattr(self.instance, "email", "")),
+    #             first_name=attrs.get(
+    #                 "first_name", getattr(self.instance, "first_name", "")
+    #             ),
+    #             last_name=attrs.get(
+    #                 "last_name", getattr(self.instance, "last_name", "")
+    #             ),
+    #         )
+    #         try:
+    #             validate_password(password, user=temp_user)
+    #         except DjangoValidationError as exc:
+    #             raise serializers.ValidationError({"password": list(exc.messages)})
+    #     return attrs
+
     # Create method (for POST/Registration)
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)

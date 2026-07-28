@@ -3,7 +3,7 @@ from django.core.exceptions import ImproperlyConfigured
 from .base import *  # noqa: F403
 
 DEBUG = False
-ROOT_URLCONF = "config.urls"
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")  # noqa: F405
 
 if SECRET_KEY == "unsafe-development-key-change-me":  # noqa: F405
     raise ImproperlyConfigured("DJANGO_SECRET_KEY must be set in production.")

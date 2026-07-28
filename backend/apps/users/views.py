@@ -1,5 +1,6 @@
 from rest_framework import generics, permissions, status
-from rest_framework.response import Response
+
+# from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserSerializer, UserSerializerForAdmins
 from .models import User
@@ -9,18 +10,19 @@ class UserRegistrationView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
 
+    def perform_create(self, serializer):
+        self.user = serializer.save()
+
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.save()
+        response = super().create(request, *args, **kwargs)
 
-        token = RefreshToken.for_user(user)
-        data = serializer.data
-        data["token"] = str(token.access_token)
-        return Response(data, status=status.HTTP_201_CREATED)
+        token = RefreshToken.for_user(self.user)
+        response.data["token"] = str(token.access_token)  # type: ignore
+
+        return response
 
 
-# --- 2. List All Users (Replaces get_users FBV) ---
+# --- 2. List All Users ---
 class UserListView(generics.ListAPIView):
     """
     Handles GET request to list all users.
@@ -29,7 +31,6 @@ class UserListView(generics.ListAPIView):
 
     queryset = User.objects.all().order_by("id")
     serializer_class = UserSerializerForAdmins
-    # Custom permission: IsAdminUser (from your FBV)
     permission_classes = [permissions.IsAdminUser]
 
 

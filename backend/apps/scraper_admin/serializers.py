@@ -2,13 +2,9 @@ from rest_framework import serializers
 
 
 class ScrapeWordRequestSerializer(serializers.Serializer):
-    word = serializers.CharField(max_length=255, trim_whitespace=True)
-
-    def validate_word(self, value: str) -> str:
-        value = value.strip()
-        if not value:
-            raise serializers.ValidationError("A word is required.")
-        return value
+    word = serializers.CharField(
+        max_length=255, trim_whitespace=True, allow_blank=False
+    )  # trim_whitespace=True and allow_blank=False are defaults. I just put them here to be more clear.
 
 
 class RejectScrapeRequestSerializer(serializers.Serializer):

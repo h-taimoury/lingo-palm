@@ -5,20 +5,18 @@ import environ
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 
-env = environ.Env(
-    DEBUG=(bool, False),
-)
+env = environ.Env()
 
 env_file = BASE_DIR / ".env"
 if env_file.exists():
     environ.Env.read_env(env_file)
 
-SECRET_KEY = env(
+SECRET_KEY = env.str(
     "DJANGO_SECRET_KEY",
     default="unsafe-development-key-change-me",
 )
 DEBUG = env.bool("DEBUG", default=False)
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])  # type: ignore
 
 DJANGO_APPS = [
     "django.contrib.admin",
@@ -36,8 +34,6 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    # Populate this directory before running migrations. The expected app label
-    # is "users" and the custom user model is "User".
     "apps.users",
     "apps.dictionary",
     "apps.courses",
@@ -79,7 +75,7 @@ ASGI_APPLICATION = "config.asgi.application"
 DATABASES = {
     "default": env.db(
         "DATABASE_URL",
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",  # type: ignore
     )
 }
 
@@ -95,14 +91,14 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = "users.User"
 
 LANGUAGE_CODE = "en-us"
-TIME_ZONE = env("TIME_ZONE", default="UTC")
+TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-MEDIA_URL = "/media/"
+STATIC_URL = "/static/"
 MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -126,19 +122,19 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])
-CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
+CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])  # type: ignore
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])  # type: ignore
 
 # Reserved for a future httpOnly-cookie-based JWT flow (login/refresh/logout).
 # Not implemented yet — current auth is header-based (Authorization: Bearer <token>)
 # via SimpleJWT's default TokenObtainPairView. These settings have no effect until
 # that flow is built.
-JWT_ACCESS_COOKIE_NAME = env("JWT_ACCESS_COOKIE_NAME", default="access_token")
-JWT_REFRESH_COOKIE_NAME = env("JWT_REFRESH_COOKIE_NAME", default="refresh_token")
-JWT_COOKIE_DOMAIN = env("JWT_COOKIE_DOMAIN", default=None)
-JWT_COOKIE_PATH = env("JWT_COOKIE_PATH", default="/")
+JWT_ACCESS_COOKIE_NAME = env("JWT_ACCESS_COOKIE_NAME", default="access_token")  # type: ignore
+JWT_REFRESH_COOKIE_NAME = env("JWT_REFRESH_COOKIE_NAME", default="refresh_token")  # type: ignore
+JWT_COOKIE_DOMAIN = env("JWT_COOKIE_DOMAIN", default=None)  # type: ignore
+JWT_COOKIE_PATH = env("JWT_COOKIE_PATH", default="/")  # type: ignore
 JWT_COOKIE_SECURE = env.bool("JWT_COOKIE_SECURE", default=False)
-JWT_COOKIE_SAMESITE = env("JWT_COOKIE_SAMESITE", default="Lax")
+JWT_COOKIE_SAMESITE = env("JWT_COOKIE_SAMESITE", default="Lax")  # type: ignore
 
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = False
@@ -160,6 +156,6 @@ LOGGING = {
     },
     "root": {
         "handlers": ["console"],
-        "level": env("LOG_LEVEL", default="INFO"),
+        "level": env("LOG_LEVEL", default="INFO"),  # type: ignore
     },
 }
