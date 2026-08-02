@@ -5,6 +5,7 @@ from .models import Course, Section, SubtitleWord, WordSenseMapping
 from .permissions import IsStaffOrPublishedReadOnly
 from .serializers import (
     CourseSerializer,
+    CourseSummarySerializer,
     SectionDetailSerializer,
     SectionWriteSerializer,
     SubtitleWordSerializer,
@@ -15,13 +16,25 @@ from .serializers import (
 
 class CourseViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrPublishedReadOnly,)
-    serializer_class = CourseSerializer
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
     search_fields = ("title", "description", "level")
     ordering_fields = ("title", "level", "created_at")
     ordering = ("title", "id")
 
+    def get_serializer_class(self):  # noqa: ANN201
+        if self.action == "list":
+            return CourseSummarySerializer
+        return CourseSerializer
+
     def get_queryset(self):  # noqa: ANN201
+        # If action is 'list', we don't need prefetch_related for sections
+        if self.action == "list":
+            return (
+                Course.objects.all()
+                if self.request.user.is_staff
+                else Course.objects.filter(is_published=True)
+            )
+
         section_queryset = Section.objects.all()
         course_queryset = Course.objects.all()
         if not self.request.user.is_staff:
@@ -89,6 +102,7 @@ class SubtitleWordViewSet(viewsets.ModelViewSet):
     search_fields = ("word", "section__title", "section__course__title")
     ordering_fields = ("cue_id", "position_in_cue")
     ordering = ("section_id", "cue_id", "position_in_cue", "id")
+    http_method_names = ["get", "post", "delete", "head", "options"]
 
     def get_queryset(self):  # noqa: ANN201
         queryset = SubtitleWord.objects.select_related("section__course", "mapping")

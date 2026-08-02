@@ -48,65 +48,29 @@ class CourseSerializer(serializers.ModelSerializer):
         read_only_fields = ("created_at",)
 
 
-class SubtitleWordSerializer(serializers.ModelSerializer):
-    section_id = serializers.PrimaryKeyRelatedField(
-        source="section",
-        queryset=Section.objects.all(),
-    )
-    mapping_id = serializers.PrimaryKeyRelatedField(
-        source="mapping",
-        queryset=WordSenseMapping.objects.all(),
-    )
-
+class CourseSummarySerializer(serializers.ModelSerializer):
     class Meta:
-        model = SubtitleWord
+        model = Course
         fields = (
             "id",
-            "section_id",
-            "mapping_id",
-            "word",
-            "cue_id",
-            "cue_start_time",
-            "cue_end_time",
-            "previous_cue_start_time",
-            "previous_cue_end_time",
-            "next_cue_start_time",
-            "next_cue_end_time",
-            "position_in_cue",
+            "title",
+            "description",
+            "thumbnail",
+            "level",
+            "is_published",
+            "created_at",
         )
-
-    def validate(self, attrs):  # noqa: ANN001, ANN201
-        section = attrs.get("section", getattr(self.instance, "section", None))
-        mapping = attrs.get("mapping", getattr(self.instance, "mapping", None))
-        if section is not None and mapping is not None:
-            existing_words = mapping.subtitle_words.all()
-            if self.instance is not None:
-                existing_words = existing_words.exclude(pk=self.instance.pk)
-            if existing_words.exclude(section=section).exists():
-                raise serializers.ValidationError(
-                    "All subtitle words in one mapping must belong to the same section."
-                )
-        return attrs
-
-    @transaction.atomic
-    def update(self, instance, validated_data):  # noqa: ANN001, ANN201
-        # If this write moves the word to a different mapping (e.g. PATCH mapping_id),
-        # the SubtitleWord post_delete signal that cleans up empty mappings never
-        # fires here — nothing gets deleted, it just gets reassigned. Without this,
-        # the old mapping can be left behind with senses but no subtitle words.
-        previous_mapping_id = instance.mapping_id
-        instance = super().update(instance, validated_data)
-        if previous_mapping_id != instance.mapping_id:
-            if not SubtitleWord.objects.filter(mapping_id=previous_mapping_id).exists():
-                WordSenseMapping.objects.filter(pk=previous_mapping_id).delete()
-        return instance
+        read_only_fields = ("created_at",)
 
 
-class SubtitleWordReadSerializer(serializers.ModelSerializer):
+class SubtitleWordSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = SubtitleWord
         fields = (
             "id",
+            "section",
+            "mapping",
             "word",
             "cue_id",
             "cue_start_time",
@@ -128,7 +92,7 @@ class WordSenseMappingSerializer(serializers.ModelSerializer):
         write_only=True,
         required=False,
     )
-    subtitle_words = SubtitleWordReadSerializer(many=True, read_only=True)
+    subtitle_words = SubtitleWordSerializer(many=True, read_only=True)
 
     class Meta:
         model = WordSenseMapping
@@ -267,6 +231,6 @@ class SectionDetailSerializer(serializers.ModelSerializer):
                     "subtitle_words": [],
                 }
             grouped[mapping.id]["subtitle_words"].append(
-                SubtitleWordReadSerializer(word, context=self.context).data
+                SubtitleWordSerializer(word, context=self.context).data
             )
         return list(grouped.values())
