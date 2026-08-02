@@ -1,12 +1,11 @@
-from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from apps.dictionary.models import Entry, Sense
 
 
 class DictionaryModelTests(TestCase):
-    def test_json_shapes_validate(self):
-        entry = Entry(
+    def test_entry_and_sense_can_be_created(self):
+        entry = Entry.objects.create(
             word="book",
             part_of_speech="noun",
             pronunciation={
@@ -16,10 +15,8 @@ class DictionaryModelTests(TestCase):
             },
             frequency=["S1", "W1"],
         )
-        entry.full_clean()
-        entry.save()
 
-        sense = Sense(
+        sense = Sense.objects.create(
             entry=entry,
             sense_number="1",
             title="book_n_1",
@@ -28,15 +25,5 @@ class DictionaryModelTests(TestCase):
             opposites=[],
             examples=[{"text": "I am reading a book.", "usage": None}],
         )
-        sense.full_clean()
 
-    def test_invalid_examples_are_rejected(self):
-        entry = Entry.objects.create(word="book", part_of_speech="noun")
-        sense = Sense(
-            entry=entry,
-            title="book_n_1",
-            definition="definition",
-            examples=[{"usage": "formal"}],
-        )
-        with self.assertRaises(ValidationError):
-            sense.full_clean()
+        self.assertEqual(sense.entry_id, entry.id)

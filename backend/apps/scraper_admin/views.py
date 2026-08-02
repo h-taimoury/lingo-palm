@@ -2,6 +2,7 @@ import logging
 
 from django.db import IntegrityError
 from rest_framework import status
+from rest_framework.exceptions import ValidationError as DRFValidationError
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -42,6 +43,18 @@ class ScrapeWordView(APIView):
             return Response(
                 {"detail": "The scraped data conflicts with existing dictionary data."},
                 status=status.HTTP_409_CONFLICT,
+            )
+        except DRFValidationError as exc:
+            logger.error("Scraped data for %s failed validation: %s", word, exc.detail)
+            return Response(
+                {
+                    "detail": (
+                        "The scraped data for this word didn't match the expected "
+                        "shape and was not saved."
+                    ),
+                    "errors": exc.detail,
+                },
+                status=status.HTTP_422_UNPROCESSABLE_ENTITY,
             )
         except Exception as exc:  # typed scraper exceptions are imported lazily below
             return self._scraper_error_response(exc)

@@ -1,21 +1,11 @@
 from django.db import models
 
-from .validators import validate_examples, validate_pronunciation, validate_string_list
-
 
 class Entry(models.Model):
     word = models.CharField(max_length=255, db_index=True)
     part_of_speech = models.CharField(max_length=100, db_index=True)
-    pronunciation = models.JSONField(
-        null=True,
-        blank=True,
-        validators=[validate_pronunciation],
-    )
-    frequency = models.JSONField(
-        default=list,
-        blank=True,
-        validators=[validate_string_list],
-    )
+    pronunciation = models.JSONField(null=True, blank=True)
+    frequency = models.JSONField(default=list, blank=True)
     inflections = models.TextField(null=True, blank=True)
     register = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -40,21 +30,9 @@ class Sense(models.Model):
     lex_unit = models.CharField(max_length=500, null=True, blank=True)
     geo = models.CharField(max_length=100, null=True, blank=True)
     register = models.CharField(max_length=100, null=True, blank=True)
-    synonyms = models.JSONField(
-        default=list,
-        blank=True,
-        validators=[validate_string_list],
-    )
-    opposites = models.JSONField(
-        default=list,
-        blank=True,
-        validators=[validate_string_list],
-    )
-    examples = models.JSONField(
-        default=list,
-        blank=True,
-        validators=[validate_examples],
-    )
+    synonyms = models.JSONField(default=list, blank=True)
+    opposites = models.JSONField(default=list, blank=True)
+    examples = models.JSONField(default=list, blank=True)
 
     class Meta:
         ordering = ["entry__word", "entry_id", "sense_number", "id"]

@@ -2,12 +2,20 @@ from django.db import models
 
 from apps.dictionary.models import Sense
 
+COURSE_LEVEL_CHOICES = [
+    ("Beginner", "Beginner"),
+    ("Intermediate", "Intermediate"),
+    ("Advanced", "Advanced"),
+]
+
 
 class Course(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to="course_thumbnails/", null=True, blank=True)
-    level = models.CharField(max_length=50, blank=True)
+    level = models.CharField(
+        max_length=50, choices=COURSE_LEVEL_CHOICES, default="Beginner"
+    )
     is_published = models.BooleanField(default=False, db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

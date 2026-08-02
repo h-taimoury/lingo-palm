@@ -23,14 +23,14 @@ class CourseViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):  # noqa: ANN201
         section_queryset = Section.objects.all()
+        course_queryset = Course.objects.all()
         if not self.request.user.is_staff:
             section_queryset = section_queryset.filter(is_published=True)
-        queryset = Course.objects.prefetch_related(
-            Prefetch("sections", queryset=section_queryset, to_attr="visible_sections")
+            course_queryset = course_queryset.filter(is_published=True)
+
+        return course_queryset.prefetch_related(
+            Prefetch("sections", queryset=section_queryset)
         )
-        if self.request.user.is_staff:
-            return queryset
-        return queryset.filter(is_published=True)
 
 
 class SectionViewSet(viewsets.ModelViewSet):

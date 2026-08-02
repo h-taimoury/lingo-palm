@@ -30,7 +30,8 @@ class SectionSummarySerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    sections = serializers.SerializerMethodField()
+
+    sections = SectionSummarySerializer(many=True, read_only=True)
 
     class Meta:
         model = Course
@@ -45,16 +46,6 @@ class CourseSerializer(serializers.ModelSerializer):
             "sections",
         )
         read_only_fields = ("created_at",)
-
-    def get_sections(self, obj: Course) -> list[dict[str, Any]]:
-        sections = getattr(obj, "visible_sections", None)
-        if sections is None:
-            request = self.context.get("request")
-            queryset = obj.sections.all()
-            if not request or not request.user.is_staff:
-                queryset = queryset.filter(is_published=True)
-            sections = queryset
-        return SectionSummarySerializer(sections, many=True, context=self.context).data
 
 
 class SubtitleWordSerializer(serializers.ModelSerializer):
@@ -208,10 +199,9 @@ class WordSenseMappingCreateSerializer(serializers.Serializer):
         return mapping
 
     def to_representation(self, instance):  # noqa: ANN001, ANN201
-        instance = (
-            WordSenseMapping.objects.prefetch_related("senses__entry", "subtitle_words")
-            .get(pk=instance.pk)
-        )
+        instance = WordSenseMapping.objects.prefetch_related(
+            "senses__entry", "subtitle_words"
+        ).get(pk=instance.pk)
         return WordSenseMappingSerializer(instance, context=self.context).data
 
 

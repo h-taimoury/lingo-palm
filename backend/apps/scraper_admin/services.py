@@ -10,6 +10,7 @@ from django.db import transaction
 from longman_scraper import scrape_word
 
 from apps.dictionary.models import Entry, Sense
+from apps.dictionary.serializers import EntrySerializer, SenseSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -46,31 +47,39 @@ def scrape_and_save_word(word: str) -> list[Entry]:
                     if scraped_entry.pronunciation is not None
                     else None
                 )
-                entry = Entry.objects.create(
-                    word=scraped_entry.word,
-                    part_of_speech=scraped_entry.part_of_speech,
-                    pronunciation=pronunciation,
-                    frequency=list(scraped_entry.frequency),
-                    inflections=scraped_entry.inflections,
-                    register=scraped_entry.register,
+
+                entry_serializer = EntrySerializer(
+                    data={
+                        "word": scraped_entry.word,
+                        "part_of_speech": scraped_entry.part_of_speech,
+                        "pronunciation": pronunciation,
+                        "frequency": list(scraped_entry.frequency),
+                        "inflections": scraped_entry.inflections,
+                        "register": scraped_entry.register,
+                    }
                 )
-                Sense.objects.bulk_create(
-                    [
-                        Sense(
-                            entry=entry,
-                            sense_number=sense.sense_number,
-                            title=sense.title,
-                            definition=sense.definition,
-                            lex_unit=sense.lex_unit,
-                            geo=sense.geo,
-                            register=sense.register,
-                            synonyms=list(sense.synonyms),
-                            opposites=list(sense.opposites),
-                            examples=[asdict(example) for example in sense.examples],
-                        )
-                        for sense in scraped_entry.senses
-                    ]
-                )
+                entry_serializer.is_valid(raise_exception=True)
+                entry = entry_serializer.save()
+
+                sense_data = [
+                    {
+                        "entry_id": entry.id,
+                        "sense_number": sense.sense_number,
+                        "title": sense.title,
+                        "definition": sense.definition,
+                        "lex_unit": sense.lex_unit,
+                        "geo": sense.geo,
+                        "register": sense.register,
+                        "synonyms": list(sense.synonyms),
+                        "opposites": list(sense.opposites),
+                        "examples": [asdict(example) for example in sense.examples],
+                    }
+                    for sense in scraped_entry.senses
+                ]
+                sense_serializer = SenseSerializer(data=sense_data, many=True)
+                sense_serializer.is_valid(raise_exception=True)
+                sense_serializer.save()
+
                 created_entries.append(entry)
     except Exception:
         _delete_unreferenced_audio_files(audio_filenames)
@@ -154,14 +163,6 @@ def _delete_unreferenced_audio_files(filenames: set[str]) -> None:
 
 
 def _cleanup_orphaned_audio_for_word(word: str) -> None:
-    """Best-effort cleanup for partial audio downloads left behind when
-    scrape_word() itself raises (e.g. AudioDownloadError after some audio for
-    this word already saved successfully). longman_scraper's exceptions don't
-    report which files were written before the failure, so this scans the
-    audio directory for filenames that look like they belong to this word
-    (per the scraper's own "{word}_Br.mp3" / "{word}_Am.mp3" convention) and
-    removes any that aren't referenced by an existing Entry.
-    """
     directory = _audio_directory()
     if not directory.exists():
         return
