@@ -126,24 +126,19 @@ class MappingSubtitleWordInputSerializer(serializers.ModelSerializer):
         )
 
 
-class WordSenseMappingCreateSerializer(serializers.Serializer):
-    section_id = serializers.PrimaryKeyRelatedField(
-        source="section",
-        queryset=Section.objects.all(),
-    )
-    sense_ids = serializers.PrimaryKeyRelatedField(
-        source="senses",
-        queryset=Sense.objects.all(),
-        many=True,
-    )
+class WordSenseMappingCreateSerializer(serializers.ModelSerializer):
     subtitle_words = MappingSubtitleWordInputSerializer(many=True)
 
-    def validate_sense_ids(self, value):  # noqa: ANN001, ANN201
+    class Meta:
+        model = WordSenseMapping
+        fields = ("section", "senses", "subtitle_words")
+
+    def validate_senses(self, value):
         if not value:
             raise serializers.ValidationError("At least one sense is required.")
         return value
 
-    def validate_subtitle_words(self, value):  # noqa: ANN001, ANN201
+    def validate_subtitle_words(self, value):
         if not value:
             raise serializers.ValidationError("At least one subtitle word is required.")
         return value
@@ -152,7 +147,7 @@ class WordSenseMappingCreateSerializer(serializers.Serializer):
     def create(self, validated_data):
         section = validated_data["section"]
         senses = validated_data["senses"]
-        words = validated_data["subtitle_words"]
+        words = validated_data.pop("subtitle_words")
 
         mapping = WordSenseMapping.objects.create(section=section)
         mapping.senses.set(senses)
@@ -161,24 +156,22 @@ class WordSenseMappingCreateSerializer(serializers.Serializer):
         )
         return mapping
 
-    def to_representation(self, instance):  # noqa: ANN001, ANN201
-        instance = WordSenseMapping.objects.prefetch_related(
-            "senses__entry", "subtitle_words"
-        ).get(pk=instance.pk)
+    def to_representation(self, instance):
+        instance = (
+            WordSenseMapping.objects.select_related("section")
+            .prefetch_related("senses__entry", "subtitle_words")
+            .get(pk=instance.pk)
+        )
         return WordSenseMappingSerializer(instance, context=self.context).data
 
 
 class SectionWriteSerializer(serializers.ModelSerializer):
-    course_id = serializers.PrimaryKeyRelatedField(
-        source="course",
-        queryset=Course.objects.all(),
-    )
 
     class Meta:
         model = Section
         fields = (
             "id",
-            "course_id",
+            "course",
             "title",
             "order",
             "video_url",
