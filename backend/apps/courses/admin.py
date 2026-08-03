@@ -37,9 +37,11 @@ class SectionAdmin(admin.ModelAdmin):
 
 @admin.register(WordSenseMapping)
 class WordSenseMappingAdmin(admin.ModelAdmin):
-    list_display = ("id", "word_list", "sense_list", "created_at")
-    search_fields = ("subtitle_words__word", "senses__title")
+    list_display = ("id", "section", "word_list", "sense_list", "created_at")
+    list_filter = ("section__course", "section")
+    search_fields = ("subtitle_words__word", "senses__title", "section__title")
     filter_horizontal = ("senses",)
+    autocomplete_fields = ("section",)
     inlines = (SubtitleWordInline,)
 
     @admin.display(description="Words")
@@ -53,7 +55,11 @@ class WordSenseMappingAdmin(admin.ModelAdmin):
 
 @admin.register(SubtitleWord)
 class SubtitleWordAdmin(admin.ModelAdmin):
-    list_display = ("word", "section", "cue_id", "position_in_cue", "mapping")
-    list_filter = ("section__course", "section")
-    search_fields = ("word", "section__title", "section__course__title")
-    autocomplete_fields = ("section", "mapping")
+    list_display = ("word", "mapping", "cue_id", "position_in_cue")
+    list_filter = ("mapping__section__course", "mapping__section")
+    search_fields = (
+        "word",
+        "mapping__section__title",
+        "mapping__section__course__title",
+    )
+    autocomplete_fields = ("mapping",)

@@ -58,15 +58,15 @@ class SectionViewSet(viewsets.ModelViewSet):
             return SectionDetailSerializer
         return SectionWriteSerializer
 
-    def get_queryset(self):  # noqa: ANN201
-        word_queryset = SubtitleWord.objects.select_related("mapping").prefetch_related(
-            "mapping__senses__entry"
-        )
+    def get_queryset(self):
+        mapping_queryset = WordSenseMapping.objects.select_related(
+            "section"
+        ).prefetch_related("senses__entry", "subtitle_words")
         queryset = Section.objects.select_related("course").prefetch_related(
             Prefetch(
-                "subtitle_words",
-                queryset=word_queryset,
-                to_attr="prefetched_subtitle_words",
+                "word_sense_mappings",
+                queryset=mapping_queryset,
+                to_attr="prefetched_word_sense_mappings",
             )
         )
         if self.request.user.is_staff:
@@ -76,39 +76,44 @@ class SectionViewSet(viewsets.ModelViewSet):
 
 class WordSenseMappingViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrPublishedReadOnly,)
-    queryset = WordSenseMapping.objects.prefetch_related(
+    queryset = WordSenseMapping.objects.select_related("section").prefetch_related(
         "senses__entry", "subtitle_words"
     )
 
-    def get_serializer_class(self):  # noqa: ANN201
+    def get_serializer_class(self):
         if self.action == "create":
             return WordSenseMappingCreateSerializer
         return WordSenseMappingSerializer
 
-    def get_queryset(self):  # noqa: ANN201
+    def get_queryset(self):
         queryset = super().get_queryset()
         if self.request.user.is_staff:
             return queryset
         return queryset.filter(
-            subtitle_words__section__is_published=True,
-            subtitle_words__section__course__is_published=True,
-        ).distinct()
+            section__is_published=True,
+            section__course__is_published=True,
+        )
 
 
 class SubtitleWordViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrPublishedReadOnly,)
     serializer_class = SubtitleWordSerializer
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
-    search_fields = ("word", "section__title", "section__course__title")
+    search_fields = (
+        "word",
+        "mapping__section__title",
+        "mapping__section__course__title",
+    )
     ordering_fields = ("cue_id", "position_in_cue")
-    ordering = ("section_id", "cue_id", "position_in_cue", "id")
-    http_method_names = ["get", "post", "delete", "head", "options"]
+    ordering = ("mapping_id", "cue_id", "position_in_cue", "id")
 
-    def get_queryset(self):  # noqa: ANN201
-        queryset = SubtitleWord.objects.select_related("section__course", "mapping")
+    def get_queryset(self):
+        queryset = SubtitleWord.objects.select_related(
+            "mapping__section__course", "mapping"
+        )
         if self.request.user.is_staff:
             return queryset
         return queryset.filter(
-            section__is_published=True,
-            section__course__is_published=True,
+            mapping__section__is_published=True,
+            mapping__section__course__is_published=True,
         )

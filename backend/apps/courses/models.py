@@ -47,6 +47,11 @@ class Section(models.Model):
 
 
 class WordSenseMapping(models.Model):
+    section = models.ForeignKey(
+        Section,
+        related_name="word_sense_mappings",
+        on_delete=models.CASCADE,
+    )
     senses = models.ManyToManyField(
         Sense,
         related_name="word_mappings",
@@ -54,7 +59,7 @@ class WordSenseMapping(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["id"]
+        ordering = ["section_id", "id"]
 
     def __str__(self) -> str:
         words = ", ".join(self.subtitle_words.values_list("word", flat=True)[:4])
@@ -62,11 +67,6 @@ class WordSenseMapping(models.Model):
 
 
 class SubtitleWord(models.Model):
-    section = models.ForeignKey(
-        Section,
-        related_name="subtitle_words",
-        on_delete=models.CASCADE,
-    )
     mapping = models.ForeignKey(
         WordSenseMapping,
         related_name="subtitle_words",
@@ -83,9 +83,9 @@ class SubtitleWord(models.Model):
     position_in_cue = models.PositiveIntegerField()
 
     class Meta:
-        ordering = ["section_id", "cue_id", "position_in_cue", "id"]
+        ordering = ["mapping_id", "cue_id", "position_in_cue", "id"]
         indexes = [
-            models.Index(fields=["section", "cue_id", "position_in_cue"]),
+            models.Index(fields=["mapping", "cue_id", "position_in_cue"]),
         ]
 
     def __str__(self) -> str:

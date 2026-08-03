@@ -69,7 +69,6 @@ class SubtitleWordSerializer(serializers.ModelSerializer):
         model = SubtitleWord
         fields = (
             "id",
-            "section",
             "mapping",
             "word",
             "cue_id",
@@ -150,15 +149,15 @@ class WordSenseMappingCreateSerializer(serializers.Serializer):
         return value
 
     @transaction.atomic
-    def create(self, validated_data):  # noqa: ANN001, ANN201
+    def create(self, validated_data):
         section = validated_data["section"]
         senses = validated_data["senses"]
         words = validated_data["subtitle_words"]
 
-        mapping = WordSenseMapping.objects.create()
+        mapping = WordSenseMapping.objects.create(section=section)
         mapping.senses.set(senses)
         SubtitleWord.objects.bulk_create(
-            [SubtitleWord(section=section, mapping=mapping, **word) for word in words]
+            [SubtitleWord(mapping=mapping, **word) for word in words]
         )
         return mapping
 
@@ -211,17 +210,24 @@ class SectionDetailSerializer(serializers.ModelSerializer):
         return {"id": obj.course_id, "title": obj.course.title}
 
     def get_word_sense_mappings(self, obj: Section) -> list[dict[str, Any]]:
-        words = getattr(obj, "prefetched_subtitle_words", None)
-        if words is None:
-            words = list(
-                obj.subtitle_words.select_related("mapping").prefetch_related(
-                    "mapping__senses__entry"
+        mappings = getattr(obj, "prefetched_word_sense_mappings", None)
+        if mappings is None:
+            mappings = list(
+                obj.word_sense_mappings.prefetch_related(
+                    "senses__entry", "subtitle_words"
                 )
             )
 
+        words_with_mapping = [
+            (word, mapping)
+            for mapping in mappings
+            for word in mapping.subtitle_words.all()
+        ]
+
         grouped: OrderedDict[int, dict[str, Any]] = OrderedDict()
-        for word in sorted(words, key=_cue_sort_key):
-            mapping = word.mapping
+        for word, mapping in sorted(
+            words_with_mapping, key=lambda pair: _cue_sort_key(pair[0])
+        ):
             if mapping.id not in grouped:
                 grouped[mapping.id] = {
                     "id": mapping.id,
