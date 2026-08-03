@@ -73,7 +73,7 @@ class SubtitleWord(models.Model):
         on_delete=models.CASCADE,
     )
     word = models.CharField(max_length=255)
-    cue_id = models.CharField(max_length=255)
+    cue_id = models.PositiveIntegerField()
     cue_start_time = models.FloatField()
     cue_end_time = models.FloatField()
     previous_cue_start_time = models.FloatField(null=True, blank=True)

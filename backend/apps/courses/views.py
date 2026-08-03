@@ -59,14 +59,13 @@ class SectionViewSet(viewsets.ModelViewSet):
         return SectionWriteSerializer
 
     def get_queryset(self):
-        mapping_queryset = WordSenseMapping.objects.select_related(
-            "section"
-        ).prefetch_related("senses__entry", "subtitle_words")
+        mapping_queryset = WordSenseMapping.objects.prefetch_related(
+            "senses__entry", "subtitle_words"
+        )
         queryset = Section.objects.select_related("course").prefetch_related(
             Prefetch(
                 "word_sense_mappings",
                 queryset=mapping_queryset,
-                to_attr="prefetched_word_sense_mappings",
             )
         )
         if self.request.user.is_staff:

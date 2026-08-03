@@ -1,6 +1,3 @@
-from collections import OrderedDict
-from typing import Any
-
 from django.db import transaction
 from rest_framework import serializers
 
@@ -8,14 +5,6 @@ from apps.dictionary.models import Sense
 from apps.dictionary.serializers import SenseSummarySerializer
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
-
-
-def _cue_sort_key(word: SubtitleWord) -> tuple[Any, int, int]:
-    try:
-        cue: Any = (0, int(word.cue_id))
-    except (TypeError, ValueError):
-        cue = (1, str(word.cue_id))
-    return cue, word.position_in_cue, word.id
 
 
 class SectionSummarySerializer(serializers.ModelSerializer):
@@ -105,6 +94,7 @@ class WordSenseMappingSerializer(serializers.ModelSerializer):
         read_only_fields = ("created_at",)
 
     def validate_sense_ids(self, value):  # noqa: ANN001, ANN201
+        # Pay attention that this serializer is not used for creating a new WordSenseMapping instance, but for reading the existing ones,updating and deleting them (RUD operations). Note that the only field in WordSenseMapping model instances that can get updated here is 'senses' field because we haven't included the 'section' field here on purpose because we don't want to let the section of a mapping to get updated. If the senses field is getting updated, we need to check that it's not an empty list and at least one sense is provided.
         if not value:
             raise serializers.ValidationError("At least one sense is required.")
         return value
@@ -183,8 +173,8 @@ class SectionWriteSerializer(serializers.ModelSerializer):
 
 
 class SectionDetailSerializer(serializers.ModelSerializer):
-    course = serializers.SerializerMethodField()
-    word_sense_mappings = serializers.SerializerMethodField()
+    course = CourseSummarySerializer(read_only=True)
+    word_sense_mappings = WordSenseMappingSerializer(many=True, read_only=True)
 
     class Meta:
         model = Section
@@ -198,38 +188,3 @@ class SectionDetailSerializer(serializers.ModelSerializer):
             "is_published",
             "word_sense_mappings",
         )
-
-    def get_course(self, obj: Section) -> dict[str, Any]:
-        return {"id": obj.course_id, "title": obj.course.title}
-
-    def get_word_sense_mappings(self, obj: Section) -> list[dict[str, Any]]:
-        mappings = getattr(obj, "prefetched_word_sense_mappings", None)
-        if mappings is None:
-            mappings = list(
-                obj.word_sense_mappings.prefetch_related(
-                    "senses__entry", "subtitle_words"
-                )
-            )
-
-        words_with_mapping = [
-            (word, mapping)
-            for mapping in mappings
-            for word in mapping.subtitle_words.all()
-        ]
-
-        grouped: OrderedDict[int, dict[str, Any]] = OrderedDict()
-        for word, mapping in sorted(
-            words_with_mapping, key=lambda pair: _cue_sort_key(pair[0])
-        ):
-            if mapping.id not in grouped:
-                grouped[mapping.id] = {
-                    "id": mapping.id,
-                    "senses": SenseSummarySerializer(
-                        mapping.senses.all(), many=True, context=self.context
-                    ).data,
-                    "subtitle_words": [],
-                }
-            grouped[mapping.id]["subtitle_words"].append(
-                SubtitleWordSerializer(word, context=self.context).data
-            )
-        return list(grouped.values())
