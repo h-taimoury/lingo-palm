@@ -7,7 +7,7 @@ from .serializers import (
     CourseSerializer,
     CourseSummarySerializer,
     SectionDetailSerializer,
-    SectionWriteSerializer,
+    SectionSerializer,
     SubtitleWordSerializer,
     WordSenseMappingCreateSerializer,
     WordSenseMappingSerializer,
@@ -56,7 +56,7 @@ class SectionViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):  # noqa: ANN201
         if self.action == "retrieve":
             return SectionDetailSerializer
-        return SectionWriteSerializer
+        return SectionSerializer
 
     def get_queryset(self):
         mapping_queryset = WordSenseMapping.objects.prefetch_related(

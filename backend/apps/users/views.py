@@ -1,28 +1,215 @@
+from django.conf import settings
+from django.middleware.csrf import get_token
 from rest_framework import generics, permissions, status
-
-# from rest_framework.response import Response
+from rest_framework.decorators import (
+    api_view,
+    authentication_classes,
+    permission_classes,
+)
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework_simplejwt.serializers import (
+    TokenObtainPairSerializer,
+    TokenRefreshSerializer,
+)
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import UserSerializer, UserSerializerForAdmins
+
+from .authentication import enforce_csrf
 from .models import User
+from .serializers import UserSerializer, UserSerializerForAdmins
+
+
+def _set_auth_cookies(response, access_token, refresh_token):
+    """
+    Store the JWT access and refresh tokens in HttpOnly cookies.
+    """
+    response.set_cookie(
+        key=settings.JWT_ACCESS_COOKIE_NAME,
+        value=access_token,
+        max_age=int(settings.SIMPLE_JWT["ACCESS_TOKEN_LIFETIME"].total_seconds()),
+        secure=settings.JWT_COOKIE_SECURE,
+        httponly=True,
+        samesite=settings.JWT_COOKIE_SAMESITE,
+        domain=settings.JWT_COOKIE_DOMAIN,
+        path=settings.JWT_COOKIE_PATH,
+    )
+
+    response.set_cookie(
+        key=settings.JWT_REFRESH_COOKIE_NAME,
+        value=refresh_token,
+        max_age=int(settings.SIMPLE_JWT["REFRESH_TOKEN_LIFETIME"].total_seconds()),
+        secure=settings.JWT_COOKIE_SECURE,
+        httponly=True,
+        samesite=settings.JWT_COOKIE_SAMESITE,
+        domain=settings.JWT_COOKIE_DOMAIN,
+        path=settings.JWT_COOKIE_PATH,
+    )
+
+
+def _clear_auth_cookies(response):
+    """
+    Remove the JWT authentication cookies from the browser.
+    """
+    response.delete_cookie(
+        key=settings.JWT_ACCESS_COOKIE_NAME,
+        domain=settings.JWT_COOKIE_DOMAIN,
+        path=settings.JWT_COOKIE_PATH,
+        samesite=settings.JWT_COOKIE_SAMESITE,
+    )
+
+    response.delete_cookie(
+        key=settings.JWT_REFRESH_COOKIE_NAME,
+        domain=settings.JWT_COOKIE_DOMAIN,
+        path=settings.JWT_COOKIE_PATH,
+        samesite=settings.JWT_COOKIE_SAMESITE,
+    )
+
+
+@api_view(["GET"])
+@authentication_classes([])
+@permission_classes([permissions.AllowAny])
+def csrf_token(request):
+    """
+    Issue Django's CSRF cookie.
+
+    The frontend should call this before making CSRF-protected
+    state-changing requests.
+    """
+    get_token(request)
+
+    return Response({"detail": "CSRF cookie set."})
 
 
 class UserRegistrationView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
+    authentication_classes = []
 
     def perform_create(self, serializer):
         self.user = serializer.save()
 
     def create(self, request, *args, **kwargs):
+        enforce_csrf(request)
+
         response = super().create(request, *args, **kwargs)
 
-        token = RefreshToken.for_user(self.user)
-        response.data["token"] = str(token.access_token)  # type: ignore
+        refresh = RefreshToken.for_user(self.user)
+
+        _set_auth_cookies(
+            response,
+            access_token=str(refresh.access_token),
+            refresh_token=str(refresh),
+        )
 
         return response
 
 
-# --- 2. List All Users ---
+class LoginView(APIView):
+    """
+    Authenticate a user and store the JWT pair in HttpOnly cookies.
+    """
+
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
+
+    def post(self, request):
+        enforce_csrf(request)
+
+        serializer = TokenObtainPairSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        access_token = serializer.validated_data["access"]
+        refresh_token = serializer.validated_data["refresh"]
+
+        response = Response(
+            {"detail": "Login successful."},
+            status=status.HTTP_200_OK,
+        )
+
+        _set_auth_cookies(
+            response,
+            access_token=access_token,
+            refresh_token=refresh_token,
+        )
+
+        return response
+
+
+class RefreshTokenView(APIView):
+    """
+    Rotate the refresh token and issue new JWT cookies.
+    """
+
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
+
+    def post(self, request):
+        enforce_csrf(request)
+
+        refresh_token = request.COOKIES.get(settings.JWT_REFRESH_COOKIE_NAME)
+
+        if not refresh_token:
+            return Response(
+                {"detail": "Refresh token is missing."},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+        serializer = TokenRefreshSerializer(data={"refresh": refresh_token})
+        serializer.is_valid(raise_exception=True)
+
+        access_token = serializer.validated_data["access"]
+        new_refresh_token = serializer.validated_data.get(
+            "refresh",
+            refresh_token,
+        )
+
+        response = Response(
+            {"detail": "Token refreshed successfully."},
+            status=status.HTTP_200_OK,
+        )
+
+        _set_auth_cookies(
+            response,
+            access_token=access_token,
+            refresh_token=new_refresh_token,
+        )
+
+        return response
+
+
+class LogoutView(APIView):
+    """
+    Log the user out by invalidating the refresh token and
+    removing the authentication cookies.
+    """
+
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = []
+
+    def post(self, request):
+        enforce_csrf(request)
+
+        refresh_token = request.COOKIES.get(settings.JWT_REFRESH_COOKIE_NAME)
+
+        if refresh_token:
+            try:
+                RefreshToken(refresh_token).blacklist()
+            except TokenError:
+                # The token may already be expired, invalid, or blacklisted.
+                # Regardless, we still want to remove the browser cookies.
+                pass
+
+        response = Response(
+            {"detail": "Logout successful."},
+            status=status.HTTP_200_OK,
+        )
+
+        _clear_auth_cookies(response)
+
+        return response
+
+
 class UserListView(generics.ListAPIView):
     """
     Handles GET request to list all users.
@@ -34,7 +221,6 @@ class UserListView(generics.ListAPIView):
     permission_classes = [permissions.IsAdminUser]
 
 
-# --- 3. User Detail, Update, Delete (Replaces user_detail FBV) ---
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     """
     Handles GET, PUT, PATCH, DELETE requests for a specific user by PK.
@@ -43,21 +229,16 @@ class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = User.objects.all()
     serializer_class = UserSerializerForAdmins
-    # The URL pattern provides the 'pk' argument, which is automatically handled by the CBV.
     permission_classes = [permissions.IsAdminUser]
 
 
-# --- 4. User Profile (Replaces user_profile FBV) ---
 class UserProfileView(generics.RetrieveUpdateDestroyAPIView):
     """
     Handles GET, PUT, PATCH, DELETE requests for the currently logged-in user.
     """
 
     serializer_class = UserSerializer
-    # Ensure only logged-in users can access this endpoint
     permission_classes = [permissions.IsAuthenticated]
 
-    # Override get_object to fetch the currently authenticated user
     def get_object(self):
-        # The request.user is set by the authentication system (Simple JWT)
         return self.request.user

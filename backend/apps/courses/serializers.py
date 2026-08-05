@@ -6,6 +6,15 @@ from apps.dictionary.serializers import SenseSummarySerializer
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
 
+# A workable naming convention for serializers: name by <Model><Role>Serializer, where <Role> comes from a small, fixed vocabulary:
+
+# Suffix:	Meaning:
+# (none)	Default read/write shape, used when there's only one reasonable shape
+# Summary	Lightweight shape for list views or nested references (few fields, no deep nesting)
+# Detail	Full shape for retrieve, typically with nested related objects
+# Create	Dedicated input-only serializer with custom .create(), often nested/atomic
+# Admin	    Elevated-permission variant with extra writable fields
+
 
 class SectionSummarySerializer(serializers.ModelSerializer):
     class Meta:
@@ -100,7 +109,8 @@ class WordSenseMappingSerializer(serializers.ModelSerializer):
         return value
 
 
-class MappingSubtitleWordInputSerializer(serializers.ModelSerializer):
+class SubtitleWordCreateSerializer(serializers.ModelSerializer):
+    # This serializer is only used in the below WordSenseMappingCreateSerializer for creating SubtitleWord instances when creating a new WordSenseMapping instance. It is not used for reading, updating or deleting SubtitleWord instances.
     class Meta:
         model = SubtitleWord
         fields = (
@@ -117,7 +127,7 @@ class MappingSubtitleWordInputSerializer(serializers.ModelSerializer):
 
 
 class WordSenseMappingCreateSerializer(serializers.ModelSerializer):
-    subtitle_words = MappingSubtitleWordInputSerializer(many=True)
+    subtitle_words = SubtitleWordCreateSerializer(many=True)
 
     class Meta:
         model = WordSenseMapping
@@ -155,7 +165,7 @@ class WordSenseMappingCreateSerializer(serializers.ModelSerializer):
         return WordSenseMappingSerializer(instance, context=self.context).data
 
 
-class SectionWriteSerializer(serializers.ModelSerializer):
+class SectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Section

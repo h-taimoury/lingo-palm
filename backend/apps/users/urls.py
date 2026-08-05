@@ -1,25 +1,23 @@
 from django.urls import path
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    # TokenRefreshView,
-)
+
 from .views import (
-    UserRegistrationView,
-    UserListView,
+    LoginView,
+    LogoutView,
+    RefreshTokenView,
     UserDetailView,
+    UserListView,
     UserProfileView,
+    UserRegistrationView,
+    csrf_token,
 )
 
 urlpatterns = [
-    # 1. User Registration (POST /register/)
+    path("csrf/", csrf_token, name="csrf"),
     path("register/", UserRegistrationView.as_view(), name="register"),
-    # 2. Login (Uses Simple JWT's built-in CBV)
-    path("login/", TokenObtainPairView.as_view(), name="login"),
-    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    # 3. User Profile (GET, PUT, PATCH, DELETE /me/)
+    path("login/", LoginView.as_view(), name="login"),
+    path("refresh/", RefreshTokenView.as_view(), name="token_refresh"),
+    path("logout/", LogoutView.as_view(), name="logout"),
     path("me/", UserProfileView.as_view(), name="me"),
-    # 4. List All Users (GET /)
     path("", UserListView.as_view(), name="users"),
-    # 5. User Detail (GET, PUT, PATCH, DELETE /<int:pk>/)
     path("<int:pk>/", UserDetailView.as_view(), name="user-detail"),
 ]

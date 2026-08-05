@@ -103,10 +103,13 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
+    # This was for before storing tokens in http-only cookies:
+    # "DEFAULT_AUTHENTICATION_CLASSES": (
+    #     "rest_framework_simplejwt.authentication.JWTAuthentication",
+    # ),
+    # This is for after:
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        # This uses the Authorization header until the users app is added and
-        # the agreed cookie-based JWT authentication class is integrated.
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "apps.users.authentication.CookieJWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
@@ -125,16 +128,38 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])  # type: ignore
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])  # type: ignore
 
-# Reserved for a future httpOnly-cookie-based JWT flow (login/refresh/logout).
-# Not implemented yet — current auth is header-based (Authorization: Bearer <token>)
-# via SimpleJWT's default TokenObtainPairView. These settings have no effect until
-# that flow is built.
-JWT_ACCESS_COOKIE_NAME = env("JWT_ACCESS_COOKIE_NAME", default="access_token")  # type: ignore
-JWT_REFRESH_COOKIE_NAME = env("JWT_REFRESH_COOKIE_NAME", default="refresh_token")  # type: ignore
-JWT_COOKIE_DOMAIN = env("JWT_COOKIE_DOMAIN", default=None)  # type: ignore
-JWT_COOKIE_PATH = env("JWT_COOKIE_PATH", default="/")  # type: ignore
-JWT_COOKIE_SECURE = env.bool("JWT_COOKIE_SECURE", default=False)
-JWT_COOKIE_SAMESITE = env("JWT_COOKIE_SAMESITE", default="Lax")  # type: ignore
+# For a httpOnly-cookie-based JWT flow (login/refresh/logout)👇:
+JWT_ACCESS_COOKIE_NAME = env(
+    "JWT_ACCESS_COOKIE_NAME",
+    default="access_token",
+)  # type: ignore
+
+JWT_REFRESH_COOKIE_NAME = env(
+    "JWT_REFRESH_COOKIE_NAME",
+    default="refresh_token",
+)  # type: ignore
+
+JWT_COOKIE_DOMAIN = env(
+    "JWT_COOKIE_DOMAIN",
+    default=None,
+)  # type: ignore
+
+JWT_COOKIE_PATH = env(
+    "JWT_COOKIE_PATH",
+    default="/",
+)  # type: ignore
+
+JWT_COOKIE_SECURE = env.bool(
+    "JWT_COOKIE_SECURE",
+    default=False,
+)
+
+JWT_COOKIE_SAMESITE = env(
+    "JWT_COOKIE_SAMESITE",
+    default="Lax",
+)  # type: ignore
+
+# For a httpOnly-cookie-based JWT flow (login/refresh/logout)👆
 
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = False
