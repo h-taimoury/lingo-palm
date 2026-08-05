@@ -41,17 +41,27 @@ class PublicUserAPITests(TestCase):
         }
 
     def test_create_valid_user_success(self):
-        """Test creating a user via POST to /api/users/register/ works and returns a token."""
+        """Test creating a user stores JWTs in HttpOnly cookies."""
         res = self.client.post(REGISTER_URL, self.payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
-        # Check if the user was created in the database
+
         user = User.objects.get(email=self.payload["email"])
         self.assertTrue(user.check_password(self.payload["password"]))
 
-        # Check response structure
-        self.assertIn("token", res.data)
-        self.assertNotIn("password", res.data)  # Crucial: Password must be write-only
+        self.assertNotIn("token", res.data)
+        self.assertNotIn("access", res.data)
+        self.assertNotIn("refresh", res.data)
+        self.assertNotIn("password", res.data)
+
+        self.assertIn("access_token", res.cookies)
+        self.assertIn("refresh_token", res.cookies)
+
+        self.assertTrue(res.cookies["access_token"]["httponly"])
+        self.assertTrue(res.cookies["refresh_token"]["httponly"])
+
+        self.assertIn("csrftoken", res.cookies)
+        self.assertFalse(res.cookies["csrftoken"]["httponly"])
 
     def test_create_user_missing_password_fails(self):
         """Test creating a user with a missing required password fails validation."""
@@ -86,20 +96,28 @@ class PublicUserAPITests(TestCase):
         self.assertEqual(User.objects.count(), 0)  # No user should be created
 
     def test_login_user_success(self):
-        """Test logging in an existing user via POST to /api/users/login/."""
-        # Create the user first
+        """Test logging in stores JWTs in HttpOnly cookies."""
         User.objects.create_user(**self.payload)
 
         login_payload = {
             "email": self.payload["email"],
             "password": self.payload["password"],
         }
-        res = self.client.post(LOGIN_URL, login_payload)
+
+        res = self.client.post(LOGIN_URL, login_payload, format="json")
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertIn("access", res.data)
-        self.assertIn("refresh", res.data)
-        self.assertNotIn("password", res.data)
+
+        self.assertNotIn("access", res.data)
+        self.assertNotIn("refresh", res.data)
+
+        self.assertIn("access_token", res.cookies)
+        self.assertIn("refresh_token", res.cookies)
+
+        self.assertTrue(res.cookies["access_token"]["httponly"])
+        self.assertTrue(res.cookies["refresh_token"]["httponly"])
+
+        self.assertIn("csrftoken", res.cookies)
 
 
 class PrivateUserMeTests(TestCase):

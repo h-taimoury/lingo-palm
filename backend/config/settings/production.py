@@ -12,7 +12,7 @@ if not ALLOWED_HOSTS:  # noqa: F405
     raise ImproperlyConfigured("ALLOWED_HOSTS must be set in production.")
 
 JWT_COOKIE_SECURE = True
-JWT_COOKIE_SAMESITE = "None"
+JWT_COOKIE_SAMESITE = "Lax"
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True

@@ -1,11 +1,6 @@
 from django.conf import settings
 from django.middleware.csrf import get_token
 from rest_framework import generics, permissions, status
-from rest_framework.decorators import (
-    api_view,
-    authentication_classes,
-    permission_classes,
-)
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
@@ -66,19 +61,14 @@ def _clear_auth_cookies(response):
     )
 
 
-@api_view(["GET"])
-@authentication_classes([])
-@permission_classes([permissions.AllowAny])
-def csrf_token(request):
+def _set_csrf_cookie(request):
     """
-    Issue Django's CSRF cookie.
+    Mark Django's CSRF cookie as needed for the response.
 
-    The frontend should call this before making CSRF-protected
-    state-changing requests.
+    The CSRF cookie is intentionally NOT HttpOnly because the frontend
+    needs to read it and send its value in the X-CSRFToken header.
     """
     get_token(request)
-
-    return Response({"detail": "CSRF cookie set."})
 
 
 class UserRegistrationView(generics.CreateAPIView):
@@ -90,8 +80,6 @@ class UserRegistrationView(generics.CreateAPIView):
         self.user = serializer.save()
 
     def create(self, request, *args, **kwargs):
-        enforce_csrf(request)
-
         response = super().create(request, *args, **kwargs)
 
         refresh = RefreshToken.for_user(self.user)
@@ -101,6 +89,8 @@ class UserRegistrationView(generics.CreateAPIView):
             access_token=str(refresh.access_token),
             refresh_token=str(refresh),
         )
+
+        _set_csrf_cookie(request)
 
         return response
 
@@ -114,8 +104,6 @@ class LoginView(APIView):
     authentication_classes = []
 
     def post(self, request):
-        enforce_csrf(request)
-
         serializer = TokenObtainPairSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
@@ -132,6 +120,8 @@ class LoginView(APIView):
             access_token=access_token,
             refresh_token=refresh_token,
         )
+
+        _set_csrf_cookie(request)
 
         return response
 
@@ -180,7 +170,7 @@ class RefreshTokenView(APIView):
 
 class LogoutView(APIView):
     """
-    Log the user out by invalidating the refresh token and
+    Log the user out by blacklisting the refresh token and
     removing the authentication cookies.
     """
 
@@ -197,7 +187,7 @@ class LogoutView(APIView):
                 RefreshToken(refresh_token).blacklist()
             except TokenError:
                 # The token may already be expired, invalid, or blacklisted.
-                # Regardless, we still want to remove the browser cookies.
+                # We still want to remove the browser cookies.
                 pass
 
         response = Response(
