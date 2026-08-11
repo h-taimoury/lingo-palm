@@ -123,9 +123,13 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": False,
 }
+# These two come from django-cors-headers 👇:
+CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])  # type: ignore # If CORS_ALLOWED_ORIGINS= ['http://localhost:3000'], this header will be added to the server's response: Access-Control-Allow-Origin: http://localhost:3000
+CORS_ALLOW_CREDENTIALS = (
+    True  # The server responds with this header: Access-Control-Allow-Credentials: true
+)
 
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])  # type: ignore
+# This is a Django setting for Django's built-in CSRF protection 👇:
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])  # type: ignore
 
 # For a httpOnly-cookie-based JWT flow (login/refresh/logout)👇:
@@ -139,15 +143,15 @@ JWT_REFRESH_COOKIE_NAME = env(
     default="refresh_token",
 )  # type: ignore
 
-JWT_COOKIE_DOMAIN = env(
-    "JWT_COOKIE_DOMAIN",
-    default=None,
-)  # type: ignore
+# JWT_COOKIE_DOMAIN = env(
+#     "JWT_COOKIE_DOMAIN",
+#     default=None,
+# )  # type: ignore
 
-JWT_COOKIE_PATH = env(
-    "JWT_COOKIE_PATH",
-    default="/",
-)  # type: ignore
+# JWT_COOKIE_PATH = env(
+#     "JWT_COOKIE_PATH",
+#     default="/",
+# )  # type: ignore
 
 JWT_COOKIE_SECURE = env.bool(
     "JWT_COOKIE_SECURE",

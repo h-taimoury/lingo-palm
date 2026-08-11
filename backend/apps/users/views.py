@@ -26,8 +26,8 @@ def _set_auth_cookies(response, access_token, refresh_token):
         secure=settings.JWT_COOKIE_SECURE,
         httponly=True,
         samesite=settings.JWT_COOKIE_SAMESITE,
-        domain=settings.JWT_COOKIE_DOMAIN,
-        path=settings.JWT_COOKIE_PATH,
+        # domain=settings.JWT_COOKIE_DOMAIN,
+        # path=settings.JWT_COOKIE_PATH,
     )
 
     response.set_cookie(
@@ -37,8 +37,8 @@ def _set_auth_cookies(response, access_token, refresh_token):
         secure=settings.JWT_COOKIE_SECURE,
         httponly=True,
         samesite=settings.JWT_COOKIE_SAMESITE,
-        domain=settings.JWT_COOKIE_DOMAIN,
-        path=settings.JWT_COOKIE_PATH,
+        # domain=settings.JWT_COOKIE_DOMAIN,
+        # path=settings.JWT_COOKIE_PATH,
     )
 
 
@@ -48,15 +48,15 @@ def _clear_auth_cookies(response):
     """
     response.delete_cookie(
         key=settings.JWT_ACCESS_COOKIE_NAME,
-        domain=settings.JWT_COOKIE_DOMAIN,
-        path=settings.JWT_COOKIE_PATH,
+        # domain=settings.JWT_COOKIE_DOMAIN,
+        # path=settings.JWT_COOKIE_PATH,
         samesite=settings.JWT_COOKIE_SAMESITE,
     )
 
     response.delete_cookie(
         key=settings.JWT_REFRESH_COOKIE_NAME,
-        domain=settings.JWT_COOKIE_DOMAIN,
-        path=settings.JWT_COOKIE_PATH,
+        # domain=settings.JWT_COOKIE_DOMAIN,
+        # path=settings.JWT_COOKIE_PATH,
         samesite=settings.JWT_COOKIE_SAMESITE,
     )
 
@@ -148,7 +148,7 @@ class RefreshTokenView(APIView):
         serializer = TokenRefreshSerializer(data={"refresh": refresh_token})
         serializer.is_valid(raise_exception=True)
 
-        access_token = serializer.validated_data["access"]
+        new_access_token = serializer.validated_data["access"]
         new_refresh_token = serializer.validated_data.get(
             "refresh",
             refresh_token,
@@ -161,7 +161,7 @@ class RefreshTokenView(APIView):
 
         _set_auth_cookies(
             response,
-            access_token=access_token,
+            access_token=new_access_token,
             refresh_token=new_refresh_token,
         )
 
