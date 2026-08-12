@@ -30,9 +30,10 @@ class UserSerializer(serializers.ModelSerializer):
             "full_name",
             "created_at",
             "password",
+            "is_staff",
         )
         # Add read_only_fields for fields that shouldn't be modifiable via standard input
-        read_only_fields = ["id", "full_name", "created_at"]
+        read_only_fields = ["id", "full_name", "created_at", "is_staff"]
         # extra_kwargs = {"password": {"write_only": True}}
 
     def get_full_name(self, obj):
@@ -118,4 +119,5 @@ class UserSerializerForAdmins(UserSerializer):
     """
 
     class Meta(UserSerializer.Meta):
-        fields = UserSerializer.Meta.fields + ("is_staff", "is_active")
+        fields = UserSerializer.Meta.fields + ("is_active")
+        read_only_fields = ["id", "full_name", "created_at"]

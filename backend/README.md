@@ -11,27 +11,26 @@ Django/DRF backend for the Lingo Palm language-learning project.
 - `AUTH_USER_MODEL = "users.User"`;
 - migrations are included (`apps/users/migrations/0001_initial.py`).
 
-**Decision:** authentication uses standard SimpleJWT via the `Authorization: Bearer <token>`
-header (`rest_framework_simplejwt.authentication.JWTAuthentication`), obtained through
-`POST /api/users/login/`. This is the deliberate choice for now, not a placeholder.
+**Decision:** authentication uses JWTs stored in httpOnly cookies
+(`access_token` / `refresh_token`, names configurable via `JWT_ACCESS_COOKIE_NAME`
+/ `JWT_REFRESH_COOKIE_NAME`), obtained through `POST /api/users/login/` or
+`POST /api/users/register/`. Requests are authenticated by
+`apps.users.authentication.CookieJWTAuthentication`, which reads the access
+token from the cookie (SimpleJWT still does the actual validation). Unsafe
+methods (POST/PUT/PATCH/DELETE) additionally require Django's CSRF token
+(`X-CSRFToken` header, value read from the non-httpOnly `csrftoken` cookie).
+This is the deliberate choice, not a placeholder.
 
-An httpOnly-cookie-based login/refresh/logout flow is planned for later (better XSS
-resistance, at the cost of needing CSRF handling and cross-origin cookie config). The
-`JWT_*_COOKIE_*` settings in `base.py` / `.env` are reserved for that future work and
-currently have no effect — don't be confused if you see them unused.
+Since the tokens live in httpOnly cookies, the frontend never reads or
+stores them directly — it just needs to send every request with
+credentials included, and attach the CSRF header on unsafe requests.
 
-In the meantime, since the access token lives in the frontend's hands: keep it in memory
-(e.g. a JS variable / React state), not `localStorage` or `sessionStorage`, to limit
-exposure if the site ever has an XSS bug. The refresh token can be persisted more
-durably, but treat it as sensitive too.
-
-> **Known issue to fix before shipping this to real users:** `UserSerializer` currently
-> exposes `is_staff` and `is_active` as writable fields, and it's reused by both
-> `UserProfileView` (`/api/users/me/`) and registration (`UserSerializerWithToken`).
-> That lets any authenticated user promote themselves to staff via `PATCH /me/`, and
-> lets anyone register as staff directly. Split into a self-service serializer (no
-> `is_staff`/`is_active`) for `/me/` and `/register/`, and keep the current
-> `UserSerializer` only for the admin-only `/api/users/` list/detail views.
+`UserSerializer` (used by `/me/`) exposes `is_staff` as a **read-only**
+field so the frontend can immediately know whether the logged-in user is an
+admin (to decide whether to show admin UI) without being able to write it.
+`is_active` is not exposed on `/me/`. Both `is_staff` and `is_active` are
+writable on `UserSerializerForAdmins`, used only by the admin-only
+`/api/users/` list/detail views (`IsAdminUser`-gated).
 
 ## Expected folder layout
 
@@ -111,14 +110,16 @@ python manage.py runserver
 
 ## API overview
 
-All endpoints below require authentication (`Authorization: Bearer <access_token>`)
-unless noted. Learners can read published course content and dictionary data; writes
-require `is_staff=True`.
+All endpoints below require authentication (JWT in an httpOnly cookie, sent
+automatically by the browser) unless noted. Learners can read published
+course content and dictionary data; writes require `is_staff=True`.
 
 ```text
-POST           /api/users/register/           (public — creates a user, returns a token)
-POST           /api/users/login/               (public — returns access + refresh tokens)
-GET/PATCH/PUT  /api/users/me/                  (any authenticated user — own profile)
+POST           /api/users/register/           (public — creates a user, sets auth cookies)
+POST           /api/users/login/               (public — sets auth cookies)
+POST           /api/users/refresh/             (public — rotates the refresh cookie; requires CSRF header)
+POST           /api/users/logout/              (public — clears auth cookies; requires CSRF header)
+GET/PATCH/PUT  /api/users/me/                  (any authenticated user — own profile; includes read-only is_staff)
 GET            /api/users/                     (staff only — list all users)
 GET/PUT/PATCH/DELETE /api/users/{id}/          (staff only — manage a specific user)
 
@@ -137,16 +138,22 @@ GET/POST       /api/courses/subtitle-words/
 GET/PUT/DELETE /api/courses/subtitle-words/{id}/
 ```
 
-Creating a teaching mapping is atomic. Example:
+Creating a teaching mapping is atomic (the mapping and all its subtitle
+words are created together, or not at all). Note the create payload uses
+`section` and `senses` (matching the model's own field names directly) —
+this is different from the key used to update an existing mapping's senses
+(`sense_ids`, see below). This asymmetry is intentional, not a typo.
+
+Create example — `POST /api/courses/word-sense-mappings/`:
 
 ```json
 {
-  "section_id": 42,
-  "sense_ids": [455],
+  "section": 42,
+  "senses": [455],
   "subtitle_words": [
     {
       "word": "look",
-      "cue_id": "4",
+      "cue_id": 4,
       "cue_start_time": 10.2,
       "cue_end_time": 12.7,
       "previous_cue_start_time": 7.8,
@@ -157,7 +164,7 @@ Creating a teaching mapping is atomic. Example:
     },
     {
       "word": "up",
-      "cue_id": "5",
+      "cue_id": 5,
       "cue_start_time": 12.8,
       "cue_end_time": 15.0,
       "previous_cue_start_time": 10.2,
@@ -170,8 +177,17 @@ Creating a teaching mapping is atomic. Example:
 }
 ```
 
-The section detail response groups related subtitle words under the same mapping ID.
-The frontend can assign one color per mapping ID without inferring relationships.
+Update example — `PATCH /api/courses/word-sense-mappings/{id}/` (only the
+senses can be changed after creation; section and subtitle_words are not
+editable through this endpoint):
+
+```json
+{ "sense_ids": [455, 460] }
+```
+
+The section detail response (`GET /api/courses/sections/{id}/`) groups
+related subtitle words under the same mapping ID. The frontend can assign
+one color per mapping ID without inferring relationships.
 
 ## Development-only scraper endpoints
 
