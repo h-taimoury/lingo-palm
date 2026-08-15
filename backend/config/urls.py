@@ -6,4 +6,5 @@ urlpatterns = [
     path("api/users/", include("apps.users.urls")),
     path("api/dictionary/", include("apps.dictionary.urls")),
     path("api/courses/", include("apps.courses.urls")),
+    path("api/my-vocabulary/", include("apps.my_vocabulary.urls")),
 ]

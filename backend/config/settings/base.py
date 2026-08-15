@@ -37,6 +37,7 @@ LOCAL_APPS = [
     "apps.users",
     "apps.dictionary",
     "apps.courses",
+    "apps.my_vocabulary",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 from apps.dictionary.models import Sense
 from apps.dictionary.serializers import SenseSummarySerializer
+from apps.my_vocabulary.models import Vocabulary
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
 
@@ -16,7 +17,56 @@ from .models import Course, Section, SubtitleWord, WordSenseMapping
 # Admin	    Elevated-permission variant with extra writable fields
 
 
-class SectionSummarySerializer(serializers.ModelSerializer):
+class SectionProgressMixin:
+    """Adds new_words_count / learned_percentage, computed for the requesting
+    user, to any Section serializer that includes them in Meta.fields.
+
+    Both fields share the same two queries, so results are cached per-section
+    on the shared serializer context (self.context persists across all rows
+    in a `many=True` call, so this caching also protects against recomputation
+    when the mixin is reused across multiple sections in one response).
+    """
+
+    def _progress(self, section):
+        cache = self.context.setdefault("_vocab_progress_cache", {})
+        if section.id in cache:
+            return cache[section.id]
+
+        request = self.context.get("request")
+        if not request or not request.user.is_authenticated:
+            result = (None, None)
+        else:
+            taught_ids = set(
+                Sense.objects.filter(word_mappings__section=section).values_list(
+                    "id", flat=True
+                )
+            )
+            if not taught_ids:
+                result = (0, 0)
+            else:
+                learned_ids = set(
+                    Vocabulary.objects.filter(
+                        user=request.user, sense_id__in=taught_ids
+                    ).values_list("sense_id", flat=True)
+                )
+                new_words = len(taught_ids - learned_ids)
+                percentage = round(len(learned_ids) / len(taught_ids) * 100)
+                result = (new_words, percentage)
+
+        cache[section.id] = result
+        return result
+
+    def get_new_words_count(self, obj):
+        return self._progress(obj)[0]
+
+    def get_learned_percentage(self, obj):
+        return self._progress(obj)[1]
+
+
+class SectionSummarySerializer(SectionProgressMixin, serializers.ModelSerializer):
+    new_words_count = serializers.SerializerMethodField()
+    learned_percentage = serializers.SerializerMethodField()
+
     class Meta:
         model = Section
         fields = (
@@ -24,6 +74,8 @@ class SectionSummarySerializer(serializers.ModelSerializer):
             "title",
             "order",
             "is_published",
+            "new_words_count",
+            "learned_percentage",
         )
 
 
@@ -182,9 +234,11 @@ class SectionSerializer(serializers.ModelSerializer):
         read_only_fields = ("created_at",)
 
 
-class SectionDetailSerializer(serializers.ModelSerializer):
+class SectionDetailSerializer(SectionProgressMixin, serializers.ModelSerializer):
     course = CourseSummarySerializer(read_only=True)
     word_sense_mappings = WordSenseMappingSerializer(many=True, read_only=True)
+    new_words_count = serializers.SerializerMethodField()
+    learned_percentage = serializers.SerializerMethodField()
 
     class Meta:
         model = Section
@@ -197,4 +251,6 @@ class SectionDetailSerializer(serializers.ModelSerializer):
             "subtitle_file",
             "is_published",
             "word_sense_mappings",
+            "new_words_count",
+            "learned_percentage",
         )
