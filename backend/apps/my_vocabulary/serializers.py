@@ -35,7 +35,7 @@ class VocabularyCreateSerializer(serializers.ModelSerializer):
             sense=validated_data["sense"],
             defaults={
                 "already_known": validated_data.get("already_known", False),
-                "mastered": validated_data.get("mastered", False),
+                "needs_review": not validated_data.get("already_known", False),
             },
         )
         return instance
@@ -44,7 +44,7 @@ class VocabularyCreateSerializer(serializers.ModelSerializer):
         return VocabularySerializer(instance, context=self.context).data
 
 
-def _bulk_mark_learned(user, sense_ids, already_known, mastered):
+def _bulk_mark_learned(user, sense_ids, already_known):
     """Create Vocabulary rows for any of sense_ids not already saved for this
     user, leaving existing rows untouched. Returns the full queryset for
     sense_ids (existing + newly created) so the view can echo back everything.
@@ -65,7 +65,7 @@ def _bulk_mark_learned(user, sense_ids, already_known, mastered):
                 user=user,
                 sense_id=sid,
                 already_known=already_known,
-                mastered=mastered,
+                needs_review=not already_known,
             )
             for sid in new_sense_ids
         ]
@@ -81,7 +81,6 @@ class MarkEntryLearnedSerializer(serializers.Serializer):
 
     entry_id = serializers.PrimaryKeyRelatedField(queryset=Entry.objects.all())
     already_known = serializers.BooleanField(default=False)
-    mastered = serializers.BooleanField(default=False)
 
     @transaction.atomic
     def save(self):
@@ -92,7 +91,6 @@ class MarkEntryLearnedSerializer(serializers.Serializer):
             user,
             sense_ids,
             self.validated_data["already_known"],
-            self.validated_data["mastered"],
         )
 
 
@@ -105,7 +103,6 @@ class MarkWordLearnedSerializer(serializers.Serializer):
         max_length=255, trim_whitespace=True, allow_blank=False
     )
     already_known = serializers.BooleanField(default=False)
-    mastered = serializers.BooleanField(default=False)
 
     @transaction.atomic
     def save(self):
@@ -118,5 +115,4 @@ class MarkWordLearnedSerializer(serializers.Serializer):
             user,
             sense_ids,
             self.validated_data["already_known"],
-            self.validated_data["mastered"],
         )

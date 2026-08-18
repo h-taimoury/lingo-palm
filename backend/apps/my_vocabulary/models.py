@@ -16,7 +16,7 @@ class Vocabulary(models.Model):
         on_delete=models.CASCADE,
     )
     already_known = models.BooleanField(default=False)
-    mastered = models.BooleanField(default=False)
+    needs_review = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
