@@ -108,11 +108,39 @@ python manage.py runserver
   mapping for phrasal verbs or expressions, including non-adjacent words or words
   spanning cues.
 
+### My Vocabulary
+
+- `Vocabulary`: one row per (`user`, `sense`) — the learner's own
+  learned/known-senses collection. Fields: `already_known` (learner already
+  knew this sense before using the platform, so it shouldn't count toward
+  "learned via the site" activity stats), `needs_review` (whether this
+  sense should currently surface in review/flashcard-style features), and
+  `created_at`. `already_known` and `needs_review` are independent booleans
+  — the backend never forces one to be the logical negation of the other at
+  the database level, though certain bulk actions set both together (see
+  API overview below). Unique constraint on (`user`, `sense`).
+
+  There is deliberately no separate "learned whole Entry" or "learned whole
+  word" model or action — a learner saying "I know the word book" does not
+  mean every sense Longman records for "book" (see the design note in the
+  API overview below). Word/entry-level actions were considered and
+  removed; every write to `Vocabulary` operates on an explicit list of
+  sense ids.
+
+  `apps.my_vocabulary` depends only on `apps.users` and `apps.dictionary` —
+  it has no knowledge of `apps.courses`. `apps.courses` is the one allowed
+  to depend on `apps.my_vocabulary` (same one-directional dependency
+  pattern as `courses` -> `dictionary`), which is how section/course
+  progress percentages get computed (see API overview below).
+
 ## API overview
 
 All endpoints below require authentication (JWT in an httpOnly cookie, sent
 automatically by the browser) unless noted. Learners can read published
-course content and dictionary data; writes require `is_staff=True`.
+course content and dictionary data; writes require `is_staff=True`. The
+`my-vocabulary` endpoints are the one exception to the staff/non-staff
+split — every authenticated user, staff or not, only ever sees and affects
+their own vocabulary rows.
 
 ```text
 POST           /api/users/register/           (public — creates a user, sets auth cookies)
@@ -132,10 +160,14 @@ GET/POST       /api/courses/courses/
 GET/PUT/DELETE /api/courses/courses/{id}/
 GET/POST       /api/courses/sections/
 GET/PUT/DELETE /api/courses/sections/{id}/
+GET            /api/courses/sections/{id}/taught-senses/
 GET/POST       /api/courses/word-sense-mappings/
 GET/PUT/DELETE /api/courses/word-sense-mappings/{id}/
 GET/POST       /api/courses/subtitle-words/
 GET/PUT/DELETE /api/courses/subtitle-words/{id}/
+
+GET            /api/my-vocabulary/vocabulary/
+POST           /api/my-vocabulary/vocabulary/bulk-action/
 ```
 
 Creating a teaching mapping is atomic (the mapping and all its subtitle
@@ -188,6 +220,75 @@ editable through this endpoint):
 The section detail response (`GET /api/courses/sections/{id}/`) groups
 related subtitle words under the same mapping ID. The frontend can assign
 one color per mapping ID without inferring relationships.
+
+### Section and course progress
+
+`GET /api/courses/courses/{id}/` (course detail, nested sections) and
+`GET /api/courses/sections/{id}/` (section detail) both include
+`new_words_count` and `learned_percentage`, computed live per-request for
+the calling user by comparing the set of distinct senses taught by that
+section/course against the caller's `my_vocabulary` rows. These two fields
+are **not** included on the plain course/section list responses — computing
+them for every card in a list would be too expensive, so they only appear
+on retrieve/detail.
+
+### Taught senses for a section
+
+`GET /api/courses/sections/{id}/taught-senses/` returns a flat (not
+paginated) array of every distinct sense taught by the section, each
+annotated with the calling user's `my_vocabulary` state for that sense
+(`is_learned`, and — only when `is_learned` is true — `already_known` /
+`needs_review`). This is the endpoint backing the "senses taught in this
+section" panel; the frontend splits the response into interactable "new"
+senses (`is_learned: false`) and non-interactable "already learned" ones.
+
+## My Vocabulary bulk actions
+
+All writes to a learner's vocabulary collection go through one endpoint,
+`POST /api/my-vocabulary/vocabulary/bulk-action/`, reused across every
+place in the UI where a learner acts on a list of senses (the section's
+taught-senses panel, and both lists — "needs review" / "doesn't need
+review" — on the `/my-vocabulary` page). There is no separate
+create/update/delete endpoint for a single `Vocabulary` row; a single
+sense is just a one-item `sense_ids` array.
+
+Request:
+
+```json
+{ "action": "set_already_known", "sense_ids": [55, 56] }
+```
+
+`action` is one of six fixed values:
+
+| action | effect | applies to |
+|---|---|---|
+| `set_already_known` | `already_known=True`, `needs_review=False` | creates a row if none exists |
+| `unset_already_known` | `already_known=False`, `needs_review=True` | existing rows only |
+| `set_learned` | `already_known=False`, `needs_review=True` (defaults) | creates a row if none exists |
+| `unset_learned` | deletes the row entirely | existing rows only (others silently ignored) |
+| `set_needs_review` | `needs_review=True` only, `already_known` untouched | existing rows only |
+| `unset_needs_review` | `needs_review=False` only, `already_known` untouched | existing rows only |
+
+Response is the full, current list of affected `Vocabulary` rows for every
+action except `unset_learned`, which instead returns:
+
+```json
+{
+  "detail": "The vocabulary entries for these senses were deleted.",
+  "sense_ids": [55, 56]
+}
+```
+
+**There is no "mark whole word/entry as learned" action.** This was
+deliberately removed: a learner saying "I know the word book" does not
+mean literally every sense Longman records for "book" — some, like a rare
+"part of a very large book, e.g. the Bible" sense, are not implied by that
+claim even for an advanced learner. If the frontend wants a "whole
+word/entry" convenience, it must resolve the actual sense list client-side
+(e.g. via `/api/dictionary/entries/` or
+`/api/dictionary/senses/?search=<word>`), show it to the user for
+confirmation, and submit the confirmed `sense_ids` — the backend will never
+silently expand a word or entry into "all its senses."
 
 ## Development-only scraper endpoints
 
