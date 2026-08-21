@@ -5,14 +5,17 @@ from rest_framework.response import Response
 
 from .models import Vocabulary
 from .serializers import VocabularyBulkActionSerializer, VocabularySerializer
-from .services import apply_bulk_action
 
 
 class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    """A user's own learned-senses collection. Reads use plain list
-    (optionally filtered by ?needs_review=true|false). All writes go through
-    bulk-action: the user selects one or more senses and applies one of a
-    fixed set of actions to them (see services.ACTIONS).
+    """A user's own learned-senses collection. No is_staff distinction here —
+    every authenticated user manages only their own rows (see get_queryset).
+
+    Reads use plain list (optionally filtered by ?needs_review=true|false).
+    All writes go through bulk-action, since every place in the UI where a
+    learner interacts with vocabulary rows operates on a target (specific
+    senses, a whole entry, or a whole word) plus one of a fixed set of
+    actions — see VocabularyBulkActionSerializer.
     """
 
     permission_classes = (IsAuthenticated,)
@@ -29,14 +32,11 @@ class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
     @action(detail=False, methods=["post"], url_path="bulk-action")
     def bulk_action(self, request):
-        serializer = VocabularyBulkActionSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        result = apply_bulk_action(
-            user=request.user,
-            action=serializer.validated_data["action"],
-            sense_ids=serializer.validated_data["sense_ids"],
+        serializer = VocabularyBulkActionSerializer(
+            data=request.data, context={"request": request}
         )
+        serializer.is_valid(raise_exception=True)
+        result = serializer.save()
 
         if serializer.validated_data["action"] == "unset_learned":
             return Response(

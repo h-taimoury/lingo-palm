@@ -234,6 +234,19 @@ class SectionSerializer(serializers.ModelSerializer):
         read_only_fields = ("created_at",)
 
 
+class TaughtSenseSerializer(serializers.Serializer):
+    """One row in a section's taught-senses list — a dictionary sense taught
+    by this section, annotated with the requesting user's Vocabulary state
+    for it (if any). already_known/needs_review are null when is_learned is
+    False, since there's no Vocabulary row to read them from.
+    """
+
+    sense = SenseSummarySerializer()
+    is_learned = serializers.BooleanField()
+    already_known = serializers.BooleanField(allow_null=True)
+    needs_review = serializers.BooleanField(allow_null=True)
+
+
 class SectionDetailSerializer(SectionProgressMixin, serializers.ModelSerializer):
     course = CourseSummarySerializer(read_only=True)
     word_sense_mappings = WordSenseMappingSerializer(many=True, read_only=True)

@@ -11,8 +11,14 @@ from .serializers import (
     SubtitleWordSerializer,
     WordSenseMappingCreateSerializer,
     WordSenseMappingSerializer,
+    TaughtSenseSerializer
 )
 
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
+from apps.dictionary.models import Sense
+from apps.my_vocabulary.models import Vocabulary
 
 class CourseViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrPublishedReadOnly,)
@@ -72,6 +78,46 @@ class SectionViewSet(viewsets.ModelViewSet):
             return queryset
         return queryset.filter(is_published=True, course__is_published=True)
 
+    @action(detail=True, methods=["get"], url_path="taught-senses")
+    def taught_senses(self, request, pk=None):
+        section = self.get_object()
+
+        senses = (
+            Sense.objects.filter(word_mappings__section=section)
+            .distinct()
+            .select_related("entry")
+            .order_by("entry__word", "entry_id", "sense_number", "id")
+        )
+
+        vocab_by_sense = {}
+        if request.user.is_authenticated:
+            vocab_by_sense = {
+                v.sense_id: v
+                for v in Vocabulary.objects.filter(user=request.user, sense__in=senses)
+            }
+
+        data = [
+            {
+                "sense": sense,
+                "is_learned": sense.id in vocab_by_sense,
+                "already_known": (
+                    vocab_by_sense[sense.id].already_known
+                    if sense.id in vocab_by_sense
+                    else None
+                ),
+                "needs_review": (
+                    vocab_by_sense[sense.id].needs_review
+                    if sense.id in vocab_by_sense
+                    else None
+                ),
+            }
+            for sense in senses
+        ]
+
+        serializer = TaughtSenseSerializer(
+            data, many=True, context=self.get_serializer_context()
+        )
+        return Response(serializer.data)
 
 class WordSenseMappingViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrPublishedReadOnly,)
