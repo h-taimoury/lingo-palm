@@ -6,9 +6,9 @@ User = get_user_model()
 
 
 def _upsert(user: User, sense_ids: set[int], already_known: bool, needs_review: bool):
-    """Create rows for any sense_ids the user doesn't have yet, and force
-    already_known/needs_review to the given values on every row for
-    sense_ids (whether just-created or pre-existing).
+    """Create rows for any sense_ids the user doesn't have yet (with the given
+    field values baked in at creation), and update only the sense_ids that
+    already had a row, to the same field values.
     """
     if not sense_ids:
         return Vocabulary.objects.none()
@@ -33,9 +33,10 @@ def _upsert(user: User, sense_ids: set[int], already_known: bool, needs_review: 
             ]
         )
 
-    Vocabulary.objects.filter(user=user, sense_id__in=sense_ids).update(
-        already_known=already_known, needs_review=needs_review
-    )
+    if existing_ids:
+        Vocabulary.objects.filter(user=user, sense_id__in=existing_ids).update(
+            already_known=already_known, needs_review=needs_review
+        )
 
     return Vocabulary.objects.filter(user=user, sense_id__in=sense_ids).select_related(
         "sense__entry"
@@ -77,17 +78,20 @@ ACTIONS = {
     ),
     "set_learned": lambda user, ids: _upsert(user, ids, False, True),
     "unset_learned": _delete,
-    "set_needs_review": lambda user, ids: _update_existing(user, ids, needs_review=True),
+    "set_needs_review": lambda user, ids: _update_existing(
+        user, ids, needs_review=True
+    ),
     "unset_needs_review": lambda user, ids: _update_existing(
         user, ids, needs_review=False
     ),
 }
 
 
-def apply_bulk_action(user: User, action: str, sense_ids: set[int]):
-    """Applies one of the fixed vocabulary actions to a set of sense IDs for
-    the given user. Returns a Vocabulary queryset for every action except
+def apply_bulk_action(user: User, action: str, senses):
+    """Applies one of the fixed vocabulary actions to a set of Sense instances
+    for the given user. Returns a Vocabulary queryset for every action except
     unset_learned, which instead returns the set of sense IDs that were
     actually deleted (since the rows no longer exist to query).
     """
+    sense_ids = {sense.id for sense in senses}
     return ACTIONS[action](user, sense_ids)

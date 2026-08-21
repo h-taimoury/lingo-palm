@@ -13,7 +13,7 @@ class VocabularySerializer(serializers.ModelSerializer):
     class Meta:
         model = Vocabulary
         fields = ("id", "sense", "already_known", "needs_review", "created_at")
-        read_only_fields = ("created_at",)
+        read_only_fields = ("created_at", "id")
 
 
 class VocabularyBulkActionSerializer(serializers.Serializer):
@@ -26,6 +26,3 @@ class VocabularyBulkActionSerializer(serializers.Serializer):
     sense_ids = serializers.PrimaryKeyRelatedField(
         queryset=Sense.objects.all(), many=True, allow_empty=False
     )
-
-    def validate_sense_ids(self, value):
-        return {sense.id for sense in value}

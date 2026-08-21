@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
@@ -17,15 +18,13 @@ class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
     permission_classes = (IsAuthenticated,)
     serializer_class = VocabularySerializer
+    filter_backends = (DjangoFilterBackend,)
+    filterset_fields = ("needs_review",)
 
     def get_queryset(self):
-        queryset = Vocabulary.objects.filter(user=self.request.user).select_related(
+        return Vocabulary.objects.filter(user=self.request.user).select_related(
             "sense__entry"
         )
-        needs_review = self.request.query_params.get("needs_review")
-        if needs_review is not None:
-            queryset = queryset.filter(needs_review=needs_review.lower() == "true")
-        return queryset
 
     @action(detail=False, methods=["post"], url_path="bulk-action")
     def bulk_action(self, request):
@@ -35,12 +34,16 @@ class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
         result = apply_bulk_action(
             user=request.user,
             action=serializer.validated_data["action"],
-            sense_ids=serializer.validated_data["sense_ids"],
+            senses=serializer.validated_data["sense_ids"],
         )
 
         if serializer.validated_data["action"] == "unset_learned":
             return Response(
-                {"deleted_sense_ids": sorted(result)}, status=status.HTTP_200_OK
+                {
+                    "detail": "The vocabulary instances for the requested senses were deleted.",
+                    "sense_ids": sorted(result),
+                },
+                status=status.HTTP_200_OK,
             )
 
         return Response(
