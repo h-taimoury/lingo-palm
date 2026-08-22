@@ -4,15 +4,34 @@ from rest_framework import serializers
 from .models import Entry, Sense
 
 
+def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
+    """Turn the bare audio filenames the scraper saves (e.g. 'book_Br.mp3')
+    into URLs the frontend can actually fetch.
+    """
+    if not pronunciation:
+        return pronunciation
+
+    resolved = dict(pronunciation)
+    for key in ("br_audio", "am_audio"):
+        filename = resolved.get(key)
+        if not filename:
+            continue
+        path = f"{settings.MEDIA_URL}pronunciation_audios/{filename}"
+        resolved[key] = request.build_absolute_uri(path) if request else path
+    return resolved
+
+
 class EntrySummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = (
-            "id",
-            "word",
-            "part_of_speech",
-            "pronunciation",
+        fields = ("id", "word", "part_of_speech", "pronunciation")
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data["pronunciation"] = _resolve_pronunciation_urls(
+            data.get("pronunciation"), self.context.get("request")
         )
+        return data
 
 
 class SenseSummarySerializer(serializers.ModelSerializer):
@@ -109,23 +128,6 @@ class SenseSerializer(serializers.ModelSerializer):
                     "Example usage must be a string or null."
                 )
         return value
-
-
-def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
-    """Turn the bare audio filenames the scraper saves (e.g. 'book_Br.mp3')
-    into URLs the frontend can actually fetch.
-    """
-    if not pronunciation:
-        return pronunciation
-
-    resolved = dict(pronunciation)
-    for key in ("br_audio", "am_audio"):
-        filename = resolved.get(key)
-        if not filename:
-            continue
-        path = f"{settings.MEDIA_URL}pronunciation_audios/{filename}"
-        resolved[key] = request.build_absolute_uri(path) if request else path
-    return resolved
 
 
 class EntrySerializer(serializers.ModelSerializer):

@@ -119,5 +119,5 @@ class UserSerializerForAdmins(UserSerializer):
     """
 
     class Meta(UserSerializer.Meta):
-        fields = UserSerializer.Meta.fields + ("is_active")
+        fields = UserSerializer.Meta.fields + ("is_active",)
         read_only_fields = ["id", "full_name", "created_at"]
