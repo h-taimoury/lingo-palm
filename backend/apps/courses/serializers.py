@@ -249,7 +249,7 @@ class TaughtSenseSerializer(serializers.Serializer):
 
 class SectionDetailSerializer(SectionProgressMixin, serializers.ModelSerializer):
     course = CourseSummarySerializer(read_only=True)
-    word_sense_mappings = WordSenseMappingSerializer(many=True, read_only=True)
+    word_sense_mappings = serializers.SerializerMethodField()
     new_words_count = serializers.SerializerMethodField()
     learned_percentage = serializers.SerializerMethodField()
 
@@ -267,3 +267,48 @@ class SectionDetailSerializer(SectionProgressMixin, serializers.ModelSerializer)
             "new_words_count",
             "learned_percentage",
         )
+
+    def get_word_sense_mappings(self, obj):
+        request = self.context.get("request")
+        # Relies on the Prefetch("word_sense_mappings", ...) done in
+        # SectionViewSet.get_queryset — .all() here hits the prefetch cache,
+        # not the DB, and so does mapping.senses.all() below (senses__entry
+        # is prefetched too).
+        mappings = list(obj.word_sense_mappings.all())
+        visible_mappings = self._drop_fully_learned_mappings(mappings, request)
+
+        return WordSenseMappingSerializer(
+            visible_mappings, many=True, context=self.context
+        ).data
+
+    @staticmethod
+    def _drop_fully_learned_mappings(mappings, request):
+        """Filter mappings according to the requesting user.
+
+        Staff users receive all mappings for authoring purposes.
+        Non-staff authenticated users do not receive mappings for which
+        they have already learned every attached sense.
+        """
+        if request and request.user.is_staff:
+            return mappings
+
+        if not request or not request.user.is_authenticated:
+            return mappings
+
+        all_sense_ids = {
+            sense.id for mapping in mappings for sense in mapping.senses.all()
+        }
+        if not all_sense_ids:
+            return mappings
+
+        learned_ids = set(
+            Vocabulary.objects.filter(
+                user=request.user, sense_id__in=all_sense_ids
+            ).values_list("sense_id", flat=True)
+        )
+
+        return [
+            mapping
+            for mapping in mappings
+            if not {sense.id for sense in mapping.senses.all()}.issubset(learned_ids)
+        ]

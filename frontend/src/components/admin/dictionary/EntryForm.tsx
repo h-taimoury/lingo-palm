@@ -1,0 +1,21 @@
+"use client"
+
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { LoaderCircle } from "lucide-react"
+import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { apiClient } from "@/lib/api/client"
+import type { CreateEntryRequest, Entry, UpdateEntryRequest } from "@/types/api/dictionary"
+
+function list(value: FormDataEntryValue | null) { return String(value ?? "").split(/[,\n]/u).map((item) => item.trim()).filter(Boolean) }
+function nullable(value: FormDataEntryValue | null) { const text = String(value ?? "").trim(); return text || null }
+
+export function EntryForm({ entry, onDone }: { entry?: Entry; onDone?: () => void }) {
+  const router = useRouter(); const [busy, setBusy] = useState(false); const [error, setError] = useState<unknown>(null)
+  async function submit(event: React.FormEvent<HTMLFormElement>) { event.preventDefault(); const formElement = event.currentTarget; const form = new FormData(formElement); setBusy(true); setError(null); try { if (entry) { const body: UpdateEntryRequest = { word: String(form.get("word") ?? "").trim(), part_of_speech: String(form.get("part_of_speech") ?? "").trim(), frequency: list(form.get("frequency")), inflections: nullable(form.get("inflections")), register: nullable(form.get("register")) }; await apiClient.patch<Entry, UpdateEntryRequest>(`/api/dictionary/entries/${entry.id}/`, body) } else { const pronunciationText = nullable(form.get("pronunciation_text")); const body: CreateEntryRequest = { word: String(form.get("word") ?? "").trim(), part_of_speech: String(form.get("part_of_speech") ?? "").trim(), frequency: list(form.get("frequency")), inflections: nullable(form.get("inflections")), register: nullable(form.get("register")), pronunciation: pronunciationText ? { text: pronunciationText, br_audio: null, am_audio: null } : null }; await apiClient.post<Entry, CreateEntryRequest>("/api/dictionary/entries/", body); formElement.reset() } router.refresh(); onDone?.() } catch (caught) { setError(caught) } finally { setBusy(false) } }
+  return <form onSubmit={submit} className="grid gap-4"><ApiErrorMessage error={error} /><div className="grid gap-4 sm:grid-cols-2"><div className="space-y-2"><Label htmlFor={`entry-word-${entry?.id ?? "new"}`}>Word</Label><Input id={`entry-word-${entry?.id ?? "new"}`} name="word" defaultValue={entry?.word} required /></div><div className="space-y-2"><Label htmlFor={`entry-pos-${entry?.id ?? "new"}`}>Part of speech</Label><Input id={`entry-pos-${entry?.id ?? "new"}`} name="part_of_speech" defaultValue={entry?.part_of_speech} required /></div></div>{!entry ? <div className="space-y-2"><Label htmlFor="entry-pronunciation-new">Pronunciation text (optional)</Label><Input id="entry-pronunciation-new" name="pronunciation_text" placeholder="e.g. /bʊk/" /><p className="text-xs text-muted-foreground">Audio is normally supplied by the development scraper. Existing pronunciation data is intentionally not rewritten by the edit form.</p></div> : entry.pronunciation?.text ? <div className="rounded-md border bg-muted/30 p-3 text-sm"><span className="text-muted-foreground">Pronunciation is read-only here:</span> {entry.pronunciation.text}</div> : null}<div className="space-y-2"><Label htmlFor={`entry-frequency-${entry?.id ?? "new"}`}>Frequency labels</Label><Input id={`entry-frequency-${entry?.id ?? "new"}`} name="frequency" defaultValue={entry?.frequency.join(", ")} placeholder="S1, W2" /></div><div className="space-y-2"><Label htmlFor={`entry-inflections-${entry?.id ?? "new"}`}>Inflections</Label><Textarea id={`entry-inflections-${entry?.id ?? "new"}`} name="inflections" defaultValue={entry?.inflections ?? ""} rows={2} /></div><div className="space-y-2"><Label htmlFor={`entry-register-${entry?.id ?? "new"}`}>Register</Label><Input id={`entry-register-${entry?.id ?? "new"}`} name="register" defaultValue={entry?.register ?? ""} /></div><Button className="w-fit" disabled={busy}>{busy ? <LoaderCircle className="size-4 animate-spin" /> : null}{busy ? "Saving…" : entry ? "Save entry" : "Create entry"}</Button></form>
+}

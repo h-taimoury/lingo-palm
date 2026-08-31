@@ -1,0 +1,10 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { PageHeader } from "@/components/shared/PageHeader"
+import { djangoServerFetch } from "@/lib/api/server"
+import type { PaginatedResponse } from "@/types/api/common"
+import type { CourseSummary } from "@/types/api/courses"
+import type { Entry, Sense } from "@/types/api/dictionary"
+import type { AdminUser } from "@/types/api/users"
+
+export default async function Page() { const returnTo = "/admin/analytics"; const [courses, entries, senses, users] = await Promise.all([djangoServerFetch<PaginatedResponse<CourseSummary>>("/api/courses/courses/?page=1", { returnTo }), djangoServerFetch<PaginatedResponse<Entry>>("/api/dictionary/entries/?page=1", { returnTo }), djangoServerFetch<PaginatedResponse<Sense>>("/api/dictionary/senses/?page=1", { returnTo }), djangoServerFetch<PaginatedResponse<AdminUser>>("/api/users/?page=1", { returnTo })]); return <div className="mx-auto max-w-6xl px-4 py-9 sm:px-6"><PageHeader title="Analytics" description="The backend does not expose learner analytics yet. These are operational counts derived from existing paginated admin endpoints—no synthetic metrics." /><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><Metric label="Courses" value={courses.count} /><Metric label="Dictionary entries" value={entries.count} /><Metric label="Dictionary senses" value={senses.count} /><Metric label="Users" value={users.count} /></div><div className="mt-8 rounded-xl border border-dashed p-7 text-sm leading-6 text-muted-foreground">Future learning analytics will need dedicated backend aggregation endpoints for activity, completion, retention, and review behavior. This frontend intentionally does not infer those from incomplete data.</div></div> }
+function Metric({ label, value }: { label: string; value: number }) { return <Card><CardHeader className="pb-2"><CardTitle className="text-sm font-medium text-muted-foreground">{label}</CardTitle></CardHeader><CardContent><p className="text-3xl font-semibold tabular-nums">{value.toLocaleString()}</p></CardContent></Card> }

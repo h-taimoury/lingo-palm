@@ -3,7 +3,7 @@ from django.db import models
 
 class Entry(models.Model):
     word = models.CharField(max_length=255, db_index=True)
-    part_of_speech = models.CharField(max_length=100, db_index=True)
+    part_of_speech = models.CharField(max_length=100, blank=True, db_index=True)
     pronunciation = models.JSONField(null=True, blank=True)
     frequency = models.JSONField(default=list, blank=True)
     inflections = models.TextField(null=True, blank=True)

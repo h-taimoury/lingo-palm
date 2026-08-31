@@ -1,0 +1,10 @@
+import Link from "next/link"
+import { DeleteButton } from "@/components/admin/DeleteButton"
+import { CourseEditor } from "@/components/admin/courses/CourseEditor"
+import { SectionCreateForm } from "@/components/admin/courses/SectionCreateForm"
+import { SectionOrderManager } from "@/components/admin/courses/SectionOrderManager"
+import { ThumbnailUpload } from "@/components/admin/courses/ThumbnailUpload"
+import { PageHeader } from "@/components/shared/PageHeader"
+import { getAdminCourse } from "@/lib/admin/server"
+import { proxyDjangoMediaUrl } from "@/lib/media.server"
+export default async function Page({ params }: { params: Promise<{ courseId: string }> }) { const { courseId } = await params; const course = await getAdminCourse(courseId, `/admin/courses/${courseId}`); return <div className="mx-auto max-w-6xl px-4 py-9 sm:px-6 lg:px-8"><Link href="/admin/courses" className="text-sm text-muted-foreground hover:text-foreground">← Courses</Link><div className="mt-4"><PageHeader title={course.title} description={`Course #${course.id}`} actions={<DeleteButton endpoint={`/api/courses/courses/${course.id}/`} confirmation={`Delete “${course.title}” and every section/mapping inside it?`} redirectTo="/admin/courses" />} /></div><div className="mt-8 grid gap-6 lg:grid-cols-2"><CourseEditor course={course} /><ThumbnailUpload courseId={course.id} current={proxyDjangoMediaUrl(course.thumbnail)} /></div><section className="mt-10"><div className="flex flex-wrap items-start justify-between gap-4"><div><h2 className="text-xl font-semibold">Sections</h2><p className="mt-1 text-sm text-muted-foreground">Order, publication, video, VTT, and vocabulary mappings are managed per section.</p></div><SectionCreateForm courseId={course.id} defaultOrder={course.sections.length + 1} /></div><div className="mt-5"><SectionOrderManager courseId={course.id} sections={course.sections} /></div></section></div> }

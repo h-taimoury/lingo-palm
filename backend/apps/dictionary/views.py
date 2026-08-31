@@ -10,7 +10,11 @@ class EntryViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrAuthenticatedReadOnly,)
     serializer_class = EntrySerializer
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
-    search_fields = ("word", "part_of_speech", "senses__title", "senses__definition")
+    search_fields = (
+        "word",
+        "part_of_speech",
+        "senses__title",
+    )
     ordering_fields = ("word", "part_of_speech", "created_at")
     ordering = ("word", "part_of_speech", "id")
 
@@ -36,7 +40,7 @@ class SenseViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrAuthenticatedReadOnly,)
     serializer_class = SenseSerializer
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
-    search_fields = ("title", "entry__word", "definition", "lex_unit")
+    search_fields = ("title", "entry__word", "lex_unit")
     ordering_fields = ("title", "entry__word", "sense_number")
     ordering = ("title",)
 
@@ -47,7 +51,9 @@ class SenseViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         if instance.word_mappings.exists():
             return Response(
-                {"detail": "This sense cannot be deleted because it is used in a course mapping."},
+                {
+                    "detail": "This sense cannot be deleted because it is used in a course mapping."
+                },
                 status=status.HTTP_409_CONFLICT,
             )
         return super().destroy(request, *args, **kwargs)
