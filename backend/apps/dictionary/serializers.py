@@ -24,7 +24,7 @@ def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
 class EntrySummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = ("id", "word", "part_of_speech", "pronunciation")
+        fields = ("id", "word", "part_of_speech", "homonym_num", "pronunciation")
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -139,6 +139,7 @@ class EntrySerializer(serializers.ModelSerializer):
             "id",
             "word",
             "part_of_speech",
+            "homonym_num",
             "pronunciation",
             "frequency",
             "inflections",

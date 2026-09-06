@@ -11,8 +11,15 @@ class SenseInline(admin.StackedInline):
 
 @admin.register(Entry)
 class EntryAdmin(admin.ModelAdmin):
-    list_display = ("word", "part_of_speech", "register", "sense_count", "created_at")
-    list_filter = ("part_of_speech", "register")
+    list_display = (
+        "word",
+        "part_of_speech",
+        "homonym_num",
+        "register",
+        "sense_count",
+        "created_at",
+    )
+    list_filter = ("part_of_speech", "homonym_num", "register")
     search_fields = ("word", "senses__title", "senses__definition")
     readonly_fields = ("created_at",)
     inlines = (SenseInline,)

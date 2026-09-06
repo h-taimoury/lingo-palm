@@ -52,6 +52,7 @@ def scrape_and_save_word(word: str) -> list[Entry]:
                     data={
                         "word": scraped_entry.word,
                         "part_of_speech": scraped_entry.part_of_speech,
+                        "homonym_num": scraped_entry.homonym_num,
                         "pronunciation": pronunciation,
                         "frequency": list(scraped_entry.frequency),
                         "inflections": scraped_entry.inflections,

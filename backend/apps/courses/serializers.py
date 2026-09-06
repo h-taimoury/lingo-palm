@@ -2,7 +2,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from apps.dictionary.models import Sense
-from apps.dictionary.serializers import SenseSummarySerializer
+from apps.dictionary.serializers import SenseSerializer, SenseSummarySerializer
 from apps.my_vocabulary.models import Vocabulary
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
@@ -133,7 +133,7 @@ class SubtitleWordSerializer(serializers.ModelSerializer):
 
 
 class WordSenseMappingSerializer(serializers.ModelSerializer):
-    senses = SenseSummarySerializer(many=True, read_only=True)
+    senses = SenseSerializer(many=True, read_only=True)
     sense_ids = serializers.PrimaryKeyRelatedField(
         source="senses",
         queryset=Sense.objects.all(),

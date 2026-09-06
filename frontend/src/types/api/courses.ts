@@ -1,4 +1,4 @@
-import type { SenseSummary } from "@/types/api/dictionary"
+import type { Sense, SenseSummary } from "@/types/api/dictionary"
 
 export type CourseLevel = "Beginner" | "Intermediate" | "Advanced"
 
@@ -59,7 +59,7 @@ export type SubtitleWordInput = Omit<SubtitleWord, "id" | "mapping">
 
 export type WordSenseMapping = {
   id: number
-  senses: SenseSummary[]
+  senses: Sense[]
   subtitle_words: SubtitleWord[]
   created_at: string
 }

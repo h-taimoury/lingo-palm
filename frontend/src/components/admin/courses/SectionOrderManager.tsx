@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { apiClient } from "@/lib/api/client"
-import type { SectionSummary } from "@/types/api/courses"
+import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { apiClient } from "@/lib/api/client";
+import type { SectionSummary } from "@/types/api/courses";
 
 export function SectionOrderManager({
   courseId,
   sections,
 }: {
-  courseId: number
-  sections: SectionSummary[]
+  courseId: number;
+  sections: SectionSummary[];
 }) {
-  const router = useRouter()
+  const router = useRouter();
   const [orders, setOrders] = useState<Record<number, number>>(() =>
     Object.fromEntries(sections.map((section) => [section.id, section.order])),
-  )
-  const [busy, setBusy] = useState(false)
-  const [error, setError] = useState<unknown>(null)
+  );
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<unknown>(null);
 
   async function save() {
     const changed = sections.filter(
       (section) => orders[section.id] !== section.order,
-    )
-    if (!changed.length) return
+    );
+    if (!changed.length) return;
 
-    setBusy(true)
-    setError(null)
+    setBusy(true);
+    setError(null);
     try {
       // There is no bulk-reorder endpoint in Django. Send the smallest set of
       // PATCHes; if one fails, refresh from Django because earlier PATCHes may
@@ -39,13 +39,13 @@ export function SectionOrderManager({
       for (const section of changed) {
         await apiClient.patch(`/api/courses/sections/${section.id}/`, {
           order: orders[section.id],
-        })
+        });
       }
     } catch (caught) {
-      setError(caught)
+      setError(caught);
     } finally {
-      router.refresh()
-      setBusy(false)
+      router.refresh();
+      setBusy(false);
     }
   }
 
@@ -54,14 +54,17 @@ export function SectionOrderManager({
       <p className="rounded-xl border border-dashed p-7 text-sm text-muted-foreground">
         No sections yet.
       </p>
-    )
+    );
   }
 
   return (
     <div className="rounded-xl border bg-card">
       <div className="divide-y">
         {sections.map((section) => (
-          <div key={section.id} className="flex flex-wrap items-center gap-3 p-4">
+          <div
+            key={section.id}
+            className="flex flex-wrap items-center gap-3 p-4"
+          >
             <Input
               aria-label={`Order for ${section.title}`}
               type="number"
@@ -93,6 +96,7 @@ export function SectionOrderManager({
       <div className="space-y-3 border-t p-4">
         <ApiErrorMessage error={error} />
         <Button
+          type="submit"
           variant="outline"
           disabled={
             busy ||
@@ -104,5 +108,5 @@ export function SectionOrderManager({
         </Button>
       </div>
     </div>
-  )
+  );
 }

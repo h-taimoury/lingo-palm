@@ -26,6 +26,10 @@ function nullable(value: FormDataEntryValue | null) {
   const text = String(value ?? "").trim();
   return text || null;
 }
+function nullableInteger(value: FormDataEntryValue | null) {
+  const text = String(value ?? "").trim();
+  return text ? Number(text) : null;
+}
 function examplesToText(examples: SenseExample[]) {
   return examples
     .map((item) => (item.usage ? `${item.text} || ${item.usage}` : item.text))
@@ -61,7 +65,7 @@ export function SenseForm({
     const form = new FormData(formElement);
     const body: CreateSenseRequest = {
       entry_id: entryId,
-      sense_number: nullable(form.get("sense_number")),
+      sense_number: nullableInteger(form.get("sense_number")),
       title: String(form.get("title") ?? "").trim(),
       definition: String(form.get("definition") ?? "").trim(),
       lex_unit: nullable(form.get("lex_unit")),
@@ -105,6 +109,9 @@ export function SenseForm({
           <Input
             id={`sense-number-${sense?.id ?? "new"}-${entryId}`}
             name="sense_number"
+            type="number"
+            min={1}
+            step={1}
             defaultValue={sense?.sense_number ?? ""}
           />
         </div>

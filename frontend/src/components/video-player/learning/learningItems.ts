@@ -1,11 +1,11 @@
 import type { WordSenseMapping } from "@/types/api/courses"
-import type { SenseSummary } from "@/types/api/dictionary"
+import type { Sense } from "@/types/api/dictionary"
 import type { SubtitleCue } from "@/types/subtitles"
 
 export type LearningItem = {
   mappingId: number
   mappingLabel: string
-  sense: SenseSummary
+  sense: Sense
 }
 
 function mappingLabelForCue(

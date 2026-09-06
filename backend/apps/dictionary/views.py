@@ -15,8 +15,8 @@ class EntryViewSet(viewsets.ModelViewSet):
         "part_of_speech",
         "senses__title",
     )
-    ordering_fields = ("word", "part_of_speech", "created_at")
-    ordering = ("word", "part_of_speech", "id")
+    ordering_fields = ("word", "homonym_num", "part_of_speech", "created_at")
+    ordering = ("word", "homonym_num", "part_of_speech", "id")
 
     def get_queryset(self):  # noqa: ANN201
         return Entry.objects.prefetch_related("senses").all()
@@ -42,7 +42,12 @@ class SenseViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
     search_fields = ("title", "entry__word", "lex_unit")
     ordering_fields = ("title", "entry__word", "sense_number")
-    ordering = ("title",)
+    ordering = (
+        "entry__word",
+        "entry__homonym_num",
+        "entry__part_of_speech",
+        "sense_number",
+    )
 
     def get_queryset(self):  # noqa: ANN201
         return Sense.objects.select_related("entry").all()
