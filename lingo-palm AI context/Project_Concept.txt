@@ -1,0 +1,377 @@
+# Project Concept
+
+This document captures the current concept and architecture of my project.
+
+## Project Overview
+
+I am building a web-based English language learning platform similar to Lingopie. The platform helps learners improve their English through authentic videos with interactive subtitles.
+
+The frontend will be developed using Next.js and the backend using Django and Django REST Framework. Videos are hosted on an external video streaming service that provides direct video URLs, allowing the application to use its own custom HTML5 video player rather than embedding YouTube or Vimeo.
+
+## Course Structure
+
+The platform is organized into courses. Each course contains multiple sections.
+
+Every course has a publication status:
+
+* Draft
+* Published
+
+Every section also has a publication status:
+
+* Draft
+* Published
+
+Only published courses and published sections are visible to learners.
+
+Every section contains:
+
+* A video URL
+* A WebVTT (`.vtt`) subtitle file
+* Interactive subtitle mappings
+* A publication status
+
+## User Experience
+
+Users sign in and browse available courses. After opening a published section, they watch the video in a custom player with synchronized subtitles.
+
+Most subtitle words appear in white and are not interactive. Words selected by an administrator are highlighted and clickable.
+
+When a learner clicks a highlighted subtitle word, a popup displays the dictionary information associated with that subtitle occurrence.
+
+The popup can display:
+
+* Word
+* Part of speech
+* Sense number
+* Definition
+* British pronunciation
+* American pronunciation
+* Synonyms
+* Example sentences
+
+The goal is to show only the dictionary senses relevant to the subtitle context rather than overwhelming the learner with unrelated meanings.
+
+## Dictionary Data Model
+
+Dictionary data is divided into two models:
+
+* `Entry`
+* `Sense`
+
+There is deliberately **no separate `Word` model**.
+
+An `Entry` represents one Longman dictionary entry for a word, with one specific part of speech and all senses belonging to that dictionary entry. When Longman distinguishes homonyms, multiple `Entry` instances may have the same word and part of speech; their optional `homonym_num` values preserve that distinction.
+
+For example, the word `head` can have multiple entries:
+
+* `head` — noun
+* `head` — verb
+
+The noun Entry contains all noun senses of `head`, while the verb Entry contains all verb senses of `head`.
+
+Each `Sense` belongs to exactly one `Entry` through a foreign key.
+
+For example:
+
+```text
+Entry
+└── head — noun
+    ├── Sense 1
+    ├── Sense 2
+    └── Sense 3
+
+Entry
+└── head — verb
+    ├── Sense 1
+    └── Sense 2
+```
+
+Therefore, the database does not contain a separate `Word` model to which multiple Entries are related.
+
+A sense has a searchable title such as:
+
+```text
+head_noun_1
+head_noun_2
+head_verb_1
+```
+
+The title is unique within its parent `Entry`, but the same title may appear under different homonym Entries. The application therefore uses the Sense database ID when it needs a globally precise reference.
+
+## Subtitle Word Occurrences and Mappings
+
+Mappings are created for **individual subtitle word occurrences**, rather than for words in general.
+
+Two occurrences of the same word may represent different meanings. Therefore, each occurrence can be mapped independently.
+
+For example, the word `head` might appear several times in a course, with one occurrence meaning the body part and another occurrence meaning "to move toward a particular place." These occurrences can be mapped to different dictionary senses.
+
+A subtitle word occurrence can also be mapped to multiple `Sense` instances when more than one sense is relevant to the occurrence.
+
+The mapping therefore connects a specific occurrence in a subtitle cue to one or more dictionary senses.
+
+## Administrator Subtitle Editor
+
+Administrators create courses and sections, upload videos to the external streaming platform, store the returned video URL, upload a `.vtt` subtitle file, and open a dedicated subtitle editor.
+
+Inside the editor, subtitle words initially appear white and clickable.
+
+The administrator watches the video and selects words or groups of words that are worth teaching.
+
+### Selecting Multiple Subtitle Words
+
+An administrator may select more than one subtitle word for a single mapping.
+
+This is necessary for expressions such as phrasal verbs.
+
+For example:
+
+```text
+look for
+```
+
+may need both `look` and `for` to be selected because the expression should be treated as a unit.
+
+The administrator can select multiple words from the current subtitle cue by holding the `Ctrl` key while clicking the desired words.
+
+When the administrator releases `Ctrl` and clicks a word, the search/mapping popup opens and contains all of the subtitle words selected during the `Ctrl`-selection process.
+
+The selected words are treated as one subtitle mapping.
+
+### Adding Words from the Popup
+
+The popup also contains an input field that allows the administrator to search through the words currently present in the subtitle cue.
+
+This provides another way to add words to the current mapping without having to close the popup and start the selection process again.
+
+For example, if the administrator initially selects `look` but then realizes that `for` should also belong to the same mapping, they can search for `for` inside the popup and add it to the selected words.
+
+### Selecting Dictionary Senses
+
+After selecting the subtitle word or words, the administrator searches the existing dictionary data.
+
+Search results identify individual senses using identifiers such as:
+
+```text
+head_noun_1
+head_noun_2
+head_verb_1
+```
+
+The definition is displayed when the administrator hovers over a result, helping them select the correct sense.
+
+The administrator can select one or more senses for the subtitle mapping.
+
+Once the mapping is saved, the selected subtitle word or words become highlighted.
+
+## Dictionary Scraping
+
+Dictionary data is obtained by scraping the Longman Online Dictionary.
+
+When a word is scraped, each Longman dictionary entry is stored as a separate `Entry` instance, and its individual meanings are stored as `Sense` instances. Entries are therefore separate not only by part of speech but also by Longman homonym number when present.
+
+For example, if `head` contains three noun senses and two verb senses, scraping creates:
+
+```text
+Entry: head — noun
+    Sense 1
+    Sense 2
+    Sense 3
+
+Entry: head — verb
+    Sense 1
+    Sense 2
+```
+
+Dictionary entries can be created in two ways:
+
+1. Through a dedicated dictionary management page where administrators search for missing words and scrape them.
+2. Directly from the subtitle editor if the required dictionary data is missing.
+
+The second option allows administrators to continue creating a course without leaving the subtitle editor.
+
+## Courses and Dictionary Data
+
+Courses and dictionary data are separate systems.
+
+Courses do not duplicate dictionary information. They reference existing dictionary `Sense` instances through subtitle mappings.
+
+Updating a dictionary Entry or Sense therefore benefits every course that uses that dictionary data.
+
+This separation allows dictionary data to be reused across many courses.
+
+## Learning Individual Senses
+
+The learner's vocabulary collection stores **individual dictionary senses**, not merely words.
+
+When a learner clicks a highlighted subtitle mapping, the relevant dictionary sense or senses are displayed.
+
+For example, the learner may see:
+
+```text
+head
+noun
+Sense 1
+
+Definition: ...
+```
+
+If the learner believes that they have mastered this specific sense, they can mark it as learned.
+
+The specific `Sense` instance is then added to the learner's collection of learned senses.
+
+For example:
+
+```text
+User
+└── Learned senses
+    ├── head — noun — Sense 1
+    ├── run — verb — Sense 3
+    └── bank — noun — Sense 2
+```
+
+Learning `head — noun — Sense 1` does not mean that the learner has automatically learned every other meaning of `head`.
+
+Each sense is tracked independently.
+
+## Highlighting Based on Learned Senses
+
+Every highlighted subtitle mapping is related to one or more dictionary senses.
+
+The application uses the learner's collection of learned senses when deciding whether a mapping should be highlighted.
+
+A mapping remains highlighted if the learner has not yet learned all of its associated senses.
+
+However, if the learner has learned **every sense associated with that mapping**, the mapping is no longer highlighted for that learner.
+
+For example, suppose a subtitle mapping for `x` is associated with:
+
+```text
+x
+├── Sense Y
+└── Sense Z
+```
+
+If the learner has learned only `Y`, the subtitle mapping remains highlighted because `Z` has not been learned.
+
+If the learner has learned both `Y` and `Z`, the subtitle mapping is no longer highlighted for that learner.
+
+This allows the same course content to behave differently for different learners according to their individual learned-sense collections.
+
+## Reviewing
+
+The platform provides two types of vocabulary review:
+
+1. Flashcard review
+2. Video clip review
+
+Both review systems operate on the learner's collection of learned senses.
+
+## Flashcard Review
+
+The flashcard review page is available at:
+
+```text
+/review/flashcard
+```
+
+All learned senses in the user's learned-sense collection are listed as flashcards.
+
+The front of each card displays information identifying the sense, such as:
+
+```text
+head
+noun
+Sense 1
+```
+
+The back of the card displays the definition and other appropriate information.
+
+When the learner clicks a card, it flips over so that the learner can see the back and review the definition.
+
+The important point is that each card represents a **specific dictionary sense**, not merely a word.
+
+For example, the learner may have separate flashcards for:
+
+```text
+head — noun — Sense 1
+head — noun — Sense 2
+head — verb — Sense 1
+```
+
+## Video Clip Review
+
+The second review method allows learners to review a learned sense through examples from the videos they have already watched.
+
+The video clip review page lists the learned senses in the user's collection.
+
+When the learner selects a particular sense, the application finds subtitle occurrences in the courses and sections where that specific sense was used.
+
+For each relevant occurrence, the application generates or displays a short video clip taken from the original section video.
+
+The default clip duration is approximately 10 seconds:
+
+```text
+5 seconds before the subtitle occurrence
+        +
+the occurrence
+        +
+5 seconds after the occurrence
+```
+
+For example, if the relevant subtitle occurrence begins at 2:15 in the original video, the review clip would normally cover approximately:
+
+```text
+2:10 → 2:20
+```
+
+The clip boundaries should be adjusted when necessary, such as when the occurrence is near the beginning or end of the video.
+
+This allows learners to review vocabulary in the original context in which they encountered it.
+
+For example, if the learner has learned:
+
+```text
+head — noun — Sense 1
+```
+
+the video review can show several clips from the original course videos where that specific sense was used.
+
+The clips are therefore connected to the exact dictionary sense rather than merely to the word.
+
+## Publishing
+
+Courses and sections both have publication states.
+
+A course can be:
+
+* Draft
+* Published
+
+A section can also be:
+
+* Draft
+* Published
+
+A learner should only be able to access content that belongs to a published course and a published section.
+
+Administrators can therefore prepare and edit courses and sections without making unfinished content visible to learners.
+
+## Architectural Principles
+
+The project follows these principles:
+
+* Learn vocabulary in context.
+* Treat individual dictionary senses as the fundamental vocabulary-learning unit.
+* Display only dictionary senses relevant to the current subtitle context.
+* Allow one subtitle occurrence to be associated with multiple senses.
+* Allow multiple subtitle words to form a single mapping when necessary, such as phrasal verbs.
+* Human-curate the vocabulary taught through subtitles.
+* Separate educational content from dictionary data.
+* Do not duplicate dictionary information inside courses.
+* Reuse dictionary Entries and Senses across courses.
+* Track learned vocabulary at the individual-sense level rather than only at the word level.
+* Personalize subtitle highlighting according to the learner's learned senses.
+* Provide both definition-based review and contextual video-based review.
+* Preserve a flexible architecture for future educational features.

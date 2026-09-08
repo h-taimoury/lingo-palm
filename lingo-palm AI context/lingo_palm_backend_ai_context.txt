@@ -1,0 +1,842 @@
+LINGO PALM BACKEND — REFERENCE FOR AI ASSISTANTS (Next.js frontend integration)
+================================================================================
+Purpose of this file: give an AI assistant everything it needs to build the
+Next.js frontend against this Django/DRF backend WITHOUT being given the
+backend's source code. Treat the backend as a black box — only what's
+documented here is guaranteed to be accurate. Do not invent endpoints,
+fields, permissions, or response shapes beyond what is written below.
+
+--------------------------------------------------------------------------------
+1. PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+An English-learning platform (inspired by Lingopie): learners watch videos
+with interactive subtitles. Admins highlight specific subtitle-word
+occurrences and link them to one or more precise dictionary senses. Clicking
+a highlighted word shows a popup with only that sense's info (definition,
+part of speech, sense number, UK/US pronunciation, synonyms, examples) —
+never the whole dictionary entry for the word.
+
+Four backend apps:
+- users     — custom email-based auth (JWT in httpOnly cookies)
+- dictionary — Entry (word + part of speech + optional Longman homonym
+               number) and Sense (one independent dictionary meaning,
+               e.g. "head_verb_1")
+- courses   — Course -> Section -> WordSenseMapping -> SubtitleWord
+- my_vocabulary — one Vocabulary row per (user, Sense): the learner's own
+               learned/known-senses collection, plus the section/course
+               progress numbers derived from it. Depends only on users and
+               dictionary — never on courses. courses is the one allowed to
+               depend on my_vocabulary (same one-way dependency direction as
+               courses -> dictionary), which is how section/course progress
+               fields get computed (see sections 7 and 11).
+
+Plus a DEV-ONLY app:
+- scraper_admin — lets a staff user scrape a word from the Longman
+  dictionary and save it as Entry/Sense rows. Only exists when the backend
+  runs with `config.settings.development`. It is NEVER installed or
+  reachable in production. Design intent: scraping is slow (Playwright
+  browser automation) and is deliberately done on the developer's local
+  machine, never on the production server. Production only ever reads
+  Entry/Sense rows that were already scraped and saved locally.
+
+Architectural consequence for the frontend: this is ONE Next.js app for
+both learners and admins. When the app is pointed at the production API,
+any admin UI that calls the scraper endpoints will simply get 404s (the
+routes don't exist there) — build the scraping/course-authoring admin UI
+so that's an acceptable, expected failure mode, not something to crash on.
+
+--------------------------------------------------------------------------------
+2. STACK & ENVIRONMENTS
+--------------------------------------------------------------------------------
+Backend: Django 5.2 + Django REST Framework, SQLite (or whatever DATABASE_URL
+points to), djangorestframework-simplejwt, django-cors-headers.
+
+Two backend environments, selected via DJANGO_SETTINGS_MODULE:
+- config.settings.development (default for `manage.py`): DEBUG=True,
+  includes scraper_admin, CORS/CSRF allow http://localhost:3000 and
+  http://127.0.0.1:3000, JWT cookies NOT marked Secure (works over http).
+- config.settings.production: DEBUG=False, scraper_admin absent, cookies
+  Secure, HSTS etc. enabled. ALLOWED_HOSTS / CORS / CSRF trusted origins
+  are environment-configured — ask the project owner for the real
+  production domain when wiring env vars; don't hardcode a guess.
+
+Local dev backend URL: http://localhost:8000
+Local dev frontend must run on: http://localhost:3000 (or 127.0.0.1:3000) —
+these are the only origins allowed by CORS/CSRF in development settings.
+
+Suggested frontend env var: NEXT_PUBLIC_API_BASE_URL (or a server-only
+API_BASE_URL if you proxy through Next.js route handlers), pointing at
+http://localhost:8000 in dev.
+
+All API routes are namespaced under /api/:
+  /api/users/...
+  /api/dictionary/...
+  /api/courses/...
+  /api/my-vocabulary/...
+  /api/scraper/...      (development backend only)
+
+--------------------------------------------------------------------------------
+3. AUTHENTICATION & CSRF (read this before writing any fetch wrapper)
+--------------------------------------------------------------------------------
+Auth is cookie-based JWT, NOT a bearer token you manage in JS.
+
+On register/login, the backend sets two httpOnly cookies:
+  - access_token  (1 day; name configurable, default "access_token")
+  - refresh_token (2 weeks; default "refresh_token")
+These cannot be read by JavaScript (httpOnly) — you never touch the JWTs
+directly. The browser sends them automatically on same-site requests, but
+because frontend (3000) and backend (8000) are different origins, every
+fetch/axios call MUST include credentials so the cookies are sent/received:
+
+    fetch(`${API_BASE_URL}/api/courses/courses/`, {
+      credentials: "include",
+      ...
+    })
+
+The backend also sets a THIRD, non-httpOnly cookie: `csrftoken`. Django's
+CSRF protection requires that any unsafe request (POST/PUT/PATCH/DELETE)
+include the csrftoken value in an `X-CSRFToken` header. GET/HEAD/OPTIONS
+do not need this. Concretely, every mutating request needs:
+
+    function getCookie(name) {
+      const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      return match ? decodeURIComponent(match[2]) : null;
+    }
+
+    fetch(`${API_BASE_URL}/api/courses/courses/`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"),
+      },
+      body: JSON.stringify(payload),
+    })
+
+The csrftoken cookie is set on register/login/refresh/logout responses (and
+generally whenever the CSRF middleware decides a fresh cookie is needed).
+If a mutating request 403s with "CSRF Failed", it usually means no prior
+GET/login call has happened yet in that session to seed the cookie, or the
+cookie wasn't read correctly client-side.
+
+Because tokens live in httpOnly cookies, this pattern works cleanly with
+Next.js Server Components/Route Handlers too — forward the cookies from the
+incoming request when calling the backend from server-side code.
+
+Auth endpoints (all under /api/users/, all public i.e. no auth required to
+call them, but register/login/refresh/logout still enforce CSRF on the
+unsafe verb where noted):
+
+  POST /api/users/register/            (public, sets cookies)
+  Request:
+    { "email": "learner@example.com", "password": "StrongPassword123",
+      "first_name": "Ada", "last_name": "Lovelace" }
+  Response 201:
+    { "id": 4, "email": "learner@example.com", "first_name": "Ada",
+      "last_name": "Lovelace", "full_name": "Ada Lovelace",
+      "created_at": "2026-08-01T10:00:00Z" }
+  (No token/password ever appears in the response body — auth is via the
+  cookies set on this response.)
+  Response 400 on validation error, e.g.:
+    { "password": ["This password is too common."] }
+
+  POST /api/users/login/               (public, sets cookies, needs CSRF? no —
+                                         this is the entry point, no prior
+                                         CSRF cookie required)
+  Request: { "email": "...", "password": "..." }
+  Response 200: { "detail": "Login successful." }
+  Response 401 on bad credentials (standard DRF/SimpleJWT error shape).
+
+  POST /api/users/refresh/             (public, requires X-CSRFToken,
+                                         reads refresh_token cookie)
+  Request: {} (no body needed — refresh token comes from the cookie)
+  Response 200: { "detail": "Token refreshed successfully." }
+  Response 401: { "detail": "Refresh token is missing." }
+
+  POST /api/users/logout/              (public, requires X-CSRFToken)
+  Request: {}
+  Response 200: { "detail": "Logout successful." }
+  Clears both JWT cookies regardless of whether the refresh token was
+  valid.
+
+  GET/PATCH/PUT/DELETE /api/users/me/  (any authenticated user; only
+                                         operates on the caller's own account)
+  Fields returned: id (read-only), email, first_name, last_name,
+  full_name (read-only), created_at (read-only), is_staff (read-only),
+  password (write-only). is_staff is exposed here specifically so the
+  frontend can decide whether to show admin UI (nav links, editors,
+  scraper page) right after login/on session load — it is NOT writable
+  through this endpoint, so a learner can't promote themselves.
+  Example GET 200:
+    { "id": 4, "email": "learner@example.com", "first_name": "Ada",
+      "last_name": "Lovelace", "full_name": "Ada Lovelace",
+      "created_at": "2026-08-01T10:00:00Z", "is_staff": false }
+  Example PATCH request: { "first_name": "New Name" }
+
+  GET /api/users/                      (staff only — 403 for non-staff)
+  Paginated list (see section 6), each item shaped like below.
+
+  GET/PUT/PATCH/DELETE /api/users/{id}/  (staff only)
+  Same fields as /me/ PLUS is_staff and is_active (writable) — this is the
+  admin-only serializer, safe here because the view is IsAdminUser-gated.
+  Example GET 200:
+    { "id": 4, "email": "learner@example.com", "first_name": "Ada",
+      "last_name": "Lovelace", "full_name": "Ada Lovelace",
+      "created_at": "2026-08-01T10:00:00Z",
+      "is_staff": false, "is_active": true }
+
+"Staff" (is_staff=True) is the one and only admin flag used throughout the
+API — there's no separate roles/permissions system. IsAdminUser-gated views
+check request.user.is_staff (or superuser).
+
+--------------------------------------------------------------------------------
+4. PAGINATION, FILTERING, ORDERING (applies to every list endpoint below)
+--------------------------------------------------------------------------------
+All ModelViewSet list endpoints use DRF's PageNumberPagination, page size 20.
+Response shape for any GET .../ (list) call:
+    {
+      "count": 57,
+      "next": "http://localhost:8000/api/dictionary/entries/?page=2",
+      "previous": null,
+      "results": [ ...20 items... ]
+    }
+Use `?page=N` to paginate.
+
+Where noted per-endpoint below, you can also pass:
+  ?search=term        (SearchFilter — searches across the listed fields,
+                        case-insensitive substring match, OR'd across fields)
+  ?ordering=field      (OrderingFilter — prefix with "-" to reverse, e.g.
+                        ?ordering=-created_at). Only fields listed as
+                        "ordering_fields" per endpoint are accepted.
+
+--------------------------------------------------------------------------------
+5. MEDIA / FILE FIELDS
+--------------------------------------------------------------------------------
+Course.thumbnail (image), Section.subtitle_file (the .vtt file), and
+Entry.pronunciation.br_audio / am_audio (mp3 filenames turned into URLs) are
+ALWAYS returned as absolute URLs (e.g.
+"http://localhost:8000/media/course_thumbnails/foo.jpg") as long as the
+request goes through the normal API (DRF resolves them relative to the
+request that's serving them). You can use these URLs directly as <img src>,
+<video>/fetch targets, etc. — no need to prefix them yourself. If a field is
+empty/unset it will be null.
+
+--------------------------------------------------------------------------------
+6. DICTIONARY ENDPOINTS  (/api/dictionary/)
+--------------------------------------------------------------------------------
+Permission on both viewsets below: any authenticated user can read (GET);
+only is_staff can write (POST/PUT/PATCH/DELETE). Unauthenticated requests
+get 401/403.
+
+6.1 GET/POST /api/dictionary/entries/
+    search_fields: word, part_of_speech, senses__title, senses__definition
+    ordering_fields: word, part_of_speech, homonym_num, created_at
+    (default: word, part_of_speech, homonym_num, id)
+
+    Entry object shape (used in list results and as GET .../entries/{id}/):
+    {
+      "id": 12,
+      "word": "book",
+      "part_of_speech": "noun",
+      "homonym_num": 1,
+      "pronunciation": {
+        "text": "/bʊk/",
+        "br_audio": "http://localhost:8000/media/pronunciation_audios/book_Br.mp3",
+        "am_audio": "http://localhost:8000/media/pronunciation_audios/book_Am.mp3"
+      },
+      "frequency": ["S1", "W1"],
+      "inflections": null,
+      "register": null,
+      "created_at": "2026-07-20T09:00:00Z",
+      "senses": [
+        {
+          "id": 55,
+          "entry": { "id": 12, "word": "book", "part_of_speech": "noun",
+                     "homonym_num": 1,
+                     "pronunciation": { "...": "..." } },
+          "sense_number": "1",
+          "title": "book_n_1",
+          "definition": "a set of printed pages fastened together",
+          "lex_unit": null,
+          "geo": null,
+          "register": null,
+          "synonyms": ["volume"],
+          "opposites": [],
+          "examples": [ { "text": "I am reading a book.", "usage": null } ]
+        }
+      ]
+    }
+    (`homonym_num`, `pronunciation`, and any pronunciation key may be null.
+    `homonym_num` is entry-level Longman `HOMNUM` data, not a sense number.
+    `entry_id` from the
+    nested sense serializer is write-only and not present on read.)
+
+    POST body (staff only) to create an Entry manually (rare — normally
+    entries come from the scraper, see section 9):
+    {
+      "word": "book", "part_of_speech": "noun",
+      "homonym_num": 1,
+      "pronunciation": { "text": "/bʊk/", "br_audio": null, "am_audio": null },
+      "frequency": ["S1"], "inflections": null, "register": null
+    }
+    `senses` is read-only on Entry — you cannot create senses nested inside
+    an Entry POST; create them separately via /api/dictionary/senses/ with
+    entry_id.
+
+6.2 DELETE /api/dictionary/entries/{id}/
+    Normally 204. Returns 409 instead if ANY of this entry's senses are
+    already used in a course WordSenseMapping:
+    { "detail": "This entry cannot be deleted because one or more of its senses are used in a course mapping." }
+
+6.3 GET/POST /api/dictionary/senses/
+    search_fields: title, entry__word, definition, lex_unit
+    ordering_fields: title, entry__word, sense_number  (default: title)
+
+    Sense object shape: see nested example above (same shape, just not
+    nested under an Entry).
+
+    POST body (staff only):
+    {
+      "entry_id": 12,
+      "sense_number": "1",
+      "title": "book_n_1",
+      "definition": "a set of printed pages fastened together",
+      "lex_unit": null, "geo": null, "register": null,
+      "synonyms": ["volume"], "opposites": [],
+      "examples": [ { "text": "I am reading a book.", "usage": null } ]
+    }
+    `title` must be unique within its Entry. It may repeat across distinct
+    homonym Entries. `examples` items may
+    only contain "text" (required, non-empty string) and "usage"
+    (string or null).
+
+6.4 DELETE /api/dictionary/senses/{id}/
+    Normally 204. Returns 409 if the sense is used in a course mapping:
+    { "detail": "This sense cannot be deleted because it is used in a course mapping." }
+
+--------------------------------------------------------------------------------
+7. COURSES ENDPOINTS  (/api/courses/)
+--------------------------------------------------------------------------------
+Permission on ALL courses viewsets: must be authenticated. Non-staff
+("learners") get read-only access AND only ever see published content —
+unpublished courses/sections/mappings are invisible to them (filtered out
+of querysets, not just 403'd — a learner GETting an unpublished section by
+ID gets 404, not 403). Staff see and can write everything.
+
+7.1 GET/POST /api/courses/courses/
+    search_fields: title, description, level
+    ordering_fields: title, level, created_at  (default: title, id)
+
+    LIST responses use the summary shape (no nested sections):
+    {
+      "id": 3, "title": "Everyday Conversations",
+      "description": "...", "thumbnail": "http://localhost:8000/media/course_thumbnails/x.jpg",
+      "level": "Beginner", "is_published": true,
+      "created_at": "2026-07-01T00:00:00Z"
+    }
+    `level` is one of: "Beginner", "Intermediate", "Advanced" (default
+    "Beginner" if omitted on create).
+
+    RETRIEVE (GET .../courses/{id}/) uses the full shape, adding `sections`
+    (summary only — id, title, order, is_published, new_words_count,
+    learned_percentage; no video/subtitle/mapping detail here, fetch the
+    section directly for that):
+    {
+      ...same fields as above...,
+      "sections": [
+        { "id": 9, "title": "Ordering coffee", "order": 1, "is_published": true,
+          "new_words_count": 6, "learned_percentage": 70 }
+      ]
+    }
+    `new_words_count` / `learned_percentage` are computed per-request for the
+    CALLING user (senses taught by that section vs. that user's
+    my_vocabulary rows — see section 11). They are `null` if somehow called
+    unauthenticated (shouldn't normally happen, every courses endpoint
+    requires auth). This is intentionally only exposed on course/section
+    RETRIEVE, never on the course LIST shape (section 7.1's plain list
+    response) — computing it for every card in a list would be expensive,
+    so don't expect these two fields on GET /api/courses/courses/ (list).
+
+    POST body (staff only) — multipart/form-data if you're uploading a
+    thumbnail file, otherwise JSON is fine with thumbnail omitted:
+    { "title": "New Course", "description": "...", "level": "Beginner", "is_published": false }
+
+7.2 GET/POST /api/courses/sections/
+    search_fields: title, course__title
+    ordering_fields: course__title, order, created_at  (default: course_id, order, id)
+
+    LIST / CREATE / UPDATE use the flat shape:
+    {
+      "id": 9, "course": 3, "title": "Ordering coffee", "order": 1,
+      "video_url": "https://cdn.example.com/videos/coffee.mp4",
+      "subtitle_file": "http://localhost:8000/media/section_subtitles/coffee.vtt",
+      "is_published": true, "created_at": "2026-07-01T00:00:00Z"
+    }
+    `course` is the course's numeric id (writable).
+
+    POST body (staff only) — use multipart/form-data since subtitle_file is
+    a real file upload:
+      course: 3
+      title: "Ordering coffee"
+      order: 1
+      video_url: "https://cdn.example.com/videos/coffee.mp4"
+      subtitle_file: <File> (a .vtt file)
+      is_published: false
+
+    RETRIEVE (GET .../sections/{id}/) returns the DETAIL shape instead —
+    this is the one the video-player page should call. It nests the parent
+    course (summary) and every WordSenseMapping for the section, each with
+    its full Sense objects (the same read shape documented in section 6.3,
+    not the summary shape) and constituent subtitle-word occurrences:
+    {
+      "id": 9,
+      "course": { "id": 3, "title": "Everyday Conversations", "description": "...",
+                  "thumbnail": "...", "level": "Beginner", "is_published": true,
+                  "created_at": "..." },
+      "title": "Ordering coffee", "order": 1,
+      "video_url": "https://cdn.example.com/videos/coffee.mp4",
+      "subtitle_file": "http://localhost:8000/media/section_subtitles/coffee.vtt",
+      "is_published": true,
+      "new_words_count": 6,
+      "learned_percentage": 70,
+      "word_sense_mappings": [
+        {
+          "id": 44,
+          "senses": [
+            {
+              "id": 55,
+              "entry": { "id": 12, "word": "book", "part_of_speech": "noun",
+                         "homonym_num": 1,
+                         "pronunciation": { "...": "..." } },
+              "sense_number": "1",
+              "title": "book_n_1",
+              "definition": "a set of printed pages fastened together",
+              "lex_unit": null,
+              "geo": null,
+              "register": null,
+              "synonyms": ["volume"],
+              "opposites": [],
+              "examples": [ { "text": "I am reading a book.", "usage": null } ]
+            }
+          ],
+          "subtitle_words": [
+            { "id": 201, "mapping": 44, "word": "look", "cue_id": 1,
+              "cue_start_time": 0.0, "cue_end_time": 2.0,
+              "previous_cue_start_time": null, "previous_cue_end_time": null,
+              "next_cue_start_time": null, "next_cue_end_time": null,
+              "position_in_cue": 1 },
+            { "id": 202, "mapping": 44, "word": "up", "cue_id": 1,
+              "cue_start_time": 0.0, "cue_end_time": 2.0,
+              "previous_cue_start_time": null, "previous_cue_end_time": null,
+              "next_cue_start_time": null, "next_cue_end_time": null,
+              "position_in_cue": 1 }
+          ],
+          "created_at": "2026-07-01T00:05:00Z"
+        }
+      ]
+    }
+    `word_sense_mappings[].senses[]` uses the full Sense read shape from
+    section 6.3. `entry_id` remains write-only and is not present. This differs
+    from the `taught-senses` endpoint in section 7.6, whose nested `sense`
+    remains the summary shape.
+
+    IMPORTANT — personalized `word_sense_mappings` filtering:
+    `word_sense_mappings` is filtered for the CALLING authenticated user before
+    it is serialized. A mapping is omitted when the user has a Vocabulary row
+    for EVERY Sense attached to that mapping. If at least one attached Sense is
+    not in the user's vocabulary, the mapping remains in the response. In other
+    words, this field contains only mappings the calling user has not fully
+    learned, so the learner frontend does not need to fetch vocabulary state and
+    repeat this filtering client-side for subtitle highlighting.
+
+    This filtering is based on the existence of Vocabulary rows; `already_known`
+    and `needs_review` do not change whether a Sense counts as learned here. The
+    current serializer applies this rule to every authenticated caller, including
+    staff users. Therefore staff section-detail responses are also personalized
+    by that staff user's own Vocabulary rows.
+
+    Frontend note: assign one highlight color per `word_sense_mappings[].id`
+    — subtitle_words sharing a mapping id are one clickable phrase/unit
+    (e.g. a phrasal verb like "look ... up" spanning positions and even
+    separate cues). `position_in_cue` is NOT a raw index among all words in
+    the cue. It is a 1-indexed occurrence counter scoped to that exact word
+    string within the cue: the first time a given word text appears in the
+    cue it is `1`, the second time that same word text appears it is `2`,
+    and so on. Different word strings each have their own independent
+    counter starting at 1. Example: cue = "the head of the head" ->
+    "the" (1st occurrence) = 1, "head" (1st occurrence) = 1, "of" = 1,
+    "the" (2nd occurrence) = 2, "head" (2nd occurrence) = 2. This is used,
+    together with the word string and cue_id, to know which exact token in
+    the rendered subtitle line a given SubtitleWord row refers to.
+
+7.3 GET/POST /api/courses/word-sense-mappings/
+    This is how an admin actually creates a teaching unit (a highlighted
+    word/phrase linked to one or more dictionary senses) inside the
+    subtitle editor. Creation is atomic — the mapping and all its
+    subtitle-word rows are created together or not at all.
+
+    POST body (staff only) — note the exact key names: this is CREATE only,
+    and its keys are "section" and "senses" (matching the model's own
+    field names directly — NOT "section_id"/"sense_ids". The README and
+    the existing test file use the old "section_id"/"sense_ids" names and
+    are stale; go by what's written here):
+    {
+      "section": 9,
+      "senses": [55],
+      "subtitle_words": [
+        {
+          "word": "look", "cue_id": 1, "cue_start_time": 0.0, "cue_end_time": 2.0,
+          "previous_cue_start_time": null, "previous_cue_end_time": null,
+          "next_cue_start_time": null, "next_cue_end_time": null,
+          "position_in_cue": 1
+        },
+        {
+          "word": "up", "cue_id": 1, "cue_start_time": 0.0, "cue_end_time": 2.0,
+          "previous_cue_start_time": null, "previous_cue_end_time": null,
+          "next_cue_start_time": null, "next_cue_end_time": null,
+          "position_in_cue": 1
+        }
+      ]
+    }
+    `senses` must be non-empty. `subtitle_words` must be non-empty.
+    Response 201 mirrors the mapping shape shown nested in section 7.2
+    ("id", "senses" (full Sense objects using the section 6.3 read shape,
+    not summaries or ids), "subtitle_words", "created_at").
+
+    GET (list/retrieve) and PUT/PATCH/DELETE use a DIFFERENT serializer
+    with a DIFFERENT key: the writable input key there is "sense_ids"
+    (plural, with the _ids suffix) — only `senses` can be changed this way.
+    You cannot move a mapping to a different section or edit its
+    subtitle_words through this endpoint (use /api/courses/subtitle-words/
+    for that, or delete and recreate the mapping). sense_ids must remain
+    non-empty on update too.
+    Example PATCH body: { "sense_ids": [55, 56] }
+    (Yes — the key name genuinely differs between CREATE ["senses"] and
+    UPDATE ["sense_ids"] on this same resource. This is intentional per
+    the project owner, not a typo — don't "fix" it by making them match.)
+
+7.4 GET/POST /api/courses/subtitle-words/
+    Standalone CRUD for individual subtitle-word occurrences — use this to
+    add a word to an EXISTING mapping, or to edit/remove one occurrence
+    without touching the rest of the mapping.
+    search_fields: word, mapping__section__title, mapping__section__course__title
+    ordering_fields: cue_id, position_in_cue  (default: mapping_id, cue_id, position_in_cue, id)
+
+    Object shape (same on list/create/update):
+    { "id": 201, "mapping": 44, "word": "look", "cue_id": 1,
+      "cue_start_time": 0.0, "cue_end_time": 2.0,
+      "previous_cue_start_time": null, "previous_cue_end_time": null,
+      "next_cue_start_time": null, "next_cue_end_time": null,
+      "position_in_cue": 1 }
+    POST requires an existing `mapping` id (staff only) — you generally
+    won't POST here directly except to add one more word to a mapping that
+    already exists (e.g. extending a phrase after the fact).
+
+7.5 Cascade / cleanup behavior worth knowing about
+    - Deleting a Course cascades to delete its Sections, which cascades to
+      delete their WordSenseMappings, which cascades to delete their
+      SubtitleWords. Standard DB CASCADE, no special handling needed
+      frontend-side beyond a confirmation dialog.
+    - Deleting the LAST SubtitleWord belonging to a mapping (e.g. via
+      DELETE /api/courses/subtitle-words/{id}/) automatically deletes the
+      now-empty WordSenseMapping too (a Django signal cleans this up) — so
+      after removing a word from a one-word mapping, don't expect an empty
+      mapping to linger; it's gone.
+    - Rejecting/deleting scraped dictionary Entries/Senses (see section 9)
+      is refused with 409 if any sense is already referenced by a course
+      mapping — same rule as section 6.2/6.4.
+
+7.6 GET /api/courses/sections/{id}/taught-senses/
+    Dedicated, separate-from-detail endpoint listing every distinct sense
+    taught by this section, annotated with the CALLING user's
+    my_vocabulary state for each sense. This is the endpoint the "senses
+    taught in this section" panel should call — not something you build by
+    picking through word_sense_mappings on section RETRIEVE (section 7.2).
+    Same permission/visibility rules as the rest of the courses app (a
+    learner gets 404 on an unpublished section, same as section RETRIEVE).
+
+    Response 200 — a flat array (NOT paginated, NOT wrapped in
+    count/next/previous/results):
+    [
+      {
+        "sense": { "id": 55, "title": "book_n_1", "sense_number": "1",
+                   "definition": "...", "entry": { "id": 12, "word": "book",
+                   "part_of_speech": "noun", "homonym_num": 1,
+                   "pronunciation": {"...":"..."} } },
+        "is_learned": false,
+        "already_known": null,
+        "needs_review": null
+      },
+      {
+        "sense": { "id": 56, "title": "book_n_2", "...": "..." },
+        "is_learned": true,
+        "already_known": false,
+        "needs_review": true
+      }
+    ]
+    `already_known` / `needs_review` are null whenever `is_learned` is
+    false (there's no my_vocabulary row yet to read them from). Frontend
+    should split this list into "new" (is_learned: false — selectable,
+    feed sense ids into the my_vocabulary bulk-action endpoint, see
+    section 11) and "already learned" (is_learned: true — shown for
+    reference, not interactable here) groups.
+
+--------------------------------------------------------------------------------
+8. PERMISSIONS SUMMARY (all endpoints)
+--------------------------------------------------------------------------------
+- Unauthenticated: nothing works except register/login/refresh/logout.
+- Authenticated, is_staff=False ("learner"): read-only everywhere; only
+  ever sees is_published=True courses/sections/mappings/subtitle-words;
+  can read/update their own /api/users/me/ (no is_staff/is_active field
+  exposed there); can list and bulk-act on their OWN /api/my-vocabulary/
+  rows (see section 11) — no is_staff distinction there at all, every
+  authenticated user (staff or not) only ever sees/affects their own rows.
+- Authenticated, is_staff=True ("admin"): full read/write on
+  dictionary + courses; full access to /api/users/ list/detail; can use
+  the dev-only scraper endpoints when running against the dev backend;
+  same my_vocabulary access as any other authenticated user — is_staff
+  grants no special my_vocabulary powers, it's purely a per-user
+  collection.
+There is no per-object ownership model beyond staff-vs-not for
+dictionary/courses data — any staff user can edit any course/dictionary
+data. my_vocabulary is the one exception: it IS scoped per-owning-user
+regardless of staff status.
+
+--------------------------------------------------------------------------------
+9. SCRAPER ENDPOINTS — DEVELOPMENT BACKEND ONLY  (/api/scraper/)
+--------------------------------------------------------------------------------
+These routes do not exist when the backend runs with
+config.settings.production — calling them against a production API base
+URL will 404 at the routing layer (not a 403). They exist so an admin,
+working locally, can pull a word from the Longman dictionary straight into
+the Entry/Sense tables without leaving the subtitle editor or the
+dictionary-management page. Permission: IsAdminUser (is_staff) on both.
+
+9.1 POST /api/scraper/scrape/
+    Request: { "word": "book" }
+    Success response 201:
+    {
+      "detail": "Scrape completed and saved. Review the returned entries.",
+      "entry_ids": [12, 13],
+      "entries": [ <full Entry objects, same shape as section 6.1> ]
+    }
+    One Entry is created per Longman dictionary entry. Homonyms remain
+    separate even when they share a part of speech; `homonym_num` contains
+    Longman's `HOMNUM` when present and is null otherwise.
+
+    Error responses:
+      409 — word already scraped (case-insensitive):
+        { "detail": "'book' has already been scraped." }
+      404 — word not found on Longman:
+        { "detail": "<message>" }
+      502 — the scrape page failed to load, or a pronunciation audio file
+        failed to download:
+        { "detail": "<message>" }
+      422 — scraped data didn't pass validation, nothing was saved:
+        { "detail": "The scraped data for this word didn't match the expected shape and was not saved.",
+          "errors": { "...": ["..."] } }
+      500 — unexpected error.
+    A scrape can take a while (real browser automation) — show a loading
+    state, don't assume it resolves quickly, and consider a client-side
+    timeout with a friendly retry message rather than failing silently.
+
+9.2 DELETE /api/scraper/reject/
+    Use this to discard entries an admin just scraped but decided not to
+    keep (e.g. wrong sense, duplicate, bad data) before they're used
+    anywhere.
+    Request: { "entry_ids": [12, 13] }
+    Success response 200:
+    { "detail": "Scraped entries deleted.", "deleted_entry_ids": [12, 13] }
+    Deletes the entries, their senses, and any pronunciation audio files no
+    longer referenced by any other entry.
+
+    Error responses:
+      404 — some ids don't exist:
+        { "detail": "...", "missing_entry_ids": [14] }
+      400 — the ids span more than one distinct word:
+        { "detail": "All entry IDs must belong to the same scraped word." }
+      409 — one or more senses are already used in a course mapping:
+        { "detail": "These entries cannot be rejected because one or more senses are in use." }
+
+--------------------------------------------------------------------------------
+11. MY VOCABULARY ENDPOINTS  (/api/my-vocabulary/)
+--------------------------------------------------------------------------------
+Permission: must be authenticated. No is_staff distinction — every user
+(staff or not) only ever sees/affects their OWN rows. There is deliberately
+no way to mark a whole dictionary Entry or a whole word as learned in one
+call — every action operates on an explicit list of sense ids the frontend
+must supply itself (see the design note at the end of this section for why).
+
+The underlying model, one row per (user, Sense), never exposed as a
+separate "Entry-level" or "Word-level" record:
+  - sense           (the specific dictionary Sense)
+  - already_known   (bool) — true means the learner already knew this
+                     sense before using the site, i.e. it was NOT learned
+                     through this platform. Used so "senses learned per
+                     day/week" stats aren't inflated by senses a learner
+                     just already knew and ticked off.
+  - needs_review    (bool) — true means this sense should appear in
+                     review/flashcard-style features. Independent of
+                     already_known — a sense can be already_known=true AND
+                     needs_review=true/false in any combination; the two
+                     fields are NOT forced to be opposites of each other by
+                     the backend, and can be changed independently later.
+
+11.1 GET /api/my-vocabulary/vocabulary/
+    Lists the CALLING user's own vocabulary rows. Standard pagination
+    (section 4).
+    Filter: ?needs_review=true or ?needs_review=false (exact match, via
+    django-filter — omit the param to get all rows regardless of
+    needs_review).
+    Object shape:
+    {
+      "id": 301,
+      "sense": { "id": 55, "title": "book_n_1", "sense_number": "1",
+                 "definition": "...", "entry": { "id": 12, "word": "book",
+                 "part_of_speech": "noun", "homonym_num": 1,
+                 "pronunciation": {"...":"..."} } },
+      "already_known": false,
+      "needs_review": true,
+      "created_at": "2026-08-10T12:00:00Z"
+    }
+    There is no plain create/update/delete endpoint for a single row (no
+    POST/PATCH/DELETE on /api/my-vocabulary/vocabulary/ or .../{id}/) — all
+    writes go through the bulk-action endpoint below, even for a single
+    sense (just send a one-item sense_ids array).
+
+11.2 POST /api/my-vocabulary/vocabulary/bulk-action/
+    Applies ONE fixed action to a manually-selected list of sense ids for
+    the calling user. This single endpoint backs every "mark these as X"
+    interaction across the whole frontend (the section's taught-senses
+    panel, and both lists on the /my-vocabulary page) — there's no
+    separate endpoint per page or per action.
+
+    Request:
+    { "action": "set_already_known", "sense_ids": [55, 56] }
+
+    `action` must be one of exactly these six strings:
+      - "set_already_known"   -> already_known=True,  needs_review=False
+                                  (creates a row if one doesn't exist yet)
+      - "unset_already_known" -> already_known=False, needs_review=True
+                                  (ONLY updates rows that already exist;
+                                  never creates one)
+      - "set_learned"         -> already_known=False, needs_review=True
+                                  (creates a row at these defaults if one
+                                  doesn't exist yet; this is "I just
+                                  learned this on the platform")
+      - "unset_learned"       -> DELETES the my_vocabulary row entirely
+                                  for each given sense id (only affects
+                                  rows that exist; ids with no row are
+                                  silently ignored) — use this when the
+                                  user says they mistakenly marked a
+                                  sense as learned and want it removed
+                                  from their collection altogether
+      - "set_needs_review"    -> needs_review=True only, already_known
+                                  untouched (ONLY updates existing rows)
+      - "unset_needs_review"  -> needs_review=False only, already_known
+                                  untouched (ONLY updates existing rows)
+
+    `sense_ids` must be a non-empty array of valid Sense ids — invalid ids
+    (don't exist in the dictionary at all) fail validation with 400 before
+    anything is written. Ids that are individually inapplicable to the
+    chosen action (e.g. an id with no existing row, sent with
+    "unset_already_known") are NOT a validation error — they're simply
+    skipped by that action's semantics as described above.
+
+    Response 200 for every action EXCEPT "unset_learned":
+    [ { "id": 301, "sense": {"...":"..."}, "already_known": true,
+        "needs_review": false, "created_at": "..." }, ... ]
+    (the full, current my_vocabulary rows for every given sense id — same
+    shape as section 11.1's list items, just a plain array, not paginated)
+
+    Response 200 for "unset_learned" (different shape — the rows no longer
+    exist to serialize):
+    {
+      "detail": "The vocabulary entries for these senses were deleted.",
+      "sense_ids": [55, 56]
+    }
+    (`sense_ids` here is only the subset that actually had a row deleted —
+    ids with no existing row are omitted, not an error.)
+
+    Response 400 on invalid `action` value or empty/invalid `sense_ids`.
+
+    DESIGN NOTE — why there's no "mark whole word/entry as learned" action:
+    an earlier version of this API had "mark this whole Entry" / "mark
+    this whole word" actions that expanded server-side into every sense of
+    that entry/word. This was deliberately removed: a learner saying "I
+    know the word book" essentially never means literally every sense
+    Longman records for "book" (e.g. sense 9 of "book" — "part of a very
+    large book such as the Bible" — is not something a learner claiming to
+    know "book" usually means). If the frontend wants an "act on this
+    whole word/entry" UI convenience, it must resolve that itself
+    client-side (e.g. by fetching /api/dictionary/entries/ or
+    /api/dictionary/senses/?search=book, showing the resulting sense list
+    to the user for confirmation/deselection, then submitting the
+    confirmed sense ids here) — the backend will never silently expand a
+    word/entry into "all its senses" itself.
+
+--------------------------------------------------------------------------------
+12. THINGS THE AI SHOULD NOT DO
+--------------------------------------------------------------------------------
+- Do not assume any endpoints beyond what's listed in sections 3, 6, 7, 9,
+  11 — there is no bulk-create endpoint exposed over the API for
+  dictionary senses (bulk create exists internally in the scraper's save
+  logic only, not as a public route), no "publish course" action endpoint
+  (just PATCH is_published), no flashcards/quizzes endpoints yet (those
+  are future/unbuilt features per the project concept doc — don't build
+  UI that calls them). Section/course progress (new_words_count,
+  learned_percentage) and the learner's vocabulary collection DO exist
+  now (sections 7 and 11) — don't assume those are still unbuilt.
+- Do not build a "mark whole word/entry as learned" call to the
+  my_vocabulary bulk-action endpoint — it doesn't accept an entry_id or
+  word target, only an explicit sense_ids array. See the design note at
+  the end of section 11 for why, and resolve any "whole word" UI
+  convenience client-side before submitting sense ids.
+- Do not expect POST/PATCH/DELETE on /api/my-vocabulary/vocabulary/ or
+  .../{id}/ — those verbs aren't exposed there; all writes go through
+  POST .../vocabulary/bulk-action/, even for a single sense.
+- Do not call GET /api/courses/sections/{id}/taught-senses/ expecting
+  pagination (count/next/previous/results) — it returns a plain array.
+- Do not assume field names beyond what's shown in the JSON examples above
+  — e.g. there is no Course.duration, no Section.thumbnail, no
+  Sense.image, no User.username (auth is email-only, no username field
+  exists anywhere).
+- Do not read or write JWTs from JavaScript/localStorage/sessionStorage —
+  they're httpOnly cookies by design, specifically to reduce XSS exposure.
+  Don't "fix" this by switching to a bearer-token pattern.
+- Do not forget `credentials: "include"` on every request or cross-origin
+  cookies silently won't be sent, and requests will look like they're
+  hitting an unauthenticated endpoint.
+- Do not forget the X-CSRFToken header on POST/PUT/PATCH/DELETE — GET is
+  the only verb exempt from CSRF enforcement here.
+- Do not build a separate/second Next.js app for admin — it's one app;
+  admin-only pages should check the current user's is_staff, read from
+  GET /api/users/me/ (see section 3 — it's a read-only field there).
+- Do not assume scraper endpoints exist unless the app is explicitly
+  running against the local dev backend — gate any "Scrape word" UI
+  behind an explicit "dev mode" / environment check rather than trying
+  each request and reacting to 404s as the primary mechanism.
+- Do not invent choices for `Course.level` beyond "Beginner",
+  "Intermediate", "Advanced".
+
+--------------------------------------------------------------------------------
+13. CHANGE LOG — position_in_cue clarification (applied to this file)
+--------------------------------------------------------------------------------
+The original version of this file described `position_in_cue` as "the
+word's index within that cue's text" (a raw positional index among ALL
+words in the cue, 0-based, e.g. "look"=0, "up"=2 with a skipped word at
+position 1). This was INCORRECT per the project owner's actual intended
+behavior and has been corrected throughout this file (sections 7.2, 7.3,
+7.4 examples and the frontend note in 7.2).
+
+The correct rule, now reflected everywhere in this file:
+`position_in_cue` is a 1-indexed occurrence counter scoped to the exact
+word string within its cue. The first occurrence of a given word string in
+a cue is 1, the second occurrence of that same word string is 2, and so
+on — each distinct word string has its own independent counter. It is NOT
+a shared positional index across all words in the cue.
+
+If the actual Django implementation differs from this corrected
+description, the Django code is the source of truth, not this file —
+verify against the real serializer/ingestion logic before relying on this
+for anything beyond frontend planning.

@@ -21,10 +21,8 @@ export function SubtitleUpload({
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
-  const blocked = mappingCount > 0;
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (blocked) return;
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     setBusy(true);
@@ -43,11 +41,11 @@ export function SubtitleUpload({
     <form onSubmit={submit} className="space-y-4 rounded-xl border bg-card p-5">
       <h2 className="text-lg font-semibold">Subtitle file</h2>
       <p className="break-all text-xs text-muted-foreground">{current}</p>
-      {blocked ? (
+      {mappingCount > 0 ? (
         <p className="rounded-md border border-amber-500/30 bg-amber-500/10 p-3 text-sm">
           This section already has {mappingCount} mapping
-          {mappingCount === 1 ? "" : "s"}. Remove them before replacing the VTT
-          so stored cue/word identities cannot become invalid.
+          {mappingCount === 1 ? "" : "s"}. Replacing the VTT may invalidate
+          stored cue/word identities and affect existing mappings.
         </p>
       ) : null}
       <ApiErrorMessage error={error} />
@@ -55,14 +53,14 @@ export function SubtitleUpload({
         <Label htmlFor="subtitle_file">Replacement .vtt</Label>
         <Input
           id="subtitle_file"
-          disabled={blocked}
+          disabled={busy}
           required
           type="file"
           name="subtitle_file"
           accept=".vtt,text/vtt"
         />
       </div>
-      <Button type="submit" variant="outline" disabled={blocked || busy}>
+      <Button type="submit" variant="outline" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
         {busy ? "Uploading…" : "Replace VTT"}
       </Button>

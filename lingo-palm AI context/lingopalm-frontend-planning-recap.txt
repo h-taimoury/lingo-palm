@@ -1,0 +1,2131 @@
+LINGO PALM — NEXT.JS FRONTEND PLANNING RECAP
+
+Status: WORK IN PROGRESS. Major frontend architecture and product
+decisions have been settled, but this is still a planning recap rather
+than literal step-by-step build instructions. Remaining OPEN / NEEDS
+VERIFICATION items should be resolved before code generation.
+
+Companion files this recap assumes are also available to whoever reads
+it: - lingo_palm_backend_ai_context.txt (Django backend API reference) -
+lingo_palm_ai_context.txt (short project/stack overview) -
+Project_Concept.txt (full product concept doc) - The old Next.js+Mongo
+codebase (reference only, for old UI patterns — its DATA MODEL is now
+obsolete; see “Dropped from old app” below)
+
+IMPORTANT: verify the context files above are actually up to date with
+the current backend before using this recap to generate code. The
+backend documentation currently describes the users, dictionary,
+courses, my_vocabulary, and dev-only scraper_admin apps. If a newer
+backend app or endpoint has been added since these documents were
+written, obtain its current models/endpoints/request/response shapes
+before implementing the affected frontend feature.
+
+  -----------------------------------------------------------------------
+  1. PROJECT CONTEXT (brief — see companion docs for full detail)
+  -----------------------------------------------------------------------
+  - English-learning platform: learners watch videos with interactive
+  subtitles; clicking a highlighted subtitle word/phrase shows the
+  specific dictionary Sense(s) relevant to that occurrence. - Backend:
+  Django + DRF, cookie-based JWT auth (httpOnly access_token /
+  refresh_token cookies + readable csrftoken cookie), apps: users,
+  dictionary (Entry/Sense), courses (Course→Section→WordSenseMapping→
+  SubtitleWord), my_vocabulary (per-user learned-sense tracking),
+  scraper_admin (dev-only, scrapes Longman dictionary). - This is a
+  REBUILD of a previous all-in-Next.js+Mongo prototype (that old code is
+  provided only as a UI/UX reference — its data model, auth system, and
+  most of its dependencies no longer apply).
+
+  The backend is the application’s real backend and source of truth
+  for: - authentication - authorization - business rules - dictionary
+  data - course/section data - learner vocabulary state - course/section
+  progress - mutations and persistence
+
+  Next.js is primarily the frontend/rendering application. Do not
+  recreate backend business logic or create an unnecessary second backend
+  layer in Next.js.
+  -----------------------------------------------------------------------
+
+2. SCOPE FOR V1 (decided)
+
+Full app, one Next.js project, covering all three of: a) Learner
+experience b) Admin/Teaching authoring (course/section CRUD,
+word-sense-mapping editor, dictionary management) c) Dev-only Scraper UI
+(env-var gated, not is_staff-gated)
+
+  -----------------------------------------------------------------------
+  3. DOMAINS & DEPLOYMENT ASSUMPTIONS (decided)
+  -----------------------------------------------------------------------
+  - Frontend: lingopalm.com - Backend: api.lingopalm.com - Same root
+  domain — this materially simplifies the cookie/auth story. - Local dev
+  uses localhost:3000 / localhost:8000.
+
+  BACKEND PREREQUISITE: Django must set access_token / refresh_token /
+  csrftoken cookies with Domain=.lingopalm.com in production settings,
+  and host-only (no Domain attribute) in development settings.
+
+  The frontend does not store or manipulate the JWT access/refresh tokens
+  in JavaScript. They remain httpOnly cookies.
+
+  Because the browser is making direct requests from the frontend origin
+  to the backend origin, client-side API calls MUST use:
+
+  credentials: “include”
+
+  The backend’s CSRF requirements also apply to browser-side mutations.
+  -----------------------------------------------------------------------
+
+4. ARCHITECTURE (decided)
+
+The fundamental architecture is:
+
+    Next.js frontend
+          |
+          +-------------------------------+
+          |                               |
+    Server Components              Client Components
+          |                               |
+          |                         centralized apiClient
+          |                               |
+          +---------------+---------------+
+                          |
+                       Django API
+                          |
+                       database
+
+4.1 SERVER COMPONENTS — DEFAULT
+
+Every page is a Server Component by default.
+
+A page should fetch its initial/read-heavy data directly from Django
+server-to-server.
+
+Conceptually:
+
+    Server Component
+        ↓
+    read cookies from next/headers
+        ↓
+    forward the relevant Cookie header to Django
+        ↓
+    render page
+        ↓
+    pass fetched data to Client Components as props
+
+Use Server Components as much as possible.
+
+Do NOT turn an entire page into a Client Component merely because one
+small part of the page needs interactivity.
+
+Preferred pattern:
+
+    page.tsx                         ← Server Component
+        |
+        +-- data fetching
+        |
+        +-- InteractiveWidget.tsx   ← Client Component
+        |
+        +-- AnotherInteractive.tsx  ← Client Component
+
+4.2 CLIENT COMPONENTS — ONLY WHERE INTERACTION IS NEEDED
+
+Use Client Components for things such as:
+
+-   video player
+-   interactive subtitle highlighting
+-   sense popup/modal
+-   forms requiring browser-side interaction
+-   drag-and-drop
+-   live/type-ahead search
+-   multi-select controls
+-   “mark as learned” / vocabulary actions
+-   interactive admin editor
+-   client-only UI state
+
+Client Components call Django DIRECTLY.
+
+They do NOT normally call a Next.js API route or Server Action as a
+proxy.
+
+Example:
+
+    Client Component
+        ↓
+    apiClient
+        ↓
+    Django API
+
+4.3 MUTATION PATTERN — DECIDED
+
+All normal backend mutations follow the same rule:
+
+    Client Component
+        ↓
+    centralized apiClient
+        ↓
+    Django API
+
+Examples:
+
+-   create/edit/delete course
+-   create/edit/delete section
+-   create/edit/delete word-sense mapping
+-   dictionary mutations
+-   mark senses learned
+-   set senses already known
+-   vocabulary bulk actions
+-   login/register/logout
+-   profile mutations
+-   scraper actions
+
+The reason is architectural:
+
+Django is already a dedicated backend/API.
+
+If Next.js were being used as a fullstack application with its own
+database/business logic, Server Actions would be a strong choice for
+mutations.
+
+That is NOT the architecture here.
+
+Using Server Actions as a generic proxy:
+
+    Browser
+       ↓
+    Next.js Server Action
+       ↓
+    Django
+
+would add another backend layer and another place to maintain request
+logic, authentication behavior, error handling, and data flow, while
+providing little benefit.
+
+Therefore:
+
+    Browser
+       ↓
+    Django
+
+is the normal mutation path.
+
+Server Actions are NOT forbidden. They may still be used for a very
+specific Next.js-only concern where they genuinely provide value, but
+they are not the application’s general mutation mechanism.
+
+4.4 AFTER MUTATIONS
+
+After a successful client-side mutation, normally use:
+
+    router.refresh()
+
+when the enclosing Server Component needs to fetch the updated data
+again.
+
+Do not introduce a complicated client-side global state system just to
+keep server-rendered data synchronized unless a particular feature
+actually needs it.
+
+4.5 MIDDLEWARE — DECIDED ROLE
+
+middleware.ts should remain lightweight.
+
+Its primary frontend responsibility is route protection:
+
+    /learning/*
+    /teaching/*
+
+For these routes, middleware may perform a cheap check for the presence
+of the authentication cookie and redirect obviously unauthenticated
+visitors to /login.
+
+This is NOT full authentication validation and is NOT a security
+boundary.
+
+Django remains the real authority for authentication and authorization.
+
+IMPORTANT: Middleware does NOT perform token refresh.
+
+We explicitly rejected “refresh on every request” middleware behavior
+because it can cause unnecessary backend calls, couples middleware to
+authentication refresh behavior, and is unnecessarily complicated given
+the dedicated Django backend.
+
+4.6 TOKEN REFRESH FLOW — DECIDED
+
+The backend provides:
+
+    access_token  → approximately 1 day
+    refresh_token → approximately 2 weeks
+
+and:
+
+    POST /api/users/refresh/
+
+The frontend handles expiry REACTIVELY.
+
+Do NOT refresh based only on timers. Do NOT make middleware call the
+refresh endpoint on every request.
+
+Instead:
+
+    Client API request
+          ↓
+    Django
+          ↓
+       401?
+       /   \
+     no     yes
+     |       |
+
+return refresh | retry original request | return
+
+The refresh/retry behavior belongs in the centralized client-side
+apiClient/fetcher.
+
+The apiClient should:
+
+1.  Make the original request.
+2.  If the response is 401, attempt token refresh.
+3.  Retry the original request exactly once after successful refresh.
+4.  If refresh fails, treat the session as unauthenticated.
+5.  Do not recursively retry forever.
+
+IMPORTANT: CONCURRENT REFRESH LOCKING
+
+Multiple Client Components may make requests simultaneously.
+
+Example:
+
+    request A → 401
+    request B → 401
+    request C → 401
+    request D → 401
+
+They must NOT trigger four independent refresh calls.
+
+Use a single-flight/shared refresh promise:
+
+    request A ──┐
+    request B ──┤
+    request C ──┼──→ ONE refresh request
+    request D ──┘            |
+                             ↓
+                      all wait for result
+                             |
+                             ↓
+                      retry their requests
+
+Only one refresh operation may be in progress at a time.
+
+The refresh endpoint itself requires the CSRF header, so apiClient must
+handle CSRF for the refresh request as well.
+
+Because Django sets the new JWT cookies in the HTTP response and the
+browser owns those cookies, the client does not need to read or manually
+store the JWT values.
+
+4.7 CSRF — DECIDED
+
+The browser-visible csrftoken cookie is readable by JavaScript.
+
+The centralized client API layer is responsible for:
+
+-   credentials: "include" on requests
+-   reading the csrftoken cookie
+-   attaching X-CSRFToken to unsafe requests
+
+Unsafe methods:
+
+    POST
+    PUT
+    PATCH
+    DELETE
+
+GET/HEAD/OPTIONS do not require the CSRF header.
+
+Components should NOT implement their own CSRF handling.
+
+They should call the centralized apiClient instead.
+
+Example conceptually:
+
+    apiClient.post("/api/courses/courses/", payload)
+
+not:
+
+    fetch(...)
+
+4.8 API CLIENT RESPONSIBILITIES — DECIDED
+
+The centralized apiClient/fetcher is a core frontend infrastructure
+piece.
+
+It should centralize:
+
+-   API base URL
+-   credentials: "include"
+-   JSON headers
+-   CSRF token handling
+-   request/response parsing
+-   consistent API error handling
+-   401 detection
+-   reactive refresh
+-   refresh locking / single-flight behavior
+-   retrying the original request once
+-   avoiding infinite refresh/retry loops
+
+Individual components should remain unaware of these authentication
+details.
+
+4.9 STAFF-ONLY GATING FOR /teaching/*
+
+The /teaching/* area is a staff/admin UI.
+
+Use app/teaching/layout.tsx as the frontend staff gate.
+
+The layout can fetch:
+
+    GET /api/users/me/
+
+and check:
+
+    is_staff
+
+Non-staff users should be redirected away from /teaching/*.
+
+This is a UX/navigation gate, NOT the security boundary.
+
+Django must continue enforcing is_staff on every protected backend
+operation.
+
+Do not rely on the frontend’s is_staff value to secure anything.
+
+The backend is always authoritative.
+
+  -----------------------------------------------------------------------
+  5. DATA FETCHING & CACHING STRATEGY (decided)
+  -----------------------------------------------------------------------
+  The default data-fetching strategy is:
+
+  Server Components ↓ Django ↓ render data into page
+
+  Do NOT make TanStack Query / React Query a global requirement.
+
+  Most application reads belong naturally in Server Components and should
+  not be duplicated into a second client-side cache.
+
+  After client-side mutations, use:
+
+  router.refresh()
+
+  when the Server Component should fetch fresh data.
+
+  5.1 WHEN TANSTACK QUERY IS APPROPRIATE
+
+  TanStack Query (React Query) may be used locally when a feature is
+  genuinely client-data-heavy.
+
+  Good examples:
+
+  - live/type-ahead dictionary sense search - debounced search - infinite
+  scrolling - rapidly changing client-side data - optimistic mutations
+  where appropriate - client-side polling if a future feature needs it
+
+  Do not add React Query to every page merely for consistency.
+
+  SWR is not being used as the default library.
+
+  If a client-side server-state library is needed, prefer TanStack Query
+  because it provides the mutation/cache/invalidation features that fit
+  the more interactive admin use cases better.
+
+  The current plan is to use it only where it actually helps.
+  -----------------------------------------------------------------------
+
+6. TECH STACK (decided)
+
+KEEP:
+
+-   Next.js App Router
+-   TypeScript
+-   React
+-   Tailwind CSS
+-   shadcn/ui
+-   Radix UI primitives
+-   react-hook-form
+-   zod
+-   react-hot-toast
+-   lucide-react
+-   match-sorter
+-   hls.js
+-   class-variance-authority
+-   tailwind-merge / cn()
+-   @hello-pangea/dnd if drag-and-drop chapter/section reordering is
+    kept
+
+TanStack Query: - optional/localized only - not a global requirement
+
+DROP ENTIRELY (Mongo/old-stack-specific):
+
+-   next-auth
+-   mongoose
+-   uploadthing
+-   bcrypt
+-   @uploadthing/react
+
+Django is the authentication/backend system.
+
+  -----------------------------------------------------------------------
+  7. VISUAL DESIGN (decided)
+  -----------------------------------------------------------------------
+  Fully open — no obligation to match the old app’s look (orange accent,
+  specific layout choices, etc.).
+
+  Use clean, modern defaults using the existing shadcn “new-york” style +
+  Tailwind.
+
+  The old application should be treated as a UX/reference source, not as
+  a visual specification.
+  -----------------------------------------------------------------------
+
+8. PAGE / ROUTE INVENTORY (decided)
+
+PUBLIC
+
+/ marketing home
+
+/login
+
+/register
+
+LEARNER (/learning/…)
+
+/learning/browse published courses grid
+
+/learning/courses/[courseId] course detail + section list
+
+/learning/courses/[courseId]/sections/[sectionId] video player page
+
+/learning/courses/[courseId]/sections/[sectionId]/vocabulary “taught
+senses in this section” page
+
+      Backed by:
+        GET /api/courses/sections/{id}/taught-senses/
+
+      Manual multi-select of individual senses only.
+
+      Apply set_already_known or set_learned via the appropriate
+      bulk-action endpoint.
+
+/learning/my-vocabulary two lists: - needs_review=true -
+needs_review=false
+
+      Manual multi-select of individual senses only.
+
+      Bulk actions per list:
+
+        needs_review=true:
+          unset_needs_review
+          unset_learned
+          set_already_known
+
+        needs_review=false:
+          set_needs_review
+          unset_learned
+
+/learning/review/flashcard flip-cards from my_vocabulary rows where
+needs_review=true
+
+      Fully backed by existing backend functionality.
+
+/learning/review/clip PLACEHOLDER ONLY
+
+      Backend does not currently provide the required sense→section
+      lookup functionality.
+
+      Build a small "coming soon" / static UI for now.
+
+DROPPED FOR NOW:
+
+/learning/enrolled
+
+No enrollment concept exists in the backend.
+
+ADMIN / TEACHING (/teaching/…)
+
+/teaching/courses staff course list
+
+/teaching/courses/create create course
+
+/teaching/courses/[courseId] edit course + section list/reorder
+
+/teaching/courses/[courseId]/sections/[sectionId] edit section +
+word-sense-mapping editor
+
+/teaching/dictionary search/browse/delete Entries & Senses
+
+/teaching/dictionary/scrape ENV-GATED dev-only scraper UI
+
+/teaching/analytics placeholder page
+
+  -----------------------------------------------------------------------
+  9. ROUTING DESIGN (decided)
+  -----------------------------------------------------------------------
+  The route hierarchy is intentionally resource-oriented.
+
+  Learner:
+
+  /learning/courses/[courseId] /sections/[sectionId] /vocabulary
+
+  Teaching:
+
+  /teaching/courses/[courseId] /sections/[sectionId]
+
+  This hierarchy communicates the actual relationships between resources.
+
+  Use nested layouts where persistent UI belongs at that level.
+
+  For example:
+
+  /learning/layout /learning/courses/[courseId]/layout /teaching/layout
+
+  Do not unnecessarily flatten nested resources.
+
+  Important: Whenever both a parent ID and child ID are present, backend
+  data access must still verify the actual relationship. The frontend
+  should not assume that a URL such as:
+
+  /learning/courses/course-A/sections/section-B
+
+  is valid merely because both IDs exist.
+
+  Django remains responsible for authorization and resource ownership /
+  visibility.
+  -----------------------------------------------------------------------
+
+10. ADMIN AUTHORING FORMS PATTERN (decided)
+
+Split by field type, not “one giant form” vs “many tiny forms”:
+
+Text/select fields:
+
+-   title
+-   description
+-   level
+-   is_published
+-   video_url
+
+→ ONE combined form per entity with one Save button.
+
+File fields:
+
+-   course thumbnail image
+-   section subtitle .vtt file
+
+→ SEPARATE immediate-upload widgets where the backend expects multipart
+file handling.
+
+Section.video_url:
+
+→ plain TEXT field.
+
+There is no video-file upload endpoint in the backend.
+
+Admin pastes an already-hosted video URL.
+
+This is deliberate scope reduction from the old UploadThing-based app.
+
+  -----------------------------------------------------------------------
+  11. VIDEO PLAYER — DECIDED
+  -----------------------------------------------------------------------
+  Rebuild closely matching the old app’s custom player:
+
+  - theater mode - custom controls - playback rate selector -
+  fullscreen - keyboard shortcuts space / k → play/pause f → fullscreen t
+  → theater m → mute arrows / j / l → seek
+
+  11.1 VIDEO SOURCE FORMAT
+
+  Support both:
+
+  A) HLS:
+
+  .m3u8
+
+  → hls.js
+
+  B) Progressive video:
+
+  .mp4 .webm etc.
+
+  → native
+
+  The frontend should detect the source type and choose the appropriate
+  player path.
+
+  Production is expected to use HLS, but development/test sections may
+  use normal local/backend-hosted video files.
+
+  Do not over-engineer a video abstraction beyond what is necessary for
+  these two paths.
+  -----------------------------------------------------------------------
+
+12. SECTION DATA & PERSONALIZED HIGHLIGHTING — DECIDED
+
+The section detail response contains:
+
+    word_sense_mappings[]
+
+Each mapping contains:
+
+    senses[]
+    subtitle_words[]
+
+Each mapping represents one highlighted teaching unit / phrase.
+
+A mapping can have multiple senses.
+
+Example:
+
+    mapping
+       ├── sense A
+       ├── sense B
+       └── sense C
+
+12.1 HIGHLIGHTING RULE
+
+A mapping remains highlighted if ANY of its linked senses is unlearned.
+
+Equivalent logic:
+
+    mappingIsFullyLearned =
+        every linked sense is already learned by the user
+
+    shouldHighlight =
+        !mappingIsFullyLearned
+
+Example:
+
+    Mapping:
+      sense 1 → learned
+      sense 2 → learned
+      sense 3 → unlearned
+
+    Result:
+      mapping remains highlighted
+
+If all linked senses are learned:
+
+    sense 1 → learned
+    sense 2 → learned
+    sense 3 → learned
+
+    Result:
+      mapping is no longer highlighted.
+
+12.2 LEARNER-SPECIFIC SECTION RESPONSE — DECIDED
+
+The learner frontend uses a dedicated learner-specific section response.
+
+The backend performs the first/personalized filtering of
+word_sense_mappings before sending the section data to the frontend.
+
+When a learner loads a section:
+
+    all section mappings
+          ↓
+    Django checks the user's learning state
+          ↓
+    remove mappings where ALL related senses are learned
+          ↓
+    return only mappings that still need highlighting
+
+Therefore the learner section response contains a word_sense_mappings[]
+field containing ONLY mappings for which the user has not learned all
+related senses.
+
+This filtering is deliberately performed on the backend because:
+
+-   the backend owns the user’s learning state and business rules
+-   it reduces the amount of data sent to the frontend
+-   the frontend does not need to receive mappings that can never be
+    highlighted for this user
+
+For highlighting purposes, a sense counts as learned only when its state
+is learned.
+
+Therefore:
+
+    all related senses = learned
+        → mapping is excluded from word_sense_mappings[]
+
+    at least one related sense is not learned
+        → mapping remains in word_sense_mappings[]
+
+The frontend does NOT need to repeat this personalized filtering.
+
+After receiving the already-filtered word_sense_mappings[], the frontend
+only needs to determine which of those mappings belong to the currently
+active subtitle cue during playback.
+
+Conceptually:
+
+    load learner section
+        ↓
+    Django filters personalized mappings
+        ↓
+    frontend receives only mappings needing highlighting
+        ↓
+    active cue changes
+        ↓
+    frontend finds mappings/subtitle words for that cue in memory
+
+Do NOT make a separate client-side request solely to obtain the user’s
+learning state for section highlighting.
+
+  -----------------------------------------------------------------------
+  13. SUBTITLE / WORD HIGHLIGHTING The learner section response provides
+  a backend-filtered:
+  -----------------------------------------------------------------------
+  14. WORD CLICK / SENSE POPUP — DECIDED
+
+  -----------------------------------------------------------------------
+
+Clicking a highlighted subtitle word/phrase opens a modal/popover
+showing ALL dictionary senses attached to that WordSenseMapping.
+
+Do NOT show the whole dictionary Entry.
+
+The popup may show:
+
+-   word
+-   part of speech
+-   sense number
+-   definition
+-   UK/US pronunciation
+-   synonyms
+-   examples
+
+The backend mapping’s senses[] is the source for the popup.
+
+A mapping with multiple senses must show all of its linked senses.
+
+  -----------------------------------------------------------------------
+  15. WORD-SENSE-MAPPING EDITOR (ADMIN) — DECIDED
+  -----------------------------------------------------------------------
+  1. A hidden  + loads the section’s .vtt.
+
+  2. Extract cues and tokenize them using the SAME shared tokenization
+  utility used by the learner player.
+
+  3. Transcript view: each cue’s words render as selectable/clickable
+  tokens.
+
+  4. Admin selects one or more subtitle-word occurrences.
+
+  Selection may span multiple cues, allowing phrases such as:
+
+  “look … up”
+
+  to be represented as one WordSenseMapping.
+
+  5. Sense-search panel:
+
+  Search:
+
+  /api/dictionary/senses/
+
+  This is the main legitimate live/type-ahead search location in the
+  application.
+
+  Requirements: - debounce search - client-side fetching - optional
+  TanStack Query if it makes the implementation cleaner - do not make the
+  whole admin editor dependent on a global query cache
+
+  6. Attach one or more Senses to the selected subtitle words.
+
+  7. Create using the exact backend create shape:
+
+  { “section”: …, “senses”: […], “subtitle_words”: […] }
+
+  Do NOT use section_id / sense_ids for creation.
+
+  8. Existing mappings come from the Section detail response.
+
+  9. Existing mappings are displayed color-coded by mapping ID.
+
+  10. Update an existing mapping with:
+
+  { “sense_ids”: […] }
+
+  The difference between the create and update payload names is
+  intentional.
+
+  11. Delete mappings through the backend delete endpoint.
+
+  12. If a required Sense doesn’t exist:
+
+  /teaching/dictionary
+
+  or, when enabled:
+
+  /teaching/dictionary/scrape
+  -----------------------------------------------------------------------
+
+16. MY VOCABULARY BULK ACTIONS — IMPORTANT
+
+The backend no longer supports selecting an entire Entry or entire word
+and expanding that selection to all its senses.
+
+This feature was deliberately removed.
+
+Reason: A learner may know one sense of a common word without knowing
+all of its other meanings.
+
+Therefore the frontend MUST provide ONLY:
+
+    manual multi-select of individual Sense IDs
+
+Do NOT build:
+
+-   select whole word
+-   select whole Entry
+-   “mark all senses of this word”
+
+This is not merely deferred functionality. It has been deliberately
+removed from the product design.
+
+  -----------------------------------------------------------------------
+  17. SCRAPER UI — DECIDED
+  -----------------------------------------------------------------------
+  The scraper UI is development-only.
+
+  It is controlled by:
+
+  NEXT_PUBLIC_ENABLE_SCRAPER=true
+
+  It is NOT controlled solely by is_staff.
+
+  The intended condition is:
+
+  staff user AND NEXT_PUBLIC_ENABLE_SCRAPER=true
+
+  Backend scraper endpoints:
+
+  POST /api/scraper/scrape/ DELETE /api/scraper/reject/
+
+  The scraper endpoints literally do not exist in production.
+
+  Therefore:
+
+  - do not treat production 404 as an unexpected application crash - keep
+  the UI env-gated - scraper should normally be enabled only during local
+  development
+  -----------------------------------------------------------------------
+
+18. ADMIN / TEACHING AUTHORIZATION
+
+The frontend may hide or redirect users based on is_staff, but this is
+only for UX.
+
+Never assume that a frontend staff check provides security.
+
+Django must enforce staff permissions on the actual API operations.
+
+Similarly, frontend route IDs must never be treated as proof that the
+current user owns or may modify a resource.
+
+All real authorization is performed by Django.
+
+  -----------------------------------------------------------------------
+  19. ENVIRONMENT VARIABLES (decided)
+  -----------------------------------------------------------------------
+  NEXT_PUBLIC_API_BASE_URL
+
+  Examples:
+
+  development: http://localhost:8000
+
+  production: https://api.lingopalm.com
+
+  This must be NEXT_PUBLIC because Client Components communicate directly
+  with Django.
+
+  There is no general Next.js API proxy layer.
+
+  NEXT_PUBLIC_ENABLE_SCRAPER
+
+  “true”
+
+  to enable the dev-only scraper UI.
+
+  Unset/false otherwise.
+  -----------------------------------------------------------------------
+
+20. EXPLICITLY DROPPED / OUT OF SCOPE FOR NOW
+
+-   /learning/enrolled No backend enrollment concept.
+
+-   Password reset No backend endpoint currently exists.
+
+-   Email verification No backend endpoint currently exists.
+
+-   Whole-word / whole-entry bulk vocabulary selection Deliberately
+    removed from the backend/product.
+
+-   Video file upload for sections Section.video_url is a URL field; no
+    video upload endpoint exists.
+
+-   Real Clip Review functionality Backend does not currently provide
+    the required sense→section lookup. Frontend gets a placeholder UI
+    only.
+
+-   Generic Next.js API proxy layer Not needed because Django is the
+    dedicated backend.
+
+-   Server Actions as the general mutation mechanism Not needed for
+    backend communication.
+
+-   Global TanStack Query/SWR architecture Not needed because most data
+    fetching is handled by Server Components.
+
+  -----------------------------------------------------------------------
+  21. OPEN ITEMS — PICK UP HERE IN THE NEXT CHAT
+  -----------------------------------------------------------------------
+  The following items still need discussion/verification:
+
+  1. NEW BACKEND APP / BACKEND DOCS
+
+  If a new backend app has been added since the current context files
+  were written, obtain its current documentation before implementing any
+  affected frontend functionality.
+
+  Need: - models - endpoints - permissions - request shapes - response
+  shapes - frontend relevance
+
+  3. TOKENIZATION EDGE CASES
+
+  The fundamental rule is now settled:
+
+  whitespace splitting punctuation remains attached
+  apostrophes/contractions remain inside tokens occurrence counter is
+  1-based and scoped per exact word string
+
+  However, exact edge cases may still need verification against the
+  backend implementation, particularly:
+
+  capitalization unusual punctuation Unicode punctuation hyphenated words
+  apostrophes such as curly vs straight apostrophes
+
+  Do NOT over-engineer this before the basic system is working.
+
+  If edge cases are discovered, update the shared frontend tokenizer and
+  backend process together.
+
+  4. WORD-SENSE-MAPPING EDITOR UX
+
+  The architecture is approved, but the final UX should be reviewed after
+  the first working implementation.
+
+  In particular: - multi-word selection - cross-cue selection - visual
+  mapping colors - editing existing mappings - sense search UX - handling
+  duplicate occurrences
+
+  5. CLIENT-SIDE QUERY LIBRARY USAGE
+
+  Current preference:
+
+  Server Components by default. TanStack Query only where genuinely
+  useful.
+
+  Revisit after implementing the admin sense-search and other interactive
+  areas.
+
+  6. API ERROR / AUTH FAILURE UX
+
+  Define the exact UI behavior for:
+
+  - ordinary 400 validation errors - 403 permission errors - 404
+  resource-not-found - 401 after refresh failure - network/backend
+  unavailable - scraper 404 in production
+
+  The centralized apiClient should normalize errors enough that
+  individual components don’t each reinvent this logic.
+
+  7. FINAL ROUTE / LAYOUT STRUCTURE
+
+  Routing is considered good enough architecturally.
+
+  Before implementation, finalize the actual Next.js App Router folder
+  tree and determine which layouts own:
+
+  - authentication boundary - learner navigation/sidebar - course
+  navigation - teaching/admin navigation
+
+  8. AUTHENTICATION UX
+
+  Finalize: - login redirect/callback behavior - register redirect
+  behavior - logout behavior - behavior after refresh-token expiration -
+  behavior when a protected page is loaded with stale cookies
+
+  9. SERVER-SIDE FETCHING HELPER
+
+  Design a small server-side Django fetch helper for Server Components
+  that:
+
+  - reads incoming cookies - forwards them to Django - handles normal
+  server-side API errors - does NOT duplicate the client apiClient
+  implementation - does not attempt client-side token manipulation
+
+  The client apiClient and server-side fetch helper are separate concerns
+  because they run in different environments.
+  -----------------------------------------------------------------------
+
+22. CORE ARCHITECTURAL PRINCIPLE — FINAL SUMMARY
+
+The frontend should follow this rule:
+
+    USE SERVER COMPONENTS BY DEFAULT.
+    USE CLIENT COMPONENTS ONLY FOR INTERACTIVITY.
+    TALK TO DJANGO DIRECTLY.
+    KEEP DJANGO AS THE REAL BACKEND.
+    CENTRALIZE CLIENT-SIDE API AUTH/CSRF/REFRESH LOGIC.
+    DO NOT TURN NEXT.JS INTO A SECOND BACKEND.
+
+More concretely:
+
+    Initial page/read data:
+        Server Component → Django
+
+    Interactive browser data:
+        Client Component → apiClient → Django
+
+    Mutations:
+        Client Component → apiClient → Django
+
+    Token refresh:
+        apiClient reacts to 401 → Django refresh → retry once
+
+    Concurrent refresh:
+        one shared refresh operation; other requests wait
+
+    CSRF:
+        apiClient automatically reads csrftoken and sends X-CSRFToken
+
+    Authentication:
+        httpOnly Django cookies; JWTs never handled directly in JS
+
+    Middleware:
+        lightweight route protection only; NO token refresh
+
+    Server Actions:
+        rare/specific Next.js-only cases only; NOT the normal backend
+        communication mechanism
+
+    Data caching:
+        Server Components by default;
+        TanStack Query only where client-side server state genuinely
+        benefits from it
+
+    Video:
+        .m3u8 → hls.js
+        progressive video → native <video>
+
+    Personalized highlighting:
+        mapping stays highlighted if ANY linked sense is unlearned
+
+    Subtitle mapping:
+        cue_id + exact word string + 1-based occurrence number
+
+    Tokenization:
+        simple whitespace-based tokenizer for V1, punctuation attached,
+        contractions preserved, shared by learner and admin editor
+
+    Backend:
+        source of truth for authentication, authorization, business
+        logic, data, and persistence.
+
+  -------------------------------
+  END OF CURRENT PLANNING RECAP
+  -------------------------------
+
+
+===============================================================================
+23. PLANNING UPDATE — ALL 12 FRONTEND REVIEW ITEMS RESOLVED (2026-08-27)
+===============================================================================
+
+This section supplements and, where there is a conflict, supersedes the older
+planning text above. Existing useful architecture and backend-contract details
+remain in force unless explicitly changed here.
+
+23.1 STAFF SECTION DETAIL / ADMIN MAPPING VISIBILITY — RESOLVED
+
+Backend behavior has been changed so staff users are not subject to learner
+personalization when section mappings are returned. The relevant filtering
+logic now returns all mappings for staff before applying learner-vocabulary
+filtering, conceptually:
+
+    if request and request.user.is_staff:
+        return mappings
+
+Therefore the admin mapping editor may use section detail and expect all
+existing mappings to remain visible regardless of the staff user's personal
+Vocabulary rows. Learner personalization remains unchanged for non-staff.
+
+23.2 TOKEN EXPIRATION / REFRESH — RESOLVED
+
+Keep the short-lived access token + long-lived refresh token system.
+
+Client-side requests:
+- centralized apiClient detects a 401
+- calls Django POST /api/users/refresh/
+- retries the original request exactly once
+- concurrent 401s share one refresh attempt via a single-flight/shared promise
+- if refresh fails, treat the session as expired and send the user to /login
+
+Server Component requests:
+- the server-side Django fetch helper detects a 401
+- it redirects the browser through a small Next.js refresh Route Handler
+- the Route Handler calls Django's refresh endpoint
+- it forwards Django's new Set-Cookie headers to the browser
+- it redirects the user back to the original URL
+- the page loads again with the refreshed access cookie
+- if refresh fails, redirect/treat the session as expired and send the user to
+  /login
+
+Never retry indefinitely. Refresh/retry is allowed only once per failed flow.
+Django remains responsible for authentication and issuing cookies.
+
+23.3 SHARED-DOMAIN COOKIE ARCHITECTURE — ACCEPTED
+
+The previously planned production cookie/domain architecture is accepted.
+Keep the production Domain=.lingopalm.com approach and the existing direct
+browser-to-Django / Server-Component-to-Django architecture. No redesign is
+required for this item.
+
+23.4 ROUTES + PARENT/CHILD CORRECTNESS — RESOLVED AND UPDATED
+
+DROP the learner-facing /learning prefix.
+REPLACE the /teaching prefix with /admin.
+
+Use Next.js route groups for code/layout organization without exposing those
+group names in URLs.
+
+Recommended structure conceptually:
+
+    app/
+      (learner)/
+        courses/
+        my-vocabulary/
+        review/
+
+      (admin)/
+        admin/
+          courses/
+          dictionary/
+          analytics/
+
+Final learner URLs:
+
+    /courses
+    /courses/[courseId]
+    /courses/[courseId]/sections/[sectionId]
+    /courses/[courseId]/sections/[sectionId]/vocabulary
+    /my-vocabulary
+    /review/flashcard
+    /review/clip
+
+Final admin URLs:
+
+    /admin/courses
+    /admin/courses/[courseId]
+    /admin/courses/[courseId]/sections/[sectionId]
+    /admin/dictionary
+    /admin/dictionary/scrape       (when env-gated/enabled)
+    /admin/analytics
+
+Keep the nested course/section learner route. When the page fetches:
+
+    GET /api/courses/sections/{sectionId}/
+
+Django returns the section including its actual parent course. The Next.js
+page must verify the URL relationship:
+
+    if (section.course.id !== Number(courseId)) {
+      notFound()
+    }
+
+No backend endpoint or routing change is required for this correctness check.
+Django still remains authoritative for publication visibility and permissions.
+
+IMPORTANT: Older references above to /learning/* and /teaching/* should now be
+read as the equivalent routes listed in this section. Middleware/layout route
+protection should be updated accordingly.
+
+23.5 ADMIN WORD-SENSE-MAPPING EDITOR UX — RESOLVED
+
+Do NOT require Ctrl-based selection as the primary interaction.
+
+Use an explicit selection mode:
+- transcript tokens are clickable/tappable
+- clicking/tapping an unmapped token toggles that exact subtitle occurrence
+  into/out of the current selection
+- selected occurrences remain visibly selected
+- selection may contain multiple words and may span cues
+- show a persistent/floating action such as "Map 3 selected words"
+- activating that action opens the sense-search/mapping panel
+- keyboard modifiers may exist as optional power-user shortcuts, but the editor
+  must never depend on them
+
+Existing mappings:
+- already-mapped subtitle occurrences are visibly highlighted
+- mappings never overlap: one subtitle-word occurrence can belong to only one
+  mapping
+- clicking an already-mapped word opens that existing mapping for editing
+  instead of selecting it for a new mapping
+- all words belonging to one mapping should visibly read as one teaching unit
+- existing mapping editing still supports changing senses, adding/removing
+  subtitle occurrences through the documented backend endpoints, or deleting
+  the mapping
+
+This interaction must work with mouse, keyboard, and touch.
+
+23.6 SHARED VTT PARSING PIPELINE — RESOLVED
+
+Replace the hidden <video>/<track>-as-parser approach with a shared frontend VTT
+parsing pipeline:
+
+    VTT text
+      -> parse cues
+      -> tokenize cues
+      -> canonical frontend cue/token structure
+
+Both the learner video player and the admin subtitle editor consume the same
+canonical cue/token structure and the same shared tokenizer.
+
+A real <track> may still be used where useful for actual media playback, but it
+is not the application's subtitle-data parser/source of token identity.
+
+The canonical structure must preserve the data needed to match backend
+SubtitleWord identity, including cue identity/timing, exact token text, and the
+1-based per-exact-word occurrence counter used as position_in_cue.
+
+23.7 TOKENIZATION EDGE CASES — RESOLVED FOR V1
+
+Keep the existing V1 tokenization rules and do not over-engineer edge cases
+before the basic system is working:
+- whitespace splitting
+- punctuation remains attached
+- contractions/apostrophes remain inside tokens
+- position_in_cue is 1-based and scoped to the exact word string within a cue
+
+If real capitalization/Unicode/punctuation/hyphen/apostrophe edge cases appear,
+update the shared frontend tokenizer and backend behavior together.
+
+23.8 LEARNER VIDEO + SENSE MODAL INTERACTION — RESOLVED
+
+Core modal behavior:
+- clicking any highlighted subtitle word pauses the video and opens a learning
+  modal layered over the video player
+- there are no tooltip/popover/side-panel alternatives for this interaction
+- uncovered portions of the player are darkened/shadowed while the modal is
+  open
+- mobile uses the same concept as a responsive modal over the player
+- if a mapping contains multiple subtitle words, clicking any one of them opens
+  the same mapping
+- the modal displays all senses belonging to the opened mapping
+- the subtitle word/phrase group for the current mapping must be shown
+  prominently so the learner always knows which teaching unit the sense belongs
+  to
+
+Learning from the modal:
+- an individual sense can be marked learned using the existing
+  set_learned bulk action with a one-item sense_ids array
+- do not use optimistic UI initially
+- wait for Django to confirm success
+- after success, reflect that sense as learned immediately in local modal state
+- if all senses associated with that mapping are now learned, remove that
+  mapping's subtitle highlight immediately from local client state; no page
+  reload is required
+- if the mutation fails, do not remove anything; keep the modal open and show
+  the normalized error
+
+Playback restoration:
+- opening the modal pauses playback
+- remember whether the video had been playing immediately before the modal was
+  opened
+- closing the modal resumes playback only if it had been playing before opening
+- if it was already paused, keep it paused
+
+Desktop current-cue learning mode:
+- while the video is playing, pressing Enter pauses playback and opens the
+  learning modal for ALL mappings active in the current cue
+- if the current cue has no highlighted mappings, Enter does nothing
+- order is deterministic: mappings in subtitle order, then senses inside each
+  mapping in their stored order
+- example sequence:
+
+      look for -> sense 1
+      look for -> sense 2
+      head     -> sense 1
+      head     -> sense 2
+      head     -> sense 3
+
+- Left Arrow / Right Arrow moves through the senses
+- visible previous/next arrow buttons provide the same navigation for
+  mouse/touch users
+- Enter while this modal is open closes it; playback resumes according to the
+  remembered pre-modal playback state
+
+Specific-mapping mode:
+- clicking a highlighted subtitle word opens ONLY that word's mapping
+- clicking any constituent of a multi-word mapping opens that same mapping
+- Left/Right and visible arrow buttons move only through that mapping's senses
+
+Mobile/touch behavior:
+- tapping a highlighted subtitle word opens only that mapping
+- tapping the center area of the video toggles normal play/pause
+- tapping a designated corner area opens the current-cue learning modal (the
+  touch equivalent of desktop Enter)
+- if the current cue has no highlighted mappings, the corner action does
+  nothing
+- on-screen previous/next controls navigate senses
+- closing follows the same remembered-playback rule
+
+23.9 API ERROR / AUTH FAILURE UX — RESOLVED
+
+No backend changes are required for now.
+
+The centralized apiClient normalizes backend/network errors into one consistent
+frontend error representation containing, where available:
+- HTTP status
+- general detail/message
+- field-specific validation errors
+- useful backend-specific error information needed by specialized UIs
+
+Components must not each reinvent parsing of Django/DRF error shapes.
+
+Presentation rules:
+- 400 -> validation/field errors
+- 401 -> apiClient first performs the settled refresh flow; if refresh fails,
+  session is expired/unauthenticated
+- 403 -> appropriate permission or CSRF error
+- 404 -> not-found UI where appropriate
+- 409 -> preserve/display Django's domain-specific explanation
+- network/backend unavailable -> friendly retry-capable error
+- dev scraper 422/502 and similar -> preserve/display useful backend messages
+
+Principle:
+Django determines what went wrong; apiClient standardizes how the frontend
+receives it; the individual UI decides how best to present it.
+
+23.10 APPLICATION SHELL / NAVIGATION — RESOLVED
+
+Use one learner shell and one admin shell.
+
+Learner route group/layout:
+- shared learner navigation
+- primary destinations: Courses, My Vocabulary, Review
+
+Admin route group/layout:
+- separate admin navigation
+- performs the frontend staff UX gate using GET /api/users/me/
+- Django remains the security boundary
+
+Course pages may use lightweight course-level sub-navigation only where useful,
+for example:
+- Overview
+- Sections
+- Vocabulary
+
+Do NOT add a permanent second course sidebar unless actual UI usage later proves
+it valuable.
+
+Mobile:
+- learner/admin navigation becomes an appropriate drawer, bottom navigation, or
+  compact mobile menu
+- keep the video page especially uncluttered so the player receives most of the
+  available space
+
+23.11 CLIENT-SIDE QUERY / INTERACTIVE STATE STRATEGY — RESOLVED FOR NOW
+
+Keep the existing architecture:
+- Server Components by default for initial/read-heavy server data
+- TanStack Query only where genuinely useful, especially live/debounced sense
+  search and other client-data-heavy interactions
+- do not introduce a global query-cache architecture merely for consistency
+
+For highly interactive workspaces such as the mapping editor, maintain sensible
+local working state rather than blindly calling router.refresh() after every
+small operation. Use router.refresh() where server-rendered enclosing data
+actually needs refetching. The exact use of TanStack Query can be revisited
+based on implementation experience, but it is not a global dependency pattern.
+
+23.12 ACCESSIBILITY, RESPONSIVENESS, UNSAVED WORK + KEYBOARD LEARNING — RESOLVED
+
+Accessibility:
+- all custom video controls must be keyboard-focusable and properly labeled
+- preserve the established video keyboard shortcuts
+- learning modal traps focus while open and restores focus when closed
+- highlighted interactive subtitle words must be keyboard reachable, not
+  mouse-only
+- visible controls must exist for interactions that also have keyboard
+  shortcuts
+
+Responsive behavior:
+- learner sense UI remains a responsive modal over the video on mobile
+- admin subtitle editor supports tap selection and never depends on Ctrl or
+  other keyboard modifiers
+- minimize persistent chrome/navigation around the video on small screens
+
+Unsaved admin work:
+- if the admin has an unfinished mapping selection or edited mapping form and
+  attempts to navigate away, show a confirmation warning
+- once Django confirms a mapping/course/section mutation, that confirmed change
+  is no longer considered unsaved
+- navigation warnings should cover the meaningful in-app/browser navigation
+  cases available to the frontend
+
+Desktop keyboard-learning goal:
+The learner should be able to operate the core video-learning flow largely with
+one hand on the keyboard. The Enter / Left Arrow / Right Arrow behavior defined
+in 23.8 is part of this accessibility/interaction requirement.
+
+===============================================================================
+24. UPDATED OPEN-ITEM STATUS
+===============================================================================
+
+The 12 frontend review/design issues discussed after the previous recap are now
+considered resolved/accepted for planning purposes.
+
+Remaining verification should therefore be implementation-driven rather than
+reopening these decisions, except when:
+- the real backend contract changes
+- an implementation constraint proves a settled design impossible or unsafe
+- real-world tokenization/media/browser behavior exposes an edge case
+- usability testing demonstrates that an interaction needs adjustment
+
+The earlier OPEN ITEMS section should be interpreted in light of this update:
+- tokenization: settled for V1; revisit only for discovered edge cases
+- mapping-editor UX: interaction design above is now the implementation target
+- query-library usage: localized/need-based strategy settled for now
+- API error/auth UX: settled above
+- final routes/layouts: settled above
+- auth expiration/stale-cookie behavior: settled via client refresh + Next.js
+  refresh Route Handler flow
+- server-side fetch helper: must implement the 401 -> refresh Route Handler
+  redirect flow described above
+
+===============================================================================
+25. UPDATED CORE FRONTEND SUMMARY
+===============================================================================
+
+    URLs:
+        learner routes have no /learning prefix
+        admin authoring lives under /admin
+        Next.js route groups organize learner/admin code without affecting URLs
+
+    Parent/child URL correctness:
+        fetch section by sectionId
+        compare section.course.id with route courseId
+        mismatch -> notFound()
+
+    Authentication:
+        Django httpOnly JWT cookies remain authoritative
+        client 401 -> shared refresh -> retry once
+        Server Component 401 -> redirect through Next.js refresh Route Handler
+        Route Handler forwards Django Set-Cookie -> redirects back
+        refresh failure -> /login
+
+    Admin mappings:
+        staff section detail receives all mappings
+        mappings never overlap
+        explicit click/tap selection mode for new mappings
+        clicking mapped words edits the existing mapping
+
+    Subtitle data:
+        fetch/read VTT text
+        shared parser -> shared tokenizer -> canonical cue/token structure
+        learner player and admin editor use the same structure
+
+    Learner modal:
+        click highlighted word -> that mapping only
+        Enter / mobile corner action -> all mappings in current cue
+        Left/Right or visible arrows -> navigate senses
+        modal overlays/darkens video
+        opening pauses; closing restores prior playback state
+        learning a final remaining sense removes mapping highlight locally after
+        Django confirms success
+
+    Errors:
+        apiClient normalizes
+        Django remains source of error semantics
+        UI chooses presentation
+
+    Shells:
+        one learner shell
+        one /admin shell
+        lightweight nested course navigation only where useful
+
+    Accessibility/mobile:
+        keyboard-accessible custom controls and subtitle interactions
+        focus-managed modal
+        touch-capable admin selection
+        responsive video-first layouts
+        warn before abandoning meaningful unsaved admin work
+
+All previously settled architectural principles remain in force unless this
+update explicitly supersedes them.
+
+===============================================================================
+26. VIDEO PLAYER INTERNAL ARCHITECTURE — RESOLVED (2026-08-29)
+===============================================================================
+
+This section adds implementation-level architecture decisions for the custom
+learner video player. It complements the previously settled player UX in 23.8
+and the shared VTT pipeline in 23.6. Where older player implementation details
+from the prototype conflict with this section, this section is authoritative.
+
+The old player is UX/reference material only. Do NOT reproduce its tightly
+coupled internal architecture, large prop surfaces, DOM-driven subtitle data
+handling, duplicated media logic, or giant components.
+
+26.1 ZUSTAND — USE IT, BUT KEEP THE STORE PLAYER-SCOPED
+
+Use Zustand for shared reactive video-player state/actions where it removes
+prop drilling and makes player components easier to understand.
+
+Do NOT create one application-global singleton video store. Each VideoPlayer
+instance must have its own store, preferably created through a player Provider
+using a vanilla Zustand store. This avoids coupling separate player instances
+and keeps future clip-review/player reuse safe.
+
+Add Zustand to the frontend dependencies/tech stack.
+
+The store may contain shared observable state such as:
+
+    currentTime
+    duration
+    isPlaying
+    isEnded
+    isBuffering
+    volume
+    isMuted
+    playbackRate
+    isFullscreen
+    isTheater
+    activeCueId / activeCueIndex
+
+    modalMode              // "closed" | "mapping" | "cue"
+    activeMappingId
+    activeSenseIndex
+    wasPlayingBeforeModal
+
+and player actions/concepts such as:
+
+    play()
+    pause()
+    togglePlay()
+    seekTo()
+    seekBy()
+    setVolume()
+    toggleMute()
+    setPlaybackRate()
+    toggleTheater()
+
+    openMappingModal()
+    openCueModal()
+    closeLearningModal()
+    nextSense()
+    previousSense()
+
+This list is architectural guidance, not a requirement that every field/action
+must have exactly these names.
+
+Do NOT put everything into Zustand merely because it is player-related.
+In particular, do not automatically store React components, the Hls instance,
+or the HTMLVideoElement itself in Zustand.
+
+26.2 HTMLMediaElement REMAINS THE MEDIA SOURCE OF TRUTH
+
+The real <video> / HTMLMediaElement remains the source of truth for actual media
+playback. Zustand represents the reactive UI/player state needed by React; it
+must not become a competing fake media engine.
+
+Use a small player-controller layer/hook that owns:
+
+    videoRef
+    Hls instance / source attachment lifecycle
+    media event listeners
+    imperative media operations
+
+Conceptually:
+
+    HTMLMediaElement
+          <->
+    Player Controller
+          <->
+    Zustand Player Store
+          <->
+    Controls / Subtitles / Learning Modal
+
+Media events synchronize observable state into the store, for example:
+
+    play                 -> isPlaying = true
+    pause                -> isPlaying = false
+    timeupdate            -> currentTime
+    durationchange        -> duration
+    waiting               -> isBuffering = true
+    canplay / playing     -> isBuffering = false
+    volumechange          -> volume / muted
+    ended                 -> isEnded = true
+
+The controller should be the main place where imperative calls such as
+video.play(), video.pause(), seeking, source attachment, and cleanup are
+coordinated.
+
+26.3 FAST-CHANGING STATE / ZUSTAND SELECTORS
+
+currentTime changes frequently. Do not cause the entire player tree to rerender
+on every playback-time update.
+
+Components must subscribe narrowly to the state they need. Avoid broad
+subscriptions equivalent to reading the whole store.
+
+Only components/features that genuinely depend on currentTime should subscribe
+to it, primarily:
+- timeline/progress UI
+- current-time display
+- active-cue synchronization
+
+Most buttons and static controls should not rerender merely because playback
+time changed.
+
+26.4 ACTIVE CUE SYNCHRONIZATION
+
+Because subtitle data is parsed through the shared VTT pipeline, do NOT return
+to browser <track> cuechange events as the application's subtitle-data source.
+
+The canonical parsed cue structure should contain the timing/token identity
+needed by the player. The player determines the active cue from media playback
+time.
+
+Preferred implementation:
+- maintain an active cue index during normal forward playback
+- advance/backtrack that index as playback crosses cue boundaries
+- after a seek or other discontinuous time jump, use a binary-search fallback
+  to find the correct cue efficiently
+
+Do not repeatedly perform an unnecessary full linear search over every cue on
+every time update.
+
+26.5 SUBTITLE COMPONENT RESPONSIBILITIES
+
+Subtitle rendering components should be mostly presentational.
+
+They consume the already-parsed canonical cue/token structure and mapping data.
+They must NOT:
+- parse raw VTT
+- invent/reconstruct token identity independently
+- mutate punctuation to make matching work
+- calculate occurrence identity ad hoc in the rendering layer
+- construct the subtitle JSX through a state-setting useEffect merely because
+  the active cue changed
+- use module-level/random counters to assign learner mapping colors
+
+Exact backend matching continues to use the shared deterministic identity:
+
+    cue_id + exact word string + 1-based position_in_cue occurrence counter
+
+The learner player and admin editor must continue sharing the same tokenizer and
+canonical subtitle model.
+
+26.6 LEARNER HIGHLIGHT COLOR POLICY
+
+For the learner player, use one consistent visual highlight treatment for
+teachable/mapped subtitle occurrences rather than cycling through arbitrary
+per-mapping colors.
+
+The interaction itself identifies the mapping when the learner clicks/taps it,
+so multiple arbitrary colors are unnecessary and can add visual noise.
+
+The admin mapping editor may still use distinct mapping colors because visually
+distinguishing adjacent/existing teaching units is useful during authoring.
+
+26.7 CONTROL VISIBILITY / AUTO-HIDE
+
+Use normal custom-player control behavior rather than tying visibility only to
+paused/playing state.
+
+Controls should remain visible when:
+- playback is paused
+- the user is actively hovering/focusing/interacting with the player controls
+- pointer movement or a touch interaction has recently revealed them
+
+While playing and inactive, controls should automatically hide after a short
+inactivity delay. Interacting with the player reveals them again.
+
+The exact delay is an implementation/UI-polish value rather than a backend or
+product contract.
+
+26.8 VIDEO-SURFACE POINTER / TOUCH BEHAVIOR
+
+Keep the already-settled mobile behavior from 23.8.
+
+For the normal desktop video surface when the learning modal is closed:
+- single click on non-interactive video background -> play/pause
+- double click left side -> seek backward 10 seconds
+- double click right side -> seek forward 10 seconds
+
+Interactive subtitle words and visible controls must handle their own clicks and
+must not accidentally trigger the background play/pause/seek behavior.
+
+26.9 LEARNING MODAL OWNS THE INTERACTION WHILE OPEN
+
+While the learning modal is open, underlying player controls/seeking are not
+interactive. The modal is the active interaction layer and playback remains
+paused according to the already-settled modal rules.
+
+This prevents the media/cue context from changing underneath the learner while
+reading or marking senses.
+
+The existing focus-trap and focus-restoration accessibility requirements remain
+in force.
+
+26.10 NORMAL ENDING VS FUTURE CLIP PLAYBACK
+
+For ordinary section playback:
+
+    media ended -> show a replay state
+    replay       -> seek to 0 and play
+
+Do not overload normal ended behavior with clip-review logic.
+
+If clip playback is implemented later, model clipStart/clipEnd (or an equivalent
+playback range) as a separate feature/controller concern. A clip boundary is not
+the same thing as the underlying media element naturally reaching its end.
+
+26.11 HLS / SOURCE LIFECYCLE AND MEDIA ERRORS
+
+Keep the settled source support:
+- .m3u8 -> HLS path
+- progressive .mp4/.webm/etc. -> native video path
+
+The media controller/source hook should:
+- use native HLS where the browser supports the required HLS playback directly
+- otherwise create hls.js only when an HLS source requires it
+- attach the source/media cleanly
+- destroy the Hls instance when the source changes or player unmounts
+- remove all event listeners during cleanup
+- distinguish temporary buffering from fatal/unrecoverable playback failure
+- expose a normalized player/media error state suitable for the player UI
+
+Do not leak Hls instances or media listeners across source changes/unmounts.
+
+26.12 PLAYER LOADING / BUFFERING STATUS
+
+Represent player readiness explicitly enough to distinguish initial loading,
+ready playback, temporary buffering, and fatal error. A suitable model is
+conceptually:
+
+    "idle" | "loading" | "ready" | "buffering" | "error"
+
+or an equivalent smaller state model such as isBuffering + mediaError if that
+proves cleaner in implementation.
+
+Do not show a giant blocking loading modal for every short buffering event.
+Use an appropriate spinner/loading indication over the player for temporary
+buffering and a distinct recoverable/error UI for actual failures.
+
+26.13 PERSISTED PLAYER PREFERENCES
+
+Persist these user preferences in localStorage:
+- volume
+- muted state
+- playback rate
+
+Do NOT persist these merely as player preferences:
+- fullscreen state
+- theater state
+- open learning modal state
+- current playback position
+
+Playback-position persistence/resume may be added later only as a deliberate
+progress/resume feature.
+
+Read persisted preferences defensively and fall back to sensible defaults if
+storage is unavailable or invalid.
+
+26.14 THEATER MODE OWNERSHIP
+
+Keep theater mode.
+
+Fullscreen is primarily a browser/player concern through the Fullscreen API.
+Theater mode changes the surrounding page layout, so expose isTheater /
+toggleTheater through the player state while allowing the player shell/page
+layout to react to it.
+
+Do not make the low-level <video> element/component responsible for knowing the
+whole page layout.
+
+26.15 KEYBOARD SHORTCUT ROUTING
+
+Use one clear keyboard-shortcut controller for the player rather than scattered
+or duplicated document listeners. Prefer player-scoped keyboard handling so
+shortcuts apply when the player is the active context.
+
+Ignore normal player shortcuts when focus is inside an input, textarea, select,
+or contenteditable element, unless that particular control explicitly defines a
+safe behavior.
+
+When the learning modal is OPEN:
+
+    Enter        -> close modal
+    ArrowLeft    -> previous sense
+    ArrowRight   -> next sense
+
+When the learning modal is CLOSED:
+
+    Enter        -> open current-cue learning modal if mappings exist
+    Space / K    -> play/pause
+    J            -> seek backward using the established keyboard seek amount
+    L            -> seek forward using the established keyboard seek amount
+    ArrowLeft    -> seek backward using the established keyboard seek amount
+    ArrowRight   -> seek forward using the established keyboard seek amount
+    M            -> mute/unmute
+    F            -> fullscreen
+    T            -> theater mode
+
+The same keys may intentionally have different meanings while the learning modal
+is open. Centralizing shortcut routing makes this state-dependent behavior
+explicit and testable.
+
+Visible controls must continue to exist for important shortcut-only actions so
+the player is not keyboard-exclusive.
+
+26.16 RECOMMENDED PLAYER COMPONENT BOUNDARIES
+
+Keep components/modules small and responsibility-focused. A reasonable target
+structure is:
+
+    VideoPlayer/
+      VideoPlayer.tsx
+      PlayerProvider.tsx
+
+      core/
+        playerStore.ts
+        useMediaController.ts
+        useHls.ts
+        useKeyboardShortcuts.ts
+        useActiveCue.ts
+
+      subtitles/
+        SubtitleOverlay.tsx
+        SubtitleCue.tsx
+        SubtitleToken.tsx
+
+      controls/
+        PlayerControls.tsx
+        Timeline.tsx
+        VolumeControl.tsx
+        PlaybackRate.tsx
+        FullscreenButton.tsx
+        TheaterButton.tsx
+
+      learning/
+        LearningModal.tsx
+        SenseView.tsx
+        SenseNavigation.tsx
+
+Exact filenames may change during implementation. The architectural goal is the
+important part: VideoPlayer should primarily compose focused pieces rather than
+owning hundreds of lines of unrelated state, effects, event listeners, subtitle
+matching, modal logic, and control handlers.
+
+26.17 PLAYER STATE OWNERSHIP RULE OF THUMB
+
+Use this ownership model when deciding where new player state belongs:
+
+- HTMLMediaElement: actual media playback truth
+- media/player controller: imperative video/HLS integration and lifecycle
+- player-scoped Zustand: shared reactive player UI/interaction state
+- local React component state: state used by only one small component
+- parsed subtitle/mapping model: canonical domain data, not DOM-derived state
+- Django/apiClient: persisted learner/server state and mutations
+
+Do not move state into Zustand solely to avoid passing one or two sensible props.
+Use it where state/actions are genuinely shared across player subsystems.
+
+===============================================================================
+27. FRONTEND API TYPES — HANDWRITTEN TYPE ALIASES (DECIDED)
+===============================================================================
+
+Use handwritten TypeScript API request/response types based on the documented
+Django backend contract.
+
+Do NOT introduce OpenAPI/type generation for V1 merely to generate frontend API
+types. The backend contract remains the source used to maintain these types
+manually.
+
+IMPORTANT STYLE RULE:
+Use TypeScript `type` aliases, NOT `interface`, for these frontend API/domain
+type declarations.
+
+Example style:
+
+    export type SectionDetail = {
+      id: number
+      title: string
+      video_url: string
+      subtitle_file: string | null
+      word_sense_mappings: WordSenseMapping[]
+    }
+
+    export type WordSenseMapping = {
+      id: number
+      senses: Sense[]
+      subtitle_words: SubtitleWord[]
+      created_at: string
+    }
+
+Centralize API contract types rather than redefining slightly different copies
+inside individual components. A structure such as the following is appropriate:
+
+    lib/api/types/
+      users.ts
+      dictionary.ts
+      courses.ts
+      vocabulary.ts
+      common.ts
+
+or an equivalent clearly organized location.
+
+Keep distinct request and response types where the backend shapes genuinely
+differ. Do not "simplify" documented Django differences away. Important example:
+WordSenseMapping CREATE uses `senses`, while UPDATE uses `sense_ids`; model these
+as separate request types.
+
+Frontend-only view models/player types may be separate from raw API response
+types when transformation improves clarity. Do not pretend a transformed
+frontend model is the literal Django response shape.
+
+When the Django API contract changes, update the centralized handwritten types
+and the affected frontend code together.
+
+===============================================================================
+28. TESTING STRATEGY — DECIDED
+===============================================================================
+
+Testing is part of the implementation plan rather than an optional final polish
+step.
+
+Use:
+- Vitest for unit tests
+- React Testing Library for important React component/interaction tests
+- Playwright for critical browser/end-to-end flows
+
+Do not attempt to test every trivial presentational component. Concentrate tests
+on logic and flows where regressions would be costly or difficult to notice.
+
+28.1 UNIT / INTEGRATION TEST PRIORITIES
+
+High-value Vitest / React Testing Library targets include:
+- shared VTT parser
+- shared tokenizer
+- cue/token identity and position_in_cue behavior
+- mapping-to-token matching
+- active-cue lookup, including seeking/binary-search fallback
+- player-scoped Zustand actions/state transitions
+- keyboard shortcut routing, especially modal-open vs modal-closed behavior
+- playback restoration around the learning modal
+- local removal of a mapping highlight only after the final sense is confirmed
+  learned
+- apiClient error normalization
+- apiClient 401 refresh/retry-once behavior
+- concurrent 401 single-flight refresh behavior
+- relevant form validation and mapping-editor selection logic
+
+For media-controller tests, mock browser media/HLS boundaries where appropriate;
+do not make ordinary unit tests depend on real streaming media.
+
+28.2 PLAYWRIGHT CRITICAL FLOWS
+
+At minimum, prioritize browser tests for:
+
+Authentication/session:
+- login and protected-route behavior
+- expired access token -> successful refresh -> original flow continues
+- failed refresh -> user ends at /login without a refresh loop
+
+Learner player:
+- section player loads
+- progressive/HLS path can reach usable playback in the relevant test setup
+- play/pause, seek, mute, playback rate, theater/fullscreen controls as feasible
+- subtitle highlight interaction opens the correct mapping
+- opening learning modal pauses and closing restores the correct prior state
+- Enter current-cue mode and Left/Right sense navigation
+- successful set_learned updates modal state and removes the mapping highlight
+  only when its final remaining sense is learned
+
+Admin mapping editor:
+- transcript/VTT loads into canonical tokens
+- click/tap-style selection can select multiple occurrences/cross-cue words
+- mapped occurrences cannot be placed into overlapping mappings
+- create mapping with selected subtitle occurrences + senses
+- edit senses on an existing mapping
+- add/remove occurrences where supported
+- delete mapping
+- unsaved-work navigation warning
+
+Vocabulary:
+- manual sense selection and representative bulk actions
+
+Do not require every browser engine/media codec combination in the first test
+suite if that makes tests brittle. Keep core deterministic logic heavily tested
+outside E2E and use Playwright for representative real user flows.
+
+28.3 TESTABILITY AS AN ARCHITECTURAL REQUIREMENT
+
+The player/controller/store split should make behavior testable without mounting
+the entire application. The VTT parser/tokenizer must be pure enough to test
+with small fixtures. Keyboard routing and state transitions should be testable
+without relying on scattered global event listeners.
+
+The coding AI should build features in reasonably small increments and add the
+high-value tests alongside the relevant implementation rather than generating
+the entire frontend first and attempting to retrofit tests afterward.
+
+===============================================================================
+29. ADDITIONS TO THE UPDATED CORE FRONTEND SUMMARY
+===============================================================================
+
+    Video-player internals:
+        player-scoped Zustand store, not a global singleton
+        HTMLMediaElement remains playback source of truth
+        controller owns videoRef / HLS / media listeners / imperative media work
+        narrow Zustand selectors prevent currentTime from rerendering everything
+        active cue uses indexed progression + binary-search fallback after seek
+        subtitles consume canonical parsed data and remain mostly presentational
+        one consistent learner highlight style; admin may use mapping colors
+        controls auto-hide during inactive playback
+        learning modal disables underlying player interaction while open
+        normal media ending and future clip-range ending are separate concepts
+        persist volume/mute/playback-rate only
+        theater state may affect the surrounding player/page shell
+        keyboard shortcuts are centralized and modal-state-aware
+
+    API TypeScript types:
+        handwritten from the documented Django contract
+        centralized rather than duplicated in components
+        use `type`, not `interface`
+        preserve distinct backend request/response shapes
+
+    Testing:
+        Vitest + React Testing Library for high-value logic/components
+        Playwright for critical authentication, learner-player, admin-editor,
+        and vocabulary flows
+        prioritize parser/tokenizer/player/auth/mapping behavior over trivial UI
+
+All decisions in Sections 23-25 remain in force. Sections 26-29 add detail to
+those decisions and must not be interpreted as removing any unrelated settled
+requirement.
+
