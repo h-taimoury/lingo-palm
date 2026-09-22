@@ -1,6 +1,6 @@
 import "server-only"
 
-const DEFAULT_DJANGO_ORIGIN = "http://127.0.0.1:8000"
+const DEFAULT_DJANGO_ORIGIN = "http://localhost:8000"
 
 function normalizeOrigin(value: string) {
   return value.replace(/\/+$/u, "")
@@ -8,7 +8,7 @@ function normalizeOrigin(value: string) {
 
 export const serverEnv = {
   djangoOrigin: normalizeOrigin(
-    process.env.DJANGO_ORIGIN ?? DEFAULT_DJANGO_ORIGIN,
+    process.env.DJANGO_ORIGIN ?? process.env.NEXT_PUBLIC_DJANGO_ORIGIN ?? DEFAULT_DJANGO_ORIGIN,
   ),
   accessCookieName: process.env.JWT_ACCESS_COOKIE_NAME ?? "access_token",
   refreshCookieName: process.env.JWT_REFRESH_COOKIE_NAME ?? "refresh_token",

@@ -6,7 +6,6 @@ import {
   ChevronLeft,
   ChevronRight,
   LoaderCircle,
-  Volume2,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -121,44 +120,46 @@ export function SenseView({ sense, learned }: SenseViewProps) {
 
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <h3 className="text-3xl font-bold tracking-tight text-red-600 dark:text-red-500">
-          {sense.entry.word}
-        </h3>
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
+        <div className="min-w-0 leading-relaxed">
+          <h3 className="inline text-3xl font-bold tracking-tight text-primary">
+            {sense.entry.word}
+          </h3>
 
-        {pronunciation?.text ? (
-          <span className="font-serif text-base text-zinc-600 dark:text-zinc-300">
-            {pronunciation.text}
+          {pronunciation?.text ? (
+            <span
+              className="ml-3 inline-block align-baseline font-[Arial] text-base text-zinc-600 dark:text-zinc-300"
+            >
+              {pronunciation.text}
+            </span>
+          ) : null}
+          <span className="ml-3 inline-block font-semibold italic text-emerald-700 dark:text-emerald-400">
+            {sense.entry.part_of_speech}
           </span>
-        ) : null}
-
-        <div
-          className="flex items-center gap-1"
-          role="group"
-          aria-label="Pronunciation audio"
-        >
-          <PronunciationButton
-            accent="British"
-            shortLabel="Br"
-            url={pronunciation?.br_audio}
-            playing={playingAccent === "British"}
-            onPlay={playPronunciation}
-          />
-          <PronunciationButton
-            accent="American"
-            shortLabel="Am"
-            url={pronunciation?.am_audio}
-            playing={playingAccent === "American"}
-            onPlay={playPronunciation}
-          />
+          <span
+            className="ml-2 inline-flex items-center gap-2 align-middle"
+            role="group"
+            aria-label="Pronunciation audio"
+          >
+            <PronunciationButton
+              accent="British"
+              url={pronunciation?.br_audio}
+              playing={playingAccent === "British"}
+              onPlay={playPronunciation}
+            />
+            <PronunciationButton
+              accent="American"
+              url={pronunciation?.am_audio}
+              playing={playingAccent === "American"}
+              onPlay={playPronunciation}
+            />
+          </span>
+          {learned ? (
+            <Badge variant="secondary" className="ml-2">
+              Already learned
+            </Badge>
+          ) : null}
         </div>
-      </div>
-
-      <div className="mt-2 flex flex-wrap items-center gap-2">
-        <span className="font-semibold italic text-emerald-700 dark:text-emerald-400">
-          {sense.entry.part_of_speech}
-        </span>
-        {learned ? <Badge variant="secondary">Already learned</Badge> : null}
       </div>
 
       {audioError ? (
@@ -285,13 +286,11 @@ export function SenseView({ sense, learned }: SenseViewProps) {
 
 function PronunciationButton({
   accent,
-  shortLabel,
   url,
   playing,
   onPlay,
 }: {
   accent: Accent;
-  shortLabel: string;
   url: string | null | undefined;
   playing: boolean;
   onPlay: (accent: Accent, url: string | null | undefined) => void;
@@ -302,8 +301,12 @@ function PronunciationButton({
     <Button
       type="button"
       variant="ghost"
-      size="sm"
-      className="gap-1 px-2 text-xs"
+      size="icon"
+      className={
+        accent === "British"
+          ? "cursor-pointer rounded-full p-0 text-[#ff5757] hover:bg-transparent hover:text-[#e84141] dark:hover:bg-transparent"
+          : "cursor-pointer rounded-full p-0 text-[#438fe0] hover:bg-transparent hover:text-[#2875c6] dark:hover:bg-transparent"
+      }
       disabled={!available}
       onClick={() => onPlay(accent, url)}
       aria-label={
@@ -317,11 +320,20 @@ function PronunciationButton({
           : `${accent} pronunciation unavailable`
       }
     >
-      <Volume2
-        className={playing ? "size-4 animate-pulse text-red-600" : "size-4"}
+      <svg
+        viewBox="0 0 24 24"
+        className={`size-6 ${playing ? "animate-pulse" : ""}`}
         aria-hidden="true"
-      />
-      {shortLabel}
+        fill="none"
+      >
+        <path d="M3 9h4l5-4v14l-5-4H3z" fill="currentColor" />
+        <path
+          d="M16 9a5 5 0 0 1 0 6m3-9a9 9 0 0 1 0 12"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
     </Button>
   );
 }

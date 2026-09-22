@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { LoaderCircle } from "lucide-react";
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage";
@@ -40,11 +41,15 @@ export function ThumbnailUpload({
       <h2 className="text-lg font-semibold">Thumbnail</h2>
       <ApiErrorMessage error={error} />
       {current ? (
-        <img
-          src={current}
-          alt="Current course thumbnail"
-          className="aspect-video w-full rounded-lg border object-cover"
-        />
+        <div className="relative aspect-video overflow-hidden rounded-lg border">
+          <Image
+            src={current}
+            alt="Current course thumbnail"
+            fill
+            sizes="(min-width: 1152px) 490px, (min-width: 1024px) calc(50vw - 86px), (min-width: 640px) calc(100vw - 90px), calc(100vw - 74px)"
+            className="object-cover"
+          />
+        </div>
       ) : (
         <div className="grid aspect-video place-items-center rounded-lg border bg-muted text-sm text-muted-foreground">
           No thumbnail

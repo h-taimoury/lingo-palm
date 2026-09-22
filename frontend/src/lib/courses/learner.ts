@@ -20,12 +20,11 @@ async function notFoundAware<T>(promise: Promise<T>) {
   }
 }
 
-export function getLearnerCourses(page: number, returnTo: string, search = "") {
+export function getLearnerCourses(page: number, search = "") {
   const query = new URLSearchParams({ page: String(page) });
   if (search) query.set("search", search);
   return djangoServerFetch<PaginatedResponse<CourseSummary>>(
     `/api/courses/courses/?${query}`,
-    { returnTo },
   );
 }
 export function getLearnerCourse(courseId: string | number, returnTo: string) {

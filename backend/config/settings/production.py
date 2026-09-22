@@ -14,6 +14,11 @@ if not ALLOWED_HOSTS:  # noqa: F405
 JWT_COOKIE_SECURE = True
 JWT_COOKIE_SAMESITE = "Lax"
 
+# Share authentication with Next.js server rendering and the readable CSRF
+# cookie with browser code on lingopalm.com.
+JWT_COOKIE_DOMAIN = env.str("JWT_COOKIE_DOMAIN", default=".lingopalm.com")  # noqa: F405
+CSRF_COOKIE_DOMAIN = env.str("CSRF_COOKIE_DOMAIN", default=".lingopalm.com")  # noqa: F405
+
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

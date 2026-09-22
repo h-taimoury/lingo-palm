@@ -5,7 +5,7 @@ import { DeleteButton } from "@/components/admin/DeleteButton";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Pagination } from "@/components/shared/Pagination";
 import { getAdminCourses } from "@/lib/admin/server";
-import { parsePositivePage, withPage } from "@/lib/courses/query";
+import { parsePositivePage, buildUrl } from "@/lib/courses/query";
 import { cn } from "@/lib/utils";
 import { CourseSearchForm } from "@/components/admin/courses/CourseSearchForm";
 
@@ -17,7 +17,7 @@ export default async function Page({
   const params = await searchParams;
   const page = parsePositivePage(params.page);
   const search = (params.search ?? "").trim();
-  const returnTo = withPage("/admin/courses", page, { search });
+  const returnTo = buildUrl("/admin/courses", { page, search });
   const data = await getAdminCourses(page, search, returnTo);
   return (
     <div className="mx-auto max-w-7xl px-4 py-9 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ export default async function Page({
       <Pagination
         page={page}
         count={data.count}
-        makeHref={(next) => withPage("/admin/courses", next, { search })}
+        makeHref={(next) => buildUrl("/admin/courses", { page: next, search })}
       />
     </div>
   );

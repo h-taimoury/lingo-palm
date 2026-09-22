@@ -145,10 +145,8 @@ JWT_REFRESH_COOKIE_NAME = env(
     default="refresh_token",
 )  # type: ignore
 
-# JWT_COOKIE_DOMAIN = env(
-#     "JWT_COOKIE_DOMAIN",
-#     default=None,
-# )  # type: ignore
+JWT_COOKIE_DOMAIN = env.str("JWT_COOKIE_DOMAIN", default="") or None
+CSRF_COOKIE_DOMAIN = env.str("CSRF_COOKIE_DOMAIN", default="") or None
 
 # JWT_COOKIE_PATH = env(
 #     "JWT_COOKIE_PATH",

@@ -26,7 +26,7 @@ def _set_auth_cookies(response, access_token, refresh_token):
         secure=settings.JWT_COOKIE_SECURE,
         httponly=True,
         samesite=settings.JWT_COOKIE_SAMESITE,
-        # domain=settings.JWT_COOKIE_DOMAIN,
+        domain=settings.JWT_COOKIE_DOMAIN,
         # path=settings.JWT_COOKIE_PATH,
     )
 
@@ -37,7 +37,7 @@ def _set_auth_cookies(response, access_token, refresh_token):
         secure=settings.JWT_COOKIE_SECURE,
         httponly=True,
         samesite=settings.JWT_COOKIE_SAMESITE,
-        # domain=settings.JWT_COOKIE_DOMAIN,
+        domain=settings.JWT_COOKIE_DOMAIN,
         # path=settings.JWT_COOKIE_PATH,
     )
 
@@ -48,14 +48,14 @@ def _clear_auth_cookies(response):
     """
     response.delete_cookie(
         key=settings.JWT_ACCESS_COOKIE_NAME,
-        # domain=settings.JWT_COOKIE_DOMAIN,
+        domain=settings.JWT_COOKIE_DOMAIN,
         # path=settings.JWT_COOKIE_PATH,
         samesite=settings.JWT_COOKIE_SAMESITE,
     )
 
     response.delete_cookie(
         key=settings.JWT_REFRESH_COOKIE_NAME,
-        # domain=settings.JWT_COOKIE_DOMAIN,
+        domain=settings.JWT_COOKIE_DOMAIN,
         # path=settings.JWT_COOKIE_PATH,
         samesite=settings.JWT_COOKIE_SAMESITE,
     )

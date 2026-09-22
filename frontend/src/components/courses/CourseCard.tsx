@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ImageIcon } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -23,17 +23,17 @@ export function CourseCard({
   return (
     <Link
       href={`/courses/${course.id}`}
-      className="group mx-auto block w-full max-w-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      className="group mx-auto block w-full max-w-70 rounded-2xl lg:max-w-78 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
     >
-      <Card className="h-full gap-0 overflow-hidden py-0 transition duration-200 group-hover:-translate-y-1 group-hover:shadow-lg rounded border-2 border-gray-300">
-        <div className="relative aspect-16/10 overflow-hidden bg-muted">
+      <Card className="h-full gap-4 rounded-2xl border border-orange-200 bg-orange-100 p-4 shadow-xl ring-0 transition duration-200 group-hover:-translate-y-1 group-hover:shadow-2xl">
+        <div className="relative aspect-16/10 overflow-hidden rounded-xl bg-muted">
           {thumbnail ? (
             <Image
               src={thumbnail}
               alt={`${course.title} course thumbnail`}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-              sizes="(max-width: 640px) 320px, 320px"
+              sizes="(min-width: 64rem) 17.375rem, 15.375rem"
             />
           ) : (
             <div className="grid h-full place-items-center text-muted-foreground">
@@ -44,17 +44,9 @@ export function CourseCard({
             </div>
           )}
 
-          <Badge
-            className={cn(
-              "absolute bottom-3 left-3 h-6 border px-2.5 shadow-sm",
-              levelStyles[course.level],
-            )}
-          >
-            {course.level}
-          </Badge>
         </div>
 
-        <div className="flex flex-1 flex-col p-5">
+        <div className="flex flex-1 flex-col">
           <h2 className="line-clamp-2 text-lg font-semibold leading-snug tracking-tight transition-colors group-hover:text-primary">
             {course.title}
           </h2>
@@ -62,13 +54,16 @@ export function CourseCard({
             {course.description || "No description yet."}
           </p>
 
-          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-            View course
-            <ArrowRight
-              className="size-4 transition-transform group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </span>
+          <div className="mt-auto pt-5">
+            <Badge
+              className={cn(
+                "h-6 rounded-full border px-2.5 text-xs font-medium",
+                levelStyles[course.level],
+              )}
+            >
+              {course.level}
+            </Badge>
+          </div>
         </div>
       </Card>
     </Link>

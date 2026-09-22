@@ -83,18 +83,13 @@ export function LearningModal({
         onKeyDown={keyDown}
         className="max-h-[92%] w-full max-w-2xl overflow-y-auto rounded-2xl bg-background p-5 text-foreground shadow-2xl sm:p-6"
       >
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Learn from this subtitle
-            </p>
-            <h2
-              id="learning-modal-title"
-              className="mt-1 truncate text-lg font-semibold"
-            >
-              {item.mappingLabel}
-            </h2>
-          </div>
+        <div className="mb-2 flex items-center justify-between gap-4">
+          <h2
+            id="learning-modal-title"
+            className="min-w-0 text-xs font-normal leading-5 text-muted-foreground"
+          >
+            From subtitle: “{item.mappingLabel}”
+          </h2>
           <Button
             type="button"
             variant="ghost"
@@ -105,7 +100,6 @@ export function LearningModal({
             <X className="size-5" />
           </Button>
         </div>
-        <div className="my-5 border-t" />
         <SenseView sense={item.sense} learned={learned} />
         {error ? (
           <p

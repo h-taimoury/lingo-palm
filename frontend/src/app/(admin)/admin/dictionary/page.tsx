@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { Pagination } from "@/components/shared/Pagination";
 import { buttonVariants } from "@/components/ui/button";
 import { getDictionaryEntries } from "@/lib/admin/server";
-import { parsePositivePage, withPage } from "@/lib/courses/query";
+import { parsePositivePage, buildUrl } from "@/lib/courses/query";
 import { publicEnv } from "@/lib/env";
 import { cn } from "@/lib/utils";
 
@@ -26,7 +26,7 @@ export default async function Page({
   const data = await getDictionaryEntries(
     page,
     search,
-    withPage("/admin/dictionary", page, { search }),
+    buildUrl("/admin/dictionary", { page, search }),
   );
 
   return (
@@ -74,7 +74,8 @@ export default async function Page({
         page={page}
         count={data.count}
         makeHref={(next) =>
-          withPage("/admin/dictionary", next, {
+          buildUrl("/admin/dictionary", {
+            page: next,
             search,
           })
         }

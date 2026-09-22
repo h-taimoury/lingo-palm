@@ -4,6 +4,7 @@ import { cookies, headers as requestHeaders } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { createApiError, createNetworkError } from "@/lib/api/errors";
+import { parseResponse } from "@/lib/api/response";
 import { buildDjangoUrl } from "@/lib/env.server";
 
 export type DjangoServerFetchOptions = RequestInit & {
@@ -14,20 +15,6 @@ export type DjangoServerFetchOptions = RequestInit & {
 export async function getCurrentRequestPath(fallback = "/") {
   const headers = await requestHeaders();
   return headers.get("x-lingopalm-path") || fallback;
-}
-
-async function parseResponse(response: Response): Promise<unknown> {
-  if (response.status === 204 || response.status === 205) return null;
-  const contentType = response.headers.get("content-type") ?? "";
-  if (contentType.includes("application/json")) {
-    try {
-      return await response.json();
-    } catch {
-      return null;
-    }
-  }
-  const text = await response.text();
-  return text || null;
 }
 
 export async function djangoServerFetch<T>(
