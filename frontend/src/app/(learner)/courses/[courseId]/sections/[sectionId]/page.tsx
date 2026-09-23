@@ -99,6 +99,7 @@ export default async function SectionPage({ params }: Props) {
             subtitleSource={proxyDjangoMediaUrl(section.subtitle_file)}
             mappings={section.word_sense_mappings}
             initialLearnedSenseIds={learnedIds}
+            initialKnownSenseIds={taught.filter((row) => row.already_known).map((row) => row.sense.id)}
             title={section.title}
           />
         </div>

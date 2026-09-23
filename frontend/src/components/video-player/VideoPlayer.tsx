@@ -9,6 +9,7 @@ export type VideoPlayerProps = {
   subtitleSource?: string | null;
   mappings: WordSenseMapping[];
   initialLearnedSenseIds?: number[];
+  initialKnownSenseIds?: number[];
   title?: string;
 };
 export function VideoPlayer(props: VideoPlayerProps) {

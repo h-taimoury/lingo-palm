@@ -245,6 +245,7 @@ export function useMediaController({
     } else {
       await container.requestFullscreen()
     }
+    container.focus({ preventScroll: true })
   }, [containerRef])
 
   return useMemo(

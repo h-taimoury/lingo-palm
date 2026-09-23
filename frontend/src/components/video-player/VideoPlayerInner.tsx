@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { GraduationCap, LoaderCircle, TriangleAlert } from "lucide-react";
 
 import {
@@ -34,15 +35,18 @@ export function VideoPlayerInner({
   subtitleSource,
   mappings: initialMappings,
   initialLearnedSenseIds = [],
+  initialKnownSenseIds,
   title,
 }: {
   source: string;
   subtitleSource?: string | null;
   mappings: WordSenseMapping[];
   initialLearnedSenseIds?: number[];
+  initialKnownSenseIds?: number[];
   title?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const controlsTimer = useRef<number | null>(null);
   const [cues, setCues] = useState<SubtitleCue[]>([]);
@@ -51,6 +55,7 @@ export function VideoPlayerInner({
     () => new Set(initialLearnedSenseIds),
   );
   const [learningError, setLearningError] = useState<string | null>(null);
+  const [knownSenseIds, setKnownSenseIds] = useState(() => new Set(initialKnownSenseIds));
   const [learningBusy, setLearningBusy] = useState(false);
   const [subtitleError, setSubtitleError] = useState<string | null>(null);
   const [controlsVisible, setControlsVisible] = useState(true);
@@ -82,7 +87,8 @@ export function VideoPlayerInner({
   useEffect(() => {
     setMappings(initialMappings);
     setLearnedSenseIds(new Set(initialLearnedSenseIds));
-  }, [initialMappings, initialLearnedSenseIds]);
+    setKnownSenseIds(new Set(initialKnownSenseIds));
+  }, [initialMappings, initialLearnedSenseIds, initialKnownSenseIds]);
   useEffect(() => {
     if (!subtitleSource) {
       setCues([]);
@@ -219,13 +225,13 @@ export function VideoPlayerInner({
   }, [isPlaying, modalMode, clearHideTimer, scheduleHide]);
   useEffect(() => clearHideTimer, [clearHideTimer]);
 
-  async function markSenseLearned(senseId: number) {
-    if (learnedSenseIds.has(senseId)) return;
+  async function markSenseLearned(senseId: number, alreadyKnown = false) {
+    if (learningBusy || learnedSenseIds.has(senseId)) return;
     setLearningBusy(true);
     setLearningError(null);
     try {
       const payload: VocabularyBulkActionRequest = {
-        action: "set_learned",
+        action: alreadyKnown ? "set_already_known" : "set_learned",
         sense_ids: [senseId],
       };
       await apiClient.post<
@@ -235,6 +241,7 @@ export function VideoPlayerInner({
       const nextLearned = new Set(learnedSenseIds);
       nextLearned.add(senseId);
       setLearnedSenseIds(nextLearned);
+      if (alreadyKnown) setKnownSenseIds((current) => new Set([...current, senseId]));
       const removedIds = new Set<number>();
       const nextMappings = mappings.filter((mapping) => {
         const fullyLearned = mapping.senses.every((sense) =>
@@ -251,11 +258,12 @@ export function VideoPlayerInner({
         (modalMode === "cue" && !cueHasMappings(activeCue, nextMappings))
       )
         closeLearningModal();
+      router.refresh();
     } catch (error) {
       setLearningError(
         error instanceof ApiError
           ? error.message
-          : "Unable to mark this sense as learned.",
+          : "Unable to save this sense to your vocabulary.",
       );
     } finally {
       setLearningBusy(false);
@@ -292,7 +300,8 @@ export function VideoPlayerInner({
     >
       <div
         ref={containerRef}
-        className="group relative aspect-video w-full overflow-hidden rounded-xl bg-black shadow-sm"
+        tabIndex={-1}
+        className="group relative aspect-video w-full overflow-hidden rounded-xl bg-black shadow-sm outline-none [&:fullscreen]:rounded-none [&:fullscreen]:shadow-none"
         onMouseMove={revealControls}
         onMouseLeave={() => isPlaying && scheduleHide()}
         onTouchStart={revealControls}
@@ -376,12 +385,14 @@ export function VideoPlayerInner({
             items={learningItems}
             activeIndex={activeSenseIndex}
             learnedSenseIds={learnedSenseIds}
+            knownSenseIds={knownSenseIds}
             isSubmitting={learningBusy}
             error={learningError}
             onClose={closeLearningModal}
             onPrevious={previousSense}
             onNext={nextSense}
             onLearn={markSenseLearned}
+            onAlreadyKnown={(senseId) => void markSenseLearned(senseId, true)}
           />
         ) : null}
       </div>

@@ -127,4 +127,14 @@
   html {
     @apply font-sans;
   }
+  /* I added this to make every enabled button in the app have the cursor:pointer effect: */
+  :is(
+      button,
+      [role="button"],
+      input[type="button"],
+      input[type="submit"],
+      input[type="reset"]
+    ):not(:disabled):not([aria-disabled="true"]):not([data-disabled]) {
+    @apply cursor-pointer;
+  }
 }

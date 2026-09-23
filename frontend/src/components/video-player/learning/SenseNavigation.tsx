@@ -16,29 +16,27 @@ export function SenseNavigation({
   onNext,
 }: SenseNavigationProps) {
   return (
-    <div className="flex items-center justify-between gap-3">
+    <div className="flex shrink-0 items-center gap-1" role="group" aria-label="Sense navigation">
       <button
         type="button"
         disabled={index <= 0}
         onClick={onPrevious}
-        className="inline-flex h-9 items-center justify-center gap-1 rounded-md border px-3 text-sm font-medium transition-colors hover:bg-accent disabled:pointer-events-none disabled:opacity-40"
+        aria-label="Previous sense"
+        title="Previous sense"
+        className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-default disabled:opacity-40"
       >
-        <ChevronLeft className="size-4" aria-hidden="true" />
-        Previous
+        <ChevronLeft className="size-5" aria-hidden="true" />
       </button>
-
-      <span className="text-sm tabular-nums text-muted-foreground">
-        {count === 0 ? "0 / 0" : `${index + 1} / ${count}`}
-      </span>
 
       <button
         type="button"
         disabled={index >= count - 1}
         onClick={onNext}
-        className="inline-flex h-9 items-center justify-center gap-1 rounded-md border px-3 text-sm font-medium transition-colors hover:bg-accent disabled:pointer-events-none disabled:opacity-40"
+        aria-label="Next sense"
+        title="Next sense"
+        className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-default disabled:opacity-40"
       >
-        Next
-        <ChevronRight className="size-4" aria-hidden="true" />
+        <ChevronRight className="size-5" aria-hidden="true" />
       </button>
     </div>
   )

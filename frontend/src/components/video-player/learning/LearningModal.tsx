@@ -11,24 +11,29 @@ export function LearningModal({
   items,
   activeIndex,
   learnedSenseIds,
+  knownSenseIds,
   isSubmitting,
   error,
   onClose,
   onPrevious,
   onNext,
   onLearn,
+  onAlreadyKnown,
 }: {
   items: LearningItem[];
   activeIndex: number;
   learnedSenseIds: ReadonlySet<number>;
+  knownSenseIds: ReadonlySet<number>;
   isSubmitting: boolean;
   error: string | null;
   onClose: () => void;
   onPrevious: () => void;
   onNext: () => void;
   onLearn: (senseId: number) => void;
+  onAlreadyKnown: (senseId: number) => void;
 }) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
   const item = items[activeIndex];
   useEffect(() => {
@@ -36,7 +41,7 @@ export function LearningModal({
       document.activeElement instanceof HTMLElement
         ? document.activeElement
         : null;
-    dialogRef.current?.focus();
+    scrollRef.current?.focus({ preventScroll: true });
     return () => previousFocus.current?.focus();
   }, []);
   if (!item) return null;
@@ -60,7 +65,11 @@ export function LearningModal({
     }
     const first = focusable[0],
       last = focusable.at(-1);
-    if (event.shiftKey && document.activeElement === first) {
+    if (
+      event.shiftKey &&
+      (document.activeElement === first ||
+        document.activeElement === scrollRef.current)
+    ) {
       event.preventDefault();
       last?.focus();
     } else if (!event.shiftKey && document.activeElement === last) {
@@ -72,7 +81,10 @@ export function LearningModal({
     <div
       className="absolute inset-0 z-40 flex items-center justify-center bg-black/75 p-3 sm:p-6"
       data-player-interactive="true"
-      onClick={(e) => e.stopPropagation()}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
       <div
         ref={dialogRef}
@@ -81,61 +93,93 @@ export function LearningModal({
         aria-labelledby="learning-modal-title"
         tabIndex={-1}
         onKeyDown={keyDown}
-        className="max-h-[92%] w-full max-w-2xl overflow-y-auto rounded-2xl bg-background p-5 text-foreground shadow-2xl sm:p-6"
+        className="flex max-h-[92%] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-background p-1 text-foreground shadow-2xl"
       >
-        <div className="mb-2 flex items-center justify-between gap-4">
-          <h2
-            id="learning-modal-title"
-            className="min-w-0 text-xs font-normal leading-5 text-muted-foreground"
-          >
-            From subtitle: “{item.mappingLabel}”
-          </h2>
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            onClick={onClose}
-            aria-label="Close learning dialog"
-          >
-            <X className="size-5" />
-          </Button>
-        </div>
-        <SenseView sense={item.sense} learned={learned} />
-        {error ? (
-          <p
-            role="alert"
-            className="mt-5 rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive"
-          >
-            {error}
-          </p>
-        ) : null}
-        <div className="mt-6">
-          <Button
-            type="button"
-            disabled={isSubmitting || learned}
-            onClick={() => onLearn(item.sense.id)}
-          >
-            {isSubmitting ? (
-              <LoaderCircle className="size-4 animate-spin" />
-            ) : null}
-            {learned
-              ? "Already learned"
-              : isSubmitting
-                ? "Saving…"
-                : "Mark this sense learned"}
-          </Button>
-        </div>
-        <div className="mt-6 border-t pt-4">
-          <SenseNavigation
-            index={activeIndex}
-            count={items.length}
-            onPrevious={onPrevious}
-            onNext={onNext}
+        <div
+          ref={scrollRef}
+          tabIndex={-1}
+          className="min-h-0 overflow-y-auto overscroll-contain p-4 outline-none [scrollbar-color:var(--muted-foreground)_transparent] [scrollbar-width:thin] [scrollbar-gutter:stable] sm:p-5"
+        >
+          <div className="mb-2 flex items-center justify-between gap-4">
+            <h2
+              id="learning-modal-title"
+              className="min-w-0 text-xs font-normal leading-5 text-muted-foreground"
+            >
+              From subtitle: “{item.mappingLabel}”
+            </h2>
+            <div className="flex shrink-0 items-center gap-8">
+              <SenseNavigation
+                index={activeIndex}
+                count={items.length}
+                onPrevious={onPrevious}
+                onNext={onNext}
+              />
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground dark:hover:bg-accent"
+                onClick={onClose}
+                aria-label="Close learning dialog"
+              >
+                <X className="size-5" />
+              </Button>
+            </div>
+          </div>
+          <SenseView
+            sense={item.sense}
+            learned={learned}
+            alreadyKnown={knownSenseIds.has(item.sense.id)}
           />
+          {error ? (
+            <p
+              role="alert"
+              className="mt-5 rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive"
+            >
+              {error}
+            </p>
+          ) : null}
+          {!learned ? (
+            <div
+              className="mt-4 flex flex-wrap items-center gap-2"
+              aria-busy={isSubmitting}
+            >
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="border-primary/20 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary dark:bg-primary/10 dark:hover:bg-primary/20"
+                disabled={isSubmitting}
+                onClick={() => onLearn(item.sense.id)}
+                title="I have learned this meaning."
+              >
+                Learned
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                disabled={isSubmitting}
+                onClick={() => onAlreadyKnown(item.sense.id)}
+                title="I already knew this meaning."
+              >
+                Already knew
+              </Button>
+              {isSubmitting ? (
+                <span
+                  role="status"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground"
+                >
+                  <LoaderCircle
+                    className="size-3.5 animate-spin"
+                    aria-hidden="true"
+                  />
+                  Saving…
+                </span>
+              ) : null}
+            </div>
+          ) : null}
         </div>
-        <p className="mt-3 text-center text-xs text-muted-foreground">
-          Enter closes · Left/Right moves between senses
-        </p>
       </div>
     </div>
   );
