@@ -55,6 +55,7 @@ def scrape_and_save_word(word: str) -> list[Entry]:
                         "homonym_num": scraped_entry.homonym_num,
                         "pronunciation": pronunciation,
                         "frequency": list(scraped_entry.frequency),
+                        "level": scraped_entry.level,  # Entry-level data, independent of S/W frequency bands.
                         "inflections": scraped_entry.inflections,
                         "register": scraped_entry.register,
                     }

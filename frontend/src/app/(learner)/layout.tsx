@@ -10,7 +10,7 @@ export default async function LearnerLayout({
   return (
     <div className="min-h-dvh bg-background">
       <LearnerNav user={user} />
-      <main>{children}</main>
+      <main className="[container-type:inline-size]">{children}</main>
     </div>
   );
 }

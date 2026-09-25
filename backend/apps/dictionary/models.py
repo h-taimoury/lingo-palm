@@ -11,6 +11,7 @@ class Entry(models.Model):
         db_index=True,
     )
     frequency = models.JSONField(default=list, blank=True)
+    level = models.JSONField(null=True, blank=True, default=None)
     inflections = models.TextField(null=True, blank=True)
     register = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -2,7 +2,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from apps.dictionary.models import Sense
-from apps.dictionary.serializers import SenseSerializer, SenseSummarySerializer
+from apps.dictionary.serializers import SenseSerializer
 from apps.my_vocabulary.models import Vocabulary
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
@@ -241,7 +241,7 @@ class TaughtSenseSerializer(serializers.Serializer):
     False, since there's no Vocabulary row to read them from.
     """
 
-    sense = SenseSummarySerializer()
+    sense = SenseSerializer()
     is_learned = serializers.BooleanField()
     already_known = serializers.BooleanField(allow_null=True)
     needs_review = serializers.BooleanField(allow_null=True)

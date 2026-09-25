@@ -24,7 +24,7 @@ def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
 class EntrySummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = ("id", "word", "part_of_speech", "homonym_num", "pronunciation")
+        fields = ("id", "word", "part_of_speech", "homonym_num", "pronunciation", "register", "level")
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -142,6 +142,7 @@ class EntrySerializer(serializers.ModelSerializer):
             "homonym_num",
             "pronunciation",
             "frequency",
+            "level",
             "inflections",
             "register",
             "created_at",
@@ -167,6 +168,15 @@ class EntrySerializer(serializers.ModelSerializer):
                     f"Pronunciation '{key}' must be a string or null."
                 )
         return value
+
+    def validate_level(self, value):
+        if value is None:
+            return None
+        if not isinstance(value, dict) or set(value) != {"tooltip", "indicator"}:
+            raise serializers.ValidationError("Level must contain exactly tooltip and indicator.")
+        if any(not isinstance(item, str) or not item.strip() for item in value.values()):
+            raise serializers.ValidationError("Level tooltip and indicator must be non-empty strings.")
+        return {key: item.strip() for key, item in value.items()}
 
     def validate_frequency(self, value):  # noqa: ANN201
         _validate_string_list(value)

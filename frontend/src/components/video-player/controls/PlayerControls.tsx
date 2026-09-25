@@ -46,6 +46,8 @@ export function PlayerControls({
           onClick={onTogglePlay}
           className="inline-flex size-9 items-center justify-center rounded-md text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           aria-label={isEnded ? "Replay" : isPlaying ? "Pause" : "Play"}
+          title={`${isEnded ? "Replay" : isPlaying ? "Pause" : "Play"} (Space / K)`}
+          aria-keyshortcuts="Space K"
         >
           {isEnded ? (
             <RotateCcw className="size-5" aria-hidden="true" />

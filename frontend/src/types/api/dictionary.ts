@@ -5,9 +5,13 @@ export type Pronunciation = {
 };
 
 export type EntrySummary = {
+  level?: { tooltip: string; indicator: string } | null;
   id: number;
   word: string;
   part_of_speech: string;
+  inflections?: string | null;
+  homonym_num?: number | null;
+  register?: string | null;
   pronunciation: Pronunciation | null;
 };
 
@@ -42,6 +46,7 @@ export type Entry = EntrySummary & {
 };
 
 export type CreateEntryRequest = {
+  level?: { tooltip: string; indicator: string } | null;
   word: string;
   part_of_speech: string;
   pronunciation?: Pronunciation | null;

@@ -292,10 +292,11 @@ export function VideoPlayerInner({
 
   return (
     <div
+      data-theater={isTheater}
       className={cn(
-        "transition-all",
+        "transition-colors",
         isTheater &&
-          "relative left-1/2 w-screen -translate-x-1/2 bg-black py-4 sm:py-6",
+          "relative left-1/2 w-[100cqw] -translate-x-1/2 bg-black py-4 sm:py-6",
       )}
     >
       <div

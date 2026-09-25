@@ -1,5 +1,7 @@
+from django.utils.cache import patch_cache_control, patch_vary_headers
 from rest_framework import filters, status, viewsets
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 from .models import Entry, Sense
 from .permissions import IsStaffOrAuthenticatedReadOnly
@@ -20,6 +22,17 @@ class EntryViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):  # noqa: ANN201
         return Entry.objects.prefetch_related("senses").all()
+
+    @action(detail=True, methods=["get"], url_path="full-word")
+    def full_word(self, request, pk=None):
+        entry = self.get_object()
+        entries = self.get_queryset().filter(word__iexact=entry.word).order_by(
+            "part_of_speech", "homonym_num", "id"
+        )
+        response = Response(self.get_serializer(entries, many=True).data)
+        patch_cache_control(response, private=True, max_age=86400)
+        patch_vary_headers(response, ("Cookie",))
+        return response
 
     def destroy(self, request, *args, **kwargs):  # noqa: ANN001, ANN201
         instance = self.get_object()

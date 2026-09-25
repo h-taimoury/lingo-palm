@@ -38,6 +38,40 @@ class EntryViewSetPermissionTests(APITestCase):
         )
         self.assertEqual(response.status_code, 201, response.data)
 
+    def test_full_word_includes_all_exact_entries_and_senses(self):
+        noun = Entry.objects.create(word="run", part_of_speech="noun", homonym_num=1)
+        other_noun = Entry.objects.create(word="run", part_of_speech="noun", homonym_num=2)
+        Entry.objects.create(word="runner", part_of_speech="noun")
+        sense = Sense.objects.create(
+            entry=self.entry, title="run_verb_1", sense_number=1,
+            definition="move quickly", lex_unit="run away", register="informal",
+            geo="British English", synonyms=["sprint"], opposites=["walk"],
+            examples=[{"text": "Run home.", "usage": "spoken"}],
+        )
+        Sense.objects.create(entry=self.entry, title="run_verb_2", sense_number=2, definition="operate")
+        self.client.force_authenticate(self.learner)
+        response = self.client.get(f"/api/dictionary/entries/{self.entry.id}/full-word/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Cache-Control"], "private, max-age=86400")
+        self.assertIn("Cookie", response["Vary"])
+        self.assertEqual([row["id"] for row in response.data], [noun.id, other_noun.id, self.entry.id])
+        senses = response.data[2]["senses"]
+        self.assertEqual(len(senses), 2)
+        self.assertEqual(senses[0]["id"], sense.id)
+        for field in ("examples", "lex_unit", "register", "geo", "synonyms", "opposites"):
+            self.assertEqual(senses[0][field], getattr(sense, field))
+
+    def test_full_word_requires_authentication(self):
+        response = self.client.get(f"/api/dictionary/entries/{self.entry.id}/full-word/")
+        self.assertEqual(response.status_code, 401)
+        self.assertNotIn("max-age=86400", response.get("Cache-Control", ""))
+
+    def test_full_word_missing_entry(self):
+        self.client.force_authenticate(self.learner)
+        response = self.client.get("/api/dictionary/entries/999999/full-word/")
+        self.assertEqual(response.status_code, 404)
+        self.assertNotIn("max-age=86400", response.get("Cache-Control", ""))
+
 
 def _make_published_section():
     course = Course.objects.create(title="Course", is_published=True)

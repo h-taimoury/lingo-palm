@@ -93,7 +93,7 @@ export default async function SectionPage({ params }: Props) {
           </Link>
         </section>
 
-        <div className="min-w-0 lg:sticky lg:top-8 lg:has-[.w-screen]:static lg:has-[.w-screen]:col-span-2">
+        <div className="min-w-0 lg:sticky lg:top-8 lg:has-[[data-theater=true]]:static lg:has-[[data-theater=true]]:col-span-2">
           <VideoPlayer
             source={section.video_url}
             subtitleSource={proxyDjangoMediaUrl(section.subtitle_file)}

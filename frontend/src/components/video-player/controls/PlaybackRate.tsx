@@ -16,6 +16,7 @@ export function PlaybackRate({ onChange }: PlaybackRateProps) {
       <span className="sr-only">Playback speed</span>
       <select
         aria-label="Playback speed"
+        title="Playback speed"
         value={playbackRate}
         onChange={(event) => onChange(Number(event.target.value))}
         className="h-9 rounded-md border border-white/20 bg-black/60 px-2 text-sm text-white outline-none focus:ring-2 focus:ring-white"

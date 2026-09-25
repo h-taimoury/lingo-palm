@@ -16,15 +16,22 @@ type SenseViewProps = {
   sense: Sense;
   learned: boolean;
   alreadyKnown?: boolean;
+  examplesMode?: "carousel" | "all";
+  showHeader?: boolean;
+  keyboardShortcuts?: boolean;
+  showMetadata?: boolean;
+  active?: boolean;
+  currentSense?: boolean;
+  frequencyLabels?: string[];
 };
 
 const SWIPE_DISTANCE = 48;
 
-export function SenseView({ sense, learned, alreadyKnown }: SenseViewProps) {
-  return <SenseViewContent key={sense.id} sense={sense} learned={learned} alreadyKnown={alreadyKnown} />;
+export function SenseView(props: SenseViewProps) {
+  return <SenseViewContent key={props.sense.id} {...props} />;
 }
 
-function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
+function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carousel", showHeader = true, keyboardShortcuts = true, showMetadata = false, active = true, currentSense = false, frequencyLabels = [] }: SenseViewProps) {
   const [exampleIndex, setExampleIndex] = useState(0);
   const [playingAccent, setPlayingAccent] = useState<Accent | null>(null);
   const [audioError, setAudioError] = useState(false);
@@ -64,6 +71,11 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
   }, []);
 
   useEffect(() => {
+    if (!active) audioRef.current?.pause();
+  }, [active]);
+
+  useEffect(() => {
+    if (!keyboardShortcuts || !active) return;
     function onKeyDown(event: KeyboardEvent) {
       if (event.defaultPrevented || event.repeat || event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
       const target = event.target;
@@ -82,7 +94,7 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [playPronunciation, pronunciation?.br_audio, pronunciation?.am_audio]);
+  }, [playPronunciation, pronunciation?.br_audio, pronunciation?.am_audio, keyboardShortcuts, active]);
 
   function showPreviousExample() {
     setExampleIndex((current) => Math.max(0, current - 1));
@@ -104,7 +116,7 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
 
   return (
     <div>
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
+      {showHeader ? <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
         <div className="min-w-0 leading-relaxed">
           <h3 className="inline text-3xl font-bold tracking-tight text-primary">
             {sense.entry.word}
@@ -117,9 +129,51 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
               {pronunciation.text}
             </span>
           ) : null}
+          {sense.entry.level ? (
+            <span
+              title={sense.entry.level.tooltip}
+              aria-label={sense.entry.level.tooltip}
+              tabIndex={0}
+              className="ml-2 inline-block cursor-help whitespace-nowrap align-baseline text-sm tracking-wider text-red-600 outline-none focus-visible:ring-2 focus-visible:ring-red-400 dark:text-red-400"
+            >
+              {sense.entry.level.indicator}
+            </span>
+          ) : null}
+          {frequencyLabels.length ? (
+            <span className="ml-2 inline-flex items-center gap-1.5 align-baseline">
+              {Array.from(new Set(frequencyLabels)).map((label) => {
+                const code = label.trim().toUpperCase();
+                const match = /^([SW])([123])$/.exec(code);
+                const tooltip = match
+                  ? `Top ${Number(match[2]) * 1000} ${match[1] === "S" ? "spoken" : "written"} words`
+                  : `Frequency label: ${label}`;
+                return (
+                  <span
+                    key={label}
+                    title={tooltip}
+                    aria-label={`${label}: ${tooltip}`}
+                    tabIndex={0}
+                    className="inline-flex cursor-help rounded border border-red-600 px-1.5 py-0.5 text-sm font-semibold leading-none text-red-600 outline-none focus-visible:ring-2 focus-visible:ring-red-400 dark:border-red-400 dark:text-red-400"
+                  >
+                    {label}
+                  </span>
+                );
+              })}
+            </span>
+          ) : null}
           <span className="ml-3 inline-block font-semibold italic text-emerald-700 dark:text-emerald-400">
             {sense.entry.part_of_speech}
           </span>
+          {sense.entry.inflections ? (
+            <span className="ml-2 inline-block text-sm text-muted-foreground">
+              {sense.entry.inflections}
+            </span>
+          ) : null}
+          {sense.entry.register ? (
+            <span className="ml-2 inline-block italic text-purple-700 dark:text-purple-400">
+              {sense.entry.register}
+            </span>
+          ) : null}
           <span
             className="ml-2 inline-flex items-center gap-2 align-middle"
             role="group"
@@ -127,12 +181,14 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
           >
             <PronunciationButton
               accent="British"
+              keyboardShortcuts={keyboardShortcuts}
               url={pronunciation?.br_audio}
               playing={playingAccent === "British"}
               onPlay={playPronunciation}
             />
             <PronunciationButton
               accent="American"
+              keyboardShortcuts={keyboardShortcuts}
               url={pronunciation?.am_audio}
               playing={playingAccent === "American"}
               onPlay={playPronunciation}
@@ -146,13 +202,17 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
         </div>
       </div>
 
+      : null}
       {audioError ? (
         <p role="status" className="mt-2 text-xs text-destructive">
           The pronunciation audio could not be played.
         </p>
       ) : null}
 
-      <p className="mt-5 text-base leading-7 text-zinc-950 dark:text-zinc-100">
+      <div className="mt-2 pl-4 sm:pl-6">
+      {showMetadata && sense.geo ? <p className="mb-1 text-sm italic text-muted-foreground">{sense.geo}</p> : null}
+      {currentSense ? <p className="mb-1 text-xs font-medium text-primary">You were reading this sense</p> : null}
+      <p className="text-base leading-7 text-zinc-800 dark:text-zinc-200">
         {sense.sense_number ? (
           <span className="mr-2 font-bold">{sense.sense_number}</span>
         ) : null}
@@ -163,14 +223,45 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
           </span>
         ) : null}
 
+        {sense.register ? <span className="mr-2 italic text-purple-700 dark:text-purple-400">{sense.register}</span> : null}
         {sense.definition}
+        {sense.synonyms.length ? (
+          <>
+            {" "}<span className="rounded-sm bg-yellow-400 px-1 py-0.5 text-sm font-bold text-white" aria-label="Synonyms">SYN</span>{" "}
+            <span className="font-semibold text-zinc-950 dark:text-zinc-50">{sense.synonyms.join(", ")}</span>
+          </>
+        ) : null}
       </p>
+      {showMetadata && sense.opposites.length ? <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium">Opposites:</span> {sense.opposites.join(", ")}</p> : null}
 
-      {examples.length > 0 ? (
-          <div className="mt-5" aria-live="polite">
+      {examplesMode === "all" && examples.length > 0 ? (
+        <ul aria-label="Examples" className="mt-2 space-y-2 rounded-xl border bg-muted/20 px-5 py-2">
+          {examples.map((example, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <span
+                aria-hidden="true"
+                className={`flex shrink-0 items-center ${example.usage ? "h-4" : "h-7"}`}
+              >
+                <span className="size-1.5 rounded-full bg-primary/60" />
+              </span>
+              <div className="min-w-0">
+                {example.usage ? (
+                  <p className="mb-1 text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                    {example.usage}
+                  </p>
+                ) : null}
+                <p className="text-base leading-7 text-zinc-500 dark:text-zinc-400">
+                  {example.text}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : examples.length > 0 ? (
+          <div className="mt-2" aria-live="polite">
               <div>
                 <div
-                  className="min-h-28 touch-pan-y select-none rounded-xl border bg-muted/20 px-5 py-4"
+                  className="grid touch-pan-y select-none rounded-xl border bg-muted/20 px-5 py-2"
                   onTouchStart={(event) => {
                     touchStartX.current =
                       event.changedTouches[0]?.clientX ?? null;
@@ -180,14 +271,23 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
                     if (clientX !== undefined) finishSwipe(clientX);
                   }}
                 >
-                  {examples[exampleIndex]?.usage ? (
-                    <p className="mb-1 text-xs font-medium uppercase tracking-wide text-zinc-400">
-                      {examples[exampleIndex].usage}
+                  {examples.map((example, index) => (
+                    <div
+                      key={index}
+                      className={`col-start-1 row-start-1 min-w-0 transition-none ${index === exampleIndex ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+                      aria-hidden={index !== exampleIndex}
+                      inert={index !== exampleIndex}
+                    >
+                  {example.usage ? (
+                    <p className="mb-1 text-xs font-medium text-zinc-700 dark:text-zinc-300">
+                      {example.usage}
                     </p>
                   ) : null}
                   <p className="text-base leading-7 text-zinc-500 dark:text-zinc-400">
-                    {examples[exampleIndex]?.text}
+                    {example.text}
                   </p>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="mt-2 flex items-center justify-center gap-3">
@@ -198,6 +298,7 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
                     disabled={exampleIndex === 0}
                     onClick={showPreviousExample}
                     aria-label="Previous example"
+                    title="Previous example"
                   >
                     <ChevronLeft aria-hidden="true" />
                   </Button>
@@ -211,6 +312,7 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
                     disabled={exampleIndex === examples.length - 1}
                     onClick={showNextExample}
                     aria-label="Next example"
+                    title="Next example"
                   >
                     <ChevronRight aria-hidden="true" />
                   </Button>
@@ -223,6 +325,7 @@ function SenseViewContent({ sense, learned, alreadyKnown }: SenseViewProps) {
               </div>
           </div>
         ) : null}
+      </div>
     </div>
   );
 }
@@ -232,10 +335,12 @@ function PronunciationButton({
   url,
   playing,
   onPlay,
+  keyboardShortcuts,
 }: {
   accent: Accent;
   url: string | null | undefined;
   playing: boolean;
+  keyboardShortcuts: boolean;
   onPlay: (accent: Accent, url: string | null | undefined) => void;
 }) {
   const available = Boolean(url);
@@ -252,7 +357,7 @@ function PronunciationButton({
           : "cursor-pointer rounded-full p-0 text-[#438fe0] hover:bg-transparent hover:text-[#2875c6] dark:hover:bg-transparent"
       }
       disabled={!available}
-      aria-keyshortcuts={available ? shortcut : undefined}
+      aria-keyshortcuts={available && keyboardShortcuts ? shortcut : undefined}
       onClick={() => onPlay(accent, url)}
       aria-label={
         available
@@ -261,7 +366,7 @@ function PronunciationButton({
       }
       title={
         available
-          ? `Play ${accent} pronunciation (${shortcut})`
+          ? `Play ${accent} pronunciation${keyboardShortcuts ? ` (${shortcut})` : ""}`
           : `${accent} pronunciation unavailable`
       }
     >

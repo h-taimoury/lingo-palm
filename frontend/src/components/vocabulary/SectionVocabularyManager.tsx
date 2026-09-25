@@ -1,7 +1,8 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Check, LoaderCircle } from "lucide-react"
+import { Check, LoaderCircle, MoreHorizontal } from "lucide-react"
+import { LearningModal } from "@/components/video-player/learning/LearningModal"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage"
@@ -12,6 +13,7 @@ import type { VocabularyBulkActionRequest, VocabularyBulkActionResponse } from "
 type NewAction = "set_learned" | "set_already_known"
 
 export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: TaughtSense[] }) {
+  const [detailItem, setDetailItem] = useState<TaughtSense | null>(null)
   const [items, setItems] = useState(taughtSenses)
   const [selected, setSelected] = useState<Set<number>>(() => new Set())
   const [busy, setBusy] = useState<NewAction | null>(null)
@@ -30,7 +32,99 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
     } catch (caught) { setError(caught) } finally { setBusy(null) }
   }
 
-  return <div className="space-y-10"><section><div className="flex flex-wrap items-end justify-between gap-4"><div><h2 className="text-xl font-semibold">New senses</h2><p className="mt-1 text-sm text-muted-foreground">Choose senses, then tell LingoPalm whether you learned them here or already knew them.</p></div><div className="flex gap-2"><Button variant="outline" disabled={!selected.size || busy !== null} onClick={() => void run("set_already_known")}>{busy === "set_already_known" ? <LoaderCircle className="size-4 animate-spin" /> : null}Already knew</Button><Button disabled={!selected.size || busy !== null} onClick={() => void run("set_learned")}>{busy === "set_learned" ? <LoaderCircle className="size-4 animate-spin" /> : null}Mark learned</Button></div></div><div className="mt-4"><ApiErrorMessage error={error} /></div>{fresh.length ? <div className="mt-4 grid gap-3">{fresh.map((item) => { const checked = selected.has(item.sense.id); return <button key={item.sense.id} type="button" aria-pressed={checked} onClick={() => setSelected((current) => { const next = new Set(current); checked ? next.delete(item.sense.id) : next.add(item.sense.id); return next })} className="flex gap-3 rounded-xl border bg-card p-4 text-left transition hover:bg-accent/30"><span className={`mt-0.5 grid size-5 shrink-0 place-items-center rounded border ${checked ? "bg-primary text-primary-foreground" : "bg-background"}`}>{checked ? <Check className="size-3.5" /> : null}</span><SenseSummary item={item} /></button> })}</div> : <p className="mt-4 rounded-xl border border-dashed p-7 text-center text-sm text-muted-foreground">You have learned every sense taught in this section.</p>}</section><section><h2 className="text-xl font-semibold">Already learned</h2><p className="mt-1 text-sm text-muted-foreground">Current saved state from your vocabulary.</p><div className="mt-4 grid gap-3">{learned.length ? learned.map((item) => <div key={item.sense.id} className="rounded-xl border bg-card p-4"><SenseSummary item={item} /></div>) : <p className="rounded-xl border border-dashed p-7 text-center text-sm text-muted-foreground">Nothing learned here yet.</p>}</div></section></div>
+  function detailsButton(item: TaughtSense) {
+    return (
+      <Button
+        type="button"
+        variant="outline"
+        size="icon"
+        className="mr-4 shrink-0 rounded-full hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)] dark:hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)]"
+        aria-label={`View details for ${item.sense.entry.word}, sense ${item.sense.sense_number ?? item.sense.id}`}
+        aria-haspopup="dialog"
+        onClick={() => setDetailItem(item)}
+      >
+        <MoreHorizontal aria-hidden="true" />
+      </Button>
+    )
+  }
+
+  return (
+    <div className="space-y-10">
+      <section>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-semibold">New senses</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Choose senses, then tell LingoPalm whether you learned them here or already knew them.</p>
+          </div>
+          <div className="flex gap-2">
+            <Button variant="outline" disabled={!selected.size || busy !== null} onClick={() => void run("set_already_known")}>
+              {busy === "set_already_known" ? <LoaderCircle className="size-4 animate-spin" /> : null}
+              Already knew
+            </Button>
+            <Button disabled={!selected.size || busy !== null} onClick={() => void run("set_learned")}>
+              {busy === "set_learned" ? <LoaderCircle className="size-4 animate-spin" /> : null}
+              Mark learned
+            </Button>
+          </div>
+        </div>
+        <div className="mt-4"><ApiErrorMessage error={error} /></div>
+        {fresh.length ? (
+          <div className="mt-4 grid gap-3">
+            {fresh.map((item) => {
+              const checked = selected.has(item.sense.id)
+              return (
+                <div key={item.sense.id} className="flex items-center gap-3 rounded-xl border bg-card">
+                  <button
+                    type="button"
+                    aria-pressed={checked}
+                    onClick={() => setSelected((current) => {
+                      const next = new Set(current)
+                      if (checked) next.delete(item.sense.id)
+                      else next.add(item.sense.id)
+                      return next
+                    })}
+                    className="flex min-w-0 flex-1 gap-3 rounded-xl p-4 text-left transition hover:bg-accent/30 focus-visible:outline-ring"
+                  >
+                    <span className={`mt-0.5 grid size-5 shrink-0 place-items-center rounded border ${checked ? "bg-primary text-primary-foreground" : "bg-background"}`}>
+                      {checked ? <Check className="size-3.5" /> : null}
+                    </span>
+                    <SenseSummary item={item} />
+                  </button>
+                  {detailsButton(item)}
+                </div>
+              )
+            })}
+          </div>
+        ) : (
+          <p className="mt-4 rounded-xl border border-dashed p-7 text-center text-sm text-muted-foreground">You have learned every sense taught in this section.</p>
+        )}
+      </section>
+      <section>
+        <h2 className="text-xl font-semibold">Already learned</h2>
+        <p className="mt-1 text-sm text-muted-foreground">Current saved state from your vocabulary.</p>
+        <div className="mt-4 grid gap-3">
+          {learned.length ? learned.map((item) => (
+            <div key={item.sense.id} className="flex items-center gap-3 rounded-xl border bg-card">
+              <div className="min-w-0 flex-1 p-4"><SenseSummary item={item} /></div>
+              {detailsButton(item)}
+            </div>
+          )) : (
+            <p className="rounded-xl border border-dashed p-7 text-center text-sm text-muted-foreground">Nothing learned here yet.</p>
+          )}
+        </div>
+      </section>
+      {detailItem ? (
+        <LearningModal
+          presentation="section-vocabulary"
+          items={[{ mappingId: detailItem.sense.id, mappingLabel: detailItem.sense.entry.word, sense: detailItem.sense }]}
+          activeIndex={0}
+          learnedSenseIds={new Set(detailItem.is_learned ? [detailItem.sense.id] : [])}
+          knownSenseIds={new Set(detailItem.already_known ? [detailItem.sense.id] : [])}
+          onClose={() => setDetailItem(null)}
+        />
+      ) : null}
+    </div>
+  )
 }
 
 function SenseSummary({ item }: { item: TaughtSense }) { const sense = item.sense; return <div className="min-w-0"><div className="flex flex-wrap items-baseline gap-2"><strong>{sense.entry.word}</strong><span className="text-sm italic text-muted-foreground">{sense.entry.part_of_speech}</span>{sense.sense_number ? <span className="text-xs text-muted-foreground">Sense {sense.sense_number}</span> : null}</div><p className="mt-2 text-sm leading-6">{sense.definition}</p>{item.is_learned ? <div className="mt-3 flex flex-wrap gap-2"><Badge variant="outline">{item.already_known ? "Already knew" : "Learned"}</Badge>{item.needs_review ? <Badge variant="secondary">Needs review</Badge> : null}</div> : null}</div> }

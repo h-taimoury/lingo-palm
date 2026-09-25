@@ -1,4 +1,4 @@
-import type { Sense, SenseSummary } from "@/types/api/dictionary"
+import type { Sense } from "@/types/api/dictionary"
 
 export type CourseLevel = "Beginner" | "Intermediate" | "Advanced"
 
@@ -97,7 +97,7 @@ export type CreateSubtitleWordRequest = SubtitleWordInput & { mapping: number }
 export type UpdateSubtitleWordRequest = Partial<CreateSubtitleWordRequest>
 
 export type TaughtSense = {
-  sense: SenseSummary
+  sense: Sense
   is_learned: boolean
   already_known: boolean | null
   needs_review: boolean | null

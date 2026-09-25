@@ -23,6 +23,8 @@ export function VolumeControl({
         onClick={onToggleMute}
         className="inline-flex size-9 items-center justify-center rounded-md text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
         aria-label={isMuted ? "Unmute" : "Mute"}
+        title={`${isMuted ? "Unmute" : "Mute"} (M)`}
+        aria-keyshortcuts="M"
       >
         {isMuted || volume === 0 ? (
           <VolumeX className="size-5" aria-hidden="true" />
@@ -33,6 +35,7 @@ export function VolumeControl({
 
       <input
         aria-label="Volume"
+        title="Volume"
         type="range"
         min={0}
         max={1}

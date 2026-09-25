@@ -39,6 +39,8 @@ class FakeEntry:
     part_of_speech: str
     pronunciation: FakePronunciation | None
     frequency: list[str] = field(default_factory=list)
+    homonym_num: int | None = None
+    level: dict[str, str] | None = None
     inflections: str | None = None
     register: str | None = None
     senses: list[FakeSense] = field(default_factory=list)
@@ -51,7 +53,7 @@ class FakeResult:
 
 class ScraperServiceTests(TestCase):
     @override_settings(MEDIA_ROOT="/tmp/lingo-palm-test-media")
-    @patch("longman_scraper.scrape_word")
+    @patch("apps.scraper_admin.services.scrape_word")
     def test_scrape_result_is_saved_per_sense(self, scrape_word_mock):
         async def fake_scrape(word, audio_dir):
             return FakeResult(
@@ -61,6 +63,7 @@ class ScraperServiceTests(TestCase):
                         part_of_speech="noun",
                         pronunciation=FakePronunciation(text="/bʊk/"),
                         frequency=["S1"],
+                        level={"tooltip": "Core vocabulary: High-frequency", "indicator": "●●●"},
                         senses=[
                             FakeSense(
                                 sense_number="1",
@@ -77,8 +80,9 @@ class ScraperServiceTests(TestCase):
         entries = scrape_and_save_word("book")
         self.assertEqual(len(entries), 1)
         self.assertEqual(entries[0].senses.get().title, "book_n_1")
+        self.assertEqual(entries[0].level, {"tooltip": "Core vocabulary: High-frequency", "indicator": "●●●"})
 
-    @patch("longman_scraper.scrape_word")
+    @patch("apps.scraper_admin.services.scrape_word")
     def test_duplicate_is_rejected_before_second_save(self, scrape_word_mock):
         Entry.objects.create(word="book", part_of_speech="noun")
         with self.assertRaises(DuplicateScrapeError):

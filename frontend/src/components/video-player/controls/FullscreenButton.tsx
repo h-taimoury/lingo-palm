@@ -17,6 +17,8 @@ export function FullscreenButton({ onToggle }: FullscreenButtonProps) {
       onClick={onToggle}
       className="inline-flex size-9 items-center justify-center rounded-md text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
       aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+      title={`${isFullscreen ? "Exit fullscreen" : "Enter fullscreen"} (F)`}
+      aria-keyshortcuts="F"
     >
       {isFullscreen ? (
         <Minimize className="size-5" aria-hidden="true" />

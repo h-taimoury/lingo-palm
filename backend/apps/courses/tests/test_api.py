@@ -126,6 +126,12 @@ class CourseApiTests(APITestCase):
         self.assertFalse(WordSenseMapping.objects.filter(pk=mapping_id).exists())
 
     def test_taught_senses_endpoint_reports_learning_state(self):
+        self.sense.lex_unit = "look at"
+        self.sense.examples = [
+            {"text": "Look at the sky.", "usage": None},
+            {"text": "Look at this.", "usage": "spoken"},
+        ]
+        self.sense.save()
         self.client.force_authenticate(self.staff)
         create_response = self.client.post(
             "/api/courses/word-sense-mappings/",
@@ -142,3 +148,6 @@ class CourseApiTests(APITestCase):
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.data[0]["sense"]["id"], self.sense.id)
         self.assertFalse(response.data[0]["is_learned"])
+        self.assertEqual(response.data[0]["sense"]["lex_unit"], "look at")
+        self.assertEqual(response.data[0]["sense"]["examples"], self.sense.examples)
+        self.assertIn("pronunciation", response.data[0]["sense"]["entry"])
