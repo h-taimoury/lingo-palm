@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CheckCircle2, CirclePlay } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import type { SectionSummary } from "@/types/api/courses";
 
@@ -40,7 +39,6 @@ export function SectionList({
                   <h3 className="font-semibold group-hover:underline">
                     {section.title}
                   </h3>
-                  <Badge variant="outline">Section {section.order}</Badge>
                 </div>
                 <div className="mt-3 flex items-center gap-3">
                   <Progress

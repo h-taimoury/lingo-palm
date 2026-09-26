@@ -42,9 +42,6 @@ export default async function SectionPage({ params }: Props) {
       <div className="mt-6 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
         <section aria-labelledby="section-title" className="flex min-w-0 flex-col gap-6">
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              Section
-            </p>
             <h1 id="section-title" className="mt-1 text-pretty text-3xl font-semibold leading-tight tracking-tight">
               {section.title}
             </h1>
