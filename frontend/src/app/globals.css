@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-persian: var(--font-b-nazanin), Tahoma, serif;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -126,6 +127,10 @@
   }
   html {
     @apply font-sans;
+  }
+  /* Persian content and form controls inherit the shared local font. */
+  :lang(fa) {
+    font-family: var(--font-b-nazanin), Tahoma, serif;
   }
   /* I added this to make every enabled button in the app have the cursor:pointer effect: */
   :is(

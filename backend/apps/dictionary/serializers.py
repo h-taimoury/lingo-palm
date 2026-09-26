@@ -44,6 +44,7 @@ class SenseSummarySerializer(serializers.ModelSerializer):
             "title",
             "sense_number",
             "definition",
+            "translation",
             "entry",
         )
 
@@ -88,6 +89,7 @@ class SenseSerializer(serializers.ModelSerializer):
             "sense_number",
             "title",
             "definition",
+            "translation",
             "lex_unit",
             "geo",
             "register",

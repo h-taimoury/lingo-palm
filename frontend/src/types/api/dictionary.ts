@@ -20,6 +20,7 @@ export type SenseSummary = {
   title: string;
   sense_number: number | null;
   definition: string;
+  translation: string | null;
   entry: EntrySummary;
 };
 
@@ -64,6 +65,7 @@ export type CreateSenseRequest = {
   sense_number?: number | null;
   title: string;
   definition: string;
+  translation?: string | null;
   lex_unit?: string | null;
   geo?: string | null;
   register?: string | null;

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { ToastProvider } from "@/components/providers/ToastProvider";
+import { bNazanin } from "@/lib/fonts";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const geistMono = Geist_Mono({
@@ -20,7 +21,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${bNazanin.variable}`}>
       <body className="min-h-dvh antialiased">
         {children}
         <ToastProvider />

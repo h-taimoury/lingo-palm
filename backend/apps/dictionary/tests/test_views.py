@@ -85,6 +85,68 @@ def _make_published_section():
     )
 
 
+class SenseTranslationFilterTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.staff = get_user_model().objects.create_user(
+            email="translator@example.com", password=None, is_staff=True
+        )
+        entry = Entry.objects.create(word="run", part_of_speech="verb")
+        cls.untranslated = Sense.objects.create(
+            entry=entry, title="run_v_1", definition="move quickly"
+        )
+        cls.blank = Sense.objects.create(
+            entry=entry, title="run_v_2", definition="operate", translation=""
+        )
+        cls.translated = Sense.objects.create(
+            entry=entry, title="run_v_3", definition="manage", translation="اداره کردن"
+        )
+        cls.unused = Sense.objects.create(
+            entry=entry, title="run_v_4", definition="continue"
+        )
+        section = _make_published_section()
+        mapping = WordSenseMapping.objects.create(section=section)
+        mapping.senses.set([cls.untranslated, cls.translated])
+        draft = Section.objects.create(
+            course=section.course, title="Draft", order=2,
+            video_url="https://example.com/draft.mp4",
+            subtitle_file="section_subtitles/draft.vtt",
+        )
+        mapping = WordSenseMapping.objects.create(section=draft)
+        mapping.senses.set([cls.untranslated, cls.blank])
+
+    def setUp(self):
+        self.client.force_authenticate(self.staff)
+
+    def test_filter_includes_used_untranslated_senses_once_including_drafts(self):
+        response = self.client.get("/api/dictionary/senses/?needs_translation=true")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["count"], 2)
+        self.assertEqual(
+            [sense["id"] for sense in response.data["results"]],
+            [self.untranslated.id, self.blank.id],
+        )
+
+    def test_omitted_or_false_filter_keeps_all_senses(self):
+        for params in ({}, {"needs_translation": "false"}):
+            with self.subTest(params=params):
+                response = self.client.get("/api/dictionary/senses/", params)
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.data["count"], 4)
+
+    def test_saved_translation_removes_sense_from_queue(self):
+        response = self.client.patch(
+            f"/api/dictionary/senses/{self.untranslated.id}/",
+            {"translation": "دویدن"}, format="json",
+        )
+        self.assertEqual(response.status_code, 200, response.data)
+        self.untranslated.refresh_from_db()
+        self.assertEqual(self.untranslated.translation, "دویدن")
+        response = self.client.get("/api/dictionary/senses/?needs_translation=true")
+        self.assertEqual(response.data["count"], 1)
+        self.assertEqual(response.data["results"][0]["id"], self.blank.id)
+
+
 class EntryDeletionGuardTests(APITestCase):
     def setUp(self):
         self.staff = get_user_model().objects.create_user(

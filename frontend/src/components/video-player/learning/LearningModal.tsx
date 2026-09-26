@@ -165,7 +165,7 @@ export function LearningModal({
               </Button>
             </div>
           </div>
-          {showingWord ? <WordDetails key={item.sense.entry.id} entryId={item.sense.entry.id} currentSenseId={item.sense.id} /> : null}
+          {showingWord ? <WordDetails key={item.sense.entry.id} entryId={item.sense.entry.id} currentSenseId={item.sense.id} showTranslation /> : null}
           <div hidden={showingWord}>
           <div className="grid">
           {items.map((item, index) => {
@@ -183,6 +183,7 @@ export function LearningModal({
             learned={learned}
             alreadyKnown={knownSenseIds.has(item.sense.id)}
             examplesMode={isVocabulary ? "all" : "carousel"}
+            showTranslation
             active={selected && !showingWord}
           />
           {error ? (

@@ -170,6 +170,14 @@ GET            /api/my-vocabulary/vocabulary/
 POST           /api/my-vocabulary/vocabulary/bulk-action/
 ```
 
+Use `GET /api/dictionary/senses/?needs_translation=true` for the translation
+queue. It returns paginated senses used in at least one section (including draft
+sections) whose translation is null or empty. Each sense appears once even if it
+is used in several sections. Save a translation with
+`PATCH /api/dictionary/senses/{id}/` and `{"translation": "دویدن"}`; the sense
+will no longer appear in the queue. Omitting the filter or setting it to `false`
+leaves the normal sense list unchanged.
+
 Creating a teaching mapping is atomic (the mapping and all its subtitle
 words are created together, or not at all). Note the create payload uses
 `section` and `senses` (matching the model's own field names directly) —

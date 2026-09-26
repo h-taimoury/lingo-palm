@@ -1,7 +1,8 @@
+from django.db.models import Q
 from django.utils.cache import patch_cache_control, patch_vary_headers
 from rest_framework import filters, status, viewsets
-from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.response import Response
 
 from .models import Entry, Sense
 from .permissions import IsStaffOrAuthenticatedReadOnly
@@ -60,10 +61,17 @@ class SenseViewSet(viewsets.ModelViewSet):
         "entry__homonym_num",
         "entry__part_of_speech",
         "sense_number",
+        "id",
     )
 
     def get_queryset(self):  # noqa: ANN201
-        return Sense.objects.select_related("entry").all()
+        queryset = Sense.objects.select_related("entry").all()
+        if self.request.query_params.get("needs_translation", "").lower() == "true":
+            queryset = queryset.filter(
+                Q(translation__isnull=True) | Q(translation=""),
+                word_mappings__isnull=False,
+            ).distinct()
+        return queryset
 
     def destroy(self, request, *args, **kwargs):  # noqa: ANN001, ANN201
         instance = self.get_object()

@@ -8,6 +8,7 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { TranslationPopover } from "@/components/video-player/learning/TranslationPopover";
 import type { Sense } from "@/types/api/dictionary";
 
 type Accent = "British" | "American";
@@ -20,6 +21,8 @@ type SenseViewProps = {
   showHeader?: boolean;
   keyboardShortcuts?: boolean;
   showMetadata?: boolean;
+  showTranslation?: boolean;
+  translationPlacement?: "header" | "definition";
   active?: boolean;
   currentSense?: boolean;
   frequencyLabels?: string[];
@@ -31,7 +34,7 @@ export function SenseView(props: SenseViewProps) {
   return <SenseViewContent key={props.sense.id} {...props} />;
 }
 
-function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carousel", showHeader = true, keyboardShortcuts = true, showMetadata = false, active = true, currentSense = false, frequencyLabels = [] }: SenseViewProps) {
+function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carousel", showHeader = true, keyboardShortcuts = true, showMetadata = false, showTranslation = false, translationPlacement = "header", active = true, currentSense = false, frequencyLabels = [] }: SenseViewProps) {
   const [exampleIndex, setExampleIndex] = useState(0);
   const [playingAccent, setPlayingAccent] = useState<Accent | null>(null);
   const [audioError, setAudioError] = useState(false);
@@ -194,6 +197,7 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
               onPlay={playPronunciation}
             />
           </span>
+          {showTranslation && translationPlacement === "header" && active && sense.translation?.trim() ? <TranslationPopover translation={sense.translation} keyboardShortcuts={keyboardShortcuts} /> : null}
           {learned ? (
             <Badge variant="secondary" className="ml-2">
               {alreadyKnown ? "Already knew" : "Already learned"}
@@ -210,9 +214,8 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
       ) : null}
 
       <div className="mt-2 pl-4 sm:pl-6">
-      {showMetadata && sense.geo ? <p className="mb-1 text-sm italic text-muted-foreground">{sense.geo}</p> : null}
       {currentSense ? <p className="mb-1 text-xs font-medium text-primary">You were reading this sense</p> : null}
-      <p className="text-base leading-7 text-zinc-800 dark:text-zinc-200">
+      <div className="text-base leading-7 text-zinc-800 dark:text-zinc-200">
         {sense.sense_number ? (
           <span className="mr-2 font-bold">{sense.sense_number}</span>
         ) : null}
@@ -223,6 +226,7 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
           </span>
         ) : null}
 
+        {sense.geo?.trim() ? <span className="mr-2 italic text-blue-700 dark:text-blue-400">{sense.geo}</span> : null}
         {sense.register ? <span className="mr-2 italic text-purple-700 dark:text-purple-400">{sense.register}</span> : null}
         {sense.definition}
         {sense.synonyms.length ? (
@@ -231,7 +235,8 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
             <span className="font-semibold text-zinc-950 dark:text-zinc-50">{sense.synonyms.join(", ")}</span>
           </>
         ) : null}
-      </p>
+        {showTranslation && translationPlacement === "definition" && active && sense.translation?.trim() ? <TranslationPopover translation={sense.translation} keyboardShortcuts={keyboardShortcuts} /> : null}
+      </div>
       {showMetadata && sense.opposites.length ? <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium">Opposites:</span> {sense.opposites.join(", ")}</p> : null}
 
       {examplesMode === "all" && examples.length > 0 ? (

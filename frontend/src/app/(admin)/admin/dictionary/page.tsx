@@ -35,14 +35,19 @@ export default async function Page({
         title="Dictionary"
         description="Entries group a word and part of speech; course learning targets individual senses."
         actions={
-          publicEnv.enableScraper ? (
+          <>
+            <Link href="/admin/dictionary/translate" className={cn(buttonVariants({ variant: "outline" }))}>
+              Translate senses
+            </Link>
+          {publicEnv.enableScraper ? (
             <Link
               href="/admin/dictionary/scrape"
               className={cn(buttonVariants())}
             >
               Scrape word
             </Link>
-          ) : undefined
+          ) : null}
+          </>
         }
       />
 
