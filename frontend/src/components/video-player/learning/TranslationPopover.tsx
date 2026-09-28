@@ -64,7 +64,7 @@ export function TranslationPopover({ translation, keyboardShortcuts = false }: {
         Translation
       </Popover.Trigger>
       {/* Stay inside the dialog and fullscreen element for focus containment. */}
-      <Popover.Portal container={portalContainer}>
+      <Popover.Portal container={portalContainer ?? undefined}>
       <Popover.Positioner positionMethod="fixed" side="bottom" align="end" sideOffset={8} collisionPadding={12} className="z-50">
         <Popover.Popup
           initialFocus={() => !shortcutToggle.current}

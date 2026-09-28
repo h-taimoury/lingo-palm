@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, MoreHorizontal } from "lucide-react";
+import { LearningModal } from "@/components/video-player/learning/LearningModal";
+import type { Sense } from "@/types/api/dictionary";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage";
@@ -29,6 +31,29 @@ export function VocabularyListManager({
   const [selected, setSelected] = useState<Set<number>>(() => new Set());
   const [busy, setBusy] = useState<VocabularyBulkAction | null>(null);
   const [error, setError] = useState<unknown>(null);
+  const [detail, setDetail] = useState<{ row: Vocabulary; sense: Sense } | null>(null);
+  const [loadingSenseId, setLoadingSenseId] = useState<number | null>(null);
+  const detailRequest = useRef<AbortController | null>(null);
+
+  useEffect(() => () => detailRequest.current?.abort(), []);
+
+  async function showDetails(row: Vocabulary) {
+    detailRequest.current?.abort();
+    const controller = new AbortController();
+    detailRequest.current = controller;
+    setLoadingSenseId(row.sense.id);
+    setError(null);
+    try {
+      const sense = await apiClient.get<Sense>(`/api/dictionary/senses/${row.sense.id}/`, {
+        signal: controller.signal,
+      });
+      if (!controller.signal.aborted) setDetail({ row, sense });
+    } catch (caught) {
+      if (!controller.signal.aborted) setError(caught);
+    } finally {
+      if (!controller.signal.aborted) setLoadingSenseId(null);
+    }
+  }
   async function run(action: VocabularyBulkAction) {
     if (!selected.size) return;
     setBusy(action);
@@ -57,10 +82,11 @@ export function VocabularyListManager({
           {rows.map((row) => {
             const checked = selected.has(row.sense.id);
             return (
-              <label
+              <div
                 key={row.id}
-                className="flex cursor-pointer gap-3 rounded-xl border bg-card p-4"
+                className="flex items-center gap-3 rounded-xl border bg-card"
               >
+                <label className="flex min-w-0 flex-1 cursor-pointer gap-3 rounded-xl p-4">
                 <input
                   className="mt-1 size-4"
                   type="checkbox"
@@ -68,9 +94,8 @@ export function VocabularyListManager({
                   onChange={() =>
                     setSelected((current) => {
                       const next = new Set(current);
-                      checked
-                        ? next.delete(row.sense.id)
-                        : next.add(row.sense.id);
+                      if (checked) next.delete(row.sense.id);
+                      else next.add(row.sense.id);
                       return next;
                     })
                   }
@@ -99,7 +124,20 @@ export function VocabularyListManager({
                     </Badge>
                   </span>
                 </span>
-              </label>
+                </label>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="icon"
+                  className="mr-4 shrink-0 rounded-full hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)] dark:hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)]"
+                  aria-label={`View details for ${row.sense.entry.word}, sense ${row.sense.sense_number ?? row.sense.id}`}
+                  aria-haspopup="dialog"
+                  aria-busy={loadingSenseId === row.sense.id}
+                  onClick={() => void showDetails(row)}
+                >
+                  {loadingSenseId === row.sense.id ? <LoaderCircle className="animate-spin" aria-hidden="true" /> : <MoreHorizontal aria-hidden="true" />}
+                </Button>
+              </div>
             );
           })}
         </div>
@@ -124,6 +162,16 @@ export function VocabularyListManager({
             </Button>
           ))}
         </div>
+      ) : null}
+      {detail ? (
+        <LearningModal
+          presentation="section-vocabulary"
+          items={[{ mappingId: detail.sense.id, mappingLabel: detail.sense.entry.word, sense: detail.sense }]}
+          activeIndex={0}
+          learnedSenseIds={new Set([detail.sense.id])}
+          knownSenseIds={new Set(detail.row.already_known ? [detail.sense.id] : [])}
+          onClose={() => setDetail(null)}
+        />
       ) : null}
     </div>
   );

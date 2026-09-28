@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { LogoutButton } from "@/components/auth/LogoutButton";
+import { AccountMenu } from "./AccountMenu";
 import type { NavItem } from "./nav-links";
 import { NavLink } from "./NavLink";
 import { NavbarMenuSheet } from "./NavbarMenuSheet";
@@ -20,6 +20,7 @@ export function Navbar({
   contextLabel,
   userLabel,
 }: NavbarProps) {
+  const secondaryLinks = utilityLinks.filter((item) => item.href !== "/account");
   return (
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur-xl supports-backdrop-filter:bg-background/75">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
@@ -54,31 +55,25 @@ export function Navbar({
           ))}
         </nav>
 
-        <div className="ml-auto hidden shrink-0 items-center gap-1 lg:flex">
-          {utilityLinks.map((item) => (
+        <div className="ml-auto flex shrink-0 items-center gap-2">
+          <div className="hidden items-center gap-1 lg:flex">
+          {secondaryLinks.map((item) => (
             <NavLink
               key={item.href}
               item={item}
               className="px-2.5 after:hidden"
             />
           ))}
-          <span className="mx-1 h-6 w-px bg-border" aria-hidden="true" />
-          <span
-            className="max-w-36 truncate px-1 text-xs text-muted-foreground"
-            title={userLabel}
-          >
-            {userLabel}
-          </span>
-          <LogoutButton />
-        </div>
+          </div>
+          <AccountMenu userLabel={userLabel} />
 
-        <div className="ml-auto lg:hidden">
+        <div className="lg:hidden">
           <NavbarMenuSheet
             links={links}
-            utilityLinks={utilityLinks}
+            utilityLinks={secondaryLinks}
             contextLabel={contextLabel}
-            userLabel={userLabel}
           />
+        </div>
         </div>
       </div>
     </header>

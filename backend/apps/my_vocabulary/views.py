@@ -2,11 +2,17 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
 from .models import Vocabulary
 from .serializers import VocabularyBulkActionSerializer, VocabularySerializer
 from .services import apply_bulk_action
+
+
+class VocabularyPagination(PageNumberPagination):
+    page_size_query_param = "page_size"
+    max_page_size = 100
 
 
 class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
@@ -18,6 +24,7 @@ class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
     permission_classes = (IsAuthenticated,)
     serializer_class = VocabularySerializer
+    pagination_class = VocabularyPagination
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ("needs_review",)
 

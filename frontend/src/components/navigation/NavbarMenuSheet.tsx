@@ -4,7 +4,6 @@ import { useEffect, useId, useRef, useState } from "react"
 import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 
-import { LogoutButton } from "@/components/auth/LogoutButton"
 import type { NavItem } from "./nav-links"
 import { SheetLink } from "./SheetLink"
 
@@ -12,14 +11,12 @@ type NavbarMenuSheetProps = {
   links: readonly NavItem[]
   utilityLinks: readonly NavItem[]
   contextLabel?: string
-  userLabel: string
 }
 
 export function NavbarMenuSheet({
   links,
   utilityLinks,
   contextLabel,
-  userLabel,
 }: NavbarMenuSheetProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleId = useId()
@@ -112,12 +109,6 @@ export function NavbarMenuSheet({
             ) : null}
           </div>
 
-          <div className="shrink-0 border-t bg-muted/40 p-4">
-            <p className="mb-3 truncate px-1 text-sm text-muted-foreground" title={userLabel}>
-              Signed in as <span className="font-medium text-foreground">{userLabel}</span>
-            </p>
-            <LogoutButton className="h-10 w-full border bg-background" />
-          </div>
         </div>
       </dialog>
     </>

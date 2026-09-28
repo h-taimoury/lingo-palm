@@ -35,6 +35,33 @@ class VocabularyBulkActionApiTests(APITestCase):
             "/api/my-vocabulary/vocabulary/bulk-action/", payload, format="json"
         )
 
+    def test_review_queue_can_be_paged_in_batches_of_ten(self):
+        for index in range(21):
+            sense = Sense.objects.create(
+                entry=self.entry,
+                sense_number=str(index + 3),
+                title=f"review_{index}",
+                definition=f"Definition {index}",
+            )
+            Vocabulary.objects.create(user=self.user, sense=sense, needs_review=True)
+
+        path = "/api/my-vocabulary/vocabulary/?needs_review=true"
+        default = self.client.get(path)
+        self.assertEqual(default.status_code, 200)
+        self.assertEqual(len(default.data["results"]), 20)
+
+        seen = set()
+        for page, expected_size in [(1, 10), (2, 10), (3, 1)]:
+            response = self.client.get(f"{path}&page_size=10&page={page}")
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.data["count"], 21)
+            self.assertEqual(len(response.data["results"]), expected_size)
+            ids = {row["id"] for row in response.data["results"]}
+            self.assertFalse(seen & ids)
+            seen.update(ids)
+        self.assertEqual(len(seen), 21)
+        self.assertIsNone(response.data["next"])
+
     def test_set_already_known_by_sense_ids_creates_rows(self):
         response = self._bulk(
             {"action": "set_already_known", "sense_ids": [self.sense_1.id]}

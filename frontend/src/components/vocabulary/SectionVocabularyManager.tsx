@@ -51,7 +51,7 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
   return (
     <div className="space-y-10">
       <section>
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="sticky top-[calc(4rem+1px)] z-20 flex flex-wrap items-end justify-between gap-4 border-b bg-background py-4">
           <div>
             <h2 className="text-xl font-semibold">New senses</h2>
             <p className="mt-1 text-sm text-muted-foreground">Choose senses, then tell LingoPalm whether you learned them here or already knew them.</p>
