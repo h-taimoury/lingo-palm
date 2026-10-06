@@ -18,16 +18,21 @@ export function useHls({ video, source, store }: UseHlsOptions) {
       return
     }
 
-    if (getMediaSourceKind(source) !== "hls") {
-      video.src = source
+    store.getState().resetForSource()
+
+    const clearSource = () => {
+      video.pause()
+      video.removeAttribute("src")
       video.load()
-      return
     }
 
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = source
+    if (
+      getMediaSourceKind(source) !== "hls" ||
+      video.canPlayType("application/vnd.apple.mpegurl")
+    ) {
+      video.setAttribute("src", source)
       video.load()
-      return
+      return clearSource
     }
 
     if (!Hls.isSupported()) {
@@ -67,8 +72,7 @@ export function useHls({ video, source, store }: UseHlsOptions) {
 
     return () => {
       hls.destroy()
-      video.removeAttribute("src")
-      video.load()
+      clearSource()
     }
   }, [source, store, video])
 }

@@ -1,10 +1,12 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import Hls from "hls.js"
+import { useRef } from "react"
+import { LoaderCircle } from "lucide-react"
 
 import { mappingColor } from "@/components/admin/mappings/mappingStyles"
-import { getMediaSourceKind } from "@/components/video-player/core/mediaSource"
+import { PlayerProvider, usePlayerStore, usePlayerStoreApi } from "@/components/video-player/PlayerProvider"
+import { PlayerControls } from "@/components/video-player/controls/PlayerControls"
+import { useMediaController } from "@/components/video-player/core/useMediaController"
 import { findActiveCueIndex } from "@/lib/subtitles/findActiveCue"
 import { cn } from "@/lib/utils"
 import type { WordSenseMapping } from "@/types/api/courses"
@@ -20,7 +22,15 @@ export type AdminVideoPreviewProps = {
   onMappedTokenClick?: (mapping: WordSenseMapping) => void
 }
 
-export function AdminVideoPreview({
+export function AdminVideoPreview(props: AdminVideoPreviewProps) {
+  return (
+    <PlayerProvider>
+      <AdminVideoPreviewInner {...props} />
+    </PlayerProvider>
+  )
+}
+
+function AdminVideoPreviewInner({
   source,
   cues,
   mappingIndex,
@@ -30,80 +40,49 @@ export function AdminVideoPreview({
   onMappedTokenClick,
 }: AdminVideoPreviewProps) {
   const ref = useRef<HTMLVideoElement>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [activeCueIndex, setActiveCueIndex] = useState(-1)
-
-  useEffect(() => {
-    const video = ref.current
-    if (!video || !source) return
-
-    setError(null)
-    let hls: Hls | null = null
-    const onError = () => setError("The preview could not play this source.")
-    video.addEventListener("error", onError)
-
-    if (
-      getMediaSourceKind(source) === "hls" &&
-      !video.canPlayType("application/vnd.apple.mpegurl")
-    ) {
-      if (Hls.isSupported()) {
-        hls = new Hls()
-        hls.on(Hls.Events.ERROR, (_event, data) => {
-          if (data.fatal) setError("The HLS preview encountered a fatal error.")
-        })
-        hls.loadSource(source)
-        hls.attachMedia(video)
-      } else {
-        setError("HLS is not supported by this browser.")
-      }
-    } else {
-      video.src = source
-      video.load()
-    }
-
-    return () => {
-      video.removeEventListener("error", onError)
-      hls?.destroy()
-      video.removeAttribute("src")
-      video.load()
-    }
-  }, [source])
-
-  useEffect(() => {
-    const video = ref.current
-    if (!video) return
-
-    const syncCue = () => {
-      setActiveCueIndex(findActiveCueIndex(cues, video.currentTime))
-    }
-
-    syncCue()
-    video.addEventListener("timeupdate", syncCue)
-    video.addEventListener("seeking", syncCue)
-    video.addEventListener("loadedmetadata", syncCue)
-
-    return () => {
-      video.removeEventListener("timeupdate", syncCue)
-      video.removeEventListener("seeking", syncCue)
-      video.removeEventListener("loadedmetadata", syncCue)
-    }
-  }, [cues])
-
+  const containerRef = useRef<HTMLDivElement>(null)
+  const store = usePlayerStoreApi()
+  const error = usePlayerStore((state) => state.error)
+  const status = usePlayerStore((state) => state.status)
+  const currentTime = usePlayerStore((state) => state.currentTime)
+  const controller = useMediaController({ videoRef: ref, containerRef, source, store })
+  const activeCueIndex = findActiveCueIndex(cues, currentTime)
   const activeCue = activeCueIndex >= 0 ? cues[activeCueIndex] : null
 
   return (
     <div>
-      <div className="relative overflow-hidden rounded-xl bg-black">
+      <div
+        ref={containerRef}
+        tabIndex={0}
+        aria-label="Section video preview"
+        className="relative aspect-video overflow-hidden rounded-xl bg-black outline-none focus-visible:ring-2 focus-visible:ring-ring [&:fullscreen]:rounded-none"
+        onKeyDown={(event) => {
+          const target = event.target as HTMLElement
+          if (target.closest("input, select, textarea, [contenteditable='true']")) return
+          if ((event.key === " " || event.key === "Enter") && target.closest("button, a")) return
+          const key = event.key.toLowerCase()
+          if ([" ", "k", "j", "l", "arrowleft", "arrowright", "m", "f"].includes(key)) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          if (key === " " || key === "k") controller.togglePlay()
+          else if (key === "j" || key === "arrowleft") controller.seekBy(-5)
+          else if (key === "l" || key === "arrowright") controller.seekBy(5)
+          else if (key === "m") controller.toggleMute()
+          else if (key === "f") void controller.toggleFullscreen()
+        }}
+      >
         <video
           ref={ref}
-          controls
+          aria-label="Section preview video"
           playsInline
           preload="metadata"
-          className="aspect-video w-full bg-black object-contain"
+          className="h-full w-full bg-black object-contain"
+          onClick={controller.togglePlay}
         />
 
         {activeCue ? (
-          <div className="pointer-events-none absolute inset-x-0 bottom-14 flex justify-center px-3 sm:bottom-16 sm:px-8">
+          <div className="pointer-events-none absolute inset-x-0 bottom-24 z-30 flex justify-center px-3 sm:px-8">
             <div className="pointer-events-auto flex max-w-[92%] flex-wrap justify-center gap-x-1.5 gap-y-1 rounded-lg bg-black/70 px-3 py-2 text-center text-lg font-medium text-white shadow-lg backdrop-blur-sm sm:text-xl">
               {activeCue.tokens.map((token) => {
                 const mapped = mappingIndex.get(token.key)
@@ -142,9 +121,25 @@ export function AdminVideoPreview({
             </div>
           </div>
         ) : null}
+        {(status === "loading" || status === "buffering") && !error ? (
+          <div className="pointer-events-none absolute inset-0 grid place-items-center">
+            <LoaderCircle className="size-8 animate-spin text-white" aria-label="Loading video" />
+          </div>
+        ) : null}
+        {error ? (
+          <p role="alert" className="absolute inset-x-3 top-3 rounded-md bg-black/80 p-3 text-sm text-white">
+            {error.message}
+          </p>
+        ) : null}
+        <PlayerControls
+          onTogglePlay={controller.togglePlay}
+          onSeek={controller.seekTo}
+          onVolumeChange={controller.setVolume}
+          onToggleMute={controller.toggleMute}
+          onPlaybackRateChange={controller.setPlaybackRate}
+          onToggleFullscreen={() => void controller.toggleFullscreen()}
+        />
       </div>
-
-      {error ? <p className="mt-2 text-sm text-destructive">{error}</p> : null}
       <p className="mt-2 text-xs text-muted-foreground">
         Every word in the active subtitle cue is selectable. Existing mapped words open their mapping for editing.
       </p>

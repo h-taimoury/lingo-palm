@@ -44,8 +44,6 @@ export function useMediaController({
       return
     }
 
-    store.getState().resetForSource()
-
     const syncPlay = () => {
       store.getState().setPlaying(true)
       store.getState().setEnded(false)
@@ -105,6 +103,7 @@ export function useMediaController({
     media.addEventListener("play", syncPlay)
     media.addEventListener("pause", syncPause)
     media.addEventListener("timeupdate", syncTime)
+    media.addEventListener("seeking", syncTime)
     media.addEventListener("durationchange", syncDuration)
     media.addEventListener("loadedmetadata", syncDuration)
     media.addEventListener("waiting", syncWaiting)
@@ -119,6 +118,7 @@ export function useMediaController({
       media.removeEventListener("play", syncPlay)
       media.removeEventListener("pause", syncPause)
       media.removeEventListener("timeupdate", syncTime)
+      media.removeEventListener("seeking", syncTime)
       media.removeEventListener("durationchange", syncDuration)
       media.removeEventListener("loadedmetadata", syncDuration)
       media.removeEventListener("waiting", syncWaiting)

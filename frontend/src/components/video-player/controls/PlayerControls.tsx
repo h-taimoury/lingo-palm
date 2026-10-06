@@ -16,7 +16,7 @@ type PlayerControlsProps = {
   onToggleMute: () => void;
   onPlaybackRateChange: (rate: number) => void;
   onToggleFullscreen: () => void;
-  onToggleTheater: () => void;
+  onToggleTheater?: () => void;
 };
 
 export function PlayerControls({
@@ -66,7 +66,7 @@ export function PlayerControls({
         <div className="flex-1" />
 
         <PlaybackRate onChange={onPlaybackRateChange} />
-        <TheaterButton onToggle={onToggleTheater} />
+        {onToggleTheater ? <TheaterButton onToggle={onToggleTheater} /> : null}
         <FullscreenButton onToggle={onToggleFullscreen} />
       </div>
     </div>
