@@ -1,0 +1,3500 @@
+[
+  {
+    "id": 257,
+    "senses": [
+      1675
+    ],
+    "words": [
+      {
+        "id": 263,
+        "section_id": 9,
+        "mapping_id": 257,
+        "word": "backbone?",
+        "cue_id": 5,
+        "cue_start_time": 16.693,
+        "cue_end_time": 19.571,
+        "previous_cue_start_time": 14.483,
+        "previous_cue_end_time": 16.693,
+        "next_cue_start_time": 19.571,
+        "next_cue_end_time": 23.075,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 258,
+    "senses": [
+      1676
+    ],
+    "words": [
+      {
+        "id": 264,
+        "section_id": 9,
+        "mapping_id": 258,
+        "word": "bravery",
+        "cue_id": 6,
+        "cue_start_time": 19.571,
+        "cue_end_time": 23.075,
+        "previous_cue_start_time": 16.693,
+        "previous_cue_end_time": 19.571,
+        "next_cue_start_time": 23.075,
+        "next_cue_end_time": 27.871,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 259,
+    "senses": [
+      1678
+    ],
+    "words": [
+      {
+        "id": 265,
+        "section_id": 9,
+        "mapping_id": 259,
+        "word": "specialty.",
+        "cue_id": 6,
+        "cue_start_time": 19.571,
+        "cue_end_time": 23.075,
+        "previous_cue_start_time": 16.693,
+        "previous_cue_end_time": 19.571,
+        "next_cue_start_time": 23.075,
+        "next_cue_end_time": 27.871,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 260,
+    "senses": [
+      1686
+    ],
+    "words": [
+      {
+        "id": 266,
+        "section_id": 9,
+        "mapping_id": 260,
+        "word": "nothing!",
+        "cue_id": 12,
+        "cue_start_time": 36.505,
+        "cue_end_time": 39.341,
+        "previous_cue_start_time": 34.127,
+        "previous_cue_end_time": 36.505,
+        "next_cue_start_time": 39.341,
+        "next_cue_end_time": 40.843,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 261,
+    "senses": [
+      1701
+    ],
+    "words": [
+      {
+        "id": 267,
+        "section_id": 9,
+        "mapping_id": 261,
+        "word": "orphan?",
+        "cue_id": 26,
+        "cue_start_time": 81.842,
+        "cue_end_time": 84.219,
+        "previous_cue_start_time": 73.5,
+        "previous_cue_end_time": 76.128,
+        "next_cue_start_time": 84.219,
+        "next_cue_end_time": 85.679,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 262,
+    "senses": [
+      1703
+    ],
+    "words": [
+      {
+        "id": 268,
+        "section_id": 9,
+        "mapping_id": 262,
+        "word": "adopted",
+        "cue_id": 28,
+        "cue_start_time": 85.679,
+        "cue_end_time": 89.6,
+        "previous_cue_start_time": 84.219,
+        "previous_cue_end_time": 85.679,
+        "next_cue_start_time": 89.6,
+        "next_cue_end_time": 93.312,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 263,
+    "senses": [
+      1711
+    ],
+    "words": [
+      {
+        "id": 269,
+        "section_id": 9,
+        "mapping_id": 263,
+        "word": "roof",
+        "cue_id": 32,
+        "cue_start_time": 97.733,
+        "cue_end_time": 101.195,
+        "previous_cue_start_time": 95.606,
+        "previous_cue_end_time": 97.733,
+        "next_cue_start_time": 101.195,
+        "next_cue_end_time": 103.572,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 264,
+    "senses": [
+      1249
+    ],
+    "words": [
+      {
+        "id": 270,
+        "section_id": 9,
+        "mapping_id": 264,
+        "word": "squirrel",
+        "cue_id": 38,
+        "cue_start_time": 109.244,
+        "cue_end_time": 110.74600000000001,
+        "previous_cue_start_time": 108.202,
+        "previous_cue_end_time": 109.244,
+        "next_cue_start_time": 110.74600000000001,
+        "next_cue_end_time": 111.663,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 265,
+    "senses": [
+      336
+    ],
+    "words": [
+      {
+        "id": 271,
+        "section_id": 9,
+        "mapping_id": 265,
+        "word": "successor?",
+        "cue_id": 40,
+        "cue_start_time": 111.663,
+        "cue_end_time": 113.707,
+        "previous_cue_start_time": 110.74600000000001,
+        "previous_cue_end_time": 111.663,
+        "next_cue_start_time": 114.875,
+        "next_cue_end_time": 117.294,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 266,
+    "senses": [
+      613
+    ],
+    "words": [
+      {
+        "id": 272,
+        "section_id": 9,
+        "mapping_id": 266,
+        "word": "supposed",
+        "cue_id": 41,
+        "cue_start_time": 114.875,
+        "cue_end_time": 117.294,
+        "previous_cue_start_time": 111.663,
+        "previous_cue_end_time": 113.707,
+        "next_cue_start_time": 117.294,
+        "next_cue_end_time": 120.38,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 267,
+    "senses": [
+      355
+    ],
+    "words": [
+      {
+        "id": 273,
+        "section_id": 9,
+        "mapping_id": 267,
+        "word": "Spiritual",
+        "cue_id": 41,
+        "cue_start_time": 114.875,
+        "cue_end_time": 117.294,
+        "previous_cue_start_time": 111.663,
+        "previous_cue_end_time": 113.707,
+        "next_cue_start_time": 117.294,
+        "next_cue_end_time": 120.38,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 268,
+    "senses": [
+      1718
+    ],
+    "words": [
+      {
+        "id": 274,
+        "section_id": 9,
+        "mapping_id": 268,
+        "word": "worthy",
+        "cue_id": 42,
+        "cue_start_time": 117.294,
+        "cue_end_time": 120.38,
+        "previous_cue_start_time": 114.875,
+        "previous_cue_end_time": 117.294,
+        "next_cue_start_time": 120.38,
+        "next_cue_end_time": 122.549,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 269,
+    "senses": [
+      336
+    ],
+    "words": [
+      {
+        "id": 275,
+        "section_id": 9,
+        "mapping_id": 269,
+        "word": "successor",
+        "cue_id": 42,
+        "cue_start_time": 117.294,
+        "cue_end_time": 120.38,
+        "previous_cue_start_time": 114.875,
+        "previous_cue_end_time": 117.294,
+        "next_cue_start_time": 120.38,
+        "next_cue_end_time": 122.549,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 270,
+    "senses": [
+      1726
+    ],
+    "words": [
+      {
+        "id": 276,
+        "section_id": 9,
+        "mapping_id": 270,
+        "word": "top,",
+        "cue_id": 43,
+        "cue_start_time": 120.38,
+        "cue_end_time": 122.549,
+        "previous_cue_start_time": 117.294,
+        "previous_cue_end_time": 120.38,
+        "next_cue_start_time": 122.549,
+        "next_cue_end_time": 125.636,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 271,
+    "senses": [
+      355
+    ],
+    "words": [
+      {
+        "id": 277,
+        "section_id": 9,
+        "mapping_id": 271,
+        "word": "Spiritual",
+        "cue_id": 44,
+        "cue_start_time": 122.549,
+        "cue_end_time": 125.636,
+        "previous_cue_start_time": 120.38,
+        "previous_cue_end_time": 122.549,
+        "next_cue_start_time": 125.636,
+        "next_cue_end_time": 128.18,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 272,
+    "senses": [
+      1770
+    ],
+    "words": [
+      {
+        "id": 278,
+        "section_id": 9,
+        "mapping_id": 272,
+        "word": "proverbs.",
+        "cue_id": 45,
+        "cue_start_time": 125.636,
+        "cue_end_time": 128.18,
+        "previous_cue_start_time": 122.549,
+        "previous_cue_end_time": 125.636,
+        "next_cue_start_time": 128.18,
+        "next_cue_end_time": 130.849,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 273,
+    "senses": [
+      355
+    ],
+    "words": [
+      {
+        "id": 279,
+        "section_id": 9,
+        "mapping_id": 273,
+        "word": "Spiritual",
+        "cue_id": 54,
+        "cue_start_time": 145.405,
+        "cue_end_time": 149.243,
+        "previous_cue_start_time": 144.488,
+        "previous_cue_end_time": 145.405,
+        "next_cue_start_time": 151.161,
+        "next_cue_end_time": 153.20499999999998,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 274,
+    "senses": [
+      1851
+    ],
+    "words": [
+      {
+        "id": 280,
+        "section_id": 9,
+        "mapping_id": 274,
+        "word": "drinks",
+        "cue_id": 55,
+        "cue_start_time": 151.161,
+        "cue_end_time": 153.20499999999998,
+        "previous_cue_start_time": 145.405,
+        "previous_cue_end_time": 149.243,
+        "next_cue_start_time": 153.20499999999998,
+        "next_cue_end_time": 154.748,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 275,
+    "senses": [
+      550
+    ],
+    "words": [
+      {
+        "id": 281,
+        "section_id": 9,
+        "mapping_id": 275,
+        "word": "tribute,",
+        "cue_id": 57,
+        "cue_start_time": 179.773,
+        "cue_end_time": 182.901,
+        "previous_cue_start_time": 153.20499999999998,
+        "previous_cue_end_time": 154.748,
+        "next_cue_start_time": 182.901,
+        "next_cue_end_time": 184.778,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 276,
+    "senses": [
+      1887
+    ],
+    "words": [
+      {
+        "id": 282,
+        "section_id": 9,
+        "mapping_id": 276,
+        "word": "light.",
+        "cue_id": 58,
+        "cue_start_time": 182.901,
+        "cue_end_time": 184.778,
+        "previous_cue_start_time": 179.773,
+        "previous_cue_end_time": 182.901,
+        "next_cue_start_time": 184.778,
+        "next_cue_end_time": 186.655,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 277,
+    "senses": [
+      1909
+    ],
+    "words": [
+      {
+        "id": 283,
+        "section_id": 9,
+        "mapping_id": 277,
+        "word": "toss",
+        "cue_id": 62,
+        "cue_start_time": 188.74,
+        "cue_end_time": 192.369,
+        "previous_cue_start_time": 187.573,
+        "previous_cue_end_time": 188.74,
+        "next_cue_start_time": 195.205,
+        "next_cue_end_time": 198.5,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 278,
+    "senses": [
+      1924
+    ],
+    "words": [
+      {
+        "id": 284,
+        "section_id": 9,
+        "mapping_id": 278,
+        "word": "flight",
+        "cue_id": 62,
+        "cue_start_time": 188.74,
+        "cue_end_time": 192.369,
+        "previous_cue_start_time": 187.573,
+        "previous_cue_end_time": 188.74,
+        "next_cue_start_time": 195.205,
+        "next_cue_end_time": 198.5,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 279,
+    "senses": [
+      334
+    ],
+    "words": [
+      {
+        "id": 285,
+        "section_id": 9,
+        "mapping_id": 279,
+        "word": "destiny",
+        "cue_id": 63,
+        "cue_start_time": 195.205,
+        "cue_end_time": 198.5,
+        "previous_cue_start_time": 188.74,
+        "previous_cue_end_time": 192.369,
+        "next_cue_start_time": 202.212,
+        "next_cue_end_time": 207.71699999999998,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 280,
+    "senses": [
+      1928
+    ],
+    "words": [
+      {
+        "id": 286,
+        "section_id": 9,
+        "mapping_id": 280,
+        "word": "expand",
+        "cue_id": 64,
+        "cue_start_time": 202.212,
+        "cue_end_time": 207.71699999999998,
+        "previous_cue_start_time": 195.205,
+        "previous_cue_end_time": 198.5,
+        "next_cue_start_time": 207.71699999999998,
+        "next_cue_end_time": 211.346,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 281,
+    "senses": [
+      1934
+    ],
+    "words": [
+      {
+        "id": 287,
+        "section_id": 9,
+        "mapping_id": 281,
+        "word": "rule",
+        "cue_id": 64,
+        "cue_start_time": 202.212,
+        "cue_end_time": 207.71699999999998,
+        "previous_cue_start_time": 195.205,
+        "previous_cue_end_time": 198.5,
+        "next_cue_start_time": 207.71699999999998,
+        "next_cue_end_time": 211.346,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 282,
+    "senses": [
+      1952
+    ],
+    "words": [
+      {
+        "id": 288,
+        "section_id": 9,
+        "mapping_id": 282,
+        "word": "vision.",
+        "cue_id": 68,
+        "cue_start_time": 221.982,
+        "cue_end_time": 226.195,
+        "previous_cue_start_time": 220.64600000000002,
+        "previous_cue_end_time": 221.982,
+        "next_cue_start_time": 226.195,
+        "next_cue_end_time": 229.239,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 283,
+    "senses": [
+      1952
+    ],
+    "words": [
+      {
+        "id": 289,
+        "section_id": 9,
+        "mapping_id": 283,
+        "word": "vision?",
+        "cue_id": 70,
+        "cue_start_time": 229.239,
+        "cue_end_time": 230.949,
+        "previous_cue_start_time": 226.195,
+        "previous_cue_end_time": 229.239,
+        "next_cue_start_time": 230.949,
+        "next_cue_end_time": 232.492,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 284,
+    "senses": [
+      1952
+    ],
+    "words": [
+      {
+        "id": 290,
+        "section_id": 9,
+        "mapping_id": 284,
+        "word": "vision.",
+        "cue_id": 73,
+        "cue_start_time": 233.911,
+        "cue_end_time": 235.704,
+        "previous_cue_start_time": 232.492,
+        "previous_cue_end_time": 233.911,
+        "next_cue_start_time": 235.704,
+        "next_cue_end_time": 237.789,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 285,
+    "senses": [
+      1998
+    ],
+    "words": [
+      {
+        "id": 291,
+        "section_id": 9,
+        "mapping_id": 285,
+        "word": "nowhere.",
+        "cue_id": 85,
+        "cue_start_time": 269.238,
+        "cue_end_time": 271.198,
+        "previous_cue_start_time": 264.358,
+        "previous_cue_end_time": 267.986,
+        "next_cue_start_time": 281.625,
+        "next_cue_end_time": 282.501,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 286,
+    "senses": [
+      217
+    ],
+    "words": [
+      {
+        "id": 292,
+        "section_id": 9,
+        "mapping_id": 286,
+        "word": "claws",
+        "cue_id": 102,
+        "cue_start_time": 328.547,
+        "cue_end_time": 331.925,
+        "previous_cue_start_time": 326.461,
+        "previous_cue_end_time": 328.547,
+        "next_cue_start_time": 343.187,
+        "next_cue_end_time": 345.314,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 287,
+    "senses": [
+      2000
+    ],
+    "words": [
+      {
+        "id": 293,
+        "section_id": 9,
+        "mapping_id": 287,
+        "word": "villainous",
+        "cue_id": 105,
+        "cue_start_time": 346.44,
+        "cue_end_time": 350.11,
+        "previous_cue_start_time": 345.314,
+        "previous_cue_end_time": 346.44,
+        "next_cue_start_time": 350.11,
+        "next_cue_end_time": 353.155,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 288,
+    "senses": [
+      501
+    ],
+    "words": [
+      {
+        "id": 294,
+        "section_id": 9,
+        "mapping_id": 288,
+        "word": "sorceress",
+        "cue_id": 105,
+        "cue_start_time": 346.44,
+        "cue_end_time": 350.11,
+        "previous_cue_start_time": 345.314,
+        "previous_cue_end_time": 346.44,
+        "next_cue_start_time": 350.11,
+        "next_cue_end_time": 353.155,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 289,
+    "senses": [
+      2001
+    ],
+    "words": [
+      {
+        "id": 295,
+        "section_id": 9,
+        "mapping_id": 289,
+        "word": "lurks",
+        "cue_id": 105,
+        "cue_start_time": 346.44,
+        "cue_end_time": 350.11,
+        "previous_cue_start_time": 345.314,
+        "previous_cue_end_time": 346.44,
+        "next_cue_start_time": 350.11,
+        "next_cue_end_time": 353.155,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 290,
+    "senses": [
+      2004
+    ],
+    "words": [
+      {
+        "id": 296,
+        "section_id": 9,
+        "mapping_id": 290,
+        "word": "dominates",
+        "cue_id": 105,
+        "cue_start_time": 346.44,
+        "cue_end_time": 350.11,
+        "previous_cue_start_time": 345.314,
+        "previous_cue_end_time": 346.44,
+        "next_cue_start_time": 350.11,
+        "next_cue_end_time": 353.155,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 291,
+    "senses": [
+      2001
+    ],
+    "words": [
+      {
+        "id": 297,
+        "section_id": 9,
+        "mapping_id": 291,
+        "word": "lurking",
+        "cue_id": 106,
+        "cue_start_time": 350.11,
+        "cue_end_time": 353.155,
+        "previous_cue_start_time": 346.44,
+        "previous_cue_end_time": 350.11,
+        "next_cue_start_time": 354.948,
+        "next_cue_end_time": 355.949,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 292,
+    "senses": [
+      2000
+    ],
+    "words": [
+      {
+        "id": 298,
+        "section_id": 9,
+        "mapping_id": 292,
+        "word": "villainous",
+        "cue_id": 106,
+        "cue_start_time": 350.11,
+        "cue_end_time": 353.155,
+        "previous_cue_start_time": 346.44,
+        "previous_cue_end_time": 350.11,
+        "next_cue_start_time": 354.948,
+        "next_cue_end_time": 355.949,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 293,
+    "senses": [
+      2005
+    ],
+    "words": [
+      {
+        "id": 299,
+        "section_id": 9,
+        "mapping_id": 293,
+        "word": "dominating",
+        "cue_id": 106,
+        "cue_start_time": 350.11,
+        "cue_end_time": 353.155,
+        "previous_cue_start_time": 346.44,
+        "previous_cue_end_time": 350.11,
+        "next_cue_start_time": 354.948,
+        "next_cue_end_time": 355.949,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 294,
+    "senses": [
+      2008
+    ],
+    "words": [
+      {
+        "id": 300,
+        "section_id": 9,
+        "mapping_id": 294,
+        "word": "villain.",
+        "cue_id": 108,
+        "cue_start_time": 355.949,
+        "cue_end_time": 357.951,
+        "previous_cue_start_time": 354.948,
+        "previous_cue_end_time": 355.949,
+        "next_cue_start_time": 357.951,
+        "next_cue_end_time": 359.036,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 295,
+    "senses": [
+      2009
+    ],
+    "words": [
+      {
+        "id": 301,
+        "section_id": 9,
+        "mapping_id": 295,
+        "word": "celeb.",
+        "cue_id": 113,
+        "cue_start_time": 362.539,
+        "cue_end_time": 364.791,
+        "previous_cue_start_time": 361.622,
+        "previous_cue_end_time": 362.539,
+        "next_cue_start_time": 364.791,
+        "next_cue_end_time": 368.045,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 296,
+    "senses": [
+      2010
+    ],
+    "words": [
+      {
+        "id": 302,
+        "section_id": 9,
+        "mapping_id": 296,
+        "word": "wanted",
+        "cue_id": 115,
+        "cue_start_time": 370.756,
+        "cue_end_time": 372.883,
+        "previous_cue_start_time": 364.791,
+        "previous_cue_end_time": 368.045,
+        "next_cue_start_time": 372.883,
+        "next_cue_end_time": 376.47,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 297,
+    "senses": [
+      2010
+    ],
+    "words": [
+      {
+        "id": 303,
+        "section_id": 9,
+        "mapping_id": 297,
+        "word": "wanted.",
+        "cue_id": 117,
+        "cue_start_time": 376.47,
+        "cue_end_time": 378.472,
+        "previous_cue_start_time": 372.883,
+        "previous_cue_end_time": 376.47,
+        "next_cue_start_time": 378.472,
+        "next_cue_end_time": 379.806,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 298,
+    "senses": [
+      2015
+    ],
+    "words": [
+      {
+        "id": 304,
+        "section_id": 9,
+        "mapping_id": 298,
+        "word": "law",
+        "cue_id": 119,
+        "cue_start_time": 379.806,
+        "cue_end_time": 382.017,
+        "previous_cue_start_time": 378.472,
+        "previous_cue_end_time": 379.806,
+        "next_cue_start_time": 382.017,
+        "next_cue_end_time": 384.645,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 299,
+    "senses": [
+      2032
+    ],
+    "words": [
+      {
+        "id": 305,
+        "section_id": 9,
+        "mapping_id": 299,
+        "word": "slow",
+        "cue_id": 121,
+        "cue_start_time": 384.645,
+        "cue_end_time": 385.771,
+        "previous_cue_start_time": 382.017,
+        "previous_cue_end_time": 384.645,
+        "next_cue_start_time": 385.771,
+        "next_cue_end_time": 387.022,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 300,
+    "senses": [
+      2043
+    ],
+    "words": [
+      {
+        "id": 306,
+        "section_id": 9,
+        "mapping_id": 300,
+        "word": "workweek.",
+        "cue_id": 121,
+        "cue_start_time": 384.645,
+        "cue_end_time": 385.771,
+        "previous_cue_start_time": 382.017,
+        "previous_cue_end_time": 384.645,
+        "next_cue_start_time": 385.771,
+        "next_cue_end_time": 387.022,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 301,
+    "senses": [
+      2045
+    ],
+    "words": [
+      {
+        "id": 307,
+        "section_id": 9,
+        "mapping_id": 301,
+        "word": "handle",
+        "cue_id": 122,
+        "cue_start_time": 385.771,
+        "cue_end_time": 387.022,
+        "previous_cue_start_time": 384.645,
+        "previous_cue_end_time": 385.771,
+        "next_cue_start_time": 387.022,
+        "next_cue_end_time": 390.192,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 302,
+    "senses": [
+      2057
+    ],
+    "words": [
+      {
+        "id": 308,
+        "section_id": 9,
+        "mapping_id": 302,
+        "word": "official",
+        "cue_id": 124,
+        "cue_start_time": 390.192,
+        "cue_end_time": 393.654,
+        "previous_cue_start_time": 387.022,
+        "previous_cue_end_time": 390.192,
+        "next_cue_start_time": 393.654,
+        "next_cue_end_time": 395.28,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 303,
+    "senses": [
+      2015
+    ],
+    "words": [
+      {
+        "id": 309,
+        "section_id": 9,
+        "mapping_id": 303,
+        "word": "law.",
+        "cue_id": 137,
+        "cue_start_time": 424.768,
+        "cue_end_time": 427.354,
+        "previous_cue_start_time": 422.432,
+        "previous_cue_end_time": 424.142,
+        "next_cue_start_time": 427.354,
+        "next_cue_end_time": 430.065,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 304,
+    "senses": [
+      2010
+    ],
+    "words": [
+      {
+        "id": 310,
+        "section_id": 9,
+        "mapping_id": 304,
+        "word": "wanted",
+        "cue_id": 137,
+        "cue_start_time": 424.768,
+        "cue_end_time": 427.354,
+        "previous_cue_start_time": 422.432,
+        "previous_cue_end_time": 424.142,
+        "next_cue_start_time": 427.354,
+        "next_cue_end_time": 430.065,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 305,
+    "senses": [
+      2064
+    ],
+    "words": [
+      {
+        "id": 311,
+        "section_id": 9,
+        "mapping_id": 305,
+        "word": "...backup.",
+        "cue_id": 141,
+        "cue_start_time": 436.572,
+        "cue_end_time": 437.865,
+        "previous_cue_start_time": 432.359,
+        "previous_cue_end_time": 434.319,
+        "next_cue_start_time": 442.619,
+        "next_cue_end_time": 444.037,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 306,
+    "senses": [
+      2066
+    ],
+    "words": [
+      {
+        "id": 312,
+        "section_id": 9,
+        "mapping_id": 306,
+        "word": "bull.",
+        "cue_id": 142,
+        "cue_start_time": 442.619,
+        "cue_end_time": 444.037,
+        "previous_cue_start_time": 436.572,
+        "previous_cue_end_time": 437.865,
+        "next_cue_start_time": 444.037,
+        "next_cue_end_time": 445.581,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 307,
+    "senses": [
+      2076
+    ],
+    "words": [
+      {
+        "id": 313,
+        "section_id": 9,
+        "mapping_id": 307,
+        "word": "solo!",
+        "cue_id": 154,
+        "cue_start_time": 547.266,
+        "cue_end_time": 549.518,
+        "previous_cue_start_time": 544.429,
+        "previous_cue_end_time": 545.43,
+        "next_cue_start_time": 551.144,
+        "next_cue_end_time": 552.563,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 308,
+    "senses": [
+      2091
+    ],
+    "words": [
+      {
+        "id": 314,
+        "section_id": 9,
+        "mapping_id": 308,
+        "word": "trapped.",
+        "cue_id": 155,
+        "cue_start_time": 551.144,
+        "cue_end_time": 552.563,
+        "previous_cue_start_time": 547.266,
+        "previous_cue_end_time": 549.518,
+        "next_cue_start_time": 564.908,
+        "next_cue_end_time": 565.993,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 309,
+    "senses": [
+      2098
+    ],
+    "words": [
+      {
+        "id": 315,
+        "section_id": 9,
+        "mapping_id": 309,
+        "word": "crooks",
+        "cue_id": 160,
+        "cue_start_time": 575.252,
+        "cue_end_time": 578.8389999999999,
+        "previous_cue_start_time": 573.792,
+        "previous_cue_end_time": 575.252,
+        "next_cue_start_time": 580.966,
+        "next_cue_end_time": 584.386,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 310,
+    "senses": [
+      2102
+    ],
+    "words": [
+      {
+        "id": 316,
+        "section_id": 9,
+        "mapping_id": 310,
+        "word": "practically",
+        "cue_id": 168,
+        "cue_start_time": 613.04,
+        "cue_end_time": 614.333,
+        "previous_cue_start_time": 610.787,
+        "previous_cue_end_time": 613.04,
+        "next_cue_start_time": 614.333,
+        "next_cue_end_time": 615.667,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 311,
+    "senses": [
+      2104
+    ],
+    "words": [
+      {
+        "id": 317,
+        "section_id": 9,
+        "mapping_id": 311,
+        "word": "mentor.",
+        "cue_id": 171,
+        "cue_start_time": 623.008,
+        "cue_end_time": 625.469,
+        "previous_cue_start_time": 620.797,
+        "previous_cue_end_time": 623.008,
+        "next_cue_start_time": 625.469,
+        "next_cue_end_time": 628.43,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 312,
+    "senses": [
+      2107
+    ],
+    "words": [
+      {
+        "id": 318,
+        "section_id": 9,
+        "mapping_id": 312,
+        "word": "den.",
+        "cue_id": 172,
+        "cue_start_time": 625.469,
+        "cue_end_time": 628.43,
+        "previous_cue_start_time": 623.008,
+        "previous_cue_end_time": 625.469,
+        "next_cue_start_time": 628.43,
+        "next_cue_end_time": 629.89,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 313,
+    "senses": [
+      2114
+    ],
+    "words": [
+      {
+        "id": 319,
+        "section_id": 9,
+        "mapping_id": 313,
+        "word": "proper",
+        "cue_id": 174,
+        "cue_start_time": 631.475,
+        "cue_end_time": 634.52,
+        "previous_cue_start_time": 628.43,
+        "previous_cue_end_time": 629.89,
+        "next_cue_start_time": 634.52,
+        "next_cue_end_time": 635.854,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 314,
+    "senses": [
+      2121
+    ],
+    "words": [
+      {
+        "id": 320,
+        "section_id": 9,
+        "mapping_id": 314,
+        "word": "homecoming.",
+        "cue_id": 174,
+        "cue_start_time": 631.475,
+        "cue_end_time": 634.52,
+        "previous_cue_start_time": 628.43,
+        "previous_cue_end_time": 629.89,
+        "next_cue_start_time": 634.52,
+        "next_cue_end_time": 635.854,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 315,
+    "senses": [
+      2126
+    ],
+    "words": [
+      {
+        "id": 321,
+        "section_id": 9,
+        "mapping_id": 315,
+        "word": "distant",
+        "cue_id": 176,
+        "cue_start_time": 635.854,
+        "cue_end_time": 637.189,
+        "previous_cue_start_time": 634.52,
+        "previous_cue_end_time": 635.854,
+        "next_cue_start_time": 637.189,
+        "next_cue_end_time": 639.107,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 316,
+    "senses": [
+      2128
+    ],
+    "words": [
+      {
+        "id": 322,
+        "section_id": 9,
+        "mapping_id": 316,
+        "word": "painless?",
+        "cue_id": 178,
+        "cue_start_time": 639.107,
+        "cue_end_time": 642.277,
+        "previous_cue_start_time": 637.189,
+        "previous_cue_end_time": 639.107,
+        "next_cue_start_time": 642.277,
+        "next_cue_end_time": 645.697,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 317,
+    "senses": [
+      2130
+    ],
+    "words": [
+      {
+        "id": 323,
+        "section_id": 9,
+        "mapping_id": 317,
+        "word": "scamps.",
+        "cue_id": 180,
+        "cue_start_time": 645.697,
+        "cue_end_time": 648.45,
+        "previous_cue_start_time": 642.277,
+        "previous_cue_end_time": 645.697,
+        "next_cue_start_time": 648.45,
+        "next_cue_end_time": 649.993,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 318,
+    "senses": [
+      2139
+    ],
+    "words": [
+      {
+        "id": 324,
+        "section_id": 9,
+        "mapping_id": 318,
+        "word": "lay",
+        "cue_id": 184,
+        "cue_start_time": 652.663,
+        "cue_end_time": 654.915,
+        "previous_cue_start_time": 651.578,
+        "previous_cue_end_time": 652.663,
+        "next_cue_start_time": 654.915,
+        "next_cue_end_time": 656.583,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 319,
+    "senses": [
+      2176
+    ],
+    "words": [
+      {
+        "id": 325,
+        "section_id": 9,
+        "mapping_id": 319,
+        "word": "regional?",
+        "cue_id": 189,
+        "cue_start_time": 666.635,
+        "cue_end_time": 669.93,
+        "previous_cue_start_time": 663.215,
+        "previous_cue_end_time": 664.216,
+        "next_cue_start_time": 669.93,
+        "next_cue_end_time": 671.348,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 320,
+    "senses": [
+      267
+    ],
+    "words": [
+      {
+        "id": 326,
+        "section_id": 9,
+        "mapping_id": 320,
+        "word": "kicking",
+        "cue_id": 192,
+        "cue_start_time": 679.481,
+        "cue_end_time": 683.694,
+        "previous_cue_start_time": 672.266,
+        "previous_cue_end_time": 674.434,
+        "next_cue_start_time": 683.694,
+        "next_cue_end_time": 685.696,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 321,
+    "senses": [
+      887
+    ],
+    "words": [
+      {
+        "id": 327,
+        "section_id": 9,
+        "mapping_id": 321,
+        "word": "inner",
+        "cue_id": 195,
+        "cue_start_time": 687.573,
+        "cue_end_time": 690.909,
+        "previous_cue_start_time": 685.696,
+        "previous_cue_end_time": 687.573,
+        "next_cue_start_time": 690.909,
+        "next_cue_end_time": 692.2860000000001,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 322,
+    "senses": [
+      2177
+    ],
+    "words": [
+      {
+        "id": 328,
+        "section_id": 9,
+        "mapping_id": 322,
+        "word": "differing",
+        "cue_id": 195,
+        "cue_start_time": 687.573,
+        "cue_end_time": 690.909,
+        "previous_cue_start_time": 685.696,
+        "previous_cue_end_time": 687.573,
+        "next_cue_start_time": 690.909,
+        "next_cue_end_time": 692.2860000000001,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 323,
+    "senses": [
+      2185
+    ],
+    "words": [
+      {
+        "id": 329,
+        "section_id": 9,
+        "mapping_id": 323,
+        "word": "disappointment...",
+        "cue_id": 197,
+        "cue_start_time": 692.2860000000001,
+        "cue_end_time": 694.288,
+        "previous_cue_start_time": 690.909,
+        "previous_cue_end_time": 692.2860000000001,
+        "next_cue_start_time": 694.288,
+        "next_cue_end_time": 695.455,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 324,
+    "senses": [
+      2191
+    ],
+    "words": [
+      {
+        "id": 330,
+        "section_id": 9,
+        "mapping_id": 324,
+        "word": "resorts",
+        "cue_id": 200,
+        "cue_start_time": 699.543,
+        "cue_end_time": 702.963,
+        "previous_cue_start_time": 697.2909999999999,
+        "previous_cue_end_time": 698.292,
+        "next_cue_start_time": 704.173,
+        "next_cue_end_time": 707.509,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 325,
+    "senses": [
+      1670
+    ],
+    "words": [
+      {
+        "id": 331,
+        "section_id": 9,
+        "mapping_id": 325,
+        "word": "misunderstanding",
+        "cue_id": 207,
+        "cue_start_time": 721.857,
+        "cue_end_time": 724.234,
+        "previous_cue_start_time": 717.811,
+        "previous_cue_end_time": 721.857,
+        "next_cue_start_time": 724.234,
+        "next_cue_end_time": 725.652,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 326,
+    "senses": [
+      2192
+    ],
+    "words": [
+      {
+        "id": 332,
+        "section_id": 9,
+        "mapping_id": 326,
+        "word": "fundamental",
+        "cue_id": 207,
+        "cue_start_time": 721.857,
+        "cue_end_time": 724.234,
+        "previous_cue_start_time": 717.811,
+        "previous_cue_end_time": 721.857,
+        "next_cue_start_time": 724.234,
+        "next_cue_end_time": 725.652,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 327,
+    "senses": [
+      2194
+    ],
+    "words": [
+      {
+        "id": 333,
+        "section_id": 9,
+        "mapping_id": 327,
+        "word": "tingle.",
+        "cue_id": 209,
+        "cue_start_time": 725.652,
+        "cue_end_time": 728.238,
+        "previous_cue_start_time": 724.234,
+        "previous_cue_end_time": 725.652,
+        "next_cue_start_time": 728.238,
+        "next_cue_end_time": 730.365,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 328,
+    "senses": [
+      360
+    ],
+    "words": [
+      {
+        "id": 334,
+        "section_id": 9,
+        "mapping_id": 328,
+        "word": "wisdom.",
+        "cue_id": 214,
+        "cue_start_time": 736.288,
+        "cue_end_time": 738.248,
+        "previous_cue_start_time": 735.204,
+        "previous_cue_end_time": 736.288,
+        "next_cue_start_time": 739.041,
+        "next_cue_end_time": 741.21,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 329,
+    "senses": [
+      1770
+    ],
+    "words": [
+      {
+        "id": 335,
+        "section_id": 9,
+        "mapping_id": 329,
+        "word": "proverbs.",
+        "cue_id": 215,
+        "cue_start_time": 739.041,
+        "cue_end_time": 741.21,
+        "previous_cue_start_time": 736.288,
+        "previous_cue_end_time": 738.248,
+        "next_cue_start_time": 742.92,
+        "next_cue_end_time": 745.255,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 330,
+    "senses": [
+      2105
+    ],
+    "words": [
+      {
+        "id": 336,
+        "section_id": 9,
+        "mapping_id": 330,
+        "word": "Mentored",
+        "cue_id": 219,
+        "cue_start_time": 749.009,
+        "cue_end_time": 750.802,
+        "previous_cue_start_time": 747.09,
+        "previous_cue_end_time": 749.009,
+        "next_cue_start_time": 750.802,
+        "next_cue_end_time": 752.471,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 331,
+    "senses": [
+      2198
+    ],
+    "words": [
+      {
+        "id": 337,
+        "section_id": 9,
+        "mapping_id": 331,
+        "word": "legendary",
+        "cue_id": 222,
+        "cue_start_time": 754.681,
+        "cue_end_time": 757.142,
+        "previous_cue_start_time": 752.471,
+        "previous_cue_end_time": 754.681,
+        "next_cue_start_time": 757.142,
+        "next_cue_end_time": 758.185,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 332,
+    "senses": [
+      2198
+    ],
+    "words": [
+      {
+        "id": 338,
+        "section_id": 9,
+        "mapping_id": 332,
+        "word": "\"legendary\"?",
+        "cue_id": 224,
+        "cue_start_time": 759.186,
+        "cue_end_time": 761.647,
+        "previous_cue_start_time": 757.142,
+        "previous_cue_end_time": 758.185,
+        "next_cue_start_time": 764.024,
+        "next_cue_end_time": 765.025,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "senses": [
+      2204
+    ],
+    "words": [
+      {
+        "id": 339,
+        "section_id": 9,
+        "mapping_id": 333,
+        "word": "differences,",
+        "cue_id": 226,
+        "cue_start_time": 765.025,
+        "cue_end_time": 768.028,
+        "previous_cue_start_time": 764.024,
+        "previous_cue_end_time": 765.025,
+        "next_cue_start_time": 768.028,
+        "next_cue_end_time": 769.738,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 334,
+    "senses": [
+      2210
+    ],
+    "words": [
+      {
+        "id": 340,
+        "section_id": 9,
+        "mapping_id": 334,
+        "word": "jam",
+        "cue_id": 226,
+        "cue_start_time": 765.025,
+        "cue_end_time": 768.028,
+        "previous_cue_start_time": 764.024,
+        "previous_cue_end_time": 765.025,
+        "next_cue_start_time": 768.028,
+        "next_cue_end_time": 769.738,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 335,
+    "senses": [
+      2228
+    ],
+    "words": [
+      {
+        "id": 341,
+        "section_id": 9,
+        "mapping_id": 335,
+        "word": "lie",
+        "cue_id": 230,
+        "cue_start_time": 777.037,
+        "cue_end_time": 780.165,
+        "previous_cue_start_time": 773.534,
+        "previous_cue_end_time": 777.037,
+        "next_cue_start_time": 780.165,
+        "next_cue_end_time": 781.708,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 336,
+    "senses": [
+      2244
+    ],
+    "words": [
+      {
+        "id": 342,
+        "section_id": 9,
+        "mapping_id": 336,
+        "word": "heat",
+        "cue_id": 230,
+        "cue_start_time": 777.037,
+        "cue_end_time": 780.165,
+        "previous_cue_start_time": 773.534,
+        "previous_cue_end_time": 777.037,
+        "next_cue_start_time": 780.165,
+        "next_cue_end_time": 781.708,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 337,
+    "senses": [
+      2284
+    ],
+    "words": [
+      {
+        "id": 343,
+        "section_id": 9,
+        "mapping_id": 337,
+        "word": "deep",
+        "cue_id": 232,
+        "cue_start_time": 781.708,
+        "cue_end_time": 784.378,
+        "previous_cue_start_time": 780.165,
+        "previous_cue_end_time": 781.708,
+        "next_cue_start_time": 784.378,
+        "next_cue_end_time": 785.879,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 338,
+    "senses": [
+      2290
+    ],
+    "words": [
+      {
+        "id": 344,
+        "section_id": 9,
+        "mapping_id": 338,
+        "word": "exterior",
+        "cue_id": 232,
+        "cue_start_time": 781.708,
+        "cue_end_time": 784.378,
+        "previous_cue_start_time": 780.165,
+        "previous_cue_end_time": 781.708,
+        "next_cue_start_time": 784.378,
+        "next_cue_end_time": 785.879,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 339,
+    "senses": [
+      2294
+    ],
+    "words": [
+      {
+        "id": 345,
+        "section_id": 9,
+        "mapping_id": 339,
+        "word": "good-hearted",
+        "cue_id": 233,
+        "cue_start_time": 784.378,
+        "cue_end_time": 785.879,
+        "previous_cue_start_time": 781.708,
+        "previous_cue_end_time": 784.378,
+        "next_cue_start_time": 785.879,
+        "next_cue_end_time": 787.798,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 340,
+    "senses": [
+      460
+    ],
+    "words": [
+      {
+        "id": 346,
+        "section_id": 9,
+        "mapping_id": 340,
+        "word": "soul",
+        "cue_id": 233,
+        "cue_start_time": 784.378,
+        "cue_end_time": 785.879,
+        "previous_cue_start_time": 781.708,
+        "previous_cue_end_time": 784.378,
+        "next_cue_start_time": 785.879,
+        "next_cue_end_time": 787.798,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 341,
+    "senses": [
+      2295
+    ],
+    "words": [
+      {
+        "id": 347,
+        "section_id": 9,
+        "mapping_id": 341,
+        "word": "nightfall,",
+        "cue_id": 236,
+        "cue_start_time": 789.967,
+        "cue_end_time": 793.512,
+        "previous_cue_start_time": 788.841,
+        "previous_cue_end_time": 789.967,
+        "next_cue_start_time": 794.221,
+        "next_cue_end_time": 795.18,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 342,
+    "senses": [
+      2066
+    ],
+    "words": [
+      {
+        "id": 348,
+        "section_id": 9,
+        "mapping_id": 342,
+        "word": "bulls",
+        "cue_id": 236,
+        "cue_start_time": 789.967,
+        "cue_end_time": 793.512,
+        "previous_cue_start_time": 788.841,
+        "previous_cue_end_time": 789.967,
+        "next_cue_start_time": 794.221,
+        "next_cue_end_time": 795.18,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 343,
+    "senses": [
+      2319
+    ],
+    "words": [
+      {
+        "id": 349,
+        "section_id": 9,
+        "mapping_id": 343,
+        "word": "custom.",
+        "cue_id": 242,
+        "cue_start_time": 807.317,
+        "cue_end_time": 808.735,
+        "previous_cue_start_time": 805.691,
+        "previous_cue_end_time": 807.317,
+        "next_cue_start_time": 815.075,
+        "next_cue_end_time": 818.453,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 344,
+    "senses": [
+      1440
+    ],
+    "words": [
+      {
+        "id": 350,
+        "section_id": 9,
+        "mapping_id": 344,
+        "word": "speak",
+        "cue_id": 247,
+        "cue_start_time": 826.295,
+        "cue_end_time": 829.298,
+        "previous_cue_start_time": 824.835,
+        "previous_cue_end_time": 826.295,
+        "next_cue_start_time": 829.298,
+        "next_cue_end_time": 830.549,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 345,
+    "senses": [
+      2322
+    ],
+    "words": [
+      {
+        "id": 351,
+        "section_id": 9,
+        "mapping_id": 345,
+        "word": "Salutations!",
+        "cue_id": 249,
+        "cue_start_time": 832.676,
+        "cue_end_time": 834.428,
+        "previous_cue_start_time": 829.298,
+        "previous_cue_end_time": 830.549,
+        "next_cue_start_time": 834.428,
+        "next_cue_end_time": 837.014,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 346,
+    "senses": [
+      2345
+    ],
+    "words": [
+      {
+        "id": 352,
+        "section_id": 9,
+        "mapping_id": 346,
+        "word": "parts?",
+        "cue_id": 252,
+        "cue_start_time": 838.473,
+        "cue_end_time": 843.145,
+        "previous_cue_start_time": 837.014,
+        "previous_cue_end_time": 838.473,
+        "next_cue_start_time": 843.729,
+        "next_cue_end_time": 845.189,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 347,
+    "senses": [
+      1005
+    ],
+    "words": [
+      {
+        "id": 353,
+        "section_id": 9,
+        "mapping_id": 347,
+        "word": "pay",
+        "cue_id": 257,
+        "cue_start_time": 854.656,
+        "cue_end_time": 858.243,
+        "previous_cue_start_time": 852.404,
+        "previous_cue_end_time": 854.031,
+        "next_cue_start_time": 862.414,
+        "next_cue_end_time": 865.542,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 348,
+    "senses": [
+      607
+    ],
+    "words": [
+      {
+        "id": 354,
+        "section_id": 9,
+        "mapping_id": 348,
+        "word": "tavern.",
+        "cue_id": 257,
+        "cue_start_time": 854.656,
+        "cue_end_time": 858.243,
+        "previous_cue_start_time": 852.404,
+        "previous_cue_end_time": 854.031,
+        "next_cue_start_time": 862.414,
+        "next_cue_end_time": 865.542,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 349,
+    "senses": [
+      260
+    ],
+    "words": [
+      {
+        "id": 355,
+        "section_id": 9,
+        "mapping_id": 349,
+        "word": "broth",
+        "cue_id": 259,
+        "cue_start_time": 865.542,
+        "cue_end_time": 867.503,
+        "previous_cue_start_time": 862.414,
+        "previous_cue_end_time": 865.542,
+        "next_cue_start_time": 867.503,
+        "next_cue_end_time": 868.879,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 350,
+    "senses": [
+      601
+    ],
+    "words": [
+      {
+        "id": 356,
+        "section_id": 9,
+        "mapping_id": 350,
+        "word": "bland?",
+        "cue_id": 259,
+        "cue_start_time": 865.542,
+        "cue_end_time": 867.503,
+        "previous_cue_start_time": 862.414,
+        "previous_cue_end_time": 865.542,
+        "next_cue_start_time": 867.503,
+        "next_cue_end_time": 868.879,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 351,
+    "senses": [
+      260
+    ],
+    "words": [
+      {
+        "id": 357,
+        "section_id": 9,
+        "mapping_id": 351,
+        "word": "broth",
+        "cue_id": 262,
+        "cue_start_time": 871.632,
+        "cue_end_time": 873.634,
+        "previous_cue_start_time": 869.379,
+        "previous_cue_end_time": 871.632,
+        "next_cue_start_time": 873.634,
+        "next_cue_end_time": 877.387,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 352,
+    "senses": [
+      1104
+    ],
+    "words": [
+      {
+        "id": 358,
+        "section_id": 9,
+        "mapping_id": 352,
+        "word": "capable",
+        "cue_id": 270,
+        "cue_start_time": 892.694,
+        "cue_end_time": 895.656,
+        "previous_cue_start_time": 890.234,
+        "previous_cue_end_time": 892.694,
+        "next_cue_start_time": 895.656,
+        "next_cue_end_time": 898.617,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 353,
+    "senses": [
+      2412
+    ],
+    "words": [
+      {
+        "id": 359,
+        "section_id": 9,
+        "mapping_id": 353,
+        "word": "Mercy.",
+        "cue_id": 273,
+        "cue_start_time": 903.413,
+        "cue_end_time": 904.373,
+        "previous_cue_start_time": 901.119,
+        "previous_cue_end_time": 902.83,
+        "next_cue_start_time": 905.582,
+        "next_cue_end_time": 909.086,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 354,
+    "senses": [
+      1585
+    ],
+    "words": [
+      {
+        "id": 360,
+        "section_id": 9,
+        "mapping_id": 354,
+        "word": "wise",
+        "cue_id": 288,
+        "cue_start_time": 984.369,
+        "cue_end_time": 986.413,
+        "previous_cue_start_time": 981.992,
+        "previous_cue_end_time": 983.16,
+        "next_cue_start_time": 986.413,
+        "next_cue_end_time": 987.706,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 355,
+    "senses": [
+      1597
+    ],
+    "words": [
+      {
+        "id": 361,
+        "section_id": 9,
+        "mapping_id": 355,
+        "word": "Stir",
+        "cue_id": 292,
+        "cue_start_time": 1021.406,
+        "cue_end_time": 1026.161,
+        "previous_cue_start_time": 1019.655,
+        "previous_cue_end_time": 1021.406,
+        "next_cue_start_time": 1027.287,
+        "next_cue_end_time": 1029.998,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 356,
+    "senses": [
+      2436
+    ],
+    "words": [
+      {
+        "id": 362,
+        "section_id": 9,
+        "mapping_id": 356,
+        "word": "wok,",
+        "cue_id": 292,
+        "cue_start_time": 1021.406,
+        "cue_end_time": 1026.161,
+        "previous_cue_start_time": 1019.655,
+        "previous_cue_end_time": 1021.406,
+        "next_cue_start_time": 1027.287,
+        "next_cue_end_time": 1029.998,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 357,
+    "senses": [
+      613
+    ],
+    "words": [
+      {
+        "id": 363,
+        "section_id": 9,
+        "mapping_id": 357,
+        "word": "supposed",
+        "cue_id": 293,
+        "cue_start_time": 1027.287,
+        "cue_end_time": 1029.998,
+        "previous_cue_start_time": 1021.406,
+        "previous_cue_end_time": 1026.161,
+        "next_cue_start_time": 1029.998,
+        "next_cue_end_time": 1031.834,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 358,
+    "senses": [
+      2437
+    ],
+    "words": [
+      {
+        "id": 364,
+        "section_id": 9,
+        "mapping_id": 358,
+        "word": "broom.",
+        "cue_id": 294,
+        "cue_start_time": 1029.998,
+        "cue_end_time": 1031.834,
+        "previous_cue_start_time": 1027.287,
+        "previous_cue_end_time": 1029.998,
+        "next_cue_start_time": 1031.834,
+        "next_cue_end_time": 1033.001,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 359,
+    "senses": [
+      1597
+    ],
+    "words": [
+      {
+        "id": 365,
+        "section_id": 9,
+        "mapping_id": 359,
+        "word": "stir",
+        "cue_id": 296,
+        "cue_start_time": 1033.001,
+        "cue_end_time": 1038.34,
+        "previous_cue_start_time": 1031.834,
+        "previous_cue_end_time": 1033.001,
+        "next_cue_start_time": 1038.34,
+        "next_cue_end_time": 1039.8,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 360,
+    "senses": [
+      2440
+    ],
+    "words": [
+      {
+        "id": 366,
+        "section_id": 9,
+        "mapping_id": 360,
+        "word": "coast",
+        "cue_id": 303,
+        "cue_start_time": 1062.114,
+        "cue_end_time": 1064.533,
+        "previous_cue_start_time": 1059.194,
+        "previous_cue_end_time": 1062.114,
+        "next_cue_start_time": 1064.533,
+        "next_cue_end_time": 1066.994,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 361,
+    "senses": [
+      2456
+    ],
+    "words": [
+      {
+        "id": 367,
+        "section_id": 9,
+        "mapping_id": 361,
+        "word": "hit",
+        "cue_id": 304,
+        "cue_start_time": 1064.533,
+        "cue_end_time": 1066.994,
+        "previous_cue_start_time": 1062.114,
+        "previous_cue_end_time": 1064.533,
+        "next_cue_start_time": 1066.994,
+        "next_cue_end_time": 1068.328,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 362,
+    "senses": [
+      2487
+    ],
+    "words": [
+      {
+        "id": 368,
+        "section_id": 9,
+        "mapping_id": 362,
+        "word": "sight.",
+        "cue_id": 306,
+        "cue_start_time": 1068.328,
+        "cue_end_time": 1069.997,
+        "previous_cue_start_time": 1066.994,
+        "previous_cue_end_time": 1068.328,
+        "next_cue_start_time": 1081.633,
+        "next_cue_end_time": 1082.801,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 363,
+    "senses": [
+      2504
+    ],
+    "words": [
+      {
+        "id": 369,
+        "section_id": 9,
+        "mapping_id": 363,
+        "word": "practical.",
+        "cue_id": 309,
+        "cue_start_time": 1093.604,
+        "cue_end_time": 1096.356,
+        "previous_cue_start_time": 1090.684,
+        "previous_cue_end_time": 1093.604,
+        "next_cue_start_time": 1096.356,
+        "next_cue_end_time": 1100.694,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 364,
+    "senses": [
+      2524
+    ],
+    "words": [
+      {
+        "id": 370,
+        "section_id": 9,
+        "mapping_id": 364,
+        "word": "word.",
+        "cue_id": 310,
+        "cue_start_time": 1096.356,
+        "cue_end_time": 1100.694,
+        "previous_cue_start_time": 1093.604,
+        "previous_cue_end_time": 1096.356,
+        "next_cue_start_time": 1100.694,
+        "next_cue_end_time": 1102.821,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 365,
+    "senses": [
+      396
+    ],
+    "words": [
+      {
+        "id": 371,
+        "section_id": 9,
+        "mapping_id": 365,
+        "word": "pit?",
+        "cue_id": 311,
+        "cue_start_time": 1100.694,
+        "cue_end_time": 1102.821,
+        "previous_cue_start_time": 1096.356,
+        "previous_cue_end_time": 1100.694,
+        "next_cue_start_time": 1102.821,
+        "next_cue_end_time": 1105.782,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 366,
+    "senses": [
+      2547
+    ],
+    "words": [
+      {
+        "id": 372,
+        "section_id": 9,
+        "mapping_id": 366,
+        "word": "heavenly",
+        "cue_id": 312,
+        "cue_start_time": 1102.821,
+        "cue_end_time": 1105.782,
+        "previous_cue_start_time": 1100.694,
+        "previous_cue_end_time": 1102.821,
+        "next_cue_start_time": 1106.909,
+        "next_cue_end_time": 1109.161,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 367,
+    "senses": [
+      360
+    ],
+    "words": [
+      {
+        "id": 373,
+        "section_id": 9,
+        "mapping_id": 367,
+        "word": "wisdom.",
+        "cue_id": 312,
+        "cue_start_time": 1102.821,
+        "cue_end_time": 1105.782,
+        "previous_cue_start_time": 1100.694,
+        "previous_cue_end_time": 1102.821,
+        "next_cue_start_time": 1106.909,
+        "next_cue_end_time": 1109.161,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 368,
+    "senses": [
+      613
+    ],
+    "words": [
+      {
+        "id": 374,
+        "section_id": 9,
+        "mapping_id": 368,
+        "word": "supposed",
+        "cue_id": 314,
+        "cue_start_time": 1109.161,
+        "cue_end_time": 1113.415,
+        "previous_cue_start_time": 1106.909,
+        "previous_cue_end_time": 1109.161,
+        "next_cue_start_time": 1115.667,
+        "next_cue_end_time": 1117.419,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 369,
+    "senses": [
+      396
+    ],
+    "words": [
+      {
+        "id": 375,
+        "section_id": 9,
+        "mapping_id": 369,
+        "word": "pit",
+        "cue_id": 314,
+        "cue_start_time": 1109.161,
+        "cue_end_time": 1113.415,
+        "previous_cue_start_time": 1106.909,
+        "previous_cue_end_time": 1109.161,
+        "next_cue_start_time": 1115.667,
+        "next_cue_end_time": 1117.419,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 370,
+    "senses": [
+      409
+    ],
+    "words": [
+      {
+        "id": 376,
+        "section_id": 9,
+        "mapping_id": 370,
+        "word": "promise",
+        "cue_id": 314,
+        "cue_start_time": 1109.161,
+        "cue_end_time": 1113.415,
+        "previous_cue_start_time": 1106.909,
+        "previous_cue_end_time": 1109.161,
+        "next_cue_start_time": 1115.667,
+        "next_cue_end_time": 1117.419,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 371,
+    "senses": [
+      410
+    ],
+    "words": [
+      {
+        "id": 377,
+        "section_id": 9,
+        "mapping_id": 371,
+        "word": "mighty",
+        "cue_id": 314,
+        "cue_start_time": 1109.161,
+        "cue_end_time": 1113.415,
+        "previous_cue_start_time": 1106.909,
+        "previous_cue_end_time": 1109.161,
+        "next_cue_start_time": 1115.667,
+        "next_cue_end_time": 1117.419,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 372,
+    "senses": [
+      1585
+    ],
+    "words": [
+      {
+        "id": 378,
+        "section_id": 9,
+        "mapping_id": 372,
+        "word": "wise",
+        "cue_id": 317,
+        "cue_start_time": 1125.01,
+        "cue_end_time": 1127.888,
+        "previous_cue_start_time": 1123.717,
+        "previous_cue_end_time": 1125.01,
+        "next_cue_start_time": 1127.888,
+        "next_cue_end_time": 1132.935,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 373,
+    "senses": [
+      355
+    ],
+    "words": [
+      {
+        "id": 379,
+        "section_id": 9,
+        "mapping_id": 373,
+        "word": "Spiritual",
+        "cue_id": 317,
+        "cue_start_time": 1125.01,
+        "cue_end_time": 1127.888,
+        "previous_cue_start_time": 1123.717,
+        "previous_cue_end_time": 1125.01,
+        "next_cue_start_time": 1127.888,
+        "next_cue_end_time": 1132.935,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 374,
+    "senses": [
+      267
+    ],
+    "words": [
+      {
+        "id": 380,
+        "section_id": 9,
+        "mapping_id": 374,
+        "word": "kick",
+        "cue_id": 318,
+        "cue_start_time": 1127.888,
+        "cue_end_time": 1132.935,
+        "previous_cue_start_time": 1125.01,
+        "previous_cue_end_time": 1127.888,
+        "next_cue_start_time": 1135.312,
+        "next_cue_end_time": 1137.189,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 375,
+    "senses": [
+      2551
+    ],
+    "words": [
+      {
+        "id": 381,
+        "section_id": 9,
+        "mapping_id": 375,
+        "word": "seek",
+        "cue_id": 318,
+        "cue_start_time": 1127.888,
+        "cue_end_time": 1132.935,
+        "previous_cue_start_time": 1125.01,
+        "previous_cue_end_time": 1127.888,
+        "next_cue_start_time": 1135.312,
+        "next_cue_end_time": 1137.189,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 376,
+    "senses": [
+      267
+    ],
+    "words": [
+      {
+        "id": 382,
+        "section_id": 9,
+        "mapping_id": 376,
+        "word": "kick?",
+        "cue_id": 318,
+        "cue_start_time": 1127.888,
+        "cue_end_time": 1132.935,
+        "previous_cue_start_time": 1125.01,
+        "previous_cue_end_time": 1127.888,
+        "next_cue_start_time": 1135.312,
+        "next_cue_end_time": 1137.189,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 377,
+    "senses": [
+      2579
+    ],
+    "words": [
+      {
+        "id": 383,
+        "section_id": 9,
+        "mapping_id": 377,
+        "word": "compliment",
+        "cue_id": 321,
+        "cue_start_time": 1138.44,
+        "cue_end_time": 1141.068,
+        "previous_cue_start_time": 1137.189,
+        "previous_cue_end_time": 1138.44,
+        "next_cue_start_time": 1141.068,
+        "next_cue_end_time": 1142.194,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 378,
+    "senses": [
+      2591
+    ],
+    "words": [
+      {
+        "id": 384,
+        "section_id": 9,
+        "mapping_id": 378,
+        "word": "insult?",
+        "cue_id": 321,
+        "cue_start_time": 1138.44,
+        "cue_end_time": 1141.068,
+        "previous_cue_start_time": 1137.189,
+        "previous_cue_end_time": 1138.44,
+        "next_cue_start_time": 1141.068,
+        "next_cue_end_time": 1142.194,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 379,
+    "senses": [
+      2594
+    ],
+    "words": [
+      {
+        "id": 385,
+        "section_id": 9,
+        "mapping_id": 379,
+        "word": "gift",
+        "cue_id": 331,
+        "cue_start_time": 1178.772,
+        "cue_end_time": 1181.817,
+        "previous_cue_start_time": 1176.311,
+        "previous_cue_end_time": 1178.772,
+        "next_cue_start_time": 1181.817,
+        "next_cue_end_time": 1184.236,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 380,
+    "senses": [
+      2603
+    ],
+    "words": [
+      {
+        "id": 386,
+        "section_id": 9,
+        "mapping_id": 380,
+        "word": "brace",
+        "cue_id": 341,
+        "cue_start_time": 1297.432,
+        "cue_end_time": 1300.352,
+        "previous_cue_start_time": 1296.348,
+        "previous_cue_end_time": 1297.432,
+        "next_cue_start_time": 1300.352,
+        "next_cue_end_time": 1302.521,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 381,
+    "senses": [
+      253
+    ],
+    "words": [
+      {
+        "id": 387,
+        "section_id": 9,
+        "mapping_id": 381,
+        "word": "staff.",
+        "cue_id": 341,
+        "cue_start_time": 1297.432,
+        "cue_end_time": 1300.352,
+        "previous_cue_start_time": 1296.348,
+        "previous_cue_end_time": 1297.432,
+        "next_cue_start_time": 1300.352,
+        "next_cue_end_time": 1302.521,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 382,
+    "senses": [
+      253
+    ],
+    "words": [
+      {
+        "id": 388,
+        "section_id": 9,
+        "mapping_id": 382,
+        "word": "staff?",
+        "cue_id": 344,
+        "cue_start_time": 1307.734,
+        "cue_end_time": 1309.486,
+        "previous_cue_start_time": 1304.648,
+        "previous_cue_end_time": 1305.691,
+        "next_cue_start_time": 1311.363,
+        "next_cue_end_time": 1314.199,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 383,
+    "senses": [
+      253
+    ],
+    "words": [
+      {
+        "id": 389,
+        "section_id": 9,
+        "mapping_id": 383,
+        "word": "staff?",
+        "cue_id": 345,
+        "cue_start_time": 1311.363,
+        "cue_end_time": 1314.199,
+        "previous_cue_start_time": 1307.734,
+        "previous_cue_end_time": 1309.486,
+        "next_cue_start_time": 1314.199,
+        "next_cue_end_time": 1318.036,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 384,
+    "senses": [
+      1251
+    ],
+    "words": [
+      {
+        "id": 390,
+        "section_id": 9,
+        "mapping_id": 384,
+        "word": "gain,\"",
+        "cue_id": 347,
+        "cue_start_time": 1318.036,
+        "cue_end_time": 1321.248,
+        "previous_cue_start_time": 1314.199,
+        "previous_cue_end_time": 1318.036,
+        "next_cue_start_time": 1321.248,
+        "next_cue_end_time": 1322.875,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 385,
+    "senses": [
+      2611
+    ],
+    "words": [
+      {
+        "id": 391,
+        "section_id": 9,
+        "mapping_id": 385,
+        "word": "apprentice",
+        "cue_id": 353,
+        "cue_start_time": 1330.841,
+        "cue_end_time": 1333.552,
+        "previous_cue_start_time": 1328.839,
+        "previous_cue_end_time": 1330.841,
+        "next_cue_start_time": 1333.552,
+        "next_cue_end_time": 1334.803,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 386,
+    "senses": [
+      2611
+    ],
+    "words": [
+      {
+        "id": 392,
+        "section_id": 9,
+        "mapping_id": 386,
+        "word": "Apprentice?",
+        "cue_id": 354,
+        "cue_start_time": 1333.552,
+        "cue_end_time": 1334.803,
+        "previous_cue_start_time": 1330.841,
+        "previous_cue_end_time": 1333.552,
+        "next_cue_start_time": 1334.803,
+        "next_cue_end_time": 1336.722,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 387,
+    "senses": [
+      2613
+    ],
+    "words": [
+      {
+        "id": 393,
+        "section_id": 9,
+        "mapping_id": 387,
+        "word": "guttersnipe",
+        "cue_id": 357,
+        "cue_start_time": 1339.141,
+        "cue_end_time": 1342.519,
+        "previous_cue_start_time": 1336.722,
+        "previous_cue_end_time": 1339.141,
+        "next_cue_start_time": 1342.519,
+        "next_cue_end_time": 1344.605,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 388,
+    "senses": [
+      2615
+    ],
+    "words": [
+      {
+        "id": 394,
+        "section_id": 9,
+        "mapping_id": 388,
+        "word": "Mangy",
+        "cue_id": 358,
+        "cue_start_time": 1342.519,
+        "cue_end_time": 1344.605,
+        "previous_cue_start_time": 1339.141,
+        "previous_cue_end_time": 1342.519,
+        "next_cue_start_time": 1346.023,
+        "next_cue_end_time": 1349.109,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 389,
+    "senses": [
+      2616
+    ],
+    "words": [
+      {
+        "id": 395,
+        "section_id": 9,
+        "mapping_id": 389,
+        "word": "half-starved,",
+        "cue_id": 358,
+        "cue_start_time": 1342.519,
+        "cue_end_time": 1344.605,
+        "previous_cue_start_time": 1339.141,
+        "previous_cue_end_time": 1342.519,
+        "next_cue_start_time": 1346.023,
+        "next_cue_end_time": 1349.109,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 390,
+    "senses": [
+      2625
+    ],
+    "words": [
+      {
+        "id": 396,
+        "section_id": 9,
+        "mapping_id": 390,
+        "word": "rejects",
+        "cue_id": 359,
+        "cue_start_time": 1346.023,
+        "cue_end_time": 1349.109,
+        "previous_cue_start_time": 1342.519,
+        "previous_cue_end_time": 1344.605,
+        "next_cue_start_time": 1370.589,
+        "next_cue_end_time": 1372.257,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 391,
+    "senses": [
+      2107
+    ],
+    "words": [
+      {
+        "id": 397,
+        "section_id": 9,
+        "mapping_id": 391,
+        "word": "Den",
+        "cue_id": 359,
+        "cue_start_time": 1346.023,
+        "cue_end_time": 1349.109,
+        "previous_cue_start_time": 1342.519,
+        "previous_cue_end_time": 1344.605,
+        "next_cue_start_time": 1370.589,
+        "next_cue_end_time": 1372.257,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 392,
+    "senses": [
+      2628
+    ],
+    "words": [
+      {
+        "id": 398,
+        "section_id": 9,
+        "mapping_id": 392,
+        "word": "potential.",
+        "cue_id": 361,
+        "cue_start_time": 1373.592,
+        "cue_end_time": 1375.052,
+        "previous_cue_start_time": 1370.589,
+        "previous_cue_end_time": 1372.257,
+        "next_cue_start_time": 1381.725,
+        "next_cue_end_time": 1383.352,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 393,
+    "senses": [
+      2691
+    ],
+    "words": [
+      {
+        "id": 399,
+        "section_id": 9,
+        "mapping_id": 393,
+        "word": "humble",
+        "cue_id": 368,
+        "cue_start_time": 1394.738,
+        "cue_end_time": 1400.619,
+        "previous_cue_start_time": 1393.654,
+        "previous_cue_end_time": 1394.738,
+        "next_cue_start_time": 1401.161,
+        "next_cue_end_time": 1402.663,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 394,
+    "senses": [
+      2745
+    ],
+    "words": [
+      {
+        "id": 400,
+        "section_id": 9,
+        "mapping_id": 394,
+        "word": "lowly,",
+        "cue_id": 373,
+        "cue_start_time": 1410.087,
+        "cue_end_time": 1414.174,
+        "previous_cue_start_time": 1406.5,
+        "previous_cue_end_time": 1410.087,
+        "next_cue_start_time": 1414.174,
+        "next_cue_end_time": 1417.386,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 395,
+    "senses": [
+      334
+    ],
+    "words": [
+      {
+        "id": 401,
+        "section_id": 9,
+        "mapping_id": 395,
+        "word": "destiny.",
+        "cue_id": 374,
+        "cue_start_time": 1414.174,
+        "cue_end_time": 1417.386,
+        "previous_cue_start_time": 1410.087,
+        "previous_cue_end_time": 1414.174,
+        "next_cue_start_time": 1417.386,
+        "next_cue_end_time": 1420.639,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 396,
+    "senses": [
+      2749
+    ],
+    "words": [
+      {
+        "id": 402,
+        "section_id": 9,
+        "mapping_id": 396,
+        "word": "path.",
+        "cue_id": 375,
+        "cue_start_time": 1417.386,
+        "cue_end_time": 1420.639,
+        "previous_cue_start_time": 1414.174,
+        "previous_cue_end_time": 1417.386,
+        "next_cue_start_time": 1420.639,
+        "next_cue_end_time": 1422.391,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 397,
+    "senses": [
+      2751
+    ],
+    "words": [
+      {
+        "id": 403,
+        "section_id": 9,
+        "mapping_id": 397,
+        "word": "Sorcery.",
+        "cue_id": 376,
+        "cue_start_time": 1420.639,
+        "cue_end_time": 1422.391,
+        "previous_cue_start_time": 1417.386,
+        "previous_cue_end_time": 1420.639,
+        "next_cue_start_time": 1422.391,
+        "next_cue_end_time": 1423.642,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 398,
+    "senses": [
+      2752
+    ],
+    "words": [
+      {
+        "id": 404,
+        "section_id": 9,
+        "mapping_id": 398,
+        "word": "excelled.",
+        "cue_id": 378,
+        "cue_start_time": 1424.601,
+        "cue_end_time": 1425.936,
+        "previous_cue_start_time": 1422.391,
+        "previous_cue_end_time": 1423.642,
+        "next_cue_start_time": 1425.936,
+        "next_cue_end_time": 1429.773,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 399,
+    "senses": [
+      2773
+    ],
+    "words": [
+      {
+        "id": 405,
+        "section_id": 9,
+        "mapping_id": 399,
+        "word": "housed",
+        "cue_id": 383,
+        "cue_start_time": 1442.202,
+        "cue_end_time": 1445.289,
+        "previous_cue_start_time": 1438.073,
+        "previous_cue_end_time": 1442.202,
+        "next_cue_start_time": 1445.289,
+        "next_cue_end_time": 1447.916,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 400,
+    "senses": [
+      46
+    ],
+    "words": [
+      {
+        "id": 406,
+        "section_id": 9,
+        "mapping_id": 400,
+        "word": "spirit.",
+        "cue_id": 383,
+        "cue_start_time": 1442.202,
+        "cue_end_time": 1445.289,
+        "previous_cue_start_time": 1438.073,
+        "previous_cue_end_time": 1442.202,
+        "next_cue_start_time": 1445.289,
+        "next_cue_end_time": 1447.916,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 401,
+    "senses": [
+      257
+    ],
+    "words": [
+      {
+        "id": 407,
+        "section_id": 9,
+        "mapping_id": 401,
+        "word": "Realm--",
+        "cue_id": 384,
+        "cue_start_time": 1445.289,
+        "cue_end_time": 1447.916,
+        "previous_cue_start_time": 1442.202,
+        "previous_cue_end_time": 1445.289,
+        "next_cue_start_time": 1447.916,
+        "next_cue_end_time": 1450.127,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 402,
+    "senses": [
+      2008
+    ],
+    "words": [
+      {
+        "id": 408,
+        "section_id": 9,
+        "mapping_id": 402,
+        "word": "villain",
+        "cue_id": 386,
+        "cue_start_time": 1450.127,
+        "cue_end_time": 1453.714,
+        "previous_cue_start_time": 1447.916,
+        "previous_cue_end_time": 1450.127,
+        "next_cue_start_time": 1453.714,
+        "next_cue_end_time": 1458.635,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 403,
+    "senses": [
+      981
+    ],
+    "words": [
+      {
+        "id": 409,
+        "section_id": 9,
+        "mapping_id": 403,
+        "word": "dare",
+        "cue_id": 387,
+        "cue_start_time": 1453.714,
+        "cue_end_time": 1458.635,
+        "previous_cue_start_time": 1450.127,
+        "previous_cue_end_time": 1453.714,
+        "next_cue_start_time": 1458.635,
+        "next_cue_end_time": 1460.679,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 404,
+    "senses": [
+      2775
+    ],
+    "words": [
+      {
+        "id": 410,
+        "section_id": 9,
+        "mapping_id": 404,
+        "word": "underestimate",
+        "cue_id": 387,
+        "cue_start_time": 1453.714,
+        "cue_end_time": 1458.635,
+        "previous_cue_start_time": 1450.127,
+        "previous_cue_end_time": 1453.714,
+        "next_cue_start_time": 1458.635,
+        "next_cue_end_time": 1460.679,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 405,
+    "senses": [
+      2778
+    ],
+    "words": [
+      {
+        "id": 411,
+        "section_id": 9,
+        "mapping_id": 405,
+        "word": "enchanted",
+        "cue_id": 390,
+        "cue_start_time": 1465.475,
+        "cue_end_time": 1470.647,
+        "previous_cue_start_time": 1463.432,
+        "previous_cue_end_time": 1465.475,
+        "next_cue_start_time": 1470.647,
+        "next_cue_end_time": 1474.61,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 406,
+    "senses": [
+      2779
+    ],
+    "words": [
+      {
+        "id": 412,
+        "section_id": 9,
+        "mapping_id": 406,
+        "word": "frustrating",
+        "cue_id": 394,
+        "cue_start_time": 1492.794,
+        "cue_end_time": 1495.214,
+        "previous_cue_start_time": 1476.153,
+        "previous_cue_end_time": 1478.28,
+        "next_cue_start_time": 1503.639,
+        "next_cue_end_time": 1504.973,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 407,
+    "senses": [
+      253
+    ],
+    "words": [
+      {
+        "id": 413,
+        "section_id": 9,
+        "mapping_id": 407,
+        "word": "staff!",
+        "cue_id": 397,
+        "cue_start_time": 1535.254,
+        "cue_end_time": 1536.63,
+        "previous_cue_start_time": 1532.543,
+        "previous_cue_end_time": 1534.503,
+        "next_cue_start_time": 1536.63,
+        "next_cue_end_time": 1539.633,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 408,
+    "senses": [
+      2780
+    ],
+    "words": [
+      {
+        "id": 414,
+        "section_id": 9,
+        "mapping_id": 408,
+        "word": "Chop-chop!",
+        "cue_id": 413,
+        "cue_start_time": 1583.886,
+        "cue_end_time": 1586.388,
+        "previous_cue_start_time": 1578.505,
+        "previous_cue_end_time": 1582.134,
+        "next_cue_start_time": 1587.472,
+        "next_cue_end_time": 1589.308,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 409,
+    "senses": [
+      257
+    ],
+    "words": [
+      {
+        "id": 415,
+        "section_id": 9,
+        "mapping_id": 409,
+        "word": "Realm",
+        "cue_id": 413,
+        "cue_start_time": 1583.886,
+        "cue_end_time": 1586.388,
+        "previous_cue_start_time": 1578.505,
+        "previous_cue_end_time": 1582.134,
+        "next_cue_start_time": 1587.472,
+        "next_cue_end_time": 1589.308,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 410,
+    "senses": [
+      2781
+    ],
+    "words": [
+      {
+        "id": 416,
+        "section_id": 9,
+        "mapping_id": 410,
+        "word": "plunder.",
+        "cue_id": 413,
+        "cue_start_time": 1583.886,
+        "cue_end_time": 1586.388,
+        "previous_cue_start_time": 1578.505,
+        "previous_cue_end_time": 1582.134,
+        "next_cue_start_time": 1587.472,
+        "next_cue_end_time": 1589.308,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 411,
+    "senses": [
+      2785
+    ],
+    "words": [
+      {
+        "id": 417,
+        "section_id": 9,
+        "mapping_id": 411,
+        "word": "grouch.",
+        "cue_id": 415,
+        "cue_start_time": 1589.308,
+        "cue_end_time": 1591.518,
+        "previous_cue_start_time": 1587.472,
+        "previous_cue_end_time": 1589.308,
+        "next_cue_start_time": 1591.518,
+        "next_cue_end_time": 1595.147,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 412,
+    "senses": [
+      2822
+    ],
+    "words": [
+      {
+        "id": 418,
+        "section_id": 9,
+        "mapping_id": 412,
+        "word": "big-time.",
+        "cue_id": 432,
+        "cue_start_time": 1659.002,
+        "cue_end_time": 1660.838,
+        "previous_cue_start_time": 1656.375,
+        "previous_cue_end_time": 1658.377,
+        "next_cue_start_time": 1661.713,
+        "next_cue_end_time": 1663.549,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 413,
+    "senses": [
+      2828
+    ],
+    "words": [
+      {
+        "id": 419,
+        "section_id": 9,
+        "mapping_id": 413,
+        "word": "determined",
+        "cue_id": 439,
+        "cue_start_time": 1684.111,
+        "cue_end_time": 1687.072,
+        "previous_cue_start_time": 1680.524,
+        "previous_cue_end_time": 1684.111,
+        "next_cue_start_time": 1687.072,
+        "next_cue_end_time": 1690.242,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 414,
+    "senses": [
+      2833
+    ],
+    "words": [
+      {
+        "id": 420,
+        "section_id": 9,
+        "mapping_id": 414,
+        "word": "flavor.",
+        "cue_id": 452,
+        "cue_start_time": 1722.441,
+        "cue_end_time": 1725.319,
+        "previous_cue_start_time": 1719.897,
+        "previous_cue_end_time": 1722.441,
+        "next_cue_start_time": 1726.945,
+        "next_cue_end_time": 1728.071,
+        "position_in_cue": 1
+      }
+    ]
+  },
+  {
+    "id": 415,
+    "senses": [
+      878
+    ],
+    "words": [
+      {
+        "id": 421,
+        "section_id": 9,
+        "mapping_id": 415,
+        "word": "warrior.",
+        "cue_id": 454,
+        "cue_start_time": 1728.071,
+        "cue_end_time": 1731.366,
+        "previous_cue_start_time": 1726.945,
+        "previous_cue_end_time": 1728.071,
+        "next_cue_start_time": 1731.366,
+        "next_cue_end_time": 1733.285,
+        "position_in_cue": 1
+      }
+    ]
+  }
+]

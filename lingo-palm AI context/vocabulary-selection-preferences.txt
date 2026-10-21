@@ -1,0 +1,83 @@
+VOCABULARY SELECTION PREFERENCES — WORKING DRAFT v3
+SUPERSEDED FOR CURRENT PREFERENCE GUIDANCE (2026-10-20):
+Read subtitle-vocabulary-and-mapping-guide.txt in this directory first.
+It incorporates the user's personally finalized section-11 mappings, including
+multi-token and non-adjacent phrase groups and dedicated phrase entries.
+The older single-token/main-headword defaults and examples such as ordinary
+job and did below are historical, not the latest target. Preserve explicit
+user instructions; use the new guide's evidence and uncertainty distinctions.
+Prepared: 2026-10-19
+Purpose: Select teaching vocabulary close to Fardin's preferences, reducing the need for a second manual selection pass.
+Status: Inferred proposal for future use, not a claim that every rule has been explicitly approved. Explicit current user requests take precedence.
+
+1. THE SELECTION TARGET
+Select words worth teaching to a learner who knows basic everyday English but still needs help following natural film dialogue. Do not impose a strict B2 minimum. Use contextual usefulness and likely learner difficulty as the main criteria; use CEFR only as a rough supporting estimate.
+
+The user's selections include wonderful, job, murder, court, duty, gum, knock, lock, asleep, chest, dozen, jail, owe, pocket, and hole. These show that familiar or lower-level words must not be rejected automatically. A word does not need to be rare, academic, or advanced to be useful teaching material.
+
+Aim for broad, useful coverage while avoiding indiscriminate selection of every token. Do not claim that this preference model is already perfectly calibrated.
+
+2. INCLUDE THESE CATEGORIES
+- Important content words needed to understand the scene: actions, objects, qualities, emotions, relationships, and circumstances.
+- Topic vocabulary, including familiar terms central to the plot. In a courtroom scene, court, murder, guilty, criminal, prove, argument, and weapon can all matter.
+- Useful everyday vocabulary beyond the most elementary core. Do not discard concrete nouns, ordinary adjectives, or common verbs solely because they are frequent.
+- Less obvious senses of common words: out for lights that are not on, turn for someone's opportunity, exchange for the stock exchange, and point for purpose.
+- Phrasal verbs, idioms, collocations, and conversational formulas: occur to someone, deal with, figure out, kick around, point out, stick to, sweat out, and do it meaning succeed.
+- Informal, figurative, and colloquial language when useful for understanding dialogue. Transparent metaphors can use an appropriate ordinary sense; do not reject them merely because they are figurative.
+- Useful adverbs and discourse expressions, such as honestly, regularly, nowadays, afterwards, slightly, and either way.
+- Compound words and inflected forms, with a suitable canonical dictionary headword.
+
+3. DEFAULT EXCLUSIONS, WITH CONTEXTUAL EXCEPTIONS
+Usually skip pronouns, articles, basic auxiliaries, basic conjunctions, ordinary prepositions, names, routine numbers, and plainly elementary uses of words such as be, have, go, say, and get.
+These are defaults, not a blacklist. Include a basic word when its contextual sense, expression, or use is teachable. For example, the user selected did in 'We did it.'
+Usually skip proper names and incidental noises without useful lexical meaning. Preserve them if the user explicitly selects them. The user selected bing in one batch; that single example does not establish a preference for every sound imitation.
+Do not infer that all words in an otherwise selected category must always be taught. Judge the actual occurrence.
+Explicit calibration (2026-10-19): continue in 'Shall we continue?' is too simple for this user's teaching selection. Skip this ordinary sense unless explicitly selected by the user. Salute is a positive teaching example, including salutes in 'run it up the flagpole and see if anyone salutes it.' Broader coverage must not turn into selecting routine, transparent vocabulary while missing harder words or figurative uses.
+
+4. REPEATED OCCURRENCES — EXPLICIT USER PRIORITY
+Once a word and contextual sense are selected for teaching, include every other occurrence with the same meaning in the section. Do not select just one representative occurrence.
+Check repeated words within one cue as well as across cues. Check capitalization, punctuation, singular/plural, and relevant inflected forms.
+Use surrounding dialogue to confirm meaning. Never propagate a mapping based only on spelling: a legal case and 'just in case' are different; running a business and running down stairs are different.
+Review grammatical differences too; do not blindly reuse an adjective sense for a related noun.
+Respect the requested scope. If asked for one section, complete that section; do not silently modify other sections.
+
+5. HOW TO INTERPRET THE USER'S FEEDBACK
+Explicit additions are strong positive evidence, including selections below B2. Preserve every occurrence in a user-provided bulk-selection export.
+Explicit removals and explanations are strong negative evidence.
+An unselected word is NOT automatically negative evidence. It may already have been mapped, previously selected, overlooked, or unavailable in the bulk-selection UI.
+Before learning from omissions, compare the export with the existing mappings and earlier selection files. Only call a word rejected when there is evidence of rejection.
+Avoid broad rules inferred from one ambiguous example. Record uncertainty instead of inventing a firm preference.
+
+6. REQUIRED SELECTION PROCESS
+A. Read the complete subtitle and inspect current mappings and earlier suggestions.
+B. Make a broad contextual pass using the categories above, including useful everyday words and advanced senses of basic words.
+C. Make a separate omission pass specifically for everyday content words, expressions, informal speech, and topic vocabulary. This pass should address the gaps the user has repeatedly had to fill manually.
+D. Make a repetition pass: for each selected or already mapped word-sense pair, inspect all candidate occurrences and include all matching unmapped occurrences.
+E. Distinguish new vocabulary discovery from repeat repair. A repeat repair may reuse an existing appropriate sense ID; a new vocabulary selection is a suggestions array for dictionary preparation.
+F. Avoid duplicate token locations and preserve existing mappings. Do not automatically reintroduce words the user explicitly rejected. A word appearing in an earlier suggestions file is NOT proof of rejection or completion. When reviewing for missed vocabulary, check whether it is actually mapped; reassess unmapped candidates, including those previously omitted by the assistant because of sense-selection difficulties. Apply the nearest-available-sense rule to accepted scraped words. An explicit request to repair repeated same-sense coverage also authorizes reviewing missing occurrences.
+G. Validate the output against the current saved subtitle and section before delivery.
+
+7. KEEP THE ESTABLISHED BULK MAPPINGS FORMAT
+For vocabulary selection, return a JSON ARRAY of suggestion objects, never a Python file.
+Each item contains id, subtitle_sha256, subtitle_word, cue_id, cue_text, start_time, end_time, token_indices, dictionary_word, scrape_term, and longman_url.
+Select exactly one subtitle token per item. Preserve the token's exact spelling and punctuation, original cue text, timing, and hash. Keep explicitly user-selected adjacent tokens as separate items.
+For an expression, select its main word and use the main dictionary headword, not a separately scraped idiom or phrasal-verb entry. Canonical lexical headwords such as ought to may contain spaces; use the corresponding URL slug.
+Never verify Longman URLs. Do not add intended_meaning, url_verification, or per-occurrence explanations.
+For sense selection, inspect current stored definitions and examples across all parts of speech and cross-reference senses. Explicit user rule (2026-10-19): keep every accepted occurrence if the word has been scraped and has stored senses. Prefer an exact contextual match; otherwise choose the existing sense nearest in meaning rather than omitting the word. A transparent metaphor is not by itself grounds for omission. Do not represent approximate matches as exact, invent sense IDs, or scrape separate phrases to fill gaps. No additional confirmation is needed for nearest-sense choices. If an occurrence truly cannot be included, such as when no stored sense exists, list the word and reason before generating the final JSON and wait for the user's input.
+Return a populated schema-version-2 mapping object as a separate JSON file for sense selection or repeat repair.
+Validate read-only. Do not scrape, import, or modify existing mappings merely to validate a file.
+Do not routinely create separate omission reports or notes files. Give a concise count and validation summary.
+
+8. CALIBRATION AND IMPROVEMENT
+Use the next few user-reviewed sections to refine this guide. If the user supplies additions or removals, compare them to what was actually available for selection and update the relevant rule with a concrete example.
+Track two distinct kinds of error: useful vocabulary missed, and unnecessary vocabulary selected. Also track missing repeated occurrences separately.
+During early calibration, favor finding useful candidates over enforcing a narrow level cutoff. Avoid flooding the output with basic grammatical words to inflate coverage.
+For a reviewed section, evaluate whether the next selection pass would have caught the user's additions without broadly increasing unwanted selections. Recheck an older reviewed section when changing a rule, so a local fix does not make earlier results worse.
+Do not require the user to review every section forever. Treat subsequent corrections as optional feedback and apply the best current guide autonomously when authorized.
+Update this document only from actual feedback or clearly identified inference. Keep a short dated change log and label hypotheses as hypotheses.
+
+CHANGE LOG
+2026-10-19: Initial draft based on the user's bulk-selection exports, correction about figurative flap, and explicit requirement to map every repeated occurrence with the same meaning. Replaces a strict B2-only selection target with a broader proposed contextual-usefulness target. The historical bulk-mappings-ai-context.txt remains the reference for application mechanics; this draft does not silently edit that file.
+
+2026-10-19 (v2): Explicit user instruction supersedes the omit-if-uncertain policy for accepted scraped words: choose the nearest available sense and retain the occurrence. Discuss any unavoidable omissions before generating JSON. Updated bulk-mappings-ai-context.txt to match.
+2026-10-19 (v3): User rejected ordinary continue as too simple and identified salute as missed teaching vocabulary. Corrected the previous rule that wrongly grouped assistant omissions with explicit user rejections; an earlier suggestion alone must not exclude an unmapped word from a missing-vocabulary review.

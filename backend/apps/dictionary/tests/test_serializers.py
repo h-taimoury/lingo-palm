@@ -18,10 +18,21 @@ class DictionarySerializerValidationTests(TestCase):
         self.assertEqual(EntrySerializer(entry).data["level"], expected)
 
     def test_level_missing_or_null_is_supported(self):
-        for extra in ({}, {"level": None}):
-            serializer = EntrySerializer(data={"word": "test", "part_of_speech": "noun", **extra})
+        for index, extra in enumerate(({}, {"level": None})):
+            serializer = EntrySerializer(data={"word": f"test{index}", "part_of_speech": "noun", **extra})
             self.assertTrue(serializer.is_valid(), serializer.errors)
             self.assertIsNone(serializer.save().level)
+
+    def test_duplicate_entry_is_rejected_but_self_update_is_allowed(self):
+        entry = Entry.objects.create(word="book", part_of_speech="noun")
+        duplicate = EntrySerializer(data={"word": " book ", "part_of_speech": "noun"})
+        self.assertFalse(duplicate.is_valid())
+        update = EntrySerializer(entry, data={"frequency": ["S1"]}, partial=True)
+        self.assertTrue(update.is_valid(), update.errors)
+        update.save()
+        other = Entry.objects.create(word="other", part_of_speech="noun")
+        conflicting_update = EntrySerializer(other, data={"word": "book"}, partial=True)
+        self.assertFalse(conflicting_update.is_valid())
 
     def test_invalid_level_is_rejected(self):
         for level in ([], "high", {}, {"tooltip": "high"}, {"tooltip": "", "indicator": "●●●"}, {"tooltip": "high", "indicator": 3}, {"tooltip": "high", "indicator": "●●●", "extra": True}):

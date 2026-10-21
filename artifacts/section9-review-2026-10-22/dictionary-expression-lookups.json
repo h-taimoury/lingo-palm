@@ -1,0 +1,59 @@
+[
+  {
+    "term": "hold-on-to",
+    "entries": [
+      2606
+    ]
+  },
+  {
+    "term": "sleep",
+    "entries": [
+      2609,
+      2610
+    ]
+  },
+  {
+    "term": "kind",
+    "entries": [
+      2614,
+      2615
+    ]
+  },
+  {
+    "term": "fish",
+    "entries": [
+      2617,
+      2618
+    ]
+  },
+  {
+    "term": "use",
+    "entries": [
+      2620,
+      2621
+    ]
+  },
+  {
+    "term": "soon",
+    "entries": [
+      2622
+    ]
+  },
+  {
+    "term": "scale",
+    "entries": [
+      2623,
+      2624
+    ]
+  },
+  {
+    "term": "thief",
+    "entries": [
+      2625
+    ]
+  },
+  {
+    "term": "run-away",
+    "error": "DuplicateScrapeError: 'run away' has already been scraped."
+  }
+]

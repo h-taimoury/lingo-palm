@@ -1,0 +1,13 @@
+{
+  "section_id": 14,
+  "before_count": 412,
+  "after_count": 410,
+  "retained_mapping": 3309,
+  "removed_redundant_mappings": [
+    3222,
+    3310
+  ],
+  "valid_highlighted_tokens": 522,
+  "duplicates": 0,
+  "unmatched_tokens": 0
+}

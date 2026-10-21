@@ -1,0 +1,1862 @@
+[
+  {
+    "action": "update",
+    "mapping_id": 260,
+    "cue_id": 12,
+    "token_indices": [
+      6,
+      7
+    ],
+    "sense_ids": [
+      1686
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 263,
+    "cue_id": 32,
+    "token_indices": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sense_ids": [
+      1711
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 266,
+    "cue_id": 41,
+    "token_indices": [
+      3,
+      4
+    ],
+    "sense_ids": [
+      613
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 357,
+    "cue_id": 293,
+    "token_indices": [
+      6,
+      7
+    ],
+    "sense_ids": [
+      613
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 368,
+    "cue_id": 314,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      613
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 270,
+    "cue_id": 43,
+    "token_indices": [
+      2,
+      3
+    ],
+    "sense_ids": [
+      1726
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 278,
+    "cue_id": 62,
+    "token_indices": [
+      7,
+      8,
+      9
+    ],
+    "sense_ids": [
+      1924
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 285,
+    "cue_id": 85,
+    "token_indices": [
+      3,
+      4,
+      5
+    ],
+    "sense_ids": [
+      1998
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 286,
+    "cue_id": 102,
+    "token_indices": [
+      10,
+      11,
+      12,
+      13
+    ],
+    "sense_ids": [
+      217
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 318,
+    "cue_id": 184,
+    "token_indices": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "sense_ids": [
+      2139
+    ],
+    "reason": "Animal-claw variation of the documented lay a hand/finger on somebody expression."
+  },
+  {
+    "action": "update",
+    "mapping_id": 320,
+    "cue_id": 192,
+    "token_indices": [
+      11,
+      12
+    ],
+    "sense_ids": [
+      267
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 324,
+    "cue_id": 200,
+    "token_indices": [
+      2,
+      3
+    ],
+    "sense_ids": [
+      2191
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 335,
+    "cue_id": 230,
+    "token_indices": [
+      5,
+      6
+    ],
+    "sense_ids": [
+      2228
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 337,
+    "cue_id": 232,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      2284
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 344,
+    "cue_id": 247,
+    "token_indices": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "sense_ids": [
+      1440
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 352,
+    "cue_id": 270,
+    "token_indices": [
+      6,
+      7
+    ],
+    "sense_ids": [
+      1104
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 360,
+    "cue_id": 303,
+    "token_indices": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sense_ids": [
+      2440
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 362,
+    "cue_id": 306,
+    "token_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "sense_ids": [
+      2487
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 374,
+    "cue_id": 318,
+    "token_indices": [
+      3,
+      4
+    ],
+    "sense_ids": [
+      267
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 376,
+    "cue_id": 318,
+    "token_indices": [
+      10,
+      12
+    ],
+    "sense_ids": [
+      267
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 379,
+    "cue_id": 331,
+    "token_indices": [
+      5,
+      6
+    ],
+    "sense_ids": [
+      2594
+    ],
+    "reason": "Select the full expression supported by the stored dictionary sense."
+  },
+  {
+    "action": "update",
+    "mapping_id": 401,
+    "cue_id": 384,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      259
+    ],
+    "reason": "Use the same nearest territorial/domain sense as section 8 for the magical realm."
+  },
+  {
+    "action": "update",
+    "mapping_id": 409,
+    "cue_id": 413,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      259
+    ],
+    "reason": "Use the same nearest territorial/domain sense as section 8 for the magical realm."
+  },
+  {
+    "action": "update",
+    "mapping_id": 306,
+    "cue_id": 142,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      2066,
+      2069
+    ],
+    "reason": "Retain literal cattle and add the simultaneous nonsense pun in a lot of bull."
+  },
+  {
+    "action": "add",
+    "cue_id": 16,
+    "token_indices": [
+      0
+    ],
+    "sense_ids": [
+      5810
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 109,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      5810
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 24,
+    "token_indices": [
+      0
+    ],
+    "sense_ids": [
+      528
+    ],
+    "reason": "Same conceptual fallback as section 8: swindle, obtaining things by deception."
+  },
+  {
+    "action": "add",
+    "cue_id": 31,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      10182
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 77,
+    "token_indices": [
+      3,
+      4
+    ],
+    "sense_ids": [
+      12759
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 97,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      1999
+    ],
+    "reason": "Nearest stored imaginary-marvellous-place sense for the food-filled city."
+  },
+  {
+    "action": "add",
+    "cue_id": 102,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      12398
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 115,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      1419
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 137,
+    "token_indices": [
+      10
+    ],
+    "sense_ids": [
+      1419
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 160,
+    "token_indices": [
+      6
+    ],
+    "sense_ids": [
+      1419
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 140,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      12215
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 300,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      12215
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 310,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      12215
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 341,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      12215
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 191,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      7875
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 197,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      2181
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 200,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 201,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 206,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 206,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 208,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 209,
+    "token_indices": [
+      0
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 211,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 211,
+    "token_indices": [
+      6
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 211,
+    "token_indices": [
+      7
+    ],
+    "sense_ids": [
+      11711
+    ],
+    "reason": "Teach every occurrence of the physical-harm sense, including repetitions within a cue."
+  },
+  {
+    "action": "add",
+    "cue_id": 207,
+    "token_indices": [
+      8
+    ],
+    "sense_ids": [
+      4526
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 210,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      4525
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 215,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      2197
+    ],
+    "reason": "Nearest stored practice/discussion workshop sense for the verb meaning develop and improve through practice."
+  },
+  {
+    "action": "add",
+    "cue_id": 319,
+    "token_indices": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sense_ids": [
+      2575
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 332,
+    "token_indices": [
+      6
+    ],
+    "sense_ids": [
+      10292
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 349,
+    "token_indices": [
+      3,
+      4
+    ],
+    "sense_ids": [
+      1446
+    ],
+    "reason": "Same concept-equivalent fallback as section 8: easy prey, a person easily deceived."
+  },
+  {
+    "action": "add",
+    "cue_id": 389,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      12657
+    ],
+    "reason": "Bother means make the effort, not annoy someone."
+  },
+  {
+    "action": "add",
+    "cue_id": 416,
+    "token_indices": [
+      7,
+      8
+    ],
+    "sense_ids": [
+      12235
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 432,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      2823
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 436,
+    "token_indices": [
+      6
+    ],
+    "sense_ids": [
+      2823
+    ],
+    "reason": "Nearest stored phrasal-verb sense for the corresponding noun meaning a serious mistake."
+  },
+  {
+    "action": "add",
+    "cue_id": 436,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      2822
+    ],
+    "reason": "Same degree/intensity meaning as cue 432; adjective/adverb approximation."
+  },
+  {
+    "action": "add",
+    "cue_id": 3,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 28,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      3906
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 29,
+    "token_indices": [
+      0
+    ],
+    "sense_ids": [
+      3906
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 36,
+    "token_indices": [
+      7
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 36,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3906
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 42,
+    "token_indices": [
+      12
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 42,
+    "token_indices": [
+      13
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 54,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 54,
+    "token_indices": [
+      11
+    ],
+    "sense_ids": [
+      3906
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 61,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 65,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 66,
+    "token_indices": [
+      8
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 68,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 69,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 74,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      1671
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 75,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 75,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 76,
+    "token_indices": [
+      6
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 91,
+    "token_indices": [
+      7
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 102,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 103,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 123,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 123,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 124,
+    "token_indices": [
+      8
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 124,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 125,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 125,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 126,
+    "token_indices": [
+      0
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 126,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 186,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 186,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 187,
+    "token_indices": [
+      0
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 187,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 187,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 187,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 187,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 238,
+    "token_indices": [
+      6
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 264,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      3906
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 288,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      3906
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 293,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 308,
+    "token_indices": [
+      11
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 311,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      3867
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 311,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      12728
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 312,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      12728
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 313,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 366,
+    "token_indices": [
+      15
+    ],
+    "sense_ids": [
+      253
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 366,
+    "token_indices": [
+      17
+    ],
+    "sense_ids": [
+      360
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 384,
+    "token_indices": [
+      8
+    ],
+    "sense_ids": [
+      46
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 391,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      3581
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 391,
+    "token_indices": [
+      6
+    ],
+    "sense_ids": [
+      878
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 399,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 413,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      46
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 434,
+    "token_indices": [
+      3
+    ],
+    "sense_ids": [
+      253
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 434,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      360
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 434,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 437,
+    "token_indices": [
+      11
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 438,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      3885
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 438,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      253
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 443,
+    "token_indices": [
+      9
+    ],
+    "sense_ids": [
+      3583
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 443,
+    "token_indices": [
+      13
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 445,
+    "token_indices": [
+      4
+    ],
+    "sense_ids": [
+      3583
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 445,
+    "token_indices": [
+      8
+    ],
+    "sense_ids": [
+      3580
+    ],
+    "reason": "Repeat a worthwhile meaning selected in this section or the reviewed first section."
+  },
+  {
+    "action": "add",
+    "cue_id": 42,
+    "token_indices": [
+      8,
+      9
+    ],
+    "sense_ids": [
+      12796
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 69,
+    "token_indices": [
+      2,
+      3
+    ],
+    "sense_ids": [
+      12796
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 31,
+    "token_indices": [
+      5,
+      6,
+      7
+    ],
+    "sense_ids": [
+      12798
+    ],
+    "reason": "The take-in sense is providing a home, not deceiving someone."
+  },
+  {
+    "action": "add",
+    "cue_id": 355,
+    "token_indices": [
+      4,
+      5,
+      6
+    ],
+    "sense_ids": [
+      12798
+    ],
+    "reason": "The take-in sense is providing a home, not deceiving someone."
+  },
+  {
+    "action": "add",
+    "cue_id": 362,
+    "token_indices": [
+      2,
+      3,
+      4
+    ],
+    "sense_ids": [
+      12798
+    ],
+    "reason": "The take-in sense is providing a home, not deceiving someone."
+  },
+  {
+    "action": "add",
+    "cue_id": 45,
+    "token_indices": [
+      3,
+      4,
+      5
+    ],
+    "sense_ids": [
+      12805
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 214,
+    "token_indices": [
+      1,
+      2,
+      3
+    ],
+    "sense_ids": [
+      12805
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 11,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      12808
+    ],
+    "reason": "Physical holding on during the dangerous boat sequence."
+  },
+  {
+    "action": "add",
+    "cue_id": 195,
+    "token_indices": [
+      0,
+      1
+    ],
+    "sense_ids": [
+      12807
+    ],
+    "reason": "Pause/wait interjection, distinct from physically holding on."
+  },
+  {
+    "action": "add",
+    "cue_id": 51,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      12811
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 1,
+    "token_indices": [
+      0,
+      1
+    ],
+    "sense_ids": [
+      12821
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 359,
+    "token_indices": [
+      0,
+      1
+    ],
+    "sense_ids": [
+      12824
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 372,
+    "token_indices": [
+      2,
+      3
+    ],
+    "sense_ids": [
+      12828
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 397,
+    "token_indices": [
+      2,
+      4
+    ],
+    "sense_ids": [
+      12831
+    ],
+    "reason": "Discontinuous hand over expression; omit the object pronoun."
+  },
+  {
+    "action": "add",
+    "cue_id": 227,
+    "token_indices": [
+      6,
+      8
+    ],
+    "sense_ids": [
+      12833
+    ],
+    "reason": "Discontinuous help out expression; omit the object pronoun."
+  },
+  {
+    "action": "add",
+    "cue_id": 230,
+    "token_indices": [
+      13,
+      14
+    ],
+    "sense_ids": [
+      12835
+    ],
+    "reason": "Nearest figurative cooling-off sense for the police pressure subsiding."
+  },
+  {
+    "action": "add",
+    "cue_id": 88,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      12837
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 335,
+    "token_indices": [
+      1,
+      2
+    ],
+    "sense_ids": [
+      12837
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 303,
+    "token_indices": [
+      0,
+      1
+    ],
+    "sense_ids": [
+      12838
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 76,
+    "token_indices": [
+      8,
+      10
+    ],
+    "sense_ids": [
+      12791
+    ],
+    "reason": "Same concept-equivalent fallback as section 8: bring down an oppressive ruler."
+  },
+  {
+    "action": "add",
+    "cue_id": 103,
+    "token_indices": [
+      2,
+      3
+    ],
+    "sense_ids": [
+      12791
+    ],
+    "reason": "Same concept-equivalent fallback as section 8: bring down an oppressive ruler."
+  },
+  {
+    "action": "add",
+    "cue_id": 108,
+    "token_indices": [
+      5,
+      6
+    ],
+    "sense_ids": [
+      12791
+    ],
+    "reason": "Same concept-equivalent fallback as section 8: bring down an oppressive ruler."
+  },
+  {
+    "action": "add",
+    "cue_id": 238,
+    "token_indices": [
+      3,
+      4
+    ],
+    "sense_ids": [
+      12791
+    ],
+    "reason": "Same concept-equivalent fallback as section 8: bring down an oppressive ruler."
+  },
+  {
+    "action": "update",
+    "mapping_id": 330,
+    "cue_id": 219,
+    "token_indices": [
+      1
+    ],
+    "sense_ids": [
+      2105,
+      2104
+    ],
+    "reason": "Add mentor noun to explain the verb definition, which only refers back to mentor."
+  },
+  {
+    "action": "add",
+    "cue_id": 50,
+    "token_indices": [
+      6,
+      7,
+      8
+    ],
+    "sense_ids": [
+      12840
+    ],
+    "reason": "Keep the familiar life rather than give it up; use hold on to, not physical hold on."
+  },
+  {
+    "action": "add",
+    "cue_id": 91,
+    "token_indices": [
+      3,
+      4
+    ],
+    "sense_ids": [
+      12839
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 92,
+    "token_indices": [
+      8
+    ],
+    "sense_ids": [
+      7979
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 139,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      6533
+    ],
+    "reason": "Nearest pace noun sense: speed of activity; exact fast-paced entry unavailable."
+  },
+  {
+    "action": "add",
+    "cue_id": 97,
+    "token_indices": [
+      2
+    ],
+    "sense_ids": [
+      1671
+    ],
+    "reason": "Nearest broader dumpling sense; no wonton entry was returned."
+  },
+  {
+    "action": "add",
+    "cue_id": 163,
+    "token_indices": [
+      7
+    ],
+    "sense_ids": [
+      12843
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 237,
+    "token_indices": [
+      0,
+      1
+    ],
+    "sense_ids": [
+      12849
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 384,
+    "token_indices": [
+      5,
+      6
+    ],
+    "sense_ids": [
+      12863
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 443,
+    "token_indices": [
+      10
+    ],
+    "sense_ids": [
+      12886
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 445,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      12886
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "update",
+    "mapping_id": 295,
+    "cue_id": 113,
+    "token_indices": [
+      5
+    ],
+    "sense_ids": [
+      2009,
+      12901
+    ],
+    "reason": "Add celebrity to explain the abbreviated headword celeb."
+  },
+  {
+    "action": "add",
+    "cue_id": 340,
+    "token_indices": [
+      0,
+      1,
+      2
+    ],
+    "sense_ids": [
+      12917
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  },
+  {
+    "action": "add",
+    "cue_id": 371,
+    "token_indices": [
+      0,
+      1
+    ],
+    "sense_ids": [
+      9974
+    ],
+    "reason": "Useful contextual vocabulary/expression missing from the original mappings."
+  }
+]

@@ -85,6 +85,68 @@ def _make_published_section():
     )
 
 
+class SenseSearchRankingTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.staff = get_user_model().objects.create_user(
+            email="search@example.com", password=None, is_staff=True
+        )
+        bite = Entry.objects.create(word="bite", part_of_speech="verb")
+        cls.indirect = [
+            Sense.objects.create(
+                entry=bite, title=f"bite_v_{number}", sense_number=number,
+                definition="take on too much", lex_unit="bite off more than you can chew",
+            )
+            for number in range(1, 22)
+        ]
+        off = Entry.objects.create(word="off", part_of_speech="adverb")
+        cls.exact = [
+            Sense.objects.create(
+                entry=off, title=f"off_adv_{number}", sense_number=number,
+                definition="away",
+            )
+            for number in (1, 2)
+        ]
+        adjective = Entry.objects.create(word="off", part_of_speech="adjective")
+        cls.adjective = Sense.objects.create(
+            entry=adjective, title="off_adj_1", sense_number=1, definition="incorrect"
+        )
+        offer = Entry.objects.create(word="offer", part_of_speech="verb")
+        cls.partial = Sense.objects.create(entry=offer, title="offer_v_1", definition="provide")
+
+    def setUp(self):
+        self.client.force_authenticate(self.staff)
+
+    def test_exact_headwords_rank_first_before_pagination(self):
+        for search in ("off", " OFF "):
+            with self.subTest(search=search):
+                response = self.client.get("/api/dictionary/senses/", {"search": search})
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.data["count"], 25)
+                self.assertIsNotNone(response.data["next"])
+                self.assertEqual(
+                    [row["id"] for row in response.data["results"][:4]],
+                    [self.adjective.id, *[sense.id for sense in self.exact], self.indirect[0].id],
+                )
+                second_page = self.client.get(
+                    "/api/dictionary/senses/", {"search": search, "page": 2}
+                )
+                self.assertEqual(second_page.data["results"][-1]["id"], self.partial.id)
+
+    def test_lexical_unit_search_still_finds_indirect_matches(self):
+        response = self.client.get("/api/dictionary/senses/", {"search": "more than"})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["count"], 21)
+        self.assertEqual(response.data["results"][0]["id"], self.indirect[0].id)
+
+    def test_no_search_preserves_alphabetical_order(self):
+        for params in ({}, {"search": "  "}):
+            with self.subTest(params=params):
+                response = self.client.get("/api/dictionary/senses/", params)
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.data["results"][0]["id"], self.indirect[0].id)
+
+
 class SenseTranslationFilterTests(APITestCase):
     @classmethod
     def setUpTestData(cls):

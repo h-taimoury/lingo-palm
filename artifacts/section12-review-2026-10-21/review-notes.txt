@@ -1,0 +1,48 @@
+12 Angry Men — course 6, section 12 — mapping review
+Date: 2026-10-21
+
+Scope
+User-edited content through 03:26 was protected. Cue 77 straddles that
+boundary, so the entire cue was protected. Changes start at cue 78.
+All 79 protected mappings, including their sense links and subtitle-word
+records, were verified unchanged. Other sections were verified unchanged.
+
+Results
+84 mappings revised, including sense corrections and phrase expansion.
+16 missing mappings added.
+22 elementary literal selections removed.
+8 redundant component mappings merged into the revised phrase mappings.
+Total mappings: 621 before, 607 after.
+
+Examples
+pointed out: corrected the noun 'point' sense to the phrasal verb.
+given ... thought: corrected the adjective 'given' to the give-thought expression.
+fairy tales: selected the invented, unbelievable-story sense.
+witness chair: corrected person/witness to the witness-box meaning.
+Added flagpole, salutes, off the top of my head, and repeated took place.
+Expanded calm down, stand a chance, for crying out loud, and other expressions.
+
+Dictionary limitations
+Your nearest-available-sense rule was followed. Some approximations remain:
+- cough drop uses the sweet/lozenge sense under drop.
+- second hand uses the clock-pointer sense under hand.
+- depends on uses the only stored depend sense.
+- gotten over the implied head injury uses the recovery sense under get over.
+- slip through our fingers uses slip's criminal-escape sense, 'slip through the net'.
+- as plain as the nose on your face uses plain's obvious meaning.
+- get down to business uses the matters-to-be-discussed sense of business.
+- inflected verb uses of vote retain the nearest stored voting-act noun sense.
+No dictionary definitions or new dictionary entries were invented.
+
+Validation
+Saved database state re-read after commit.
+Protected mappings and all other sections unchanged.
+All selected subtitle words and occurrence positions resolve to the source.
+Cue times match the source; no duplicate token mappings.
+All resulting mappings have words and existing dictionary senses.
+
+Files
+before.json: complete section backup.
+after.json: final section snapshot.
+change-plan.json: requested changes.
+applied-changes.json: changes with resulting database IDs and verification summary.

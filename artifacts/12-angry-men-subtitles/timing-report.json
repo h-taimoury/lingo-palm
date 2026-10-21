@@ -1,0 +1,25 @@
+{
+  "source": "C:\\Users\\Fardin\\Desktop\\12 Angry Men\\12 Angry Men (1957) 1080p BluRay x265 Sujaidr.srt",
+  "source_cues": 1754,
+  "parts": [
+    {
+      "file": "section1.vtt",
+      "cues": 607,
+      "source_minus_local_ms": -62,
+      "duration_ms": 1922774
+    },
+    {
+      "file": "section2.vtt",
+      "cues": 636,
+      "source_minus_local_ms": 1922775,
+      "duration_ms": 1905986
+    },
+    {
+      "file": "section3.vtt",
+      "cues": 511,
+      "source_minus_local_ms": 3828763,
+      "duration_ms": 1940004
+    }
+  ],
+  "notes": "Text is ASCII, no HTML tags/entities or bracketed descriptions. Original cue 1 is out of order and overlaps cues 6-7; sorted by time without changing source timestamps. Offsets verified using identical video packet hashes. Playback synchronization of the source subtitle itself is not verified."
+}

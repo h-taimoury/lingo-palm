@@ -1,0 +1,47 @@
+12 Angry Men, course 6, section 14 — mapping revision
+Reviewed using Fardin's guide v1.2 and the supplied section-14 export.
+The export matched the live database before changes: 326 mappings, 511 cues.
+
+Applied:
+46 revised mappings; 87 additions; 2 removals; 1 redundant mapping merged.
+Final total: 410 mappings.
+Other sections and untouched mappings were verified unchanged.
+
+Examples:
+- Completed idioms: haven't got a leg to stand on, blow his stack,
+  took great pains, tossed and turned, don't give me that, so long.
+- Added missing expressions: mixed up, took place, ball game,
+  back and forth, burning a hole in your pocket, bringing up.
+- Added repeat coverage for accepted legal/topic words and I guess.
+- Added keep / kept with the continuation meaning.
+- Kept cough and drops separate, following the user's direct clarification.
+- Used exact dictionary usage patterns for handy with, room for,
+  by nature, concentrating on and entitled to.
+- Changed the money-wager use of bet to its wagering sense.
+- Removed elementary movement come and incidental sound imitation whoosh.
+
+Approximations:
+Verb uses of vote retain the available voting-act noun sense.
+Avenger uses avenge; lushing uses lush meaning alcoholic.
+Ox and bouncing are figurative extensions of concrete senses.
+Phony's spelling cross-reference is supplemented with fake's deceptive meaning.
+Figure uses its available reasoning sense without adding an unsupported out token.
+As long as uses the nearest conditional expression sense in a causal context.
+Existing approximate mappings were retained where no closer stored sense exists.
+
+Unfinished dictionary work:
+The application scraper returned WordNotFoundError ('no dictionary entries
+found') for every lookup attempted. This does NOT establish that Longman lacks
+those entries; the retrieval/parser workflow may be failing.
+No dictionary entry or definition was invented.
+dictionary-followup.json records 21 priority terms/patterns and their cue times.
+Some already have a component/fallback mapping; others remain unmapped.
+The mapping revisions supported by stored data are complete, but those
+dictionary gaps prevent claiming complete vocabulary coverage.
+
+Validation:
+Committed database state re-read and matched to after.json.
+All selected words and occurrence positions resolve to source subtitle tokens.
+No duplicate token mappings; all mappings contain words and stored sense IDs.
+Cue and neighboring-cue timing fields verified on changed mappings.
+Backup: before.json. Audit: applied-changes.json.

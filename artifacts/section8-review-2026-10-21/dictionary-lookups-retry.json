@@ -1,0 +1,105 @@
+[
+  {
+    "term": "impudence",
+    "error": "WordNotFoundError: No dictionary entries found for 'impudence' at https://www.ldoceonline.com/dictionary/impudence"
+  },
+  {
+    "term": "cutthroat",
+    "error": "WordNotFoundError: No dictionary entries found for 'cutthroat' at https://www.ldoceonline.com/dictionary/cutthroat"
+  },
+  {
+    "term": "grift",
+    "error": "WordNotFoundError: No dictionary entries found for 'grift' at https://www.ldoceonline.com/dictionary/grift"
+  },
+  {
+    "term": "kick-back",
+    "entries": [
+      2558
+    ]
+  },
+  {
+    "term": "take-down",
+    "entries": [
+      2559
+    ]
+  },
+  {
+    "term": "team-up",
+    "entries": [
+      2560
+    ]
+  },
+  {
+    "term": "stick-with",
+    "entries": [
+      2561
+    ]
+  },
+  {
+    "term": "blend-in",
+    "entries": [
+      2562
+    ]
+  },
+  {
+    "term": "come-across",
+    "entries": [
+      2563
+    ]
+  },
+  {
+    "term": "prey-on",
+    "entries": [
+      2564
+    ]
+  },
+  {
+    "term": "shape-shifter",
+    "error": "WordNotFoundError: No dictionary entries found for 'shape-shifter' at https://www.ldoceonline.com/dictionary/shape-shifter"
+  },
+  {
+    "term": "bug-eyed",
+    "error": "WordNotFoundError: No dictionary entries found for 'bug-eyed' at https://www.ldoceonline.com/dictionary/bug-eyed"
+  },
+  {
+    "term": "power-hungry",
+    "error": "WordNotFoundError: No dictionary entries found for 'power-hungry' at https://www.ldoceonline.com/dictionary/power-hungry"
+  },
+  {
+    "term": "reptilian",
+    "error": "WordNotFoundError: No dictionary entries found for 'reptilian' at https://www.ldoceonline.com/dictionary/reptilian"
+  },
+  {
+    "term": "day-care",
+    "entries": [
+      2565
+    ]
+  },
+  {
+    "term": "snow-pea",
+    "entries": [
+      2566
+    ]
+  },
+  {
+    "term": "soy",
+    "error": "WordNotFoundError: No dictionary entries found for 'soy' at https://www.ldoceonline.com/dictionary/soy"
+  },
+  {
+    "term": "wallet",
+    "entries": [
+      2567
+    ]
+  },
+  {
+    "term": "peach",
+    "entries": [
+      2568,
+      2569
+    ]
+  },
+  {
+    "term": "back-scratcher",
+    "error": "WordNotFoundError: No dictionary entries found for 'back-scratcher' at https://www.ldoceonline.com/dictionary/back-scratcher"
+  }
+]

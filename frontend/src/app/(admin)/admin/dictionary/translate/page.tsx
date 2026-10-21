@@ -20,6 +20,9 @@ export default async function Page() {
         title="Translate senses"
         description="Give each meaning its Persian translation. These senses are used in your sections and are waiting to be translated."
       />
+      <Link href="/admin/dictionary/translate/bulk-translate" className="mt-4 inline-block text-sm font-medium text-primary underline underline-offset-4">
+        Bulk Translate
+      </Link>
       <TranslationQueue initial={initial} />
     </div>
   );

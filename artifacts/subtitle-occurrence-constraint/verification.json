@@ -1,0 +1,7 @@
+{
+  "migration_applied": true,
+  "all_existing_data_preserved": true,
+  "subtitle_words": 3757,
+  "duplicate_insert_rejected": true,
+  "foreign_key_errors": 0
+}

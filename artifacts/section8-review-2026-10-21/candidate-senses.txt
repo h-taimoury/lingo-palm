@@ -1,0 +1,950 @@
+ENTRY 2543 MIND ()
+ 12630 : a British charity organization which gives advice and practical help to people who are mentally ill and to their families, and which tries to make people in general understand more about mental illness
+ENTRY 562 Way ()
+ 3144 : used in the names of roads
+ENTRY 101 advance (noun)
+ 338 in advance (of something): before something happens or is expected to happen
+ 339 be in advance of somebody/something: to be more developed or modern than someone or something else
+ 340 : a change, discovery, or invention that brings progress
+ 341 : forward movement or progress of a group of people – used especially to talk about soldiers
+ 342 : money paid to someone before the usual time, especially someone’s salary
+ 343 advances: an attempt to start a sexual relationship with someone
+ 344 : an increase in the price or value of something – used especially when talking about the stock exchange
+ENTRY 102 advance (verb)
+ 345 : to move towards someone or something, especially in a slow and determined way – used especially to talk about soldiers
+ 346 : if scientific or technical knowledge advances, or if something advances it, it develops and improves
+ 347 : to give someone money before they have earned it
+ 348 advance your career/a cause/your interests etc: to do something that will help you achieve an advantage or success for yourself or someone else
+ 349 : if the price or value of something advances, it increases – used especially when talking about the stock exchange
+ 350 : to change the time or date when an event should happen to an earlier time or date
+ 351 : if you advance a film, clock, musical recording etc, or if it advances, it goes forward
+ENTRY 103 advance (adjective)
+ 352 advance planning/warning/booking etc: planning etc that is done before an event
+ 353 advance party/team: a group of people who go first to a place where something will happen to prepare for it
+ 354 advance copy: a copy of a book, record etc that has not yet been made available to the public
+ENTRY 730 bamboozle (verb)
+ 3895 : to deceive, trick, or confuse someone
+ENTRY 709 blush (verb)
+ 3842 : to become red in the face, usually because you are embarrassed
+ 3843 : to feel ashamed or embarrassed about something
+ 3844 something that would make somebody blush: something so shocking that it would shock someone who is not normally easily shocked
+ 3845 the blushing bride: a young woman on her wedding day – used humorously
+ENTRY 710 blush (noun)
+ 3846 : the red colour on your face that appears when you are embarrassed
+ 3847 at first blush: when first thought of or considered
+ENTRY 716 butt (noun)
+ 3857 : the part of your body that you sit on
+ 3858 : the end of a cigarette after most of it has been smoked
+ 3859 be the butt of something: to be the person or thing that other people often make jokes about
+ 3860 : the thick end of the handle of a gun
+ 3861 get your butt in/out/over etc: used to rudely tell someone to go somewhere or do something
+ 3862 work/play etc your butt off: to work, play etc very hard
+ 3863 : a large round container for collecting or storing liquids
+ 3864 : the act of hitting someone with your head
+ENTRY 717 butt (verb)
+ 3865 : to hit or push against something or someone with your head
+ 3866 : if an animal butts someone, it hits them with its horns
+ENTRY 724 chameleon (noun)
+ 3885 : a lizard that can change its colour to match the colours around it
+ 3886 : someone who changes their ideas, behaviour etc to fit different situations
+ENTRY 182 chill (noun)
+ 566 : a feeling of coldness
+ 567 : a sudden feeling of fear or worry, especially because of something cruel or violent
+ 568 : a) an illness which causes a slight fever, headache, and shivering (=slight shaking of the body) b) a feeling of being cold, caused by being ill
+ENTRY 183 chill (verb)
+ 569 : if you chill something such as food or drink, or if it chills, it becomes very cold but does not freeze
+ 570 : to relax completely instead of feeling angry, tired, or nervous
+ 571 : to make someone very cold
+ 572 : to suddenly frighten someone, especially by seeming very cruel or violent
+ENTRY 184 chill (adjective)
+ 573 : unpleasantly cold
+ENTRY 2286 concentrate (verb)
+ 11550 : to think very carefully about something that you are doing
+ 11551 : to be present in large numbers or amounts somewhere, or to cause people or things to be present in large numbers or amounts somewhere
+ 11552 something concentrates the mind: if something concentrates the mind, it makes you think very clearly
+ 11553 : to make a substance or liquid stronger by removing some of the water from it
+ENTRY 2287 concentrate (noun)
+ 11554 : a substance or liquid which has been made stronger by removing most of the water from it
+ENTRY 240 dare (verb)
+ 981 : to be brave enough to do something that is risky or that you are afraid to do – used especially in questions or negative sentences
+ 982 how dare you: said to show that you are very angry and shocked about what someone has done or said
+ 983 don’t you dare!: said to warn someone not to do something because it makes you angry
+ 984 : to try to persuade someone to do something dangerous or embarrassing as a way of proving that they are brave
+ 985 dare I say/suggest: used when saying something that you think people may not accept or believe
+ 986 I dare say: used when saying or agreeing that something may be true
+ENTRY 241 dare (noun)
+ 987 : something dangerous that you have dared someone to do
+ENTRY 257 disguise (verb)
+ 1099 : to change someone’s appearance so that people cannot recognize them
+ 1100 : to change the appearance, sound, taste etc of something so that people do not recognize it
+ 1101 : to hide a fact or feeling so that people will not notice it
+ENTRY 258 disguise (noun)
+ 1102 : something that you wear to change your appearance and hide who you are, or the act of wearing this
+ 1103 in disguise: a) wearing a disguise b) made to seem like something else that is better
+ENTRY 330 dumpling (noun)
+ 1671 : a round lump of flour and fat mixed with water, cooked in boiling liquid and served with meat
+ 1672 : a sweet dish made of pastry filled with fruit
+ENTRY 319 easy (adjective)
+ 1606 : not difficult to do, and not needing much effort
+ 1607 : comfortable or relaxed, and without problems
+ 1608 : not feeling worried or anxious
+ 1609 : friendly and pleasant with other people
+ 1610 : able to be hunted or attacked without difficulty
+ 1611 take the easy way out: to end a situation in a way that seems easy, but is not the best or most sensible way
+ 1612 have an easy time (of it): to have no problems or difficulties
+ 1613 easy money: money that you do not have to work hard to get
+ 1614 easy on the eye/ear: pleasant to look at or listen to
+ 1615 it’s/that’s easy for you to say: used when someone has given you some advice that would be difficult for you to follow
+ 1616 there are no easy answers: used when saying that it is difficult to find a good way of dealing with a problem
+ 1617 I’m easy: used to say that you do not mind what choice is made
+ 1618 be (living) on easy street: to be in a situation in which you have plenty of money
+ 1619 on easy terms: if you buy something on easy terms, you pay for it with several small payments instead of paying the whole amount at once
+ 1620 eggs over easy: eggs cooked on a hot surface and turned over quickly before serving
+ 1621 woman/lady/girl of easy virtue: a woman who has sex with a lot of men
+ 1622 : someone, especially a woman, who is easy has a lot of sexual partners
+ENTRY 320 easy (adverb)
+ 1623 take it easy: a) to relax and not do very much b) used to tell someone to become less upset or angry c) used to say goodbye
+ 1624 go easy on/with something: to not use too much of something
+ 1625 go easy on somebody: to be more gentle and less strict or angry with someone
+ 1626 easier said than done: used to say that something would be very difficult to do
+ 1627 rest/breathe easy: to stop worrying
+ 1628 easy does it: used to tell someone to be more careful and slow, especially in moving
+ 1629 get off easy: to escape severe punishment for something that you have done wrong
+ 1630 easy come, easy go: used when something, especially money, was easily obtained and is quickly used or spent
+ 1631 stand easy: an order telling soldiers who are already standing at ease to relax more
+ENTRY 307 eye (noun)
+ 1527 : one of the two parts of the body that you use to see with
+ 1528 : a particular way of seeing, judging, or understanding something
+ 1529 keep an eye on something/somebody: to look after someone or something and make sure that they are safe
+ 1530 have/keep your eye on somebody: to carefully watch everything that someone does, especially because you do not trust them
+ 1531 eye contact: when you look directly at someone at the same time as they are looking at you
+ 1532 keep/have one eye/half an eye on somebody/something: to be watching someone or something at the same time that you are doing something else
+ 1533 have your eye on something: to want something that you think might become available
+ 1534 the naked eye: if you can see something with the naked eye, you can see it without using any artificial help such as a telescope or microscope
+ 1535 before your very eyes: if something happens before your very eyes, it happens where you can clearly see it
+ 1536 can’t take your eyes off somebody/something: to be unable to stop looking at someone or something, especially because they are extremely interesting or attractive
+ 1537 under the (watchful/stern etc) eye of somebody: while being watched by someone who is making sure that you behave properly or do something right
+ 1538 run/cast your eye over something: to look at something quickly
+ 1539 set/lay/clap eyes on somebody/something: to see something or meet someone, especially for the first time
+ 1540 keep an eye open/out (for somebody/something): to watch carefully so that you will notice when someone or something appears
+ 1541 with an eye to (doing) something: if you do something with an eye to doing something else, you do it in order to make the second thing more likely to happen
+ 1542 close/shut your eyes to something: to ignore something or pretend that you do not know it is happening
+ 1543 have an eye/a good eye for something: to be good at noticing a particular type of thing, especially something attractive, valuable, of good quality etc
+ 1544 keep your eyes peeled/skinned: to watch carefully and continuously for something
+ 1545 with your eyes open: knowing fully what the problems, difficulties, results etc of a situation might be
+ 1546 can do something with your eyes shut/closed: to be able to do something very easily
+ 1547 make eyes at somebody/give somebody the eye: to look at someone in a way that shows you think they are sexually attractive
+ 1548 an eye for/on/to the main chance: if you have an eye for the main chance, you will take advantage of any possible opportunity to get what you want – used to show disapproval
+ 1549 one in the eye for somebody: something that will annoy someone or give them a disadvantage – used especially when you think this is a good thing
+ 1550 an eye for an eye: the idea that if someone does something wrong, you should punish them by doing the same thing to them
+ 1551 for somebody’s eyes only: used to say that something is secret and must only be seen by one particular person or group
+ 1552 have eyes in the back of your head: to know what is happening all around you, even when this seems impossible
+ 1553 get/keep your eye in: to practise or to continue practising an activity so that you become good at it
+ 1554 have eyes like a hawk: to notice every small detail or everything that is happening, and therefore be very difficult to deceive
+ 1555 his/her etc eyes were popping (out of his/her etc head): to be very surprised, shocked, or excited by something you see
+ 1556 be up to your eyes in something: to be very busy doing something
+ 1557 have eyes bigger than your belly: used to say that you have taken more food than you are able to eat
+ 1558 only have eyes for somebody: if someone only has eyes for someone, they love and are interested in that person only
+ 1559 my eye!: used to say that you do not believe something
+ 1560 all eyes are on/watching/fixed on etc: a) used to say that everyone is looking at someone or something b) used to say that a lot of people are paying attention to a particular person or situation
+ 1561 in a pig’s eye!: used to show that you do not believe what someone is saying
+ 1562 : the eye of the camera is the way that you appear in photographs
+ 1563 : the hole in a needle that you put the thread through
+ 1564 : a small circle or U-shaped piece of metal used together with a hook for fastening clothes
+ 1565 : the calm centre of a storm such as a hurricane
+ 1566 : a dark spot on a potato that a new plant can grow from
+ENTRY 308 eye (verb)
+ 1567 : to look at someone or something carefully, especially because you do not trust them or because you want something
+ENTRY 688 face (noun)
+ 3716 : the front part of your head, where your eyes, nose, and mouth are
+ 3717 : an expression on someone’s face
+ 3718 keep a straight face: to not laugh or smile, even though something is funny
+ 3719 pale-faced/round-faced etc: having a face that has a particular colour or shape
+ 3720 grim-faced/serious-faced etc: showing a particular expression on your face
+ 3721 : a person
+ 3722 face to face: a face-to-face meeting, conversation etc is one where you are with another person and talking to them
+ 3723 say something/tell somebody something to their face: if you say something unpleasant to someone’s face, you say it to them directly, rather than to other people
+ 3724 face down/downwards: with the face or front towards the ground
+ 3725 face up/upwards: with the face or front towards the sky
+ 3726 in the face of something: in a situation where there are many problems, difficulties, or dangers
+ 3727 on the face of it: used to say that something seems true but that you think there may be other facts about it which are not yet clear
+ 3728 the face of something: a) the nature or character of an organization, industry, system etc, and the way it appears to people b) the general appearance of a particular place
+ 3729 : the face of a mountain, cliff etc is a steep vertical surface or side
+ 3730 : the front part of a clock or watch, where the numbers and hands are
+ 3731 lose face: if you lose face, you do something which makes you seem weak, stupid etc, and which makes people respect you less
+ 3732 save face: if you do something to save face, you do it so that people will not lose their respect for you
+ 3733 disappear/vanish from/off the face of the earth: used to say that you have no idea where someone is and have not seen them in a very long time
+ 3734 on the face of the earth: used when you are emphasizing a statement to mean ‘in the whole world’
+ 3735 somebody’s face doesn’t fit: used to say that someone will not get or keep a particular job because they are not the kind of person that the employer wants
+ 3736 set your face against something: to be very determined that something should not happen
+ 3737 : the part of a mine from which coal, stone etc is cut
+ 3738 : one of the outside surfaces of an object or building
+ 3739 : the part of a racket or bat etc that you use to hit the ball
+ 3740 in your face: in-your-face behaviour is intended to be noticed and to shock or upset people
+ 3741 get in somebody’s face: if someone gets in your face, they really annoy you
+ 3742 get out of my face: used to tell someone in an impolite way to go away because they are annoying you
+ 3743 what’s his face/what’s her face: used as a way of talking about someone when you cannot remember their name
+ 3744 put your face on: to put make-up on
+ENTRY 689 face (verb)
+ 3745 : if you face or are faced with a difficult situation, or if a difficult situation faces you, it is going to affect you and you must deal with it
+ 3746 : to accept that a difficult situation or problem exists, even though you would prefer to ignore it
+ 3747 can’t face: if you can’t face something, you feel unable to do it because it seems too unpleasant or difficult
+ 3748 : to talk or deal with someone, when this is unpleasant or difficult for you
+ 3749 : to be opposite someone or something, or to be looking or pointing in a particular direction
+ 3750 : to play against an opponent or team in a game or competition
+ 3751 face the music: to accept criticism or punishment for something you have done
+ 3752 be faced with stone/concrete etc: a building that is faced with stone, concrete etc has a layer of that material on its outside surfaces
+ENTRY 738 fair (adjective)
+ 3911 : a fair situation, system, way of treating people, or judgment seems reasonable, acceptable, and right
+ 3912 : treating everyone in a way that is right or equal
+ 3913 a fair size/amount/number/bit/distance etc: quite a large size, number etc
+ 3914 : someone who is fair, or who has fair hair or skin, has hair or skin that is very light in colour
+ 3915 : a fair fight, game, or election is one that is played or done according to the rules
+ 3916 : neither particularly good nor particularly bad
+ 3917 : weather that is fair is pleasant and not windy, rainy etc
+ 3918 have had more than your fair share of something: to have had more of something, especially something unpleasant, than seems reasonable
+ 3919 give somebody a fair crack of the whip: to give someone the opportunity to do something, especially so that they can show that they are able to do it
+ 3920 give somebody/get a fair shake: to treat someone, or to be treated, in a way that gives everyone the same chances as everyone else
+ 3921 by fair means or foul: using any method to get what you want, including dishonest or illegal methods
+ 3922 all’s fair in love and war: used to say that in some situations any method of getting what you want is acceptable
+ 3923 : pleasant and attractive
+ 3924 fair enough: used to say that you agree with someone’s suggestion or that something seems reasonable
+ 3925 to be fair: used when adding something after someone has been criticized, which helps to explain or excuse what they did
+ 3926 be fair!: used to tell someone not to be unreasonable or criticize someone too much
+ 3927 fair’s fair: used when you think it is fair that someone should do something, especially because of something that has happened earlier
+ 3928 fair comment: used to say that a remark or criticism seems reasonable
+ 3929 you can’t say fairer than that: used to say that an offer you are making to someone is the best and fairest offer they can possibly get
+ 3930 it’s a fair cop: used humorously when someone has discovered that you have done something wrong and you want to admit it
+ 3931 with your own fair hands: if you do something with your own fair hands, you do it yourself without any help – used humorously
+ENTRY 739 fair (noun)
+ 3932 : a form of outdoor entertainment, at which there are large machines to ride on and games in which you can win prizes
+ 3933 : an outdoor event, at which there are large machines to ride on, games to play, and sometimes farm animals being judged and sold
+ 3934 book/antiques/craft/trade etc fair: an event at which people or businesses show and sell their products
+ 3935 job/careers fair: an event where people go to get information about different kinds of jobs
+ 3936 : an outdoor event with games and things to eat and drink, usually organized to get money for a school, club etc
+ 3937 : a market where animals and farm products are sold
+ENTRY 740 fair (adverb)
+ 3938 win (something)/beat somebody fair and square: to win a competition, sports match etc honestly and without cheating
+ 3939 play fair: to do something in a fair and honest way
+ENTRY 136 fake (noun)
+ 470 : a copy of a valuable object, painting etc that is intended to deceive people
+ 471 : someone who is not what they claim to be or does not have the skills they say they have
+ENTRY 137 fake (adjective)
+ 472 : made to look like a real material or object in order to deceive people
+ 473 : not real and seeming to be something it is not, in order to deceive people
+ENTRY 138 fake (verb)
+ 474 : to make something seem real in order to deceive people
+ 475 : to pretend to be ill, interested etc when you are not
+ 476 : to pretend to move in one direction, but then move in another, especially when playing sport
+ENTRY 1077 fan (noun)
+ 5796 : someone who likes a particular sport or performing art very much, or who admires a famous person
+ 5797 : a) a machine with turning blades that is used to cool the air in a room by moving it around b) a flat object that you wave with your hand which makes the air cooler
+ENTRY 1078 fan (verb)
+ 5798 : to make air move around by waving a fan, piece of paper etc so that you feel cooler
+ 5799 : to make someone feel an emotion more strongly
+ 5800 fan a fire/flame etc: to make a fire burn more strongly by blowing or moving the air near it
+ENTRY 731 fleece (noun)
+ 3896 : the woolly coat of a sheep, especially the wool and skin of a sheep when it has been made into a piece of clothing
+ 3897 : an artificial soft material used to make warm jackets
+ 3898 : a jacket made of this artificial material
+ENTRY 732 fleece (verb)
+ 3899 : to charge someone too much money for something, especially by tricking them
+ENTRY 181 flimflam (noun)
+ 565 : information or ideas that are not true or seem very stupid
+ENTRY 224 footstep (noun)
+ 864 : the sound each step makes when someone is walking
+ENTRY 260 form (noun)
+ 1107 : a particular type of something that exists in many different varieties
+ 1108 : the way something is or appears to be
+ 1109 : a shape
+ 1110 : an official document with spaces where you write information, especially about yourself
+ 1111 : the structure of a work of art or piece of writing, rather than the ideas it expresses, events it describes etc
+ 1112 : how well a sports person, team, musician etc is performing, or has performed recently
+ 1113 : a class in a school
+ 1114 : a way of writing or saying a word that shows its number, tense etc. For example, ‘was’ is a past form of the verb ‘to be’.
+ 1115 : if someone has form, they are known to the police because they have committed crimes in the past
+ 1116 bad form: socially unacceptable behaviour
+ 1117 form of words: a way of expressing something official
+ 1118 be in good/fine/great etc form: to be full of confidence and energy, so that you do something well or talk in an interesting or amusing way
+ 1119 take form: a) to begin to exist or develop b) to start to become a particular shape
+ENTRY 261 form (verb)
+ 1120 : to establish an organization, committee, government etc
+ 1121 : to be the thing, or one of the things, that is part of something else, often having a particular use
+ 1122 : to start to exist, or make something start to exist, especially as the result of a natural process
+ 1123 : to make something by combining two or more parts
+ 1124 : to come together in a particular shape or line, or to make something have a particular shape
+ 1125 : to establish and develop a relationship with someone
+ 1126 form an opinion/impression/idea: to use available information to develop or reach an opinion or idea
+ 1127 : to have a strong influence on how someone’s character develops and the type of person they become
+ENTRY 36 freak (noun)
+ 137 : someone who is extremely interested in a particular subject so that other people think they are strange or unusual
+ 138 : someone who is considered to be very strange because of the way they look, behave, or think
+ 139 a control freak: someone who always wants to control situations and other people
+ 140 : something in nature that is very unusual
+ 141 : an unexpected and very unusual event
+ENTRY 37 freak (adjective)
+ 142 : unexpected and very unusual
+ENTRY 38 freak (verb)
+ 143 : to become suddenly angry or afraid, especially so that you cannot control your behaviour
+ENTRY 60 freak out (phrasal verb)
+ 200 : to become very anxious, upset, or afraid, or make someone very anxious, upset, or afraid
+ENTRY 237 give (verb)
+ 935 : to let someone have something as a present, or to provide something for someone
+ 936 : to put something in someone’s hand
+ 937 : to allow or make it possible for someone to do something
+ 938 : to tell someone information or details about something, or to tell someone what they should do
+ 939 : to do something by making a movement with your hand, face, body etc
+ 940 : to make a speech, perform a piece of music etc for a group of people
+ 941 : to make someone have a feeling
+ 942 : to make someone have problems
+ 943 : to infect someone with the same illness that you have
+ 944 : to organize a social event such as a party
+ 945 : to tell someone to do a job or piece of work
+ 946 : to make someone or something have a particular quality
+ 947 : to pay a particular amount of money for something
+ 948 : to behave towards someone in a way that shows you have a particular attitude or feeling towards them
+ 949 : to officially say that someone must have a particular punishment
+ 950 give (somebody) an impression/a sense/an idea: to make someone think about something in a particular way
+ 951 give something thought/attention/consideration etc: to spend some time thinking about something carefully
+ 952 give (somebody) a hand: to help someone do something
+ 953 give somebody a call/buzz: to telephone someone
+ 954 give something a try/shot/whirl: to try to do something, especially something you have not done before
+ 955 give somebody time/a few weeks/all day etc: to allow time for someone to do something, or for something to happen
+ 956 I give it six weeks/a month etc: used to say that you do not think something will continue successfully for very long
+ 957 not give something a second thought/another thought: to not think or worry about something at all
+ 958 : to be willing to change what you think or do according to what else happens
+ 959 : to state what your official decision or judgment is, for example in a game
+ 960 : to decide that someone should have a particular score or mark for something that they have done
+ 961 : if a material gives, it bends or stretches when you put pressure on it
+ 962 : if something gives, it breaks or moves away suddenly because of weight or pressure on it
+ 963 give me something (any day/time): used to say that you like something much more than something else
+ 964 would give anything/a lot/your right arm etc for something: used when you would like something very much
+ 965 not give a damn/shit etc: used to say that you do not care at all about something
+ 966 don’t give me that: used to say that you do not believe someone’s excuse or explanation
+ 967 give somebody what for: to tell someone angrily that you are annoyed with them
+ 968 give as good as you get: to fight or argue with someone using the same amount of skill or force that they are using
+ 969 give and take: a willingness between two people or groups to understand each other, and to let each other have or do some of the things they want
+ 970 give or take a few minutes/a penny/a mile etc: used to say that the amount or figure that you have just mentioned is nearly correct, but not exactly
+ 971 I’ll give you that: used to admit that someone is right about something
+ 972 give somebody to understand/think/believe something: to make someone think that a particular thing is true
+ 973 give it to somebody straight: to tell someone something in a clear direct way
+ 974 I give you the chairman/prime minister/groom etc: used at the end of a formal speech to invite people to welcome a special guest
+ 975 : if a woman gives herself to a man, she has sex with him
+ENTRY 238 give (noun)
+ 976 : the ability of a material or substance to bend or stretch when put under pressure
+ENTRY 697 go-to (adjective)
+ 3793 : the go-to person is someone who people always ask for help with a particular problem, because of their great skill or knowledge
+ENTRY 302 goodness (noun)
+ 1469 my goodness!/goodness (gracious) me!: said when you are surprised or sometimes angry
+ 1470 for goodness’ sake: said when you are annoyed or surprised, especially when telling someone to do something
+ 1471 goodness (only) knows: used to emphasize that you are not sure about something, or to make a statement stronger
+ 1472 : the quality of being good
+ 1473 : the part of food which is good for your health
+ 1474 have the goodness to do something: used when asking someone to do something in an extremely polite way
+ 1475 out of the goodness of somebody’s heart: used when someone has done something in order to be kind or helpful to other people
+ENTRY 226 honor (noun)
+ 873 : the American spelling of honour
+ENTRY 230 inner (adjective)
+ 883 : on the inside or close to the centre of something
+ 884 : inner thoughts or feelings are ones that you feel strongly but do not always show to other people
+ 885 : relating to things which happen or exist but are not easy to see
+ 886 inner circle: the few people in an organization, political party etc who control it or share power with its leader
+ 887 somebody’s inner voice: thoughts or feelings inside your head which seem to warn or advise you
+ENTRY 239 insist (verb)
+ 977 : to say firmly and often that something is true, especially when other people think it may not be true
+ 978 : to demand that something should happen
+ 979 if you insist: used when agreeing to do something that you do not really want to do
+ 980 insist on doing something: to keep doing something, especially something that is inconvenient or annoying
+ENTRY 130 justice (noun)
+ 448 : the system by which people are judged in courts of law and criminals are punished
+ 449 : fairness in the way people are treated
+ 450 : the quality of being right and deserving fair treatment
+ 451 do justice to somebody/something: to treat or represent someone or something good, beautiful etc in a way that is as good as they deserve
+ 452 do yourself justice: to do something such as a test well enough to show your real ability
+ 453 justice has been done/served: used to say that someone has been treated fairly or has been given a punishment they deserve
+ 454 : a) a judge in a law court b) the title of a judge in the High Court
+ENTRY 1082 keep (verb)
+ 5809 : to stay in a particular state, condition, or position, or to make someone or something do this
+ 5810 : to continue doing something or to do the same thing many times
+ 5811 : to have something and not give it back to the person who had it before
+ 5812 : to continue to have something and not lose it or get rid of it
+ 5813 : to leave something in one particular place so that you can find it easily
+ 5814 : to make someone stay in a place, especially a prison or hospital
+ 5815 : to delay someone
+ 5816 : to do what you have promised or agreed to do
+ 5817 keep a secret: to not tell anyone about a secret that you know
+ 5818 keep something quiet/keep quiet (about something): to not say anything in order to avoid telling a secret or causing problems
+ 5819 keep a record/account/diary etc: to regularly record written information somewhere
+ 5820 keep going: a) to have or to give someone enough hope and emotional strength to continue living and doing things in a bad situation b) if you keep a business, institution, regular event etc going, you keep it open or make it continue to happen c) to continue doing something difficult d) if something keeps you going, it is enough to satisfy your need while you are waiting to get something bigger or better
+ 5821 : if food keeps, it stays fresh enough to be eaten
+ 5822 : to own and look after animals
+ 5823 : to stop other people from using something, so that it is available for someone
+ 5824 keep somebody waiting: to make someone wait before you meet them or see them
+ 5825 keep guard/watch: to guard a place or watch around you all the time
+ 5826 : to own a small business and work in it
+ 5827 : to provide someone with money, food etc
+ 5828 : to guard or protect someone
+ 5829 keep goal/wicket: to be the player in a team whose job is to protect the goal or wicket
+ 5830 keep quiet: used to tell someone not to say anything or make any noise
+ 5831 how are you keeping?: used to ask if someone is well
+ 5832 keep your hair/shirt on!: used to tell someone to be more calm, patient etc
+ 5833 somebody can keep something: used to say that you do not want or are not interested in something
+ 5834 it’ll keep: used to say that you can tell someone something or do something later
+ENTRY 1083 keep (noun)
+ 5835 somebody’s keep: the cost of providing food and a home for someone
+ 5836 for keeps: forever
+ 5837 : a large strong tower, usually in the centre of a castle
+ENTRY 267 know (verb)
+ 1191 : to have information about something
+ 1192 : to be sure about something
+ 1193 : to be familiar with a person, place etc
+ 1194 : to realize, find out about, or understand something
+ 1195 : to have learned a lot about something or be skilful and experienced at doing something
+ 1196 : to think that someone has particular qualities
+ 1197 know better: a) to be wise or experienced enough not to do something b) to know or think you know more than someone else
+ 1198 not know any better: used to say that someone does something bad or stupid because they have not been told or taught that it is wrong
+ 1199 know something inside out: to know something in great detail
+ 1200 know your way around something: a) to be so familiar with something that you are confident and good at using it b) to be familiar with a place so that you know where things are
+ 1201 make yourself known (to somebody): to introduce yourself to someone
+ 1202 : to be able to recognize someone or something
+ 1203 know somebody/something as something: to have a particular name
+ 1204 know something from something: to understand the difference between one thing and another
+ 1205 : to have experience of a particular feeling or situation
+ 1206 somebody/something is not known to be something: used to say there is no information that someone or something has particular qualities
+ 1207 I’ve known somebody/something to do something: used to say that someone does something sometimes or that something happens sometimes, even if it is unusual
+ 1208 you know: a) used to emphasize a statement b) used to make sure that someone understands what you are saying c) used when you want to keep someone’s attention, but cannot think of what to say next d) used when you are explaining or describing something and want to give more information
+ 1209 you know/do you know: used to start talking about something, or make someone listen
+ 1210 I know: a) used to agree with someone or to say that you feel the same way b) used to say that you have suddenly had an idea, thought of a solution to a problem etc c) used to stop someone from interrupting because they have an opinion about what you are saying
+ 1211 I don’t know: a) used to say that you do not have the answer to a question b) used when you are not sure about something c) used to show that you disagree slightly with what has just been said d) used to show that you are slightly annoyed
+ 1212 I don’t know how/why etc: used to criticize someone
+ 1213 I don’t know about you, but ...: used to give your opinion, decision, or suggestion when you are not sure that the person you are talking to will feel the same way
+ 1214 I don’t know how to thank you/repay you: used to thank someone
+ 1215 wouldn’t you know (it): used to say that something is not at all surprising
+ 1216 you don’t know: used to emphasize how strong your feelings are
+ 1217 I wouldn’t know: used to say that you do not know the answer to something and that you are not the person who would know
+ 1218 what does somebody know?: used to say angrily that someone’s opinion is wrong or that it is not important
+ 1219 how should I know?/how am I to know?/how do I know?: used to say that it is not reasonable to expect that you should know something
+ 1220 how was I to know?/how did I know?: used as an excuse when something bad has happened
+ 1221 be not to know: used to say that you do not mind that someone has made a mistake because they could not have avoided it
+ 1222 I ought to know: used to emphasize that you know about something because you made it, experienced it etc
+ 1223 for all I know: used to emphasize that you do not know something and say that it is not important to you
+ 1224 not that I know of: used to say that you think the answer is ‘no’ but there may be facts that you do not know about
+ 1225 Heaven/God/who/goodness knows!: a) used to say that you do not know the answer to a question b) used to emphasize a statement
+ 1226 knowing my luck: used to say that you expect something bad will happen because you are usually unlucky
+ 1227 (well, ) what do you know?: used to express surprise
+ 1228 if you know what’s good for you: used in a threatening way to tell someone to do something or something bad will happen to them
+ 1229 you know who/what: used to talk about someone or something without mentioning their name
+ 1230 there’s no knowing: it is impossible to know
+ 1231 let it be known/make it known (that): to make sure that people know something, especially by getting someone else to tell them
+ 1232 not want to know: to not be interested in someone and what they want to say
+ 1233 know the score: to understand a situation and all the good and bad features about it
+ 1234 not know what hit you: to feel shocked and confused because something happens when you are not expecting it to
+ 1235 know your place: used to say that someone understands that they are less important than other people – usually used humorously
+ 1236 know no bounds: if someone’s honesty, kindness etc knows no bounds, they are extremely honest etc
+ 1237 somebody knows best: used to say that someone should be obeyed or that their way of doing things should be accepted because they are experienced
+ 1238 before you know it: used to say that something happens very quickly and when you are not expecting it
+ 1239 know different/otherwise: to know that the opposite of something is true
+ 1240 know your own mind: to be confident and have firm ideas about what you want and like
+ 1241 you will be delighted/pleased etc to know (that): used before you give someone information that they will be pleased to hear
+ 1242 it’s ... , Jim, but not as we know it: used to say that something is completely different from what we would normally expect something of its type to be
+ENTRY 268 know (noun)
+ 1243 in the know: having more information about something than most people
+ENTRY 278 mark (verb)
+ 1272 : to write or draw on something, so that someone will notice what you have written
+ 1273 : to make a mark on something in a way that spoils its appearance or damages it, or to become spoiled in this way
+ 1274 : to celebrate an important event
+ 1275 : to show where something is
+ 1276 : if a particular year, month, or week marks an important event, the event happened on that date during a previous year
+ 1277 : to be a sign of an important change or an important stage in the development of something
+ 1278 : if something is marked by a particular quality or feature, it is a typical or important part of that thing
+ 1279 : to read a piece of written work and put a number or letter on it to show how good it is
+ 1280 : to stay close to a player of the opposite team during a game
+ 1281 be marking time: to spend time not doing very much except waiting for something else to happen
+ 1282 mark time: if soldiers mark time, they move their legs as if they were marching, but remain in the same place
+ 1283 (you) mark my words!: used to tell someone that they should pay attention to what you are saying
+ 1284 mark you: used to emphasize something you say
+ENTRY 279 mark (noun)
+ 1285 : a spot or dirty area on something that spoils its appearance
+ 1286 : a cut, hole, or other small sign of damage
+ 1287 : a small area of darker or lighter colour on a plain surface such as a person’s skin or an animal’s fur
+ 1288 : a shape or sign that is written or printed
+ 1289 : a particular level, number, amount etc
+ 1290 : a letter or number given by a teacher to show how good a student’s work is
+ 1291 full/top marks for effort/trying/persistence etc: used to praise someone for trying hard to do something, even though they did not succeed
+ 1292 high/low mark: approval or disapproval of something or of the way someone has done something
+ 1293 make/leave your mark: to become successful or famous
+ 1294 leave/make its mark on somebody/something: to affect someone or something so that they change in a permanent or very noticeable way
+ 1295 off the mark/wide of the mark: not correct
+ 1296 close to the mark: correct
+ 1297 be a mark of something: to show that someone or something is a particular thing, has a particular quality etc
+ 1298 a mark of respect/honour/affection etc: something that happens or is done to show respect, honour etc
+ 1299 Mark 2/6 etc: a) a particular type or model of a car, machine etc b) a measurement used in Britain for the temperature of a gas oven
+ 1300 hit/miss the mark: a) to hit or miss the thing that you were shooting at b) to succeed or fail to have the effect you wanted
+ 1301 be quick/slow/first etc off the mark: to be quick, slow, first etc to understand things or react to situations
+ 1302 not up to the mark: a) not good enough b) not well and healthy
+ 1303 the halfway mark: the point in a race, journey, or event that is halfway between the start and the finish
+ 1304 bear the mark of something: a) to show the physical signs of something which happened in the past b) if something bears the mark of something or someone, it has signs that show who or what made it or influenced it
+ 1305 on your mark(s), get set, go!: said in order to start a race
+ 1306 : the standard unit of money used in Germany before the Euro
+ 1307 : a sign in the form of a cross, used by someone who is not able to write their name
+ENTRY 309 match (noun)
+ 1568 : an organized sports event between two teams or people
+ 1569 : a small wooden or paper stick with a special substance at the top, that you use to light a fire, cigarette etc
+ 1570 : something that is the same colour or pattern as something else, or looks attractive with it
+ 1571 : someone who is much stronger, cleverer etc than their opponent
+ 1572 shouting match: an angry argument in which people shout at each other
+ 1573 : a marriage or two people who are married
+ 1574 : a situation in which something is suitable for something else, so that the two things work together successfully
+ENTRY 310 match (verb)
+ 1575 : if one thing matches another, or if two things match, they look attractive together because they are a similar colour, pattern etc
+ 1576 : two things that match look the same because they are a pair
+ 1577 : if two things match, or if one matches the other, there is no important difference between them
+ 1578 : to be suitable for a particular person, thing, or situation
+ 1579 : to put two people or things together that are similar to or somehow connected with each other
+ 1580 : to be equal to something in value, size, or quality
+ 1581 : to make something equal to something else
+ 1582 : to give a sum of money that is equal to a sum given by someone else
+ 1583 : if you are matched against someone else in a game or competition, you are competing against them
+ENTRY 232 matter (noun)
+ 891 : a subject or situation that you have to think about or deal with
+ 892 matters: a situation that you are in or have been describing
+ 893 : a) the material that everything in the universe is made of, including solids, liquids, and gases b) a substance that consists of waste material, solid material etc c) a yellow or white substance in wounds or next to your eye
+ 894 as a matter of fact: used when adding more details about what you have just said
+ 895 what’s the matter?/something’s the matter/nothing’s the matter etc: used to ask or talk about why someone seems worried, unhappy, or ill, why something about a situation seems wrong, or why a machine seems not to be working properly
+ 896 the truth/fact of the matter is (that): used when saying what you think is really true concerning a situation
+ 897 for that matter: used to say that what you are saying about one thing is also true about something else
+ 898 be (quite) a different matter: used to say that a situation or action is very different from the one you have just mentioned, and may not be as easy, pleasant etc
+ 899 take matters into your own hands: to deal with a problem yourself because other people have failed to deal with it
+ 900 it’s only/just a matter of time: used to say that something will definitely happen in the future
+ 901 a matter of life and/or death: a situation that is extremely serious or important, especially one in which someone could die
+ 902 be a matter of opinion: used to say that people have different opinions about something, especially when you yourself have a negative opinion
+ 903 be a matter of (personal) taste/choice/preference: used to say that different people like different things
+ 904 be a matter of principle: to be something that you feel you must or must not do, because of your moral principles
+ 905 be a matter of doing something: used to say that an action involves doing something
+ 906 a matter of seconds/weeks/hours etc: only a few seconds, weeks etc
+ 907 as a matter of something: because of a particular belief or quality
+ 908 as a matter of interest: used when you ask or tell someone something that interests you but is not important
+ 909 as a matter of urgency: if something is done or should be done as a matter of urgency, it is done or should be done very soon
+ 910 as a matter of course/routine: if something is done as a matter of course or routine, it is the correct and usual thing to do in a particular situation
+ 911 no matter how/whether/what etc: used to say that something is true or that something happens whatever the situation is
+ 912 no matter what: used to say that you will definitely do something
+ 913 no matter: used to say that something is not important and will not affect a situation
+ 914 it’s a matter of fact (that): used to say that something is a fact
+ 915 the little/small matter of something: something that is not important or not difficult – used when you really think something is important or difficult
+ 916 no matter that: used to say that something is not important and will not affect a situation
+ 917 reading/printed etc matter: things that are written for people to read
+ENTRY 233 matter (verb)
+ 918 : to be important, especially to be important to you, or to have an effect on what happens
+ 919 it doesn’t matter: a) used to tell someone that you are not angry or upset about something, especially something that they have done b) used to say that you do not mind which one of two things you have
+ 920 what does it matter?: used to say that something is not important
+ENTRY 147 mimic (verb)
+ 494 : to copy the way someone speaks or behaves, especially in order to make people laugh
+ 495 : to behave or operate in exactly the same way as something or someone else
+ 496 : if an animal mimics something, it looks or sounds very like it
+ENTRY 148 mimic (noun)
+ 497 : a person or animal that is good at copying the movements, sound, or appearance of someone or something else
+ENTRY 2540 mind (noun)
+ 12562 : your thoughts or your ability to think, feel, and imagine things
+ 12563 change your mind: to change your decision, plan, or opinion about something
+ 12564 make up your mind/make your mind up: a) to decide which of two or more choices you want, especially after thinking for a long time b) to become very determined to do something, so that you will not change your decision c) to decide what your opinion is about someone or something
+ 12565 have somebody/something in mind (for something): to have an idea about who or what you want for a particular purpose
+ 12566 bear/keep somebody/something in mind: to remember or think about someone or something when you are doing something
+ 12567 with somebody/something in mind: considering someone or something when doing something, and taking suitable action
+ 12568 on your/somebody’s mind: a) if something is on your mind, you keep thinking or worrying about it b) if something is on your mind, that is what you are thinking about
+ 12569 get/put somebody/something out of your mind: to stop yourself thinking about someone or something
+ 12570 cross/enter somebody’s mind: if something crosses your mind, you have a thought or idea
+ 12571 go/run/flash etc through somebody’s mind: if something goes through your mind, you have a thought, especially for a short time
+ 12572 come/spring to mind: if something comes or springs to mind, you suddenly or immediately think of it
+ 12573 : used to talk about the way that someone thinks and the type of thoughts they have
+ 12574 : your intelligence and ability to think, rather than your emotions
+ 12575 : someone who is very intelligent, especially in a particular subject or activity
+ 12576 state/frame of mind: the way someone is thinking and feeling at a particular time
+ 12577 to/in my mind: used to show you are giving your opinion about something
+ 12578 go/turn over something in your mind: to keep thinking about something because you are trying to understand it or solve a problem
+ 12579 be the last thing on somebody’s mind: to be the thing that someone is least likely to be thinking about
+ 12580 take/keep/get somebody’s mind off something: to make someone stop thinking and worrying about something
+ 12581 set/put somebody’s mind at rest: to make someone feel less worried or anxious
+ 12582 it/that is a load/weight off somebody’s mind: used to say that someone does not have to worry about something anymore
+ 12583 prey on somebody’s mind: if a problem preys on your mind, you cannot stop thinking about it
+ 12584 no one in their right mind ...: used to say that someone must be stupid or crazy to do something
+ 12585 be out of your mind: to be stupid or crazy
+ 12586 be out of your mind with worry/grief etc: to be extremely worried, bored etc
+ 12587 go out of your mind: to become mentally ill or very worried, bored etc
+ 12588 somebody’s mind goes blank: if your mind goes blank, you suddenly cannot remember something
+ 12589 go (right/clean) out of somebody’s mind: if something goes out of your mind, you forget it, especially because you are very busy
+ 12590 bring/call something to mind: a) to make you think of someone or something b) to remember something
+ 12591 put somebody in mind of somebody/something: to remind someone of someone or something
+ 12592 stick/stay in somebody’s mind: if a name, fact etc sticks in your mind, you remember it for a long time
+ 12593 be of one mind/of the same mind/of like mind: to have the same opinions as someone else
+ 12594 have a mind of your own: a) to have strong opinions about things, and make your own decisions without being influenced by other people b) if an object has a mind of its own, it seems to control itself and does not work or move in the way you want it to
+ 12595 put/set/turn your mind to something: to decide that you want to achieve something and try very hard to do it
+ 12596 somebody’s mind is not on something: if your mind is not on what you are doing, you are not thinking much about it because you are thinking or worrying about something else
+ 12597 keep your mind on something: to keep paying attention to something, even though it is difficult
+ 12598 somebody’s mind wanders: if your mind wanders, you no longer pay attention to something, especially because you are bored
+ 12599 somebody’s mind is racing: if your mind is racing, you are thinking very quickly and hard about something because you are excited, frightened etc
+ 12600 it’s all in the mind: used to tell someone that they have imagined something and it does not really exist
+ 12601 in your mind’s eye: if you see something in your mind’s eye, you imagine or remember clearly what it looks like
+ 12602 have it in mind: to intend to do something
+ 12603 have half a mind to do something: used to say that you would like to do something but you probably will not do it
+ 12604 mind over matter: used to say that you can use your thoughts to control physical feelings or an unpleasant situation
+ENTRY 2541 mind (verb)
+ 12605 : to feel annoyed or upset about something
+ 12606 not mind doing something: to be willing to do something
+ 12607 not mind: if you do not mind what someone does or what happens, you do not have a strong opinion about it
+ 12608 mind your own business: to not ask questions about a situation that does not involve you
+ 12609 be minding your own business: to be doing something ordinary on your own when something unexpected happens to you
+ 12610 never mind: a) used to tell someone not to worry or be upset about something b) used to say that something is not possible or likely, because even a less extreme thing is not possible or likely c) used to tell someone that it is not important to do or consider something now, often because something else is more important
+ 12611 I wouldn’t mind (doing) something: used to say that you would like something
+ 12612 would/do you mind ...?: a) used to politely ask someone’s permission b) used to politely ask someone to do something c) used to angrily ask or tell someone to do something
+ 12613 mind you: used when saying something that is almost the opposite of what you have just said, or that explains or emphasizes it
+ 12614 mind!: your thoughts or your ability to think, feel, and imagine things
+ 12615 mind how you go: used when saying goodbye to someone, to tell them to take care
+ 12616 mind you do something: used to tell someone to do something
+ 12617 never you mind: used to tell someone that you are not going to tell them something because it is private or secret
+ 12618 do you mind!: used to say to someone that you are annoyed with them because of something they have just done or said
+ 12619 if you don’t mind: a) used to check that someone is willing to do something or let you do something b) used when you are annoyed to tell someone what to do or what you are going to do c) used humorously or rudely to correct something someone has said d) used to refuse someone’s offer politely
+ 12620 if you don’t mind my saying so/if you don’t mind me asking: used when you are saying or asking something that you think might offend someone
+ 12621 I don’t mind admitting/telling you/saying etc: used to emphasize what you are saying, especially when it could make you seem silly
+ 12622 don’t mind me: a) used to tell someone not to pay any attention to you b) used when you are annoyed because someone is not paying any attention to you
+ 12623 don’t mind her/him etc: used to say sorry for someone else’s behaviour
+ 12624 (I) don’t mind if I do: used humorously to accept something such as food or drink that has been offered to you
+ 12625 : a) to be responsible for something for a short time b) to take care of a child while their parents are not there
+ 12626 mind the shop: to be in charge of something, while the person who is usually in charge is not there
+ 12627 mind your manners/language/p’s and q’s: to be careful about what you say or how you behave so that you do not offend anyone
+ 12628 : to obey someone’s instructions or advice
+ENTRY 314 opt (verb)
+ 1593 : to choose one thing or do one thing instead of another
+ENTRY 225 peace (noun)
+ 865 : a situation in which there is no war or fighting
+ 866 : a very quiet and pleasant situation in which you are not interrupted
+ 867 : a feeling of being calm, happy, and not worried
+ 868 make (your) peace with somebody: to end a quarrel with a person or group, especially by telling them you are sorry
+ 869 keep the peace: to stop people from fighting, arguing, or causing trouble
+ 870 hold/keep your peace: to keep quiet even though you would like to say something
+ 871 disturb the peace: to behave in a noisy and unpleasant way in public
+ 872 rest in peace: words that are said during a funeral service for someone who has died, or written on a gravestone
+ENTRY 662 ray (noun)
+ 3584 : a straight narrow beam of light from the sun or moon
+ 3585 : a beam of heat, electricity, or other form of energy
+ 3586 a ray of hope/light etc: something that provides a small amount of hope or happiness in a difficult situation
+ 3587 a ray of sunshine: someone who is happy and makes a difficult situation seem better
+ 3588 catch some/a few rays: to sit or lie in the sun
+ 3589 : a large flat sea fish with a long pointed tail
+ENTRY 83 realm (noun)
+ 257 : a general area of knowledge, activity, or thought
+ 258 within the realms of possibility: used, often humorously, to say that something is possible even though you think it is not very likely
+ 259 : a country ruled by a king or queen
+ENTRY 733 rook (noun)
+ 3900 : a large black European bird like a crow
+ 3901 : one of the pieces in a game of chess
+ENTRY 950 run (verb)
+ 5140 : a) to move very quickly, by moving your legs more quickly than when you walk b) to run a particular distance
+ 5141 : a) to run in a race b) if a race is run at a particular time or in a particular place, it happens at that time or in that place
+ 5142 : to organize or be in charge of an activity, business, organization, or country
+ 5143 : to do something or go somewhere quickly
+ 5144 : a) if a bus, train etc service runs, it takes people from one place to another at fixed times b) if a company or other organization runs a bus, train etc service, they make it operate
+ 5145 : a) if a computer program runs, it operates b) if you run a program, you make it operate
+ 5146 : a) if a machine or engine runs, it operates b) if you run a machine or engine, you make it operate
+ 5147 : a) if a tape is running, it is recording b) if you run a tape, you make it move backwards or forwards
+ 5148 : a) to print something in a newspaper or magazine, or broadcast something on television b) if a program runs on television, it is shown. If a story runs in a newspaper or magazine, it is printed
+ 5149 : to move too fast or in an uncontrolled way
+ 5150 : to own and use a vehicle
+ 5151 : to take someone somewhere in your car
+ 5152 : to try to be elected in an election
+ 5153 : if something long such as a road or wire runs in a particular direction, that is its position, or that is where you put it
+ 5154 : to move something lightly along a surface
+ 5155 : to flow in a particular direction or place
+ 5156 : if a tap is running, water is coming out of it, or if you run a tap, you make water come out of it
+ 5157 run a bath: to fill a bath with water
+ 5158 : if someone’s nose is running, liquid is flowing out of it
+ 5159 : if something runs for a particular length of time, it can officially be used for that time
+ 5160 : to continue being performed regularly in one place
+ 5161 : to happen in a particular way or at a particular time
+ 5162 : to be at a particular level, amount, or price
+ 5163 : if a story, discussion etc runs in a particular way, it has those particular words or events
+ 5164 run its course: if something runs its course, it continues in the way you expect until it has finished
+ 5165 something will run and run: if a subject, discussion, event etc will run and run, people will continue to be interested in it for a long time
+ 5166 : if a feeling runs through you, or a thought runs through your mind, you feel it or think it quickly
+ 5167 run high: if feelings run high, people are very angry, upset, excited etc
+ 5168 run somebody’s life: to keep telling someone what they should do all the time, in a way that annoys them
+ 5169 run for cover: a) to run towards a place where you will be safe, especially to avoid bullets b) to try to protect yourself from a bad situation or from being criticized
+ 5170 : if colour runs, it spreads from one piece of clothing or one area of cloth to another when the clothes are wet
+ 5171 : if paint runs, it moves onto an area where you did not intend it to go
+ 5172 run a check/test/experiment etc: to arrange for someone or something to be checked or tested
+ 5173 : if a hole in tights or stockings runs, it gets bigger in a straight line
+ 5174 run drugs/guns: to bring drugs or guns into a country illegally in order to sell them
+ 5175 run in the family: if something such as a quality, disease, or skill runs in the family, many people in that family have it
+ 5176 run a temperature/fever: to have a body temperature that is higher than normal, because you are ill
+ 5177 run a mile: to try very hard to avoid a particular situation or person because you do not want to deal with them
+ 5178 run late/early/on time: to arrive, go somewhere, or do something late, early, or at the right time
+ 5179 be running scared: to feel worried because someone who you are competing against is becoming very successful or powerful
+ 5180 come running: a) to react in a very eager way when someone asks or tells you to do something b) to ask someone for help, advice, or sympathy when you have a problem
+ 5181 run your eyes over/along etc something: to look quickly at something
+ 5182 run before you can walk: to try to do something difficult before you have learned the basic skills you need
+ 5183 run a (red) light: to drive quickly through a red traffic light instead of stopping
+ENTRY 951 run (noun)
+ 5184 : a period of time spent running, or a distance that you run
+ 5185 in the long run: later in the future, not immediately
+ 5186 in the short run: in the near future
+ 5187 the usual/normal/general run of something: the usual type of something
+ 5188 : a series of successes or failures
+ 5189 : an amount of a product produced at one time
+ 5190 be on the run: a) to be trying to escape or hide, especially from the police b) if an army or opponent is on the run, they will soon be defeated c) to be very busy and continuously rushing about
+ 5191 do something on the run: to do something while you are on your way somewhere or doing something else
+ 5192 make a run for it: to suddenly start running, in order to escape
+ 5193 the run of something: if you have the run of a place, you are allowed to go anywhere and do anything in it
+ 5194 a run on something: a) a situation in which lots of people suddenly buy a particular product b) a situation in which lots of people sell dollars etc and the value goes down c) an occasion when a lot of people take their money out of a bank at the same time
+ 5195 give somebody a (good) run for their money: to make your opponent in a competition use all their skill and effort to defeat you
+ 5196 have a (good) run for your money: to succeed in doing something successfully for a long time
+ 5197 the runs: diarrhoea
+ 5198 : a continuous series of performances of a play, film etc in the same place
+ 5199 : a) a journey by train, ship, truck etc made regularly between two places b) a short journey in a car, for pleasure
+ 5200 : an enclosed area where animals such as chickens or rabbits are kept
+ 5201 : a point won in cricket or baseball
+ 5202 : a special area or track on a mountain for people to ski or sledge down
+ 5203 : an attempt to be elected to an important position
+ 5204 : a line of torn stitches in tights or stockings
+ 5205 : a set of notes played or sung quickly up or down a scale in a piece of music
+ 5206 : a set of cards with numbers in a series, held by one player
+ENTRY 294 speak (verb)
+ 1430 : to talk to someone about something
+ 1431 : to use your voice to produce words
+ 1432 : to be able to talk in a particular language
+ 1433 : to make a formal speech
+ 1434 : to say something that expresses your ideas or opinions
+ 1435 so to speak: used when you are saying something in words that do not have their usual meaning
+ 1436 speak your mind: to tell people exactly what you think, even if it offends them
+ 1437 be not speaking/not be on speaking terms: if two people are not speaking, they do not talk to each other, usually because they have argued
+ 1438 speak volumes (about/for something): if something speaks volumes, it clearly shows the nature of something or the feelings of a person
+ 1439 speak with one voice: if a group of people speak with one voice, they all express the same opinion
+ 1440 speak the same language: if two people or groups speak the same language, they have similar attitudes and opinions
+ 1441 speak out of turn: to say something when you do not have the right or authority to say it
+ENTRY 104 spiritual (adjective)
+ 355 : relating to your spirit rather than to your body or mind
+ 356 : relating to religion
+ 357 somebody’s spiritual home: a place where you feel you belong because you share the ideas and attitudes of that society
+ENTRY 105 spiritual (noun)
+ 358 : a religious song of the type sung originally by African-Americans
+ENTRY 168 squeeze (verb)
+ 531 : to press something firmly together with your fingers or hand
+ 532 : to get liquid from something by pressing it
+ 533 : to try to make something fit into a space that is too small, or to try to get into such a space
+ 534 squeeze your eyes shut: to close your eyes very tightly
+ 535 : to succeed, win, or pass a test by a very small amount so that you only just avoid failure
+ 536 : to strictly limit the amount of money that is available to a company or organization
+ENTRY 169 squeeze (noun)
+ 537 a (tight) squeeze: a situation in which there is only just enough room for things or people to fit somewhere
+ 538 : an act of pressing something firmly with your fingers or hand
+ 539 squeeze of lemon/lime etc: a small amount of juice obtained by squeezing a piece of fruit
+ 540 : a situation in which wages, prices, borrowing money etc are strictly controlled or reduced
+ 541 put the squeeze on somebody: to try to persuade someone to do something
+ 542 somebody’s (main) squeeze: someone’s boyfriend or girlfriend
+ENTRY 983 stand (verb)
+ 5337 : to support yourself on your feet or be in an upright position
+ 5338 : to rise to an upright position
+ 5339 : a) to step a short distance b) to accidentally step on or in something
+ 5340 : to be upright in a particular position, or to put something or someone somewhere in an upright position
+ 5341 : to be or stay in a particular state or condition
+ 5342 can’t stand: used to say that you do not like someone or something at all, or that you think that something is extremely unpleasant
+ 5343 : to be able to accept or deal well with a difficult situation
+ 5344 : to be good or strong enough to last a long time or to experience a particular situation without being harmed, damaged etc
+ 5345 stand to do something: to be likely to do or have something
+ 5346 : to stay in a particular place without moving
+ 5347 : to be a particular height
+ 5348 : to be at a particular level or amount
+ 5349 : to have a particular rank or position when compared with similar things or people
+ 5350 : to try to become elected to a council, parliament etc
+ 5351 : if a decision, offer etc stands, it continues to exist, be correct, or be valid
+ 5352 if you can’t stand the heat, get out of the kitchen: used to tell someone that they should leave a job or situation if they cannot deal with its difficulties
+ 5353 somebody/something could stand something: used to say very directly that it would be a good idea for someone to do something or for something to happen
+ 5354 I stand corrected: used to admit that something you have said is wrong after someone has told you it is wrong
+ 5355 where somebody stands: someone’s opinion about something
+ 5356 from where I stand: according to what I know or feel
+ 5357 know where you stand (with somebody): to know how someone feels about you, or what you are allowed to do in a particular situation
+ 5358 stand to attention: if soldiers stand to attention, they stand very straight and stiff to show respect
+ 5359 stand on your head/hands: to support yourself on your head or hands, with your feet in the air
+ 5360 stand in line: to wait in a line of people until it is your turn to do something
+ 5361 stand firm/stand fast: a) to refuse to be forced to move backwards b) to refuse to change your opinions, intentions, or behaviour
+ 5362 stand pat: to refuse to change your opinion or decision
+ 5363 stand alone: a) to continue to do something alone, without help from anyone else b) to be much better than anything or anyone else
+ 5364 stand still: to not change or progress at all, even though time has passed
+ 5365 stand a chance/hope (of doing something): to be likely to be able to do something or to succeed
+ 5366 stand in somebody’s way: to prevent someone from doing something
+ 5367 stand on your own (two) feet: to be able to do what you need to do, earn your own money, etc without help from others
+ 5368 it stands to reason (that): used to say that something should be completely clear to anyone who is sensible
+ 5369 stand or fall by/on something: to depend on something for success
+ 5370 : a liquid that stands does not flow or is not made to move
+ 5371 stand guard (over somebody/something): to watch someone or something so that they do not do anything wrong or so that nothing bad happens to them
+ 5372 stand bail: to promise to pay money if someone does not return to a court of law to be judged
+ 5373 stand trial: to be brought to a court of law to have your case examined and judged
+ 5374 stand accused (of something): a) to be the person in a court of law who is being judged for a crime b) if you stand accused of doing something bad or wrong, other people say that you have done it
+ 5375 stand tall: a) to stand with your back straight and your head raised b) to be proud and feel ready to deal with anything
+ 5376 somebody can do something standing on their head: used to say that someone is able to do something easily
+ 5377 be stood on its head: if something is stood on its head, it becomes the opposite of what it was before
+ 5378 not stand on ceremony: to not worry about the formal rules of polite behaviour
+ 5379 stand somebody a drink/meal etc: to pay for something as a gift to someone
+ENTRY 984 stand (noun)
+ 5380 : a piece of furniture or equipment used to hold or support something
+ 5381 : a table or small structure used for selling or showing things
+ 5382 : a position or opinion that you state firmly and publicly
+ 5383 : a strong effort to defend yourself or to oppose something
+ 5384 the stands: a building where people stand or sit to watch the game at a sports ground
+ 5385 the stand: a witness box
+ 5386 : the period of time in which two batsmen are playing together in a game of cricket, or the points that they get during this time
+ 5387 : a place where taxis or buses stop and wait for passengers
+ 5388 : a group of trees of one type growing close together
+ENTRY 206 take (verb)
+ 643 : to move or go with someone or something from one place to another
+ 644 : used with a noun instead of using a verb to describe an action. For example, if you take a walk, you walk somewhere
+ 645 : to remove something from a place
+ 646 : if something takes a particular amount of time, money, effort etc, that amount of time etc is needed for it to happen or succeed
+ 647 : to accept or choose something that is offered, suggested, or given to you
+ 648 : to get hold of something in your hands
+ 649 : to use a particular form of transport or a particular road in order to go somewhere
+ 650 : to study a particular subject in school or college for an examination
+ 651 : to do an examination or test
+ 652 : to be the correct or suitable size, type etc for a particular person or thing
+ 653 : to collect or gather something for a particular purpose
+ 654 : to react to someone or something or consider them in a particular way
+ 655 : to have or experience a particular feeling
+ 656 : to get possession or control of something
+ 657 : to swallow, breathe in, inject etc a drug or medicine
+ 658 do you take sugar/milk?: used to ask someone whether they like to have sugar or milk in a drink such as tea or coffee
+ 659 : to make someone or something go to a higher level or position
+ 660 : to measure the amount, level, rate etc of something
+ 661 : to make a number smaller by a particular amount
+ 662 : if a shop, business etc takes a particular amount of money, it receives that amount of money from its customers
+ 663 somebody can take it or leave it: a) to neither like nor dislike something b) used to say that you do not care whether someone accepts your offer or not
+ 664 take somebody/something (for example): used to give an example of something you have just been talking about
+ 665 : to teach a particular group of students in a school or college
+ 666 : to write down information
+ 667 take somebody out of themselves: to make someone forget their problems and feel more confident
+ 668 take a lot out of you/take it out of you: to make you very tired
+ 669 take it upon/on yourself to do something: to decide to do something without getting someone’s permission or approval first
+ 670 take something to bits/pieces: to separate something into its different parts
+ 671 be taken with/by something: to be attracted by a particular idea, plan, or person
+ 672 be taken ill/sick: to suddenly become ill
+ 673 : if a man takes someone, he has sex with them
+ 674 take a bend/fence/corner etc: to try to get over or around something in a particular way
+ 675 : if a treatment, dye, drug etc takes, it begins to work successfully
+ENTRY 207 take (noun)
+ 676 : an occasion when a film scene, song, action etc is recorded
+ 677 somebody’s take (on something): someone’s opinion about a situation or idea
+ 678 be on the take: to be willing to do something wrong in return for money
+ 679 : the amount of money earned by a shop or business in a particular period of time
+ENTRY 343 top (noun)
+ 1724 : the highest part of something
+ 1725 : the flat upper surface of an object
+ 1726 the top: the best, most successful, or most important position in an organization, company, or profession
+ 1727 : something that you put on or over an object to cover it, protect it, or prevent liquid coming out of it
+ 1728 : a piece of clothing that you wear on the upper part of your body
+ 1729 be (at the) top of the list/agenda: something that is at the top of a list will be dealt with or discussed first
+ 1730 on top: a) on the highest part or surface of something b) on the highest part of your head c) winning in a game or competition
+ 1731 on top of something: a) on the highest surface of something b) in complete control of a situation c) if something bad happens to you on top of something else, it happens when you have other problems
+ 1732 one on top of the other: in a pile
+ 1733 on top of somebody: if something dangerous or threatening is on top of you, it is very near you
+ 1734 get on top of somebody: if your work or a problem gets on top of you, it begins to make you feel unhappy and upset
+ 1735 come out on top: to win a difficult struggle or argument, especially one that has continued for a long time
+ 1736 on top of the world: extremely happy
+ 1737 : the part of a fruit or vegetable where it was attached to the plant, or the leaves of a plant whose root you can eat
+ 1738 : the part of the street or of a piece of land that is the furthest away from you
+ 1739 the top of the milk: the cream that rises to the top of a bottle of milk
+ 1740 the top of the table: the part of a long dinner table where the most important people sit
+ 1741 off the top of your head: if you say something off the top of your head, you say it immediately, without thinking carefully about it or checking the facts
+ 1742 sing/shout at the top of your voice: to sing or shout as loudly as you can
+ 1743 be at the top of your game: to be doing your job, especially playing a sport, very well
+ 1744 from the top: an expression meaning from the beginning, used especially in the theatre
+ 1745 from top to bottom: if you clean or search somewhere from top to bottom, you do it very thoroughly
+ 1746 from top to toe: if a person is dressed or covered in something from top to toe, they are completely dressed or covered in it
+ 1747 the top and bottom of it: the general result or meaning of a situation, expressed in a few words
+ 1748 not have much up top: to be not very intelligent
+ 1749 : a child’s toy that spins around on its point when you twist it
+ 1750 spin like a top: to spin or turn round very quickly
+ENTRY 344 top (adjective)
+ 1751 : nearest to the top of something
+ 1752 : best or most successful
+ 1753 : winning in a game or competition
+ 1754 top left/right/centre: expressions meaning the picture at the top of a page on the left or right or in the centre, used in magazines and newspapers
+ 1755 top speed: the fastest speed a vehicle can move at
+ 1756 top priority: the thing that you think is most important
+ 1757 : very good
+ 1758 top copy: a letter or document from which copies can be made
+ENTRY 345 top (verb)
+ 1759 : to be higher than a particular amount
+ 1760 : to be in the highest position in a list because you are the most successful
+ 1761 : if you top something, you do something that is better than it
+ 1762 top an offer/a bid etc: to offer more money than someone else
+ 1763 be topped by something: to have something on top
+ 1764 be topped (off) with something: if food is topped with something, it has that thing on it or over the top of it
+ 1765 to top it all: in addition to other bad things that have happened to you
+ 1766 top that: used when you are asking someone if they have done something more exciting or successful than you
+ 1767 top and tail: to cut the top and bottom off a piece of fruit or a vegetable
+ 1768 top yourself: to kill yourself deliberately
+ 1769 : if you top a hill, you reach the top of it
+ENTRY 2502 used to (modal verb)
+ 12397 : if something used to happen, it happened regularly or all the time in the past, but does not happen now
+ 12398 : if a particular situation used to exist, it existed for a period of time in the past, but does not exist now
+ENTRY 561 way (noun)
+ 3085 : a method that you use to do or achieve something
+ 3086 : the manner or style in which someone does something or in which something happens
+ 3087 : a) a road, path, direction etc that you take in order to get to a particular place b) a particular direction from where you are now
+ 3088 : used to say that there is a fact or a feature of something that makes a statement or description true
+ 3089 : a distance or a length of time, especially a long one
+ 3090 : if someone or something is in the way, they are blocking the space in front of you, and you cannot move forward
+ 3091 make way (for something/somebody): a) to move to the side so that there is space for someone or something to pass b) to make it possible for something newer or better to be built, organized etc
+ 3092 out of the way: an out-of-the-way place is in an area where there are few people
+ 3093 on the/your/its way: a) arriving or happening soon b) travelling towards a particular place c) while going from one place to another d) while moving from one situation or part of your life to another e) if someone has a baby on the way, they are pregnant
+ 3094 be/get under way: a) to have started to happen or be done b) to have started to move or travel somewhere
+ 3095 make your way: a) to go towards something, especially when this is difficult or takes a long time b) to gradually become successful in a particular job, activity, profession etc
+ 3096 push/grope/inch etc your way somewhere: to get somewhere by using force or moving carefully
+ 3097 give way: a) to be replaced by something else b) to agree to do what someone else wants, instead of what you want, especially after a lot of discussion or argument c) to break because of too much weight or pressure d) to stop or slow down when you are driving, in order to allow other vehicles to go first
+ 3098 clear/pave/open/prepare etc the way (for something): to make it possible for something to happen or develop later
+ 3099 a/the way forward: an action, plan etc that seems a good idea because it is likely to lead to success
+ 3100 : a particular state or condition
+ 3101 : used to refer to something that happens
+ 3102 : someone’s typical style of behaving, especially when it seems different or unusual
+ 3103 : used in expressions about developing and improving
+ 3104 go some way towards doing something: to help a little or a lot to make something happen
+ 3105 : used when talking about two choices someone could make, or two possibilities that could happen
+ 3106 within two feet/ten years etc either way: no more than two feet etc more or less than a particular amount
+ 3107 (in) one way or another/one way or the other: used to say that someone does or will do something somehow, although you are not sure how
+ 3108 way around/round/up: a particular order or position that something should be in
+ 3109 by way of something: a) as a form or means of something b) if you travel by way of a place, you go through it
+ 3110 get in the way of something: to prevent someone from doing something, or prevent something from happening
+ 3111 go out of your way to do something: to do something with more effort than is usual or expected
+ 3112 get/have your (own) way: to do what you want to, even though someone else wants something different
+ 3113 go your own way: to do what you want, make your own decisions etc
+ 3114 go somebody’s way: a) if an event goes your way, it happens in the way you want b) to continue a journey, or to leave and do what you want to do next c) to travel in the same direction as someone
+ 3115 come somebody’s way: if something comes your way, you get or experience it, especially by chance
+ 3116 in a big/small way: used to talk about the degree to which something happens, or how important it is
+ 3117 by a long way: by a large amount
+ 3118 talk/buy etc your way into/past etc something/somebody: to get where you want or achieve something you want by saying or doing something
+ 3119 work/munch/smoke etc your way through something: to deal with, eat, smoke etc a large amount of things
+ 3120 be on the/your way out: to be becoming less popular, important, powerful etc
+ 3121 across/over the way: on the opposite side of the street
+ 3122 have a way of doing something: used to say that something often or usually happens
+ 3123 get into the way of doing something: to start to do something regularly
+ 3124 not in any way, shape, or form: used to emphasize that something is not true
+ 3125 split something two/three etc ways: to divide something into two, three etc equal parts
+ 3126 have a way with somebody/something: to be especially good at dealing with people or things of a particular type
+ 3127 the way of the world: how things always happen or are done, especially when this is not easy to change
+ 3128 every which way: in every direction
+ 3129 Way: a method that you use to do or achieve something
+ 3130 by the way: used when saying something that is not related to the main subject you were talking about before
+ 3131 no way!: used to emphasize that you will not agree or be able to do something
+ 3132 the way I see it: used before telling someone your opinion
+ 3133 that’s the way: used to tell someone that they are doing something correctly or well, especially when you are showing them how
+ 3134 that’s (just) the way something/somebody is/that’s (just) the way something goes: used to say that a particular situation or person cannot be changed
+ 3135 be with somebody all the way: to agree with someone completely
+ 3136 if I had my way: used when telling someone what you think it would be best to do
+ 3137 have it your (own) way: used to tell someone in an annoyed way that you will agree to what they want
+ 3138 (there are) no two ways about it: used to say that something is definitely true, especially something unpleasant
+ 3139 you can’t have it both ways: used to say that you cannot have the advantages from both of two different possible decisions or actions
+ 3140 way to go!: used to tell someone that they have done something very well or achieved something special
+ 3141 (that’s/it’s) always the way!: used to say that things always happen in the way that is least convenient
+ 3142 down your/London etc way: in your area, the area of London etc
+ 3143 go all the way (with somebody): to have sex with someone
+ENTRY 563 way (adverb)
+ 3145 : very far
+ 3146 : by a large amount
+ 3147 : very

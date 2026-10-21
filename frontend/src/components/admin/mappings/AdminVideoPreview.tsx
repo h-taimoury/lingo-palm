@@ -20,6 +20,7 @@ export type AdminVideoPreviewProps = {
   activeMappingId: number | null
   onTokenClick: (token: SubtitleToken) => void
   onMappedTokenClick?: (mapping: WordSenseMapping) => void
+  onMappedSenseClick?: (mapping: WordSenseMapping) => void
 }
 
 export function AdminVideoPreview(props: AdminVideoPreviewProps) {
@@ -38,6 +39,7 @@ function AdminVideoPreviewInner({
   activeMappingId,
   onTokenClick,
   onMappedTokenClick,
+  onMappedSenseClick,
 }: AdminVideoPreviewProps) {
   const ref = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -96,6 +98,10 @@ function AdminVideoPreviewInner({
                     onClick={(event) => {
                       event.stopPropagation()
                       ref.current?.pause()
+                      if (mapped && event.ctrlKey && onMappedSenseClick) {
+                        onMappedSenseClick(mapped)
+                        return
+                      }
                       if (mapped && mapped.id !== activeMappingId && onMappedTokenClick) {
                         onMappedTokenClick(mapped)
                         return
@@ -112,7 +118,7 @@ function AdminVideoPreviewInner({
                       belongsActive && "ring-2 ring-white",
                     )}
                     aria-pressed={selected || belongsActive}
-                    title={mapped ? `Edit mapping #${mapped.id}` : "Select this subtitle occurrence"}
+                    title={mapped ? `Edit mapping #${mapped.id} · Ctrl-click to view senses` : "Select this subtitle occurrence"}
                   >
                     {token.word}
                   </button>

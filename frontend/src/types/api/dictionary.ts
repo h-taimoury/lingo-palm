@@ -11,6 +11,7 @@ export type EntrySummary = {
   part_of_speech: string;
   inflections?: string | null;
   homonym_num?: number | null;
+  source_entry_id?: string;
   register?: string | null;
   pronunciation: Pronunciation | null;
 };

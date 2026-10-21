@@ -81,9 +81,13 @@ class ScrapeWordView(APIView):
         )
 
         if isinstance(exc, WordNotFoundError):
-            return Response({"detail": str(exc)}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"detail": str(exc), "code": "word_not_found"},
+                status=status.HTTP_404_NOT_FOUND,
+            )
         if isinstance(exc, (PageLoadError, AudioDownloadError)):
-            return Response({"detail": str(exc)}, status=status.HTTP_502_BAD_GATEWAY)
+            logger.warning("Temporary scrape failure: %s", exc)
+            return Response({"detail": str(exc), "retryable": True}, status=status.HTTP_502_BAD_GATEWAY)
         if isinstance(exc, ScrapeError):
             return Response({"detail": str(exc)}, status=status.HTTP_502_BAD_GATEWAY)
 

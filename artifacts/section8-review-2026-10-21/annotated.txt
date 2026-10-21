@@ -1,0 +1,885 @@
+1 [87.811] - Hey. / - Hey.
+2 [92.191] - Hey. / - Hey.
+3 [95.73599999999999] - Hey. / - Hey.
+4 [117.049] Hmm?
+5 [120.386] That's right. It is I, Tai Lung.
+6 [124.682] It can't be.
+7 [126.934] Tai Lung.
+8 [128.143] I have returned to take what is mine.
+9 [130.89600000000002] Which is everything that is yours.
+10 [142.24099999999999] Let it be known from the highest mountain / to the lowest valley that Tai Lung lives,
+  #573 valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+11 [147.663] and no one will stand in his way.
+12 [150.833] Not even the great Dragon Warrior.
+  #574 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #575 Warrior. => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+13 [163.887] Oh, where is Po?
+14 [165.80599999999998] He was supposed to be here hours ago.
+  #170 supposed => 613 suppose(verb): a) used to say what someone should or should not do, especially because of rules or what someone in authority has said b) used to say what was or is expected or intended to happen, especially when it did not happen c) used to say that something is believed to be true by many people, although it might not be true or you might disagree
+15 [168.559] Ping, will you please just relax?
+16 [171.562] I am relaxed!
+17 [173.522] Okay. I'm sure Po is fine.
+18 [176.233] But what if he's sick? What if he's hurt?
+19 [178.81900000000002] - What if he's hungry?
+20 [180.446] Don't get your noodles in a twist.
+  #576 noodles => 3583 noodle(noun): a long thin piece of food made from a mixture of flour, water, and eggs, usually cooked in soup or boiling water
+21 [182.197] If I know our son, he's probably just / kicking back and catching some rays.
+  #577 rays. => 3588 ray(noun): to sit or lie in the sun
+22 [191.457] Kung fu!
+23 [195.336] Whoa! That's bad.
+24 [198.297] Whoa! Getting worse.
+25 [201.84199999999998] Whoa!
+26 [202.843] Ah, come on!
+27 [222.488] Ha-ha!
+28 [229.453] Okay, big guy. / We're really gonna have to wrap this up.
+  #702 wrap up. => 3797 wrap up(phrasal verb): to finish a job, meeting etc
+29 [245.636] Whee!
+30 [247.596] - Oink. / - Oink.
+31 [249.181] - Again, again!
+32 [250.266] - That was fun. / - Let's do that again.
+33 [252.184] And next time, / keep your surf off their turf.
+  #50 surf => 238 surf(noun): the white substance that forms on top of waves as they move towards the shore
+  #51 turf. => 242 turf(noun): an area that you think of as being your own
+  #578 off => 3590 off(adverb): away from a place
+34 [262.403] I'm late. I'm late. Ooh, I'm late.
+35 [266.115] - The Dragon Warrior is back! / - It's the Dragon Warrior!
+  #579 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #580 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+  #581 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #582 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+36 [268.45] Was, is and always will be.
+37 [271.078] We love you, Dragon Warrior!
+  #583 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #584 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+38 [272.955] And I love you too, adoring fan.
+  #52 adoring => 244 adoring(adjective): liking and admiring someone very much
+39 [274.582] - Sign my scroll. / - Sign my hat.
+  #53 scroll. => 245 scroll(noun): a long piece of paper that can be rolled up, and is used as an official document
+40 [276.166] - Sign my shirt. / - Okay, okay.
+41 [277.334] I'll sign whatever you want.
+42 [279.587] Po!
+43 [281.63] Master Shifu!
+  #585 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+44 [282.756] Here, let me just--
+45 [285.092] There, that's much... worse.
+46 [289.138] We have to talk.
+47 [290.18] Absolutely. Let's talk. / Right after the ceremony.
+  #586 ceremony. => 3630 ceremony(noun): an important social or religious event, when a traditional set of actions is performed in a formal way
+48 [293.058] - Let's go! / - Ceremony?
+  #587 Ceremony? => 3630 ceremony(noun): an important social or religious event, when a traditional set of actions is performed in a formal way
+49 [295.144] What ceremony?
+  #588 ceremony? => 3630 ceremony(noun): an important social or religious event, when a traditional set of actions is performed in a formal way
+50 [297.062] - The Staff of Wisdom. / - Ooh.
+  #570 Staff => 253 staff(noun): a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+  #589 Wisdom. => 360 wisdom(noun): good sense and judgment, based especially on your experience of life
+51 [298.898] - Given to me by Master Oogway himself. / - Aah.
+  #590 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+52 [301.692] It is said that / whoever possesses this staff
+  #54 possesses => 249 possess(verb): to have or own something
+  #55 staff => 253 staff(noun): a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+53 [303.861] has the power / to travel between the realms.
+  #56 realms. => 257 realm(noun): a general area of knowledge, activity, or thought
+54 [306.822] The power to unlock the door / to the Spirit Realm.
+  #171 unlock => 639 unlock(verb): to unfasten the lock on a door, box etc
+  #571 Spirit => 46 spirit(noun): the part of someone that you cannot see, that consists of the qualities that make up their character, which many people believe continues to live after the person has died
+  #572 Realm. => 259 realm(noun): a country ruled by a king or queen
+55 [309.742] And now, the power to open...
+56 [312.161] the all-new / Dragon Warrior Noodles and Tofu.
+  #172 Tofu. => 641 tofu(noun): a soft white food made from soya beans, used in cooking instead of meat
+  #591 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #592 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+  #593 Noodles => 3583 noodle(noun): a long thin piece of food made from a mixture of flour, water, and eggs, usually cooked in soup or boiling water
+57 [318.709] Where the broth has kick / and the bean curd's a knockout.
+  #57 broth => 260 broth(noun): soup with meat, rice, or vegetables
+  #58 kick => 286 kick(noun): used to talk about the strong effect of a drink or drug or the strong taste that some food has
+  #59 knockout. => 288 knockout(noun): someone or something that is very attractive or successful
+  #594 bean curd's => 3633 bean(noun): a seed or a pod (=case containing seeds), that comes from a climbing plant and is cooked as food. There are very many types of beans; 642 bean curd(noun): a soft white food made from soya beans; 1265 curd(noun): the thick substance that forms in milk when it becomes sour
+58 [327.259] Dragon Warrior!
+  #595 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #596 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+59 [328.594] Will the Furious Five be here too?
+  #703 Furious => 3642 furious(adjective): done with a lot of energy, effort, or speed
+60 [330.721] Unfortunately, no.
+61 [332.097] They're off on / super cool kung fu missions.
+  #60 missions. => 294 mission(noun): an important job that someone has been given to do, especially when they are sent to another place
+  #597 off => 3590 off(adverb): away from a place
+62 [334.767] Tigress is taking on / the free-range chicken gang.
+  #173 gang. => 1267 gang(noun): a group of criminals who work together
+  #598 free-range => 3643 free-range(adjective): relating to a type of farming which allows animals such as chickens and pigs to move around and eat naturally, rather than being kept in a restricted space
+  #704 taking on => 3803 take somebody/something ↔ on(phrasal verb): to compete against someone or start a fight with someone, especially someone bigger or better than you
+63 [337.228] Monkey's hot on the trail / of the missing macaque.
+  #705 hot on trail => 3819 hot(adjective): a) following someone quickly and closely because you want to catch them b) close to and likely to catch someone you have been chasing c) following very close behind someone; 688 trail(noun): to be trying to find someone or something by getting information about them
+64 [339.438] Crane was crowned / king of the Crocodilians.
+  #61 crowned => 309 crown(verb): to place a crown on the head of a new king or queen as part of an official ceremony in which they become king or queen
+  #706 Crane => 3837 crane(noun): a tall water bird with very long legs
+  #707 Crocodilians. => 874 crocodile(noun): a large reptile with a long mouth and many sharp teeth that lives in lakes and rivers in hot wet parts of the world
+65 [341.273] - Crane! / - Long story.
+  #708 Crane! => 3837 crane(noun): a tall water bird with very long legs
+66 [342.65] Viper's wrapping up peace talks / between the cobras and the mongooses.
+  #62 mongooses. => 315 mongoose(noun): a small furry tropical animal that kills snakes and rats
+  #709 Viper's => 3839 viper(noun): a small poisonous snake
+  #710 wrapping up => 3797 wrap up(phrasal verb): to finish a job, meeting etc
+67 [345.527] Or is it mongeese?
+68 [346.487] And Mantis?
+  #711 Mantis? => 3841 mantis(noun): a praying mantis
+69 [347.78] Well, he's just trying to keep his / blushing bride from biting his head off.
+  #175 biting head off. his => 730 bite(verb): to use your teeth to cut, crush, or chew something; 3848 bite/snap somebody’s head off(): to talk to someone very angrily with no good reason
+  #599 bride blushing => 3842 blush(verb): to become red in the face, usually because you are embarrassed; 3845 blush(verb): a young woman on her wedding day – used humorously; 3644 bride(noun): a woman at the time she gets married or just after she is married
+70 [353.03499999999997] Just 'cause they're not here in person
+71 [354.453] doesn't mean they're not here / as life-sized cut-outs.
+  #712 life-sized => 3849 life-size(adjective): a picture or model of something or someone that is life-size is the same size as they really are
+  #713 cut-outs. => 3646 cut out(phrasal verb): to cut a shape from a piece of paper, cloth etc
+72 [357.122] Now, who wants a picture? / Okay, okay. One at a time.
+73 [360.209] - Oh! Me, me, me! Me! / - You.
+74 [363.42] My turn! My turn!
+75 [364.672] And then you.
+76 [371.512] He really captured / your disapproving scowl.
+  #63 captured => 319 capture(verb): to succeed in recording, showing, or describing a situation or feeling, using words or pictures
+  #64 disapproving => 330 disapproving(adjective): showing that you think someone or something is bad or wrong
+  #65 scowl. => 332 scowl(noun): an angry or disapproving expression on someone’s face
+77 [373.597] We need to talk.
+78 [375.849] - Now.
+79 [377.476] Hey, can I get one of those / in a wallet size?
+80 [379.562] - Po! / - Coming.
+81 [382.98199999999997] Do you remember the first time you climbed / these steps to the Jade Palace?
+  #714 Jade => 3850 jade(noun): a hard, usually green, stone often used to make jewellery
+  #715 Palace? => 3852 palace(noun): the official home of a person of very high rank, especially a king or queen – often used in names
+82 [387.236] How could I forget? / I thought I'd never make it to the top.
+83 [390.155] Yes, but you persevered.
+  #66 persevered. => 333 persevere(verb): to continue trying to do something in a very determined way in spite of difficulties – use this to show approval
+84 [391.657] And once again, destiny calls for you / to take the next step on your journey.
+  #67 destiny => 335 destiny(noun): the power that some people believe decides what will happen to them in the future
+85 [395.911] The next step? / What are you talking about?
+86 [397.83] I've already taken all the steps. / Haven't I?
+87 [400.207] It is time for you / to choose your successor.
+  #68 successor. => 336 successor(noun): someone who takes a job or position previously held by someone else
+88 [403.002] Successor for what?
+  #69 Successor => 336 successor(noun): someone who takes a job or position previously held by someone else
+89 [404.42] A successor to be / the next Dragon Warrior.
+  #70 successor => 336 successor(noun): someone who takes a job or position previously held by someone else
+  #601 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #602 Warrior. => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+90 [407.84000000000003] Oh... Yeah, I get it.
+91 [409.8] Funny, 'cause I'm the Dragon Warrior.
+  #603 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #604 Warrior. => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+92 [415.598] Whoa, whoa, whoa. Wait, wait.
+93 [416.932] You mean, I'm not gonna be / the Dragon Warrior anymore?
+  #605 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #606 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+94 [419.685] - Exactly. / - Then what am I gonna be?
+95 [421.645] Once a successor is chosen,
+  #71 successor => 336 successor(noun): someone who takes a job or position previously held by someone else
+96 [423.314] you will advance / to the highest level in all of kung fu.
+97 [426.442] Spiritual Leader / of the Valley of Peace.
+  #72 Spiritual => 356 spiritual(adjective): relating to religion
+  #607 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+98 [430.446] Whoa.
+99 [432.74] I don't know what that means.
+100 [434.366] It's just like / Master Oogway before you.
+  #608 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+101 [436.785] You will oversee the Valley, / passing along wisdom and inspiring hope.
+  #73 oversee => 359 oversee(verb): to be in charge of a group of workers and check that a piece of work is done satisfactorily
+  #74 wisdom => 360 wisdom(noun): good sense and judgment, based especially on your experience of life
+  #75 inspiring => 365 inspire(verb): to make someone have a particular feeling or react in a particular way
+  #176 passing => 801 pass(verb): to give information or a job to another person so that they can deal with it
+  #609 Valley, => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+102 [441.415] Look, I appreciate the promotion.
+  #76 promotion. => 368 promotion(noun): a move to a more important job or position in a company or organization
+  #177 appreciate => 831 appreciate(verb): used to thank someone in a polite way or to say that you are grateful for something they have done
+103 [443.66700000000003] I think I'm just gonna stick with / the whole "Dragon Warrior" thing.
+  #610 "Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #611 Warrior" => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+104 [447.296] Dragon Warrior "thing"? / What is it you're holding?
+  #612 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #613 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+105 [450.215] A cookie.
+106 [451.383] Other hand.
+107 [452.676] The Staff of Wisdom.
+  #614 Staff => 253 staff(noun): a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+  #615 Wisdom. => 360 wisdom(noun): good sense and judgment, based especially on your experience of life
+108 [454.386] It was given to you / by Master Oogway.
+  #616 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+109 [456.388] Do you really think it was so you could / open a restaurant?
+110 [458.724] Or pose for pictures?
+  #77 pose => 374 pose(verb): to sit or stand in a particular position in order to be photographed or painted, or to make someone do this
+111 [459.975] He wasn't super specific.
+  #178 specific. => 860 specific(adjective): detailed and exact
+112 [461.727] Oogway entrusted you with that staff / so you could follow in his footsteps
+  #78 entrusted => 380 entrust(verb): to make someone responsible for doing something important, or for taking care of someone
+  #79 staff => 253 staff(noun): a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+113 [466.023] and become something better / than you already are.
+114 [468.984] You take it.
+115 [470.819] No. Oogway did not give it to me.
+116 [472.863] Being the next Oogway is not my destiny, / which I have accepted
+  #80 destiny, => 334 destiny(noun): the things that will happen to someone in the future, especially those that cannot be changed or controlled
+117 [476.325] and am at peace with.
+118 [477.618] - Really. It's fine. / - You don't sound fine.
+119 [479.662] - You don't sound fine! I'm very fine! / - Okay, you're fine.
+120 [482.289] This is an honor.
+121 [483.457] Oogway chose you as his successor, / and now you must choose yours.
+  #81 successor, => 336 successor(noun): someone who takes a job or position previously held by someone else
+122 [487.586] Master Shifu, / I finally found something I'm good at,
+  #617 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+123 [490.381] and now you want to / just take it away from me?
+124 [492.174] No one is taking anything away, Po.
+125 [494.343] Who you are will always be / a part of what you become.
+126 [496.887] Yeah, but where's the "skadoosh"? / You know what I mean?
+127 [499.64] The "shasha-booie"?
+128 [501.392] I don't want to seem ungrateful,
+  #82 ungrateful, => 381 ungrateful(adjective): not expressing thanks for something that someone has given to you or done for you
+129 [502.89300000000003] but I don't know anything / about passing on wisdom or inspiring hope.
+  #83 wisdom => 360 wisdom(noun): good sense and judgment, based especially on your experience of life
+  #84 inspiring => 365 inspire(verb): to make someone have a particular feeling or react in a particular way
+  #179 passing => 801 pass(verb): to give information or a job to another person so that they can deal with it
+130 [505.563] All I know are two things.
+131 [507.606] Kicking butt and taking names.
+132 [510.943] And if I'm being completely honest, / I'm not even that good at the name-taking.
+133 [514.029] Like, who was / that fire-breathing crocodile?
+  #180 crocodile? => 874 crocodile(noun): a large reptile with a long mouth and many sharp teeth that lives in lakes and rivers in hot wet parts of the world
+134 [516.197] I wanna say Steve...
+135 [517.7] You were chosen / to bring peace to the Valley,
+  #618 Valley, => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+136 [520.034] and there are other ways to bring peace / than simply kicking butt.
+137 [524.373] Well, sure. But not any fun ones.
+138 [526.542] Please. Being the Dragon Warrior / is all I know.
+  #619 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #620 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+139 [529.878] - It's who I am. / - Not anymore.
+140 [532.047] The Valley of Peace needs / a Spiritual Leader,
+  #85 Spiritual => 356 spiritual(adjective): relating to religion
+  #621 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+141 [534.216] and Master Oogway chose you.
+  #622 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+142 [536.093] You'll start interviewing candidates / first thing tomorrow morning.
+  #86 candidates => 382 candidate(noun): someone who is being considered for a job or is competing in an election
+143 [539.054] Candidates? What candidates?
+  #87 Candidates? => 382 candidate(noun): someone who is being considered for a job or is competing in an election
+  #88 candidates? => 382 candidate(noun): someone who is being considered for a job or is competing in an election
+144 [552.318] Awesome!
+145 [561.076] No way!
+146 [565.664] Wow!
+147 [567.499] Skadoosh.
+148 [568.918] Fantastic pose.
+  #89 pose. => 378 pose(noun): the position in which someone stands or sits, especially in a painting, photograph etc
+149 [580.721] Whoo-hoo! Nice.
+150 [584.058] Master Po will now choose / the next Dragon Warrior.
+  #623 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+  #624 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #625 Warrior. => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+151 [591.148] Dragon Warrior! Dragon Warrior!
+  #626 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #627 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+  #628 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #629 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+152 [594.109] Dragon Warrior! Dragon Warrior!
+  #630 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #631 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+  #632 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #633 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+153 [598.906] So many great candidates.
+  #90 candidates. => 382 candidate(noun): someone who is being considered for a job or is competing in an election
+154 [601.2] I'm gonna let the finger decide.
+155 [604.203] Wait. Whoa. Whoa.
+156 [606.413] What is happening?
+157 [608.999] The Dragon Warrior. It's me!
+  #634 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #635 Warrior. => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+158 [617.424] Like it or not, Po, / you have to choose a successor.
+  #91 successor. => 336 successor(noun): someone who takes a job or position previously held by someone else
+159 [620.177] Eh. Nothing about them / says "dragon" or "warrior."
+  #636 "dragon" => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #637 "warrior." => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+160 [624.139] You will know when you know.
+161 [625.849] How do I know when I know? / You know?
+162 [629.687] When I'm conflicted, I come here / to ask the universe for answers.
+  #92 conflicted, => 385 conflicted(adjective): to be confused about what choice to make, especially when the decision involves strong beliefs or opinions
+  #181 universe => 879 universe(noun): all space, including all the stars and planets
+163 [633.691] Just as Oogway did before me.
+164 [635.359] I'm not conflicted. / I'm just not ready for a next step.
+  #93 conflicted. => 385 conflicted(adjective): to be confused about what choice to make, especially when the decision involves strong beliefs or opinions
+165 [638.404] What is that you're holding?
+166 [639.613] The Staff of Wisdom?
+  #638 Staff => 253 staff(noun): a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+  #639 Wisdom? => 360 wisdom(noun): good sense and judgment, based especially on your experience of life
+167 [641.073] Other hand.
+168 [642.157] A chewed-up peach pit?
+  #94 pit? => 396 pit(noun): the single large hard seed in some fruits
+  #716 chewed-up => 3867 chew(verb): to bite food several times before swallowing it
+169 [643.742] Exactly.
+170 [645.202] Every pit holds the promise / of a mighty tree.
+  #95 pit => 396 pit(noun): the single large hard seed in some fruits
+  #96 promise => 409 promise(noun): a sign that something, usually something good, may happen
+  #97 mighty => 410 mighty(adjective): very strong and powerful, or very big and impressive
+171 [649.582] Uh, how is this gonna help me / find the answers?
+172 [651.8340000000001] Don't ask me. Ask the universe.
+  #182 universe. => 879 universe(noun): all space, including all the stars and planets
+173 [655.004] Be the pit, Po. Be the pit.
+  #98 pit, => 396 pit(noun): the single large hard seed in some fruits
+  #99 pit. => 396 pit(noun): the single large hard seed in some fruits
+174 [660.759] There we go.
+175 [662.011] All right, universe.
+  #183 universe. => 879 universe(noun): all space, including all the stars and planets
+176 [664.763] Give me some guidance.
+  #100 guidance. => 412 guidance(noun): help and advice that is given to someone about their work, education, or personal life
+177 [668.017] Inner peace.
+  #184 Inner => 884 inner(adjective): inner thoughts or feelings are ones that you feel strongly but do not always show to other people
+178 [670.394] Inner peace.
+  #185 Inner => 884 inner(adjective): inner thoughts or feelings are ones that you feel strongly but do not always show to other people
+179 [672.396] Inner peace.
+  #186 Inner => 884 inner(adjective): inner thoughts or feelings are ones that you feel strongly but do not always show to other people
+180 [674.315] Dinner, please.
+181 [676.233] Dinner with peas.
+182 [678.527] Snow peas?
+183 [679.862] In a sesame soy glaze.
+  #101 sesame => 414 sesame(noun): a tropical plant grown for its seeds and oil and used in cooking
+  #102 glaze. => 420 glaze(noun): a liquid which is put onto food to give it an attractive shiny surface
+184 [683.24] Inner peace.
+  #187 Inner => 884 inner(adjective): inner thoughts or feelings are ones that you feel strongly but do not always show to other people
+185 [685.242] Inner peace.
+  #188 Inner => 884 inner(adjective): inner thoughts or feelings are ones that you feel strongly but do not always show to other people
+186 [688.746] This is not working at all.
+187 [690.581] Maybe focus on your breathing?
+188 [692.249] I'm trying, but it's kinda hard / when you keep talking to me.
+189 [695.002] Technically, you're talking to you, / if you think about it.
+  #103 Technically, => 422 technically(adverb): according to the exact details of a rule or law
+190 [697.838] Hey, will you two be quiet? / I'm trying to concentrate here.
+191 [700.591] Wait, if I'm Po's inner voice, / then who are you?
+  #189 inner => 887 inner(adjective): thoughts or feelings inside your head which seem to warn or advise you
+192 [702.927] Uh, I'm Po's inner, inner voice.
+  #190 inner => 887 inner(adjective): thoughts or feelings inside your head which seem to warn or advise you
+193 [704.97] How many voices do I have in there?
+194 [706.555] - You do not want to know. / - This dirt is itchy.
+  #104 itchy. => 427 itchy(adjective): if clothes are itchy, they make your skin feel slightly unpleasant, so that you want to rub your skin with your nails
+  #717 dirt => 3875 dirt(noun): earth or soil
+195 [708.724] - I just love kung fu. / - What am I gonna be?
+196 [710.392] - Are we alone in the universe? / - You guys thought it was awesome, right?
+  #191 universe? => 879 universe(noun): all space, including all the stars and planets
+197 [715.898] Anyone want a cookie?
+198 [723.781] Universe?
+  #192 Universe? => 879 universe(noun): all space, including all the stars and planets
+199 [727.326] Is that you?
+200 [746.136] Attention, mysterious figure!
+  #105 figure! => 432 figure(noun): a) someone who is important or famous in some way b) someone with a particular type of appearance or character, especially when they are far away or difficult to see
+  #193 mysterious => 889 mysterious(adjective): a mysterious person is someone who you know very little about and who seems strange or interesting
+201 [748.764] The Dragon Warrior's here / to perform justice.
+  #106 justice. => 449 justice(noun): fairness in the way people are treated
+  #640 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #641 Warrior's => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+  #642 perform => 3657 perform(verb): to do something, especially something difficult or useful
+202 [756.105] I know you're in here.
+203 [758.232] Just a matter of time before I find you.
+  #194 matter => 900 matter(noun): used to say that something will definitely happen in the future
+204 [762.486] Ooh.
+205 [772.288] You can't hide from justice forever.
+  #107 justice => 448 justice(noun): the system by which people are judged in courts of law and criminals are punished
+206 [779.795] The Dagger of Deng Wa.
+  #195 Dagger => 921 dagger(noun): a short pointed knife used as a weapon
+207 [782.089] You've got excellent taste, / I'll give you that.
+  #196 taste, => 926 taste(noun): someone’s judgment when they choose clothes, decorations etc
+  #197 give => 971 give(verb): used to admit that someone is right about something
+208 [784.758] But I can't give you that. / Give it back.
+209 [786.385] If you insist.
+  #198 insist. => 979 insist(verb): used when agreeing to do something that you do not really want to do
+210 [799.315] - Oh, no!
+211 [801.275] He's got a walking stick. / What are you gonna do? Stroll me to death?
+  #108 Stroll => 455 stroll(verb): to walk somewhere in a slow relaxed way
+212 [804.57] This stick is not for the strolling. / It's the Staff of Wisdom.
+  #109 strolling. => 455 stroll(verb): to walk somewhere in a slow relaxed way
+  #643 Staff => 253 staff(noun): a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+  #644 Wisdom. => 360 wisdom(noun): good sense and judgment, based especially on your experience of life
+213 [808.198] The Dragon Warrior is gonna be mad / when he finds out you took his stick.
+  #645 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #646 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+214 [810.868] I am the Dragon Warrior.
+  #647 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #648 Warrior. => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+215 [813.913] I'm just gonna say it. Nothing about you / says "dragon" or "warrior."
+  #649 "dragon" => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #650 "warrior." => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+216 [826.967] Whoa.
+217 [830.638] Hi-yah!
+218 [833.015] How dare you desecrate the Hall of Heroes?
+  #110 desecrate => 456 desecrate(verb): to spoil or damage something holy or respected
+  #199 dare => 982 dare(verb): said to show that you are very angry and shocked about what someone has done or said
+  #718 Hall => 3880 hall(noun): a building or large room for public events such as meetings or dances
+219 [836.185] Who's desecrating what now?
+  #111 desecrating => 456 desecrate(verb): to spoil or damage something holy or respected
+220 [837.728] Master Ostrich's Egg!
+  #651 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+  #719 Ostrich's => 3882 ostrich(noun): a large African bird with long legs, that runs very quickly but cannot fly
+221 [839.521] Oops, my bad. Hi-yah!
+222 [842.233] The Indestructible Chain Hammer / of Master Pangolin.
+  #200 Indestructible => 988 indestructible(adjective): too strong to be destroyed
+  #652 Chain => 3659 chain(noun): a series of metal rings which are joined together in a line and used for fastening things, supporting weights, decoration etc
+  #653 Hammer => 3667 hammer(noun): a) a tool with a heavy metal part on a long handle, used for hitting nails into wood b) a tool like this with a wooden head used to make something flat, make a noise etc
+  #654 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+223 [844.61] Whoopsies.
+224 [849.99] Ha-ha! Oh!
+225 [858.165] The Urn of Whispering Warriors!
+  #201 Whispering => 989 whisper(verb): to speak or say something very quietly, using your breath rather than your voice
+  #655 Urn => 457 urn(noun): a decorated container, especially one that is used for holding the ashes of a dead body
+  #656 Warriors! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+226 [860.084] Which I've already broken! Twice!
+227 [863.879] Why would you keep an urn of souls? / Feels kinda creepy.
+  #112 urn => 457 urn(noun): a decorated container, especially one that is used for holding the ashes of a dead body
+  #113 souls? => 459 soul(noun): the part of a person that is not physical, and that contains their character, thoughts, and feelings. Many people believe that a person’s soul continues to exist after they have died.
+  #114 creepy. => 469 creepy(adjective): making you feel nervous and slightly frightened
+228 [869.76] Are you doing okay there, big guy? / You're looking a little tired.
+229 [872.638] - I've never felt more awake!
+230 [877.309] The War Hammer of Master Chipmunk?
+  #657 Hammer => 3667 hammer(noun): a) a tool with a heavy metal part on a long handle, used for hitting nails into wood b) a tool like this with a wooden head used to make something flat, make a noise etc
+  #658 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+  #720 Chipmunk? => 3884 chipmunk(noun): a small American animal similar to a squirrel with black lines on its fur
+231 [882.648] You're gonna pay for that.
+  #202 pay => 1005 pay(verb): to suffer or be punished for something you have done wrong
+232 [887.653] Hello?
+233 [899.498] You faker.
+234 [900.666] It's not faking. It's called Method.
+  #115 faking. => 475 fake(verb): to pretend to be ill, interested etc when you are not
+235 [903.252] Catch ya later, panda.
+236 [905.754] No.
+237 [913.345] I think I'll catch you now.
+238 [920.811] Whoa!
+239 [928.652] Whoa!
+240 [931.113] Whoa!
+241 [935.784] Told ya.
+242 [936.744] You got me, / oh-great-and-powerful Dumpling Warrior.
+  #659 Warrior. => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+243 [939.872] That's Dragon Warrior--
+  #660 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #661 Warrior-- => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+244 [942.875] Let go of me.
+245 [944.376] Just tell me one thing.
+246 [945.711] How did someone like you / become the Dragon Warrior?
+  #662 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #663 Warrior? => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+247 [948.13] That's a mystery for you to solve / during your two-year stay
+248 [950.424] at the Valley of Peace prison.
+  #664 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+249 [951.842] Valley of Peace prison? / Sounds like a day care.
+  #665 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+250 [954.803] It is a day care on the weekends.
+251 [957.139] But it's also a prison.
+252 [958.766] There he is!
+253 [959.975] Dragon Warrior!
+  #666 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #667 Warrior! => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+254 [961.018] - Tai Lung is back. / - Tai Lung has returned?
+255 [963.02] He demanded all of our iron, / then destroyed our quarry.
+  #116 quarry. => 477 quarry(noun): a place where large amounts of stone or sand are dug out of the ground
+  #203 demanded => 1021 demand(verb): to ask for something very firmly, especially because you think you have a right to do this
+256 [966.19] - He's supposed to be in the Spirit Realm. / - Well, he's back.
+  #204 supposed => 613 suppose(verb): a) used to say what someone should or should not do, especially because of rules or what someone in authority has said b) used to say what was or is expected or intended to happen, especially when it did not happen c) used to say that something is believed to be true by many people, although it might not be true or you might disagree
+  #668 Spirit => 46 spirit(noun): the part of someone that you cannot see, that consists of the qualities that make up their character, which many people believe continues to live after the person has died
+  #669 Realm. => 257 realm(noun): a general area of knowledge, activity, or thought
+257 [968.776] He said that he's not gonna stop / until the Valley of Peace falls
+  #205 falls => 1049 fall(verb): if a place falls in a war or an election, a group of soldiers or a political party takes control of it
+  #670 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+258 [971.654] and the Dragon Warrior / bows before him.
+  #117 bows => 480 bow(verb): to bend the top part of your body forward in order to show respect for someone important, or as a way of thanking an audience
+  #671 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #672 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+259 [973.989] - He's back. / - Please, you've got to do something.
+260 [976.867] Looks like I'm not the only one / around here with a mystery to solve.
+261 [980.204] Well, you know what they say...
+262 [982.206] every step leaves a footprint, / no matter how small.
+  #206 footprint, => 1070 footprint(noun): a mark made by a foot or shoe
+263 [1006.313] Every step leaves a footprint, / no matter how small.
+  #207 footprint, => 1070 footprint(noun): a mark made by a foot or shoe
+264 [1016.323] Very clever, fox. You know something.
+265 [1018.659] Maybe I do, maybe I don't.
+266 [1021.328] Okay, I do. I really, really do.
+267 [1023.205] - Tell me. / - And why should I?
+268 [1024.873] I mean, what's in it for me?
+269 [1026.083] The peace of mind / knowing you did the right thing.
+270 [1028.168] You're adorable. / Has anyone ever told you that?
+  #118 adorable. => 491 adorable(adjective): someone or something that is adorable is so attractive that they fill you with feelings of love
+271 [1030.713] And I don't mean just in, like, / the cuddly sense.
+  #119 cuddly => 492 cuddly(adjective): a person or animal that is cuddly makes you want to cuddle them
+272 [1032.506] I don't have time for games.
+  #673 games. => 3690 game(noun): a) to behave in a dishonest or unfair way in order to get what you want b) to not be serious about doing something
+273 [1033.799] Tai Lung is running loose / in the Valley of Peace.
+  #208 loose => 1078 loose(adjective): free from being controlled or held in a cage, prison, or institution
+  #674 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+274 [1035.968] Maybe. Or maybe she wants you to think / it was Tai Lung.
+275 [1040.139] Wait. She?
+276 [1041.39] Mine!
+277 [1043.517] The Empress of Disguise, / capable of taking any form,
+  #209 Empress => 1098 empress(noun): a female ruler of an empire, or the wife of an emperor
+  #210 Disguise, => 1102 disguise(noun): something that you wear to change your appearance and hide who you are, or the act of wearing this
+  #211 capable => 1104 capable(adjective): having the qualities or ability needed to do something
+278 [1046.729] mimicking any shape.
+  #120 mimicking => 496 mimic(verb): if an animal mimics something, it looks or sounds very like it
+279 [1048.021] The master of deception.
+  #121 deception. => 498 deception(noun): the act of deliberately making someone believe something that is not true
+  #675 master => 3614 master(noun): someone who is very skilled at something
+280 [1049.148] The lizard of lies / with the glowing teal eyes.
+  #122 teal => 500 teal(noun): a greenish-blue colour
+  #212 glowing => 1131 glow(verb): to produce or reflect a soft steady light
+  #676 lizard => 2913 lizard(noun): a type of reptile that has four legs and a long tail
+281 [1051.525] I'm talking 'bout...
+282 [1053.444] The Chameleon.
+  #721 Chameleon. => 3885 chameleon(noun): a lizard that can change its colour to match the colours around it
+283 [1057.531] This is kind of a private conversation.
+284 [1060.951] Who's The Chameleon?
+285 [1062.494] Only the most powerful / shape-shifting sorceress.
+  #123 sorceress. => 501 sorceress(noun): a woman in stories who uses magic and receives help from evil forces
+286 [1064.872] So she shape-shifted into Tai Lung.
+287 [1067.833] But what does she have against me / and the Valley of Peace?
+  #677 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+288 [1070.002] These are good questions. / You should ask her.
+289 [1072.171] You're right. / How do I find this "The Chameleon"?
+290 [1076.091] She isn't someone who can be found.
+291 [1077.76] At least not without someone in the know.
+  #213 know. => 1243 know(noun): having more information about something than most people
+292 [1080.554] And how do I find someone "in the know"?
+  #214 know"? => 1243 know(noun): having more information about something than most people
+293 [1083.432] Oh! It's me. / It's obviously-- It's me.
+294 [1086.518] I'm in the know.
+  #215 know. => 1243 know(noun): having more information about something than most people
+295 [1087.811] Forget it. I'll find her on my own.
+296 [1090.981] Good luck.
+297 [1091.982] After all, how hard can it be / to find someone who can look like anyone,
+298 [1095.152] blend in anywhere?
+299 [1100.074] Fine. You lead me to The Chameleon,
+300 [1102.409] and I'll see what I can do / about reducing your sentence.
+  #124 sentence. => 503 sentence(noun): a punishment that a judge gives to someone who is guilty of a crime
+  #678 reducing => 3705 reduce(verb): to make something smaller or less in size, amount, or price
+301 [1104.787] Deal.
+302 [1107.164] - Po!
+303 [1108.29] What do you think you're doing?
+304 [1109.583] There's this shape-shifting / sorceress on the loose and--
+  #125 sorceress => 501 sorceress(noun): a woman in stories who uses magic and receives help from evil forces
+  #216 loose => 1097 loose(noun): if a criminal or dangerous animal is on the loose, they have escaped from prison or from their cage
+305 [1113.045] That's a job for the Furious Five.
+306 [1115.13] Well, they're not here, and someone / needs to protect the Valley of Peace.
+  #679 Valley => 3580 valley(noun): an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+307 [1118.175] Look, I know that change is difficult
+308 [1120.052] and that you enjoy / being the Dragon Warrior,
+  #680 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #681 Warrior, => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+309 [1122.596] but your job is finding a successor.
+  #126 successor. => 336 successor(noun): someone who takes a job or position previously held by someone else
+310 [1125.057] The Dragon Warrior and I have a deal. / Mind your own business, squirrel.
+  #217 squirrel. => 1249 squirrel(noun): a small animal with a long furry tail that climbs trees and eats nuts
+  #682 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #683 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+311 [1128.519] Master Shifu is not a squirrel.
+  #218 squirrel. => 1249 squirrel(noun): a small animal with a long furry tail that climbs trees and eats nuts
+  #684 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+312 [1130.229] I'm a red panda.
+313 [1132.856] You know what? I love that for you.
+314 [1134.608] Po, this is your decision.
+315 [1136.235] But I think you know what choice / Master Oogway would want you to make.
+  #685 Master => 3621 master(noun): a) a male teacher b) a wise person whose ideas and words other people accept and follow
+316 [1145.619] - Thanks for the free stay. / - What are you doing?
+317 [1147.454] - Little dank for a day care. / - Wait!
+  #127 dank => 505 dank(adjective): unpleasantly wet and cold
+318 [1148.872] - Not bad for a jail. / - Where is she going?
+319 [1150.416] You can't leave.
+320 [1151.5] Don't worry, I'll have her back / before you even know she was gone.
+321 [1154.753] You are supposed to be / passing along wisdom and inspiring hope!
+  #128 wisdom => 360 wisdom(noun): good sense and judgment, based especially on your experience of life
+  #129 inspiring => 365 inspire(verb): to make someone have a particular feeling or react in a particular way
+  #219 supposed => 613 suppose(verb): a) used to say what someone should or should not do, especially because of rules or what someone in authority has said b) used to say what was or is expected or intended to happen, especially when it did not happen c) used to say that something is believed to be true by many people, although it might not be true or you might disagree
+  #220 passing => 801 pass(verb): to give information or a job to another person so that they can deal with it
+322 [1157.965] Just think of it as / one last Dragon Warrior adventure.
+  #686 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #687 Warrior => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+323 [1160.718] I'll be back soon. / Tell my dads I love 'em.
+324 [1163.095] - I can't hear you anymore! Bye!
+325 [1168.142] Yeah! It sure is good / to be a free fox again.
+326 [1171.478] That's a good back scratcher.
+327 [1173.147] - Yoink! / - Hey!
+328 [1174.481] So, does this really unlock the door / to the Spirit Realm?
+  #221 unlock => 639 unlock(verb): to unfasten the lock on a door, box etc
+  #688 Spirit => 46 spirit(noun): the part of someone that you cannot see, that consists of the qualities that make up their character, which many people believe continues to live after the person has died
+  #689 Realm? => 257 realm(noun): a general area of knowledge, activity, or thought
+329 [1176.734] It doesn't work like that.
+330 [1178.36] It has to be given / in order to gain its powers.
+  #222 gain => 1251 gain(verb): to obtain or achieve something you want or need
+331 [1181.155] Gotcha. Given to gain. / So, can I have it?
+  #223 gain. => 1251 gain(verb): to obtain or achieve something you want or need
+332 [1184.116] No! What do you take me for?
+  #224 take => 654 take(verb): to react to someone or something or consider them in a particular way
+333 [1185.868] An easy mark.
+334 [1186.952] What's an easy mark?
+335 [1188.037] Someone who's easy to steal from,
+336 [1189.705] usually because they're generous / and too trusting.
+  #130 trusting. => 506 trusting(adjective): willing to believe that other people are good and honest
+337 [1191.916] - Like you. / - Aw, thank you.
+338 [1196.42] I heard The Chameleon is a monster / with an appetite of a thousand predators,
+  #131 predators, => 508 predator(noun): an animal that kills and eats other animals
+  #225 appetite => 1308 appetite(noun): a desire for food
+339 [1200.799] and her favorite food is panda.
+340 [1202.927] They say this Chameleon character / has magical powers.
+  #690 character => 3710 character(noun): a) a person in a book, play, film etc b) a person of a particular type, especially a strange or dishonest one c) an interesting and unusual person
+341 [1206.722] If you say her name three times, / she'll take you away in the night!
+342 [1212.019] The Chameleon can shape-shift / to look like anyone, even you.
+343 [1215.94] Or you.
+344 [1220.778] Mr. Li! Mr. Li! Is it true?
+345 [1223.03] Po's going to / take down an evil sorceress?
+  #132 sorceress? => 501 sorceress(noun): a woman in stories who uses magic and receives help from evil forces
+  #226 evil => 1310 evil(adjective): someone who is evil deliberately does very cruel things to harm other people
+346 [1225.824] The-- The Chameleon?
+347 [1227.785] Well, a Dragon Warrior's work / is never done.
+  #691 Dragon => 3581 dragon(noun): a large imaginary animal that has wings and a long tail and can breathe out fire
+  #692 Warrior's => 878 warrior(noun): a soldier or fighter who is brave and experienced – used about people in the past
+348 [1231.121] Li, I'm thinking Po teaming up / with a convicted felon
+  #133 convicted => 510 convict(verb): to prove or officially announce that someone is guilty of a crime after a trial in a law court
+  #134 felon => 512 felon(noun): someone who is guilty of a serious crime
+349 [1234.375] to take down an evil sorceress / wasn't such a great idea.
+  #135 sorceress => 501 sorceress(noun): a woman in stories who uses magic and receives help from evil forces
+  #227 evil => 1310 evil(adjective): someone who is evil deliberately does very cruel things to harm other people
+350 [1238.254] Relax. Po has faced demons, demigods, / and everything else in between.
+  #136 demons, => 513 demon(noun): an evil spirit or force
+  #137 demigods, => 518 demigod(noun): a man in ancient stories, who is half god and half human
+  #693 faced => 3748 face(verb): to talk or deal with someone, when this is unpleasant or difficult for you
+351 [1243.217] He's always come out on top.
+352 [1244.426] You're right. You're right.
+353 [1246.637] But what if you're wrong?
+354 [1248.514] Calm down, Ping.
+355 [1250.266] How bad can one evil sorceress be?
+  #138 sorceress => 501 sorceress(noun): a woman in stories who uses magic and receives help from evil forces
+  #228 evil => 1310 evil(adjective): someone who is evil deliberately does very cruel things to harm other people
+356 [1255.229] Who is she to summon us?
+  #139 summon => 519 summon(verb): to order someone to come to a place
+357 [1257.69] Classic power move.
+  #694 Classic => 3753 classic(adjective): having all the features that are typical or expected of a particular thing or situation
+  #695 move. => 1840 move(noun): something that you decide to do in order to achieve something
+358 [1258.941] We're the heads of Juniper City's / most prominent crime families.
+  #140 prominent => 523 prominent(adjective): important
+  #229 heads => 1360 head(noun): a) a leader or person in charge of a group or organization b) the person in charge of a school
+359 [1262.319] And she's just some bug-eyed, / power-hungry reptilian runt.
+  #141 runt. => 527 runt(noun): a small, unpleasant, or unimportant person
+360 [1265.948] You left out the evil sorceress part.
+  #142 sorceress => 501 sorceress(noun): a woman in stories who uses magic and receives help from evil forces
+  #230 evil => 1310 evil(adjective): someone who is evil deliberately does very cruel things to harm other people
+361 [1267.658] We used to run this city.
+362 [1269.535] Now we pay her half the money we swindle.
+  #143 swindle. => 528 swindle(verb): to get money from someone by deceiving them
+363 [1272.121] It's like a criminal can't / make an honest living anymore.
+  #231 criminal => 1419 criminal(noun): someone who is involved in illegal activities or has been proved guilty of a crime
+  #232 living => 1426 living(noun): the way that you earn money or the money that you earn
+364 [1274.707] Yeah, but what could we do?
+365 [1277.126] Together, we can take her down.
+366 [1279.42] - Are you nuts? She's a shape-shifter.
+  #722 nuts? => 3889 nuts(adjective): crazy
+367 [1282.339] She could be at this very table, / and we'd have no idea.
+368 [1287.886] For all we know, / you're The Chameleon.
+  #233 know, => 1223 know(verb): used to emphasize that you do not know something and say that it is not important to you
+369 [1290.222] Or you're The Chameleon.
+370 [1292.141] - Or maybe... / - Oh, no.
+371 [1293.893] - Maybe... / - Don't say it.
+372 [1295.895] ...I'm The Chameleon.
+373 [1297.563] I said don't say it.
+374 [1306.363] We obviously spoke out of turn.
+  #234 spoke => 1441 speak(verb): to say something when you do not have the right or authority to say it
+375 [1308.198] Sorry, Chameleon.
+376 [1309.283] No, no. Don't apologize.
+377 [1311.16] You and your families prospered / by preying upon the weak,
+  #144 prospered => 530 prosper(verb): if people or businesses prosper, they grow and develop in a successful way, especially by becoming rich or making a large profit
+378 [1315.664] so it doesn't feel good / when you're the one being squeezed.
+379 [1319.418] Especially when the one / doing the squeezing
+380 [1322.087] is just a "bug-eyed, power-hungry"...
+381 [1325.591] What was the rest?
+382 [1327.176] Reptilian runt.
+  #145 runt. => 527 runt(noun): a small, unpleasant, or unimportant person
+383 [1329.094] Well, this "reptilian runt" wants more.
+  #146 runt" => 527 runt(noun): a small, unpleasant, or unimportant person
+384 [1333.265] You already have the city.
+385 [1335.309] What else could you possibly want?
+386 [1337.269] I have something special in mind. / I'm very close to achieving it.
+387 [1341.357] As close as the blood moon.
+388 [1344.151] But the blood moon / is two nights away.
+389 [1345.819] So little time, so many expenses.
+  #147 expenses. => 543 expense(noun): the amount of money that you spend on something
+390 [1348.447] Which is why I'll need to increase / this month's tribute to 60%.
+  #148 tribute => 550 tribute(noun): a payment of goods or money by one ruler or country to another more powerful one, especially in order to be protected
+391 [1353.869] No.
+392 [1359.917] What was that now?
+393 [1361.961] I mean no disrespect.
+  #149 disrespect. => 552 disrespect(noun): lack of respect for someone or something
+394 [1366.215] Don't worry.
+395 [1367.758] I forgive you for the impudence / and the backstabbing.
+  #150 backstabbing. => 554 backstabbing(noun): the act of secretly doing bad things to someone else, especially saying bad things about them, in order to gain an advantage for yourself
+  #235 forgive => 1448 forgive(verb): to stop being angry with someone and stop blaming them, although they have done something wrong
+396 [1373.722] And the blatant disrespect / you've shown me, I forgive.
+  #151 blatant => 555 blatant(adjective): something bad that is blatant is very clear and easy to see, but the person responsible for it does not seem embarrassed or ashamed
+  #152 disrespect => 552 disrespect(noun): lack of respect for someone or something
+  #236 forgive. => 1448 forgive(verb): to stop being angry with someone and stop blaming them, although they have done something wrong
+397 [1379.728] But I never forget.
+398 [1382.022] You might say I have the memory...
+399 [1384.316] Oh, don't say it.
+400 [1385.526] ...of an elephant.
+401 [1403.419] You think / I've pushed you too far?
+  #696 pushed => 3763 push(verb): to encourage or force someone to do something or to work hard
+402 [1406.672] Then you, my friend, can't begin to fathom
+  #153 fathom => 557 fathom(verb): to understand what something means after thinking about it carefully
+403 [1410.843] just how far I can push.
+  #697 push. => 3763 push(verb): to encourage or force someone to do something or to work hard
+404 [1420.686] I'll expect your tributes by dawn.
+  #154 tributes => 550 tribute(noun): a payment of goods or money by one ruler or country to another more powerful one, especially in order to be protected
+  #155 dawn. => 558 dawn(noun): the time at the beginning of the day when light first appears
+405 [1427.568] Are we gonna stop / for lunch soon?
+406 [1429.737] Justice doesn't stop for lunch.
+  #156 Justice => 449 justice(noun): fairness in the way people are treated
+407 [1431.8220000000001] But it does take the occasional time-out / for snackage.
+  #157 occasional => 564 occasional(adjective): happening sometimes but not often or regularly
+  #698 time-out => 3787 time out(noun): to rest or do something different from your usual job or activities
+408 [1434.7] Wanna split my almond cookie?
+  #237 split => 1455 split(verb): to divide something into separate parts and share it between two or more people
+  #238 almond => 1468 almond(noun): a flat pale nut with brown skin that tastes sweet, or the tree that produces these nuts
+409 [1436.493] You're just gonna give me half of your / cookie out of the goodness of your heart?
+  #239 goodness => 1475 goodness(noun): used when someone has done something in order to be kind or helpful to other people
+410 [1440.08] - Mm-hmm. / - What's the catch? The rub? The bamboozle?
+  #240 catch? => 1509 catch(noun): a hidden problem or difficulty
+  #241 rub? => 1526 rub(noun): used when saying that a particular problem is the reason why a situation is so difficult – often used humorously
+411 [1442.458] The "bam-what-le"?
+412 [1443.417] You know, the fleece. / The rook. The flimflam.
+413 [1445.461] Do you want the cookie or not?
+414 [1450.925] I got my eye on you.
+  #242 eye => 1530 eye(noun): to carefully watch everything that someone does, especially because you do not trust them
+415 [1454.47] How much farther is it / to this "The Chameleon"?
+416 [1457.014] Just a little farther.
+417 [1473.113] Li! What are you doing out here / in the middle of the night?
+418 [1476.659] Well, I-- I-- I... didn't wanna miss / the blood moon rising.
+419 [1480.329] Oh, pooh. / You are just as worried as I am.
+420 [1483.082] All right, all right.
+421 [1484.5] I know pandas come across as / calm, gentle and chill,
+  #723 gentle => 3902 gentle(adjective): kind and careful in the way you behave or do things, so that you do not hurt or damage anyone or anything
+422 [1487.336] but... ...the truth is
+423 [1489.672] I'm kinda freaking out!
+  #243 freaking => 143 freak(verb): to become suddenly angry or afraid, especially so that you cannot control your behaviour
+424 [1491.257] So am I.
+425 [1492.299] Po is just too calm, gentle and chill / to face a shape-shifting sorceress.
+  #158 sorceress. => 501 sorceress(noun): a woman in stories who uses magic and receives help from evil forces
+426 [1496.595] - What if he's captured? / - What if he's tortured?
+  #159 tortured? => 576 torture(verb): to deliberately hurt someone in order to force them to give you information, to punish them, or to be cruel
+  #244 captured? => 316 capture(verb): to catch a person and keep them as a prisoner
+427 [1499.473] Our baby!
+428 [1502.518] Okay, okay.
+429 [1503.978] Maybe Po has finally met his match,
+  #245 match, => 1571 match(noun): someone who is much stronger, cleverer etc than their opponent
+430 [1506.23] but there is still something that he has / that The Chameleon does not.
+431 [1510.192] - What's that? / - Us.
+432 [1512.319] Now, let's go find our son.
+433 [1515.239] I hope Po's okay.
+434 [1516.448] You know, Li, / a wise goose once said,
+  #246 wise => 1585 wise(adjective): someone who is wise makes good decisions, gives good advice etc, especially because they have a lot of experience of life
+  #724 goose => 3906 goose(noun): a) a bird that is like a duck but is larger and makes loud noises b) a female goose
+435 [1519.493] "Worrying doesn't make / the broth boil any faster."
+  #160 broth => 260 broth(noun): soup with meat, rice, or vegetables
+436 [1522.538] - Who was that idiot? / - Me, of course.
+437 [1525.04] I was the wise goose.
+  #247 wise => 1585 wise(adjective): someone who is wise makes good decisions, gives good advice etc, especially because they have a lot of experience of life
+438 [1526.584] Oh, yeah.
+439 [1528.335] Whoa.
+440 [1530.254] That's the biggest village I've ever seen.
+441 [1532.298] That's no village.
+442 [1534.091] That's Juniper City.
+443 [1536.051] That's where I'll find / The Chameleon, huh?
+444 [1537.886] Just a boat ride away.
+445 [1539.43] And I'm gonna lead you / right to her front door.
+446 [1542.016] Are you sure we'll find / a boat captain in there?
+447 [1543.976] For the right price, those cutthroats will / take us anywhere we want to go.
+448 [1547.438] Of course, we could always opt for / the four-finger discount.
+  #248 opt => 1593 opt(verb): to choose one thing or do one thing instead of another
+449 [1550.566] No stealing.
+450 [1552.735] "The Happy Bunny Tavern".
+  #699 Tavern". => 607 tavern(noun): a word for a bar, often used in the name of a bar
+451 [1554.361] Well, that sounds inviting.
+  #161 inviting. => 578 inviting(adjective): something that is inviting is very attractive and makes you want to be near it, try it, taste it etc
+452 [1561.243] Anybody lose a rabbit?
+453 [1569.376] Stir faster!
+  #249 Stir => 1597 stir(verb): to move a liquid or substance around with a spoon or stick in order to mix it together
+454 [1573.005] Welcome to the Happy Bunny Tavern.
+  #700 Tavern. => 607 tavern(noun): a word for a bar, often used in the name of a bar
+  #725 Bunny => 3910 bunny(noun): a word for a rabbit, used especially by or to children
+455 [1576.175] I'll find us a ride. / Maybe you can get us some food.
+456 [1579.553] And stay out of trouble.
+457 [1583.182] Hey, what you guys playing?
+458 [1584.6] Mah-jongg.
+459 [1586.352] And the stakes are high.
+  #162 stakes => 582 stake(noun): money that you risk as the result of a horse race, card game etc
+460 [1588.02] Can I play?
+461 [1589.104] Surely you'll go easy on a beginner, / 'cause I'm very beginning.
+  #250 easy => 1625 easy(adverb): to be more gentle and less strict or angry with someone
+462 [1594.193] - Hey there. / - What can I get you?
+463 [1596.403] A boat ride to Juniper City.
+464 [1598.28] Ask this guy.
+465 [1601.909] - Who's he? / - He's the captain.
+466 [1603.911] - Thanks.
+467 [1608.582] Oh, I win again. / Beginner's luck, I guess.
+468 [1611.377] Never played before, huh?
+469 [1613.254] I'm sorry, are you accusing me / of cheating?
+  #163 accusing => 594 accuse(verb): to say that you believe someone is guilty of a crime or of doing something bad
+  #251 cheating? => 1632 cheat(verb): to behave in a dishonest way in order to win or to get an advantage, especially in a competition, game, or examination
+470 [1615.256] I would like to speak / to the manager, please.
+471 [1617.549] I am the manager.
+472 [1620.094] I'll give you a boat ride to Juniper City, / but I won't carry anything illegal.
+473 [1624.265] I don't want any trouble.
+474 [1625.641] Trouble runs from me.
+475 [1627.601] Then it'll cost you double.
+476 [1629.061] I'm confused. / Should I have said that I like trouble?
+477 [1631.605] In that case, it'll cost you triple.
+  #164 triple. => 596 triple(adjective): three times more than a particular number
+478 [1633.44] Oh. Uh, maybe we can go back / to the double price?
+479 [1639.113] You got a deal.
+480 [1640.531] Great. / Do I shake his hand or your hand?
+481 [1644.41] Can I get anything else for you, ma'am?
+482 [1645.911] Yes. Everything, again.
+483 [1647.371] Except for the broth. It was very bland.
+  #165 broth. => 260 broth(noun): soup with meat, rice, or vegetables
+  #166 bland. => 601 bland(adjective): food that is bland has very little taste
+484 [1649.415] - Keep stirring!
+  #252 stirring! => 1597 stir(verb): to move a liquid or substance around with a spoon or stick in order to mix it together
+485 [1652.501] Whoa! One of everything is my go-to order.
+486 [1655.963] But how did you pay for this?
+487 [1657.214] Legally. Lawfully. Fair and square.
+  #253 Legally. => 1641 legally(adverb): if you can do something legally, you are allowed to do it by law
+  #726 Fair => 3938 fair(adverb): to win a competition, sports match etc honestly and without cheating
+488 [1659.174] - I'm proud of you.
+489 [1671.645] Oh, wow! Look at the time.
+490 [1672.73] Remember we have to do that thing / down by the place with that guy?
+491 [1675.649] Did you actually think you could / grift a meal out of me?
+492 [1680.154] There's gotta be some sort / of misunderstanding here.
+  #167 misunderstanding => 602 misunderstanding(noun): a problem caused by someone not understanding a question, situation, or instruction correctly
+493 [1685.159] And apparently, / I'm the one misunderstanding.
+  #254 apparently, => 1669 apparently(adverb): according to the way someone looks or a situation appears, although you cannot be sure
+  #255 misunderstanding. => 1670 misunderstand(verb): to fail to understand someone or something correctly
+494 [1687.62] Please allow us to pay for our meal / and yours too.
+495 [1690.748] I'm only hungry for...
+496 [1692.75] - Dumplings? / - ...vengeance!
+  #168 ...vengeance! => 604 vengeance(noun): a violent or harmful action that someone does to punish someone for harming them or their family
+497 [1694.209] Well, then, come and get it.
+498 [1696.17] No! No, no, no! Don't come and get it!
+499 [1698.172] - Destroy them!
+500 [1712.895] I got it!
+501 [1724.323] There you go.
+502 [1727.326] - All better.
+503 [1728.869] - Come on! Gotcha.
+  #727 Gotcha. => 3940 gotcha(interjection): a word meaning ‘I’ve got you’, used when you catch someone or trick them in some way
+504 [1731.622] Keep stirring!
+  #256 stirring! => 1597 stir(verb): to move a liquid or substance around with a spoon or stick in order to mix it together
+505 [1741.34] Oh, yeah!
+506 [1761.777] I'll take that.
+507 [1766.115] Think this belongs to you.
+508 [1780.379] No stealing!
+509 [1786.427] Yeah, I think it's / a little too late for that.
+510 [1789.138] It's never too late to do the right thing.
+511 [1791.432] - Get them!
+512 [1793.058] - Watch out! / - Whoa!
+513 [1802.151] - Skadoosh!
+514 [1810.534] - Whoa. Nice move. You gotta teach me that.
+515 [1814.246] You die, panda!
+516 [1829.637] Ah! Uh.
+517 [1831.388] Ah! Whoa, whoa, whoa!
+518 [1835.309] Who designs a tavern on a cliff?
+  #169 tavern => 607 tavern(noun): a word for a bar, often used in the name of a bar
+  #701 cliff? => 3794 cliff(noun): a large area of rock or a mountain with a very steep side, often at the edge of the sea or a river
+519 [1837.436] I shouldn't have eaten / all those dumplings.
+520 [1841.19] - Huh?
+521 [1842.733] Uh-oh.
+522 [1848.656] Sail ho!

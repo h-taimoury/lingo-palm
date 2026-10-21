@@ -199,7 +199,7 @@ export function SenseForm({
           edits.
         </p>
       </div>
-      <Button className="w-fit" disabled={busy}>
+      <Button type="submit" className="w-fit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
         {busy ? "Saving…" : sense ? "Save sense" : "Create sense"}
       </Button>

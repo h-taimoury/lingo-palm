@@ -1,0 +1,1853 @@
+{
+  "summary": {
+    "section_id": 8,
+    "course_id": 5,
+    "before_count": 363,
+    "after_count": 454,
+    "operations": {
+      "update": 45,
+      "remove": 2,
+      "add": 93
+    },
+    "mapped_tokens": 576,
+    "overlaps": 0,
+    "unmatched_tokens": 0,
+    "other_sections_unchanged": true
+  },
+  "changes": [
+    {
+      "action": "update",
+      "mapping_id": 170,
+      "cue_id": 14,
+      "token_indices": [
+        2,
+        3
+      ],
+      "sense_ids": [
+        613
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 170
+    },
+    {
+      "action": "update",
+      "mapping_id": 204,
+      "cue_id": 256,
+      "token_indices": [
+        2,
+        3
+      ],
+      "sense_ids": [
+        613
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 204
+    },
+    {
+      "action": "update",
+      "mapping_id": 219,
+      "cue_id": 321,
+      "token_indices": [
+        2,
+        3
+      ],
+      "sense_ids": [
+        613
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 219
+    },
+    {
+      "action": "update",
+      "mapping_id": 577,
+      "cue_id": 21,
+      "token_indices": [
+        11,
+        12,
+        13
+      ],
+      "sense_ids": [
+        3588
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 577
+    },
+    {
+      "action": "update",
+      "mapping_id": 705,
+      "cue_id": 63,
+      "token_indices": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sense_ids": [
+        3819,
+        688
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 705
+    },
+    {
+      "action": "update",
+      "mapping_id": 599,
+      "cue_id": 69,
+      "token_indices": [
+        7,
+        8
+      ],
+      "sense_ids": [
+        3845,
+        3644
+      ],
+      "reason": "Use the wedding expression and bride; remove the irrelevant embarrassed-face sense.",
+      "resulting_mapping_id": 599
+    },
+    {
+      "action": "update",
+      "mapping_id": 175,
+      "cue_id": 69,
+      "token_indices": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "sense_ids": [
+        730,
+        3848
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 175
+    },
+    {
+      "action": "update",
+      "mapping_id": 594,
+      "cue_id": 57,
+      "token_indices": [
+        7,
+        8
+      ],
+      "sense_ids": [
+        642
+      ],
+      "reason": "Bean curd is tofu; milk curd is a different substance.",
+      "resulting_mapping_id": 594
+    },
+    {
+      "action": "update",
+      "mapping_id": 72,
+      "cue_id": 97,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        355
+      ],
+      "reason": "Spiritual guidance concerns inner/spiritual life here, rather than organized religion.",
+      "resulting_mapping_id": 72
+    },
+    {
+      "action": "update",
+      "mapping_id": 85,
+      "cue_id": 140,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        355
+      ],
+      "reason": "Spiritual guidance concerns inner/spiritual life here, rather than organized religion.",
+      "resulting_mapping_id": 85
+    },
+    {
+      "action": "update",
+      "mapping_id": 56,
+      "cue_id": 53,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        259
+      ],
+      "reason": "Nearest available territorial/domain sense for the magical realm; not an area of knowledge.",
+      "resulting_mapping_id": 56
+    },
+    {
+      "action": "update",
+      "mapping_id": 669,
+      "cue_id": 256,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        259
+      ],
+      "reason": "Nearest available territorial/domain sense for the magical realm; not an area of knowledge.",
+      "resulting_mapping_id": 669
+    },
+    {
+      "action": "update",
+      "mapping_id": 689,
+      "cue_id": 328,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        259
+      ],
+      "reason": "Nearest available territorial/domain sense for the magical realm; not an area of knowledge.",
+      "resulting_mapping_id": 689
+    },
+    {
+      "action": "update",
+      "mapping_id": 176,
+      "cue_id": 101,
+      "token_indices": [
+        5,
+        6
+      ],
+      "sense_ids": [
+        801
+      ],
+      "reason": "The stored pass sense explicitly supports transfer with a particle.",
+      "resulting_mapping_id": 176
+    },
+    {
+      "action": "update",
+      "mapping_id": 179,
+      "cue_id": 129,
+      "token_indices": [
+        6,
+        7
+      ],
+      "sense_ids": [
+        12738
+      ],
+      "reason": "Use the newly available dedicated pass-on sense for transmitting information.",
+      "resulting_mapping_id": 179
+    },
+    {
+      "action": "update",
+      "mapping_id": 220,
+      "cue_id": 321,
+      "token_indices": [
+        5,
+        6
+      ],
+      "sense_ids": [
+        801
+      ],
+      "reason": "The stored pass sense explicitly supports transfer with a particle.",
+      "resulting_mapping_id": 220
+    },
+    {
+      "action": "update",
+      "mapping_id": 184,
+      "cue_id": 177,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        867
+      ],
+      "reason": "Select the mental-calm expression explicitly illustrated by the peace sense.",
+      "resulting_mapping_id": 184
+    },
+    {
+      "action": "update",
+      "mapping_id": 185,
+      "cue_id": 178,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        867
+      ],
+      "reason": "Select the mental-calm expression explicitly illustrated by the peace sense.",
+      "resulting_mapping_id": 185
+    },
+    {
+      "action": "update",
+      "mapping_id": 186,
+      "cue_id": 179,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        867
+      ],
+      "reason": "Select the mental-calm expression explicitly illustrated by the peace sense.",
+      "resulting_mapping_id": 186
+    },
+    {
+      "action": "update",
+      "mapping_id": 187,
+      "cue_id": 184,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        867
+      ],
+      "reason": "Select the mental-calm expression explicitly illustrated by the peace sense.",
+      "resulting_mapping_id": 187
+    },
+    {
+      "action": "update",
+      "mapping_id": 188,
+      "cue_id": 185,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        867
+      ],
+      "reason": "Select the mental-calm expression explicitly illustrated by the peace sense.",
+      "resulting_mapping_id": 188
+    },
+    {
+      "action": "update",
+      "mapping_id": 189,
+      "cue_id": 191,
+      "token_indices": [
+        4,
+        5
+      ],
+      "sense_ids": [
+        887
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 189
+    },
+    {
+      "action": "update",
+      "mapping_id": 190,
+      "cue_id": 192,
+      "token_indices": [
+        3,
+        4,
+        5
+      ],
+      "sense_ids": [
+        887
+      ],
+      "reason": "Include both repeated inner tokens and voice in the extended expression.",
+      "resulting_mapping_id": 190
+    },
+    {
+      "action": "update",
+      "mapping_id": 194,
+      "cue_id": 203,
+      "token_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "sense_ids": [
+        900
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 194
+    },
+    {
+      "action": "update",
+      "mapping_id": 197,
+      "cue_id": 207,
+      "token_indices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "sense_ids": [
+        971
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 197
+    },
+    {
+      "action": "update",
+      "mapping_id": 198,
+      "cue_id": 209,
+      "token_indices": [
+        0,
+        1,
+        2
+      ],
+      "sense_ids": [
+        979
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 198
+    },
+    {
+      "action": "update",
+      "mapping_id": 199,
+      "cue_id": 218,
+      "token_indices": [
+        0,
+        1,
+        2
+      ],
+      "sense_ids": [
+        982
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 199
+    },
+    {
+      "action": "update",
+      "mapping_id": 211,
+      "cue_id": 277,
+      "token_indices": [
+        4,
+        5
+      ],
+      "sense_ids": [
+        1104
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 211
+    },
+    {
+      "action": "update",
+      "mapping_id": 213,
+      "cue_id": 291,
+      "token_indices": [
+        5,
+        6,
+        7
+      ],
+      "sense_ids": [
+        1243
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 213
+    },
+    {
+      "action": "update",
+      "mapping_id": 214,
+      "cue_id": 292,
+      "token_indices": [
+        6,
+        7,
+        8
+      ],
+      "sense_ids": [
+        1243
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 214
+    },
+    {
+      "action": "update",
+      "mapping_id": 215,
+      "cue_id": 294,
+      "token_indices": [
+        1,
+        2,
+        3
+      ],
+      "sense_ids": [
+        1243
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 215
+    },
+    {
+      "action": "update",
+      "mapping_id": 216,
+      "cue_id": 304,
+      "token_indices": [
+        4,
+        5,
+        6
+      ],
+      "sense_ids": [
+        1097
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 216
+    },
+    {
+      "action": "update",
+      "mapping_id": 224,
+      "cue_id": 332,
+      "token_indices": [
+        4,
+        5,
+        6
+      ],
+      "sense_ids": [
+        654
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 224
+    },
+    {
+      "action": "update",
+      "mapping_id": 233,
+      "cue_id": 368,
+      "token_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sense_ids": [
+        1223
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 233
+    },
+    {
+      "action": "update",
+      "mapping_id": 234,
+      "cue_id": 374,
+      "token_indices": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "sense_ids": [
+        1441
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 234
+    },
+    {
+      "action": "update",
+      "mapping_id": 239,
+      "cue_id": 409,
+      "token_indices": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sense_ids": [
+        1475
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 239
+    },
+    {
+      "action": "update",
+      "mapping_id": 242,
+      "cue_id": 414,
+      "token_indices": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sense_ids": [
+        1530
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 242
+    },
+    {
+      "action": "update",
+      "mapping_id": 243,
+      "cue_id": 423,
+      "token_indices": [
+        2,
+        3
+      ],
+      "sense_ids": [
+        200
+      ],
+      "reason": "Use the dedicated phrasal verb for becoming anxious.",
+      "resulting_mapping_id": 243
+    },
+    {
+      "action": "update",
+      "mapping_id": 245,
+      "cue_id": 429,
+      "token_indices": [
+        4,
+        5,
+        6
+      ],
+      "sense_ids": [
+        1571
+      ],
+      "reason": "The stored examples explicitly contain met your match; retain that sense.",
+      "resulting_mapping_id": 245
+    },
+    {
+      "action": "update",
+      "mapping_id": 250,
+      "cue_id": 461,
+      "token_indices": [
+        2,
+        3,
+        4
+      ],
+      "sense_ids": [
+        1625
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 250
+    },
+    {
+      "action": "update",
+      "mapping_id": 726,
+      "cue_id": 487,
+      "token_indices": [
+        2,
+        3,
+        4
+      ],
+      "sense_ids": [
+        3938
+      ],
+      "reason": "Select the dictionary-supported expression in full.",
+      "resulting_mapping_id": 726
+    },
+    {
+      "action": "update",
+      "mapping_id": 698,
+      "cue_id": 407,
+      "token_indices": [
+        3,
+        6
+      ],
+      "sense_ids": [
+        3787
+      ],
+      "reason": "The selected sense is take time out; omit the incidental modifier.",
+      "resulting_mapping_id": 698
+    },
+    {
+      "action": "remove",
+      "mapping_id": 578,
+      "reason": "Ordinary spatial off is too basic here."
+    },
+    {
+      "action": "remove",
+      "mapping_id": 703,
+      "reason": "Furious is part of the team name here, not an independently used adjective."
+    },
+    {
+      "action": "add",
+      "cue_id": 10,
+      "token_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "sense_ids": [
+        1231
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3331
+    },
+    {
+      "action": "add",
+      "cue_id": 11,
+      "token_indices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "sense_ids": [
+        5366
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3332
+    },
+    {
+      "action": "add",
+      "cue_id": 21,
+      "token_indices": [
+        8,
+        9
+      ],
+      "sense_ids": [
+        12707
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3333
+    },
+    {
+      "action": "add",
+      "cue_id": 82,
+      "token_indices": [
+        8,
+        9
+      ],
+      "sense_ids": [
+        6026
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3334
+    },
+    {
+      "action": "add",
+      "cue_id": 103,
+      "token_indices": [
+        5,
+        6
+      ],
+      "sense_ids": [
+        12712
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3335
+    },
+    {
+      "action": "add",
+      "cue_id": 112,
+      "token_indices": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "sense_ids": [
+        6878
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3336
+    },
+    {
+      "action": "add",
+      "cue_id": 117,
+      "token_indices": [
+        2,
+        3,
+        4
+      ],
+      "sense_ids": [
+        867
+      ],
+      "reason": "The peace sense explicitly illustrates at peace with oneself.",
+      "resulting_mapping_id": 3337
+    },
+    {
+      "action": "add",
+      "cue_id": 120,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        8340
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3338
+    },
+    {
+      "action": "add",
+      "cue_id": 131,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        267
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3339
+    },
+    {
+      "action": "add",
+      "cue_id": 136,
+      "token_indices": [
+        10,
+        11
+      ],
+      "sense_ids": [
+        267
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3340
+    },
+    {
+      "action": "add",
+      "cue_id": 142,
+      "token_indices": [
+        4,
+        5
+      ],
+      "sense_ids": [
+        1967
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3341
+    },
+    {
+      "action": "add",
+      "cue_id": 188,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        5810
+      ],
+      "reason": "Keep meaning continue doing something is an explicit user preference.",
+      "resulting_mapping_id": 3342
+    },
+    {
+      "action": "add",
+      "cue_id": 484,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        5810
+      ],
+      "reason": "Keep meaning continue doing something is an explicit user preference.",
+      "resulting_mapping_id": 3343
+    },
+    {
+      "action": "add",
+      "cue_id": 504,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        5810
+      ],
+      "reason": "Keep meaning continue doing something is an explicit user preference.",
+      "resulting_mapping_id": 3344
+    },
+    {
+      "action": "add",
+      "cue_id": 190,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        11550
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3345
+    },
+    {
+      "action": "add",
+      "cue_id": 233,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        471
+      ],
+      "reason": "Nearest noun sense: someone pretending to be something they are not.",
+      "resulting_mapping_id": 3346
+    },
+    {
+      "action": "add",
+      "cue_id": 269,
+      "token_indices": [
+        1,
+        2,
+        3
+      ],
+      "sense_ids": [
+        867
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3347
+    },
+    {
+      "action": "add",
+      "cue_id": 277,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        1109
+      ],
+      "reason": "Form means bodily shape in the shape-shifting description.",
+      "resulting_mapping_id": 3348
+    },
+    {
+      "action": "add",
+      "cue_id": 298,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        12717
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3349
+    },
+    {
+      "action": "add",
+      "cue_id": 310,
+      "token_indices": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "sense_ids": [
+        12608
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3350
+    },
+    {
+      "action": "add",
+      "cue_id": 331,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        3941
+      ],
+      "reason": "Here Gotcha means I understand, not I caught you.",
+      "resulting_mapping_id": 3351
+    },
+    {
+      "action": "add",
+      "cue_id": 348,
+      "token_indices": [
+        4,
+        5
+      ],
+      "sense_ids": [
+        12711
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3352
+    },
+    {
+      "action": "add",
+      "cue_id": 351,
+      "token_indices": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "sense_ids": [
+        1735
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3353
+    },
+    {
+      "action": "add",
+      "cue_id": 361,
+      "token_indices": [
+        1,
+        2
+      ],
+      "sense_ids": [
+        12398
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3354
+    },
+    {
+      "action": "add",
+      "cue_id": 361,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        5142
+      ],
+      "reason": "Run means control or manage a city.",
+      "resulting_mapping_id": 3355
+    },
+    {
+      "action": "add",
+      "cue_id": 377,
+      "token_indices": [
+        6,
+        7
+      ],
+      "sense_ids": [
+        12722
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3356
+    },
+    {
+      "action": "add",
+      "cue_id": 410,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        3895
+      ],
+      "reason": "Nearest stored verb sense for the humorous noun meaning a trick.",
+      "resulting_mapping_id": 3357
+    },
+    {
+      "action": "add",
+      "cue_id": 412,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3899
+      ],
+      "reason": "Nearest stored verb sense for cheating someone financially.",
+      "resulting_mapping_id": 3358
+    },
+    {
+      "action": "add",
+      "cue_id": 412,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        565
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3359
+    },
+    {
+      "action": "add",
+      "cue_id": 421,
+      "token_indices": [
+        3,
+        4,
+        5
+      ],
+      "sense_ids": [
+        12720
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3360
+    },
+    {
+      "action": "add",
+      "cue_id": 421,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        570
+      ],
+      "reason": "Nearest stored relaxation sense; cold adjective sense would be wrong.",
+      "resulting_mapping_id": 3361
+    },
+    {
+      "action": "add",
+      "cue_id": 425,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        570
+      ],
+      "reason": "Nearest stored relaxation sense; cold adjective sense would be wrong.",
+      "resulting_mapping_id": 3362
+    },
+    {
+      "action": "add",
+      "cue_id": 425,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        3902
+      ],
+      "reason": "Repeat the same selected meaning.",
+      "resulting_mapping_id": 3363
+    },
+    {
+      "action": "add",
+      "cue_id": 425,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        3748
+      ],
+      "reason": "Repeat the confront/deal-with-opponent meaning already taught.",
+      "resulting_mapping_id": 3364
+    },
+    {
+      "action": "add",
+      "cue_id": 437,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        3906
+      ],
+      "reason": "Repeat the same selected animal meaning.",
+      "resulting_mapping_id": 3365
+    },
+    {
+      "action": "add",
+      "cue_id": 450,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        3910
+      ],
+      "reason": "Repeat the same selected animal word.",
+      "resulting_mapping_id": 3366
+    },
+    {
+      "action": "add",
+      "cue_id": 485,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        3793
+      ],
+      "reason": "Nearest stored preferred/reliable-choice sense, extended from a person to an order.",
+      "resulting_mapping_id": 3367
+    },
+    {
+      "action": "add",
+      "cue_id": 242,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        1671
+      ],
+      "reason": "Useful food word; nearest stored flour-dumpling sense for the Chinese dish.",
+      "resulting_mapping_id": 3368
+    },
+    {
+      "action": "add",
+      "cue_id": 496,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        1671
+      ],
+      "reason": "Useful food word; nearest stored flour-dumpling sense for the Chinese dish.",
+      "resulting_mapping_id": 3369
+    },
+    {
+      "action": "add",
+      "cue_id": 519,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        1671
+      ],
+      "reason": "Useful food word; nearest stored flour-dumpling sense for the Chinese dish.",
+      "resulting_mapping_id": 3370
+    },
+    {
+      "action": "add",
+      "cue_id": 284,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3371
+    },
+    {
+      "action": "add",
+      "cue_id": 289,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3372
+    },
+    {
+      "action": "add",
+      "cue_id": 299,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3373
+    },
+    {
+      "action": "add",
+      "cue_id": 338,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3374
+    },
+    {
+      "action": "add",
+      "cue_id": 340,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3375
+    },
+    {
+      "action": "add",
+      "cue_id": 342,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3376
+    },
+    {
+      "action": "add",
+      "cue_id": 346,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3377
+    },
+    {
+      "action": "add",
+      "cue_id": 368,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3378
+    },
+    {
+      "action": "add",
+      "cue_id": 369,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3379
+    },
+    {
+      "action": "add",
+      "cue_id": 372,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3380
+    },
+    {
+      "action": "add",
+      "cue_id": 375,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3381
+    },
+    {
+      "action": "add",
+      "cue_id": 415,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3382
+    },
+    {
+      "action": "add",
+      "cue_id": 430,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3383
+    },
+    {
+      "action": "add",
+      "cue_id": 443,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        3885
+      ],
+      "reason": "Repeat the already-selected chameleon animal word in the same referent.",
+      "resulting_mapping_id": 3384
+    },
+    {
+      "action": "add",
+      "cue_id": 249,
+      "token_indices": [
+        7,
+        8
+      ],
+      "sense_ids": [
+        12724
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3385
+    },
+    {
+      "action": "add",
+      "cue_id": 250,
+      "token_indices": [
+        3,
+        4
+      ],
+      "sense_ids": [
+        12724
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3386
+    },
+    {
+      "action": "add",
+      "cue_id": 317,
+      "token_indices": [
+        5,
+        6
+      ],
+      "sense_ids": [
+        12724
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3387
+    },
+    {
+      "action": "add",
+      "cue_id": 182,
+      "token_indices": [
+        0,
+        1
+      ],
+      "sense_ids": [
+        12725
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3388
+    },
+    {
+      "action": "add",
+      "cue_id": 79,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        12726
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3389
+    },
+    {
+      "action": "add",
+      "cue_id": 168,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        12728
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3390
+    },
+    {
+      "action": "add",
+      "cue_id": 336,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3060
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3391
+    },
+    {
+      "action": "add",
+      "cue_id": 318,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        11634
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3392
+    },
+    {
+      "action": "add",
+      "cue_id": 333,
+      "token_indices": [
+        1,
+        2
+      ],
+      "sense_ids": [
+        1446
+      ],
+      "reason": "Concept-equivalent fallback: easy prey describes a person easily deceived or harmed.",
+      "resulting_mapping_id": 3393
+    },
+    {
+      "action": "add",
+      "cue_id": 334,
+      "token_indices": [
+        2,
+        3
+      ],
+      "sense_ids": [
+        1446
+      ],
+      "reason": "Concept-equivalent fallback: easy prey describes a person easily deceived or harmed.",
+      "resulting_mapping_id": 3394
+    },
+    {
+      "action": "add",
+      "cue_id": 491,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        528
+      ],
+      "reason": "Concept-equivalent fallback: swindle means obtaining money by deception; here obtaining a meal.",
+      "resulting_mapping_id": 3395
+    },
+    {
+      "action": "add",
+      "cue_id": 412,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        529
+      ],
+      "reason": "Concept-equivalent fallback: a swindle, not the irrelevant bird or chess senses of rook.",
+      "resulting_mapping_id": 3396
+    },
+    {
+      "action": "add",
+      "cue_id": 378,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        536
+      ],
+      "reason": "Nearest financial-pressure sense for extorting tribute; more suitable than literal pressing.",
+      "resulting_mapping_id": 3397
+    },
+    {
+      "action": "add",
+      "cue_id": 379,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        536
+      ],
+      "reason": "Nearest financial-pressure sense for extorting tribute; more suitable than literal pressing.",
+      "resulting_mapping_id": 3398
+    },
+    {
+      "action": "add",
+      "cue_id": 70,
+      "token_indices": [
+        5,
+        6
+      ],
+      "sense_ids": [
+        12746
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3399
+    },
+    {
+      "action": "add",
+      "cue_id": 96,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        348
+      ],
+      "reason": "Nearest career-progression sense for moving to a higher rank.",
+      "resulting_mapping_id": 3400
+    },
+    {
+      "action": "add",
+      "cue_id": 183,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        12742
+      ],
+      "reason": "Soy is short for soy sauce in this cooking context.",
+      "resulting_mapping_id": 3401
+    },
+    {
+      "action": "add",
+      "cue_id": 211,
+      "token_indices": [
+        3,
+        4
+      ],
+      "sense_ids": [
+        12744
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3402
+    },
+    {
+      "action": "add",
+      "cue_id": 255,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        12776
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3403
+    },
+    {
+      "action": "add",
+      "cue_id": 395,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        12733
+      ],
+      "reason": "Nearest stored impudent adjective sense for the corresponding disrespectful behaviour noun.",
+      "resulting_mapping_id": 3404
+    },
+    {
+      "action": "add",
+      "cue_id": 359,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        12736
+      ],
+      "reason": "Nearest stored reptile sense for the corresponding adjective.",
+      "resulting_mapping_id": 3405
+    },
+    {
+      "action": "add",
+      "cue_id": 382,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        12736
+      ],
+      "reason": "Nearest stored reptile sense for the corresponding adjective.",
+      "resulting_mapping_id": 3406
+    },
+    {
+      "action": "add",
+      "cue_id": 383,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        12736
+      ],
+      "reason": "Nearest stored reptile sense for the corresponding adjective.",
+      "resulting_mapping_id": 3407
+    },
+    {
+      "action": "add",
+      "cue_id": 447,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        2008
+      ],
+      "reason": "Nearest noun concept: bad people/criminals; the cut-throat competitive-business adjective does not fit.",
+      "resulting_mapping_id": 3408
+    },
+    {
+      "action": "add",
+      "cue_id": 487,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        12743
+      ],
+      "reason": "Nearest lawful adjective sense for the corresponding adverb.",
+      "resulting_mapping_id": 3409
+    },
+    {
+      "action": "add",
+      "cue_id": 492,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        12215
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3410
+    },
+    {
+      "action": "add",
+      "cue_id": 514,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        12215
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3411
+    },
+    {
+      "action": "add",
+      "cue_id": 514,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        1841
+      ],
+      "reason": "A physical martial-arts movement, distinct from the strategic-action sense in cue 357.",
+      "resulting_mapping_id": 3412
+    },
+    {
+      "action": "update",
+      "mapping_id": 106,
+      "cue_id": 201,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        448
+      ],
+      "reason": "Justice is personified enforcement/punishment of wrongdoing here, matching cue 205.",
+      "resulting_mapping_id": 106
+    },
+    {
+      "action": "update",
+      "mapping_id": 156,
+      "cue_id": 406,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        448
+      ],
+      "reason": "Justice is personified enforcement/punishment of wrongdoing here, matching cue 205.",
+      "resulting_mapping_id": 156
+    },
+    {
+      "action": "update",
+      "mapping_id": 576,
+      "cue_id": 20,
+      "token_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sense_ids": [
+        12787,
+        3583
+      ],
+      "reason": "Playful substitution in the documented knickers-in-a-twist idiom; retain noodle as a useful supporting sense.",
+      "resulting_mapping_id": 576
+    },
+    {
+      "action": "add",
+      "cue_id": 66,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        12783
+      ],
+      "reason": "Useful contextual vocabulary or expression missing from the mappings.",
+      "resulting_mapping_id": 3413
+    },
+    {
+      "action": "add",
+      "cue_id": 345,
+      "token_indices": [
+        3,
+        4
+      ],
+      "sense_ids": [
+        12791
+      ],
+      "reason": "Concept-equivalent fallback: bring down a ruler, matching defeating the city-controlling sorceress.",
+      "resulting_mapping_id": 3414
+    },
+    {
+      "action": "add",
+      "cue_id": 349,
+      "token_indices": [
+        1,
+        2
+      ],
+      "sense_ids": [
+        12791
+      ],
+      "reason": "Concept-equivalent fallback: bring down a ruler, matching defeating the city-controlling sorceress.",
+      "resulting_mapping_id": 3415
+    },
+    {
+      "action": "add",
+      "cue_id": 365,
+      "token_indices": [
+        3,
+        5
+      ],
+      "sense_ids": [
+        12791
+      ],
+      "reason": "Repeat the same overthrow/defeat-ruler expression; exclude the object pronoun.",
+      "resulting_mapping_id": 3416
+    },
+    {
+      "action": "add",
+      "cue_id": 285,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3417
+    },
+    {
+      "action": "add",
+      "cue_id": 286,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3418
+    },
+    {
+      "action": "add",
+      "cue_id": 304,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3419
+    },
+    {
+      "action": "add",
+      "cue_id": 342,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3420
+    },
+    {
+      "action": "add",
+      "cue_id": 366,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3421
+    },
+    {
+      "action": "add",
+      "cue_id": 425,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3422
+    },
+    {
+      "action": "add",
+      "cue_id": 407,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        12793
+      ],
+      "reason": "Informal derived noun meaning snacks; use the stored snack sense.",
+      "resulting_mapping_id": 3423
+    }
+  ]
+}

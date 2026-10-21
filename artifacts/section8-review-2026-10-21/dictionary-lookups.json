@@ -1,0 +1,58 @@
+[
+  {
+    "term": "impudence",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/impudence: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/impudence\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/impudence\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "cutthroat",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/cutthroat: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/cutthroat\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/cutthroat\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "grift",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/grift: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/grift\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/grift\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "kick-back",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/kick-back: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/kick-back\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/kick-back\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "take-down",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/take-down: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/take-down\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/take-down\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "team-up",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/team-up: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/team-up\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/team-up\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "stick-with",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/stick-with: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/stick-with\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/stick-with\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "blend-in",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/blend-in: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/blend-in\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/blend-in\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "come-across",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/come-across: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/come-across\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/come-across\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "prey-on",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/prey-on: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/prey-on\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/prey-on\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "shape-shifter",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/shape-shifter: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/shape-shifter\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/shape-shifter\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "bug-eyed",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/bug-eyed: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/bug-eyed\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/bug-eyed\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "power-hungry",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/power-hungry: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/power-hungry\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/power-hungry\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "reptilian",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/reptilian: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.ldoceonline.com/dictionary/reptilian\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/reptilian\", waiting until \"domcontentloaded\"\n"
+  }
+]

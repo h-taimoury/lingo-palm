@@ -1,0 +1,26 @@
+{
+  "source": "C:\\Users\\Fardin\\Desktop\\Finding Dory\\FindingDory.brrip.2016.1080p.srt",
+  "retained_source_cues": 1578,
+  "removed_source_cues": [],
+  "parts": [
+    {
+      "file": "section1.vtt",
+      "cues": 544,
+      "source_minus_local_ms": -42,
+      "duration_ms": 1764846
+    },
+    {
+      "file": "section2.vtt",
+      "cues": 560,
+      "source_minus_local_ms": 1764846,
+      "duration_ms": 1876499
+    },
+    {
+      "file": "section3.vtt",
+      "cues": 474,
+      "source_minus_local_ms": 3641346,
+      "duration_ms": 2182342
+    }
+  ],
+  "notes": "Removed font/italic tags, (GASPS), and ALL: speaker label. No credit cues found. Preserved dialogue and meaningful punctuation. Offsets verified using identical video packet hashes. Source subtitle synchronization with the movie itself requires playback verification."
+}

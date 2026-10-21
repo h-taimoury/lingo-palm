@@ -1,0 +1,169 @@
+{
+  "schema_version": 2,
+  "section_id": 11,
+  "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+  "mappings": [
+    {
+      "cue_id": 4,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4017
+      ]
+    },
+    {
+      "cue_id": 5,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5325
+      ]
+    },
+    {
+      "cue_id": 17,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4036
+      ]
+    },
+    {
+      "cue_id": 59,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        7699
+      ]
+    },
+    {
+      "cue_id": 61,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        7754
+      ]
+    },
+    {
+      "cue_id": 68,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        7760
+      ]
+    },
+    {
+      "cue_id": 74,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        7764
+      ]
+    },
+    {
+      "cue_id": 87,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        7796
+      ]
+    },
+    {
+      "cue_id": 97,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        7800
+      ]
+    },
+    {
+      "cue_id": 126,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        7824
+      ]
+    },
+    {
+      "cue_id": 126,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        7471
+      ]
+    },
+    {
+      "cue_id": 131,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        7829
+      ]
+    },
+    {
+      "cue_id": 212,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        614
+      ]
+    },
+    {
+      "cue_id": 255,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4527
+      ]
+    },
+    {
+      "cue_id": 297,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        7829
+      ]
+    },
+    {
+      "cue_id": 371,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        7871
+      ]
+    },
+    {
+      "cue_id": 376,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        7875
+      ]
+    },
+    {
+      "cue_id": 463,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        7878
+      ]
+    }
+  ]
+}

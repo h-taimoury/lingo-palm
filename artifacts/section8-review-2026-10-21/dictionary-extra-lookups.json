@@ -1,0 +1,91 @@
+[
+  {
+    "term": "impudent",
+    "entries": [
+      2570
+    ]
+  },
+  {
+    "term": "cut-throat",
+    "entries": [
+      2571
+    ]
+  },
+  {
+    "term": "grifter",
+    "entries": [
+      2572
+    ]
+  },
+  {
+    "term": "shapeshifter",
+    "error": "PageLoadError: Failed to load https://www.ldoceonline.com/dictionary/shapeshifter: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ldoceonline.com/dictionary/shapeshifter\nCall log:\n  - navigating to \"https://www.ldoceonline.com/dictionary/shapeshifter\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "term": "shape-shifting",
+    "error": "WordNotFoundError: No dictionary entries found for 'shape-shifting' at https://www.ldoceonline.com/dictionary/shape-shifting"
+  },
+  {
+    "term": "reptile",
+    "entries": [
+      2573
+    ]
+  },
+  {
+    "term": "pass-on",
+    "entries": [
+      2574
+    ]
+  },
+  {
+    "term": "pass-along",
+    "error": "WordNotFoundError: No dictionary entries found for 'pass-along' at https://www.ldoceonline.com/dictionary/pass-along"
+  },
+  {
+    "term": "cut-out",
+    "error": "DuplicateScrapeError: 'cut out' has already been scraped."
+  },
+  {
+    "term": "soy-sauce",
+    "entries": [
+      2575
+    ]
+  },
+  {
+    "term": "lawful",
+    "entries": [
+      2576
+    ]
+  },
+  {
+    "term": "walking-stick",
+    "entries": [
+      2577
+    ]
+  },
+  {
+    "term": "person",
+    "entries": [
+      2578
+    ]
+  },
+  {
+    "term": "luck",
+    "entries": [
+      2579,
+      2580
+    ]
+  },
+  {
+    "term": "iron",
+    "entries": [
+      2581,
+      2582,
+      2583
+    ]
+  },
+  {
+    "term": "back-scratcher",
+    "error": "WordNotFoundError: No dictionary entries found for 'back-scratcher' at https://www.ldoceonline.com/dictionary/back-scratcher"
+  }
+]

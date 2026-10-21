@@ -317,6 +317,24 @@ Scrape request:
 The response contains `entry_ids` and the complete newly saved entries for admin
 review. Duplicate words are rejected case-insensitively before Playwright starts.
 
+Returned entries are checked by headword and `source_entry_id`, because Longman
+has two distinct `Junior` entries with neither a part of speech nor a homonym
+number. The scraper stores `entry:<HTML ID>`, falling back to `sense:<first sense
+HTML ID>` when the entry has no ID. Missing both IDs fails with an explicit error.
+`homonym_num` remains Longman's original number; no numbers are invented.
+Migration `dictionary.0008` adds the optional source ID and makes headword plus
+source ID unique. Existing/manual entries retain an empty source ID and the
+legacy uniqueness rule (headword, part of speech, homonym number). Save validation
+also checks legacy conflicts when a new source ID is supplied; it does not
+automatically backfill, merge, or replace existing entries. A URL alias such as
+`take-off` cannot bypass these checks by returning the headword `take off`.
+Headword capitalization is preserved: `passion` and `Passion` can be distinct
+dictionary entries. The existing `(entry, title)` constraint prevents repeated
+sense titles within an entry. Bulk mapping imports only link existing sense IDs.
+Run `python manage.py migrate` before relying on the new database protection.
+Existing conflicting entries must be reviewed if the migration fails; it does
+not automatically delete or merge dictionary data.
+
 Reject request:
 
 ```json
@@ -325,6 +343,26 @@ Reject request:
 
 Rejection deletes the entries, their senses, and unreferenced pronunciation files. It
 is refused if a sense is already used by a course mapping.
+
+## Subtitle occurrence ownership
+
+`courses.0003` enforces one mapping per exact subtitle occurrence using the
+database constraint `unique_subtitle_occurrence_per_section` on
+`(section, cue_id, word, position_in_cue)`. Punctuation and case are preserved;
+`position_in_cue` is the occurrence number for that exact token, not its absolute
+token index. Repeated words in different cues or sections remain valid.
+
+`SubtitleWord.section` is an internal key derived from its mapping by `save()`
+and `bulk_create()`. SQLite/PostgreSQL triggers enforce agreement with the parent
+mapping even for direct SQL writes. Moving a mapping with subtitle words to a
+different section is rejected. Direct bulk updates must keep both keys consistent.
+Normal API creates/edits reject overlaps with HTTP 400; bulk import continues to
+skip occupied occurrences. Database uniqueness also protects concurrent writes.
+
+The migration backfills existing records and refuses existing overlaps without
+deleting or merging data. Other database engines require equivalent consistency
+guards before this migration can run. Future migrations rebuilding these tables
+must preserve/reinstall the guards.
 
 ## Production
 

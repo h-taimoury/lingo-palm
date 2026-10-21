@@ -1,0 +1,2420 @@
+{
+  "source": "C:\\Users\\Fardin\\.codex\\attachments\\5572f2f2-20ee-46a9-955f-dd18f8372f57\\Pasted text.txt",
+  "section_id": 12,
+  "comparison_baseline": "artifacts/section12-review-2026-10-21/after.json",
+  "summary": {
+    "before": 607,
+    "final": 630,
+    "added_records": 26,
+    "removed_records": 3,
+    "changed_records": 21,
+    "unchanged_records": 583
+  },
+  "added": [
+    {
+      "id": 3196,
+      "subtitle_words": [
+        {
+          "word": "soft",
+          "cue_id": 93,
+          "position_in_cue": 1,
+          "cue_start_time": 271.097,
+          "cue_end_time": 273.448
+        },
+        {
+          "word": "sell",
+          "cue_id": 93,
+          "position_in_cue": 1,
+          "cue_start_time": 271.097,
+          "cue_end_time": 273.448
+        }
+      ],
+      "senses": [
+        {
+          "id": 12396,
+          "word": "soft sell",
+          "part_of_speech": "noun",
+          "sense_number": null,
+          "definition": "a way of advertising or selling things that involves gently persuading people to buy something"
+        }
+      ]
+    },
+    {
+      "id": 3197,
+      "subtitle_words": [
+        {
+          "word": "ball",
+          "cue_id": 113,
+          "position_in_cue": 1,
+          "cue_start_time": 340.749,
+          "cue_end_time": 343.43
+        },
+        {
+          "word": "game?",
+          "cue_id": 113,
+          "position_in_cue": 1,
+          "cue_start_time": 340.749,
+          "cue_end_time": 343.43
+        }
+      ],
+      "senses": [
+        {
+          "id": 11823,
+          "word": "ball game",
+          "part_of_speech": "noun",
+          "sense_number": 1,
+          "definition": "a game of baseball, football, or basketball"
+        }
+      ]
+    },
+    {
+      "id": 3198,
+      "subtitle_words": [
+        {
+          "word": "murderous",
+          "cue_id": 118,
+          "position_in_cue": 1,
+          "cue_start_time": 365.149,
+          "cue_end_time": 368.042
+        }
+      ],
+      "senses": [
+        {
+          "id": 5838,
+          "word": "murderous",
+          "part_of_speech": "adjective",
+          "sense_number": 1,
+          "definition": "very dangerous and likely to kill people"
+        }
+      ]
+    },
+    {
+      "id": 3199,
+      "subtitle_words": [
+        {
+          "word": "used",
+          "cue_id": 132,
+          "position_in_cue": 1,
+          "cue_start_time": 406.315,
+          "cue_end_time": 408.274
+        },
+        {
+          "word": "to",
+          "cue_id": 132,
+          "position_in_cue": 1,
+          "cue_start_time": 406.315,
+          "cue_end_time": 408.274
+        }
+      ],
+      "senses": [
+        {
+          "id": 12400,
+          "word": "used",
+          "part_of_speech": "adjective",
+          "sense_number": null,
+          "definition": "to have experienced something so that it no longer seems surprising, difficult, strange etc"
+        }
+      ]
+    },
+    {
+      "id": 3200,
+      "subtitle_words": [
+        {
+          "word": "workingman.",
+          "cue_id": 133,
+          "position_in_cue": 1,
+          "cue_start_time": 408.275,
+          "cue_end_time": 412.862
+        }
+      ],
+      "senses": [
+        {
+          "id": 12403,
+          "word": "workman",
+          "part_of_speech": "noun",
+          "sense_number": null,
+          "definition": "someone who does physical work such as building, repairing things etc"
+        }
+      ]
+    },
+    {
+      "id": 3201,
+      "subtitle_words": [
+        {
+          "word": "talk",
+          "cue_id": 135,
+          "position_in_cue": 1,
+          "cue_start_time": 415.574,
+          "cue_end_time": 421.346
+        },
+        {
+          "word": "out",
+          "cue_id": 135,
+          "position_in_cue": 1,
+          "cue_start_time": 415.574,
+          "cue_end_time": 421.346
+        },
+        {
+          "word": "of",
+          "cue_id": 135,
+          "position_in_cue": 1,
+          "cue_start_time": 415.574,
+          "cue_end_time": 421.346
+        }
+      ],
+      "senses": [
+        {
+          "id": 12404,
+          "word": "talk somebody out of something",
+          "part_of_speech": "phrasal verb",
+          "sense_number": null,
+          "definition": "to persuade someone not to do something"
+        }
+      ]
+    },
+    {
+      "id": 3202,
+      "subtitle_words": [
+        {
+          "word": "make",
+          "cue_id": 266,
+          "position_in_cue": 1,
+          "cue_start_time": 805.422,
+          "cue_end_time": 808.566
+        },
+        {
+          "word": "up",
+          "cue_id": 266,
+          "position_in_cue": 1,
+          "cue_start_time": 805.422,
+          "cue_end_time": 808.566
+        }
+      ],
+      "senses": [
+        {
+          "id": 12405,
+          "word": "make up",
+          "part_of_speech": "phrasal verb",
+          "sense_number": 1,
+          "definition": "to combine together to form something"
+        }
+      ]
+    },
+    {
+      "id": 3203,
+      "subtitle_words": [
+        {
+          "word": "cough",
+          "cue_id": 267,
+          "position_in_cue": 1,
+          "cue_start_time": 817.517,
+          "cue_end_time": 819.644
+        }
+      ],
+      "senses": [
+        {
+          "id": 12080,
+          "word": "cough",
+          "part_of_speech": "noun",
+          "sense_number": 1,
+          "definition": "a medical condition that makes you cough a lot"
+        }
+      ]
+    },
+    {
+      "id": 3204,
+      "subtitle_words": [
+        {
+          "word": "\"Junior,",
+          "cue_id": 279,
+          "position_in_cue": 1,
+          "cue_start_time": 843.585,
+          "cue_end_time": 845.586
+        }
+      ],
+      "senses": [
+        {
+          "id": 12428,
+          "word": "Junior",
+          "part_of_speech": "",
+          "sense_number": null,
+          "definition": "a name used humorously when speaking to or about a boy or a younger man, especially your son"
+        }
+      ]
+    },
+    {
+      "id": 3205,
+      "subtitle_words": [
+        {
+          "word": "made",
+          "cue_id": 302,
+          "position_in_cue": 1,
+          "cue_start_time": 908.358,
+          "cue_end_time": 911.21
+        },
+        {
+          "word": "up?",
+          "cue_id": 302,
+          "position_in_cue": 1,
+          "cue_start_time": 908.358,
+          "cue_end_time": 911.21
+        }
+      ],
+      "senses": [
+        {
+          "id": 12405,
+          "word": "make up",
+          "part_of_speech": "phrasal verb",
+          "sense_number": 1,
+          "definition": "to combine together to form something"
+        }
+      ]
+    },
+    {
+      "id": 3206,
+      "subtitle_words": [
+        {
+          "word": "basing",
+          "cue_id": 302,
+          "position_in_cue": 1,
+          "cue_start_time": 908.358,
+          "cue_end_time": 911.21
+        },
+        {
+          "word": "on...",
+          "cue_id": 302,
+          "position_in_cue": 1,
+          "cue_start_time": 908.358,
+          "cue_end_time": 911.21
+        }
+      ],
+      "senses": [
+        {
+          "id": 12430,
+          "word": "base something on/upon something",
+          "part_of_speech": "phrasal verb",
+          "sense_number": null,
+          "definition": "to use something as the thing from which something else is developed"
+        }
+      ]
+    },
+    {
+      "id": 3207,
+      "subtitle_words": [
+        {
+          "word": "kooky",
+          "cue_id": 303,
+          "position_in_cue": 1,
+          "cue_start_time": 911.737,
+          "cue_end_time": 914.155
+        }
+      ],
+      "senses": [
+        {
+          "id": 12431,
+          "word": "kook",
+          "part_of_speech": "noun",
+          "sense_number": null,
+          "definition": "someone who is silly or crazy"
+        }
+      ]
+    },
+    {
+      "id": 3208,
+      "subtitle_words": [
+        {
+          "word": "is",
+          "cue_id": 308,
+          "position_in_cue": 1,
+          "cue_start_time": 923.54,
+          "cue_end_time": 927.226
+        },
+        {
+          "word": "something.",
+          "cue_id": 308,
+          "position_in_cue": 1,
+          "cue_start_time": 923.54,
+          "cue_end_time": 927.226
+        },
+        {
+          "word": "really",
+          "cue_id": 308,
+          "position_in_cue": 1,
+          "cue_start_time": 923.54,
+          "cue_end_time": 927.226
+        }
+      ],
+      "senses": [
+        {
+          "id": 11384,
+          "word": "something",
+          "part_of_speech": "pronoun",
+          "sense_number": 8,
+          "definition": "used to say that something is very good and impressive"
+        }
+      ]
+    },
+    {
+      "id": 3209,
+      "subtitle_words": [
+        {
+          "word": "put",
+          "cue_id": 318,
+          "position_in_cue": 1,
+          "cue_start_time": 950.692,
+          "cue_end_time": 953.694
+        },
+        {
+          "word": "up",
+          "cue_id": 318,
+          "position_in_cue": 1,
+          "cue_start_time": 950.692,
+          "cue_end_time": 953.694
+        }
+      ],
+      "senses": [
+        {
+          "id": 12439,
+          "word": "put up",
+          "part_of_speech": "phrasal verb",
+          "sense_number": 8,
+          "definition": "to show great determination to oppose something or get out of a difficult situation"
+        }
+      ]
+    },
+    {
+      "id": 3210,
+      "subtitle_words": [
+        {
+          "word": "or",
+          "cue_id": 335,
+          "position_in_cue": 1,
+          "cue_start_time": 1001.618,
+          "cue_end_time": 1006.205
+        },
+        {
+          "word": "so...",
+          "cue_id": 335,
+          "position_in_cue": 1,
+          "cue_start_time": 1001.618,
+          "cue_end_time": 1006.205
+        }
+      ],
+      "senses": [
+        {
+          "id": 12450,
+          "word": "so",
+          "part_of_speech": "adverb",
+          "sense_number": 6,
+          "definition": "used when you cannot be exact about a number, amount, or period of time and you think it may be a little more than the figure you are mentioning"
+        }
+      ]
+    },
+    {
+      "id": 3211,
+      "subtitle_words": [
+        {
+          "word": "keep",
+          "cue_id": 393,
+          "position_in_cue": 1,
+          "cue_start_time": 1163.613,
+          "cue_end_time": 1165.406
+        }
+      ],
+      "senses": [
+        {
+          "id": 5810,
+          "word": "keep",
+          "part_of_speech": "verb",
+          "sense_number": 2,
+          "definition": "to continue doing something or to do the same thing many times"
+        }
+      ]
+    },
+    {
+      "id": 3212,
+      "subtitle_words": [
+        {
+          "word": "out",
+          "cue_id": 423,
+          "position_in_cue": 1,
+          "cue_start_time": 1256.289,
+          "cue_end_time": 1259.208
+        },
+        {
+          "word": "of",
+          "cue_id": 423,
+          "position_in_cue": 1,
+          "cue_start_time": 1256.289,
+          "cue_end_time": 1259.208
+        },
+        {
+          "word": "thin",
+          "cue_id": 423,
+          "position_in_cue": 1,
+          "cue_start_time": 1256.289,
+          "cue_end_time": 1259.208
+        },
+        {
+          "word": "air,",
+          "cue_id": 423,
+          "position_in_cue": 1,
+          "cue_start_time": 1256.289,
+          "cue_end_time": 1259.208
+        }
+      ],
+      "senses": [
+        {
+          "id": 12494,
+          "word": "thin",
+          "part_of_speech": "adjective",
+          "sense_number": 16,
+          "definition": "out of nowhere, as if by magic"
+        }
+      ]
+    },
+    {
+      "id": 3213,
+      "subtitle_words": [
+        {
+          "word": "wading",
+          "cue_id": 448,
+          "position_in_cue": 1,
+          "cue_start_time": 1316.015,
+          "cue_end_time": 1318.934
+        },
+        {
+          "word": "through",
+          "cue_id": 448,
+          "position_in_cue": 1,
+          "cue_start_time": 1316.015,
+          "cue_end_time": 1318.934
+        }
+      ],
+      "senses": [
+        {
+          "id": 12501,
+          "word": "wade through something",
+          "part_of_speech": "phrasal verb",
+          "sense_number": null,
+          "definition": "to read or deal with a lot of boring papers or written work"
+        }
+      ]
+    },
+    {
+      "id": 3214,
+      "subtitle_words": [
+        {
+          "word": "living",
+          "cue_id": 476,
+          "position_in_cue": 1,
+          "cue_start_time": 1390.924,
+          "cue_end_time": 1394.218
+        },
+        {
+          "word": "room,",
+          "cue_id": 476,
+          "position_in_cue": 1,
+          "cue_start_time": 1390.924,
+          "cue_end_time": 1394.218
+        }
+      ],
+      "senses": [
+        {
+          "id": 12502,
+          "word": "living room",
+          "part_of_speech": "noun",
+          "sense_number": null,
+          "definition": "the main room in a house where people relax, watch television etc"
+        }
+      ]
+    },
+    {
+      "id": 3215,
+      "subtitle_words": [
+        {
+          "word": "witness",
+          "cue_id": 488,
+          "position_in_cue": 1,
+          "cue_start_time": 1427.502,
+          "cue_end_time": 1430.17
+        }
+      ],
+      "senses": [
+        {
+          "id": 5304,
+          "word": "witness",
+          "part_of_speech": "noun",
+          "sense_number": 1,
+          "definition": "someone who sees a crime or an accident and can describe what happened"
+        },
+        {
+          "id": 5305,
+          "word": "witness",
+          "part_of_speech": "noun",
+          "sense_number": 2,
+          "definition": "someone who appears in a court of law to say what they know about a crime or other event"
+        }
+      ]
+    },
+    {
+      "id": 3216,
+      "subtitle_words": [
+        {
+          "word": "bring",
+          "cue_id": 494,
+          "position_in_cue": 1,
+          "cue_start_time": 1439.237,
+          "cue_end_time": 1441.323
+        },
+        {
+          "word": "it",
+          "cue_id": 494,
+          "position_in_cue": 1,
+          "cue_start_time": 1439.237,
+          "cue_end_time": 1441.323
+        },
+        {
+          "word": "up",
+          "cue_id": 494,
+          "position_in_cue": 1,
+          "cue_start_time": 1439.237,
+          "cue_end_time": 1441.323
+        }
+      ],
+      "senses": [
+        {
+          "id": 12503,
+          "word": "bring somebody/something ↔ up",
+          "part_of_speech": "phrasal verb",
+          "sense_number": 1,
+          "definition": "to mention a subject or start to talk about it"
+        }
+      ]
+    },
+    {
+      "id": 3217,
+      "subtitle_words": [
+        {
+          "word": "bum",
+          "cue_id": 503,
+          "position_in_cue": 1,
+          "cue_start_time": 1458.116,
+          "cue_end_time": 1460.909
+        }
+      ],
+      "senses": [
+        {
+          "id": 6527,
+          "word": "bum",
+          "part_of_speech": "noun",
+          "sense_number": 4,
+          "definition": "someone who is very lazy"
+        }
+      ]
+    },
+    {
+      "id": 3218,
+      "subtitle_words": [
+        {
+          "word": "avenger.",
+          "cue_id": 554,
+          "position_in_cue": 1,
+          "cue_start_time": 1613.041,
+          "cue_end_time": 1614.98
+        }
+      ],
+      "senses": [
+        {
+          "id": 12515,
+          "word": "avenge",
+          "part_of_speech": "verb",
+          "sense_number": null,
+          "definition": "to do something to hurt or punish someone because they have harmed or offended you"
+        }
+      ]
+    },
+    {
+      "id": 3219,
+      "subtitle_words": [
+        {
+          "word": "brought",
+          "cue_id": 569,
+          "position_in_cue": 1,
+          "cue_start_time": 1684.592,
+          "cue_end_time": 1686.693
+        },
+        {
+          "word": "up.",
+          "cue_id": 569,
+          "position_in_cue": 1,
+          "cue_start_time": 1684.592,
+          "cue_end_time": 1686.693
+        }
+      ],
+      "senses": [
+        {
+          "id": 12504,
+          "word": "bring somebody/something ↔ up",
+          "part_of_speech": "phrasal verb",
+          "sense_number": 2,
+          "definition": "to look after and influence a child until he or she is grown up"
+        }
+      ]
+    },
+    {
+      "id": 3220,
+      "subtitle_words": [
+        {
+          "word": "cutie",
+          "cue_id": 583,
+          "position_in_cue": 1,
+          "cue_start_time": 1735.268,
+          "cue_end_time": 1737.644
+        }
+      ],
+      "senses": [
+        {
+          "id": 7942,
+          "word": "cutie",
+          "part_of_speech": "noun",
+          "sense_number": null,
+          "definition": "someone who is attractive and nice"
+        }
+      ]
+    },
+    {
+      "id": 3221,
+      "subtitle_words": [
+        {
+          "word": "innings",
+          "cue_id": 623,
+          "position_in_cue": 1,
+          "cue_start_time": 1860.184,
+          "cue_end_time": 1863.436
+        }
+      ],
+      "senses": [
+        {
+          "id": 6898,
+          "word": "inning",
+          "part_of_speech": "noun",
+          "sense_number": null,
+          "definition": "one of the nine playing periods in a game of baseball or softball"
+        }
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "id": 1207,
+      "senses": [
+        5385
+      ],
+      "words": [
+        {
+          "id": 1223,
+          "mapping_id": 1207,
+          "word": "witness",
+          "cue_id": 488,
+          "cue_start_time": 1427.502,
+          "cue_end_time": 1430.17,
+          "previous_cue_start_time": 1424.707,
+          "previous_cue_end_time": 1427.501,
+          "next_cue_start_time": 1430.171,
+          "next_cue_end_time": 1431.922,
+          "position_in_cue": 1
+        },
+        {
+          "id": 3442,
+          "mapping_id": 1207,
+          "word": "the",
+          "cue_id": 488,
+          "cue_start_time": 1427.502,
+          "cue_end_time": 1430.17,
+          "previous_cue_start_time": 1424.707,
+          "previous_cue_end_time": 1427.501,
+          "next_cue_start_time": 1430.171,
+          "next_cue_end_time": 1431.922,
+          "position_in_cue": 1
+        },
+        {
+          "id": 3443,
+          "mapping_id": 1207,
+          "word": "chair.",
+          "cue_id": 488,
+          "cue_start_time": 1427.502,
+          "cue_end_time": 1430.17,
+          "previous_cue_start_time": 1424.707,
+          "previous_cue_end_time": 1427.501,
+          "next_cue_start_time": 1430.171,
+          "next_cue_end_time": 1431.922,
+          "position_in_cue": 1
+        }
+      ]
+    },
+    {
+      "id": 1261,
+      "senses": [
+        6865
+      ],
+      "words": [
+        {
+          "id": 1277,
+          "mapping_id": 1261,
+          "word": "follow",
+          "cue_id": 595,
+          "cue_start_time": 1773.639,
+          "cue_end_time": 1778.018,
+          "previous_cue_start_time": 1771.262,
+          "previous_cue_end_time": 1773.638,
+          "next_cue_start_time": 1778.019,
+          "next_cue_end_time": 1779.911,
+          "position_in_cue": 1
+        },
+        {
+          "id": 3472,
+          "mapping_id": 1261,
+          "word": "up",
+          "cue_id": 595,
+          "cue_start_time": 1773.639,
+          "cue_end_time": 1778.018,
+          "previous_cue_start_time": 1771.262,
+          "previous_cue_end_time": 1773.638,
+          "next_cue_start_time": 1778.019,
+          "next_cue_end_time": 1779.911,
+          "position_in_cue": 1
+        }
+      ]
+    },
+    {
+      "id": 2984,
+      "senses": [
+        5797
+      ],
+      "words": [
+        {
+          "id": 3051,
+          "mapping_id": 2984,
+          "word": "fan.",
+          "cue_id": 88,
+          "cue_start_time": 252.62,
+          "cue_end_time": 255.62,
+          "previous_cue_start_time": 237.10399999999998,
+          "previous_cue_end_time": 239.45499999999998,
+          "next_cue_start_time": 262.004,
+          "next_cue_end_time": 264.022,
+          "position_in_cue": 1
+        }
+      ]
+    }
+  ],
+  "changed": [
+    {
+      "id": 1021,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 1021,
+        "senses": [
+          5721,
+          5733
+        ],
+        "words": [
+          {
+            "id": 1037,
+            "mapping_id": 1021,
+            "word": "account",
+            "cue_id": 80,
+            "cue_start_time": 212.163,
+            "cue_end_time": 215.165,
+            "previous_cue_start_time": 208.743,
+            "previous_cue_end_time": 212.162,
+            "next_cue_start_time": 215.166,
+            "next_cue_end_time": 217.083,
+            "position_in_cue": 1
+          },
+          {
+            "id": 1038,
+            "mapping_id": 1021,
+            "word": "exec",
+            "cue_id": 80,
+            "cue_start_time": 212.163,
+            "cue_end_time": 215.165,
+            "previous_cue_start_time": 208.743,
+            "previous_cue_end_time": 212.162,
+            "next_cue_start_time": 215.166,
+            "next_cue_end_time": 217.083,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1021,
+        "subtitle_words": [
+          {
+            "word": "account",
+            "cue_id": 80,
+            "position_in_cue": 1,
+            "cue_start_time": 212.163,
+            "cue_end_time": 215.165
+          },
+          {
+            "word": "exec",
+            "cue_id": 80,
+            "position_in_cue": 1,
+            "cue_start_time": 212.163,
+            "cue_end_time": 215.165
+          }
+        ],
+        "senses": [
+          {
+            "id": 5721,
+            "word": "account",
+            "part_of_speech": "noun",
+            "sense_number": 9,
+            "definition": "an arrangement to sell goods and services to another company over a period of time"
+          },
+          {
+            "id": 5733,
+            "word": "exec",
+            "part_of_speech": "noun",
+            "sense_number": null,
+            "definition": "an informal word for executive"
+          },
+          {
+            "id": 12390,
+            "word": "executive",
+            "part_of_speech": "noun",
+            "sense_number": 1,
+            "definition": "a manager in an organization or company who helps make important decisions"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1047,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1047,
+        "senses": [
+          4223
+        ],
+        "words": [
+          {
+            "id": 1063,
+            "mapping_id": 1047,
+            "word": "business.",
+            "cue_id": 143,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394,
+            "previous_cue_start_time": 439.932,
+            "previous_cue_end_time": 441.933,
+            "next_cue_start_time": 444.395,
+            "next_cue_end_time": 445.853,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3352,
+            "mapping_id": 1047,
+            "word": "get",
+            "cue_id": 143,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394,
+            "previous_cue_start_time": 439.932,
+            "previous_cue_end_time": 441.933,
+            "next_cue_start_time": 444.395,
+            "next_cue_end_time": 445.853,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3353,
+            "mapping_id": 1047,
+            "word": "down",
+            "cue_id": 143,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394,
+            "previous_cue_start_time": 439.932,
+            "previous_cue_end_time": 441.933,
+            "next_cue_start_time": 444.395,
+            "next_cue_end_time": 445.853,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3354,
+            "mapping_id": 1047,
+            "word": "to",
+            "cue_id": 143,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394,
+            "previous_cue_start_time": 439.932,
+            "previous_cue_end_time": 441.933,
+            "next_cue_start_time": 444.395,
+            "next_cue_end_time": 445.853,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1047,
+        "subtitle_words": [
+          {
+            "word": "business.",
+            "cue_id": 143,
+            "position_in_cue": 1,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394
+          },
+          {
+            "word": "get",
+            "cue_id": 143,
+            "position_in_cue": 1,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394
+          },
+          {
+            "word": "down",
+            "cue_id": 143,
+            "position_in_cue": 1,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394
+          },
+          {
+            "word": "to",
+            "cue_id": 143,
+            "position_in_cue": 1,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394
+          },
+          {
+            "word": "Let's",
+            "cue_id": 143,
+            "position_in_cue": 1,
+            "cue_start_time": 441.934,
+            "cue_end_time": 444.394
+          }
+        ],
+        "senses": [
+          {
+            "id": 4223,
+            "word": "business",
+            "part_of_speech": "noun",
+            "sense_number": 6,
+            "definition": "things that need to be done or discussed"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1068,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1068,
+        "senses": [
+          5892
+        ],
+        "words": [
+          {
+            "id": 1084,
+            "mapping_id": 1068,
+            "word": "hear",
+            "cue_id": 196,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91,
+            "previous_cue_start_time": 580.614,
+            "previous_cue_end_time": 583.758,
+            "next_cue_start_time": 584.936,
+            "next_cue_end_time": 586.6610000000001,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3090,
+            "mapping_id": 1068,
+            "word": "hardly",
+            "cue_id": 196,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91,
+            "previous_cue_start_time": 580.614,
+            "previous_cue_end_time": 583.758,
+            "next_cue_start_time": 584.936,
+            "next_cue_end_time": 586.6610000000001,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3362,
+            "mapping_id": 1068,
+            "word": "yourself",
+            "cue_id": 196,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91,
+            "previous_cue_start_time": 580.614,
+            "previous_cue_end_time": 583.758,
+            "next_cue_start_time": 584.936,
+            "next_cue_end_time": 586.6610000000001,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3363,
+            "mapping_id": 1068,
+            "word": "think.",
+            "cue_id": 196,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91,
+            "previous_cue_start_time": 580.614,
+            "previous_cue_end_time": 583.758,
+            "next_cue_start_time": 584.936,
+            "next_cue_end_time": 586.6610000000001,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1068,
+        "subtitle_words": [
+          {
+            "word": "hear",
+            "cue_id": 196,
+            "position_in_cue": 1,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91
+          },
+          {
+            "word": "hardly",
+            "cue_id": 196,
+            "position_in_cue": 1,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91
+          },
+          {
+            "word": "yourself",
+            "cue_id": 196,
+            "position_in_cue": 1,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91
+          },
+          {
+            "word": "think.",
+            "cue_id": 196,
+            "position_in_cue": 1,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91
+          },
+          {
+            "word": "You",
+            "cue_id": 196,
+            "position_in_cue": 1,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91
+          },
+          {
+            "word": "can",
+            "cue_id": 196,
+            "position_in_cue": 1,
+            "cue_start_time": 583.784,
+            "cue_end_time": 584.91
+          }
+        ],
+        "senses": [
+          {
+            "id": 5892,
+            "word": "hear",
+            "part_of_speech": "verb",
+            "sense_number": 12,
+            "definition": "used to emphasize how noisy a place is"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1069,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1069,
+        "senses": [
+          5892
+        ],
+        "words": [
+          {
+            "id": 1085,
+            "mapping_id": 1069,
+            "word": "hear",
+            "cue_id": 197,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001,
+            "previous_cue_start_time": 583.784,
+            "previous_cue_end_time": 584.91,
+            "next_cue_start_time": 586.662,
+            "next_cue_end_time": 589.163,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3364,
+            "mapping_id": 1069,
+            "word": "can't",
+            "cue_id": 197,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001,
+            "previous_cue_start_time": 583.784,
+            "previous_cue_end_time": 584.91,
+            "next_cue_start_time": 586.662,
+            "next_cue_end_time": 589.163,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3365,
+            "mapping_id": 1069,
+            "word": "yourself",
+            "cue_id": 197,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001,
+            "previous_cue_start_time": 583.784,
+            "previous_cue_end_time": 584.91,
+            "next_cue_start_time": 586.662,
+            "next_cue_end_time": 589.163,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3366,
+            "mapping_id": 1069,
+            "word": "think.",
+            "cue_id": 197,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001,
+            "previous_cue_start_time": 583.784,
+            "previous_cue_end_time": 584.91,
+            "next_cue_start_time": 586.662,
+            "next_cue_end_time": 589.163,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1069,
+        "subtitle_words": [
+          {
+            "word": "hear",
+            "cue_id": 197,
+            "position_in_cue": 1,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001
+          },
+          {
+            "word": "can't",
+            "cue_id": 197,
+            "position_in_cue": 1,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001
+          },
+          {
+            "word": "yourself",
+            "cue_id": 197,
+            "position_in_cue": 1,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001
+          },
+          {
+            "word": "think.",
+            "cue_id": 197,
+            "position_in_cue": 1,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001
+          },
+          {
+            "word": "you",
+            "cue_id": 197,
+            "position_in_cue": 1,
+            "cue_start_time": 584.936,
+            "cue_end_time": 586.6610000000001
+          }
+        ],
+        "senses": [
+          {
+            "id": 5892,
+            "word": "hear",
+            "part_of_speech": "verb",
+            "sense_number": 12,
+            "definition": "used to emphasize how noisy a place is"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1107,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1107,
+        "senses": [
+          6085
+        ],
+        "words": [
+          {
+            "id": 1123,
+            "mapping_id": 1107,
+            "word": "drop?",
+            "cue_id": 267,
+            "cue_start_time": 817.517,
+            "cue_end_time": 819.644,
+            "previous_cue_start_time": 805.422,
+            "previous_cue_end_time": 808.566,
+            "next_cue_start_time": 819.645,
+            "next_cue_end_time": 821.979,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3117,
+            "mapping_id": 1107,
+            "word": "cough",
+            "cue_id": 267,
+            "cue_start_time": 817.517,
+            "cue_end_time": 819.644,
+            "previous_cue_start_time": 805.422,
+            "previous_cue_end_time": 808.566,
+            "next_cue_start_time": 819.645,
+            "next_cue_end_time": 821.979,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1107,
+        "subtitle_words": [
+          {
+            "word": "drop?",
+            "cue_id": 267,
+            "position_in_cue": 1,
+            "cue_start_time": 817.517,
+            "cue_end_time": 819.644
+          }
+        ],
+        "senses": [
+          {
+            "id": 6085,
+            "word": "drop",
+            "part_of_speech": "noun",
+            "sense_number": 7,
+            "definition": "a sweet that tastes of lemon etc"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1114,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1114,
+        "senses": [
+          6137
+        ],
+        "words": [
+          {
+            "id": 1130,
+            "mapping_id": 1114,
+            "word": "fortune.",
+            "cue_id": 304,
+            "cue_start_time": 914.156,
+            "cue_end_time": 916.073,
+            "previous_cue_start_time": 911.737,
+            "previous_cue_end_time": 914.155,
+            "next_cue_start_time": 916.074,
+            "next_cue_end_time": 919.593,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1114,
+        "subtitle_words": [
+          {
+            "word": "fortune.",
+            "cue_id": 304,
+            "position_in_cue": 1,
+            "cue_start_time": 914.156,
+            "cue_end_time": 916.073
+          },
+          {
+            "word": "make",
+            "cue_id": 304,
+            "position_in_cue": 1,
+            "cue_start_time": 914.156,
+            "cue_end_time": 916.073
+          },
+          {
+            "word": "a",
+            "cue_id": 304,
+            "position_in_cue": 1,
+            "cue_start_time": 914.156,
+            "cue_end_time": 916.073
+          }
+        ],
+        "senses": [
+          {
+            "id": 6137,
+            "word": "fortune",
+            "part_of_speech": "noun",
+            "sense_number": 1,
+            "definition": "a very large amount of money"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1144,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1144,
+        "senses": [
+          5453
+        ],
+        "words": [
+          {
+            "id": 1160,
+            "mapping_id": 1144,
+            "word": "state",
+            "cue_id": 348,
+            "cue_start_time": 1041.491,
+            "cue_end_time": 1044.451,
+            "previous_cue_start_time": 1038.793,
+            "previous_cue_end_time": 1041.073,
+            "next_cue_start_time": 1044.452,
+            "next_cue_end_time": 1046.912,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1144,
+        "subtitle_words": [
+          {
+            "word": "state",
+            "cue_id": 348,
+            "position_in_cue": 1,
+            "cue_start_time": 1041.491,
+            "cue_end_time": 1044.451
+          },
+          {
+            "word": "of",
+            "cue_id": 348,
+            "position_in_cue": 1,
+            "cue_start_time": 1041.491,
+            "cue_end_time": 1044.451
+          }
+        ],
+        "senses": [
+          {
+            "id": 5453,
+            "word": "state",
+            "part_of_speech": "noun",
+            "sense_number": 1,
+            "definition": "the physical or mental condition that someone or something is in"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1160,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1160,
+        "senses": [
+          5453
+        ],
+        "words": [
+          {
+            "id": 1176,
+            "mapping_id": 1160,
+            "word": "state",
+            "cue_id": 372,
+            "cue_start_time": 1109.517,
+            "cue_end_time": 1112.353,
+            "previous_cue_start_time": 1106.64,
+            "previous_cue_end_time": 1109.516,
+            "next_cue_start_time": 1112.354,
+            "next_cue_end_time": 1114.104,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1160,
+        "subtitle_words": [
+          {
+            "word": "state",
+            "cue_id": 372,
+            "position_in_cue": 1,
+            "cue_start_time": 1109.517,
+            "cue_end_time": 1112.353
+          },
+          {
+            "word": "of",
+            "cue_id": 372,
+            "position_in_cue": 1,
+            "cue_start_time": 1109.517,
+            "cue_end_time": 1112.353
+          }
+        ],
+        "senses": [
+          {
+            "id": 5453,
+            "word": "state",
+            "part_of_speech": "noun",
+            "sense_number": 1,
+            "definition": "the physical or mental condition that someone or something is in"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1216,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1216,
+        "senses": [
+          6544
+        ],
+        "words": [
+          {
+            "id": 1232,
+            "mapping_id": 1216,
+            "word": "paced",
+            "cue_id": 505,
+            "cue_start_time": 1464.038,
+            "cue_end_time": 1466.999,
+            "previous_cue_start_time": 1460.91,
+            "previous_cue_end_time": 1464.037,
+            "next_cue_start_time": 1467.0,
+            "next_cue_end_time": 1469.71,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3448,
+            "mapping_id": 1216,
+            "word": "off",
+            "cue_id": 505,
+            "cue_start_time": 1464.038,
+            "cue_end_time": 1466.999,
+            "previous_cue_start_time": 1460.91,
+            "previous_cue_end_time": 1464.037,
+            "next_cue_start_time": 1467.0,
+            "next_cue_end_time": 1469.71,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1216,
+        "subtitle_words": [
+          {
+            "word": "paced",
+            "cue_id": 505,
+            "position_in_cue": 1,
+            "cue_start_time": 1464.038,
+            "cue_end_time": 1466.999
+          }
+        ],
+        "senses": [
+          {
+            "id": 6544,
+            "word": "pace",
+            "part_of_speech": "verb",
+            "sense_number": 3,
+            "definition": "to measure a distance by walking across it with steps of equal length"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1223,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 1223,
+        "senses": [
+          3665
+        ],
+        "words": [
+          {
+            "id": 1239,
+            "mapping_id": 1223,
+            "word": "chain-locked",
+            "cue_id": 516,
+            "cue_start_time": 1497.5720000000001,
+            "cue_end_time": 1500.157,
+            "previous_cue_start_time": 1495.445,
+            "previous_cue_end_time": 1497.571,
+            "next_cue_start_time": 1500.158,
+            "next_cue_end_time": 1501.927,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1223,
+        "subtitle_words": [
+          {
+            "word": "chain-locked",
+            "cue_id": 516,
+            "position_in_cue": 1,
+            "cue_start_time": 1497.5720000000001,
+            "cue_end_time": 1500.157
+          }
+        ],
+        "senses": [
+          {
+            "id": 3659,
+            "word": "chain",
+            "part_of_speech": "noun",
+            "sense_number": 1,
+            "definition": "a series of metal rings which are joined together in a line and used for fastening things, supporting weights, decoration etc"
+          },
+          {
+            "id": 11583,
+            "word": "lock",
+            "part_of_speech": "verb",
+            "sense_number": 1,
+            "definition": "to fasten something, usually with a key, so that other people cannot open it, or to be fastened like this"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1225,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 1225,
+        "senses": [
+          2402
+        ],
+        "words": [
+          {
+            "id": 1241,
+            "mapping_id": 1225,
+            "word": "hand?",
+            "cue_id": 517,
+            "cue_start_time": 1500.158,
+            "cue_end_time": 1501.927,
+            "previous_cue_start_time": 1497.5720000000001,
+            "previous_cue_end_time": 1500.157,
+            "next_cue_start_time": 1501.953,
+            "next_cue_end_time": 1502.409,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3451,
+            "mapping_id": 1225,
+            "word": "second",
+            "cue_id": 517,
+            "cue_start_time": 1500.158,
+            "cue_end_time": 1501.927,
+            "previous_cue_start_time": 1497.5720000000001,
+            "previous_cue_end_time": 1500.157,
+            "next_cue_start_time": 1501.953,
+            "next_cue_end_time": 1502.409,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1225,
+        "subtitle_words": [
+          {
+            "word": "hand?",
+            "cue_id": 517,
+            "position_in_cue": 1,
+            "cue_start_time": 1500.158,
+            "cue_end_time": 1501.927
+          },
+          {
+            "word": "second",
+            "cue_id": 517,
+            "position_in_cue": 1,
+            "cue_start_time": 1500.158,
+            "cue_end_time": 1501.927
+          }
+        ],
+        "senses": [
+          {
+            "id": 2402,
+            "word": "hand",
+            "part_of_speech": "noun",
+            "sense_number": 41,
+            "definition": "a long thin piece of metal that points at the numbers on a clock"
+          },
+          {
+            "id": 12509,
+            "word": "second hand",
+            "part_of_speech": "noun",
+            "sense_number": null,
+            "definition": "the long thin piece of metal that points to the seconds on a clock or watch"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1229,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 1229,
+        "senses": [
+          2402
+        ],
+        "words": [
+          {
+            "id": 1245,
+            "mapping_id": 1229,
+            "word": "hand",
+            "cue_id": 523,
+            "cue_start_time": 1511.21,
+            "cue_end_time": 1513.211,
+            "previous_cue_start_time": 1509.083,
+            "previous_cue_end_time": 1511.209,
+            "next_cue_start_time": 1513.212,
+            "next_cue_end_time": 1515.23,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3452,
+            "mapping_id": 1229,
+            "word": "second",
+            "cue_id": 523,
+            "cue_start_time": 1511.21,
+            "cue_end_time": 1513.211,
+            "previous_cue_start_time": 1509.083,
+            "previous_cue_end_time": 1511.209,
+            "next_cue_start_time": 1513.212,
+            "next_cue_end_time": 1515.23,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1229,
+        "subtitle_words": [
+          {
+            "word": "hand",
+            "cue_id": 523,
+            "position_in_cue": 1,
+            "cue_start_time": 1511.21,
+            "cue_end_time": 1513.211
+          },
+          {
+            "word": "second",
+            "cue_id": 523,
+            "position_in_cue": 1,
+            "cue_start_time": 1511.21,
+            "cue_end_time": 1513.211
+          }
+        ],
+        "senses": [
+          {
+            "id": 2402,
+            "word": "hand",
+            "part_of_speech": "noun",
+            "sense_number": 41,
+            "definition": "a long thin piece of metal that points at the numbers on a clock"
+          },
+          {
+            "id": 12509,
+            "word": "second hand",
+            "part_of_speech": "noun",
+            "sense_number": null,
+            "definition": "the long thin piece of metal that points to the seconds on a clock or watch"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1267,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 1267,
+        "senses": [
+          767
+        ],
+        "words": [
+          {
+            "id": 1283,
+            "mapping_id": 1267,
+            "word": "call",
+            "cue_id": 602,
+            "cue_start_time": 1798.664,
+            "cue_end_time": 1801.474,
+            "previous_cue_start_time": 1793.409,
+            "previous_cue_end_time": 1796.01,
+            "next_cue_start_time": 1802.376,
+            "next_cue_end_time": 1805.253,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3476,
+            "mapping_id": 1267,
+            "word": "off",
+            "cue_id": 602,
+            "cue_start_time": 1798.664,
+            "cue_end_time": 1801.474,
+            "previous_cue_start_time": 1793.409,
+            "previous_cue_end_time": 1796.01,
+            "next_cue_start_time": 1802.376,
+            "next_cue_end_time": 1805.253,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1267,
+        "subtitle_words": [
+          {
+            "word": "call",
+            "cue_id": 602,
+            "position_in_cue": 1,
+            "cue_start_time": 1798.664,
+            "cue_end_time": 1801.474
+          }
+        ],
+        "senses": [
+          {
+            "id": 767,
+            "word": "call",
+            "part_of_speech": "verb",
+            "sense_number": 12,
+            "definition": "to read names or numbers in a loud voice in order to get someone’s attention"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1274,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 1274,
+        "senses": [
+          4525
+        ],
+        "words": [
+          {
+            "id": 1290,
+            "mapping_id": 1274,
+            "word": "point",
+            "cue_id": 630,
+            "cue_start_time": 1882.123,
+            "cue_end_time": 1884.791,
+            "previous_cue_start_time": 1880.037,
+            "previous_cue_end_time": 1882.122,
+            "next_cue_start_time": 1884.792,
+            "next_cue_end_time": 1885.392,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3481,
+            "mapping_id": 1274,
+            "word": "the",
+            "cue_id": 630,
+            "cue_start_time": 1882.123,
+            "cue_end_time": 1884.791,
+            "previous_cue_start_time": 1880.037,
+            "previous_cue_end_time": 1882.122,
+            "next_cue_start_time": 1884.792,
+            "next_cue_end_time": 1885.392,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 1274,
+        "subtitle_words": [
+          {
+            "word": "point",
+            "cue_id": 630,
+            "position_in_cue": 1,
+            "cue_start_time": 1882.123,
+            "cue_end_time": 1884.791
+          },
+          {
+            "word": "the",
+            "cue_id": 630,
+            "position_in_cue": 1,
+            "cue_start_time": 1882.123,
+            "cue_end_time": 1884.791
+          }
+        ],
+        "senses": [
+          {
+            "id": 4526,
+            "word": "point",
+            "part_of_speech": "noun",
+            "sense_number": 2,
+            "definition": "the most important fact or idea"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2686,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 2686,
+        "senses": [
+          9946
+        ],
+        "words": [
+          {
+            "id": 2704,
+            "mapping_id": 2686,
+            "word": "say",
+            "cue_id": 185,
+            "cue_start_time": 556.965,
+            "cue_end_time": 559.3,
+            "previous_cue_start_time": 551.835,
+            "previous_cue_end_time": 556.9639999999999,
+            "next_cue_start_time": 559.326,
+            "next_cue_end_time": 561.302,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 2686,
+        "subtitle_words": [
+          {
+            "word": "say",
+            "cue_id": 185,
+            "position_in_cue": 1,
+            "cue_start_time": 556.965,
+            "cue_end_time": 559.3
+          },
+          {
+            "word": "let's",
+            "cue_id": 185,
+            "position_in_cue": 1,
+            "cue_start_time": 556.965,
+            "cue_end_time": 559.3
+          }
+        ],
+        "senses": [
+          {
+            "id": 9946,
+            "word": "say",
+            "part_of_speech": "verb",
+            "sense_number": 8,
+            "definition": "used when suggesting or supposing that something might happen or be true"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2728,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 2728,
+        "senses": [
+          4527
+        ],
+        "words": [
+          {
+            "id": 2746,
+            "mapping_id": 2728,
+            "word": "point",
+            "cue_id": 430,
+            "cue_start_time": 1276.309,
+            "cue_end_time": 1277.869,
+            "previous_cue_start_time": 1273.765,
+            "previous_cue_end_time": 1276.308,
+            "next_cue_start_time": 1277.895,
+            "next_cue_end_time": 1279.186,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3436,
+            "mapping_id": 2728,
+            "word": "what's",
+            "cue_id": 430,
+            "cue_start_time": 1276.309,
+            "cue_end_time": 1277.869,
+            "previous_cue_start_time": 1273.765,
+            "previous_cue_end_time": 1276.308,
+            "next_cue_start_time": 1277.895,
+            "next_cue_end_time": 1279.186,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3437,
+            "mapping_id": 2728,
+            "word": "the",
+            "cue_id": 430,
+            "cue_start_time": 1276.309,
+            "cue_end_time": 1277.869,
+            "previous_cue_start_time": 1273.765,
+            "previous_cue_end_time": 1276.308,
+            "next_cue_start_time": 1277.895,
+            "next_cue_end_time": 1279.186,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 2728,
+        "subtitle_words": [
+          {
+            "word": "point",
+            "cue_id": 430,
+            "position_in_cue": 1,
+            "cue_start_time": 1276.309,
+            "cue_end_time": 1277.869
+          },
+          {
+            "word": "what's",
+            "cue_id": 430,
+            "position_in_cue": 1,
+            "cue_start_time": 1276.309,
+            "cue_end_time": 1277.869
+          },
+          {
+            "word": "the",
+            "cue_id": 430,
+            "position_in_cue": 1,
+            "cue_start_time": 1276.309,
+            "cue_end_time": 1277.869
+          },
+          {
+            "word": "of",
+            "cue_id": 430,
+            "position_in_cue": 1,
+            "cue_start_time": 1276.309,
+            "cue_end_time": 1277.869
+          }
+        ],
+        "senses": [
+          {
+            "id": 4527,
+            "word": "point",
+            "part_of_speech": "noun",
+            "sense_number": 3,
+            "definition": "the purpose or aim of something"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3054,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 3054,
+        "senses": [
+          1742
+        ],
+        "words": [
+          {
+            "id": 3121,
+            "mapping_id": 3054,
+            "word": "top",
+            "cue_id": 283,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595,
+            "previous_cue_start_time": 848.924,
+            "previous_cue_end_time": 850.8,
+            "next_cue_start_time": 854.596,
+            "next_cue_end_time": 856.013,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3385,
+            "mapping_id": 3054,
+            "word": "at",
+            "cue_id": 283,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595,
+            "previous_cue_start_time": 848.924,
+            "previous_cue_end_time": 850.8,
+            "next_cue_start_time": 854.596,
+            "next_cue_end_time": 856.013,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3386,
+            "mapping_id": 3054,
+            "word": "the",
+            "cue_id": 283,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595,
+            "previous_cue_start_time": 848.924,
+            "previous_cue_end_time": 850.8,
+            "next_cue_start_time": 854.596,
+            "next_cue_end_time": 856.013,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3387,
+            "mapping_id": 3054,
+            "word": "of",
+            "cue_id": 283,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595,
+            "previous_cue_start_time": 848.924,
+            "previous_cue_end_time": 850.8,
+            "next_cue_start_time": 854.596,
+            "next_cue_end_time": 856.013,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3388,
+            "mapping_id": 3054,
+            "word": "his",
+            "cue_id": 283,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595,
+            "previous_cue_start_time": 848.924,
+            "previous_cue_end_time": 850.8,
+            "next_cue_start_time": 854.596,
+            "next_cue_end_time": 856.013,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3389,
+            "mapping_id": 3054,
+            "word": "lungs.",
+            "cue_id": 283,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595,
+            "previous_cue_start_time": 848.924,
+            "previous_cue_end_time": 850.8,
+            "next_cue_start_time": 854.596,
+            "next_cue_end_time": 856.013,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 3054,
+        "subtitle_words": [
+          {
+            "word": "top",
+            "cue_id": 283,
+            "position_in_cue": 1,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595
+          },
+          {
+            "word": "at",
+            "cue_id": 283,
+            "position_in_cue": 1,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595
+          },
+          {
+            "word": "the",
+            "cue_id": 283,
+            "position_in_cue": 1,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595
+          },
+          {
+            "word": "of",
+            "cue_id": 283,
+            "position_in_cue": 1,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595
+          },
+          {
+            "word": "his",
+            "cue_id": 283,
+            "position_in_cue": 1,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595
+          },
+          {
+            "word": "lungs.",
+            "cue_id": 283,
+            "position_in_cue": 1,
+            "cue_start_time": 850.801,
+            "cue_end_time": 854.595
+          }
+        ],
+        "senses": [
+          {
+            "id": 6088,
+            "word": "lung",
+            "part_of_speech": "noun",
+            "sense_number": null,
+            "definition": "one of the two organs in your body that you breathe with"
+          },
+          {
+            "id": 1742,
+            "word": "top",
+            "part_of_speech": "noun",
+            "sense_number": 19,
+            "definition": "to sing or shout as loudly as you can"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3105,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 3105,
+        "senses": [
+          12142
+        ],
+        "words": [
+          {
+            "id": 3172,
+            "mapping_id": 3105,
+            "word": "crazy",
+            "cue_id": 408,
+            "cue_start_time": 1211.036,
+            "cue_end_time": 1214.413,
+            "previous_cue_start_time": 1207.949,
+            "previous_cue_end_time": 1211.035,
+            "next_cue_start_time": 1214.414,
+            "next_cue_end_time": 1218.292,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3431,
+            "mapping_id": 3105,
+            "word": "going",
+            "cue_id": 408,
+            "cue_start_time": 1211.036,
+            "cue_end_time": 1214.413,
+            "previous_cue_start_time": 1207.949,
+            "previous_cue_end_time": 1211.035,
+            "next_cue_start_time": 1214.414,
+            "next_cue_end_time": 1218.292,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 3105,
+        "subtitle_words": [
+          {
+            "word": "going",
+            "cue_id": 408,
+            "position_in_cue": 1,
+            "cue_start_time": 1211.036,
+            "cue_end_time": 1214.413
+          },
+          {
+            "word": "crazy",
+            "cue_id": 408,
+            "position_in_cue": 1,
+            "cue_start_time": 1211.036,
+            "cue_end_time": 1214.413
+          }
+        ],
+        "senses": [
+          {
+            "id": 2636,
+            "word": "go",
+            "part_of_speech": "verb",
+            "sense_number": 7,
+            "definition": "to change in some way, especially by becoming worse than before"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3107,
+      "tokens_changed": true,
+      "senses_changed": false,
+      "before": {
+        "id": 3107,
+        "senses": [
+          11935
+        ],
+        "words": [
+          {
+            "id": 3174,
+            "mapping_id": 3107,
+            "word": "joke.",
+            "cue_id": 410,
+            "cue_start_time": 1218.293,
+            "cue_end_time": 1220.627,
+            "previous_cue_start_time": 1214.414,
+            "previous_cue_end_time": 1218.292,
+            "next_cue_start_time": 1220.628,
+            "next_cue_end_time": 1223.922,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3432,
+            "mapping_id": 3107,
+            "word": "a",
+            "cue_id": 410,
+            "cue_start_time": 1218.293,
+            "cue_end_time": 1220.627,
+            "previous_cue_start_time": 1214.414,
+            "previous_cue_end_time": 1218.292,
+            "next_cue_start_time": 1220.628,
+            "next_cue_end_time": 1223.922,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 3107,
+        "subtitle_words": [
+          {
+            "word": "joke.",
+            "cue_id": 410,
+            "position_in_cue": 1,
+            "cue_start_time": 1218.293,
+            "cue_end_time": 1220.627
+          },
+          {
+            "word": "a",
+            "cue_id": 410,
+            "position_in_cue": 1,
+            "cue_start_time": 1218.293,
+            "cue_end_time": 1220.627
+          },
+          {
+            "word": "be",
+            "cue_id": 410,
+            "position_in_cue": 1,
+            "cue_start_time": 1218.293,
+            "cue_end_time": 1220.627
+          }
+        ],
+        "senses": [
+          {
+            "id": 11935,
+            "word": "joke",
+            "part_of_speech": "noun",
+            "sense_number": 2,
+            "definition": "to be completely useless, stupid, or unreasonable"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3146,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 3146,
+        "senses": [
+          762
+        ],
+        "words": [
+          {
+            "id": 3213,
+            "mapping_id": 3146,
+            "word": "call",
+            "cue_id": 599,
+            "cue_start_time": 1787.528,
+            "cue_end_time": 1791.114,
+            "previous_cue_start_time": 1784.233,
+            "previous_cue_end_time": 1787.527,
+            "next_cue_start_time": 1791.115,
+            "next_cue_end_time": 1793.408,
+            "position_in_cue": 1
+          },
+          {
+            "id": 3474,
+            "mapping_id": 3146,
+            "word": "out",
+            "cue_id": 599,
+            "cue_start_time": 1787.528,
+            "cue_end_time": 1791.114,
+            "previous_cue_start_time": 1784.233,
+            "previous_cue_end_time": 1787.527,
+            "next_cue_start_time": 1791.115,
+            "next_cue_end_time": 1793.408,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 3146,
+        "subtitle_words": [
+          {
+            "word": "call",
+            "cue_id": 599,
+            "position_in_cue": 1,
+            "cue_start_time": 1787.528,
+            "cue_end_time": 1791.114
+          },
+          {
+            "word": "out",
+            "cue_id": 599,
+            "position_in_cue": 1,
+            "cue_start_time": 1787.528,
+            "cue_end_time": 1791.114
+          }
+        ],
+        "senses": [
+          {
+            "id": 12516,
+            "word": "call out",
+            "part_of_speech": "phrasal verb",
+            "sense_number": 1,
+            "definition": "to say something loudly"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3185,
+      "tokens_changed": false,
+      "senses_changed": true,
+      "before": {
+        "id": 3185,
+        "senses": [
+          6011
+        ],
+        "words": [
+          {
+            "id": 3495,
+            "mapping_id": 3185,
+            "word": "recede",
+            "cue_id": 259,
+            "cue_start_time": 787.237,
+            "cue_end_time": 789.739,
+            "previous_cue_start_time": 784.86,
+            "previous_cue_end_time": 786.836,
+            "next_cue_start_time": 789.74,
+            "next_cue_end_time": 791.532,
+            "position_in_cue": 1
+          }
+        ]
+      },
+      "after": {
+        "id": 3185,
+        "subtitle_words": [
+          {
+            "word": "recede",
+            "cue_id": 259,
+            "position_in_cue": 1,
+            "cue_start_time": 787.237,
+            "cue_end_time": 789.739
+          }
+        ],
+        "senses": [
+          {
+            "id": 6010,
+            "word": "recede",
+            "part_of_speech": "verb",
+            "sense_number": 1,
+            "definition": "if something you can see or hear recedes, it gets further and further away until it disappears"
+          }
+        ]
+      }
+    }
+  ]
+}

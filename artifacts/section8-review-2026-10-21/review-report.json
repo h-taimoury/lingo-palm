@@ -1,0 +1,513 @@
+{
+  "summary": {
+    "section_id": 8,
+    "course_id": 5,
+    "before_count": 363,
+    "after_count": 454,
+    "operations": {
+      "update": 45,
+      "remove": 2,
+      "add": 93
+    },
+    "mapped_tokens": 576,
+    "overlaps": 0,
+    "unmatched_tokens": 0,
+    "other_sections_unchanged": true
+  },
+  "approximate_choices": [
+    {
+      "action": "update",
+      "mapping_id": 56,
+      "cue_id": 53,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        259
+      ],
+      "reason": "Nearest available territorial/domain sense for the magical realm; not an area of knowledge.",
+      "resulting_mapping_id": 56
+    },
+    {
+      "action": "update",
+      "mapping_id": 669,
+      "cue_id": 256,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        259
+      ],
+      "reason": "Nearest available territorial/domain sense for the magical realm; not an area of knowledge.",
+      "resulting_mapping_id": 669
+    },
+    {
+      "action": "update",
+      "mapping_id": 689,
+      "cue_id": 328,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        259
+      ],
+      "reason": "Nearest available territorial/domain sense for the magical realm; not an area of knowledge.",
+      "resulting_mapping_id": 689
+    },
+    {
+      "action": "add",
+      "cue_id": 233,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        471
+      ],
+      "reason": "Nearest noun sense: someone pretending to be something they are not.",
+      "resulting_mapping_id": 3346
+    },
+    {
+      "action": "add",
+      "cue_id": 410,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        3895
+      ],
+      "reason": "Nearest stored verb sense for the humorous noun meaning a trick.",
+      "resulting_mapping_id": 3357
+    },
+    {
+      "action": "add",
+      "cue_id": 412,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3899
+      ],
+      "reason": "Nearest stored verb sense for cheating someone financially.",
+      "resulting_mapping_id": 3358
+    },
+    {
+      "action": "add",
+      "cue_id": 421,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        570
+      ],
+      "reason": "Nearest stored relaxation sense; cold adjective sense would be wrong.",
+      "resulting_mapping_id": 3361
+    },
+    {
+      "action": "add",
+      "cue_id": 425,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        570
+      ],
+      "reason": "Nearest stored relaxation sense; cold adjective sense would be wrong.",
+      "resulting_mapping_id": 3362
+    },
+    {
+      "action": "add",
+      "cue_id": 485,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        3793
+      ],
+      "reason": "Nearest stored preferred/reliable-choice sense, extended from a person to an order.",
+      "resulting_mapping_id": 3367
+    },
+    {
+      "action": "add",
+      "cue_id": 242,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        1671
+      ],
+      "reason": "Useful food word; nearest stored flour-dumpling sense for the Chinese dish.",
+      "resulting_mapping_id": 3368
+    },
+    {
+      "action": "add",
+      "cue_id": 496,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        1671
+      ],
+      "reason": "Useful food word; nearest stored flour-dumpling sense for the Chinese dish.",
+      "resulting_mapping_id": 3369
+    },
+    {
+      "action": "add",
+      "cue_id": 519,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        1671
+      ],
+      "reason": "Useful food word; nearest stored flour-dumpling sense for the Chinese dish.",
+      "resulting_mapping_id": 3370
+    },
+    {
+      "action": "add",
+      "cue_id": 333,
+      "token_indices": [
+        1,
+        2
+      ],
+      "sense_ids": [
+        1446
+      ],
+      "reason": "Concept-equivalent fallback: easy prey describes a person easily deceived or harmed.",
+      "resulting_mapping_id": 3393
+    },
+    {
+      "action": "add",
+      "cue_id": 334,
+      "token_indices": [
+        2,
+        3
+      ],
+      "sense_ids": [
+        1446
+      ],
+      "reason": "Concept-equivalent fallback: easy prey describes a person easily deceived or harmed.",
+      "resulting_mapping_id": 3394
+    },
+    {
+      "action": "add",
+      "cue_id": 491,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        528
+      ],
+      "reason": "Concept-equivalent fallback: swindle means obtaining money by deception; here obtaining a meal.",
+      "resulting_mapping_id": 3395
+    },
+    {
+      "action": "add",
+      "cue_id": 412,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        529
+      ],
+      "reason": "Concept-equivalent fallback: a swindle, not the irrelevant bird or chess senses of rook.",
+      "resulting_mapping_id": 3396
+    },
+    {
+      "action": "add",
+      "cue_id": 378,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        536
+      ],
+      "reason": "Nearest financial-pressure sense for extorting tribute; more suitable than literal pressing.",
+      "resulting_mapping_id": 3397
+    },
+    {
+      "action": "add",
+      "cue_id": 379,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        536
+      ],
+      "reason": "Nearest financial-pressure sense for extorting tribute; more suitable than literal pressing.",
+      "resulting_mapping_id": 3398
+    },
+    {
+      "action": "add",
+      "cue_id": 96,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        348
+      ],
+      "reason": "Nearest career-progression sense for moving to a higher rank.",
+      "resulting_mapping_id": 3400
+    },
+    {
+      "action": "add",
+      "cue_id": 395,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        12733
+      ],
+      "reason": "Nearest stored impudent adjective sense for the corresponding disrespectful behaviour noun.",
+      "resulting_mapping_id": 3404
+    },
+    {
+      "action": "add",
+      "cue_id": 359,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        12736
+      ],
+      "reason": "Nearest stored reptile sense for the corresponding adjective.",
+      "resulting_mapping_id": 3405
+    },
+    {
+      "action": "add",
+      "cue_id": 382,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        12736
+      ],
+      "reason": "Nearest stored reptile sense for the corresponding adjective.",
+      "resulting_mapping_id": 3406
+    },
+    {
+      "action": "add",
+      "cue_id": 383,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        12736
+      ],
+      "reason": "Nearest stored reptile sense for the corresponding adjective.",
+      "resulting_mapping_id": 3407
+    },
+    {
+      "action": "add",
+      "cue_id": 447,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        2008
+      ],
+      "reason": "Nearest noun concept: bad people/criminals; the cut-throat competitive-business adjective does not fit.",
+      "resulting_mapping_id": 3408
+    },
+    {
+      "action": "add",
+      "cue_id": 487,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        12743
+      ],
+      "reason": "Nearest lawful adjective sense for the corresponding adverb.",
+      "resulting_mapping_id": 3409
+    },
+    {
+      "action": "add",
+      "cue_id": 345,
+      "token_indices": [
+        3,
+        4
+      ],
+      "sense_ids": [
+        12791
+      ],
+      "reason": "Concept-equivalent fallback: bring down a ruler, matching defeating the city-controlling sorceress.",
+      "resulting_mapping_id": 3414
+    },
+    {
+      "action": "add",
+      "cue_id": 349,
+      "token_indices": [
+        1,
+        2
+      ],
+      "sense_ids": [
+        12791
+      ],
+      "reason": "Concept-equivalent fallback: bring down a ruler, matching defeating the city-controlling sorceress.",
+      "resulting_mapping_id": 3415
+    },
+    {
+      "action": "add",
+      "cue_id": 285,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3417
+    },
+    {
+      "action": "add",
+      "cue_id": 286,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3418
+    },
+    {
+      "action": "add",
+      "cue_id": 304,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3419
+    },
+    {
+      "action": "add",
+      "cue_id": 342,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3420
+    },
+    {
+      "action": "add",
+      "cue_id": 366,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3421
+    },
+    {
+      "action": "add",
+      "cue_id": 425,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        12795
+      ],
+      "reason": "Concept-equivalent fallback: transform, changing appearance/form; exact shape-shift entry unavailable.",
+      "resulting_mapping_id": 3422
+    }
+  ],
+  "dictionary_preparation_needed": [
+    {
+      "term": "macaque",
+      "intended_meaning": "a type of monkey",
+      "status": "No suitable stored sense; dictionary lookups did not yield a usable entry. No fabricated sense added.",
+      "occurrences": [
+        {
+          "cue_id": 63,
+          "start_time": 337.228,
+          "cue_text": "Monkey's hot on the trail\nof the missing macaque."
+        }
+      ]
+    },
+    {
+      "term": "bug-eyed",
+      "intended_meaning": "having conspicuously bulging eyes",
+      "status": "No suitable stored sense; dictionary lookups did not yield a usable entry. No fabricated sense added.",
+      "occurrences": [
+        {
+          "cue_id": 359,
+          "start_time": 1262.319,
+          "cue_text": "And she's just some bug-eyed,\npower-hungry reptilian runt."
+        },
+        {
+          "cue_id": 380,
+          "start_time": 1322.087,
+          "cue_text": "is just a \"bug-eyed, power-hungry\"..."
+        }
+      ]
+    },
+    {
+      "term": "power-hungry",
+      "intended_meaning": "strongly wanting power and control",
+      "status": "No suitable stored sense; dictionary lookups did not yield a usable entry. No fabricated sense added.",
+      "occurrences": [
+        {
+          "cue_id": 359,
+          "start_time": 1262.319,
+          "cue_text": "And she's just some bug-eyed,\npower-hungry reptilian runt."
+        },
+        {
+          "cue_id": 380,
+          "start_time": 1322.087,
+          "cue_text": "is just a \"bug-eyed, power-hungry\"..."
+        }
+      ]
+    },
+    {
+      "term": "pangolin",
+      "intended_meaning": "a mammal covered in protective scales; used as a master title here",
+      "status": "No suitable stored sense; dictionary lookups did not yield a usable entry. No fabricated sense added.",
+      "occurrences": [
+        {
+          "cue_id": 222,
+          "start_time": 842.233,
+          "cue_text": "The Indestructible Chain Hammer\nof Master Pangolin."
+        }
+      ]
+    },
+    {
+      "term": "back scratcher",
+      "intended_meaning": "a tool for scratching an otherwise hard-to-reach part of the back",
+      "status": "No suitable stored sense; dictionary lookups did not yield a usable entry. No fabricated sense added.",
+      "occurrences": [
+        {
+          "cue_id": 326,
+          "start_time": 1171.478,
+          "cue_text": "That's a good back scratcher."
+        }
+      ]
+    },
+    {
+      "term": "four-finger discount",
+      "intended_meaning": "humorous variation of five-finger discount, meaning shoplifting",
+      "status": "No suitable stored sense; dictionary lookups did not yield a usable entry. No fabricated sense added.",
+      "occurrences": [
+        {
+          "cue_id": 448,
+          "start_time": 1547.438,
+          "cue_text": "Of course, we could always opt for\nthe four-finger discount."
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "All 522 cues were reviewed.",
+    "Exact matching words in different senses were not blindly copied.",
+    "The original match sense was retained after its examples confirmed met your match.",
+    "Existing sense 3646 for cut-outs is an inherited verb-to-result-noun approximation.",
+    "The matched subtitle SHA256 is ed7c752feca12c627f5eb6746f25a0bcb47f67e59e65ecddfbe906ec98ad4d3a"
+  ]
+}

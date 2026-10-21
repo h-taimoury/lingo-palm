@@ -1,0 +1,54 @@
+[
+  {
+    "term": "macaque",
+    "error": "WordNotFoundError: No dictionary entries found for 'macaque' at https://www.ldoceonline.com/dictionary/macaque"
+  },
+  {
+    "term": "cobra",
+    "entries": [
+      2585,
+      2584
+    ]
+  },
+  {
+    "term": "pangolin",
+    "error": "WordNotFoundError: No dictionary entries found for 'pangolin' at https://www.ldoceonline.com/dictionary/pangolin"
+  },
+  {
+    "term": "backscratcher",
+    "error": "WordNotFoundError: No dictionary entries found for 'backscratcher' at https://www.ldoceonline.com/dictionary/backscratcher"
+  },
+  {
+    "term": "five-finger-discount",
+    "error": "WordNotFoundError: No dictionary entries found for 'five-finger-discount' at https://www.ldoceonline.com/dictionary/five-finger-discount"
+  },
+  {
+    "term": "knickers",
+    "entries": [
+      2586
+    ]
+  },
+  {
+    "term": "shapeshifter",
+    "error": "WordNotFoundError: No dictionary entries found for 'shapeshifter' at https://www.ldoceonline.com/dictionary/shapeshifter"
+  },
+  {
+    "term": "bring-down",
+    "entries": [
+      2587
+    ]
+  },
+  {
+    "term": "snack",
+    "entries": [
+      2588,
+      2589
+    ]
+  },
+  {
+    "term": "transform",
+    "entries": [
+      2590
+    ]
+  }
+]

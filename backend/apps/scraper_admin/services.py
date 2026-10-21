@@ -9,7 +9,7 @@ from django.conf import settings
 from django.db import transaction
 from longman_scraper import scrape_word
 
-from apps.dictionary.models import Entry, Sense
+from apps.dictionary.models import Entry, Sense, entry_identity_conflicts
 from apps.dictionary.serializers import EntrySerializer, SenseSerializer
 
 logger = logging.getLogger(__name__)
@@ -20,6 +20,7 @@ def _audio_directory() -> Path:
 
 
 def scrape_and_save_word(word: str) -> list[Entry]:
+    word = word.strip()
     if Entry.objects.filter(word__iexact=word).exists():
         raise DuplicateScrapeError(word)
 
@@ -41,7 +42,23 @@ def scrape_and_save_word(word: str) -> list[Entry]:
                 raise DuplicateScrapeError(word)
 
             created_entries: list[Entry] = []
+            seen_identities = set()
             for scraped_entry in result.entries:
+                # Two unnumbered Longman "Junior" entries are legitimate, not duplicates.
+                # Source anchors distinguish them without inventing homonym numbers.
+                source_id = (getattr(scraped_entry, "source_entry_id", "") or "").strip()
+                identity = (scraped_entry.word.strip(), source_id) if source_id else (
+                    scraped_entry.word.strip(), "", scraped_entry.part_of_speech.strip(), scraped_entry.homonym_num,
+                )
+                if identity in seen_identities:
+                    raise DuplicateScrapeResultError(scraped_entry.word)
+                seen_identities.add(identity)
+                if entry_identity_conflicts(
+                    scraped_entry.word, scraped_entry.part_of_speech,
+                    scraped_entry.homonym_num, source_id,
+                ).exists():
+                    raise DuplicateScrapeError(scraped_entry.word)
+
                 pronunciation = (
                     asdict(scraped_entry.pronunciation)
                     if scraped_entry.pronunciation is not None
@@ -53,6 +70,7 @@ def scrape_and_save_word(word: str) -> list[Entry]:
                         "word": scraped_entry.word,
                         "part_of_speech": scraped_entry.part_of_speech,
                         "homonym_num": scraped_entry.homonym_num,
+                        "source_entry_id": source_id,
                         "pronunciation": pronunciation,
                         "frequency": list(scraped_entry.frequency),
                         "level": scraped_entry.level,  # Entry-level data, independent of S/W frequency bands.
@@ -192,6 +210,12 @@ class DuplicateScrapeError(Exception):
     def __init__(self, word: str) -> None:
         self.word = word
         super().__init__(f"{word!r} has already been scraped.")
+
+
+class DuplicateScrapeResultError(DuplicateScrapeError):
+    def __init__(self, word: str) -> None:
+        self.word = word
+        Exception.__init__(self, f"The scraper returned the same entry identity twice for {word!r}. Nothing from this scrape was saved.")
 
 
 class MissingEntriesError(Exception):

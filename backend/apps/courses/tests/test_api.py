@@ -1,4 +1,6 @@
 from django.contrib.auth import get_user_model
+from tempfile import TemporaryDirectory
+from django.test import override_settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
 
@@ -8,6 +10,11 @@ from apps.dictionary.models import Entry, Sense
 
 class CourseApiTests(APITestCase):
     def setUp(self):
+        media = TemporaryDirectory()
+        self.addCleanup(media.cleanup)
+        settings = override_settings(MEDIA_ROOT=media.name)
+        settings.enable()
+        self.addCleanup(settings.disable)
         user_model = get_user_model()
         self.staff = user_model.objects.create_user(
             email="admin@example.com",

@@ -1,7 +1,7 @@
 from django.conf import settings
 from rest_framework import serializers
 
-from .models import Entry, Sense
+from .models import Entry, Sense, entry_identity_conflicts
 
 
 def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
@@ -24,7 +24,7 @@ def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
 class EntrySummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = ("id", "word", "part_of_speech", "homonym_num", "pronunciation", "register", "level")
+        fields = ("id", "word", "part_of_speech", "homonym_num", "source_entry_id", "pronunciation", "register", "level")
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -142,6 +142,7 @@ class EntrySerializer(serializers.ModelSerializer):
             "word",
             "part_of_speech",
             "homonym_num",
+            "source_entry_id",
             "pronunciation",
             "frequency",
             "level",
@@ -151,6 +152,24 @@ class EntrySerializer(serializers.ModelSerializer):
             "senses",
         )
         read_only_fields = ("created_at",)
+
+    def validate(self, attrs):
+        def identity_value(field, default):
+            return attrs.get(field, getattr(self.instance, field, default))
+
+        existing = entry_identity_conflicts(
+            identity_value("word", ""),
+            identity_value("part_of_speech", ""),
+            identity_value("homonym_num", None),
+            identity_value("source_entry_id", ""),
+        )
+        if self.instance is not None:
+            existing = existing.exclude(pk=self.instance.pk)
+        if existing.exists():
+            raise serializers.ValidationError(
+                "An entry with this source identity, or a conflicting entry without a source ID, already exists."
+            )
+        return attrs
 
     def validate_pronunciation(self, value):  # noqa: ANN201
         if value is None:

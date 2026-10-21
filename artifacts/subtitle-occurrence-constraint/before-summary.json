@@ -1,0 +1,14 @@
+{
+  "courses_wordsensemapping": {
+    "count": 3262,
+    "sha256": "5dd56796a341a169664df7970f7847d70c74e294086a9ac3ee69545afaf6020d"
+  },
+  "courses_wordsensemapping_senses": {
+    "count": 3300,
+    "sha256": "9f791daa8667518998e07a0f36d088032e899dd26c295a14c8cadd6c2e7322af"
+  },
+  "courses_subtitleword": {
+    "count": 3757,
+    "sha256": "a8f7be605103ba14fd2aaf53e6bf2b8042a363d374703d4118cb85b6c104a3ef"
+  }
+}

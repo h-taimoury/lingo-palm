@@ -1,0 +1,621 @@
+1 [3.805] Back up! Move, move, move!
+2 [10.02] - Not that I'm worried, but...
+3 [12.064] ...what if The Chameleon knows / we're coming?
+4 [14.483] Why, she could be anywhere, anyone.
+5 [16.693] Li, would you please show / a little backbone?
+ #257 backbone? => 1675 backbone: courage and determination
+6 [19.571] I'm sorry, but bravery was never / really my specialty.
+ #258 bravery => 1676 bravery: actions, behaviour, or an attitude that shows courage and confidence
+ #259 specialty. => 1678 specialty: a subject or job that you know a lot about or have a lot of experience of
+7 [23.075] You don't have to be brave. / You just have to act brave.
+8 [27.871] Act brave? Got it.
+9 [30.707] - Ah! / - Oh!
+10 [32.709] Oh, Li!
+11 [34.127] - Hold on!
+12 [36.505] Hold me, Ping! It's all been for nothing!
+ #260 nothing! => 1686 nothing: a) without paying for something or being paid for something b) if you do something for nothing, you make an effort but do not get the result you want
+13 [39.341] Please, no.
+14 [40.843] - I'm too young!
+15 [46.849] How was that for acting brave?
+16 [48.559] Keep working on it.
+17 [54.523] Juniper City.
+18 [56.733] It's going to be great / to be back home again.
+19 [58.652] Does your family live there too?
+20 [60.654] They would. If I had a family.
+21 [63.657] It wasn't easy being a little fox / in a big city.
+22 [67.077] So I had to survive any way I could.
+23 [69.32900000000001] Hey!
+24 [70.372] Grifting. Shilling. Gaffing.
+25 [73.5] Stop running! Stop running!
+26 [81.842] Whoa, you're an orphan? So am I.
+ #261 orphan? => 1701 orphan: a child whose parents are both dead
+27 [84.219] Well, I mean I was.
+28 [85.679] My goose dad adopted me, / and then later, my panda dad found me.
+ #262 adopted => 1703 adopt: to take someone else’s child into your home and legally become its parent
+29 [89.6] Goose dads, panda dads. / Guess it takes all kinds.
+30 [93.312] - Right, Mom?
+31 [95.606] Then, one day, a local took me in.
+32 [97.733] Put a roof over my head, / gave me clothes to wear, food to eat.
+ #263 roof => 1711 roof: somewhere to live
+33 [101.195] After that, I was never alone again.
+34 [103.572] I guess we both got lucky.
+35 [104.781] I guess.
+36 [105.824] Hey, tell me something. / Back in the Valley of Geese...
+37 [108.202] Peace.
+38 [109.244] ...what did that angry little squirrel / mean...
+ #264 squirrel => 1249 squirrel: a small animal with a long furry tail that climbs trees and eats nuts
+39 [110.74600000000001] Red panda.
+40 [111.663] ...when he said you had to / find your successor?
+ #265 successor? => 336 successor: someone who takes a job or position previously held by someone else
+41 [114.875] Now that I'm supposed to become / Spiritual Leader,
+ #266 supposed => 613 suppose: a) used to say what someone should or should not do, especially because of rules or what someone in authority has said b) used to say what was or is expected or intended to happen, especially when it did not happen c) used to say that something is believed to be true by many people, although it might not be true or you might disagree
+ #267 Spiritual => 355 spiritual: relating to your spirit rather than to your body or mind
+42 [117.294] I have to find a worthy successor / to take over as the Dragon Warrior.
+ #268 worthy => 1718 worthy: deserving respect from people
+ #269 successor => 336 successor: someone who takes a job or position previously held by someone else
+43 [120.38] Once you're on top, / that's where you wanna stay, right?
+ #270 top, => 1726 top: the best, most successful, or most important position in an organization, company, or profession
+44 [122.549] No, it's just that-- What do I know / about being a Spiritual Leader?
+ #271 Spiritual => 355 spiritual: relating to your spirit rather than to your body or mind
+45 [125.636] I can't even come up with / one of those cool-sounding proverbs.
+ #272 proverbs. => 1770 proverb: a short well-known statement that gives advice or expresses something that is generally true. ‘A penny saved is a penny earned’ is an example of a proverb.
+46 [128.18] "Life's greatest enemy is"...
+47 [130.849] Uh, I don't know. Stairs?
+48 [133.644] Okay.
+49 [134.77] Everyone knows / life's greatest enemy is time.
+50 [138.106] I guess it's just easier to hold on / to the life you know
+51 [141.193] than move on to the one you don't.
+52 [142.694] Hey, that was pretty good.
+53 [144.488] Yeah.
+54 [145.405] Maybe she should be the Spiritual Leader / of the Valley of Geese.
+ #273 Spiritual => 355 spiritual: relating to your spirit rather than to your body or mind
+55 [151.161] Whoa, that guy. / He drinks like a fish.
+ #274 drinks => 1851 drink: to drink alcohol, especially regularly or too much
+56 [153.20499999999998] Should he be driving?
+57 [179.773] We've come to pay tribute, / as you requested.
+ #275 tribute, => 550 tribute: a payment of goods or money by one ruler or country to another more powerful one, especially in order to be protected
+58 [182.901] Looks a little light.
+ #276 light. => 1887 light: if something is light, there is not very much of it or it is not very great
+59 [184.778] Go back out and get me more!
+60 [186.655] More?
+61 [187.573] But-- But, Chameleon--
+62 [188.74] Go! Before I toss you / down another flight of stairs.
+ #277 toss => 1909 toss: to throw something, especially something light, with a quick gentle movement of your hand
+ #278 flight => 1924 flight: a set of stairs between one floor and the next
+63 [195.205] At last, my destiny approaches.
+ #279 destiny => 334 destiny: the things that will happen to someone in the future, especially those that cannot be changed or controlled
+64 [202.212] I'll expand my rule from Juniper City / to every city and town and village
+ #280 expand => 1928 expand: to become larger in size, number, or amount, or to make something become larger
+ #281 rule => 1934 rule: the government of a country or area by a particular group of people or using a particular system
+65 [207.71699999999998] from here to the Valley of Peace / and beyond!
+66 [215.726] They will all know the name / of The Chameleon!
+67 [220.64600000000002] Wake up! Wake up! Wake up!
+68 [221.982] Ah! Zhen! I had a vision. / I saw The Chameleon.
+ #282 vision. => 1952 vision: something that you seem to see as part of a powerful religious experience
+69 [226.195] She's gonna take over cities and towns / and the Valley of Peace.
+70 [229.239] A vision?
+ #283 vision? => 1952 vision: something that you seem to see as part of a powerful religious experience
+71 [230.949] While you were asleep?
+72 [232.492] I'm pretty sure that's just a dream.
+73 [233.911] Not a dream, a vision.
+ #284 vision. => 1952 vision: something that you seem to see as part of a powerful religious experience
+74 [235.704] Either I had a bad dumpling / before I went to sleep,
+75 [237.789] or it's a Dragon Warrior thing.
+76 [239.625] We got to get to The Chameleon / and take her down.
+77 [241.627] Well, then you're in luck.
+78 [243.587] Welcome to Juniper City.
+79 [250.969] Whoa!
+80 [254.848] This is the place where you can be / whatever you wanna be,
+81 [257.684] do whatever you wanna do,
+82 [259.978] and steal whatever you wanna steal.
+83 [263.273] Uh, if that's your thing.
+84 [264.358] Land ho!
+85 [269.238] Whoa. That came out of nowhere.
+ #285 nowhere. => 1998 nowhere: happening or appearing suddenly and without warning
+86 [281.625] Ah!
+87 [283.71] - Whoa! / - Move!
+88 [284.878] - Look out! / - Sorry!
+89 [286.63] Out of the way!
+90 [288.549] I've never seen so much traffic before.
+91 [290.509] You don't have rush hour / in the Valley of Peace?
+92 [292.594] No one's ever in that much of a rush. Oof.
+93 [296.557] Come on!
+94 [302.563] Well, sure is good to be home again.
+95 [304.481] The sights. The sounds.
+96 [306.316] The smells.
+97 [313.24] It's a wonton wonderland!
+98 [318.996] Yeah!
+99 [323.33299999999997] - Po. Po!
+100 [324.96] Focus!
+101 [326.461] This city is the most amazing place / I've ever seen!
+102 [328.547] I used to feel the same way / until The Chameleon got her claws into it.
+ #286 claws => 217 claw: a) if someone gets their claws into another person, they influence them in a harmful way b) to say unpleasant things about someone in order to upset them
+103 [343.187] Tonight, we take down The Chameleon.
+104 [345.314] Oh, yeah.
+105 [346.44] I'll show you where this villainous / sorceress lurks as she dominates the city.
+ #287 villainous => 2000 villainous: evil or criminal
+ #288 sorceress => 501 sorceress: a woman in stories who uses magic and receives help from evil forces
+ #289 lurks => 2001 lurk: to wait somewhere quietly and secretly, usually because you are going to do something wrong
+ #290 dominates => 2004 dominate: to control someone or something or to have more importance than other people or things
+106 [350.11] Is she lurking in that villainous tower / dominating the city?
+ #291 lurking => 2001 lurk: to wait somewhere quietly and secretly, usually because you are going to do something wrong
+ #292 villainous => 2000 villainous: evil or criminal
+ #293 dominating => 2005 dominate: to be larger and more noticeable than anything else in a place
+107 [354.948] How'd you know?
+108 [355.949] Eh, not my first time / taking down a villain.
+ #294 villain. => 2008 villain: a bad person or criminal
+109 [357.951] Let's keep moving.
+110 [359.036] - Hey, Zhen! / - Heya, Zhen.
+111 [360.454] Long time no see.
+112 [361.622] How you doing, Zhen?
+113 [362.539] Wow, you're quite the local celeb.
+ #295 celeb. => 2009 celeb: a celebrity
+114 [364.791] Yeah, well, let's just say / a face like mine is hard to forget.
+115 [370.756] What? You're a wanted criminal?
+ #296 wanted => 2010 wanted: someone who is wanted is being looked for by the police
+116 [372.883] You sound surprised. Is this surprising? / I don't think this is surprising.
+117 [376.47] You never mentioned / you were wanted.
+ #297 wanted. => 2010 wanted: someone who is wanted is being looked for by the police
+118 [378.472] Don't worry.
+119 [379.806] The law has better things to do / than look for me.
+ #298 law => 2015 law: the police
+120 [382.017] - Hey, fox. / - We've been looking for you.
+121 [384.645] Must be a slow workweek.
+ #299 slow => 2032 slow: if business or trade is slow, there are not many customers or not much is sold
+ #300 workweek. => 2043 workweek: the total amount of time that you spend working during a week
+122 [385.771] I'll handle this.
+ #301 handle => 2045 handle: to deal with a situation or problem by behaving in a particular way and making particular decisions
+123 [387.022] Morning, officers. / Dragon Warrior here.
+124 [390.192] The fox and I are here / on official Dragon Warrior biz.
+ #302 official => 2057 official: relating to or done as part of an important job or position
+125 [393.654] - Dragon who? / - Warrior what?
+126 [395.28] Dragon Warrior.
+127 [396.74] Anyone? Nothing?
+128 [399.034] Perhaps you know me better as...
+129 [401.703] the Kung Fu Panda!
+130 [405.332] - Wait, wait!
+131 [407.209] Can you believe that guy?
+132 [409.086] Aw, come on!
+133 [410.254] Okay, so we tried it your way. / Now we try it mine.
+134 [415.175] - Wait, what's your way--
+135 [419.972] Sorry.
+136 [422.432] Come on, come on, come on, come on!
+137 [424.768] You can't run away from the law. / You're a wanted criminal!
+ #303 law. => 2015 law: the police
+ #304 wanted => 2010 wanted: someone who is wanted is being looked for by the police
+138 [427.354] Yeah? Well, it looks like / I'm not the only one.
+139 [430.065] Wow. City life really is fast-paced.
+140 [432.359] We gotta get out of here / before they call for...
+141 [436.572] ...backup.
+ #305 ...backup. => 2064 backup: people or things that can be used to provide support and help if they are needed
+142 [442.619] That's a lot of bull.
+ #306 bull. => 2066 bull: an adult male animal of the cattle family
+143 [444.037] - Run!
+144 [452.296] - Let's go, let's go! / - Oh!
+145 [463.223] Ow!
+146 [492.127] Let's go.
+147 [494.63] Whoa! Whoa!
+148 [499.384] I'm falling...
+149 [501.053] very slowly.
+150 [504.598] Ow!
+151 [518.403] Sorry.
+152 [536.004] Whew.
+153 [544.429] There they are!
+154 [547.266] We don't have time for a drum solo!
+ #307 solo! => 2076 solo: a piece of music for one performer
+155 [551.144] We're trapped.
+ #308 trapped. => 2091 trap: to prevent someone from escaping from somewhere, especially a dangerous place
+156 [564.908] It isn't much farther now.
+157 [565.993] You always say that, / and it's always so much farther.
+158 [570.956] Whoa. What is this place?
+159 [573.792] Home sweet home.
+160 [575.252] Some of the best crooks and criminals / in all of Juniper City live here.
+ #309 crooks => 2098 crook: a dishonest person or a criminal
+161 [580.966] Careful. These guys will steal your pants / right off ya, and you'll never know it.
+162 [587.764] Uh-oh.
+163 [589.099] Now, you kids be careful / with those fireworks.
+164 [595.981] Ooh!
+165 [602.362] Ow!
+166 [607.868] Oh!
+167 [610.787] So you're friends / with all these people?
+168 [613.04] They're practically family.
+ #310 practically => 2102 practically: almost
+169 [614.333] Zhen!
+170 [620.797] Oh! Is that really you?
+171 [623.008] Han, my old mentor.
+ #311 mentor. => 2104 mentor: an experienced person who advises and helps a less experienced person
+172 [625.469] I always knew someday you'll find your way / home back to the den.
+ #312 den. => 2107 den: a place where secret or illegal activities take place
+173 [628.43] And when you did...
+174 [631.475] ...I'd be sure to give you / a proper homecoming.
+ #313 proper => 2114 proper: real, or of a good and generally accepted standard
+ #314 homecoming. => 2121 homecoming: an occasion when someone comes back to their home after a long absence
+175 [634.52] Family, huh?
+176 [635.854] More like distant cousins.
+ #315 distant => 2126 distant: not closely related to you
+177 [637.189] All right. How should we do this?
+178 [639.107] Quick and painless? / Or slow and painful?
+ #316 painless? => 2128 painless: causing no pain
+179 [642.277] Slow and painful. / Slow and painful.
+180 [645.697] All right, you little scamps. / Slow and painful it is.
+ #317 scamps. => 2130 scamp: a child who has fun by tricking people
+181 [648.45] - Hooray! / - Yay!
+182 [649.993] You really don't wanna do this.
+183 [651.578] And why is that?
+184 [652.663] Because if you so much as / lay one claw on me,
+ #318 lay => 2139 lay: to touch someone with the intention of hurting them
+185 [654.915] you're gonna have to answer to...
+186 [657.292] the Dragon Warrior.
+187 [659.294] Warrior, warrior, warrior, / warrior, warrior.
+188 [663.215] Who?
+189 [666.635] Oh, man. Are my adventures / really that regional?
+ #319 regional? => 2176 regional: relating to a particular region or area
+190 [669.93] Introduce them, Po,
+191 [672.266] to your fists.
+192 [679.481] Remember, Po, there are other ways / to bring peace than by kicking butt.
+ #320 kicking => 267 kick: to punish or defeat someone
+193 [683.694] Ah, come on. Really? Now?
+194 [685.696] Yes, now.
+195 [687.573] Hold on. Shouldn't my inner Shifus / have differing opinions?
+ #321 inner => 887 inner: thoughts or feelings inside your head which seem to warn or advise you
+ #322 differing => 2177 differ: to be different from something in some way
+196 [690.909] We are in total agreement...
+197 [692.2860000000001] ...with our mutual disappointment...
+ #323 disappointment... => 2185 disappointment: a feeling of unhappiness because something is not as good as you expected, or has not happened in the way you hoped
+198 [694.288] ...in you.
+199 [697.2909999999999] Wait.
+200 [699.543] He who resorts to violence now...
+ #324 resorts => 2191 resort: to do something bad, extreme, or difficult because you cannot think of any other way to deal with a problem
+201 [704.173] will only find more violence later.
+202 [707.509] Huh?
+203 [709.97] So what you're saying is, / if we don't hurt Zhen a little now...
+204 [714.016] We can hurt her a lot later.
+205 [715.976] What? No, that's not what I said.
+206 [717.811] Yes! And more violence later / is better than less violence now.
+207 [721.857] No, no. I think you're misunderstanding / the fundamental point of--
+ #325 misunderstanding => 1670 misunderstand: to fail to understand someone or something correctly
+ #326 fundamental => 2192 fundamental: relating to the most basic and important parts of something
+208 [724.234] - More violence! / - Hooray!
+209 [725.652] Violence makes my tummy tingle.
+ #327 tingle. => 2194 tingle: if a part of your body tingles, you feel a slight stinging feeling, especially on your skin
+210 [728.238] You know, that panda / makes a lot of good points.
+211 [730.365] - I like it. / - Violence, violence, violence.
+212 [733.994] No, no, no! Wait!
+213 [735.204] Come back!
+214 [736.288] I'll come up with better wisdom.
+ #328 wisdom. => 360 wisdom: good sense and judgment, based especially on your experience of life
+215 [739.041] You have got to workshop / those proverbs.
+ #329 proverbs. => 1770 proverb: a short well-known statement that gives advice or expresses something that is generally true. ‘A penny saved is a penny earned’ is an example of a proverb.
+216 [742.92] - Uh, the Kung Fu Panda? / - Nope.
+217 [745.255] The son of Mr. Ping and Li?
+218 [747.09] Those are both very common names.
+219 [749.009] - Mentored by Oogway? / - Sorry.
+ #330 Mentored => 2105 mentor: to be someone’s mentor
+220 [750.802] Trained by Master Shifu?
+221 [752.471] - Oh! Master Shifu? Yes. / - Aha!
+222 [754.681] Everyone's heard of / the legendary Master Shifu.
+ #331 legendary => 2198 legendary: very famous and admired
+223 [757.142] But not you.
+224 [759.186] Did someone say "legendary"? / Bring it in.
+ #332 "legendary"? => 2198 legendary: very famous and admired
+225 [764.024] Look, Han.
+226 [765.025] I know we've had our differences, / but I'm really in a jam here,
+ #333 differences, => 2204 difference: disagreements
+ #334 jam => 2210 jam: a difficult situation
+227 [768.028] and I was hoping / you could help me out.
+228 [769.738] - Thank you. / - Don't drink that.
+229 [773.534] Oh!
+230 [777.037] We just need someplace to lie low / for a while until the heat cools off.
+ #335 lie => 2228 lie: a) to remain hidden because someone is trying to find you or catch you b) to wait and try not to be noticed by anyone
+ #336 heat => 2244 heat: strong pressure on someone
+231 [780.165] And why should I help you?
+232 [781.708] Because deep down / beneath that iron-scaled exterior
+ #337 deep => 2284 deep: a) if you know or feel something deep down, you secretly know or feel it even though you do not admit it b) if someone is good, evil etc deep down, that is what they are really like even though they usually hide it
+ #338 exterior => 2290 exterior: behaviour that seems calm, unfriendly etc but which often hides a different feeling or attitude
+233 [784.378] is a good-hearted soul
+ #339 good-hearted => 2294 good-hearted: kind and generous
+ #340 soul => 460 soul: used in particular phrases to mean a person
+234 [785.879] who still thinks of me / as one of the family?
+235 [788.841] Fine.
+236 [789.967] But if you're still here by nightfall, / I'm calling the bulls myself.
+ #341 nightfall, => 2295 nightfall: the time when it begins to get dark in the evening
+ #342 bulls => 2066 bull: an adult male animal of the cattle family
+237 [794.221] Sleep tight.
+238 [799.601] So tonight, we take down The Chameleon.
+239 [801.52] After you get your pants back.
+240 [803.981] Not cool! You guys--
+241 [805.691] Come on! Give them back.
+242 [807.317] Those are custom.
+ #343 custom. => 2319 custom: custom products or services are specially designed and made for a particular person
+243 [815.075] Yeah, this place doesn't / look very friendly.
+244 [819.288] Oh! Oh, my tail.
+245 [822.583] I'm sure everything is fine.
+246 [824.835] This is a restaurant.
+247 [826.295] These are my people. / We speak the same language.
+ #344 speak => 1440 speak: if two people or groups speak the same language, they have similar attitudes and opinions
+248 [829.298] You wait here.
+249 [832.676] Salutations!
+ #345 Salutations! => 2322 salutation: something you say or do when greeting someone
+250 [834.428] I'm so sorry to interrupt.
+251 [837.014] I know you're having a good time,
+252 [838.473] but I was wondering if a panda / happened to be passing by these parts?
+ #346 parts? => 2345 part: in the particular area that you are in
+253 [843.729] There was a panda here.
+254 [845.856] You know him?
+255 [846.94] Know him? Why, I'm his dad!
+256 [852.404] No, no, no, no, no, no. Hmm?
+257 [854.656] You need to pay / for what your son did to my tavern.
+ #347 pay => 1005 pay: to suffer or be punished for something you have done wrong
+ #348 tavern. => 607 tavern: a word for a bar, often used in the name of a bar
+258 [862.414] My boy wouldn't have done this / for no reason.
+259 [865.542] Is it possible your broth was bland?
+ #349 broth => 260 broth: soup with meat, rice, or vegetables
+ #350 bland? => 601 bland: food that is bland has very little taste
+260 [867.503] Try it.
+261 [869.379] No, no!
+262 [871.632] The broth smells excellent.
+ #351 broth => 260 broth: soup with meat, rice, or vegetables
+263 [873.634] You should not add a single thing, / especially not me!
+264 [877.387] Hands off the goose.
+265 [882.601] The panda's back.
+266 [883.936] - He's back? / - He's back?
+267 [885.395] No.
+268 [887.147] But you're about to wish he was,
+269 [890.234] 'cause if you think he made a mess / of this place,
+270 [892.694] you have no idea what I'm capable of.
+ #352 capable => 1104 capable: having the qualities or ability needed to do something
+271 [895.656] Everything he learned, he learned from me.
+272 [901.119] Except one thing.
+273 [903.413] Mercy.
+ #353 Mercy. => 2412 mercy: if someone shows mercy, they choose to forgive or to be kind to someone who they have the power to hurt or punish
+274 [905.582] I don't know where he got that, / because I don't believe in it.
+275 [910.42] Now, this can go one of two ways.
+276 [913.924] The easy way, / in which you tell me where he is,
+277 [918.303] or the hard way,
+278 [919.388] in which you tell me where he is,
+279 [922.14] but it's hard to understand / what you're saying
+280 [924.101] because you have no teeth.
+281 [932.734] Mah-jongg.
+282 [934.152] I eat mah-jongg tiles for breakfast!
+283 [964.766] Huh?
+284 [978.071] Stay there!
+285 [979.072] Where's our son?
+286 [980.115] He took a boat to Juniper City.
+287 [981.992] Which way?
+288 [984.369] You know, a wise goose once--
+ #354 wise => 1585 wise: someone who is wise makes good decisions, gives good advice etc, especially because they have a lot of experience of life
+289 [986.413] Time to go.
+290 [987.706] Uh, yeah. Right.
+291 [1019.655] Okay, let's try this again.
+292 [1021.406] Stir the pot, roll the wok, / serve the dish, and ska-blam!
+ #355 Stir => 1597 stir: to move a liquid or substance around with a spoon or stick in order to mix it together
+ #356 wok, => 2436 wok: a wide pan shaped like a bowl, used in Chinese cooking
+293 [1027.287] Hey, where's the golden dragon / that's supposed to shoot out?
+ #357 supposed => 613 suppose: a) used to say what someone should or should not do, especially because of rules or what someone in authority has said b) used to say what was or is expected or intended to happen, especially when it did not happen c) used to say that something is believed to be true by many people, although it might not be true or you might disagree
+294 [1029.998] Not gonna happen with a broom.
+ #358 broom. => 2437 broom: a large brush with a long handle, used for sweeping floors
+295 [1031.834] Yeah? Still not bad though.
+296 [1033.001] Yeah. But stir later, roll higher, / and the word is "skadoosh."
+ #359 stir => 1597 stir: to move a liquid or substance around with a spoon or stick in order to mix it together
+297 [1038.34] "Skadoosh" isn't a word.
+298 [1039.8] - And "ska-blam" is?
+299 [1046.849] Ska-blam!
+300 [1053.48] I gotta say, you're not / like any of the other masters I've met.
+301 [1057.067] Yeah, I know. / There's not a lot of pandas.
+302 [1059.194] No, you're, like, a good guy.
+303 [1062.114] Listen up. The coast is clear.
+ #360 coast => 2440 coast: if the coast is clear, it is safe for you to do something without being seen or caught
+304 [1064.533] Thieves, hit the streets.
+ #361 hit => 2456 hit: to arrive at a place
+305 [1066.994] And you two,
+306 [1068.328] get out of my sight.
+ #362 sight. => 2487 sight: outside the area that you can see
+307 [1081.633] Huh?
+308 [1090.684] I know I promised that I'd lead you / right to The Chameleon's front door,
+309 [1093.604] but the back door seems / a little more practical.
+ #363 practical. => 2504 practical: useful or suitable for a particular purpose or situation
+310 [1096.356] I gotta say, Zhen, / you really are a fox of your word.
+ #364 word. => 2524 word: a sincere promise to do something, or a promise that what you say is true
+311 [1100.694] A chewed-up peach pit?
+ #365 pit? => 396 pit: the single large hard seed in some fruits
+312 [1102.821] One from Master Oogway's peach tree / of heavenly wisdom.
+ #366 heavenly => 2547 heavenly: existing in or belonging to heaven
+ #367 wisdom. => 360 wisdom: good sense and judgment, based especially on your experience of life
+313 [1106.909] Eh, it's a Valley of Peace thing.
+314 [1109.161] It's supposed to remind me that every pit / holds the promise of a mighty tree.
+ #368 supposed => 613 suppose: a) used to say what someone should or should not do, especially because of rules or what someone in authority has said b) used to say what was or is expected or intended to happen, especially when it did not happen c) used to say that something is believed to be true by many people, although it might not be true or you might disagree
+ #369 pit => 396 pit: the single large hard seed in some fruits
+ #370 promise => 409 promise: a sign that something, usually something good, may happen
+ #371 mighty => 410 mighty: very strong and powerful, or very big and impressive
+315 [1115.667] Maybe it'll do the same for you.
+316 [1123.717] Are you sure you wanna do this?
+317 [1125.01] As a wise Spiritual Leader once said,
+ #372 wise => 1585 wise: someone who is wise makes good decisions, gives good advice etc, especially because they have a lot of experience of life
+ #373 Spiritual => 355 spiritual: relating to your spirit rather than to your body or mind
+318 [1127.888] how may one kick butt, / if one doesn't seek a butt to kick?
+ #374 kick => 267 kick: to punish or defeat someone
+ #375 seek => 2551 seek: to look for someone or something
+ #376 kick? => 267 kick: to punish or defeat someone
+319 [1135.312] You're a real piece of work, / you know that?
+320 [1137.189] Thank you.
+321 [1138.44] Wait, was that a compliment or an insult?
+ #377 compliment => 2579 compliment: a remark that shows you admire someone or something
+ #378 insult? => 2591 insult: a remark or action that is offensive or deliberately rude
+322 [1141.068] Yes.
+323 [1150.828] Whoa.
+324 [1154.832] Have you seen our son?
+325 [1163.382] - Sorry. / - Sorry.
+326 [1164.508] - Nope. / - Nah.
+327 [1165.801] Tell us you've seen our son.
+328 [1170.389] Wait, why are they leaving? You said yes.
+329 [1173.517] Hey, look. Po was here.
+330 [1176.311] Amazing, Li, but how can you tell?
+331 [1178.772] Oh, we pandas have a gift / for seeing what others cannot.
+ #379 gift => 2594 gift: a) a natural ability b) an ability that is given to you by God
+332 [1181.817] Come on. There may be more clues up ahead.
+333 [1219.062] Why?
+334 [1273.659] That was close.
+335 [1274.993] - Look out!
+336 [1276.37] Huh?
+337 [1279.665] - Po! / - Stand back.
+338 [1284.086] - Whoa!
+339 [1287.172] - They're coming! / - Hurry! Help me lift the cage!
+340 [1296.348] It's no use.
+341 [1297.432] - We gotta brace it with something. / - Here, use my staff.
+ #380 brace => 2603 brace: to make something stronger by supporting it
+ #381 staff. => 253 staff: a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+342 [1300.352] All right, stand back. Here I go.
+343 [1304.648] Zhen?
+344 [1307.734] Where are you taking my staff?
+ #382 staff? => 253 staff: a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+345 [1311.363] I think you mean my staff?
+ #383 staff? => 253 staff: a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+346 [1314.199] You gave it to Zhen, / and now Zhen has given it to me.
+347 [1318.036] "Given to gain," / I believe, is how it works?
+ #384 gain," => 1251 gain: to obtain or achieve something you want or need
+348 [1321.248] You were right, Zhen.
+349 [1322.875] He was an easy mark.
+350 [1324.293] Zhen...
+351 [1325.669] First rule of the streets: / Never trust anyone.
+352 [1328.839] I taught her that.
+353 [1330.841] And you thought my apprentice / was your friend?
+ #385 apprentice => 2611 apprentice: someone who works for an employer for a fixed period of time in order to learn a particular skill or job
+354 [1333.552] Apprentice?
+ #386 Apprentice? => 2611 apprentice: someone who works for an employer for a fixed period of time in order to learn a particular skill or job
+355 [1334.803] She's the one that took you in?
+356 [1336.722] Best thing that ever happened to her.
+357 [1339.141] You should have seen / the little guttersnipe before I found her.
+ #387 guttersnipe => 2613 guttersnipe: a dirty untidy badly behaved child from a poor home
+358 [1342.519] Mangy and half-starved,
+ #388 Mangy => 2615 mangy: dirty and in bad condition
+ #389 half-starved, => 2616 starve: to suffer or die because you do not have enough to eat
+359 [1346.023] hanging out with those rejects / from the Den of Thieves.
+ #390 rejects => 2625 reject: someone who is not accepted or liked by another person, or by other people
+ #391 Den => 2107 den: a place where secret or illegal activities take place
+360 [1370.589] She had no fear.
+361 [1373.592] Such potential.
+ #392 potential. => 2628 potential: if people or things have potential, they have a natural ability or quality that could develop to make them very good
+362 [1381.725] So I took her in.
+363 [1384.937] I made her what she is today.
+364 [1387.231] Stand up straight.
+365 [1388.815] Yes, master.
+366 [1389.983] So you went through all of this just to / get me to give you the Staff of Wisdom?
+367 [1393.654] Why?
+368 [1394.738] I, too, came from humble beginnings / and dreamed of becoming something more.
+ #393 humble => 2691 humble: having a low social class or position
+369 [1401.161] I wanted respect and power.
+370 [1402.663] I wanted to be a master of kung fu.
+371 [1405.415] Say what?
+372 [1406.5] I was turned away / from every training hall I went to.
+373 [1410.087] They would say I was too small, too lowly,
+ #394 lowly, => 2745 lowly: low in rank, importance, or social class – sometimes used humorously
+374 [1414.174] and that kung fu was not my destiny.
+ #395 destiny. => 334 destiny: the things that will happen to someone in the future, especially those that cannot be changed or controlled
+375 [1417.386] And so, I chose a different path.
+ #396 path. => 2749 path: a plan or series of actions that will help you achieve something, especially over a long period of time
+376 [1420.639] Sorcery.
+ #397 Sorcery. => 2751 sorcery: magic that uses the power of evil forces
+377 [1422.391] I grew.
+378 [1424.601] I excelled.
+ #398 excelled. => 2752 excel: to do something very well, or much better than most people
+379 [1425.936] And I got everything / I had ever dreamed of.
+380 [1429.773] - Everything except kung fu.
+381 [1432.734] Just because I can look like Tai Lung / doesn't mean I can fight like him.
+382 [1438.073] You see, Po, kung fu may be / performed by the body,
+383 [1442.202] but its secrets are housed in the spirit.
+ #399 housed => 2773 house: if a building, place, or container houses something, it is kept there
+ #400 spirit. => 46 spirit: the part of someone that you cannot see, that consists of the qualities that make up their character, which many people believe continues to live after the person has died
+384 [1445.289] And now that I have access / to the Spirit Realm--
+ #401 Realm-- => 257 realm: a general area of knowledge, activity, or thought
+385 [1447.916] You're gonna steal Tai Lung's kung fu.
+386 [1450.127] His and those of every master villain / that came before me.
+ #402 villain => 2008 villain: a bad person or criminal
+387 [1453.714] And once I do, no one will dare / underestimate me again.
+ #403 dare => 981 dare: to be brave enough to do something that is risky or that you are afraid to do – used especially in questions or negative sentences
+ #404 underestimate => 2775 underestimate: to think that someone is not as good, clever, or skilful, as they really are
+388 [1458.635] You forgot about me.
+389 [1463.432] Don't bother, Po.
+390 [1465.475] Those bars are enchanted with / some very old and very powerful magic.
+ #405 enchanted => 2778 enchant: to use magic on something or someone
+391 [1470.647] You'd need at least ten Dragon Warriors / to get through them.
+392 [1474.61] Then I won't go through them.
+393 [1476.153] I'll go under them.
+394 [1492.794] Well, that's frustrating / for all sorts of reasons.
+ #406 frustrating => 2779 frustrating: making you feel annoyed, upset, or impatient because you cannot do what you want to do
+395 [1503.639] Whoa!
+396 [1532.543] - Po! / - Zhen?
+397 [1535.254] My staff! Hand it over.
+ #407 staff! => 253 staff: a) a long thick stick to help you walk b) a long thick stick that an official holds in some ceremonies
+398 [1536.63] I'm so sorry I lied to you. / I was just doing what I was told.
+399 [1539.633] Apologize later. / Right now, I have to stop The Chameleon.
+400 [1541.969] Po!
+401 [1543.72] Zhen?
+402 [1550.185] No!
+403 [1557.776] Well done, Zhen.
+404 [1559.528] You never said you were gonna hurt him.
+405 [1561.738] What's the second rule / of the streets?
+406 [1564.908] Someone always gets hurt.
+407 [1566.535] And make sure it's never you.
+408 [1569.454] I just wish there had been another way.
+409 [1572.416] Third rule of the streets?
+410 [1574.626] Third rule?
+411 [1575.878] Some would say / it's the most important:
+412 [1578.505] No one is interested in your feelings.
+413 [1583.886] Chop-chop! / We have a Spirit Realm to plunder.
+ #408 Chop-chop! => 2780 chop-chop: an expression used when you want someone to hurry
+ #409 Realm => 257 realm: a general area of knowledge, activity, or thought
+ #410 plunder. => 2781 plunder: to steal large amounts of money or property from somewhere, especially while fighting in a war
+414 [1587.472] And smile.
+415 [1589.308] Nobody likes a grouch.
+ #411 grouch. => 2785 grouch: someone who is always complaining
+416 [1591.518] Honestly, Zhen, I don't know where / you pick up such bad habits.
+417 [1602.863] If I could--
+418 [1607.743] Hey there.
+419 [1609.495] Whoa!
+420 [1612.623] Get off me! Ow! Ow!
+421 [1620.297] - Son!
+422 [1629.473] - Now save me.
+423 [1633.227] Hi, Son.
+424 [1638.023] It's okay. We've got you, Po. / We've got you.
+425 [1643.028] So you followed me.
+426 [1644.404] - It was his idea.
+427 [1645.781] Okay, okay. It was both our ideas.
+428 [1647.741] We only follow because we love.
+429 [1649.91] No, you followed / because you didn't believe in me.
+430 [1654.081] And because we love?
+431 [1656.375] Well, you're right.
+432 [1659.002] I screwed up big-time.
+ #412 big-time. => 2822 big time: to a very large degree
+433 [1661.713] I trusted the wrong person.
+434 [1663.549] I gave the Staff of Wisdom / right to The Chameleon.
+435 [1667.8029999999999] Oh...
+436 [1669.513] Po, that was a very big-time screw-up.
+437 [1676.979] If only I'd listened to Master Shifu / and stayed in the Valley of Peace,
+438 [1680.524] The Chameleon wouldn't have my staff, / and none of this would be happening.
+439 [1684.111] I was just so determined / to keep things the way they were.
+ #413 determined => 2828 determined: having a strong desire to do something, so that you will not let anyone stop you
+440 [1687.072] Everyone is afraid of change, Po.
+441 [1690.242] Even me.
+442 [1691.869] There was a time not so long ago
+443 [1694.746] when all I wanted to be was / the greatest noodle chef in the valley.
+444 [1699.668] So what happened?
+445 [1701.712] I became the greatest noodle chef / in the valley.
+446 [1704.214] It's true.
+447 [1705.34] But I also became a father.
+448 [1708.093] And nothing... / nothing's ever been the same since.
+449 [1712.347] Change doesn't always / have to be a bad thing.
+450 [1714.683] Why do you think I always change / the menu at the restaurant?
+451 [1719.897] Because if things stayed the same forever,
+452 [1722.441] sooner or later, / they would lose their flavor.
+ #414 flavor. => 2833 flavour: a quality or feature that makes something have a particular style or character
+453 [1726.945] He's right, Po.
+454 [1728.071] Since I left my village, / I've become a bit of a warrior.
+ #415 warrior. => 878 warrior: a soldier or fighter who is brave and experienced – used about people in the past
+455 [1731.366] - Strong. Brave.
+456 [1734.703] - Move it.
+457 [1736.538] This way.
+458 [1738.29] Get those cages up there. Come on.
+459 [1741.793] Hmm. This looks bad.
+460 [1743.879] Really bad.
+461 [1745.005] Move it.
+462 [1746.089] - Come on.

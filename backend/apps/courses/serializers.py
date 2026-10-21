@@ -1,4 +1,6 @@
-from django.db import transaction
+from contextlib import contextmanager
+
+from django.db import IntegrityError, transaction
 from rest_framework import serializers
 
 from apps.dictionary.models import Sense
@@ -6,6 +8,42 @@ from apps.dictionary.serializers import SenseSerializer
 from apps.my_vocabulary.models import Vocabulary
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
+
+
+@contextmanager
+def subtitle_occurrence_write():
+    """Convert a uniqueness race into the same useful 400 as prevalidation."""
+    try:
+        with transaction.atomic():
+            yield
+    except IntegrityError as exc:
+        message = str(exc)
+        if "unique_subtitle_occurrence_per_section" in message or (
+            "UNIQUE constraint failed" in message
+            and "courses_subtitleword.section_id" in message
+            and "courses_subtitleword.position_in_cue" in message
+        ):
+            raise serializers.ValidationError({
+                "subtitle_words": "This subtitle occurrence already belongs to a mapping."
+            }) from exc
+        raise
+
+
+def validate_subtitle_occurrences(section_id, words, exclude_pk=None):
+    occupied = set(
+        SubtitleWord.objects.filter(section_id=section_id).exclude(pk=exclude_pk)
+        .values_list("cue_id", "word", "position_in_cue")
+    )
+    for word in words:
+        key = (word["cue_id"], word["word"], word["position_in_cue"])
+        if key in occupied:
+            raise serializers.ValidationError({
+                "subtitle_words": (
+                    f'The subtitle occurrence "{word["word"]}" in cue '
+                    f'{word["cue_id"]} is already mapped or repeated in this request.'
+                )
+            })
+        occupied.add(key)
 
 # A workable naming convention for serializers: name by <Model><Role>Serializer, where <Role> comes from a small, fixed vocabulary:
 
@@ -115,6 +153,23 @@ class CourseSummarySerializer(serializers.ModelSerializer):
 
 class SubtitleWordSerializer(serializers.ModelSerializer):
 
+    def validate(self, attrs):
+        instance = self.instance
+        mapping = attrs.get("mapping", getattr(instance, "mapping", None))
+        word = {key: attrs.get(key, getattr(instance, key, None))
+                for key in ("cue_id", "word", "position_in_cue")}
+        if mapping is not None:
+            validate_subtitle_occurrences(mapping.section_id, [word], getattr(instance, "pk", None))
+        return attrs
+
+    def create(self, validated_data):
+        with subtitle_occurrence_write():
+            return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        with subtitle_occurrence_write():
+            return super().update(instance, validated_data)
+
     class Meta:
         model = SubtitleWord
         fields = (
@@ -195,18 +250,18 @@ class WordSenseMappingCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("At least one subtitle word is required.")
         return value
 
-    @transaction.atomic
     def create(self, validated_data):
-        section = validated_data["section"]
-        senses = validated_data["senses"]
-        words = validated_data.pop("subtitle_words")
-
-        mapping = WordSenseMapping.objects.create(section=section)
-        mapping.senses.set(senses)
-        SubtitleWord.objects.bulk_create(
-            [SubtitleWord(mapping=mapping, **word) for word in words]
-        )
-        return mapping
+        with subtitle_occurrence_write():
+            section = Section.objects.select_for_update().get(pk=validated_data["section"].pk)
+            senses = validated_data["senses"]
+            words = validated_data.pop("subtitle_words")
+            validate_subtitle_occurrences(section.pk, words)
+            mapping = WordSenseMapping.objects.create(section=section)
+            mapping.senses.set(senses)
+            SubtitleWord.objects.bulk_create(
+                [SubtitleWord(mapping=mapping, **word) for word in words]
+            )
+            return mapping
 
     def to_representation(self, instance):
         instance = (

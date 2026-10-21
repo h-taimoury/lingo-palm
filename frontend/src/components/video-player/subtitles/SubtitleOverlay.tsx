@@ -33,7 +33,7 @@ export function SubtitleOverlay({
   }
 
   return (
-    <div className="pointer-events-none absolute inset-x-4 bottom-20 z-30 flex justify-center">
+    <div className="pointer-events-none absolute inset-x-4 bottom-20 z-30 flex justify-center [container-type:inline-size]">
       <SubtitleCue cue={cue} onOpenMapping={onOpenMapping} />
     </div>
   );

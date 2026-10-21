@@ -1,0 +1,335 @@
+[
+  {
+    "term": "hung jury",
+    "intended_meaning": "a jury that cannot agree on a verdict",
+    "status": "scraper_lookup_failed; existing jury mappings retained",
+    "occurrences": [
+      {
+        "cue_id": 61,
+        "start_time": 269.886,
+        "end_time": 272.513,
+        "cue_text": "I'm ready to walk into court right\nnow and declare a hung jury."
+      },
+      {
+        "cue_id": 65,
+        "start_time": 278.77,
+        "end_time": 281.689,
+        "cue_text": "I don't think the judge will accept a hung\njury. We haven't been in here very long."
+      },
+      {
+        "cue_id": 69,
+        "start_time": 288.53,
+        "end_time": 291.449,
+        "cue_text": "Come on! We're hung. Nobody's gonna\nchange his vote. Let's take it inside."
+      },
+      {
+        "cue_id": 340,
+        "start_time": 1156.814,
+        "end_time": 1160.358,
+        "cue_text": "Okay. I say we're a hung jury.\nI say we take it in to the judge."
+      },
+      {
+        "cue_id": 354,
+        "start_time": 1198.356,
+        "end_time": 1201.691,
+        "cue_text": "the question of whether\nwe're a hung jury or not."
+      }
+    ]
+  },
+  {
+    "term": "bleeding hearts",
+    "intended_meaning": "people regarded as excessively sympathetic",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 496,
+        "start_time": 1673.08,
+        "end_time": 1676.766,
+        "cue_text": "You lousy bunch of bleeding hearts."
+      }
+    ]
+  },
+  {
+    "term": "go over",
+    "intended_meaning": "review or examine again; mentally review in cue 386",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 82,
+        "start_time": 321.646,
+        "end_time": 325.274,
+        "cue_text": "I'd like to go over something,\nif you gentlemen don't mind."
+      },
+      {
+        "cue_id": 162,
+        "start_time": 544.995,
+        "end_time": 546.704,
+        "cue_text": "They've been over it and over it."
+      },
+      {
+        "cue_id": 343,
+        "start_time": 1167.909,
+        "end_time": 1169.826,
+        "cue_text": "Let's go over it again."
+      },
+      {
+        "cue_id": 344,
+        "start_time": 1169.827,
+        "end_time": 1171.828,
+        "cue_text": "We've been over it again!"
+      },
+      {
+        "cue_id": 386,
+        "start_time": 1293.451,
+        "end_time": 1297.4279999999999,
+        "cue_text": "I didn't think of it then,\nbut I've been going over her face..."
+      }
+    ]
+  },
+  {
+    "term": "go along with",
+    "intended_meaning": "agree with or accept",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 163,
+        "start_time": 546.705,
+        "end_time": 549.081,
+        "cue_text": "Well, I know they did,\nbut I don't go along with it."
+      }
+    ]
+  },
+  {
+    "term": "figure out",
+    "intended_meaning": "work out or understand",
+    "status": "scraper_lookup_failed; nearest figure sense mapped without unsupported particle",
+    "occurrences": [
+      {
+        "cue_id": 2,
+        "start_time": 7.04,
+        "end_time": 9.392,
+        "cue_text": "Well, how'd you figure\nthat out, killer?"
+      }
+    ]
+  },
+  {
+    "term": "back up",
+    "intended_meaning": "support a claim with evidence",
+    "status": "scraper_lookup_failed; existing back sense retained",
+    "occurrences": [
+      {
+        "cue_id": 90,
+        "start_time": 343.001,
+        "end_time": 345.586,
+        "cue_text": "and he himself couldn't back\nit up with any details at all."
+      }
+    ]
+  },
+  {
+    "term": "look up",
+    "intended_meaning": "improve",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 40,
+        "start_time": 193.435,
+        "end_time": 196.704,
+        "cue_text": "Well, things are\nlooking up here, huh?"
+      }
+    ]
+  },
+  {
+    "term": "come out",
+    "intended_meaning": "become known",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 6,
+        "start_time": 17.301,
+        "end_time": 20.386,
+        "cue_text": "I don't feel that way. There were a\nlot of details that never came out."
+      }
+    ]
+  },
+  {
+    "term": "come off",
+    "intended_meaning": "have the nerve or right to behave this way",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 56,
+        "start_time": 252.911,
+        "end_time": 256.831,
+        "cue_text": "I mean, where does he come off calling me\na public avenger, sadist and everything?"
+      }
+    ]
+  },
+  {
+    "term": "throw out",
+    "intended_meaning": "reject or disregard evidence",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 332,
+        "start_time": 1135.585,
+        "end_time": 1137.711,
+        "cue_text": "You can throw out\nall the other evidence!"
+      },
+      {
+        "cue_id": 459,
+        "start_time": 1513.337,
+        "end_time": 1516.356,
+        "cue_text": "Well, you said we could throw\nout all the other evidence."
+      }
+    ]
+  },
+  {
+    "term": "run into",
+    "intended_meaning": "encounter",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 291,
+        "start_time": 996.112,
+        "end_time": 1000.215,
+        "cue_text": "Wherever you run into it,\nprejudice always obscures the truth."
+      }
+    ]
+  },
+  {
+    "term": "show of hands",
+    "intended_meaning": "a vote by raising hands",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 240,
+        "start_time": 799.749,
+        "end_time": 802.709,
+        "cue_text": "I guess the quickest way is a\nshow of hands. Anyone object?"
+      }
+    ]
+  },
+  {
+    "term": "unshakable",
+    "intended_meaning": "not open to doubt or challenge",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 324,
+        "start_time": 1106.681,
+        "end_time": 1110.617,
+        "cue_text": "As far as I can see it,\nthis is unshakable testimony."
+      }
+    ]
+  },
+  {
+    "term": "farsighted",
+    "intended_meaning": "able to see distant objects better than nearby ones",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 439,
+        "start_time": 1450.774,
+        "end_time": 1453.484,
+        "cue_text": "Maybe she was farsighted.\nWhat do you know about it?"
+      }
+    ]
+  },
+  {
+    "term": "triumph",
+    "intended_meaning": "an achievement or personal victory",
+    "status": "scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 339,
+        "start_time": 1153.144,
+        "end_time": 1156.813,
+        "cue_text": "Why is this such a personal\ntriumph for you... this one vote?"
+      }
+    ]
+  },
+  {
+    "term": "casually",
+    "intended_meaning": "without particular attention or deliberate effort",
+    "status": "casual_scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 431,
+        "start_time": 1430.212,
+        "end_time": 1432.422,
+        "cue_text": "when she turned to look\ncasually out of the window."
+      }
+    ]
+  },
+  {
+    "term": "underhanded",
+    "intended_meaning": "with an upward motion from below",
+    "status": "underhand_scraper_lookup_failed",
+    "occurrences": [
+      {
+        "cue_id": 193,
+        "start_time": 652.811,
+        "end_time": 655.412,
+        "cue_text": "Here's how... underhanded."
+      },
+      {
+        "cue_id": 201,
+        "start_time": 675.75,
+        "end_time": 677.835,
+        "cue_text": "I feel he'd have gone\nfor him underhanded."
+      }
+    ]
+  },
+  {
+    "term": "cats and dogs",
+    "intended_meaning": "very heavily, of rain",
+    "status": "no_supported_stored_expression_sense",
+    "occurrences": [
+      {
+        "cue_id": 31,
+        "start_time": 142.593,
+        "end_time": 146.429,
+        "cue_text": "And it starts to come down\ncats and dogs, just like this."
+      }
+    ]
+  },
+  {
+    "term": "in his right mind",
+    "intended_meaning": "thinking sensibly and rationally",
+    "status": "no_supported_stored_expression_sense",
+    "occurrences": [
+      {
+        "cue_id": 57,
+        "start_time": 256.832,
+        "end_time": 260.418,
+        "cue_text": "Anyone in his right mind\nwould blow his stack, huh?"
+      }
+    ]
+  },
+  {
+    "term": "split second",
+    "intended_meaning": "a very brief moment",
+    "status": "no_supported_stored_compound_sense",
+    "occurrences": [
+      {
+        "cue_id": 433,
+        "start_time": 1435.259,
+        "end_time": 1436.718,
+        "cue_text": "The lights went off a\nsplit second later."
+      }
+    ]
+  },
+  {
+    "term": "speaking my piece",
+    "intended_meaning": "stating my opinion",
+    "status": "no_supported_stored_expression_sense",
+    "occurrences": [
+      {
+        "cue_id": 278,
+        "start_time": 916.991,
+        "end_time": 919.342,
+        "cue_text": "I'm speaking my piece, and you..."
+      }
+    ]
+  }
+]

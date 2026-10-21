@@ -7,6 +7,7 @@ import toast from "react-hot-toast"
 import { AdminVideoPreview } from "@/components/admin/mappings/AdminVideoPreview"
 import { mappingColor } from "@/components/admin/mappings/mappingStyles"
 import { useUnsavedChangesWarning } from "@/components/admin/mappings/useUnsavedChangesWarning"
+import { LearningModal } from "@/components/video-player/learning/LearningModal"
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -74,6 +75,46 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
     () => new Map(),
   )
   const [mappingDialogOpen, setMappingDialogOpen] = useState(false)
+  const [previewSenseId, setPreviewSenseId] = useState<number | null>(null)
+  const [previewSense, setPreviewSense] = useState<Sense | null>(null)
+  const [previewError, setPreviewError] = useState<unknown>(null)
+  const [senseMapping, setSenseMapping] = useState<WordSenseMapping | null>(null)
+  const [senseIndex, setSenseIndex] = useState(0)
+
+  useEffect(() => {
+    if (previewSenseId === null || !mappingDialogOpen) return
+    const abort = new AbortController()
+    void apiClient.get<Sense>(`/api/dictionary/senses/${previewSenseId}/`, { signal: abort.signal })
+      .then((sense) => {
+        if (!abort.signal.aborted) setPreviewSense(sense)
+      })
+      .catch((error) => {
+        if (!abort.signal.aborted) {
+          setPreviewError(error)
+          setPreviewSenseId(null)
+        }
+      })
+    return () => abort.abort()
+  }, [previewSenseId, mappingDialogOpen])
+
+  function closeSensePreview() {
+    setPreviewSenseId(null)
+    setPreviewSense(null)
+    setSenseMapping(null)
+    setSenseIndex(0)
+  }
+
+  function previewMappingSenses(mapping: WordSenseMapping) {
+    closeSensePreview()
+    setPreviewError(null)
+    setSenseMapping(mapping)
+  }
+
+  function closeMappingDialog() {
+    closeSensePreview()
+    setPreviewError(null)
+    setMappingDialogOpen(false)
+  }
 
   const [search, setSearch] = useState("")
   const [results, setResults] = useState<Sense[]>([])
@@ -180,7 +221,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
     setSearch("")
     setResults([])
     setActionError(null)
-    setMappingDialogOpen(false)
+    closeMappingDialog()
     setScrapeWord("")
     setScrapeError(null)
     setTrayOffset({ x: 0, y: 0 })
@@ -205,8 +246,12 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
     setMappingDialogOpen(true)
   }
 
-  function clickToken(token: SubtitleToken) {
+  function clickToken(token: SubtitleToken, ctrlKey = false) {
     const existing = mappingIndex.get(token.key)
+    if (existing && ctrlKey) {
+      previewMappingSenses(existing)
+      return
+    }
     if (existing && existing.id !== activeId) {
       openMapping(existing)
       return
@@ -415,7 +460,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
   }
 
   async function deleteMapping() {
-    if (!active || !window.confirm("Delete this mapping and all of its subtitle occurrences?")) {
+    if (!active) {
       return
     }
 
@@ -474,6 +519,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
           activeMappingId={activeId}
           onTokenClick={clickToken}
           onMappedTokenClick={openMapping}
+          onMappedSenseClick={previewMappingSenses}
         />
       </section>
 
@@ -483,6 +529,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
           <p className="mt-1 text-sm text-muted-foreground">
             This is the original selection method. Read all cues and click/tap exact occurrences.
             Selection may span cues. Clicking an already mapped occurrence opens that mapping.
+            {" "}Ctrl-click a mapped word to view its senses without editing.
           </p>
         </div>
 
@@ -508,7 +555,8 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                       <button
                         key={token.key}
                         type="button"
-                        onClick={() => clickToken(token)}
+                        onClick={(event) => clickToken(token, event.ctrlKey)}
+                        title={mapped ? "Click to edit mapping; Ctrl-click to view senses" : "Select this subtitle occurrence"}
                         className={cn(
                           "rounded px-1.5 py-0.5 text-sm ring-1 ring-inset transition",
                           mapped
@@ -533,7 +581,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
 
       {mappings.length ? (
         <section>
-          <p className="mb-2 text-sm font-medium">Existing mappings</p>
+          <p className="mb-2 text-sm font-medium">Existing mappings ({mappings.length})</p>
           <div className="flex flex-wrap gap-2">
             {mappings.map((mapping) => (
               <button
@@ -631,13 +679,14 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
           role="presentation"
           onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setMappingDialogOpen(false)
+            if (event.target === event.currentTarget) closeMappingDialog()
           }}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="mapping-dialog-title"
+            inert={previewSense !== null || senseMapping !== null}
             className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border bg-background shadow-2xl"
           >
             <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b bg-background p-5">
@@ -652,7 +701,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setMappingDialogOpen(false)}
+                onClick={() => closeMappingDialog()}
                 aria-label="Close mapping dialog"
               >
                 <X className="size-4" />
@@ -683,19 +732,43 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                 <h4 className="text-sm font-semibold">Selected dictionary senses</h4>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {[...selectedSenses.values()].map((sense) => (
-                    <button
+                    <div
                       key={sense.id}
-                      type="button"
-                      onClick={() => toggleSense(sense)}
-                      className="rounded-full border px-2.5 py-1 text-xs hover:bg-accent"
+                      className="inline-flex items-center rounded-full border text-xs"
                     >
-                      {sense.entry.word}: {sense.title} ×
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setPreviewError(null)
+                          setPreviewSense(null)
+                          setPreviewSenseId(sense.id)
+                        }}
+                        aria-label={`View sense: ${sense.entry.word}: ${sense.title}`}
+                        className="rounded-l-full px-2.5 py-1.5 hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+                      >
+                        {sense.entry.word}: {sense.title}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (previewSenseId === sense.id) closeSensePreview()
+                          toggleSense(sense)
+                        }}
+                        aria-label={`Remove sense: ${sense.entry.word}: ${sense.title}`}
+                        className="rounded-r-full border-l p-1.5 hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+                      >
+                        <X className="size-3.5" aria-hidden="true" />
+                      </button>
+                    </div>
                   ))}
                   {!selectedSenses.size ? (
                     <p className="text-sm text-muted-foreground">No senses selected yet.</p>
                   ) : null}
                 </div>
+                {previewSenseId !== null && !previewSense ? (
+                  <p role="status" className="mt-2 text-sm text-muted-foreground">Loading sense details…</p>
+                ) : null}
+                <ApiErrorMessage error={previewError} />
               </section>
 
               <section>
@@ -755,6 +828,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                   </p>
                   <form onSubmit={scrapeSelectedWord} className="mt-3 flex flex-col gap-2 sm:flex-row">
                     <Input
+                      autoFocus
                       value={scrapeWord}
                       onChange={(event) => setScrapeWord(event.target.value)}
                       placeholder="Word to scrape"
@@ -787,7 +861,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                 ) : null}
               </div>
               <div className="flex gap-2">
-                <Button variant="outline" onClick={() => setMappingDialogOpen(false)}>
+                <Button variant="outline" onClick={() => closeMappingDialog()}>
                   Keep selecting
                 </Button>
                 <Button
@@ -800,6 +874,20 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
               </div>
             </div>
           </div>
+        </div>
+      ) : null}
+      {senseMapping?.senses.length || (mappingDialogOpen && previewSense) ? (
+        <div className="fixed inset-0 z-[60]">
+          <LearningModal
+            items={senseMapping ? senseMapping.senses.map((sense) => ({ mappingId: senseMapping.id, mappingLabel: sense.entry.word, sense })) : previewSense ? [{ mappingId: activeId ?? 0, mappingLabel: previewSense.entry.word, sense: previewSense }] : []}
+            activeIndex={senseMapping ? senseIndex : 0}
+            onPrevious={senseMapping && senseMapping.senses.length > 1 ? () => setSenseIndex((index) => (index - 1 + senseMapping.senses.length) % senseMapping.senses.length) : undefined}
+            onNext={senseMapping && senseMapping.senses.length > 1 ? () => setSenseIndex((index) => (index + 1) % senseMapping.senses.length) : undefined}
+            learnedSenseIds={new Set<number>()}
+            knownSenseIds={new Set<number>()}
+            onClose={closeSensePreview}
+            presentation="section-vocabulary"
+          />
         </div>
       ) : null}
     </div>

@@ -1,0 +1,2977 @@
+[
+  {
+    "action": "replace",
+    "old_ids": [
+      1021,
+      1022
+    ],
+    "cue_id": 80,
+    "phrase": "account exec",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "account",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "exec",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5721,
+      5733
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2983
+    ],
+    "cue_id": 88,
+    "phrase": "what's the matter",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "what's",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "matter",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      895
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1036
+    ],
+    "cue_id": 106,
+    "phrase": "blowing your stacks",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "blowing",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "your",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "stacks",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      3504
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1039
+    ],
+    "cue_id": 110,
+    "phrase": "as plain as the nose on your face",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "as",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "plain",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "as",
+        "position_in_cue": 2
+      },
+      {
+        "index": 4,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "nose",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "on",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "your",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "face.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5274
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1047
+    ],
+    "cue_id": 143,
+    "phrase": "get down to business",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "get",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "down",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "to",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "business.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      4223
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1056
+    ],
+    "cue_id": 171,
+    "phrase": "The nerve",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "The",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "nerve.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      2919
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1058
+    ],
+    "cue_id": 172,
+    "phrase": "The+nerve",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "The",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "nerve.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      2919
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3010
+    ],
+    "cue_id": 173,
+    "phrase": "Calm down",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "Calm",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "down.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11860
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1061
+    ],
+    "cue_id": 178,
+    "phrase": "wouldn't have the slightest idea",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "wouldn't",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "have",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "slightest",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "idea.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5872
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1068,
+      3023
+    ],
+    "cue_id": 196,
+    "phrase": "hardly hear yourself think",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "hardly",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "hear",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "yourself",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "think.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5892
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1069
+    ],
+    "cue_id": 197,
+    "phrase": "can't hear yourself think",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "can't",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "hear",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "yourself",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "think.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5892
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1070
+    ],
+    "cue_id": 198,
+    "phrase": "get to the point",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "get",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "to",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "point?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      4526
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1084,
+      3029
+    ],
+    "cue_id": 219,
+    "phrase": "at the top of his voice",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "at",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "top",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "of",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "his",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "voice.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1742
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1087
+    ],
+    "cue_id": 222,
+    "phrase": "a matter of seconds",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "a",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "matter",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "of",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "seconds!",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      906
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1090
+    ],
+    "cue_id": 223,
+    "phrase": "the electric chair",
+    "tokens": [
+      {
+        "index": 9,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "electric",
+        "position_in_cue": 1
+      },
+      {
+        "index": 11,
+        "word": "chair",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      4457
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1092
+    ],
+    "cue_id": 227,
+    "phrase": "it stands to reason",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "it",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "stands",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "to",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "reason",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5368
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1098
+    ],
+    "cue_id": 244,
+    "phrase": "the stand",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "stand.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5385
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1106
+    ],
+    "cue_id": 259,
+    "phrase": "into the background",
+    "tokens": [
+      {
+        "index": 9,
+        "word": "into",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 11,
+        "word": "background...",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5070
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1107,
+      3050
+    ],
+    "cue_id": 267,
+    "phrase": "cough drop",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "cough",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "drop?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6085
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3054
+    ],
+    "cue_id": 283,
+    "phrase": "at the top of his lungs",
+    "tokens": [
+      {
+        "index": 11,
+        "word": "at",
+        "position_in_cue": 1
+      },
+      {
+        "index": 12,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 13,
+        "word": "top",
+        "position_in_cue": 1
+      },
+      {
+        "index": 14,
+        "word": "of",
+        "position_in_cue": 1
+      },
+      {
+        "index": 15,
+        "word": "his",
+        "position_in_cue": 1
+      },
+      {
+        "index": 16,
+        "word": "lungs.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1742
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3056
+    ],
+    "cue_id": 291,
+    "phrase": "shout out",
+    "tokens": [
+      {
+        "index": 12,
+        "word": "shout",
+        "position_in_cue": 1
+      },
+      {
+        "index": 13,
+        "word": "out",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      12000
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2552
+    ],
+    "cue_id": 300,
+    "phrase": "favor of",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "favor",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "of",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      8598
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1113
+    ],
+    "cue_id": 301,
+    "phrase": "the living end",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "living",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "end.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6113
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2553,
+      3060
+    ],
+    "cue_id": 303,
+    "phrase": "detective magazines",
+    "tokens": [
+      {
+        "index": 9,
+        "word": "detective",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "magazines.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11225
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1115
+    ],
+    "cue_id": 305,
+    "phrase": "For crying out loud",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "For",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "crying",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "out",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "loud.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6144
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1116,
+      3062
+    ],
+    "cue_id": 305,
+    "phrase": "stand a chance",
+    "tokens": [
+      {
+        "index": 11,
+        "word": "stand",
+        "position_in_cue": 1
+      },
+      {
+        "index": 12,
+        "word": "a",
+        "position_in_cue": 1
+      },
+      {
+        "index": 13,
+        "word": "chance.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5365
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1119
+    ],
+    "cue_id": 310,
+    "phrase": "How come",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "How",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "come",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1349
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1122
+    ],
+    "cue_id": 313,
+    "phrase": "What's that supposed to mean",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "What's",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "that",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "supposed",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "to",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "mean?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      611
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1131
+    ],
+    "cue_id": 319,
+    "phrase": "pointed out",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "pointed",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "out",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11994
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1133
+    ],
+    "cue_id": 324,
+    "phrase": "For crying out",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "For",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "crying",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "out...",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6144
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2554
+    ],
+    "cue_id": 324,
+    "phrase": "Pardon me",
+    "tokens": [
+      {
+        "index": 7,
+        "word": "Pardon",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "me.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7476
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1137
+    ],
+    "cue_id": 329,
+    "phrase": "on the surface",
+    "tokens": [
+      {
+        "index": 11,
+        "word": "on",
+        "position_in_cue": 1
+      },
+      {
+        "index": 12,
+        "word": "the",
+        "position_in_cue": 3
+      },
+      {
+        "index": 13,
+        "word": "surface.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6202
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3076
+    ],
+    "cue_id": 350,
+    "phrase": "calmed down",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "calmed",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "down,",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11860
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3078
+    ],
+    "cue_id": 351,
+    "phrase": "depends on",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "depends",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "on",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      12115
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1148
+    ],
+    "cue_id": 352,
+    "phrase": "see to it",
+    "tokens": [
+      {
+        "index": 9,
+        "word": "see",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "to",
+        "position_in_cue": 3
+      },
+      {
+        "index": 11,
+        "word": "it...",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6240
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1155
+    ],
+    "cue_id": 360,
+    "phrase": "take a chance",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "take",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "a",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "chance",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6269
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2712
+    ],
+    "cue_id": 361,
+    "phrase": "I'll bet",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "I'll",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "bet",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5438
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2713
+    ],
+    "cue_id": 364,
+    "phrase": "I'll bet",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "I'll",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "bet",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5438
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1158
+    ],
+    "cue_id": 365,
+    "phrase": "my whole point",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "my",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "whole",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "point.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      4526
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1162
+    ],
+    "cue_id": 374,
+    "phrase": "connected+with",
+    "tokens": [
+      {
+        "index": 10,
+        "word": "connected",
+        "position_in_cue": 1
+      },
+      {
+        "index": 12,
+        "word": "with",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6285
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3089
+    ],
+    "cue_id": 378,
+    "phrase": "calm down",
+    "tokens": [
+      {
+        "index": 7,
+        "word": "calm",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "down",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11860
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1170
+    ],
+    "cue_id": 393,
+    "phrase": "every which way",
+    "tokens": [
+      {
+        "index": 5,
+        "word": "every",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "which",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "way.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      3128
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3097
+    ],
+    "cue_id": 396,
+    "phrase": "all of a sudden",
+    "tokens": [
+      {
+        "index": 7,
+        "word": "all",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "of",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "a",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "sudden,",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      9772
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3101
+    ],
+    "cue_id": 401,
+    "phrase": "I guess",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "I",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "guess",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11898
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1171
+    ],
+    "cue_id": 405,
+    "phrase": "Where's it all getting us",
+    "tokens": [
+      {
+        "index": 9,
+        "word": "Where's",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "it",
+        "position_in_cue": 1
+      },
+      {
+        "index": 11,
+        "word": "all",
+        "position_in_cue": 1
+      },
+      {
+        "index": 12,
+        "word": "getting",
+        "position_in_cue": 1
+      },
+      {
+        "index": 13,
+        "word": "us?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      4121
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3105
+    ],
+    "cue_id": 408,
+    "phrase": "going crazy",
+    "tokens": [
+      {
+        "index": 9,
+        "word": "going",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "crazy",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      12142
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3107
+    ],
+    "cue_id": 410,
+    "phrase": "a joke",
+    "tokens": [
+      {
+        "index": 10,
+        "word": "a",
+        "position_in_cue": 1
+      },
+      {
+        "index": 11,
+        "word": "joke.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11935
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2558
+    ],
+    "cue_id": 411,
+    "phrase": "favor of",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "favor",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "of",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      8598
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1182
+    ],
+    "cue_id": 422,
+    "phrase": "supposed to",
+    "tokens": [
+      {
+        "index": 5,
+        "word": "supposed",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "to",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      613
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1184
+    ],
+    "cue_id": 427,
+    "phrase": "supposed to",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "supposed",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "to",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      613
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2728
+    ],
+    "cue_id": 430,
+    "phrase": "what's the point",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "what's",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "point",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      4527
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1186
+    ],
+    "cue_id": 431,
+    "phrase": "Hold it",
+    "tokens": [
+      {
+        "index": 1,
+        "word": "Hold",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "it",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1785
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1187
+    ],
+    "cue_id": 434,
+    "phrase": "Hold it",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "Hold",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "it",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1785
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1191
+    ],
+    "cue_id": 444,
+    "phrase": "get+straight",
+    "tokens": [
+      {
+        "index": 15,
+        "word": "get",
+        "position_in_cue": 1
+      },
+      {
+        "index": 17,
+        "word": "straight?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6359
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1193
+    ],
+    "cue_id": 446,
+    "phrase": "How come",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "How",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "come",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1349
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1207
+    ],
+    "cue_id": 488,
+    "phrase": "the witness chair",
+    "tokens": [
+      {
+        "index": 12,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 13,
+        "word": "witness",
+        "position_in_cue": 1
+      },
+      {
+        "index": 14,
+        "word": "chair.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5385
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1214
+    ],
+    "cue_id": 502,
+    "phrase": "doesn't sit very well with",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "doesn't",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "sit",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "very",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "well",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "with",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6519
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1216
+    ],
+    "cue_id": 505,
+    "phrase": "paced off",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "paced",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "off",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6544
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1221
+    ],
+    "cue_id": 511,
+    "phrase": "Knock it off",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "Knock",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "it",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "off.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6591
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1225
+    ],
+    "cue_id": 517,
+    "phrase": "second hand",
+    "tokens": [
+      {
+        "index": 7,
+        "word": "second",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "hand?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      2402
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1229
+    ],
+    "cue_id": 523,
+    "phrase": "second hand",
+    "tokens": [
+      {
+        "index": 7,
+        "word": "second",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "hand",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      2402
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1230
+    ],
+    "cue_id": 525,
+    "phrase": "Speed+up",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "Speed",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "up.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6694
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1235
+    ],
+    "cue_id": 538,
+    "phrase": "in my day",
+    "tokens": [
+      {
+        "index": 7,
+        "word": "in",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "my",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "day,",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6711
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1237
+    ],
+    "cue_id": 539,
+    "phrase": "takes the cake",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "takes",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "cake.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6753
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1240
+    ],
+    "cue_id": 542,
+    "phrase": "fairy tales",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "fairy",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "tales.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      12389
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3134
+    ],
+    "cue_id": 545,
+    "phrase": "What's the matter",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "What's",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "matter",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      895
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1243
+    ],
+    "cue_id": 551,
+    "phrase": "you bet",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "you",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "bet",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5439
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1247
+    ],
+    "cue_id": 562,
+    "phrase": "through with",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "through",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "with",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6849
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1249
+    ],
+    "cue_id": 565,
+    "phrase": "I suppose",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "I",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "suppose",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      608
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2564,
+      2565
+    ],
+    "cue_id": 566,
+    "phrase": "I beg pardon",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "I",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "beg",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "pardon.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7824
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2742,
+      3139
+    ],
+    "cue_id": 567,
+    "phrase": "I beg pardon",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "\"I",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "beg",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "pardon.\"",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7824
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1259
+    ],
+    "cue_id": 584,
+    "phrase": "given+thought",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "given",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "thought,",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      951
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2745
+    ],
+    "cue_id": 588,
+    "phrase": "I'll bet",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "I'll",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "bet",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5438
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2746
+    ],
+    "cue_id": 590,
+    "phrase": "Pardon me",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "Pardon",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "me,",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7476
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2568
+    ],
+    "cue_id": 593,
+    "phrase": "I was wondering if",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "I",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "was",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "wondering",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "if,",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      10213
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1261
+    ],
+    "cue_id": 595,
+    "phrase": "follow+up",
+    "tokens": [
+      {
+        "index": 5,
+        "word": "follow",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "up",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6865
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      2569
+    ],
+    "cue_id": 599,
+    "phrase": "ought to",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "ought",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "to",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11285
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3146
+    ],
+    "cue_id": 599,
+    "phrase": "call out",
+    "tokens": [
+      {
+        "index": 9,
+        "word": "call",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "out",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      762
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1265
+    ],
+    "cue_id": 600,
+    "phrase": "stands where",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "stands",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "where.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5355
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1267
+    ],
+    "cue_id": 602,
+    "phrase": "call off",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "call",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "off",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      767
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1269
+    ],
+    "cue_id": 627,
+    "phrase": "supposed to",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "supposed",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "to",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      613
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1272
+    ],
+    "cue_id": 628,
+    "phrase": "sick and tired of",
+    "tokens": [
+      {
+        "index": 5,
+        "word": "sick",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "and",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "tired",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "of",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      5636
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      1274
+    ],
+    "cue_id": 630,
+    "phrase": "the point",
+    "tokens": [
+      {
+        "index": 2,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "point",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      4525
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "replace",
+    "old_ids": [
+      3154
+    ],
+    "cue_id": 632,
+    "phrase": "at the top of your lungs",
+    "tokens": [
+      {
+        "index": 5,
+        "word": "at",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "top",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "of",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "your",
+        "position_in_cue": 1
+      },
+      {
+        "index": 10,
+        "word": "lungs.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1742
+    ],
+    "reason": "Select the complete teaching unit"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 82,
+    "phrase": "flagpole",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "flagpole",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11196
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 82,
+    "phrase": "salutes",
+    "tokens": [
+      {
+        "index": 11,
+        "word": "salutes",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11197
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 103,
+    "phrase": "gotten over",
+    "tokens": [
+      {
+        "index": 13,
+        "word": "gotten",
+        "position_in_cue": 1
+      },
+      {
+        "index": 14,
+        "word": "over",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      11816
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 130,
+    "phrase": "wrap+up",
+    "tokens": [
+      {
+        "index": 7,
+        "word": "wrap",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "up.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      3797
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 186,
+    "phrase": "took place",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "took",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "place.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7112
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 259,
+    "phrase": "recede",
+    "tokens": [
+      {
+        "index": 8,
+        "word": "recede",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6011
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 265,
+    "phrase": "fantastic",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "fantastic",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6019
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 347,
+    "phrase": "in the first place",
+    "tokens": [
+      {
+        "index": 6,
+        "word": "in",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "first",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "place?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7123
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 358,
+    "phrase": "off the top of my head",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "off",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "top",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "of",
+        "position_in_cue": 1
+      },
+      {
+        "index": 8,
+        "word": "my",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "head,",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      1741
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 382,
+    "phrase": "took place",
+    "tokens": [
+      {
+        "index": 5,
+        "word": "took",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "place.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7112
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 458,
+    "phrase": "Half the time",
+    "tokens": [
+      {
+        "index": 5,
+        "word": "Half",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "the",
+        "position_in_cue": 1
+      },
+      {
+        "index": 7,
+        "word": "time",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6619
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 474,
+    "phrase": "took place",
+    "tokens": [
+      {
+        "index": 8,
+        "word": "took",
+        "position_in_cue": 1
+      },
+      {
+        "index": 9,
+        "word": "place.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      7112
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 480,
+    "phrase": "just in time",
+    "tokens": [
+      {
+        "index": 4,
+        "word": "just",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "in",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "time",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6631
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 547,
+    "phrase": "slip through our fingers",
+    "tokens": [
+      {
+        "index": 3,
+        "word": "slip",
+        "position_in_cue": 1
+      },
+      {
+        "index": 4,
+        "word": "through",
+        "position_in_cue": 1
+      },
+      {
+        "index": 5,
+        "word": "our",
+        "position_in_cue": 1
+      },
+      {
+        "index": 6,
+        "word": "fingers.",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6805
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 548,
+    "phrase": "Slip through our fingers",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "\"Slip",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "through",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "our",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "fingers\"?",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      6805
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "add",
+    "old_ids": [],
+    "cue_id": 628,
+    "phrase": "Don't give me that",
+    "tokens": [
+      {
+        "index": 0,
+        "word": "Don't",
+        "position_in_cue": 1
+      },
+      {
+        "index": 1,
+        "word": "give",
+        "position_in_cue": 1
+      },
+      {
+        "index": 2,
+        "word": "me",
+        "position_in_cue": 1
+      },
+      {
+        "index": 3,
+        "word": "that!",
+        "position_in_cue": 1
+      }
+    ],
+    "senses": [
+      966
+    ],
+    "reason": "Restore a useful missing expression or repeated occurrence; closest available sense where needed"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      2986
+    ],
+    "cue_id": 96,
+    "phrase": "jokes.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      2987
+    ],
+    "cue_id": 103,
+    "phrase": "head",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      2994
+    ],
+    "cue_id": 133,
+    "phrase": "boss",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      2999
+    ],
+    "cue_id": 152,
+    "phrase": "voice",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3003
+    ],
+    "cue_id": 156,
+    "phrase": "voice,",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3006
+    ],
+    "cue_id": 156,
+    "phrase": "voice.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3019
+    ],
+    "cue_id": 190,
+    "phrase": "painting",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3020
+    ],
+    "cue_id": 192,
+    "phrase": "Noisy?",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3022
+    ],
+    "cue_id": 195,
+    "phrase": "noise",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3030
+    ],
+    "cue_id": 220,
+    "phrase": "voice.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3031
+    ],
+    "cue_id": 225,
+    "phrase": "noise.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3035
+    ],
+    "cue_id": 231,
+    "phrase": "pay",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3044
+    ],
+    "cue_id": 251,
+    "phrase": "newspapers.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3069
+    ],
+    "cue_id": 325,
+    "phrase": "notes",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3070
+    ],
+    "cue_id": 325,
+    "phrase": "Notes.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3100
+    ],
+    "cue_id": 399,
+    "phrase": "spent",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3110
+    ],
+    "cue_id": 414,
+    "phrase": "reasons.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3132
+    ],
+    "cue_id": 532,
+    "phrase": "lying",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3136
+    ],
+    "cue_id": 560,
+    "phrase": "noise.",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3137
+    ],
+    "cue_id": 561,
+    "phrase": "friendly",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3141
+    ],
+    "cue_id": 576,
+    "phrase": "mail...",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  },
+  {
+    "action": "remove",
+    "old_ids": [
+      3142
+    ],
+    "cue_id": 580,
+    "phrase": "reasons",
+    "reason": "Elementary literal vocabulary; low teaching value under the preference guide"
+  }
+]

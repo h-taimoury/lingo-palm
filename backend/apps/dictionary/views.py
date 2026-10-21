@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import Case, IntegerField, Q, Value, When
 from django.utils.cache import patch_cache_control, patch_vary_headers
 from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
@@ -63,6 +63,20 @@ class SenseViewSet(viewsets.ModelViewSet):
         "sense_number",
         "id",
     )
+
+    def filter_queryset(self, queryset):  # noqa: ANN001, ANN201
+        queryset = super().filter_queryset(queryset)
+        search = self.request.query_params.get(filters.SearchFilter.search_param, "").strip()
+        if search:
+            # Rank before pagination so headword senses reach the first page.
+            queryset = queryset.alias(
+                exact_word_rank=Case(
+                    When(entry__word__iexact=search, then=Value(0)),
+                    default=Value(1),
+                    output_field=IntegerField(),
+                )
+            ).order_by("exact_word_rank", *queryset.query.order_by)
+        return queryset
 
     def get_queryset(self):  # noqa: ANN201
         queryset = Sense.objects.select_related("entry").all()

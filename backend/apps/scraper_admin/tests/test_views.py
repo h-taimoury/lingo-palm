@@ -80,6 +80,7 @@ class ScrapeWordViewTests(APITestCase):
         )
         response = self.client.post("/api/scraper/scrape/", {"word": "asdkjasd"})
         self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.data["code"], "word_not_found")
 
     @patch("apps.scraper_admin.views.scrape_and_save_word")
     def test_page_load_error_returns_502(self, scrape_mock):
@@ -90,6 +91,7 @@ class ScrapeWordViewTests(APITestCase):
         )
         response = self.client.post("/api/scraper/scrape/", {"word": "book"})
         self.assertEqual(response.status_code, 502)
+        self.assertTrue(response.data["retryable"])
 
     @patch("apps.scraper_admin.views.scrape_and_save_word")
     def test_audio_download_error_returns_502(self, scrape_mock):
@@ -100,6 +102,7 @@ class ScrapeWordViewTests(APITestCase):
         )
         response = self.client.post("/api/scraper/scrape/", {"word": "book"})
         self.assertEqual(response.status_code, 502)
+        self.assertTrue(response.data["retryable"])
 
     @patch("apps.scraper_admin.views.scrape_and_save_word")
     def test_unexpected_error_returns_500(self, scrape_mock):

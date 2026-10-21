@@ -145,7 +145,7 @@ export function LearningModal({
               ))}
             </h2> : null}
             <div className="ml-auto flex shrink-0 items-center gap-8">
-              {!showingWord && !isVocabulary && onPrevious && onNext ? <SenseNavigation
+              {!showingWord && onPrevious && onNext ? <SenseNavigation
                 index={activeIndex}
                 count={items.length}
                 onPrevious={onPrevious}

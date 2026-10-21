@@ -1,0 +1,2392 @@
+{
+  "schema_version": 2,
+  "section_id": 11,
+  "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+  "mappings": [
+    {
+      "cue_id": 5,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        3942
+      ]
+    },
+    {
+      "cue_id": 8,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        3953
+      ]
+    },
+    {
+      "cue_id": 8,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        3957
+      ]
+    },
+    {
+      "cue_id": 8,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        3980
+      ]
+    },
+    {
+      "cue_id": 9,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        3988
+      ]
+    },
+    {
+      "cue_id": 10,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        3992
+      ]
+    },
+    {
+      "cue_id": 10,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        3995
+      ]
+    },
+    {
+      "cue_id": 11,
+      "token_indices": [
+        15
+      ],
+      "sense_ids": [
+        4012
+      ]
+    },
+    {
+      "cue_id": 12,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        579
+      ]
+    },
+    {
+      "cue_id": 13,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        2970
+      ]
+    },
+    {
+      "cue_id": 13,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4017
+      ]
+    },
+    {
+      "cue_id": 13,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        4027
+      ]
+    },
+    {
+      "cue_id": 13,
+      "token_indices": [
+        14
+      ],
+      "sense_ids": [
+        4032
+      ]
+    },
+    {
+      "cue_id": 14,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        2970
+      ]
+    },
+    {
+      "cue_id": 14,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4017
+      ]
+    },
+    {
+      "cue_id": 15,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4033
+      ]
+    },
+    {
+      "cue_id": 16,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        2970
+      ]
+    },
+    {
+      "cue_id": 16,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4017
+      ]
+    },
+    {
+      "cue_id": 17,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4032
+      ]
+    },
+    {
+      "cue_id": 18,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4033
+      ]
+    },
+    {
+      "cue_id": 18,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4040
+      ]
+    },
+    {
+      "cue_id": 19,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4047
+      ]
+    },
+    {
+      "cue_id": 19,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4032
+      ]
+    },
+    {
+      "cue_id": 20,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4050
+      ]
+    },
+    {
+      "cue_id": 20,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4057
+      ]
+    },
+    {
+      "cue_id": 20,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4058
+      ]
+    },
+    {
+      "cue_id": 20,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        2412
+      ]
+    },
+    {
+      "cue_id": 21,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        503
+      ]
+    },
+    {
+      "cue_id": 21,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4061
+      ]
+    },
+    {
+      "cue_id": 22,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        3745
+      ]
+    },
+    {
+      "cue_id": 22,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4065
+      ]
+    },
+    {
+      "cue_id": 23,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4070
+      ]
+    },
+    {
+      "cue_id": 23,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4072
+      ]
+    },
+    {
+      "cue_id": 23,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4077
+      ]
+    },
+    {
+      "cue_id": 24,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4086
+      ]
+    },
+    {
+      "cue_id": 24,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4091
+      ]
+    },
+    {
+      "cue_id": 26,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4095
+      ]
+    },
+    {
+      "cue_id": 34,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4097
+      ]
+    },
+    {
+      "cue_id": 48,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4103
+      ]
+    },
+    {
+      "cue_id": 49,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4108
+      ]
+    },
+    {
+      "cue_id": 54,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4086
+      ]
+    },
+    {
+      "cue_id": 55,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4086
+      ]
+    },
+    {
+      "cue_id": 56,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4144
+      ]
+    },
+    {
+      "cue_id": 65,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        444
+      ]
+    },
+    {
+      "cue_id": 67,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4156
+      ]
+    },
+    {
+      "cue_id": 77,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        444
+      ]
+    },
+    {
+      "cue_id": 77,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4183
+      ]
+    },
+    {
+      "cue_id": 77,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4191
+      ]
+    },
+    {
+      "cue_id": 78,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4192
+      ]
+    },
+    {
+      "cue_id": 84,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4213
+      ]
+    },
+    {
+      "cue_id": 86,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        4224
+      ]
+    },
+    {
+      "cue_id": 91,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4261
+      ]
+    },
+    {
+      "cue_id": 95,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4156
+      ]
+    },
+    {
+      "cue_id": 99,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4263
+      ]
+    },
+    {
+      "cue_id": 99,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4278
+      ]
+    },
+    {
+      "cue_id": 101,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4358
+      ]
+    },
+    {
+      "cue_id": 102,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4361
+      ]
+    },
+    {
+      "cue_id": 117,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        4086
+      ]
+    },
+    {
+      "cue_id": 124,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4364
+      ]
+    },
+    {
+      "cue_id": 124,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4371
+      ]
+    },
+    {
+      "cue_id": 124,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4373
+      ]
+    },
+    {
+      "cue_id": 127,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4380
+      ]
+    },
+    {
+      "cue_id": 127,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        2045
+      ]
+    },
+    {
+      "cue_id": 128,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        4401
+      ]
+    },
+    {
+      "cue_id": 128,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4402
+      ]
+    },
+    {
+      "cue_id": 130,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4422
+      ]
+    },
+    {
+      "cue_id": 130,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4422
+      ]
+    },
+    {
+      "cue_id": 137,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        430
+      ]
+    },
+    {
+      "cue_id": 138,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4444
+      ]
+    },
+    {
+      "cue_id": 139,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3456
+      ]
+    },
+    {
+      "cue_id": 146,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4448
+      ]
+    },
+    {
+      "cue_id": 153,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        2045
+      ]
+    },
+    {
+      "cue_id": 158,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4449
+      ]
+    },
+    {
+      "cue_id": 158,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4451
+      ]
+    },
+    {
+      "cue_id": 162,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        3957
+      ]
+    },
+    {
+      "cue_id": 163,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4032
+      ]
+    },
+    {
+      "cue_id": 164,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4457
+      ]
+    },
+    {
+      "cue_id": 165,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4061
+      ]
+    },
+    {
+      "cue_id": 183,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        15
+      ]
+    },
+    {
+      "cue_id": 189,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4459
+      ]
+    },
+    {
+      "cue_id": 199,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        1349
+      ]
+    },
+    {
+      "cue_id": 209,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        612
+      ]
+    },
+    {
+      "cue_id": 210,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        612
+      ]
+    },
+    {
+      "cue_id": 211,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        612
+      ]
+    },
+    {
+      "cue_id": 214,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        612
+      ]
+    },
+    {
+      "cue_id": 225,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4466
+      ]
+    },
+    {
+      "cue_id": 226,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        4469
+      ]
+    },
+    {
+      "cue_id": 227,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3454
+      ]
+    },
+    {
+      "cue_id": 227,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4473
+      ]
+    },
+    {
+      "cue_id": 227,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4484
+      ]
+    },
+    {
+      "cue_id": 232,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4487
+      ]
+    },
+    {
+      "cue_id": 235,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4500
+      ]
+    },
+    {
+      "cue_id": 235,
+      "token_indices": [
+        12
+      ],
+      "sense_ids": [
+        4500
+      ]
+    },
+    {
+      "cue_id": 239,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        613
+      ]
+    },
+    {
+      "cue_id": 243,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4518
+      ]
+    },
+    {
+      "cue_id": 244,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4523
+      ]
+    },
+    {
+      "cue_id": 246,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4561
+      ]
+    },
+    {
+      "cue_id": 248,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        4562
+      ]
+    },
+    {
+      "cue_id": 249,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4565
+      ]
+    },
+    {
+      "cue_id": 249,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4577
+      ]
+    },
+    {
+      "cue_id": 250,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4589
+      ]
+    },
+    {
+      "cue_id": 250,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4624
+      ]
+    },
+    {
+      "cue_id": 263,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4636
+      ]
+    },
+    {
+      "cue_id": 271,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4641
+      ]
+    },
+    {
+      "cue_id": 274,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4659
+      ]
+    },
+    {
+      "cue_id": 275,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4659
+      ]
+    },
+    {
+      "cue_id": 276,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4667
+      ]
+    },
+    {
+      "cue_id": 276,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4671
+      ]
+    },
+    {
+      "cue_id": 276,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4683
+      ]
+    },
+    {
+      "cue_id": 277,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4685
+      ]
+    },
+    {
+      "cue_id": 278,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4686
+      ]
+    },
+    {
+      "cue_id": 294,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4689
+      ]
+    },
+    {
+      "cue_id": 295,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4710
+      ]
+    },
+    {
+      "cue_id": 297,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4712
+      ]
+    },
+    {
+      "cue_id": 298,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        1005
+      ]
+    },
+    {
+      "cue_id": 302,
+      "token_indices": [
+        12
+      ],
+      "sense_ids": [
+        4718
+      ]
+    },
+    {
+      "cue_id": 303,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4719
+      ]
+    },
+    {
+      "cue_id": 308,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        3988
+      ]
+    },
+    {
+      "cue_id": 315,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        835
+      ]
+    },
+    {
+      "cue_id": 316,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4739
+      ]
+    },
+    {
+      "cue_id": 317,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4753
+      ]
+    },
+    {
+      "cue_id": 319,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4776
+      ]
+    },
+    {
+      "cue_id": 328,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4781
+      ]
+    },
+    {
+      "cue_id": 332,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4121
+      ]
+    },
+    {
+      "cue_id": 335,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        818
+      ]
+    },
+    {
+      "cue_id": 336,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4789
+      ]
+    },
+    {
+      "cue_id": 339,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4636
+      ]
+    },
+    {
+      "cue_id": 340,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4795
+      ]
+    },
+    {
+      "cue_id": 341,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4795
+      ]
+    },
+    {
+      "cue_id": 342,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3988
+      ]
+    },
+    {
+      "cue_id": 344,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        4799
+      ]
+    },
+    {
+      "cue_id": 353,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        4811
+      ]
+    },
+    {
+      "cue_id": 354,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4795
+      ]
+    },
+    {
+      "cue_id": 354,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4371
+      ]
+    },
+    {
+      "cue_id": 354,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4373
+      ]
+    },
+    {
+      "cue_id": 355,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4795
+      ]
+    },
+    {
+      "cue_id": 356,
+      "token_indices": [
+        13
+      ],
+      "sense_ids": [
+        2102
+      ]
+    },
+    {
+      "cue_id": 358,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4150
+      ]
+    },
+    {
+      "cue_id": 358,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        4828
+      ]
+    },
+    {
+      "cue_id": 358,
+      "token_indices": [
+        13
+      ],
+      "sense_ids": [
+        4829
+      ]
+    },
+    {
+      "cue_id": 366,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4843
+      ]
+    },
+    {
+      "cue_id": 371,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4856
+      ]
+    },
+    {
+      "cue_id": 373,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4859
+      ]
+    },
+    {
+      "cue_id": 375,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4861
+      ]
+    },
+    {
+      "cue_id": 388,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4939
+      ]
+    },
+    {
+      "cue_id": 389,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4939
+      ]
+    },
+    {
+      "cue_id": 391,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4982
+      ]
+    },
+    {
+      "cue_id": 396,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4526
+      ]
+    },
+    {
+      "cue_id": 397,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        5043
+      ]
+    },
+    {
+      "cue_id": 397,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5053
+      ]
+    },
+    {
+      "cue_id": 397,
+      "token_indices": [
+        13
+      ],
+      "sense_ids": [
+        5057
+      ]
+    },
+    {
+      "cue_id": 398,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        15
+      ]
+    },
+    {
+      "cue_id": 400,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4466
+      ]
+    },
+    {
+      "cue_id": 400,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4466
+      ]
+    },
+    {
+      "cue_id": 402,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4466
+      ]
+    },
+    {
+      "cue_id": 402,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        5066
+      ]
+    },
+    {
+      "cue_id": 403,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        2626
+      ]
+    },
+    {
+      "cue_id": 403,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        5072
+      ]
+    },
+    {
+      "cue_id": 405,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        5079
+      ]
+    },
+    {
+      "cue_id": 407,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4466
+      ]
+    },
+    {
+      "cue_id": 411,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        5082
+      ]
+    },
+    {
+      "cue_id": 412,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5085
+      ]
+    },
+    {
+      "cue_id": 413,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5085
+      ]
+    },
+    {
+      "cue_id": 414,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        5093
+      ]
+    },
+    {
+      "cue_id": 415,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        5101
+      ]
+    },
+    {
+      "cue_id": 418,
+      "token_indices": [
+        14
+      ],
+      "sense_ids": [
+        4636
+      ]
+    },
+    {
+      "cue_id": 429,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5125
+      ]
+    },
+    {
+      "cue_id": 430,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        3814
+      ]
+    },
+    {
+      "cue_id": 432,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4455
+      ]
+    },
+    {
+      "cue_id": 432,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4455
+      ]
+    },
+    {
+      "cue_id": 433,
+      "token_indices": [
+        15
+      ],
+      "sense_ids": [
+        5142
+      ]
+    },
+    {
+      "cue_id": 443,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        5228
+      ]
+    },
+    {
+      "cue_id": 445,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        3988
+      ]
+    },
+    {
+      "cue_id": 446,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        5232
+      ]
+    },
+    {
+      "cue_id": 447,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        5245
+      ]
+    },
+    {
+      "cue_id": 448,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5253
+      ]
+    },
+    {
+      "cue_id": 448,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4500
+      ]
+    },
+    {
+      "cue_id": 449,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5247
+      ]
+    },
+    {
+      "cue_id": 452,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5259
+      ]
+    },
+    {
+      "cue_id": 453,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        5264
+      ]
+    },
+    {
+      "cue_id": 453,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        5271
+      ]
+    },
+    {
+      "cue_id": 456,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        444
+      ]
+    },
+    {
+      "cue_id": 457,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        5286
+      ]
+    },
+    {
+      "cue_id": 462,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4500
+      ]
+    },
+    {
+      "cue_id": 463,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5295
+      ]
+    },
+    {
+      "cue_id": 463,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4683
+      ]
+    },
+    {
+      "cue_id": 463,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        5305
+      ]
+    },
+    {
+      "cue_id": 464,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        5315
+      ]
+    },
+    {
+      "cue_id": 464,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5316
+      ]
+    },
+    {
+      "cue_id": 465,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4719
+      ]
+    },
+    {
+      "cue_id": 466,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        5317
+      ]
+    },
+    {
+      "cue_id": 466,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        5232
+      ]
+    },
+    {
+      "cue_id": 467,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        5305
+      ]
+    },
+    {
+      "cue_id": 467,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        5325
+      ]
+    },
+    {
+      "cue_id": 467,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        4683
+      ]
+    },
+    {
+      "cue_id": 468,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        612
+      ]
+    },
+    {
+      "cue_id": 469,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        612
+      ]
+    },
+    {
+      "cue_id": 470,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5305
+      ]
+    },
+    {
+      "cue_id": 472,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5385
+      ]
+    },
+    {
+      "cue_id": 472,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        5390
+      ]
+    },
+    {
+      "cue_id": 477,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        5396
+      ]
+    },
+    {
+      "cue_id": 479,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4526
+      ]
+    },
+    {
+      "cue_id": 485,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        5403
+      ]
+    },
+    {
+      "cue_id": 485,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        193
+      ]
+    },
+    {
+      "cue_id": 488,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4156
+      ]
+    },
+    {
+      "cue_id": 490,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        5408
+      ]
+    },
+    {
+      "cue_id": 490,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5232
+      ]
+    },
+    {
+      "cue_id": 493,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        5232
+      ]
+    },
+    {
+      "cue_id": 496,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        193
+      ]
+    },
+    {
+      "cue_id": 497,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4146
+      ]
+    },
+    {
+      "cue_id": 498,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        4146
+      ]
+    },
+    {
+      "cue_id": 498,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        3188
+      ]
+    },
+    {
+      "cue_id": 499,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4150
+      ]
+    },
+    {
+      "cue_id": 499,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        3197
+      ]
+    },
+    {
+      "cue_id": 501,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        4214
+      ]
+    },
+    {
+      "cue_id": 503,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        5410
+      ]
+    },
+    {
+      "cue_id": 505,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5411
+      ]
+    },
+    {
+      "cue_id": 505,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        2053
+      ]
+    },
+    {
+      "cue_id": 505,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        1
+      ]
+    },
+    {
+      "cue_id": 506,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        5417
+      ]
+    },
+    {
+      "cue_id": 507,
+      "token_indices": [
+        14
+      ],
+      "sense_ids": [
+        5418
+      ]
+    },
+    {
+      "cue_id": 508,
+      "token_indices": [
+        11
+      ],
+      "sense_ids": [
+        607
+      ]
+    },
+    {
+      "cue_id": 510,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        5439
+      ]
+    },
+    {
+      "cue_id": 514,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        5450
+      ]
+    },
+    {
+      "cue_id": 517,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5454
+      ]
+    },
+    {
+      "cue_id": 518,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        5465
+      ]
+    },
+    {
+      "cue_id": 519,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4719
+      ]
+    },
+    {
+      "cue_id": 521,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        4719
+      ]
+    },
+    {
+      "cue_id": 522,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        1924
+      ]
+    },
+    {
+      "cue_id": 524,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4719
+      ]
+    },
+    {
+      "cue_id": 526,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        5469
+      ]
+    },
+    {
+      "cue_id": 529,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5450
+      ]
+    },
+    {
+      "cue_id": 530,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4816
+      ]
+    },
+    {
+      "cue_id": 533,
+      "token_indices": [
+        0
+      ],
+      "sense_ids": [
+        4459
+      ]
+    },
+    {
+      "cue_id": 534,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        5472
+      ]
+    },
+    {
+      "cue_id": 534,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5483
+      ]
+    },
+    {
+      "cue_id": 538,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        4459
+      ]
+    },
+    {
+      "cue_id": 540,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4459
+      ]
+    },
+    {
+      "cue_id": 545,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        5417
+      ]
+    },
+    {
+      "cue_id": 546,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        5485
+      ]
+    },
+    {
+      "cue_id": 546,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5486
+      ]
+    },
+    {
+      "cue_id": 547,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        5486
+      ]
+    },
+    {
+      "cue_id": 555,
+      "token_indices": [
+        6
+      ],
+      "sense_ids": [
+        5488
+      ]
+    },
+    {
+      "cue_id": 557,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        5410
+      ]
+    },
+    {
+      "cue_id": 559,
+      "token_indices": [
+        2
+      ],
+      "sense_ids": [
+        5498
+      ]
+    },
+    {
+      "cue_id": 562,
+      "token_indices": [
+        12
+      ],
+      "sense_ids": [
+        5529
+      ]
+    },
+    {
+      "cue_id": 563,
+      "token_indices": [
+        12
+      ],
+      "sense_ids": [
+        5537
+      ]
+    },
+    {
+      "cue_id": 565,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        3369
+      ]
+    },
+    {
+      "cue_id": 566,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        5538
+      ]
+    },
+    {
+      "cue_id": 573,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        5540
+      ]
+    },
+    {
+      "cue_id": 575,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        5541
+      ]
+    },
+    {
+      "cue_id": 575,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        4086
+      ]
+    },
+    {
+      "cue_id": 576,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        3980
+      ]
+    },
+    {
+      "cue_id": 580,
+      "token_indices": [
+        7
+      ],
+      "sense_ids": [
+        2765
+      ]
+    },
+    {
+      "cue_id": 581,
+      "token_indices": [
+        9
+      ],
+      "sense_ids": [
+        5555
+      ]
+    },
+    {
+      "cue_id": 581,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        5560
+      ]
+    },
+    {
+      "cue_id": 585,
+      "token_indices": [
+        4
+      ],
+      "sense_ids": [
+        4459
+      ]
+    },
+    {
+      "cue_id": 586,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        706
+      ]
+    },
+    {
+      "cue_id": 587,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        5584
+      ]
+    },
+    {
+      "cue_id": 589,
+      "token_indices": [
+        8
+      ],
+      "sense_ids": [
+        4373
+      ]
+    },
+    {
+      "cue_id": 592,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        2041
+      ]
+    },
+    {
+      "cue_id": 595,
+      "token_indices": [
+        3
+      ],
+      "sense_ids": [
+        5595
+      ]
+    },
+    {
+      "cue_id": 597,
+      "token_indices": [
+        10
+      ],
+      "sense_ids": [
+        4103
+      ]
+    },
+    {
+      "cue_id": 598,
+      "token_indices": [
+        1
+      ],
+      "sense_ids": [
+        5600
+      ]
+    },
+    {
+      "cue_id": 600,
+      "token_indices": [
+        5
+      ],
+      "sense_ids": [
+        4033
+      ]
+    }
+  ]
+}

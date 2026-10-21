@@ -1,0 +1,155 @@
+LINGOPALM VIDEO AND SUBTITLE WORKFLOW
+Updated: 2026-10-14
+
+PURPOSE AND ENVIRONMENT
+The user is creating English-language learning courses from movies in the
+LingoPalm project: C:\Users\Fardin\Desktop\projects\lingo_palm
+They use Windows 11 and Windows Terminal with PowerShell. Movies normally live
+in named folders on the Desktop. A course has sections, each with a video and
+an English WebVTT subtitle file. Admins select subtitle words to map to dictionary
+meanings. Production video hosting is handled by an external streaming provider,
+which supplies playback URLs such as HLS .m3u8 URLs.
+
+USER PREFERENCES
+- Usually split a movie into three substantial sections, roughly 30 minutes each.
+- The user chooses TWO explicit cut times. Do NOT calculate equal thirds unless
+  specifically requested. Ask for cut times when necessary or clearly mark examples.
+- Prefer fast stream copying (-c copy), preserving compressed video/audio quality.
+- Slightly imprecise keyframe boundaries are acceptable. Cover the entire movie,
+  including its ending. Some overlap is acceptable but is not required.
+- Prefer natural scene or conversation endings, complete sentences, and quiet
+  transitions. A camera/scene change is not necessarily an encoded keyframe.
+- Preferred output names: section1.mp4, section2.mp4, section3.mp4.
+- Keep original files. Use -n to avoid overwriting existing outputs.
+- Include one video track and the desired original English audio only. Exclude
+  embedded subtitles, extra audio, attachments, data, and unwanted chapters.
+- Never assume the first audio track is English. For Finding Nemo, the FIRST
+  audio track is Persian and the SECOND is English: use -map 0:a:1.
+- The user has authorized proceeding with this chat's work without repeated
+  confirmation. Tool/sandbox approval requirements still apply. This is not
+  authorization for unrelated actions or permission to bypass access controls.
+
+FFMPEG INSTALLATION AND INSPECTION
+Installation command used:
+winget install "FFmpeg (Essentials Build)"
+Reopen Terminal after installation; verify ffmpeg -version and ffprobe -version.
+Inspect codecs/audio language before recommending conversions:
+ffprobe -v error -show_entries stream=index,codec_type,codec_name:stream_tags=language -of json "MOVIE.mkv"
+Audio indexes in -map 0:a:N are zero-based indexes among audio streams, not
+absolute stream indexes. First audio = 0:a:0; second audio = 0:a:1.
+
+PREFERRED MANUAL SPLITTING COMMAND
+Run from the movie folder in PowerShell. Replace filename, folder, and cut times.
+The example below selects the SECOND audio track, as needed for Finding Nemo:
+
+Set-Location -LiteralPath "C:\Users\Fardin\Desktop\Finding Nemo"
+New-Item -ItemType Directory -Path "FindingNemo-parts" -Force
+ffmpeg -n -i "Finding.Nemo.2003.1080p.mkv" -map 0:v:0 -map 0:a:1 -sn -dn -map_metadata -1 -map_chapters -1 -c copy -f segment -segment_times 00:30:00,01:00:00 -segment_start_number 1 -reset_timestamps 1 "FindingNemo-parts/section%d.mp4"
+
+The times above are EXAMPLES, not the actual Finding Nemo boundaries used in
+the existing files. The third section continues to EOF, with no fixed end time.
+Segment cuts use available keyframes and can fall after requested times.
+For a movie whose first audio track is the desired English track, use 0:a:0.
+Do not use -map "0:a?" when the user wants ONLY English: that selects all audio.
+
+EXISTING MKV SECTIONS TO MP4
+Convert the existing sections directly rather than re-splitting the original:
+ffmpeg -n -i "section1.mkv" -map 0:v:0 -map 0:a:0 -sn -dn -map_metadata -1 -map_chapters -1 -c copy -movflags +faststart "section1.mp4"
+Select the actual desired audio index; do not blindly use 0:a:0.
+Repeat for section2 and section3. This command excludes subtitle tracks, but
+cannot remove text burned into the picture. External VTT files are independent.
+
+FORMATS AND PLAYBACK
+MKV and MP4 are containers. -c copy remuxes compatible streams without
+re-encoding: usually fast and approximately the same size, with unchanged quality.
+An MP4 extension alone does not guarantee browser compatibility. H.264 video
+(8-bit yuv420p) and AAC audio are the preferred broad-compatibility combination.
+If existing codecs are incompatible, inspect first: audio-only conversion may
+suffice; video re-encoding is slower and can change size and quality.
+Do not re-encode automatically just because a browser reports unsupported media.
+The admin player uses HTML video and shared HLS support. For failures, inspect
+the saved Video URL, filename/extension, HTTP status/content type, and codecs.
+A previous 12 Angry Men failure was a saved .mkv URL pointing to a real .mp4 file
+(404); it was NOT a codec problem. The MP4 was already H.264/AAC.
+
+SUBTITLE OUTPUT REQUIREMENTS
+- Produce section1.vtt, section2.vtt, section3.vtt, UTF-8 with WEBVTT header.
+- Include explicit numeric cue IDs, restarting at 1 in EACH file and incrementing
+  by one without gaps. Sort cues chronologically before assigning final IDs.
+- Use HH:MM:SS.mmm timestamps (period for milliseconds).
+- Convert whole-movie SRT times to each actual section's local video timeline.
+- Do not assume requested cut times or rounded displayed durations equal the
+  actual split offsets. Segment timestamp resets and audio/video offsets matter.
+- Where files are available, use FFprobe to match the first video packet of each
+  section to the original by SHA256 packet hash, then compute:
+  offset = original_packet_pts - section_packet_pts
+  local_subtitle_time = source_subtitle_time - offset
+- A basic probe uses -select_streams v:0 -read_intervals "%+#1" -show_packets
+  -show_data_hash sha256 -show_entries packet=pts_time,data_hash:format=duration
+  -of json. Search near expected boundaries in the original and verify a hash
+  match. If remuxing changes packet representation, do not invent offsets;
+  use other verified timing/frame evidence. No decode is needed for hash matching.
+- Clip cues crossing boundaries to the portion visible in each section. Preserve
+  dialogue in each applicable section; do not drop a whole cue just for crossing.
+- Inspect source synchronization separately: packet matching establishes section
+  offsets, not whether a different-release SRT matches the movie's dialogue.
+- Preserve existing source times except for section offsets/boundary clipping.
+  Report suspicious overlaps or incorrect timing instead of guessing a repair.
+
+SUBTITLE CLEANUP
+- Inspect tags, entities, bracketed/parenthesized text, and Unicode first.
+- Remove font/color tags, italic tags, and other formatting wrappers; retain
+  their dialogue content. Decode HTML entities to readable characters.
+- Remove sound/action/delivery descriptions such as [wind blowing], (MARLIN
+  GROANS), (GASPS), (WHISPERS), etc. Preserve dialogue in the same cue.
+- Inspect parentheses in each new source; do not erase meaningful spoken
+  parenthetical dialogue merely because it uses parentheses.
+- Remove music-note decoration such as musical note symbols; preserve lyrics.
+- Remove subtitle-site URLs and author credits, including repeated end credits.
+- Delete cues that become empty, including leftover dialogue dashes with no text.
+- Clean excess spaces without concatenating words or changing dialogue.
+- Preserve legitimate accented letters and normal punctuation. Do not delete
+  all non-ASCII characters as a shortcut for removing 'unusual characters'.
+- Remove speaker attribution labels (e.g. MR RAY:, MARLIN:, Dr. PHILIP:,
+  AUTOMATED VOICE:, ALL:), including labels after dialogue dashes and mid-line.
+  Preserve the actual dialogue, names spoken in dialogue, and clock times such
+  as 9:00. Inspect labels rather than deleting all text before every colon.
+  Remove orphaned dashes or empty lines left by removing labels.
+- Renumber AFTER cleanup. Validate IDs, syntax, nonnegative increasing start
+  times, positive cue lengths, duration bounds, and coverage of retained text.
+- Deliver clickable links to individual VTT files plus a ZIP containing them.
+
+COURSE DATA AND FUTURE CHANGES
+Sections store video_url separately from subtitle files and word mappings.
+Mappings rely on subtitle cue IDs, exact words, occurrence identifiers, and
+stored cue timestamps, not video filenames/extensions. Keeping the same section
+timeline allows replacing a video URL/container without recreating mappings.
+Recheck synchronization after remuxing, transcoding, or provider processing.
+Changing cuts, trimming, speed, subtitle cue numbering, or mapped text can break
+timing or mappings. Finalize videos and subtitle cleanup BEFORE creating mappings.
+Keep originals and finalized section files so future conversions reuse exact cuts.
+
+FINDING NEMO FILES AND VERIFIED OUTPUT (2026-10-14)
+Original movie:
+C:\Users\Fardin\Desktop\Finding Nemo\Finding.Nemo.2003.1080p.mkv
+Source subtitle:
+C:\Users\Fardin\Desktop\Finding Nemo\Finding.Nemo.2003.1080p.BluRay.x264.YIFY.CHI.srt
+Videos:
+C:\Users\Fardin\Desktop\Finding Nemo\FindingNemo-parts\section1.mp4
+C:\Users\Fardin\Desktop\Finding Nemo\FindingNemo-parts\section2.mp4
+C:\Users\Fardin\Desktop\Finding Nemo\FindingNemo-parts\section3.mp4
+Generated files and conversion script:
+C:\Users\Fardin\Desktop\projects\lingo_palm\artifacts\finding-nemo-subtitles
+Source cue count: 1567. Retained: 1513. Removed whole cues: 54.
+Section cue counts: 513, 635, 365.
+Measured source-minus-section timestamp offsets:
+section1: -0.083 seconds (add 0.083 to source subtitle times)
+section2: 1870.160 seconds (subtract)
+section3: 4120.116 seconds (subtract)
+Measured section durations: 1870.159, 2249.955, 1933.888167 seconds.
+Both first and last subtitle credit cues were removed. All parenthetical spans
+in this source were inspected as non-dialogue descriptions and removed. Font
+and italic tags, musical note symbols, and speaker labels were removed.
+Accented letters, spoken names, and clock times retained.
+Cue numbering, timestamp bounds, retained-source coverage and ZIP contents were
+validated. Source-dialogue synchronization still needs a playback spot check.

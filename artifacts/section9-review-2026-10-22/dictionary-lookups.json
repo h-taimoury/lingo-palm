@@ -1,0 +1,139 @@
+[
+  {
+    "term": "take-over",
+    "entries": [
+      2591
+    ]
+  },
+  {
+    "term": "take-in",
+    "entries": [
+      2592
+    ]
+  },
+  {
+    "term": "come-up-with",
+    "entries": [
+      2593
+    ]
+  },
+  {
+    "term": "hold-on",
+    "entries": [
+      2594
+    ]
+  },
+  {
+    "term": "move-on",
+    "entries": [
+      2595
+    ]
+  },
+  {
+    "term": "back-up",
+    "entries": [
+      2596
+    ]
+  },
+  {
+    "term": "hang-out",
+    "entries": [
+      2597
+    ]
+  },
+  {
+    "term": "turn-away",
+    "entries": [
+      2598
+    ]
+  },
+  {
+    "term": "hand-over",
+    "entries": [
+      2599
+    ]
+  },
+  {
+    "term": "help-out",
+    "entries": [
+      2600
+    ]
+  },
+  {
+    "term": "cool-off",
+    "entries": [
+      2601
+    ]
+  },
+  {
+    "term": "look-out",
+    "entries": [
+      2603,
+      2602
+    ]
+  },
+  {
+    "term": "listen-up",
+    "entries": [
+      2604
+    ]
+  },
+  {
+    "term": "stand-back",
+    "error": "WordNotFoundError: No dictionary entries found for 'stand-back' at https://www.ldoceonline.com/dictionary/stand-back"
+  },
+  {
+    "term": "rush-hour",
+    "entries": [
+      2605
+    ]
+  },
+  {
+    "term": "fast-paced",
+    "error": "WordNotFoundError: No dictionary entries found for 'fast-paced' at https://www.ldoceonline.com/dictionary/fast-paced"
+  },
+  {
+    "term": "wonton",
+    "error": "WordNotFoundError: No dictionary entries found for 'wonton' at https://www.ldoceonline.com/dictionary/wonton"
+  },
+  {
+    "term": "shill",
+    "error": "WordNotFoundError: No dictionary entries found for 'shill' at https://www.ldoceonline.com/dictionary/shill"
+  },
+  {
+    "term": "gaff",
+    "entries": [
+      2607
+    ]
+  },
+  {
+    "term": "firework",
+    "entries": [
+      2608
+    ]
+  },
+  {
+    "term": "access",
+    "entries": [
+      2613,
+      2611,
+      2612
+    ]
+  },
+  {
+    "term": "chef",
+    "entries": [
+      2616
+    ]
+  },
+  {
+    "term": "celebrity",
+    "entries": [
+      2619
+    ]
+  },
+  {
+    "term": "screw-up",
+    "error": "DuplicateScrapeError: 'screw up' has already been scraped."
+  }
+]

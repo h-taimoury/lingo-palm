@@ -1,0 +1,4952 @@
+[
+  {
+    "id": "complex-5-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "complex",
+    "cue_id": 5,
+    "cue_text": "To continue, you've listened\nto a long and complex case...",
+    "start_time": 75.818,
+    "end_time": 79.32,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "complex",
+    "scrape_term": "complex",
+    "longman_url": "https://www.ldoceonline.com/dictionary/complex"
+  },
+  {
+    "id": "degree-7-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "degree.",
+    "cue_id": 7,
+    "cue_text": "murder in the first degree.",
+    "start_time": 79.321,
+    "end_time": 81.197,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "degree",
+    "scrape_term": "degree",
+    "longman_url": "https://www.ldoceonline.com/dictionary/degree"
+  },
+  {
+    "id": "premeditated-8-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "premeditated",
+    "cue_id": 8,
+    "cue_text": "A premeditated murder is the most serious\ncharge tried in our criminal courts.",
+    "start_time": 81.19800000000001,
+    "end_time": 86.244,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "premeditated",
+    "scrape_term": "premeditated",
+    "longman_url": "https://www.ldoceonline.com/dictionary/premeditated"
+  },
+  {
+    "id": "charge-8-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "charge",
+    "cue_id": 8,
+    "cue_text": "A premeditated murder is the most serious\ncharge tried in our criminal courts.",
+    "start_time": 81.19800000000001,
+    "end_time": 86.244,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "charge",
+    "scrape_term": "charge",
+    "longman_url": "https://www.ldoceonline.com/dictionary/charge"
+  },
+  {
+    "id": "try-8-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "tried",
+    "cue_id": 8,
+    "cue_text": "A premeditated murder is the most serious\ncharge tried in our criminal courts.",
+    "start_time": 81.19800000000001,
+    "end_time": 86.244,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "try",
+    "scrape_term": "try",
+    "longman_url": "https://www.ldoceonline.com/dictionary/try"
+  },
+  {
+    "id": "testimony-9-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "testimony.",
+    "cue_id": 9,
+    "cue_text": "You've listened to the testimony.",
+    "start_time": 86.245,
+    "end_time": 88.07900000000001,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "testimony",
+    "scrape_term": "testimony",
+    "longman_url": "https://www.ldoceonline.com/dictionary/testimony"
+  },
+  {
+    "id": "interpret-10-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "interpreted",
+    "cue_id": 10,
+    "cue_text": "You've had the law read to you and\ninterpreted as it applies in this case.",
+    "start_time": 88.08,
+    "end_time": 91.082,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "interpret",
+    "scrape_term": "interpret",
+    "longman_url": "https://www.ldoceonline.com/dictionary/interpret"
+  },
+  {
+    "id": "apply-10-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "applies",
+    "cue_id": 10,
+    "cue_text": "You've had the law read to you and\ninterpreted as it applies in this case.",
+    "start_time": 88.08,
+    "end_time": 91.082,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "apply",
+    "scrape_term": "apply",
+    "longman_url": "https://www.ldoceonline.com/dictionary/apply"
+  },
+  {
+    "id": "fancy-11-15",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "fancy.",
+    "cue_id": 11,
+    "cue_text": "It's now your duty to sit down and try\nand separate the facts from the fancy.",
+    "start_time": 91.083,
+    "end_time": 95.186,
+    "token_indices": [
+      15
+    ],
+    "dictionary_word": "fancy",
+    "scrape_term": "fancy",
+    "longman_url": "https://www.ldoceonline.com/dictionary/fancy"
+  },
+  {
+    "id": "stake-12-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stake.",
+    "cue_id": 12,
+    "cue_text": "One man is dead. Another\nman's life is at stake.",
+    "start_time": 96.00399999999999,
+    "end_time": 99.649,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "stake",
+    "scrape_term": "stake",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stake"
+  },
+  {
+    "id": "reasonable-13-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "reasonable",
+    "cue_id": 13,
+    "cue_text": "If there's a reasonable doubt in your\nminds as to the guilt of the accused...",
+    "start_time": 100.342,
+    "end_time": 104.428,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "reasonable",
+    "scrape_term": "reasonable",
+    "longman_url": "https://www.ldoceonline.com/dictionary/reasonable"
+  },
+  {
+    "id": "doubt-13-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "doubt",
+    "cue_id": 13,
+    "cue_text": "If there's a reasonable doubt in your\nminds as to the guilt of the accused...",
+    "start_time": 100.342,
+    "end_time": 104.428,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "doubt",
+    "scrape_term": "doubt",
+    "longman_url": "https://www.ldoceonline.com/dictionary/doubt"
+  },
+  {
+    "id": "guilt-13-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "guilt",
+    "cue_id": 13,
+    "cue_text": "If there's a reasonable doubt in your\nminds as to the guilt of the accused...",
+    "start_time": 100.342,
+    "end_time": 104.428,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "guilt",
+    "scrape_term": "guilt",
+    "longman_url": "https://www.ldoceonline.com/dictionary/guilt"
+  },
+  {
+    "id": "accused-13-14",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "accused...",
+    "cue_id": 13,
+    "cue_text": "If there's a reasonable doubt in your\nminds as to the guilt of the accused...",
+    "start_time": 100.342,
+    "end_time": 104.428,
+    "token_indices": [
+      14
+    ],
+    "dictionary_word": "accused",
+    "scrape_term": "accused",
+    "longman_url": "https://www.ldoceonline.com/dictionary/accused"
+  },
+  {
+    "id": "reasonable-14-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "reasonable",
+    "cue_id": 14,
+    "cue_text": "a reasonable doubt...",
+    "start_time": 104.429,
+    "end_time": 106.43,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "reasonable",
+    "scrape_term": "reasonable",
+    "longman_url": "https://www.ldoceonline.com/dictionary/reasonable"
+  },
+  {
+    "id": "doubt-14-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "doubt...",
+    "cue_id": 14,
+    "cue_text": "a reasonable doubt...",
+    "start_time": 104.429,
+    "end_time": 106.43,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "doubt",
+    "scrape_term": "doubt",
+    "longman_url": "https://www.ldoceonline.com/dictionary/doubt"
+  },
+  {
+    "id": "verdict-15-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "verdict",
+    "cue_id": 15,
+    "cue_text": "then you must bring me\na verdict of not guilty.",
+    "start_time": 106.431,
+    "end_time": 109.30799999999999,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "verdict",
+    "scrape_term": "verdict",
+    "longman_url": "https://www.ldoceonline.com/dictionary/verdict"
+  },
+  {
+    "id": "reasonable-16-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "reasonable",
+    "cue_id": 16,
+    "cue_text": "Now if, however, there's\nno reasonable doubt...",
+    "start_time": 109.309,
+    "end_time": 111.269,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "reasonable",
+    "scrape_term": "reasonable",
+    "longman_url": "https://www.ldoceonline.com/dictionary/reasonable"
+  },
+  {
+    "id": "doubt-16-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "doubt...",
+    "cue_id": 16,
+    "cue_text": "Now if, however, there's\nno reasonable doubt...",
+    "start_time": 109.309,
+    "end_time": 111.269,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "doubt",
+    "scrape_term": "doubt",
+    "longman_url": "https://www.ldoceonline.com/dictionary/doubt"
+  },
+  {
+    "id": "conscience-17-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "conscience",
+    "cue_id": 17,
+    "cue_text": "then you must in good conscience\nfind the accused guilty.",
+    "start_time": 111.27000000000001,
+    "end_time": 115.247,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "conscience",
+    "scrape_term": "conscience",
+    "longman_url": "https://www.ldoceonline.com/dictionary/conscience"
+  },
+  {
+    "id": "accused-17-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "accused",
+    "cue_id": 17,
+    "cue_text": "then you must in good conscience\nfind the accused guilty.",
+    "start_time": 111.27000000000001,
+    "end_time": 115.247,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "accused",
+    "scrape_term": "accused",
+    "longman_url": "https://www.ldoceonline.com/dictionary/accused"
+  },
+  {
+    "id": "verdict-18-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "verdict",
+    "cue_id": 18,
+    "cue_text": "However you decide, your\nverdict must be unanimous.",
+    "start_time": 116.275,
+    "end_time": 120.486,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "verdict",
+    "scrape_term": "verdict",
+    "longman_url": "https://www.ldoceonline.com/dictionary/verdict"
+  },
+  {
+    "id": "unanimous-18-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "unanimous.",
+    "cue_id": 18,
+    "cue_text": "However you decide, your\nverdict must be unanimous.",
+    "start_time": 116.275,
+    "end_time": 120.486,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "unanimous",
+    "scrape_term": "unanimous",
+    "longman_url": "https://www.ldoceonline.com/dictionary/unanimous"
+  },
+  {
+    "id": "event-19-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "event",
+    "cue_id": 19,
+    "cue_text": "In the event that you find\nthe accused guilty...",
+    "start_time": 120.487,
+    "end_time": 123.948,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "event",
+    "scrape_term": "event",
+    "longman_url": "https://www.ldoceonline.com/dictionary/event"
+  },
+  {
+    "id": "accused-19-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "accused",
+    "cue_id": 19,
+    "cue_text": "In the event that you find\nthe accused guilty...",
+    "start_time": 120.487,
+    "end_time": 123.948,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "accused",
+    "scrape_term": "accused",
+    "longman_url": "https://www.ldoceonline.com/dictionary/accused"
+  },
+  {
+    "id": "bench-20-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "bench",
+    "cue_id": 20,
+    "cue_text": "the bench will not entertain\na recommendation for mercy.",
+    "start_time": 123.949,
+    "end_time": 127.368,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "bench",
+    "scrape_term": "bench",
+    "longman_url": "https://www.ldoceonline.com/dictionary/bench"
+  },
+  {
+    "id": "entertain-20-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "entertain",
+    "cue_id": 20,
+    "cue_text": "the bench will not entertain\na recommendation for mercy.",
+    "start_time": 123.949,
+    "end_time": 127.368,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "entertain",
+    "scrape_term": "entertain",
+    "longman_url": "https://www.ldoceonline.com/dictionary/entertain"
+  },
+  {
+    "id": "recommendation-20-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "recommendation",
+    "cue_id": 20,
+    "cue_text": "the bench will not entertain\na recommendation for mercy.",
+    "start_time": 123.949,
+    "end_time": 127.368,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "recommendation",
+    "scrape_term": "recommendation",
+    "longman_url": "https://www.ldoceonline.com/dictionary/recommendation"
+  },
+  {
+    "id": "mercy-20-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "mercy.",
+    "cue_id": 20,
+    "cue_text": "the bench will not entertain\na recommendation for mercy.",
+    "start_time": 123.949,
+    "end_time": 127.368,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "mercy",
+    "scrape_term": "mercy",
+    "longman_url": "https://www.ldoceonline.com/dictionary/mercy"
+  },
+  {
+    "id": "sentence-21-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sentence",
+    "cue_id": 21,
+    "cue_text": "The death sentence is\nmandatory in this case.",
+    "start_time": 127.369,
+    "end_time": 130.663,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "sentence",
+    "scrape_term": "sentence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sentence"
+  },
+  {
+    "id": "mandatory-21-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "mandatory",
+    "cue_id": 21,
+    "cue_text": "The death sentence is\nmandatory in this case.",
+    "start_time": 127.369,
+    "end_time": 130.663,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "mandatory",
+    "scrape_term": "mandatory",
+    "longman_url": "https://www.ldoceonline.com/dictionary/mandatory"
+  },
+  {
+    "id": "face-22-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "faced",
+    "cue_id": 22,
+    "cue_text": "You're faced with a grave responsibility.\nThank you, gentlemen.",
+    "start_time": 130.664,
+    "end_time": 134.475,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "face",
+    "scrape_term": "face",
+    "longman_url": "https://www.ldoceonline.com/dictionary/face"
+  },
+  {
+    "id": "grave-22-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "grave",
+    "cue_id": 22,
+    "cue_text": "You're faced with a grave responsibility.\nThank you, gentlemen.",
+    "start_time": 130.664,
+    "end_time": 134.475,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "grave",
+    "scrape_term": "grave",
+    "longman_url": "https://www.ldoceonline.com/dictionary/grave"
+  },
+  {
+    "id": "alternate-23-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "alternate",
+    "cue_id": 23,
+    "cue_text": "The alternate jurors are excused.",
+    "start_time": 136.378,
+    "end_time": 138.52100000000002,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "alternate",
+    "scrape_term": "alternate",
+    "longman_url": "https://www.ldoceonline.com/dictionary/alternate"
+  },
+  {
+    "id": "juror-23-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "jurors",
+    "cue_id": 23,
+    "cue_text": "The alternate jurors are excused.",
+    "start_time": 136.378,
+    "end_time": 138.52100000000002,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "juror",
+    "scrape_term": "juror",
+    "longman_url": "https://www.ldoceonline.com/dictionary/juror"
+  },
+  {
+    "id": "excuse-23-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "excused.",
+    "cue_id": 23,
+    "cue_text": "The alternate jurors are excused.",
+    "start_time": 136.378,
+    "end_time": 138.52100000000002,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "excuse",
+    "scrape_term": "excuse",
+    "longman_url": "https://www.ldoceonline.com/dictionary/excuse"
+  },
+  {
+    "id": "jury-24-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "jury",
+    "cue_id": 24,
+    "cue_text": "The jury will now retire.",
+    "start_time": 144.428,
+    "end_time": 146.529,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "jury",
+    "scrape_term": "jury",
+    "longman_url": "https://www.ldoceonline.com/dictionary/jury"
+  },
+  {
+    "id": "retire-24-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "retire.",
+    "cue_id": 24,
+    "cue_text": "The jury will now retire.",
+    "start_time": 144.428,
+    "end_time": 146.529,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "retire",
+    "scrape_term": "retire",
+    "longman_url": "https://www.ldoceonline.com/dictionary/retire"
+  },
+  {
+    "id": "muggy-26-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "muggy",
+    "cue_id": 26,
+    "cue_text": "It's a muggy day.",
+    "start_time": 267.759,
+    "end_time": 269.61,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "muggy",
+    "scrape_term": "muggy",
+    "longman_url": "https://www.ldoceonline.com/dictionary/muggy"
+  },
+  {
+    "id": "bureau-34-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "bureau",
+    "cue_id": 34,
+    "cue_text": "I called the weather\nbureau this morning.",
+    "start_time": 305.714,
+    "end_time": 307.548,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "bureau",
+    "scrape_term": "bureau",
+    "longman_url": "https://www.ldoceonline.com/dictionary/bureau"
+  },
+  {
+    "id": "air-condition-37-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "air-condition",
+    "cue_id": 37,
+    "cue_text": "Boy, you'd think they'd at least\nair-condition these places.",
+    "start_time": 311.219,
+    "end_time": 313.22,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "air-condition",
+    "scrape_term": "air-condition",
+    "longman_url": "https://www.ldoceonline.com/dictionary/air-condition"
+  },
+  {
+    "id": "occur-46-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "occurred",
+    "cue_id": 46,
+    "cue_text": "I don't know. It just\nnever occurred to me.",
+    "start_time": 344.753,
+    "end_time": 347.271,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "occur",
+    "scrape_term": "occur",
+    "longman_url": "https://www.ldoceonline.com/dictionary/occur"
+  },
+  {
+    "id": "ballot-48-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "ballot.",
+    "cue_id": 48,
+    "cue_text": "Oh, I thought we might\nwant to vote by ballot.",
+    "start_time": 350.675,
+    "end_time": 352.635,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "ballot",
+    "scrape_term": "ballot",
+    "longman_url": "https://www.ldoceonline.com/dictionary/ballot"
+  },
+  {
+    "id": "senator-49-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "senator.",
+    "cue_id": 49,
+    "cue_text": "Great idea. Maybe we can\nget him elected senator.",
+    "start_time": 352.636,
+    "end_time": 355.387,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "senator",
+    "scrape_term": "senator",
+    "longman_url": "https://www.ldoceonline.com/dictionary/senator"
+  },
+  {
+    "id": "jury-54-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "jury",
+    "cue_id": 54,
+    "cue_text": "I mean, I've never\nbeen on a jury before.",
+    "start_time": 368.819,
+    "end_time": 371.487,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "jury",
+    "scrape_term": "jury",
+    "longman_url": "https://www.ldoceonline.com/dictionary/jury"
+  },
+  {
+    "id": "jury-55-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "juries.",
+    "cue_id": 55,
+    "cue_text": "No? I've sat on many juries.",
+    "start_time": 371.488,
+    "end_time": 374.298,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "jury",
+    "scrape_term": "jury",
+    "longman_url": "https://www.ldoceonline.com/dictionary/jury"
+  },
+  {
+    "id": "get-56-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "gets",
+    "cue_id": 56,
+    "cue_text": "What gets me is the way those\nlawyers talk and talk and talk...",
+    "start_time": 375.367,
+    "end_time": 378.369,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "get",
+    "scrape_term": "get",
+    "longman_url": "https://www.ldoceonline.com/dictionary/get"
+  },
+  {
+    "id": "open-and-shut-57-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "open-and-shut",
+    "cue_id": 57,
+    "cue_text": "even when it's an open-and-shut\ncase like this one.",
+    "start_time": 378.37,
+    "end_time": 380.621,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "open-and-shut",
+    "scrape_term": "open-and-shut",
+    "longman_url": "https://www.ldoceonline.com/dictionary/open-and-shut"
+  },
+  {
+    "id": "entitled-59-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "entitled.",
+    "cue_id": 59,
+    "cue_text": "Well, I guess they're entitled.",
+    "start_time": 382.415,
+    "end_time": 384.375,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "entitled",
+    "scrape_term": "entitled",
+    "longman_url": "https://www.ldoceonline.com/dictionary/entitled"
+  },
+  {
+    "id": "entitled-60-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "entitled.",
+    "cue_id": 60,
+    "cue_text": "Yeah. They're entitled.\nIt's the system, but...",
+    "start_time": 384.376,
+    "end_time": 386.936,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "entitled",
+    "scrape_term": "entitled",
+    "longman_url": "https://www.ldoceonline.com/dictionary/entitled"
+  },
+  {
+    "id": "slap-61-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slap",
+    "cue_id": 61,
+    "cue_text": "If you ask me, I'd slap those tough kids\ndown before they start any trouble.",
+    "start_time": 388.046,
+    "end_time": 392.216,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "slap",
+    "scrape_term": "slap",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slap"
+  },
+  {
+    "id": "figure-65-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "figured",
+    "cue_id": 65,
+    "cue_text": "I figured we'd start out\nwith a five-minute break.",
+    "start_time": 398.723,
+    "end_time": 400.496,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "figure",
+    "scrape_term": "figure",
+    "longman_url": "https://www.ldoceonline.com/dictionary/figure"
+  },
+  {
+    "id": "foreman-67-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Foreman.",
+    "cue_id": 67,
+    "cue_text": "- Mr. Foreman.\n- Huh?",
+    "start_time": 401.852,
+    "end_time": 402.89300000000003,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "foreman",
+    "scrape_term": "foreman",
+    "longman_url": "https://www.ldoceonline.com/dictionary/foreman"
+  },
+  {
+    "id": "dead-75-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "dead",
+    "cue_id": 75,
+    "cue_text": "No real... dead spots.\nYou know what I mean?",
+    "start_time": 428.67,
+    "end_time": 431.897,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "dead",
+    "scrape_term": "dead",
+    "longman_url": "https://www.ldoceonline.com/dictionary/dead"
+  },
+  {
+    "id": "figure-77-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "figured",
+    "cue_id": 77,
+    "cue_text": "I figured us for an\nassault or burglary.",
+    "start_time": 435.218,
+    "end_time": 437.261,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "figure",
+    "scrape_term": "figure",
+    "longman_url": "https://www.ldoceonline.com/dictionary/figure"
+  },
+  {
+    "id": "assault-77-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "assault",
+    "cue_id": 77,
+    "cue_text": "I figured us for an\nassault or burglary.",
+    "start_time": 435.218,
+    "end_time": 437.261,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "assault",
+    "scrape_term": "assault",
+    "longman_url": "https://www.ldoceonline.com/dictionary/assault"
+  },
+  {
+    "id": "burglary-77-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "burglary.",
+    "cue_id": 77,
+    "cue_text": "I figured us for an\nassault or burglary.",
+    "start_time": 435.218,
+    "end_time": 437.261,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "burglary",
+    "scrape_term": "burglary",
+    "longman_url": "https://www.ldoceonline.com/dictionary/burglary"
+  },
+  {
+    "id": "dull-78-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "dullest.",
+    "cue_id": 78,
+    "cue_text": "Boy, they can be the dullest.",
+    "start_time": 437.262,
+    "end_time": 439.597,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "dull",
+    "scrape_term": "dull",
+    "longman_url": "https://www.ldoceonline.com/dictionary/dull"
+  },
+  {
+    "id": "sort-84-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sort",
+    "cue_id": 84,
+    "cue_text": "If you had to\nsort out all that junk...",
+    "start_time": 450.275,
+    "end_time": 452.443,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "sort",
+    "scrape_term": "sort",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sort"
+  },
+  {
+    "id": "junk-84-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "junk...",
+    "cue_id": 84,
+    "cue_text": "If you had to\nsort out all that junk...",
+    "start_time": 450.275,
+    "end_time": 452.443,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "junk",
+    "scrape_term": "junk",
+    "longman_url": "https://www.ldoceonline.com/dictionary/junk"
+  },
+  {
+    "id": "business-86-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "business",
+    "cue_id": 86,
+    "cue_text": "Yeah. You can say that again. And what\nabout that business with the knife?",
+    "start_time": 454.613,
+    "end_time": 457.698,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "business",
+    "scrape_term": "business",
+    "longman_url": "https://www.ldoceonline.com/dictionary/business"
+  },
+  {
+    "id": "jazz-87-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "jazz,",
+    "cue_id": 87,
+    "cue_text": "I mean, asking grown-up people\nto believe that kind of jazz, huh?",
+    "start_time": 457.699,
+    "end_time": 460.659,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "jazz",
+    "scrape_term": "jazz",
+    "longman_url": "https://www.ldoceonline.com/dictionary/jazz"
+  },
+  {
+    "id": "how-91-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "how.",
+    "cue_id": 91,
+    "cue_text": "- What do you got, a cold?\n- And how.",
+    "start_time": 469.127,
+    "end_time": 470.669,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "how",
+    "scrape_term": "how",
+    "longman_url": "https://www.ldoceonline.com/dictionary/how"
+  },
+  {
+    "id": "foreman-95-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Foreman,",
+    "cue_id": 95,
+    "cue_text": "Aw, come on. Mr. Foreman,\nlet's go here, huh?",
+    "start_time": 479.095,
+    "end_time": 481.368,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "foreman",
+    "scrape_term": "foreman",
+    "longman_url": "https://www.ldoceonline.com/dictionary/foreman"
+  },
+  {
+    "id": "market-99-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "market",
+    "cue_id": 99,
+    "cue_text": "I was only wondering\nhow the market closed.",
+    "start_time": 487.729,
+    "end_time": 490.231,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "market",
+    "scrape_term": "market",
+    "longman_url": "https://www.ldoceonline.com/dictionary/market"
+  },
+  {
+    "id": "close-99-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "closed.",
+    "cue_id": 99,
+    "cue_text": "I was only wondering\nhow the market closed.",
+    "start_time": 487.729,
+    "end_time": 490.231,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "close",
+    "scrape_term": "close",
+    "longman_url": "https://www.ldoceonline.com/dictionary/close"
+  },
+  {
+    "id": "seat-100-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "seat",
+    "cue_id": 100,
+    "cue_text": "You got a seat on the Exchange?",
+    "start_time": 490.23199999999997,
+    "end_time": 493.025,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "seat",
+    "scrape_term": "seat",
+    "longman_url": "https://www.ldoceonline.com/dictionary/seat"
+  },
+  {
+    "id": "exchange-100-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Exchange?",
+    "cue_id": 100,
+    "cue_text": "You got a seat on the Exchange?",
+    "start_time": 490.23199999999997,
+    "end_time": 493.025,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "exchange",
+    "scrape_term": "exchange",
+    "longman_url": "https://www.ldoceonline.com/dictionary/exchange"
+  },
+  {
+    "id": "broker-101-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "broker.",
+    "cue_id": 101,
+    "cue_text": "I'm a broker.",
+    "start_time": 493.026,
+    "end_time": 494.86,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "broker",
+    "scrape_term": "broker",
+    "longman_url": "https://www.ldoceonline.com/dictionary/broker"
+  },
+  {
+    "id": "messenger-102-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "messenger",
+    "cue_id": 102,
+    "cue_text": "I run a messenger service...\nthe Beck and Call Company.",
+    "start_time": 494.861,
+    "end_time": 499.323,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "messenger",
+    "scrape_term": "messenger",
+    "longman_url": "https://www.ldoceonline.com/dictionary/messenger"
+  },
+  {
+    "id": "bull-111-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "bull,",
+    "cue_id": 111,
+    "cue_text": "Ooh, he's a real bull, this kid.",
+    "start_time": 520.595,
+    "end_time": 522.346,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "bull",
+    "scrape_term": "bull",
+    "longman_url": "https://www.ldoceonline.com/dictionary/bull"
+  },
+  {
+    "id": "jury-117-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "jury",
+    "cue_id": 117,
+    "cue_text": "Well, I thought we'd sit in order,\nyou know, by jury numbers.",
+    "start_time": 533.191,
+    "end_time": 536.36,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "jury",
+    "scrape_term": "jury",
+    "longman_url": "https://www.ldoceonline.com/dictionary/jury"
+  },
+  {
+    "id": "impression-124-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "impression",
+    "cue_id": 124,
+    "cue_text": "What was your impression of\nthe prosecuting attorney?",
+    "start_time": 550.166,
+    "end_time": 552.584,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "impression",
+    "scrape_term": "impression",
+    "longman_url": "https://www.ldoceonline.com/dictionary/impression"
+  },
+  {
+    "id": "prosecute-124-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "prosecuting",
+    "cue_id": 124,
+    "cue_text": "What was your impression of\nthe prosecuting attorney?",
+    "start_time": 550.166,
+    "end_time": 552.584,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "prosecute",
+    "scrape_term": "prosecute",
+    "longman_url": "https://www.ldoceonline.com/dictionary/prosecute"
+  },
+  {
+    "id": "attorney-124-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "attorney?",
+    "cue_id": 124,
+    "cue_text": "What was your impression of\nthe prosecuting attorney?",
+    "start_time": 550.166,
+    "end_time": 552.584,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "attorney",
+    "scrape_term": "attorney",
+    "longman_url": "https://www.ldoceonline.com/dictionary/attorney"
+  },
+  {
+    "id": "sharp-127-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sharp,",
+    "cue_id": 127,
+    "cue_text": "I thought he was really sharp, the way\nhe handled all those points one by one.",
+    "start_time": 555.63,
+    "end_time": 559.883,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "sharp",
+    "scrape_term": "sharp",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sharp"
+  },
+  {
+    "id": "handle-127-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "handled",
+    "cue_id": 127,
+    "cue_text": "I thought he was really sharp, the way\nhe handled all those points one by one.",
+    "start_time": 555.63,
+    "end_time": 559.883,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "handle",
+    "scrape_term": "handle",
+    "longman_url": "https://www.ldoceonline.com/dictionary/handle"
+  },
+  {
+    "id": "logical-128-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Logical",
+    "cue_id": 128,
+    "cue_text": "Logical sequence.\nI was very impressed.",
+    "start_time": 559.884,
+    "end_time": 563.095,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "logical",
+    "scrape_term": "logical",
+    "longman_url": "https://www.ldoceonline.com/dictionary/logical"
+  },
+  {
+    "id": "sequence-128-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sequence.",
+    "cue_id": 128,
+    "cue_text": "Logical sequence.\nI was very impressed.",
+    "start_time": 559.884,
+    "end_time": 563.095,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "sequence",
+    "scrape_term": "sequence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sequence"
+  },
+  {
+    "id": "drive-130-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "drive",
+    "cue_id": 130,
+    "cue_text": "A lot of drive too,\nyou know? Real drive.",
+    "start_time": 566.182,
+    "end_time": 569.268,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "drive",
+    "scrape_term": "drive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/drive"
+  },
+  {
+    "id": "drive-130-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "drive.",
+    "cue_id": 130,
+    "cue_text": "A lot of drive too,\nyou know? Real drive.",
+    "start_time": 566.182,
+    "end_time": 569.268,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "drive",
+    "scrape_term": "drive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/drive"
+  },
+  {
+    "id": "hold-131-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "hold",
+    "cue_id": 131,
+    "cue_text": "Okay, fellas, can we\nhold it down a minute?",
+    "start_time": 569.269,
+    "end_time": 571.003,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "hold",
+    "scrape_term": "hold",
+    "longman_url": "https://www.ldoceonline.com/dictionary/hold"
+  },
+  {
+    "id": "figure-136-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "figure,",
+    "cue_id": 136,
+    "cue_text": "Pretty tough to figure, isn't it? Kid\nkills his father... bing, just like that.",
+    "start_time": 580.488,
+    "end_time": 584.241,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "figure",
+    "scrape_term": "figure",
+    "longman_url": "https://www.ldoceonline.com/dictionary/figure"
+  },
+  {
+    "id": "analyze-137-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "analyze",
+    "cue_id": 137,
+    "cue_text": "Aw, listen, you analyze the figures,\nyou'll see it happens all the time.",
+    "start_time": 584.242,
+    "end_time": 586.91,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "analyze",
+    "scrape_term": "analyze",
+    "longman_url": "https://www.ldoceonline.com/dictionary/analyze"
+  },
+  {
+    "id": "figure-137-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "figures,",
+    "cue_id": 137,
+    "cue_text": "Aw, listen, you analyze the figures,\nyou'll see it happens all the time.",
+    "start_time": 584.242,
+    "end_time": 586.91,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "figure",
+    "scrape_term": "figure",
+    "longman_url": "https://www.ldoceonline.com/dictionary/figure"
+  },
+  {
+    "id": "wild-138-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "wild",
+    "cue_id": 138,
+    "cue_text": "They let those kids\nrun wild up there.",
+    "start_time": 586.9110000000001,
+    "end_time": 588.912,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "wild",
+    "scrape_term": "wild",
+    "longman_url": "https://www.ldoceonline.com/dictionary/wild"
+  },
+  {
+    "id": "serve-139-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "serves",
+    "cue_id": 139,
+    "cue_text": "Well, maybe it serves 'em right.\nYou know what I mean?",
+    "start_time": 588.913,
+    "end_time": 591.707,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "serve",
+    "scrape_term": "serve",
+    "longman_url": "https://www.ldoceonline.com/dictionary/serve"
+  },
+  {
+    "id": "crowbar-146-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "crowbar",
+    "cue_id": 146,
+    "cue_text": "That's like being hit in the head\nwith a crowbar once a day.",
+    "start_time": 605.305,
+    "end_time": 607.931,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "crowbar",
+    "scrape_term": "crowbar",
+    "longman_url": "https://www.ldoceonline.com/dictionary/crowbar"
+  },
+  {
+    "id": "groundskeeper-148-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "groundskeepers?",
+    "cue_id": 148,
+    "cue_text": "No, I mean, who have they got\nbesides good groundskeepers?",
+    "start_time": 610.935,
+    "end_time": 613.437,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "groundskeeper",
+    "scrape_term": "groundskeeper",
+    "longman_url": "https://www.ldoceonline.com/dictionary/groundskeeper"
+  },
+  {
+    "id": "handle-153-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "handle",
+    "cue_id": 153,
+    "cue_text": "You fellas can handle this thing\nany way that you want to.",
+    "start_time": 623.656,
+    "end_time": 626.7,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "handle",
+    "scrape_term": "handle",
+    "longman_url": "https://www.ldoceonline.com/dictionary/handle"
+  },
+  {
+    "id": "customary-158-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "customary",
+    "cue_id": 158,
+    "cue_text": "I think it's customary to\ntake a preliminary vote.",
+    "start_time": 638.463,
+    "end_time": 641.048,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "customary",
+    "scrape_term": "customary",
+    "longman_url": "https://www.ldoceonline.com/dictionary/customary"
+  },
+  {
+    "id": "preliminary-158-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "preliminary",
+    "cue_id": 158,
+    "cue_text": "I think it's customary to\ntake a preliminary vote.",
+    "start_time": 638.463,
+    "end_time": 641.048,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "preliminary",
+    "scrape_term": "preliminary",
+    "longman_url": "https://www.ldoceonline.com/dictionary/preliminary"
+  },
+  {
+    "id": "degree-162-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "first-degree",
+    "cue_id": 162,
+    "cue_text": "Of course you know that we have a\nfirst-degree murder charge here...",
+    "start_time": 649.682,
+    "end_time": 652.643,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "degree",
+    "scrape_term": "degree",
+    "longman_url": "https://www.ldoceonline.com/dictionary/degree"
+  },
+  {
+    "id": "charge-162-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "charge",
+    "cue_id": 162,
+    "cue_text": "Of course you know that we have a\nfirst-degree murder charge here...",
+    "start_time": 649.682,
+    "end_time": 652.643,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "charge",
+    "scrape_term": "charge",
+    "longman_url": "https://www.ldoceonline.com/dictionary/charge"
+  },
+  {
+    "id": "accused-163-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "accused",
+    "cue_id": 163,
+    "cue_text": "and if we vote the\naccused guilty...",
+    "start_time": 652.644,
+    "end_time": 654.812,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "accused",
+    "scrape_term": "accused",
+    "longman_url": "https://www.ldoceonline.com/dictionary/accused"
+  },
+  {
+    "id": "chair-164-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "chair.",
+    "cue_id": 164,
+    "cue_text": "uh, we've got to send\nhim to the chair.",
+    "start_time": 654.813,
+    "end_time": 658.148,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "chair",
+    "scrape_term": "chair",
+    "longman_url": "https://www.ldoceonline.com/dictionary/chair"
+  },
+  {
+    "id": "mandatory-165-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "mandatory.",
+    "cue_id": 165,
+    "cue_text": "- Um, that's mandatory.\n- I think we know that.",
+    "start_time": 658.149,
+    "end_time": 661.985,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "mandatory",
+    "scrape_term": "mandatory",
+    "longman_url": "https://www.ldoceonline.com/dictionary/mandatory"
+  },
+  {
+    "id": "innocent-183-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "innocent?",
+    "cue_id": 183,
+    "cue_text": "You really think he's innocent?",
+    "start_time": 714.831,
+    "end_time": 716.765,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "innocent",
+    "scrape_term": "innocent",
+    "longman_url": "https://www.ldoceonline.com/dictionary/innocent"
+  },
+  {
+    "id": "stab-189-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stabbed",
+    "cue_id": 189,
+    "cue_text": "He stabbed his own father\nfour inches into the chest.",
+    "start_time": 730.805,
+    "end_time": 733.557,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "stab",
+    "scrape_term": "stab",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stab"
+  },
+  {
+    "id": "come-199-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "come",
+    "cue_id": 199,
+    "cue_text": "So how come you vote not guilty?",
+    "start_time": 754.913,
+    "end_time": 756.58,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "come",
+    "scrape_term": "come",
+    "longman_url": "https://www.ldoceonline.com/dictionary/come"
+  },
+  {
+    "id": "suppose-209-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Supposing",
+    "cue_id": 209,
+    "cue_text": "We can't decide it in five minutes.\nSupposing we're wrong.",
+    "start_time": 779.854,
+    "end_time": 782.022,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "suppose-210-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "\"Supposing",
+    "cue_id": 210,
+    "cue_text": "\"Supposing we're wrong.\"",
+    "start_time": 782.023,
+    "end_time": 783.524,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "suppose-211-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Supposing",
+    "cue_id": 211,
+    "cue_text": "Supposing this whole building\nshould fall down on my head.",
+    "start_time": 783.525,
+    "end_time": 785.609,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "suppose-212-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "suppose",
+    "cue_id": 212,
+    "cue_text": "- You can suppose anything.\n- That's right.",
+    "start_time": 785.61,
+    "end_time": 787.711,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "suppose-214-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Suppose",
+    "cue_id": 214,
+    "cue_text": "Suppose we do it in\nfive minutes. So what?",
+    "start_time": 790.281,
+    "end_time": 792.95,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "kick-224-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "kicked",
+    "cue_id": 224,
+    "cue_text": "Look, this kid's been kicked\naround all of his life...",
+    "start_time": 819.769,
+    "end_time": 823.313,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "kick",
+    "scrape_term": "kick",
+    "longman_url": "https://www.ldoceonline.com/dictionary/kick"
+  },
+  {
+    "id": "slum-225-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slum,",
+    "cue_id": 225,
+    "cue_text": "you know, born in a slum,\nmother dead since he was nine.",
+    "start_time": 823.314,
+    "end_time": 827.317,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "slum",
+    "scrape_term": "slum",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slum"
+  },
+  {
+    "id": "orphanage-226-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "orphanage",
+    "cue_id": 226,
+    "cue_text": "He lived for a year and a half\nin an orphanage when his...",
+    "start_time": 827.318,
+    "end_time": 829.611,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "orphanage",
+    "scrape_term": "orphanage",
+    "longman_url": "https://www.ldoceonline.com/dictionary/orphanage"
+  },
+  {
+    "id": "serve-227-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "serving",
+    "cue_id": 227,
+    "cue_text": "his father was serving a\njail term for forgery.",
+    "start_time": 829.612,
+    "end_time": 832.614,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "serve",
+    "scrape_term": "serve",
+    "longman_url": "https://www.ldoceonline.com/dictionary/serve"
+  },
+  {
+    "id": "term-227-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "term",
+    "cue_id": 227,
+    "cue_text": "his father was serving a\njail term for forgery.",
+    "start_time": 829.612,
+    "end_time": 832.614,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "term",
+    "scrape_term": "term",
+    "longman_url": "https://www.ldoceonline.com/dictionary/term"
+  },
+  {
+    "id": "forgery-227-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "forgery.",
+    "cue_id": 227,
+    "cue_text": "his father was serving a\njail term for forgery.",
+    "start_time": 829.612,
+    "end_time": 832.614,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "forgery",
+    "scrape_term": "forgery",
+    "longman_url": "https://www.ldoceonline.com/dictionary/forgery"
+  },
+  {
+    "id": "miserable-232-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "miserable",
+    "cue_id": 232,
+    "cue_text": "He's had a... He's had a\npretty miserable 18 years.",
+    "start_time": 842.834,
+    "end_time": 845.127,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "miserable",
+    "scrape_term": "miserable",
+    "longman_url": "https://www.ldoceonline.com/dictionary/miserable"
+  },
+  {
+    "id": "owe-233-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "owe",
+    "cue_id": 233,
+    "cue_text": "I... I just think we owe\nhim a few words. That's all.",
+    "start_time": 845.128,
+    "end_time": 848.171,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "owe",
+    "scrape_term": "owe",
+    "longman_url": "https://www.ldoceonline.com/dictionary/owe"
+  },
+  {
+    "id": "owe-234-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "owe",
+    "cue_id": 234,
+    "cue_text": "I don't mind telling you this, mister.\nWe don't owe him a thing.",
+    "start_time": 848.172,
+    "end_time": 851.8,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "owe",
+    "scrape_term": "owe",
+    "longman_url": "https://www.ldoceonline.com/dictionary/owe"
+  },
+  {
+    "id": "trial-235-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "trial,",
+    "cue_id": 235,
+    "cue_text": "He got a fair trial, didn't he?\nWhat do you think that trial cost?",
+    "start_time": 851.801,
+    "end_time": 854.97,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "trial",
+    "scrape_term": "trial",
+    "longman_url": "https://www.ldoceonline.com/dictionary/trial"
+  },
+  {
+    "id": "trial-235-12",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "trial",
+    "cue_id": 235,
+    "cue_text": "He got a fair trial, didn't he?\nWhat do you think that trial cost?",
+    "start_time": 851.801,
+    "end_time": 854.97,
+    "token_indices": [
+      12
+    ],
+    "dictionary_word": "trial",
+    "scrape_term": "trial",
+    "longman_url": "https://www.ldoceonline.com/dictionary/trial"
+  },
+  {
+    "id": "suppose-239-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "supposed",
+    "cue_id": 239,
+    "cue_text": "You're not gonna tell me that we're supposed\nto believe this kid, knowing what he is.",
+    "start_time": 862.52,
+    "end_time": 866.398,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "born-242-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "born",
+    "cue_id": 242,
+    "cue_text": "I mean, they're born liars.",
+    "start_time": 872.28,
+    "end_time": 874.197,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "born",
+    "scrape_term": "born",
+    "longman_url": "https://www.ldoceonline.com/dictionary/born"
+  },
+  {
+    "id": "ignorant-243-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "ignorant",
+    "cue_id": 243,
+    "cue_text": "- Only an ignorant man can believe that.\n- Now listen...",
+    "start_time": 874.198,
+    "end_time": 877.618,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "ignorant",
+    "scrape_term": "ignorant",
+    "longman_url": "https://www.ldoceonline.com/dictionary/ignorant"
+  },
+  {
+    "id": "monopoly-244-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "monopoly",
+    "cue_id": 244,
+    "cue_text": "Do you think you were born\nwith a monopoly on the truth?",
+    "start_time": 877.619,
+    "end_time": 880.537,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "monopoly",
+    "scrape_term": "monopoly",
+    "longman_url": "https://www.ldoceonline.com/dictionary/monopoly"
+  },
+  {
+    "id": "point-245-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pointed",
+    "cue_id": 245,
+    "cue_text": "I think certain things should\nbe pointed out to this man.",
+    "start_time": 880.538,
+    "end_time": 883.206,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "point",
+    "scrape_term": "point",
+    "longman_url": "https://www.ldoceonline.com/dictionary/point"
+  },
+  {
+    "id": "sermon-246-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sermon.",
+    "cue_id": 246,
+    "cue_text": "Come on. This isn't Sunday.\nWe don't need a sermon.",
+    "start_time": 883.207,
+    "end_time": 885.375,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "sermon",
+    "scrape_term": "sermon",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sermon"
+  },
+  {
+    "id": "agency-248-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "agency.",
+    "cue_id": 248,
+    "cue_text": "Rice Pops. It's a product\nI work on at the agency.",
+    "start_time": 888.671,
+    "end_time": 891.815,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "agency",
+    "scrape_term": "agency",
+    "longman_url": "https://www.ldoceonline.com/dictionary/agency"
+  },
+  {
+    "id": "built-in-249-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "built-in",
+    "cue_id": 249,
+    "cue_text": "\"The breakfast with\nthe built-in bounce.\"",
+    "start_time": 892.55,
+    "end_time": 895.26,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "built-in",
+    "scrape_term": "built-in",
+    "longman_url": "https://www.ldoceonline.com/dictionary/built-in"
+  },
+  {
+    "id": "bounce-249-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "bounce.\"",
+    "cue_id": 249,
+    "cue_text": "\"The breakfast with\nthe built-in bounce.\"",
+    "start_time": 892.55,
+    "end_time": 895.26,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "bounce",
+    "scrape_term": "bounce",
+    "longman_url": "https://www.ldoceonline.com/dictionary/bounce"
+  },
+  {
+    "id": "line-250-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "line.",
+    "cue_id": 250,
+    "cue_text": "- I wrote that line.\n- Very catchy.",
+    "start_time": 895.261,
+    "end_time": 896.97,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "line",
+    "scrape_term": "line",
+    "longman_url": "https://www.ldoceonline.com/dictionary/line"
+  },
+  {
+    "id": "catchy-250-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "catchy.",
+    "cue_id": 250,
+    "cue_text": "- I wrote that line.\n- Very catchy.",
+    "start_time": 895.261,
+    "end_time": 896.97,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "catchy",
+    "scrape_term": "catchy",
+    "longman_url": "https://www.ldoceonline.com/dictionary/catchy"
+  },
+  {
+    "id": "doodle-253-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "doodling.",
+    "cue_id": 253,
+    "cue_text": "I have this habit of doodling.\nKeeps me thinking clearly.",
+    "start_time": 901.017,
+    "end_time": 903.56,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "doodle",
+    "scrape_term": "doodle",
+    "longman_url": "https://www.ldoceonline.com/dictionary/doodle"
+  },
+  {
+    "id": "mix-260-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "mixed",
+    "cue_id": 260,
+    "cue_text": "And we might be able to show\nyou where you're mixed up.",
+    "start_time": 916.699,
+    "end_time": 919.159,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "mix",
+    "scrape_term": "mix",
+    "longman_url": "https://www.ldoceonline.com/dictionary/mix"
+  },
+  {
+    "id": "convince-263-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "convince",
+    "cue_id": 263,
+    "cue_text": "that it's up to the\ngroup of us to convince",
+    "start_time": 923.414,
+    "end_time": 925.768,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "convince",
+    "scrape_term": "convince",
+    "longman_url": "https://www.ldoceonline.com/dictionary/convince"
+  },
+  {
+    "id": "suppose-268-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "suppose",
+    "cue_id": 268,
+    "cue_text": "Uh, suppose we go once\naround the table.",
+    "start_time": 934.926,
+    "end_time": 938.095,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "put-271-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "put",
+    "cue_id": 271,
+    "cue_text": "Well, it-it's hard\nto put into words.",
+    "start_time": 943.935,
+    "end_time": 946.453,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "put",
+    "scrape_term": "put",
+    "longman_url": "https://www.ldoceonline.com/dictionary/put"
+  },
+  {
+    "id": "go-273-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "\"go.\"",
+    "cue_id": 273,
+    "cue_text": "I thought it was obvious\nfrom the word \"go.\"",
+    "start_time": 949.482,
+    "end_time": 952.067,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "go",
+    "scrape_term": "go",
+    "longman_url": "https://www.ldoceonline.com/dictionary/go"
+  },
+  {
+    "id": "otherwise-274-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "otherwise.",
+    "cue_id": 274,
+    "cue_text": "I mean, nobody proved otherwise.",
+    "start_time": 952.068,
+    "end_time": 953.652,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "otherwise",
+    "scrape_term": "otherwise",
+    "longman_url": "https://www.ldoceonline.com/dictionary/otherwise"
+  },
+  {
+    "id": "otherwise-275-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "otherwise.",
+    "cue_id": 275,
+    "cue_text": "Nobody has to prove otherwise.",
+    "start_time": 953.653,
+    "end_time": 955.278,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "otherwise",
+    "scrape_term": "otherwise",
+    "longman_url": "https://www.ldoceonline.com/dictionary/otherwise"
+  },
+  {
+    "id": "burden-276-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "burden",
+    "cue_id": 276,
+    "cue_text": "The burden of proof's\non the prosecution.",
+    "start_time": 955.279,
+    "end_time": 957.614,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "burden",
+    "scrape_term": "burden",
+    "longman_url": "https://www.ldoceonline.com/dictionary/burden"
+  },
+  {
+    "id": "proof-276-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "proof's",
+    "cue_id": 276,
+    "cue_text": "The burden of proof's\non the prosecution.",
+    "start_time": 955.279,
+    "end_time": 957.614,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "proof",
+    "scrape_term": "proof",
+    "longman_url": "https://www.ldoceonline.com/dictionary/proof"
+  },
+  {
+    "id": "prosecution-276-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "prosecution.",
+    "cue_id": 276,
+    "cue_text": "The burden of proof's\non the prosecution.",
+    "start_time": 955.279,
+    "end_time": 957.614,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "prosecution",
+    "scrape_term": "prosecution",
+    "longman_url": "https://www.ldoceonline.com/dictionary/prosecution"
+  },
+  {
+    "id": "defendant-277-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "defendant",
+    "cue_id": 277,
+    "cue_text": "The defendant doesn't even\nhave to open his mouth.",
+    "start_time": 957.615,
+    "end_time": 960.158,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "defendant",
+    "scrape_term": "defendant",
+    "longman_url": "https://www.ldoceonline.com/dictionary/defendant"
+  },
+  {
+    "id": "constitution-278-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Constitution.",
+    "cue_id": 278,
+    "cue_text": "- That's in the Constitution.\n- Oh, well, sure, I know that.",
+    "start_time": 960.159,
+    "end_time": 963.37,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "constitution",
+    "scrape_term": "constitution",
+    "longman_url": "https://www.ldoceonline.com/dictionary/constitution"
+  },
+  {
+    "id": "coroner-294-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "coroner",
+    "cue_id": 294,
+    "cue_text": "The coroner fixed the time\nof death around midnight.",
+    "start_time": 1005.913,
+    "end_time": 1009.249,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "coroner",
+    "scrape_term": "coroner",
+    "longman_url": "https://www.ldoceonline.com/dictionary/coroner"
+  },
+  {
+    "id": "fix-294-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "fixed",
+    "cue_id": 294,
+    "cue_text": "The coroner fixed the time\nof death around midnight.",
+    "start_time": 1005.913,
+    "end_time": 1009.249,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "fix",
+    "scrape_term": "fix",
+    "longman_url": "https://www.ldoceonline.com/dictionary/fix"
+  },
+  {
+    "id": "refute-295-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "refute",
+    "cue_id": 295,
+    "cue_text": "Now these are facts.\nYou can't refute facts.",
+    "start_time": 1009.25,
+    "end_time": 1012.419,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "refute",
+    "scrape_term": "refute",
+    "longman_url": "https://www.ldoceonline.com/dictionary/refute"
+  },
+  {
+    "id": "sentimental-297-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sentimental",
+    "cue_id": 297,
+    "cue_text": "I'm just as sentimental\nas the next fella.",
+    "start_time": 1014.672,
+    "end_time": 1016.757,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "sentimental",
+    "scrape_term": "sentimental",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sentimental"
+  },
+  {
+    "id": "pay-298-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pay",
+    "cue_id": 298,
+    "cue_text": "I know he's only 18, but he's still\ngotta pay for what he did.",
+    "start_time": 1016.758,
+    "end_time": 1020.719,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "pay",
+    "scrape_term": "pay",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pay"
+  },
+  {
+    "id": "flimsy-302-12",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "flimsy.",
+    "cue_id": 302,
+    "cue_text": "It is obvious, to me anyway,\nthat the boy's entire story was flimsy.",
+    "start_time": 1026.434,
+    "end_time": 1029.728,
+    "token_indices": [
+      12
+    ],
+    "dictionary_word": "flimsy",
+    "scrape_term": "flimsy",
+    "longman_url": "https://www.ldoceonline.com/dictionary/flimsy"
+  },
+  {
+    "id": "claim-303-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "claimed",
+    "cue_id": 303,
+    "cue_text": "He claimed he was at the movies\nduring the time of the killing...",
+    "start_time": 1029.729,
+    "end_time": 1032.022,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "claim",
+    "scrape_term": "claim",
+    "longman_url": "https://www.ldoceonline.com/dictionary/claim"
+  },
+  {
+    "id": "testimony-308-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "testimony",
+    "cue_id": 308,
+    "cue_text": "If her testimony don't\nprove it, nothing does.",
+    "start_time": 1040.656,
+    "end_time": 1043.033,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "testimony",
+    "scrape_term": "testimony",
+    "longman_url": "https://www.ldoceonline.com/dictionary/testimony"
+  },
+  {
+    "id": "stick-315-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stick",
+    "cue_id": 315,
+    "cue_text": "and right across the street she sees\nthe kid stick the knife into his father.",
+    "start_time": 1057.757,
+    "end_time": 1061.426,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "stick",
+    "scrape_term": "stick",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stick"
+  },
+  {
+    "id": "nose-316-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "nose.",
+    "cue_id": 316,
+    "cue_text": "The time is 12:10 on the nose.",
+    "start_time": 1061.427,
+    "end_time": 1064.387,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "nose",
+    "scrape_term": "nose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/nose"
+  },
+  {
+    "id": "fit-317-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "fits.",
+    "cue_id": 317,
+    "cue_text": "Everything fits. Look, she's\nknown the kid all his life.",
+    "start_time": 1064.388,
+    "end_time": 1068.266,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "fit",
+    "scrape_term": "fit",
+    "longman_url": "https://www.ldoceonline.com/dictionary/fit"
+  },
+  {
+    "id": "el-318-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "el",
+    "cue_id": 318,
+    "cue_text": "His window is right opposite\nhers across the el tracks...",
+    "start_time": 1068.267,
+    "end_time": 1070.477,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "el",
+    "scrape_term": "el",
+    "longman_url": "https://www.ldoceonline.com/dictionary/el"
+  },
+  {
+    "id": "swear-319-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "swore",
+    "cue_id": 319,
+    "cue_text": "and she swore she saw him do it.",
+    "start_time": 1070.478,
+    "end_time": 1072.229,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "swear",
+    "scrape_term": "swear",
+    "longman_url": "https://www.ldoceonline.com/dictionary/swear"
+  },
+  {
+    "id": "el-320-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "el",
+    "cue_id": 320,
+    "cue_text": "Through the windows of\nthe passing el train.",
+    "start_time": 1072.23,
+    "end_time": 1074.431,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "el",
+    "scrape_term": "el",
+    "longman_url": "https://www.ldoceonline.com/dictionary/el"
+  },
+  {
+    "id": "el-321-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "el",
+    "cue_id": 321,
+    "cue_text": "Right. This el train had no passengers\non it. It was just being moved downtown.",
+    "start_time": 1074.457,
+    "end_time": 1079.236,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "el",
+    "scrape_term": "el",
+    "longman_url": "https://www.ldoceonline.com/dictionary/el"
+  },
+  {
+    "id": "el-323-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "el",
+    "cue_id": 323,
+    "cue_text": "you can look through the windows of an\nel train when the lights are out...",
+    "start_time": 1082.24,
+    "end_time": 1084.741,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "el",
+    "scrape_term": "el",
+    "longman_url": "https://www.ldoceonline.com/dictionary/el"
+  },
+  {
+    "id": "smart-328-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "smart",
+    "cue_id": 328,
+    "cue_text": "You're a pretty smart\nfella, aren't you?",
+    "start_time": 1097.255,
+    "end_time": 1099.339,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "smart",
+    "scrape_term": "smart",
+    "longman_url": "https://www.ldoceonline.com/dictionary/smart"
+  },
+  {
+    "id": "wise-331-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "wise",
+    "cue_id": 331,
+    "cue_text": "Oh, what's he so wise about?\nI'm telling you.",
+    "start_time": 1103.135,
+    "end_time": 1105.762,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "wise",
+    "scrape_term": "wise",
+    "longman_url": "https://www.ldoceonline.com/dictionary/wise"
+  },
+  {
+    "id": "get-332-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "get",
+    "cue_id": 332,
+    "cue_text": "Okay, now come on. Now we're\nnot gonna get anywhere fighting.",
+    "start_time": 1105.763,
+    "end_time": 1109.099,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "get",
+    "scrape_term": "get",
+    "longman_url": "https://www.ldoceonline.com/dictionary/get"
+  },
+  {
+    "id": "pass-335-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pass?",
+    "cue_id": 335,
+    "cue_text": "Okay, may I... Can I pass? it...",
+    "start_time": 1115.523,
+    "end_time": 1118.375,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "pass",
+    "scrape_term": "pass",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pass"
+  },
+  {
+    "id": "privilege-336-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "privilege.",
+    "cue_id": 336,
+    "cue_text": "Well, uh, that's your privilege.",
+    "start_time": 1119.068,
+    "end_time": 1121.194,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "privilege",
+    "scrape_term": "privilege",
+    "longman_url": "https://www.ldoceonline.com/dictionary/privilege"
+  },
+  {
+    "id": "convince-339-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "convinced,",
+    "cue_id": 339,
+    "cue_text": "I started to be convinced,\nyou know, very early in the case.",
+    "start_time": 1127.159,
+    "end_time": 1131.471,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "convince",
+    "scrape_term": "convince",
+    "longman_url": "https://www.ldoceonline.com/dictionary/convince"
+  },
+  {
+    "id": "motive-340-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "motive.",
+    "cue_id": 340,
+    "cue_text": "You see, I was looking for a motive.\nThat's very important.",
+    "start_time": 1131.956,
+    "end_time": 1136.167,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "motive",
+    "scrape_term": "motive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/motive"
+  },
+  {
+    "id": "motive-341-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "motive,",
+    "cue_id": 341,
+    "cue_text": "Because if you don't have a motive,\nwhere's your case, right?",
+    "start_time": 1136.168,
+    "end_time": 1140.463,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "motive",
+    "scrape_term": "motive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/motive"
+  },
+  {
+    "id": "testimony-342-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "testimony",
+    "cue_id": 342,
+    "cue_text": "Anyway, that, uh, testimony\nfrom those people...",
+    "start_time": 1140.464,
+    "end_time": 1143.633,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "testimony",
+    "scrape_term": "testimony",
+    "longman_url": "https://www.ldoceonline.com/dictionary/testimony"
+  },
+  {
+    "id": "powerful-344-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "powerful.",
+    "cue_id": 344,
+    "cue_text": "that was very powerful.",
+    "start_time": 1146.762,
+    "end_time": 1149.097,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "powerful",
+    "scrape_term": "powerful",
+    "longman_url": "https://www.ldoceonline.com/dictionary/powerful"
+  },
+  {
+    "id": "picture-353-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "picture.",
+    "cue_id": 353,
+    "cue_text": "Well, it don't exactly prove anything.\nIt's just part of the picture.",
+    "start_time": 1169.744,
+    "end_time": 1173.496,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "picture",
+    "scrape_term": "picture",
+    "longman_url": "https://www.ldoceonline.com/dictionary/picture"
+  },
+  {
+    "id": "motive-354-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "motive.",
+    "cue_id": 354,
+    "cue_text": "Well, you said it provided a motive. The\nprosecuting attorney said the same thing.",
+    "start_time": 1173.497,
+    "end_time": 1176.499,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "motive",
+    "scrape_term": "motive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/motive"
+  },
+  {
+    "id": "prosecute-354-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "prosecuting",
+    "cue_id": 354,
+    "cue_text": "Well, you said it provided a motive. The\nprosecuting attorney said the same thing.",
+    "start_time": 1173.497,
+    "end_time": 1176.499,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "prosecute",
+    "scrape_term": "prosecute",
+    "longman_url": "https://www.ldoceonline.com/dictionary/prosecute"
+  },
+  {
+    "id": "attorney-354-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "attorney",
+    "cue_id": 354,
+    "cue_text": "Well, you said it provided a motive. The\nprosecuting attorney said the same thing.",
+    "start_time": 1173.497,
+    "end_time": 1176.499,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "attorney",
+    "scrape_term": "attorney",
+    "longman_url": "https://www.ldoceonline.com/dictionary/attorney"
+  },
+  {
+    "id": "motive-355-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "motive.",
+    "cue_id": 355,
+    "cue_text": "I don't think that was\na very strong motive.",
+    "start_time": 1176.5,
+    "end_time": 1178.835,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "motive",
+    "scrape_term": "motive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/motive"
+  },
+  {
+    "id": "practically-356-13",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "practically",
+    "cue_id": 356,
+    "cue_text": "This boy's been hit so many times in his\nlife that violence is practically a...",
+    "start_time": 1178.836,
+    "end_time": 1182.505,
+    "token_indices": [
+      13
+    ],
+    "dictionary_word": "practically",
+    "scrape_term": "practically",
+    "longman_url": "https://www.ldoceonline.com/dictionary/practically"
+  },
+  {
+    "id": "affair-357-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "affairs",
+    "cue_id": 357,
+    "cue_text": "It's a normal state\nof affairs with him.",
+    "start_time": 1182.506,
+    "end_time": 1184.966,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "affair",
+    "scrape_term": "affair",
+    "longman_url": "https://www.ldoceonline.com/dictionary/affair"
+  },
+  {
+    "id": "slap-358-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slaps",
+    "cue_id": 358,
+    "cue_text": "I just... I can't see two slaps in the face\nprovoking him into committing murder.",
+    "start_time": 1184.967,
+    "end_time": 1189.262,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "slap",
+    "scrape_term": "slap",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slap"
+  },
+  {
+    "id": "provoke-358-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "provoking",
+    "cue_id": 358,
+    "cue_text": "I just... I can't see two slaps in the face\nprovoking him into committing murder.",
+    "start_time": 1184.967,
+    "end_time": 1189.262,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "provoke",
+    "scrape_term": "provoke",
+    "longman_url": "https://www.ldoceonline.com/dictionary/provoke"
+  },
+  {
+    "id": "commit-358-13",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "committing",
+    "cue_id": 358,
+    "cue_text": "I just... I can't see two slaps in the face\nprovoking him into committing murder.",
+    "start_time": 1184.967,
+    "end_time": 1189.262,
+    "token_indices": [
+      13
+    ],
+    "dictionary_word": "commit",
+    "scrape_term": "commit",
+    "longman_url": "https://www.ldoceonline.com/dictionary/commit"
+  },
+  {
+    "id": "point-359-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "point.",
+    "cue_id": 359,
+    "cue_text": "It may have been two too many.\nEveryone has a breaking point.",
+    "start_time": 1189.263,
+    "end_time": 1192.949,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "point",
+    "scrape_term": "point",
+    "longman_url": "https://www.ldoceonline.com/dictionary/point"
+  },
+  {
+    "id": "record-366-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "record.",
+    "cue_id": 366,
+    "cue_text": "Well, look at his record.",
+    "start_time": 1214.08,
+    "end_time": 1216.039,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "record",
+    "scrape_term": "record",
+    "longman_url": "https://www.ldoceonline.com/dictionary/record"
+  },
+  {
+    "id": "reform-369-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "reform",
+    "cue_id": 369,
+    "cue_text": "When he was 15,\nhe was in reform school.",
+    "start_time": 1220.211,
+    "end_time": 1222.587,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "reform",
+    "scrape_term": "reform",
+    "longman_url": "https://www.ldoceonline.com/dictionary/reform"
+  },
+  {
+    "id": "mugging-371-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "mugging.",
+    "cue_id": 371,
+    "cue_text": "He's been arrested for mugging.",
+    "start_time": 1224.507,
+    "end_time": 1227.092,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "mugging",
+    "scrape_term": "mugging",
+    "longman_url": "https://www.ldoceonline.com/dictionary/mugging"
+  },
+  {
+    "id": "pick-372-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "picked",
+    "cue_id": 372,
+    "cue_text": "He was picked up twice\nfor knife fighting.",
+    "start_time": 1227.093,
+    "end_time": 1229.177,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "pick",
+    "scrape_term": "pick",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pick"
+  },
+  {
+    "id": "handy-373-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "handy",
+    "cue_id": 373,
+    "cue_text": "Oh, yeah, they say he's\nreal handy with a knife.",
+    "start_time": 1229.178,
+    "end_time": 1231.346,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "handy",
+    "scrape_term": "handy",
+    "longman_url": "https://www.ldoceonline.com/dictionary/handy"
+  },
+  {
+    "id": "beat-375-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "beat",
+    "cue_id": 375,
+    "cue_text": "Ever since he was five years old,\nhis father beat him up regularly.",
+    "start_time": 1234.225,
+    "end_time": 1237.31,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "beat",
+    "scrape_term": "beat",
+    "longman_url": "https://www.ldoceonline.com/dictionary/beat"
+  },
+  {
+    "id": "fist-376-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "fists.",
+    "cue_id": 376,
+    "cue_text": "- He used his fists.\n- Well, so would I.",
+    "start_time": 1237.311,
+    "end_time": 1239.813,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "fist",
+    "scrape_term": "fist",
+    "longman_url": "https://www.ldoceonline.com/dictionary/fist"
+  },
+  {
+    "id": "throw-387-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "threw",
+    "cue_id": 387,
+    "cue_text": "I saw it. I was so embarrassed\nI almost threw up.",
+    "start_time": 1276.308,
+    "end_time": 1279.577,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "throw",
+    "scrape_term": "throw",
+    "longman_url": "https://www.ldoceonline.com/dictionary/throw"
+  },
+  {
+    "id": "man-388-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "man",
+    "cue_id": 388,
+    "cue_text": "I said, \"I'm gonna make a man out of you\nif I have to break you in two trying.\"",
+    "start_time": 1281.147,
+    "end_time": 1285.875,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "man",
+    "scrape_term": "man",
+    "longman_url": "https://www.ldoceonline.com/dictionary/man"
+  },
+  {
+    "id": "man-389-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "man",
+    "cue_id": 389,
+    "cue_text": "Well, I made a man out of him.",
+    "start_time": 1288.279,
+    "end_time": 1290.296,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "man",
+    "scrape_term": "man",
+    "longman_url": "https://www.ldoceonline.com/dictionary/man"
+  },
+  {
+    "id": "jaw-391-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "jaw.",
+    "cue_id": 391,
+    "cue_text": "Hit me in the jaw.\nHe was a big kid.",
+    "start_time": 1294.952,
+    "end_time": 1297.4279999999999,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "jaw",
+    "scrape_term": "jaw",
+    "longman_url": "https://www.ldoceonline.com/dictionary/jaw"
+  },
+  {
+    "id": "work-394-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Work",
+    "cue_id": 394,
+    "cue_text": "Work your heart out.",
+    "start_time": 1308.758,
+    "end_time": 1310.817,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "work",
+    "scrape_term": "work",
+    "longman_url": "https://www.ldoceonline.com/dictionary/work"
+  },
+  {
+    "id": "point-396-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "point",
+    "cue_id": 396,
+    "cue_text": "I think we're missing\nthe point here.",
+    "start_time": 1314.638,
+    "end_time": 1317.057,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "point",
+    "scrape_term": "point",
+    "longman_url": "https://www.ldoceonline.com/dictionary/point"
+  },
+  {
+    "id": "product-397-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "product",
+    "cue_id": 397,
+    "cue_text": "This boy, let's say he's the product of a\nbroken home and a filthy neighborhood.",
+    "start_time": 1317.058,
+    "end_time": 1320.56,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "product",
+    "scrape_term": "product",
+    "longman_url": "https://www.ldoceonline.com/dictionary/product"
+  },
+  {
+    "id": "broken-397-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "broken",
+    "cue_id": 397,
+    "cue_text": "This boy, let's say he's the product of a\nbroken home and a filthy neighborhood.",
+    "start_time": 1317.058,
+    "end_time": 1320.56,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "broken",
+    "scrape_term": "broken",
+    "longman_url": "https://www.ldoceonline.com/dictionary/broken"
+  },
+  {
+    "id": "filthy-397-13",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "filthy",
+    "cue_id": 397,
+    "cue_text": "This boy, let's say he's the product of a\nbroken home and a filthy neighborhood.",
+    "start_time": 1317.058,
+    "end_time": 1320.56,
+    "token_indices": [
+      13
+    ],
+    "dictionary_word": "filthy",
+    "scrape_term": "filthy",
+    "longman_url": "https://www.ldoceonline.com/dictionary/filthy"
+  },
+  {
+    "id": "innocent-398-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "innocent",
+    "cue_id": 398,
+    "cue_text": "We can't help that. We're here to decide\nwhether he's innocent or guilty...",
+    "start_time": 1320.561,
+    "end_time": 1324.23,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "innocent",
+    "scrape_term": "innocent",
+    "longman_url": "https://www.ldoceonline.com/dictionary/innocent"
+  },
+  {
+    "id": "go-399-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "go",
+    "cue_id": 399,
+    "cue_text": "not to go into the reasons why\nhe grew up the way he did.",
+    "start_time": 1324.231,
+    "end_time": 1327.233,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "go",
+    "scrape_term": "go",
+    "longman_url": "https://www.ldoceonline.com/dictionary/go"
+  },
+  {
+    "id": "slum-400-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slum.",
+    "cue_id": 400,
+    "cue_text": "He was born in a slum. Slums are\nbreeding grounds for criminals.",
+    "start_time": 1327.234,
+    "end_time": 1330.028,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "slum",
+    "scrape_term": "slum",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slum"
+  },
+  {
+    "id": "slum-400-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Slums",
+    "cue_id": 400,
+    "cue_text": "He was born in a slum. Slums are\nbreeding grounds for criminals.",
+    "start_time": 1327.234,
+    "end_time": 1330.028,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "slum",
+    "scrape_term": "slum",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slum"
+  },
+  {
+    "id": "breeding-400-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "breeding",
+    "cue_id": 400,
+    "cue_text": "He was born in a slum. Slums are\nbreeding grounds for criminals.",
+    "start_time": 1327.234,
+    "end_time": 1330.028,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "breeding",
+    "scrape_term": "breeding",
+    "longman_url": "https://www.ldoceonline.com/dictionary/breeding"
+  },
+  {
+    "id": "slum-402-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slum",
+    "cue_id": 402,
+    "cue_text": "It's no secret children\nfrom slum backgrounds",
+    "start_time": 1331.989,
+    "end_time": 1334.247,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "slum",
+    "scrape_term": "slum",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slum"
+  },
+  {
+    "id": "background-402-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "backgrounds",
+    "cue_id": 402,
+    "cue_text": "It's no secret children\nfrom slum backgrounds",
+    "start_time": 1331.989,
+    "end_time": 1334.247,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "background",
+    "scrape_term": "background",
+    "longman_url": "https://www.ldoceonline.com/dictionary/background"
+  },
+  {
+    "id": "potential-403-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "potential",
+    "cue_id": 403,
+    "cue_text": "are potential menaces to society.",
+    "start_time": 1334.273,
+    "end_time": 1336.485,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "potential",
+    "scrape_term": "potential",
+    "longman_url": "https://www.ldoceonline.com/dictionary/potential"
+  },
+  {
+    "id": "menace-403-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "menaces",
+    "cue_id": 403,
+    "cue_text": "are potential menaces to society.",
+    "start_time": 1334.273,
+    "end_time": 1336.485,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "menace",
+    "scrape_term": "menace",
+    "longman_url": "https://www.ldoceonline.com/dictionary/menace"
+  },
+  {
+    "id": "crawl-405-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "crawl",
+    "cue_id": 405,
+    "cue_text": "The kids who crawl out of\nthese places are real trash.",
+    "start_time": 1339.038,
+    "end_time": 1341.308,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "crawl",
+    "scrape_term": "crawl",
+    "longman_url": "https://www.ldoceonline.com/dictionary/crawl"
+  },
+  {
+    "id": "trash-405-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "trash.",
+    "cue_id": 405,
+    "cue_text": "The kids who crawl out of\nthese places are real trash.",
+    "start_time": 1339.038,
+    "end_time": 1341.308,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "trash",
+    "scrape_term": "trash",
+    "longman_url": "https://www.ldoceonline.com/dictionary/trash"
+  },
+  {
+    "id": "slum-407-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slum",
+    "cue_id": 407,
+    "cue_text": "I, uh... I've lived in\na slum all my life.",
+    "start_time": 1344.564,
+    "end_time": 1346.633,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "slum",
+    "scrape_term": "slum",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slum"
+  },
+  {
+    "id": "sonny-411-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sonny.",
+    "cue_id": 411,
+    "cue_text": "Now, listen, sonny.",
+    "start_time": 1353.427,
+    "end_time": 1354.844,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "sonny",
+    "scrape_term": "sonny",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sonny"
+  },
+  {
+    "id": "personal-412-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "personal",
+    "cue_id": 412,
+    "cue_text": "Come on now. There's nothing\npersonal about this.",
+    "start_time": 1354.845,
+    "end_time": 1356.513,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "personal",
+    "scrape_term": "personal",
+    "longman_url": "https://www.ldoceonline.com/dictionary/personal"
+  },
+  {
+    "id": "personal-413-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "personal.",
+    "cue_id": 413,
+    "cue_text": "- No, there was something personal.\n- Aw, come on, fella. He didn't mean you.",
+    "start_time": 1356.514,
+    "end_time": 1359.14,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "personal",
+    "scrape_term": "personal",
+    "longman_url": "https://www.ldoceonline.com/dictionary/personal"
+  },
+  {
+    "id": "sensitive-414-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sensitive.",
+    "cue_id": 414,
+    "cue_text": "Let's not be so sensitive.",
+    "start_time": 1359.141,
+    "end_time": 1361.309,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "sensitive",
+    "scrape_term": "sensitive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sensitive"
+  },
+  {
+    "id": "sensitivity-415-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sensitivity",
+    "cue_id": 415,
+    "cue_text": "This sensitivity I can understand.",
+    "start_time": 1361.31,
+    "end_time": 1363.228,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "sensitivity",
+    "scrape_term": "sensitivity",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sensitivity"
+  },
+  {
+    "id": "convince-418-14",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "convince",
+    "cue_id": 418,
+    "cue_text": "Oh, I didn't expect a turn. I thought\nyou were all gonna try to convince me.",
+    "start_time": 1372.488,
+    "end_time": 1375.406,
+    "token_indices": [
+      14
+    ],
+    "dictionary_word": "convince",
+    "scrape_term": "convince",
+    "longman_url": "https://www.ldoceonline.com/dictionary/convince"
+  },
+  {
+    "id": "check-419-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Check.",
+    "cue_id": 419,
+    "cue_text": "- Wasn't that the idea?\n- Check. That was the idea.",
+    "start_time": 1375.407,
+    "end_time": 1377.242,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "check",
+    "scrape_term": "check",
+    "longman_url": "https://www.ldoceonline.com/dictionary/check"
+  },
+  {
+    "id": "stick-423-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stick",
+    "cue_id": 423,
+    "cue_text": "I think we ought to\nstick to that way.",
+    "start_time": 1384.75,
+    "end_time": 1386.459,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "stick",
+    "scrape_term": "stick",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stick"
+  },
+  {
+    "id": "take-428-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "take",
+    "cue_id": 428,
+    "cue_text": "Here, you take it. You take\non the responsibility.",
+    "start_time": 1398.597,
+    "end_time": 1400.807,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "take",
+    "scrape_term": "take",
+    "longman_url": "https://www.ldoceonline.com/dictionary/take"
+  },
+  {
+    "id": "mouth-429-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "mouth",
+    "cue_id": 429,
+    "cue_text": "I'll just... I'll keep my\nmouth shut. That's all.",
+    "start_time": 1400.808,
+    "end_time": 1402.767,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "mouth",
+    "scrape_term": "mouth",
+    "longman_url": "https://www.ldoceonline.com/dictionary/mouth"
+  },
+  {
+    "id": "hot-430-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "hot",
+    "cue_id": 430,
+    "cue_text": "What are you getting so hot about?\nCalm down, will you?",
+    "start_time": 1402.768,
+    "end_time": 1404.853,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "hot",
+    "scrape_term": "hot",
+    "longman_url": "https://www.ldoceonline.com/dictionary/hot"
+  },
+  {
+    "id": "chair-432-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "chair,",
+    "cue_id": 432,
+    "cue_text": "Here. You wanna take the chair,\njust take the chair. That's all.",
+    "start_time": 1406.272,
+    "end_time": 1408.481,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "chair",
+    "scrape_term": "chair",
+    "longman_url": "https://www.ldoceonline.com/dictionary/chair"
+  },
+  {
+    "id": "chair-432-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "chair.",
+    "cue_id": 432,
+    "cue_text": "Here. You wanna take the chair,\njust take the chair. That's all.",
+    "start_time": 1406.272,
+    "end_time": 1408.481,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "chair",
+    "scrape_term": "chair",
+    "longman_url": "https://www.ldoceonline.com/dictionary/chair"
+  },
+  {
+    "id": "run-433-15",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "running.",
+    "cue_id": 433,
+    "cue_text": "- Did you ever see such a thing?\n- See if you can keep it running.",
+    "start_time": 1408.482,
+    "end_time": 1411.025,
+    "token_indices": [
+      15
+    ],
+    "dictionary_word": "run",
+    "scrape_term": "run",
+    "longman_url": "https://www.ldoceonline.com/dictionary/run"
+  },
+  {
+    "id": "pitch-439-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pitch.",
+    "cue_id": 439,
+    "cue_text": "You stay in there and\npitch. You know?",
+    "start_time": 1422.705,
+    "end_time": 1424.681,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "pitch",
+    "scrape_term": "pitch",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pitch"
+  },
+  {
+    "id": "brilliant-443-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "brilliant.",
+    "cue_id": 443,
+    "cue_text": "All right, I don't have\nanything brilliant.",
+    "start_time": 1435.634,
+    "end_time": 1438.595,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "brilliant",
+    "scrape_term": "brilliant",
+    "longman_url": "https://www.ldoceonline.com/dictionary/brilliant"
+  },
+  {
+    "id": "testimony-445-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "testimony,",
+    "cue_id": 445,
+    "cue_text": "According to the testimony,\nthe boy looks guilty. Maybe he is.",
+    "start_time": 1440.806,
+    "end_time": 1444.642,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "testimony",
+    "scrape_term": "testimony",
+    "longman_url": "https://www.ldoceonline.com/dictionary/testimony"
+  },
+  {
+    "id": "evidence-446-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "evidence",
+    "cue_id": 446,
+    "cue_text": "I sat there in court for six days\nlistening while the evidence built up.",
+    "start_time": 1444.643,
+    "end_time": 1448.913,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "evidence",
+    "scrape_term": "evidence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/evidence"
+  },
+  {
+    "id": "build-446-12",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "built",
+    "cue_id": 446,
+    "cue_text": "I sat there in court for six days\nlistening while the evidence built up.",
+    "start_time": 1444.643,
+    "end_time": 1448.913,
+    "token_indices": [
+      12
+    ],
+    "dictionary_word": "build",
+    "scrape_term": "build",
+    "longman_url": "https://www.ldoceonline.com/dictionary/build"
+  },
+  {
+    "id": "positive-447-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "positive,",
+    "cue_id": 447,
+    "cue_text": "Everybody sounded so\npositive, you know?",
+    "start_time": 1449.44,
+    "end_time": 1451.232,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "positive",
+    "scrape_term": "positive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/positive"
+  },
+  {
+    "id": "peculiar-448-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "peculiar",
+    "cue_id": 448,
+    "cue_text": "I-I began to get a peculiar\nfeeling about this trial.",
+    "start_time": 1451.233,
+    "end_time": 1453.776,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "peculiar",
+    "scrape_term": "peculiar",
+    "longman_url": "https://www.ldoceonline.com/dictionary/peculiar"
+  },
+  {
+    "id": "trial-448-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "trial.",
+    "cue_id": 448,
+    "cue_text": "I-I began to get a peculiar\nfeeling about this trial.",
+    "start_time": 1451.233,
+    "end_time": 1453.776,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "trial",
+    "scrape_term": "trial",
+    "longman_url": "https://www.ldoceonline.com/dictionary/trial"
+  },
+  {
+    "id": "positive-449-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "positive.",
+    "cue_id": 449,
+    "cue_text": "I mean, nothing is that positive.",
+    "start_time": 1453.777,
+    "end_time": 1455.945,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "positive",
+    "scrape_term": "positive",
+    "longman_url": "https://www.ldoceonline.com/dictionary/positive"
+  },
+  {
+    "id": "defense-452-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "defense",
+    "cue_id": 452,
+    "cue_text": "I began to get the feeling\nthat the defense counsel...",
+    "start_time": 1460.951,
+    "end_time": 1462.994,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "defense",
+    "scrape_term": "defense",
+    "longman_url": "https://www.ldoceonline.com/dictionary/defense"
+  },
+  {
+    "id": "counsel-452-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "counsel...",
+    "cue_id": 452,
+    "cue_text": "I began to get the feeling\nthat the defense counsel...",
+    "start_time": 1460.951,
+    "end_time": 1462.994,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "counsel",
+    "scrape_term": "counsel",
+    "longman_url": "https://www.ldoceonline.com/dictionary/counsel"
+  },
+  {
+    "id": "conduct-453-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "conducting",
+    "cue_id": 453,
+    "cue_text": "wasn't conducting a thorough-enough\ncross-examination.",
+    "start_time": 1462.995,
+    "end_time": 1465.58,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "conduct",
+    "scrape_term": "conduct",
+    "longman_url": "https://www.ldoceonline.com/dictionary/conduct"
+  },
+  {
+    "id": "thorough-453-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "thorough-enough",
+    "cue_id": 453,
+    "cue_text": "wasn't conducting a thorough-enough\ncross-examination.",
+    "start_time": 1462.995,
+    "end_time": 1465.58,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "thorough",
+    "scrape_term": "thorough",
+    "longman_url": "https://www.ldoceonline.com/dictionary/thorough"
+  },
+  {
+    "id": "cross-examination-453-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "cross-examination.",
+    "cue_id": 453,
+    "cue_text": "wasn't conducting a thorough-enough\ncross-examination.",
+    "start_time": 1462.995,
+    "end_time": 1465.58,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "cross-examination",
+    "scrape_term": "cross-examination",
+    "longman_url": "https://www.ldoceonline.com/dictionary/cross-examination"
+  },
+  {
+    "id": "go-454-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "go",
+    "cue_id": 454,
+    "cue_text": "I mean, he... he let too many\nthings go by, little things that...",
+    "start_time": 1465.581,
+    "end_time": 1469.042,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "go",
+    "scrape_term": "go",
+    "longman_url": "https://www.ldoceonline.com/dictionary/go"
+  },
+  {
+    "id": "figure-456-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "figure",
+    "cue_id": 456,
+    "cue_text": "it's because they know the answers\nalready and they figure they'll be hurt.",
+    "start_time": 1471.879,
+    "end_time": 1474.464,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "figure",
+    "scrape_term": "figure",
+    "longman_url": "https://www.ldoceonline.com/dictionary/figure"
+  },
+  {
+    "id": "plain-457-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "plain",
+    "cue_id": 457,
+    "cue_text": "Maybe it's also possible for a lawyer\nto be just plain stupid, isn't it?",
+    "start_time": 1474.465,
+    "end_time": 1478.468,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "plain",
+    "scrape_term": "plain",
+    "longman_url": "https://www.ldoceonline.com/dictionary/plain"
+  },
+  {
+    "id": "put-460-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "putting",
+    "cue_id": 460,
+    "cue_text": "I... I kept putting myself\nin the kid's place.",
+    "start_time": 1484.6,
+    "end_time": 1487.41,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "put",
+    "scrape_term": "put",
+    "longman_url": "https://www.ldoceonline.com/dictionary/put"
+  },
+  {
+    "id": "trial-462-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "trial",
+    "cue_id": 462,
+    "cue_text": "I mean, if I was on\ntrial for my life...",
+    "start_time": 1491.357,
+    "end_time": 1493.983,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "trial",
+    "scrape_term": "trial",
+    "longman_url": "https://www.ldoceonline.com/dictionary/trial"
+  },
+  {
+    "id": "tear-463-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "tear",
+    "cue_id": 463,
+    "cue_text": "I'd want my lawyer to tear the prosecution\nwitnesses to shreds, or at least try to.",
+    "start_time": 1493.984,
+    "end_time": 1498.863,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "tear",
+    "scrape_term": "tear",
+    "longman_url": "https://www.ldoceonline.com/dictionary/tear"
+  },
+  {
+    "id": "prosecution-463-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "prosecution",
+    "cue_id": 463,
+    "cue_text": "I'd want my lawyer to tear the prosecution\nwitnesses to shreds, or at least try to.",
+    "start_time": 1493.984,
+    "end_time": 1498.863,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "prosecution",
+    "scrape_term": "prosecution",
+    "longman_url": "https://www.ldoceonline.com/dictionary/prosecution"
+  },
+  {
+    "id": "witness-463-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "witnesses",
+    "cue_id": 463,
+    "cue_text": "I'd want my lawyer to tear the prosecution\nwitnesses to shreds, or at least try to.",
+    "start_time": 1493.984,
+    "end_time": 1498.863,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "witness",
+    "scrape_term": "witness",
+    "longman_url": "https://www.ldoceonline.com/dictionary/witness"
+  },
+  {
+    "id": "alleged-464-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "alleged",
+    "cue_id": 464,
+    "cue_text": "Look, there was one alleged\neyewitness to this killing.",
+    "start_time": 1498.864,
+    "end_time": 1502.925,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "alleged",
+    "scrape_term": "alleged",
+    "longman_url": "https://www.ldoceonline.com/dictionary/alleged"
+  },
+  {
+    "id": "eyewitness-464-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "eyewitness",
+    "cue_id": 464,
+    "cue_text": "Look, there was one alleged\neyewitness to this killing.",
+    "start_time": 1498.864,
+    "end_time": 1502.925,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "eyewitness",
+    "scrape_term": "eyewitness",
+    "longman_url": "https://www.ldoceonline.com/dictionary/eyewitness"
+  },
+  {
+    "id": "claim-465-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "claims",
+    "cue_id": 465,
+    "cue_text": "Someone else claims he heard the killing,\nsaw the boy run out afterwards.",
+    "start_time": 1503.369,
+    "end_time": 1506.829,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "claim",
+    "scrape_term": "claim",
+    "longman_url": "https://www.ldoceonline.com/dictionary/claim"
+  },
+  {
+    "id": "circumstantial-466-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "circumstantial",
+    "cue_id": 466,
+    "cue_text": "And there was a lot of\ncircumstantial evidence.",
+    "start_time": 1506.83,
+    "end_time": 1509.04,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "circumstantial",
+    "scrape_term": "circumstantial",
+    "longman_url": "https://www.ldoceonline.com/dictionary/circumstantial"
+  },
+  {
+    "id": "evidence-466-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "evidence.",
+    "cue_id": 466,
+    "cue_text": "And there was a lot of\ncircumstantial evidence.",
+    "start_time": 1506.83,
+    "end_time": 1509.04,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "evidence",
+    "scrape_term": "evidence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/evidence"
+  },
+  {
+    "id": "witness-467-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "witnesses",
+    "cue_id": 467,
+    "cue_text": "But actually, those two witnesses were\nthe entire case for the prosecution.",
+    "start_time": 1509.041,
+    "end_time": 1512.627,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "witness",
+    "scrape_term": "witness",
+    "longman_url": "https://www.ldoceonline.com/dictionary/witness"
+  },
+  {
+    "id": "case-467-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "case",
+    "cue_id": 467,
+    "cue_text": "But actually, those two witnesses were\nthe entire case for the prosecution.",
+    "start_time": 1509.041,
+    "end_time": 1512.627,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "case",
+    "scrape_term": "case",
+    "longman_url": "https://www.ldoceonline.com/dictionary/case"
+  },
+  {
+    "id": "prosecution-467-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "prosecution.",
+    "cue_id": 467,
+    "cue_text": "But actually, those two witnesses were\nthe entire case for the prosecution.",
+    "start_time": 1509.041,
+    "end_time": 1512.627,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "prosecution",
+    "scrape_term": "prosecution",
+    "longman_url": "https://www.ldoceonline.com/dictionary/prosecution"
+  },
+  {
+    "id": "suppose-468-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Supposing",
+    "cue_id": 468,
+    "cue_text": "Supposing they're wrong.",
+    "start_time": 1512.628,
+    "end_time": 1514.504,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "suppose-469-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "supposing",
+    "cue_id": 469,
+    "cue_text": "What do you mean\nsupposing they're wrong?",
+    "start_time": 1514.505,
+    "end_time": 1516.381,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "witness-470-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "witnesses",
+    "cue_id": 470,
+    "cue_text": "What's the point of\nhaving witnesses at all?",
+    "start_time": 1516.382,
+    "end_time": 1518.341,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "witness",
+    "scrape_term": "witness",
+    "longman_url": "https://www.ldoceonline.com/dictionary/witness"
+  },
+  {
+    "id": "stand-472-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stand",
+    "cue_id": 472,
+    "cue_text": "Those people sat on\nthe stand under oath.",
+    "start_time": 1521.053,
+    "end_time": 1522.679,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "stand",
+    "scrape_term": "stand",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stand"
+  },
+  {
+    "id": "oath-472-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "oath.",
+    "cue_id": 472,
+    "cue_text": "Those people sat on\nthe stand under oath.",
+    "start_time": 1521.053,
+    "end_time": 1522.679,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "oath",
+    "scrape_term": "oath",
+    "longman_url": "https://www.ldoceonline.com/dictionary/oath"
+  },
+  {
+    "id": "exact-477-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "exact",
+    "cue_id": 477,
+    "cue_text": "This isn't an exact science.",
+    "start_time": 1531.73,
+    "end_time": 1533.523,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "exact",
+    "scrape_term": "exact",
+    "longman_url": "https://www.ldoceonline.com/dictionary/exact"
+  },
+  {
+    "id": "point-479-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "point.",
+    "cue_id": 479,
+    "cue_text": "Okay, let...\nLet's get to the point.",
+    "start_time": 1540.03,
+    "end_time": 1542.865,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "point",
+    "scrape_term": "point",
+    "longman_url": "https://www.ldoceonline.com/dictionary/point"
+  },
+  {
+    "id": "upright-485-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "upright",
+    "cue_id": 485,
+    "cue_text": "the knife this fine upright boy admitted\nbuying the night of the killing?",
+    "start_time": 1553.919,
+    "end_time": 1557.463,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "upright",
+    "scrape_term": "upright",
+    "longman_url": "https://www.ldoceonline.com/dictionary/upright"
+  },
+  {
+    "id": "admit-485-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "admitted",
+    "cue_id": 485,
+    "cue_text": "the knife this fine upright boy admitted\nbuying the night of the killing?",
+    "start_time": 1553.919,
+    "end_time": 1557.463,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "admit",
+    "scrape_term": "admit",
+    "longman_url": "https://www.ldoceonline.com/dictionary/admit"
+  },
+  {
+    "id": "foreman-488-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Foreman?",
+    "cue_id": 488,
+    "cue_text": "I'd like to see it again.\nMr. Foreman?",
+    "start_time": 1561.218,
+    "end_time": 1563.052,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "foreman",
+    "scrape_term": "foreman",
+    "longman_url": "https://www.ldoceonline.com/dictionary/foreman"
+  },
+  {
+    "id": "exhibit-490-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "exhibits",
+    "cue_id": 490,
+    "cue_text": "The gentleman has a right\nto see exhibits in evidence.",
+    "start_time": 1566.223,
+    "end_time": 1568.343,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "exhibit",
+    "scrape_term": "exhibit",
+    "longman_url": "https://www.ldoceonline.com/dictionary/exhibit"
+  },
+  {
+    "id": "evidence-490-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "evidence.",
+    "cue_id": 490,
+    "cue_text": "The gentleman has a right\nto see exhibits in evidence.",
+    "start_time": 1566.223,
+    "end_time": 1568.343,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "evidence",
+    "scrape_term": "evidence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/evidence"
+  },
+  {
+    "id": "evidence-493-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "evidence,",
+    "cue_id": 493,
+    "cue_text": "The knife and the way it was bought is\npretty strong evidence, don't you think?",
+    "start_time": 1575.399,
+    "end_time": 1578.735,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "evidence",
+    "scrape_term": "evidence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/evidence"
+  },
+  {
+    "id": "suppose-495-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "suppose",
+    "cue_id": 495,
+    "cue_text": "Now, suppose we take these\nfacts one at a time.",
+    "start_time": 1580.487,
+    "end_time": 1583.072,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "admit-496-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "admitted",
+    "cue_id": 496,
+    "cue_text": "One. The boy admitted going out of the\nhouse at 8:00 on the night of the murder...",
+    "start_time": 1583.073,
+    "end_time": 1586.409,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "admit",
+    "scrape_term": "admit",
+    "longman_url": "https://www.ldoceonline.com/dictionary/admit"
+  },
+  {
+    "id": "slap-497-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slapped",
+    "cue_id": 497,
+    "cue_text": "after being slapped several\ntimes by his father.",
+    "start_time": 1586.41,
+    "end_time": 1588.411,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "slap",
+    "scrape_term": "slap",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slap"
+  },
+  {
+    "id": "slap-498-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "\"slapped.\"",
+    "cue_id": 498,
+    "cue_text": "No, no. No, he didn't say\n\"slapped.\" He said \"punched.\"",
+    "start_time": 1588.412,
+    "end_time": 1591.247,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "slap",
+    "scrape_term": "slap",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slap"
+  },
+  {
+    "id": "punch-498-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "\"punched.\"",
+    "cue_id": 498,
+    "cue_text": "No, no. No, he didn't say\n\"slapped.\" He said \"punched.\"",
+    "start_time": 1588.412,
+    "end_time": 1591.247,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "punch",
+    "scrape_term": "punch",
+    "longman_url": "https://www.ldoceonline.com/dictionary/punch"
+  },
+  {
+    "id": "slap-499-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slap",
+    "cue_id": 499,
+    "cue_text": "There's a difference between\na slap and a punch.",
+    "start_time": 1591.248,
+    "end_time": 1593.75,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "slap",
+    "scrape_term": "slap",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slap"
+  },
+  {
+    "id": "punch-499-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "punch.",
+    "cue_id": 499,
+    "cue_text": "There's a difference between\na slap and a punch.",
+    "start_time": 1591.248,
+    "end_time": 1593.75,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "punch",
+    "scrape_term": "punch",
+    "longman_url": "https://www.ldoceonline.com/dictionary/punch"
+  },
+  {
+    "id": "junk-501-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "junk",
+    "cue_id": 501,
+    "cue_text": "Two. He went directly to a\nneighborhood junk shop...",
+    "start_time": 1596.42,
+    "end_time": 1598.755,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "junk",
+    "scrape_term": "junk",
+    "longman_url": "https://www.ldoceonline.com/dictionary/junk"
+  },
+  {
+    "id": "switchblade-503-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "Switchblade",
+    "cue_id": 503,
+    "cue_text": "Switchblade knives.",
+    "start_time": 1600.966,
+    "end_time": 1603.051,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "switchblade",
+    "scrape_term": "switchblade",
+    "longman_url": "https://www.ldoceonline.com/dictionary/switchblade"
+  },
+  {
+    "id": "carve-505-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "carved",
+    "cue_id": 505,
+    "cue_text": "It had a very unusual\ncarved handle and blade.",
+    "start_time": 1604.9279999999999,
+    "end_time": 1607.513,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "carve",
+    "scrape_term": "carve",
+    "longman_url": "https://www.ldoceonline.com/dictionary/carve"
+  },
+  {
+    "id": "handle-505-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "handle",
+    "cue_id": 505,
+    "cue_text": "It had a very unusual\ncarved handle and blade.",
+    "start_time": 1604.9279999999999,
+    "end_time": 1607.513,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "handle",
+    "scrape_term": "handle",
+    "longman_url": "https://www.ldoceonline.com/dictionary/handle"
+  },
+  {
+    "id": "blade-505-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "blade.",
+    "cue_id": 505,
+    "cue_text": "It had a very unusual\ncarved handle and blade.",
+    "start_time": 1604.9279999999999,
+    "end_time": 1607.513,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "blade",
+    "scrape_term": "blade",
+    "longman_url": "https://www.ldoceonline.com/dictionary/blade"
+  },
+  {
+    "id": "storekeeper-506-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "storekeeper",
+    "cue_id": 506,
+    "cue_text": "The storekeeper who\nsold it to him...",
+    "start_time": 1607.514,
+    "end_time": 1609.098,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "storekeeper",
+    "scrape_term": "storekeeper",
+    "longman_url": "https://www.ldoceonline.com/dictionary/storekeeper"
+  },
+  {
+    "id": "stock-507-14",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stock.",
+    "cue_id": 507,
+    "cue_text": "said it was the only one of its\nkind he had ever had in stock.",
+    "start_time": 1609.099,
+    "end_time": 1612.31,
+    "token_indices": [
+      14
+    ],
+    "dictionary_word": "stock",
+    "scrape_term": "stock",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stock"
+  },
+  {
+    "id": "tavern-508-11",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "tavern",
+    "cue_id": 508,
+    "cue_text": "Three. He met some friends of his\nin front of a tavern about 8:45.",
+    "start_time": 1612.311,
+    "end_time": 1616.147,
+    "token_indices": [
+      11
+    ],
+    "dictionary_word": "tavern",
+    "scrape_term": "tavern",
+    "longman_url": "https://www.ldoceonline.com/dictionary/tavern"
+  },
+  {
+    "id": "bet-510-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "bet",
+    "cue_id": 510,
+    "cue_text": "- Yes, you are.\n- You bet he is.",
+    "start_time": 1617.733,
+    "end_time": 1619.942,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "bet",
+    "scrape_term": "bet",
+    "longman_url": "https://www.ldoceonline.com/dictionary/bet"
+  },
+  {
+    "id": "identify-514-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "identified",
+    "cue_id": 514,
+    "cue_text": "They identified the death\nweapon in court...",
+    "start_time": 1628.118,
+    "end_time": 1630.62,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "identify",
+    "scrape_term": "identify",
+    "longman_url": "https://www.ldoceonline.com/dictionary/identify"
+  },
+  {
+    "id": "state-517-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "State",
+    "cue_id": 517,
+    "cue_text": "Now this is where the stories\noffered by the State and the boy...",
+    "start_time": 1636.085,
+    "end_time": 1638.503,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "state",
+    "scrape_term": "state",
+    "longman_url": "https://www.ldoceonline.com/dictionary/state"
+  },
+  {
+    "id": "diverge-518-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "diverge",
+    "cue_id": 518,
+    "cue_text": "begin to diverge slightly.",
+    "start_time": 1638.504,
+    "end_time": 1640.505,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "diverge",
+    "scrape_term": "diverge",
+    "longman_url": "https://www.ldoceonline.com/dictionary/diverge"
+  },
+  {
+    "id": "claim-519-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "claims",
+    "cue_id": 519,
+    "cue_text": "He claims that he went to\na movie at about 11:30...",
+    "start_time": 1640.506,
+    "end_time": 1643.174,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "claim",
+    "scrape_term": "claim",
+    "longman_url": "https://www.ldoceonline.com/dictionary/claim"
+  },
+  {
+    "id": "claim-521-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "claims",
+    "cue_id": 521,
+    "cue_text": "He also claims that the two\ndetectives who arrested him...",
+    "start_time": 1647.304,
+    "end_time": 1649.43,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "claim",
+    "scrape_term": "claim",
+    "longman_url": "https://www.ldoceonline.com/dictionary/claim"
+  },
+  {
+    "id": "flight-522-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "flight",
+    "cue_id": 522,
+    "cue_text": "threw him down a half\na flight of stairs.",
+    "start_time": 1649.431,
+    "end_time": 1651.808,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "flight",
+    "scrape_term": "flight",
+    "longman_url": "https://www.ldoceonline.com/dictionary/flight"
+  },
+  {
+    "id": "claim-524-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "claims",
+    "cue_id": 524,
+    "cue_text": "He claims that it fell through a hole in\nhis pocket on the way to the movies...",
+    "start_time": 1653.727,
+    "end_time": 1656.437,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "claim",
+    "scrape_term": "claim",
+    "longman_url": "https://www.ldoceonline.com/dictionary/claim"
+  },
+  {
+    "id": "tale-526-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "tale,",
+    "cue_id": 526,
+    "cue_text": "Now there's a tale, gentlemen.",
+    "start_time": 1661.193,
+    "end_time": 1663.236,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "tale",
+    "scrape_term": "tale",
+    "longman_url": "https://www.ldoceonline.com/dictionary/tale"
+  },
+  {
+    "id": "identify-529-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "identified",
+    "cue_id": 529,
+    "cue_text": "No one at the theater\nidentified him.",
+    "start_time": 1668.867,
+    "end_time": 1670.451,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "identify",
+    "scrape_term": "identify",
+    "longman_url": "https://www.ldoceonline.com/dictionary/identify"
+  },
+  {
+    "id": "picture-530-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pictures",
+    "cue_id": 530,
+    "cue_text": "He couldn't even remember the\nnames of the pictures he saw.",
+    "start_time": 1670.452,
+    "end_time": 1672.772,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "picture",
+    "scrape_term": "picture",
+    "longman_url": "https://www.ldoceonline.com/dictionary/picture"
+  },
+  {
+    "id": "stab-533-0",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stabbed",
+    "cue_id": 533,
+    "cue_text": "stabbed him to death and left the\nhouse at 10 minutes after 12:00.",
+    "start_time": 1680.712,
+    "end_time": 1684.507,
+    "token_indices": [
+      0
+    ],
+    "dictionary_word": "stab",
+    "scrape_term": "stab",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stab"
+  },
+  {
+    "id": "wipe-534-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "wipe",
+    "cue_id": 534,
+    "cue_text": "He even remembered to wipe the\nknife clean of fingerprints.",
+    "start_time": 1684.508,
+    "end_time": 1687.343,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "wipe",
+    "scrape_term": "wipe",
+    "longman_url": "https://www.ldoceonline.com/dictionary/wipe"
+  },
+  {
+    "id": "fingerprint-534-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "fingerprints.",
+    "cue_id": 534,
+    "cue_text": "He even remembered to wipe the\nknife clean of fingerprints.",
+    "start_time": 1684.508,
+    "end_time": 1687.343,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "fingerprint",
+    "scrape_term": "fingerprint",
+    "longman_url": "https://www.ldoceonline.com/dictionary/fingerprint"
+  },
+  {
+    "id": "stab-538-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stabbed",
+    "cue_id": 538,
+    "cue_text": "and stabbed his father with it\njust to test its sharpness?",
+    "start_time": 1694.518,
+    "end_time": 1697.27,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "stab",
+    "scrape_term": "stab",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stab"
+  },
+  {
+    "id": "sharpness-538-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sharpness?",
+    "cue_id": 538,
+    "cue_text": "and stabbed his father with it\njust to test its sharpness?",
+    "start_time": 1694.518,
+    "end_time": 1697.27,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "sharpness",
+    "scrape_term": "sharpness",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sharpness"
+  },
+  {
+    "id": "stab-540-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stabbed",
+    "cue_id": 540,
+    "cue_text": "and that somebody else stabbed\nhis father with a similar knife.",
+    "start_time": 1699.356,
+    "end_time": 1701.649,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "stab",
+    "scrape_term": "stab",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stab"
+  },
+  {
+    "id": "storekeeper-545-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "storekeeper",
+    "cue_id": 545,
+    "cue_text": "Neither had the storekeeper\nwho sold it to the boy.",
+    "start_time": 1710.367,
+    "end_time": 1713.244,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "storekeeper",
+    "scrape_term": "storekeeper",
+    "longman_url": "https://www.ldoceonline.com/dictionary/storekeeper"
+  },
+  {
+    "id": "incredible-546-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "incredible",
+    "cue_id": 546,
+    "cue_text": "Aren't you asking us to accept\na pretty incredible coincidence?",
+    "start_time": 1713.245,
+    "end_time": 1716.289,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "incredible",
+    "scrape_term": "incredible",
+    "longman_url": "https://www.ldoceonline.com/dictionary/incredible"
+  },
+  {
+    "id": "coincidence-546-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "coincidence?",
+    "cue_id": 546,
+    "cue_text": "Aren't you asking us to accept\na pretty incredible coincidence?",
+    "start_time": 1713.245,
+    "end_time": 1716.289,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "coincidence",
+    "scrape_term": "coincidence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/coincidence"
+  },
+  {
+    "id": "coincidence-547-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "coincidence",
+    "cue_id": 547,
+    "cue_text": "I'm just saying a\ncoincidence is possible.",
+    "start_time": 1716.29,
+    "end_time": 1718.708,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "coincidence",
+    "scrape_term": "coincidence",
+    "longman_url": "https://www.ldoceonline.com/dictionary/coincidence"
+  },
+  {
+    "id": "pawnshop-555-6",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pawnshop",
+    "cue_id": 555,
+    "cue_text": "I bought that at a little pawnshop\njust two blocks from the boy's house.",
+    "start_time": 1737.811,
+    "end_time": 1740.897,
+    "token_indices": [
+      6
+    ],
+    "dictionary_word": "pawnshop",
+    "scrape_term": "pawnshop",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pawnshop"
+  },
+  {
+    "id": "switchblade-557-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "switchblade",
+    "cue_id": 557,
+    "cue_text": "It's against the law to buy\nor sell switchblade knives.",
+    "start_time": 1742.441,
+    "end_time": 1745.651,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "switchblade",
+    "scrape_term": "switchblade",
+    "longman_url": "https://www.ldoceonline.com/dictionary/switchblade"
+  },
+  {
+    "id": "pull-559-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pulled",
+    "cue_id": 559,
+    "cue_text": "Listen, you pulled a real bright trick.\nNow, supposing you tell me what it proves.",
+    "start_time": 1747.988,
+    "end_time": 1752.074,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "pull",
+    "scrape_term": "pull",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pull"
+  },
+  {
+    "id": "suppose-559-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "supposing",
+    "cue_id": 559,
+    "cue_text": "Listen, you pulled a real bright trick.\nNow, supposing you tell me what it proves.",
+    "start_time": 1747.988,
+    "end_time": 1752.074,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "suppose",
+    "scrape_term": "suppose",
+    "longman_url": "https://www.ldoceonline.com/dictionary/suppose"
+  },
+  {
+    "id": "age-562-12",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "age",
+    "cue_id": 562,
+    "cue_text": "You found another knife like it. What's that,\nthe discovery of the age or something?",
+    "start_time": 1757.122,
+    "end_time": 1760.5,
+    "token_indices": [
+      12
+    ],
+    "dictionary_word": "age",
+    "scrape_term": "age",
+    "longman_url": "https://www.ldoceonline.com/dictionary/age"
+  },
+  {
+    "id": "stabbing-563-12",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stabbing...",
+    "cue_id": 563,
+    "cue_text": "You mean you're asking us to believe\nthat somebody else did the stabbing...",
+    "start_time": 1760.501,
+    "end_time": 1762.919,
+    "token_indices": [
+      12
+    ],
+    "dictionary_word": "stabbing",
+    "scrape_term": "stabbing",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stabbing"
+  },
+  {
+    "id": "odds-565-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "odds",
+    "cue_id": 565,
+    "cue_text": "The odds are a million-to-one.",
+    "start_time": 1764.796,
+    "end_time": 1766.13,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "odds",
+    "scrape_term": "odds",
+    "longman_url": "https://www.ldoceonline.com/dictionary/odds"
+  },
+  {
+    "id": "probable-566-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "probable.",
+    "cue_id": 566,
+    "cue_text": "- It's possible.\n- But not very probable.",
+    "start_time": 1766.131,
+    "end_time": 1768.941,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "probable",
+    "scrape_term": "probable",
+    "longman_url": "https://www.ldoceonline.com/dictionary/probable"
+  },
+  {
+    "id": "accomplish-573-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "accomplish?",
+    "cue_id": 573,
+    "cue_text": "Right. What do you think\nyou're gonna accomplish?",
+    "start_time": 1785.984,
+    "end_time": 1788.361,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "accomplish",
+    "scrape_term": "accomplish",
+    "longman_url": "https://www.ldoceonline.com/dictionary/accomplish"
+  },
+  {
+    "id": "stubborn-575-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stubborn",
+    "cue_id": 575,
+    "cue_text": "So if you wanna be stubborn\nand hang this jury, go ahead.",
+    "start_time": 1790.28,
+    "end_time": 1792.74,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "stubborn",
+    "scrape_term": "stubborn",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stubborn"
+  },
+  {
+    "id": "hang-575-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "hang",
+    "cue_id": 575,
+    "cue_text": "So if you wanna be stubborn\nand hang this jury, go ahead.",
+    "start_time": 1790.28,
+    "end_time": 1792.74,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "hang",
+    "scrape_term": "hang",
+    "longman_url": "https://www.ldoceonline.com/dictionary/hang"
+  },
+  {
+    "id": "jury-575-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "jury,",
+    "cue_id": 575,
+    "cue_text": "So if you wanna be stubborn\nand hang this jury, go ahead.",
+    "start_time": 1790.28,
+    "end_time": 1792.74,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "jury",
+    "scrape_term": "jury",
+    "longman_url": "https://www.ldoceonline.com/dictionary/jury"
+  },
+  {
+    "id": "try-576-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "tried",
+    "cue_id": 576,
+    "cue_text": "The kid will be tried again and\nfound guilty sure as he's born.",
+    "start_time": 1792.741,
+    "end_time": 1795.885,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "try",
+    "scrape_term": "try",
+    "longman_url": "https://www.ldoceonline.com/dictionary/try"
+  },
+  {
+    "id": "house-580-7",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "house",
+    "cue_id": 580,
+    "cue_text": "Well, why don't we just\nset up house here, huh?",
+    "start_time": 1805.921,
+    "end_time": 1808.548,
+    "token_indices": [
+      7
+    ],
+    "dictionary_word": "house",
+    "scrape_term": "house",
+    "longman_url": "https://www.ldoceonline.com/dictionary/house"
+  },
+  {
+    "id": "send-581-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "send",
+    "cue_id": 581,
+    "cue_text": "Someone send for Potsy the\npoliceman and get a pinochle deck...",
+    "start_time": 1808.549,
+    "end_time": 1811.092,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "send",
+    "scrape_term": "send",
+    "longman_url": "https://www.ldoceonline.com/dictionary/send"
+  },
+  {
+    "id": "pinochle-581-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pinochle",
+    "cue_id": 581,
+    "cue_text": "Someone send for Potsy the\npoliceman and get a pinochle deck...",
+    "start_time": 1808.549,
+    "end_time": 1811.092,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "pinochle",
+    "scrape_term": "pinochle",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pinochle"
+  },
+  {
+    "id": "deck-581-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "deck...",
+    "cue_id": 581,
+    "cue_text": "Someone send for Potsy the\npoliceman and get a pinochle deck...",
+    "start_time": 1808.549,
+    "end_time": 1811.092,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "deck",
+    "scrape_term": "deck",
+    "longman_url": "https://www.ldoceonline.com/dictionary/deck"
+  },
+  {
+    "id": "sweat-582-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "sweat",
+    "cue_id": 582,
+    "cue_text": "and, uh, we'll just sweat the\nwhole thing out right here.",
+    "start_time": 1811.093,
+    "end_time": 1813.678,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "sweat",
+    "scrape_term": "sweat",
+    "longman_url": "https://www.ldoceonline.com/dictionary/sweat"
+  },
+  {
+    "id": "stab-585-4",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stab",
+    "cue_id": 585,
+    "cue_text": "Somebody saw the kid stab his father.\nWhat more do we need?",
+    "start_time": 1821.979,
+    "end_time": 1824.981,
+    "token_indices": [
+      4
+    ],
+    "dictionary_word": "stab",
+    "scrape_term": "stab",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stab"
+  },
+  {
+    "id": "talk-586-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "talk",
+    "cue_id": 586,
+    "cue_text": "You guys can talk the ears right\noff my head. You know what I mean?",
+    "start_time": 1824.982,
+    "end_time": 1827.858,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "talk",
+    "scrape_term": "talk",
+    "longman_url": "https://www.ldoceonline.com/dictionary/talk"
+  },
+  {
+    "id": "pot-587-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "pot",
+    "cue_id": 587,
+    "cue_text": "I got three garages of mine goin'\nto pot while you're talking.",
+    "start_time": 1827.859,
+    "end_time": 1830.653,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "pot",
+    "scrape_term": "pot",
+    "longman_url": "https://www.ldoceonline.com/dictionary/pot"
+  },
+  {
+    "id": "attorney-589-8",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "attorney.",
+    "cue_id": 589,
+    "cue_text": "The knife was very important to the\ndistrict attorney. He spent a whole day...",
+    "start_time": 1832.406,
+    "end_time": 1835.908,
+    "token_indices": [
+      8
+    ],
+    "dictionary_word": "attorney",
+    "scrape_term": "attorney",
+    "longman_url": "https://www.ldoceonline.com/dictionary/attorney"
+  },
+  {
+    "id": "hold-591-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "hold",
+    "cue_id": 591,
+    "cue_text": "Hey, let's hold it down.",
+    "start_time": 1838.453,
+    "end_time": 1839.996,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "hold",
+    "scrape_term": "hold",
+    "longman_url": "https://www.ldoceonline.com/dictionary/hold"
+  },
+  {
+    "id": "side-592-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "side",
+    "cue_id": 592,
+    "cue_text": "These side arguments\nare only slowing us up.",
+    "start_time": 1839.997,
+    "end_time": 1842.431,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "side",
+    "scrape_term": "side",
+    "longman_url": "https://www.ldoceonline.com/dictionary/side"
+  },
+  {
+    "id": "slow-592-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "slowing",
+    "cue_id": 592,
+    "cue_text": "These side arguments\nare only slowing us up.",
+    "start_time": 1839.997,
+    "end_time": 1842.431,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "slow",
+    "scrape_term": "slow",
+    "longman_url": "https://www.ldoceonline.com/dictionary/slow"
+  },
+  {
+    "id": "proposition-595-3",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "proposition",
+    "cue_id": 595,
+    "cue_text": "I have a proposition\nto make to all of you.",
+    "start_time": 1856.096,
+    "end_time": 1858.239,
+    "token_indices": [
+      3
+    ],
+    "dictionary_word": "proposition",
+    "scrape_term": "proposition",
+    "longman_url": "https://www.ldoceonline.com/dictionary/proposition"
+  },
+  {
+    "id": "call-596-2",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "call",
+    "cue_id": 596,
+    "cue_text": "I'm gonna call for another vote.",
+    "start_time": 1859.224,
+    "end_time": 1861.075,
+    "token_indices": [
+      2
+    ],
+    "dictionary_word": "call",
+    "scrape_term": "call",
+    "longman_url": "https://www.ldoceonline.com/dictionary/call"
+  },
+  {
+    "id": "ballot-597-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "ballot.",
+    "cue_id": 597,
+    "cue_text": "I want you 11 men to vote\nby secret written ballot.",
+    "start_time": 1862.436,
+    "end_time": 1867.732,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "ballot",
+    "scrape_term": "ballot",
+    "longman_url": "https://www.ldoceonline.com/dictionary/ballot"
+  },
+  {
+    "id": "abstain-598-1",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "abstain.",
+    "cue_id": 598,
+    "cue_text": "I'll abstain.",
+    "start_time": 1867.733,
+    "end_time": 1869.859,
+    "token_indices": [
+      1
+    ],
+    "dictionary_word": "abstain",
+    "scrape_term": "abstain",
+    "longman_url": "https://www.ldoceonline.com/dictionary/abstain"
+  },
+  {
+    "id": "stand-599-9",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "stand",
+    "cue_id": 599,
+    "cue_text": "If there are 11 votes for guilty,\nI won't stand alone.",
+    "start_time": 1869.86,
+    "end_time": 1872.737,
+    "token_indices": [
+      9
+    ],
+    "dictionary_word": "stand",
+    "scrape_term": "stand",
+    "longman_url": "https://www.ldoceonline.com/dictionary/stand"
+  },
+  {
+    "id": "verdict-600-5",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "verdict",
+    "cue_id": 600,
+    "cue_text": "We'll take in a guilty verdict\nto the judge right now.",
+    "start_time": 1872.738,
+    "end_time": 1876.632,
+    "token_indices": [
+      5
+    ],
+    "dictionary_word": "verdict",
+    "scrape_term": "verdict",
+    "longman_url": "https://www.ldoceonline.com/dictionary/verdict"
+  },
+  {
+    "id": "talk-601-10",
+    "subtitle_sha256": "1fbda765760821fca4afd57b9231459770271add3995bfac7f8bbc215714ddfd",
+    "subtitle_word": "talk",
+    "cue_id": 601,
+    "cue_text": "But if anyone votes not guilty,\nwe stay here and talk it out.",
+    "start_time": 1877.993,
+    "end_time": 1881.804,
+    "token_indices": [
+      10
+    ],
+    "dictionary_word": "talk",
+    "scrape_term": "talk",
+    "longman_url": "https://www.ldoceonline.com/dictionary/talk"
+  }
+]

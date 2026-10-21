@@ -1,0 +1,3084 @@
+{
+  "summary": {
+    "section_id": 14,
+    "course_id": 6,
+    "before_count": 326,
+    "after_count": 410,
+    "revised": 46,
+    "added": 87,
+    "removed": 2,
+    "merged_redundant": 1,
+    "other_sections_unchanged": true,
+    "other_sections_digest": "fccf19a72ea4ebbc445fb34767e2eb7efd14fd7946e9b9d411495d6674b51348",
+    "untouched_mappings_unchanged": true,
+    "all_tokens_and_cue_times_valid": true,
+    "no_duplicate_token_mappings": true
+  },
+  "changes": [
+    {
+      "action": "replace",
+      "old_ids": [
+        1276
+      ],
+      "cue_id": 4,
+      "phrase": "room for",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "room",
+          "position_in_cue": 1
+        },
+        {
+          "index": 9,
+          "word": "for",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6905
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1276
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1301
+      ],
+      "cue_id": 70,
+      "phrase": "room for",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "room",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "for",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6905
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1301
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1390
+      ],
+      "cue_id": 260,
+      "phrase": "by nature",
+      "tokens": [
+        {
+          "index": 11,
+          "word": "by",
+          "position_in_cue": 1
+        },
+        {
+          "index": 12,
+          "word": "nature.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7396
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1390
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1275
+      ],
+      "cue_id": 3,
+      "phrase": "How come",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "How",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "come",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1349
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1275
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1278
+      ],
+      "cue_id": 5,
+      "phrase": "haven't got a leg to stand on",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "haven't",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "got",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "a",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "leg",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "to",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "stand",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "on.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6917
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1278
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2766
+      ],
+      "cue_id": 10,
+      "phrase": "I don't think you have any right",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "I",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "don't",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "think",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "you",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "have",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "any",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "right...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        9797
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2766
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1283
+      ],
+      "cue_id": 33,
+      "phrase": "was murder",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "was",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "murder,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6953
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1283
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2769
+      ],
+      "cue_id": 37,
+      "phrase": "How come",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "How",
+          "position_in_cue": 1
+        },
+        {
+          "index": 9,
+          "word": "come...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1349
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2769
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2573
+      ],
+      "cue_id": 49,
+      "phrase": "Pardon me",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "Pardon",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "me.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7476
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2573
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1293
+      ],
+      "cue_id": 57,
+      "phrase": "blow his stack",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "blow",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "his",
+          "position_in_cue": 2
+        },
+        {
+          "index": 8,
+          "word": "stack,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        3504
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1293
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1295
+      ],
+      "cue_id": 60,
+      "phrase": "going nowhere",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "going",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "nowhere",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1995
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1295
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2574
+      ],
+      "cue_id": 62,
+      "phrase": "There's no point in",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "There's",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "no",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "point",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "in",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        4527
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2574
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1297
+      ],
+      "cue_id": 64,
+      "phrase": "take his chances",
+      "tokens": [
+        {
+          "index": 12,
+          "word": "take",
+          "position_in_cue": 2
+        },
+        {
+          "index": 13,
+          "word": "his",
+          "position_in_cue": 1
+        },
+        {
+          "index": 14,
+          "word": "chances",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6269
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1297
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1299
+      ],
+      "cue_id": 68,
+      "phrase": "stand a chance",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "stand",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "a",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "chance",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5365
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1299
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1316
+      ],
+      "cue_id": 91,
+      "phrase": "in the boy's place",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "in",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "the",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "boy's",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "place,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7120
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1316
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1321
+      ],
+      "cue_id": 99,
+      "phrase": "under those circumstances",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "under",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "those",
+          "position_in_cue": 1
+        },
+        {
+          "index": 9,
+          "word": "circumstances?",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7170
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1321
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1327
+      ],
+      "cue_id": 103,
+      "phrase": "took great pains",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "took",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "great",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "pains",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7183
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1327
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1348
+      ],
+      "cue_id": 142,
+      "phrase": "the point",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "the",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "point",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        4525
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1348
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1352
+      ],
+      "cue_id": 148,
+      "phrase": "There goes",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "There",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "goes",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        2667
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1352
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1367
+      ],
+      "cue_id": 181,
+      "phrase": "Hold it",
+      "tokens": [
+        {
+          "index": 10,
+          "word": "Hold",
+          "position_in_cue": 1
+        },
+        {
+          "index": 11,
+          "word": "it",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1785
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1367
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1374
+      ],
+      "cue_id": 197,
+      "phrase": "handy with",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "handy",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "with",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        4859
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1374
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2582
+      ],
+      "cue_id": 204,
+      "phrase": "mumbo jumbo",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "mumbo",
+          "position_in_cue": 1
+        },
+        {
+          "index": 9,
+          "word": "jumbo",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11317
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2582
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1380
+      ],
+      "cue_id": 214,
+      "phrase": "gettin'+nowhere",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "gettin'",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "nowhere.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1995
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1380
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2781
+      ],
+      "cue_id": 216,
+      "phrase": "I've had enough",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "I've",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "had",
+          "position_in_cue": 1
+        },
+        {
+          "index": 9,
+          "word": "enough.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11532
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2781
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2782
+      ],
+      "cue_id": 217,
+      "phrase": "you've had enough",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "you've",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "had",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "enough?",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11532
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2782
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1381
+      ],
+      "cue_id": 223,
+      "phrase": "you're sick of",
+      "tokens": [
+        {
+          "index": 9,
+          "word": "you're",
+          "position_in_cue": 1
+        },
+        {
+          "index": 10,
+          "word": "sick",
+          "position_in_cue": 1
+        },
+        {
+          "index": 11,
+          "word": "of",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5636
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1381
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2784
+      ],
+      "cue_id": 230,
+      "phrase": "you've had enough",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "you've",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "had",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "enough.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11532
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2784
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1395
+      ],
+      "cue_id": 293,
+      "phrase": "I don't suppose",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "I",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "don't",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "suppose",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        609
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1395
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1405
+      ],
+      "cue_id": 310,
+      "phrase": "As far as I'm concerned",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "As",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "far",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "as",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "I'm",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "concerned,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7425
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1405
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1409
+      ],
+      "cue_id": 319,
+      "phrase": "tossed and turned",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "tossed",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "and",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "turned",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1911
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1409
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2604
+      ],
+      "cue_id": 347,
+      "phrase": "No point in",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "No",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "point",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "in",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        4527
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2604
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1435
+      ],
+      "cue_id": 368,
+      "phrase": "happen to be",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "happen",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "to",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "be",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7487
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1435
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1437
+      ],
+      "cue_id": 370,
+      "phrase": "any of your business",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "any",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "of",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "your",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "business,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        4222
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1437
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1444
+      ],
+      "cue_id": 382,
+      "phrase": "Holy smokes",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "Holy",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "smokes!",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7525
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1444
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1453
+      ],
+      "cue_id": 402,
+      "phrase": "sick of",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "sick",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "of",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5636
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1453
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2615
+      ],
+      "cue_id": 408,
+      "phrase": "other than",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "other",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "than",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11349
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2615
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        2802
+      ],
+      "cue_id": 414,
+      "phrase": "concentrating on",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "concentrating",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "on",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11550
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 2802
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1459,
+        2803
+      ],
+      "cue_id": 416,
+      "phrase": "pull a trick",
+      "tokens": [
+        {
+          "index": 10,
+          "word": "pull",
+          "position_in_cue": 1
+        },
+        {
+          "index": 11,
+          "word": "a",
+          "position_in_cue": 1
+        },
+        {
+          "index": 12,
+          "word": "trick",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5498,
+        11401
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1459
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1463
+      ],
+      "cue_id": 421,
+      "phrase": "I'm giving you that",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "I'm",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "giving",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "you",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "that.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        971
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1463
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1467
+      ],
+      "cue_id": 428,
+      "phrase": "tossing and turning",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "tossing",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "and",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "turning,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1911
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1467
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1471
+      ],
+      "cue_id": 440,
+      "phrase": "in question",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "in",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "question",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7160
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1471
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1474
+      ],
+      "cue_id": 443,
+      "phrase": "don't give me that",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "don't",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "give",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "me",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "that.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        966
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1474
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1489
+      ],
+      "cue_id": 485,
+      "phrase": "bet",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "bet",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5437
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1489
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1498
+      ],
+      "cue_id": 498,
+      "phrase": "entitled to",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "entitled",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "to",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7699
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1498
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1500
+      ],
+      "cue_id": 510,
+      "phrase": "so long",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "so",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "long.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7742
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1500
+    },
+    {
+      "action": "replace",
+      "old_ids": [
+        1501
+      ],
+      "cue_id": 511,
+      "phrase": "so long",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "So",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "long.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7742
+      ],
+      "reason": "Dictionary-supported expression or contextual sense correction",
+      "result_id": 1501
+    },
+    {
+      "action": "remove",
+      "old_ids": [
+        2571
+      ],
+      "cue_id": 12,
+      "phrase": "come",
+      "reason": "Ordinary movement sense of come; too elementary here",
+      "result_id": null
+    },
+    {
+      "action": "remove",
+      "old_ids": [
+        2572
+      ],
+      "cue_id": 32,
+      "phrase": "whoosh...",
+      "reason": "Incidental whoosh sound imitation; mapped to a movement verb rather than a useful teaching target",
+      "result_id": null
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 2,
+      "phrase": "figure",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "figure",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        444
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3222
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 8,
+      "phrase": "mixed up",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "mixed",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "up.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12198
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3223
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 24,
+      "phrase": "ox",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "ox.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6950
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3224
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 26,
+      "phrase": "assistant",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "assistant",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        10073
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3225
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 26,
+      "phrase": "head",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "head",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1360
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3226
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 30,
+      "phrase": "coming apart",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "coming",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "apart.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        1330
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3227
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 56,
+      "phrase": "avenger",
+      "tokens": [
+        {
+          "index": 11,
+          "word": "avenger,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12515
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3228
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 67,
+      "phrase": "in favor of",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "in",
+          "position_in_cue": 1
+        },
+        {
+          "index": 3,
+          "word": "favor",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "of",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        8598
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3229
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 77,
+      "phrase": "deep breath",
+      "tokens": [
+        {
+          "index": 14,
+          "word": "deep",
+          "position_in_cue": 1
+        },
+        {
+          "index": 15,
+          "word": "breath...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        2268
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3230
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 85,
+      "phrase": "took place",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "took",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "place...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7112
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3231
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 144,
+      "phrase": "tongue",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "tongue",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        9748
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3232
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 145,
+      "phrase": "period",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "period.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7232
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3233
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 146,
+      "phrase": "cough",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "cough",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12080
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3234
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 148,
+      "phrase": "ball game",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "ball",
+          "position_in_cue": 1
+        },
+        {
+          "index": 4,
+          "word": "game.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11823
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3235
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 166,
+      "phrase": "chest",
+      "tokens": [
+        {
+          "index": 10,
+          "word": "chest",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        8378
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3236
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 194,
+      "phrase": "switch knife",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "switch",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "knife",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5410
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3237
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 158,
+      "phrase": "as long as",
+      "tokens": [
+        {
+          "index": 9,
+          "word": "as",
+          "position_in_cue": 1
+        },
+        {
+          "index": 10,
+          "word": "long",
+          "position_in_cue": 1
+        },
+        {
+          "index": 11,
+          "word": "as",
+          "position_in_cue": 2
+        }
+      ],
+      "senses": [
+        7736
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3238
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 213,
+      "phrase": "back and forth",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "back",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "and",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "forth.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7070
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3239
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 222,
+      "phrase": "burning a hole in your pocket",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "burning",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "a",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "hole",
+          "position_in_cue": 1
+        },
+        {
+          "index": 9,
+          "word": "in",
+          "position_in_cue": 1
+        },
+        {
+          "index": 10,
+          "word": "your",
+          "position_in_cue": 1
+        },
+        {
+          "index": 11,
+          "word": "pocket.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6781
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3240
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 224,
+      "phrase": "buddy",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "buddy!",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        8199
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3241
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 247,
+      "phrase": "in favor of",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "in",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "favor",
+          "position_in_cue": 1
+        },
+        {
+          "index": 8,
+          "word": "of",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        8598
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3242
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 249,
+      "phrase": "picky",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "picky",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7393
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3243
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 249,
+      "phrase": "keep",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "keep",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5810
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3244
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 249,
+      "phrase": "bringing up",
+      "tokens": [
+        {
+          "index": 9,
+          "word": "bringing",
+          "position_in_cue": 1
+        },
+        {
+          "index": 10,
+          "word": "up.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12503
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3245
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 251,
+      "phrase": "phony",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "phony",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7394,
+        473
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3246
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 264,
+      "phrase": "lushing",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "lushing",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7409
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3247
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 274,
+      "phrase": "liar",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "liar!",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11646
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3248
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 312,
+      "phrase": "chest",
+      "tokens": [
+        {
+          "index": 16,
+          "word": "chest.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        8378
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3249
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 322,
+      "phrase": "out",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "out",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11668
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3250
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 345,
+      "phrase": "bouncin'",
+      "tokens": [
+        {
+          "index": 9,
+          "word": "bouncin'",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        4566
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3251
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 351,
+      "phrase": "quarter",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "quarter",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11183
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3252
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 389,
+      "phrase": "kept",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "kept",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        5810
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3253
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 393,
+      "phrase": "makeup",
+      "tokens": [
+        {
+          "index": 1,
+          "word": "makeup,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12414
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3254
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 412,
+      "phrase": "Strange",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "Strange,",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11891
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3255
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 432,
+      "phrase": "took place",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "took",
+          "position_in_cue": 1
+        },
+        {
+          "index": 7,
+          "word": "place",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7112
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3256
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 454,
+      "phrase": "What's the matter",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "What's",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "the",
+          "position_in_cue": 1
+        },
+        {
+          "index": 2,
+          "word": "matter",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        895
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3257
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 469,
+      "phrase": "took place",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "took",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "place",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7112
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3258
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 479,
+      "phrase": "hole",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "hole",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11769
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3259
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 479,
+      "phrase": "pocket",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "pocket.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11754
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3260
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 484,
+      "phrase": "phony",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "phony",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        7394,
+        473
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3261
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 491,
+      "phrase": "facts",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "facts",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12127
+      ],
+      "reason": "Useful missing vocabulary, construction, or repeated occurrence; existing stored senses",
+      "result_id": 3262
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 24,
+      "phrase": "ox",
+      "tokens": [
+        {
+          "index": 10,
+          "word": "ox.",
+          "position_in_cue": 2
+        }
+      ],
+      "senses": [
+        6950
+      ],
+      "reason": "Second occurrence of the same meaning in the same cue",
+      "result_id": 3263
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 6,
+      "phrase": "details",
+      "tokens": [
+        {
+          "index": 10,
+          "word": "details",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12009
+      ],
+      "reason": "Repeated contextual detail/information meaning",
+      "result_id": 3264
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 90,
+      "phrase": "details",
+      "tokens": [
+        {
+          "index": 9,
+          "word": "details",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12009
+      ],
+      "reason": "Repeated contextual detail/information meaning",
+      "result_id": 3265
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 91,
+      "phrase": "details",
+      "tokens": [
+        {
+          "index": 12,
+          "word": "details...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12009
+      ],
+      "reason": "Repeated contextual detail/information meaning",
+      "result_id": 3266
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 93,
+      "phrase": "details",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "details",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12009
+      ],
+      "reason": "Repeated contextual detail/information meaning",
+      "result_id": 3267
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 99,
+      "phrase": "details",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "details",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12009
+      ],
+      "reason": "Repeated contextual detail/information meaning",
+      "result_id": 3268
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 64,
+      "phrase": "judge",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "judge",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6403
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3269
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 65,
+      "phrase": "judge",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "judge",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6403
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3270
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 340,
+      "phrase": "judge",
+      "tokens": [
+        {
+          "index": 15,
+          "word": "judge.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6403
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3271
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 61,
+      "phrase": "court",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "court",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11561
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3272
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 96,
+      "phrase": "court",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "court...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11561
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3273
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 101,
+      "phrase": "court",
+      "tokens": [
+        {
+          "index": 11,
+          "word": "court.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11561
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3274
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 389,
+      "phrase": "court",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "court.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11561
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3275
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 489,
+      "phrase": "court",
+      "tokens": [
+        {
+          "index": 14,
+          "word": "court!",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11561
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3276
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 103,
+      "phrase": "lawyer",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "lawyer",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12092
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3277
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 106,
+      "phrase": "lawyer",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "lawyer",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12092
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3278
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 413,
+      "phrase": "lawyer",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "lawyer?",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        12092
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3279
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 104,
+      "phrase": "murder",
+      "tokens": [
+        {
+          "index": 9,
+          "word": "murder",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6951
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3280
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 109,
+      "phrase": "murder",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "murder...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6951
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3281
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 306,
+      "phrase": "murder",
+      "tokens": [
+        {
+          "index": 14,
+          "word": "murder...",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6951
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3282
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 309,
+      "phrase": "murder",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "murder",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        6951
+      ],
+      "reason": "Courtroom topic vocabulary",
+      "result_id": 3283
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 181,
+      "phrase": "I guess",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "I",
+          "position_in_cue": 1
+        },
+        {
+          "index": 5,
+          "word": "guess",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11898
+      ],
+      "reason": "Repeated conversational I guess construction",
+      "result_id": 3284
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 190,
+      "phrase": "I guess",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "I",
+          "position_in_cue": 2
+        },
+        {
+          "index": 9,
+          "word": "guess",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11898
+      ],
+      "reason": "Repeated conversational I guess construction",
+      "result_id": 3285
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 214,
+      "phrase": "I guess",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "I",
+          "position_in_cue": 1
+        },
+        {
+          "index": 6,
+          "word": "guess",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11898
+      ],
+      "reason": "Repeated conversational I guess construction",
+      "result_id": 3286
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 240,
+      "phrase": "I guess",
+      "tokens": [
+        {
+          "index": 0,
+          "word": "I",
+          "position_in_cue": 1
+        },
+        {
+          "index": 1,
+          "word": "guess",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11898
+      ],
+      "reason": "Repeated conversational I guess construction",
+      "result_id": 3287
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 429,
+      "phrase": "guessing",
+      "tokens": [
+        {
+          "index": 10,
+          "word": "guessing.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11895
+      ],
+      "reason": "Repeated inference without certainty",
+      "result_id": 3288
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 430,
+      "phrase": "guessing",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "guessing",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11895
+      ],
+      "reason": "Repeated inference without certainty",
+      "result_id": 3289
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 435,
+      "phrase": "guess",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "guess.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11901
+      ],
+      "reason": "Inference without certainty; noun use",
+      "result_id": 3290
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 3,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "vote?",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Voting choice; same accepted teaching unit as section 12",
+      "result_id": 3291
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 69,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "vote.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Voting choice; same accepted teaching unit as section 12",
+      "result_id": 3292
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 215,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Voting choice; same accepted teaching unit as section 12",
+      "result_id": 3293
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 223,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Voting choice; same accepted teaching unit as section 12",
+      "result_id": 3294
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 337,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "vote.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Voting choice; same accepted teaching unit as section 12",
+      "result_id": 3295
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 221,
+      "phrase": "voted",
+      "tokens": [
+        {
+          "index": 5,
+          "word": "voted",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Nearest stored vote sense; verb sense not present",
+      "result_id": 3296
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 228,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 4,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Nearest stored vote sense; verb sense not present",
+      "result_id": 3297
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 231,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 8,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Nearest stored vote sense; verb sense not present",
+      "result_id": 3298
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 330,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 7,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Nearest stored vote sense; verb sense not present",
+      "result_id": 3299
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 334,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 6,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Nearest stored vote sense; verb sense not present",
+      "result_id": 3300
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 241,
+      "phrase": "voting",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "voting",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Nearest stored vote sense; verb sense not present",
+      "result_id": 3301
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 245,
+      "phrase": "voting",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "voting",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "Nearest stored vote sense; verb sense not present",
+      "result_id": 3302
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 238,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "vote.",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11849
+      ],
+      "reason": "An occasion of voting",
+      "result_id": 3303
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 239,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11849
+      ],
+      "reason": "An occasion of voting",
+      "result_id": 3304
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 335,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11849
+      ],
+      "reason": "An occasion of voting",
+      "result_id": 3305
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 247,
+      "phrase": "vote's",
+      "tokens": [
+        {
+          "index": 2,
+          "word": "vote's",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11852
+      ],
+      "reason": "Result of voting",
+      "result_id": 3306
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 338,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 3,
+          "word": "vote",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11852
+      ],
+      "reason": "Result of voting",
+      "result_id": 3307
+    },
+    {
+      "action": "add",
+      "old_ids": [],
+      "cue_id": 339,
+      "phrase": "vote",
+      "tokens": [
+        {
+          "index": 11,
+          "word": "vote?",
+          "position_in_cue": 1
+        }
+      ],
+      "senses": [
+        11848
+      ],
+      "reason": "An individual voting choice",
+      "result_id": 3308
+    }
+  ]
+}
