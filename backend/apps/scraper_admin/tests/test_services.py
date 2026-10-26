@@ -46,6 +46,7 @@ class FakeEntry:
     register: str | None = None
     senses: list[FakeSense] = field(default_factory=list)
     source_entry_id: str | None = None
+    variant: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass
@@ -54,6 +55,20 @@ class FakeResult:
 
 
 class ScraperServiceTests(TestCase):
+    @patch("apps.scraper_admin.services.scrape_word")
+    def test_variant_is_saved(self, scrape_word_mock):
+        variant = {"kind": "general", "word": "okay", "pronunciation": "", "region": ""}
+
+        async def fake_scrape(word, audio_dir):
+            return FakeResult(entries=[FakeEntry(
+                word="OK", part_of_speech="adjective", pronunciation=None, variant=variant,
+            )])
+
+        scrape_word_mock.side_effect = fake_scrape
+        entry = scrape_and_save_word("ok")[0]
+        entry.refresh_from_db()
+        self.assertEqual(entry.variant, variant)
+
     @patch("apps.scraper_admin.services.scrape_word")
     def test_slug_headword_mismatch_cannot_duplicate_senses(self, scrape_word_mock):
         async def fake_scrape(word, audio_dir):

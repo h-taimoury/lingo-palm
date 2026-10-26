@@ -1,0 +1,77 @@
+LINGO PALM — PERSIAN TRANSLATION REVIEW HANDOFF
+Updated: 2026-10-26 (Asia/Tehran)
+
+PURPOSE AND CURRENT STATE
+Continue the user's ongoing English-to-Persian dictionary sense translation review. Do not start a new translation project or retranslate completed entries.
+The user reviews batches of 25 senses in the Codex request_user_input_async modal. Each question shows the exact English sense definition and one suggested Persian translation. The user either accepts it or types their own version. Save submitted answers to the database, then propose the next 25.
+The final batch, wish through wrap (16 senses), was saved and verified on 2026-10-26. All submitted answers were preserved exactly.
+The live database query confirmed ZERO course-used senses with blank translations. This review is complete. There is no pending batch.
+If the user asks to continue later, first run the missing-translation query because new course mappings may add untranslated senses. Never retranslate completed entries or treat continue as approval.
+
+USER TRANSLATION PREFERENCES — FOLLOW CAREFULLY
+1. Prefer a concise accurate word or phrase when it conveys the sense well. Otherwise translate the definition faithfully, retaining qualifiers and distinct sub-senses.
+2. In a full definition of a verb, start with the action/verb phrase. Example: احساس خشم یا دلخوری کردن در مورد یک وضعیت ... . Avoid putting all the objects before the verb.
+3. Preserve indefinite nouns: "a situation" means "یک وضعیت" or "وضعیتی", not merely "وضعیت".
+4. Translate "etc" as "و غیره", NEVER "و مانند آن".
+5. Explicitly translate usage-definition "used" as "استفاده میشه". Do not silently omit it and start with just "برای". Example: "used to say ..." -> "استفاده میشه برای بیان ...". Also preserve usage notes such as "used by or to children".
+6. Do not add hamza/ezafe marks after final ه: write درباره, خانه, برنامه, not دربارهٔ / خانهٔ / برنامهٔ. Do not replace that mark with ی either. This preference concerns the added ezafe marker, not automatically deleting letters in words such as شیء or رأی.
+7. Natural colloquial explanations are welcome (استفاده میشه, می‌خوای, etc.). Preserve the user's exact custom wording, spelling, punctuation and register, even if awkward. Do not silently correct their approved answers or give unsolicited correction lectures.
+8. Multiple sub-senses use آ) ب) پ) ت) ث) etc.
+10. Translate "to be able to" as قادر بودن به…, NEVER as توانستن. Preserve exact submitted wording such as قادر بودن به انجام کاری یا بدست آوردن چیزی.
+9. Learn preferences from edits and apply them to future suggestions, while not inventing new requirements from a single ambiguous edit.
+
+MODAL / INTERACTION
+Use functions.request_user_input_async, with 25 question objects. Each question:
+  title: word + optional " — lex_unit" + " (part_of_speech)" + newline + EXACT database definition
+  options: [Persian proposal only]
+The tool automatically allows free-text input. No "Confirm —" prefix, sense ID, repeated proposal in title, examples or per-question boilerplate. The user requested clean translation-only options so copying is easier. A custom Copy button cannot be added to this built-in modal; do not claim to have added one.
+Blank POS can be omitted; where unambiguous, display-only inferred POS has been used. Never modify DB POS just to improve the modal.
+If the modal is closed, recreate the SAME pending batch. Do not skip it or save it. If answers are partial, save only those submitted and keep the others pending.
+After saving and opening the next modal, a short final is enough: "Saved all 25 with your exact edits. N senses remain. The next 25 are ready for review."
+
+ENVIRONMENT / DATABASE WORKFLOW
+Workspace: C:\Users\Fardin\Desktop\projects\lingo_palm
+Backend cwd: C:\Users\Fardin\Desktop\projects\lingo_palm\backend
+Shell: PowerShell
+Python: .venv/Scripts/python.exe
+Run Django code via: .venv/Scripts/python.exe manage.py shell -c $translationScript
+Model: apps.dictionary.models.Sense
+Fields used: id, entry.word, entry.part_of_speech, definition, lex_unit, translation.
+Course-used senses are selected through word_mappings__isnull=False. Use distinct(). No exclusions or randomization in this chat workflow. Keep the model's default ordering, which yields the alphabetical sequence used here.
+
+Missing-translation query:
+from django.db.models.functions import Trim, Coalesce
+from django.db.models import Value, TextField
+q = Sense.objects.annotate(clean_translation=Trim(Coalesce('translation', Value(''), output_field=TextField()))).filter(clean_translation='', word_mappings__isnull=False).distinct()
+q.count()
+list(q.values('id','entry__word','entry__part_of_speech','definition','lex_unit')[:25])
+
+AUTHORIZED SAVE PROCEDURE
+Only save translations explicitly submitted by the user. Update only Sense.translation. No extra confirmation is needed after submitted review answers.
+Build rows [sense_id, expected_entry_word, exact_user_answer]. To avoid shell encoding/quoting trouble, serialize JSON to ASCII Unicode escapes, and escape apostrophes as \u0027 before inserting into a Python raw single-quoted literal.
+Use transaction.atomic(); for each row:
+  s = Sense.objects.select_for_update().get(pk=pk)
+  assert s.entry.word == expected_word
+  assert not (s.translation or '').strip() or s.translation == answer
+  s.translation = answer
+  s.save(update_fields=['translation'])
+  s.refresh_from_db()
+  assert s.translation == answer
+Reject conflicting existing translations rather than silently overwriting. This supports safe replays if a tool was interrupted.
+Then query remaining count and next 25. If exec returns session_id, poll write_stdin; do not blindly rerun a mutation.
+PowerShell script delivery used successfully:
+  $translationScript = @'
+  <Python code>
+  '@
+  .venv/Scripts/python.exe manage.py shell -c $translationScript
+Use a functions.exec call wrapping tools.exec_command with the backend working directory. No network or web research needed for ordinary dictionary translation. No subagents requested.
+
+OTHER PROJECT CONTEXT
+A frontend bulk translation admin page was built earlier at /admin/dictionary/translate/bulk-translate. It supports random-25 export/import using existing APIs. That is separate from this chat's direct Django review workflow. Do not modify that UI or its code merely to continue this task.
+Earlier complete translation runs reached zero; new course sections then added more untranslated senses. Do not assume previous completion means the current queue is empty.
+
+NEXT CHAT ACTION
+This review is complete. If asked to continue, query the live database for newly added untranslated course-used senses and show up to 25 for review. Save only submitted answers. If the count is still zero, report that the queue is complete.
+
+LIVE READ-ONLY DATABASE SNAPSHOT AND PENDING PROPOSALS
+{"saved": 16, "remaining": 0, "pending_batch": []}

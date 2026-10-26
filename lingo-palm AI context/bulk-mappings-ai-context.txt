@@ -1,4 +1,15 @@
 BULK MAPPINGS - AI CONTEXT
+LATEST EXPLICIT GROUPING RULE (2026-10-23)
+Bulk Selecting supports Ctrl-click (Cmd-click on Mac) phrase groups. In a
+bulk_vocabulary_selection export, every selections item is one intended mapping.
+Multiple token_indices explicitly identify a user-selected phrase, possibly with
+gaps. Preserve the exact group, indices, metadata, and repeated occurrences in
+the suggestions array and subsequent sense selection. Do not split groups,
+insert intervening tokens, or reduce them to a single headword token. Choose the
+dictionary headword or supported phrase entry that explains the whole group.
+This supersedes all historical one-token-only instructions below. The export
+schema remains version 1; token_indices has always been an array.
+
 LATEST PREFERENCE GUIDE (2026-10-20)
 Read subtitle-vocabulary-and-mapping-guide.txt in this directory for selection,
 grouping and sense-selection preferences learned from the user's personally

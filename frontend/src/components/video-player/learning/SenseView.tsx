@@ -1,5 +1,6 @@
 "use client";
 
+import { EntryVariant } from "@/components/shared/EntryVariant"
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ChevronLeft,
@@ -164,6 +165,7 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
               })}
             </span>
           ) : null}
+          <EntryVariant variant={sense.entry.variant} />
           <span className="ml-3 inline-block font-semibold italic text-emerald-700 dark:text-emerald-400">
             {sense.entry.part_of_speech}
           </span>

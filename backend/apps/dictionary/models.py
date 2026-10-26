@@ -6,6 +6,7 @@ class Entry(models.Model):
     word = models.CharField(max_length=255, db_index=True)
     part_of_speech = models.CharField(max_length=100, blank=True, db_index=True)
     pronunciation = models.JSONField(null=True, blank=True)
+    variant = models.JSONField(default=dict, blank=True)
     # Longman has two distinct "Junior" entries with no POS or homonym number.
     # Their source anchors distinguish them; blank preserves older/manual entries.
     source_entry_id = models.CharField(max_length=255, blank=True, default="")

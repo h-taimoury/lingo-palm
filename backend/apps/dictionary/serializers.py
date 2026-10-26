@@ -24,7 +24,7 @@ def _resolve_pronunciation_urls(pronunciation, request):  # noqa: ANN001, ANN201
 class EntrySummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = ("id", "word", "part_of_speech", "homonym_num", "source_entry_id", "pronunciation", "register", "level")
+        fields = ("id", "word", "part_of_speech", "homonym_num", "source_entry_id", "pronunciation", "variant", "register", "level")
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -143,6 +143,7 @@ class EntrySerializer(serializers.ModelSerializer):
             "part_of_speech",
             "homonym_num",
             "source_entry_id",
+            "variant",
             "pronunciation",
             "frequency",
             "level",
@@ -170,6 +171,20 @@ class EntrySerializer(serializers.ModelSerializer):
                 "An entry with this source identity, or a conflicting entry without a source ID, already exists."
             )
         return attrs
+
+    def validate_variant(self, value):
+        if not isinstance(value, dict):
+            raise serializers.ValidationError("Variant must be an object/dictionary.")
+        if not value:
+            return {}
+        if set(value) != {"kind", "word", "pronunciation", "region"}:
+            raise serializers.ValidationError("Variant must contain kind, word, pronunciation, and region.")
+        if any(not isinstance(item, str) for item in value.values()):
+            raise serializers.ValidationError("Variant values must be strings.")
+        value = {key: item.strip() for key, item in value.items()}
+        if value["kind"] not in {"general", "american", "british"} or not value["word"]:
+            raise serializers.ValidationError("Variant requires a valid kind and a non-empty word.")
+        return value
 
     def validate_pronunciation(self, value):  # noqa: ANN201
         if value is None:

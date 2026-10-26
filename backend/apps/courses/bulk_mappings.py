@@ -63,11 +63,11 @@ def subtitle_context(section):
     return {"schema_version": 1, "section_id": section.id, "subtitle_sha256": hashlib.sha256(raw).hexdigest(), "cues": cues,
             "assistant_instructions": (
                 "Generate a JSON array of B2-and-above vocabulary suggestions, judged in subtitle context. "
-                "Exclude proper names. Select each useful occurrence separately and only ONE main word token, "
-                "including when it belongs to an idiom or phrasal verb. Scrape only its main dictionary headword. "
+                "Exclude proper names. Select each useful occurrence separately. For phrases and expressions, "
+                "select the tokens explained by the dictionary entry together as one mapping. Preserve explicit user-selected groups. "
                 "Each object requires: id (unique letters/digits/hyphens/underscores), subtitle_sha256 (copy from this file), "
-                "subtitle_word (exact selected token, punctuation preserved), cue_id, cue_text, "
-                "start_time, end_time (copy cue fields exactly), token_indices (one zero-based index from tokens), "
+                "subtitle_word (exact selected tokens joined with spaces, punctuation preserved), cue_id, cue_text, "
+                "start_time, end_time (copy cue fields exactly), token_indices (unique zero-based indices in subtitle order, within one cue), "
                 "dictionary_word (canonical main headword, not necessarily the inflected subtitle form), "
                 "scrape_term (main-headword URL slug), longman_url (https://www.ldoceonline.com/dictionary/ plus slug). "
                 "Never verify URLs online. Do not generate intended_meaning or url_verification fields. "

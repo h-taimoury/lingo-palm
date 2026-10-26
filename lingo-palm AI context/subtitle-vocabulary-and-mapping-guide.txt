@@ -1,6 +1,16 @@
 FARDIN'S SUBTITLE VOCABULARY AND MAPPING GUIDE
-Version 1.2 — 2026-10-21
+Version 1.5 — 2026-10-23
 Reusable instructions for an AI assistant
+
+EXPLICIT BULK-SELECTION GROUPS (2026-10-23)
+When the user supplies a bulk_vocabulary_selection export, each selections item
+is one intended mapping. Multiple token_indices mean the user explicitly grouped
+those words using Ctrl-click. Keep that group intact through suggestions and
+sense selection, including non-adjacent tokens. Do not add intervening words,
+split the group, or replace it with a single headword token. Preserve exact
+subtitle metadata. Select the dictionary headword or supported phrase entry and
+nearest available contextual sense for the whole group. This explicit user
+grouping takes precedence over inferred grouping preferences elsewhere here.
 
 PURPOSE
 
@@ -591,3 +601,135 @@ questions. Section-11 evidence remains valid; this appendix refines it.
 2026-10-21: Version 1.2 records direct answers: contextual keep is worthwhile;
 living room is an easy exception to preserve; phrase grouping follows relevant
 dictionary support; the two make-up story senses are acknowledged errors.
+
+
+9. SECTION 14 CALIBRATION — 2026-10-22
+
+Source: personally finalized 12 Angry Men, course 6, section 14 export,
+attachment 063737c6-1c4c-433e-b7f6-6fae1ba6aaaf/Pasted text.txt.
+Baseline: artifacts/section14-highlighting-repair-2026-10-21/after.json,
+the last saved assistant state after the overlap repair, not the older draft.
+Evidence: artifacts/section14-preference-calibration-2026-10-22/.
+This is a preference-learning review, not authorization to edit the database.
+
+COUNTS AND INTERPRETATION
+410 baseline mappings -> 476 finalized mappings; 392 unchanged records,
+72 added records, 12 changed records, and 6 removed records. The final export
+has 634 distinct selected tokens, 97 multi-token mappings, 467 single-sense
+mappings, and 9 two-sense mappings. Token locations and timings validate and
+there are no overlaps. These are record counts, not vocabulary accuracy scores.
+Four removals are replacements: two jury mappings become hung jury; coming
+apart gets its dedicated failure sense; bouncin' is recreated with identical
+tokens and sense. Do not learn rejection from those deleted record IDs.
+Only get in cue 121 and deal in cue 350 disappear without such a replacement;
+two examples do not establish a general ban on either word or meaning.
+
+HIGH-CONFIDENCE LESSONS
+
+A. Dictionary preparation must not silently limit vocabulary discovery.
+The final mappings resolve many previously recorded lookup gaps: hung jury,
+bleeding hearts, come out, come apart, look up, go over, go along with,
+throw out, run into, unshakable, triumph, farsighted, and casually.
+These additions confirm that a failed lookup is not a preference to skip the
+term. Keep a separate list of worthwhile but unresolved candidates, check
+alternate spellings/headwords, and revisit them when dictionary data improves.
+Examples: unshakable -> unshakeable; farsighted -> far-sighted; casually -> casual.
+Do not present dictionary-preparation failures as completed vocabulary coverage.
+
+B. Do a separate pass for expressions built from familiar words.
+Positive examples include came out (information becoming known), coming apart
+(failing), things are looking up (improving), go along with (agree), get on
+(continue), gone on (happened), went out/went off (lights stop shining),
+Do you mind? (annoyance), if you don't mind, and fall asleep.
+Do not reject these because come, go, get, look, or mind are familiar words.
+The same phrase can need different senses: go over in cues 82/343 is review
+or explain again, whereas going over in cue 386 is careful mental review.
+
+C. Add supporting senses only where they provide useful explanation.
+The user added breath to deep breath, the dye substance to dyed, limit plus
+time limit, and out's extinguished-state sense alongside go out.
+This reinforces the existing dependency/component rule. It does not justify
+attaching unrelated meanings. Most mappings still contain only one sense.
+
+D. Some constructions include words beyond the dictionary headword.
+Observed positives: At this point; things are looking up; It's funny;
+if you don't mind; time limit; and making ... a ... effort.
+In making a tremendous effort, making/a/effort form one discontinuous mapping
+and tremendous remains separate. Preserve source positions and intervening
+teaching units; never interpret the displayed selection 'making a effort' as
+the original subtitle sentence or rewrite the subtitle to match it.
+Do not automatically add every object: go over something includes something
+in cue 82, but go over is selected without it in cue 343.
+
+E. Repetition is occurrence-based, including within one cue.
+The user added two separate annoying occurrences in cue 376 and many glasses
+occurrences. Every repeated accepted meaning needs its own occurrence mapping;
+deduplicating by word spelling would lose valid teaching locations.
+Missing occurrences in a finalized example still do not revoke the explicit
+all-occurrences instruction. Verify coverage separately from preference learning.
+
+F. Read local context before picking a sense.
+Underhanded in the knife demonstration uses the underhand physical-motion
+sense, not dishonest behavior. Point in 'the point is made' was changed to
+the central idea. Casually describes looking without deliberate attention.
+These are contextual examples, not global replacements for those headwords.
+
+CONFIRMED CLARIFICATIONS — 2026-10-22
+
+These direct answers supersede the earlier tentative section-14 interpretations.
+
+1. Familiar does not automatically mean too simple to teach.
+Asked about gray, stairs, lights, turned, and glasses, the user explained:
+"i just felt they are not too simple."
+Treat these ordinary meanings as positive selection examples, not unexplained
+exceptions requiring special plot importance. The previous filter was too strict.
+Use these examples to calibrate the learner threshold alongside the explicit
+negative examples ordinary continue and living room. Do not impose a B2 cutoff
+or discard familiar concrete vocabulary solely because it seems elementary to
+the assistant. This is not a blanket instruction to select every color, movement,
+or object: judge new candidates against both positive and negative examples.
+
+2. Longman evidence determines expression grouping.
+The user omitted off from pace off because neither the Longman sense nor its
+examples showed pace off; only pace was found. In contrast, the user found the
+explicit twist and turn expression sense and therefore grouped twisted and
+turned. This confirms the earlier dictionary-support rule, not a relaxation of it.
+Check dedicated entries, expression senses under component headwords, usage
+patterns, and examples. A phrase need not be the page's main headword.
+Do not automatically attach a particle merely because dialogue contains it.
+The user notes that movie speech may not always be accurate English and bases
+the mapping on what can be found in Longman. Preserve the actual subtitle text;
+failure to find an expression is not proof that the character's wording is wrong.
+Keep ... out of remains a reviewed positive example; the answer gives no separate
+explanation for that boundary. Do not infer unrestricted grouping from it.
+
+3. The three questioned sense choices are intentional nearest-sense fallbacks.
+The user confirmed that these were the nearest meanings they could find:
+- killer at 00:07 -> something very exciting or impressive;
+- lousy at 27:53 -> not very good at doing something;
+- twisted and turned at 27:08 -> the physical twist-and-turn sense, alongside
+  the already selected sense of distorting a statement's meaning.
+Preserve these as accepted fallback examples, not accidental selection errors.
+They do not establish exact contextual equivalence. In future work, look for
+the closest available sense first; use the accepted approximation when no better
+one is available and identify it honestly as approximate. Do not omit an accepted
+scraped teaching target merely because the dictionary lacks a perfect match.
+Finding an expression in Longman and finding its exact contextual sense are two
+different checks: twist and turn supports the grouping even though its stored
+physical definition is only an approximation for distorted evidence here.
+
+LIMITS OF THESE ANSWERS
+The unusual 'Anyone in right mind' selection omits his; record it as observed,
+not a template requiring pronoun omission. Do not standardize quite a's article
+selection from one example. Differing throw out senses for recalled evidence in
+cues 332/459 do not establish a reliable semantic distinction by themselves.
+These incidental observations do not require another round of questions now.
+
+CHANGE LOG ADDITION
+2026-10-22: Version 1.3 adds section-14 comparison evidence, replacement-aware
+diffing, dictionary-gap follow-through, more expression and supporting-sense
+examples, and clearly labeled pending questions. No database changes made.
+2026-10-22: Version 1.4 records all three direct answers: broaden the familiarity
+threshold using the user's positive examples; retain Longman-supported grouping,
+including examples; mark the three disputed pairings as intentional fallbacks.
+No database mappings or historical final-export data changed.

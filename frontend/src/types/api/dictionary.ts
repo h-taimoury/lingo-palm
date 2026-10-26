@@ -5,6 +5,12 @@ export type Pronunciation = {
 };
 
 export type EntrySummary = {
+  variant?: {
+    kind: "general" | "american" | "british";
+    word: string;
+    pronunciation: string;
+    region: string;
+  } | Record<string, never>;
   level?: { tooltip: string; indicator: string } | null;
   id: number;
   word: string;
@@ -48,6 +54,7 @@ export type Entry = EntrySummary & {
 };
 
 export type CreateEntryRequest = {
+  variant?: EntrySummary["variant"];
   level?: { tooltip: string; indicator: string } | null;
   word: string;
   part_of_speech: string;

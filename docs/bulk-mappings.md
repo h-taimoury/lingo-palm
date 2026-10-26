@@ -9,8 +9,9 @@ mapping editor remains available and unchanged.
 2. In Bulk Mappings, download **subtitle context**. Give that JSON and, optionally,
    the subtitle file to the assistant in chat. The context contains instructions,
    the subtitle fingerprint, exact cue text, timing, and canonical tokens.
-3. Ask for B2+ vocabulary in context, selecting only one main word per occurrence
-   and only the main dictionary headword for scraping. Never verify URLs online.
+3. Ask for useful vocabulary in context, using the current vocabulary preference
+   guide. Keep explicitly selected phrase groups together, and choose the dictionary
+   headword or supported phrase entry that explains them. Never verify URLs online.
    Do not generate intended_meaning or url_verification fields.
 4. Upload or paste the assistant's suggestions array. Optionally review occurrences
    with **Keep and next** or **Remove and next**. **Continue to dictionary** (or the
@@ -50,6 +51,25 @@ mapping editor remains available and unchanged.
 No model/AI API calls happen inside the application. Vocabulary selection happens in chat.
 URL verification is never performed. The application validates the URL shape and host,
 but does not claim to have verified the dictionary page itself.
+
+## Bulk Selecting: words and phrase groups
+
+Click normally to toggle an individual word. Hold **Ctrl** (or **Cmd** on Mac)
+while clicking all words that belong to one expression. They share a highlight
+color and group number, with a phrase summary below the cue. Release the modifier
+to finish; the next modifier-held selection starts another group. Navigation or
+window blur also ends the current group. Click a selected word normally to remove
+only that word. Ctrl-clicking an existing selection moves it into the current
+group; clicking it again in that group removes it. Already mapped words are locked.
+
+Groups may contain non-adjacent tokens but cannot span cues. The
+`bulk_vocabulary_selection` schema-version-1 export retains its existing shape:
+each `selections` item represents one intended mapping. For a group,
+`token_indices` contains all selected indices in subtitle order and `subtitle_word`
+joins their exact token strings with spaces. Separate words remain separate items.
+The assistant must preserve every item and its indices, including phrase groups,
+when producing suggestions and selecting database senses. It must not insert
+intervening tokens, split a group, or reduce a group to its dictionary headword.
 
 ## Suggestions format
 
