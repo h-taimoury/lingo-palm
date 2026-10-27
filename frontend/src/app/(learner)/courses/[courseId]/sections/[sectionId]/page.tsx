@@ -1,3 +1,4 @@
+import { getSectionVideoUrl } from "@/lib/courses/video";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, Sparkles } from "lucide-react";
@@ -92,7 +93,7 @@ export default async function SectionPage({ params }: Props) {
 
         <div className="min-w-0 lg:sticky lg:top-8 lg:has-[[data-theater=true]]:static lg:has-[[data-theater=true]]:col-span-2">
           <VideoPlayer
-            source={section.video_url}
+            source={getSectionVideoUrl(section)}
             subtitleSource={proxyDjangoMediaUrl(section.subtitle_file)}
             mappings={section.word_sense_mappings}
             initialLearnedSenseIds={learnedIds}

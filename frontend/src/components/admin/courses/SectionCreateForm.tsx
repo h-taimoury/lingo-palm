@@ -73,18 +73,26 @@ export function SectionCreateForm({
           </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="new_video_url">Video URL</Label>
+          <Label htmlFor="new_local_video_url">Local video URL</Label>
           <Input
-            id="new_video_url"
-            name="video_url"
+            id="new_local_video_url"
+            name="local_video_url"
             type="url"
-            required
-            placeholder="https://…"
+            placeholder="http://localhost:3000/videos/demo.mp4"
           />
           <p className="text-xs text-muted-foreground">
             For a Next.js public file during development, use an absolute URL
             such as http://localhost:3000/videos/demo.mp4.
           </p>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="new_hosted_video_url">Hosted video URL</Label>
+          <Input
+            id="new_hosted_video_url"
+            name="hosted_video_url"
+            type="url"
+            placeholder="https://…"
+          />
         </div>
         <div className="space-y-2">
           <Label htmlFor="new_subtitle">WebVTT subtitle file</Label>

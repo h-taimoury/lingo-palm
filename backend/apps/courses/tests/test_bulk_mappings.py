@@ -26,7 +26,7 @@ class BulkMappingsTests(APITestCase):
         settings.enable()
         self.addCleanup(settings.disable)
         self.addCleanup(shutil.rmtree, self.media)
-        self.section = Section.objects.create(course=self.course, title="Section", video_url="https://example.com/video",
+        self.section = Section.objects.create(course=self.course, title="Section", local_video_url="https://example.com/video",
             subtitle_file=SimpleUploadedFile("test.vtt", b"WEBVTT\n\n1\n00:00:01.000 --> 00:00:04.000\nWe take off, then take off.\n\n2\n00:00:05.000 --> 00:00:06.000\nAway!\n"))
         self.client.force_authenticate(self.staff)
         self.base = f"/api/courses/sections/{self.section.id}/bulk-mappings"

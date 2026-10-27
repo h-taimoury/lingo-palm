@@ -20,7 +20,8 @@ export function SectionEditor({ section }: { section: SectionDetail }) {
     const body = {
       title: String(form.get("title") ?? ""),
       order: Number(form.get("order")),
-      video_url: String(form.get("video_url") ?? ""),
+      local_video_url: String(form.get("local_video_url") ?? ""),
+      hosted_video_url: String(form.get("hosted_video_url") ?? ""),
       is_published: form.get("is_published") === "on",
     };
     setBusy(true);
@@ -59,18 +60,27 @@ export function SectionEditor({ section }: { section: SectionDetail }) {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="section_video">Video URL</Label>
+        <Label htmlFor="section_video">Local video URL</Label>
         <Input
           id="section_video"
-          name="video_url"
+          name="local_video_url"
           type="url"
-          defaultValue={section.video_url}
-          required
+          defaultValue={section.local_video_url}
         />
         <p className="text-xs text-muted-foreground">
           Progressive files and .m3u8 HLS streams are supported by the lesson
           player.
         </p>
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="section_hosted_video">Hosted video URL</Label>
+        <Input
+          id="section_hosted_video"
+          name="hosted_video_url"
+          type="url"
+          defaultValue={section.hosted_video_url}
+          placeholder="https://…"
+        />
       </div>
       <label className="flex items-center gap-2 text-sm">
         <input

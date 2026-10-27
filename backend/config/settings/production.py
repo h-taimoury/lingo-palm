@@ -5,6 +5,12 @@ from .base import *  # noqa: F403
 DEBUG = False
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")  # noqa: F405
 
+# Never silently create a temporary SQLite database on the production host.
+if not env.str("DATABASE_URL", default=""):  # noqa: F405
+    raise ImproperlyConfigured("DATABASE_URL must be set in production.")
+if DATABASES["default"]["ENGINE"] != "django.db.backends.postgresql":  # noqa: F405
+    raise ImproperlyConfigured("Production requires a PostgreSQL DATABASE_URL.")
+
 if SECRET_KEY == "unsafe-development-key-change-me":  # noqa: F405
     raise ImproperlyConfigured("DJANGO_SECRET_KEY must be set in production.")
 

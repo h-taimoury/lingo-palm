@@ -2,6 +2,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 See [API setup](API_SETUP.md) for Django connections, cookies, and deployment configuration.
 
+## Section videos
+
+Sections have optional **Local video URL** and **Hosted video URL** fields, in that order.
+Existing video URLs are preserved as local URLs by the backend migration.
+Use an absolute URL such as `http://localhost:3000/videos/demo.mp4` for a local file served from `public/videos/`.
+Admin previews always use the local URL. Learner playback selects the URL using Next.js's built-in `NODE_ENV`:
+`next dev` uses the local URL; `next build` / `next start` use the hosted URL,
+including when a production build runs on your own computer. There is no fallback
+when the selected field is blank. No additional environment variable is required.
+
 ## Getting Started
 
 First, run the development server:

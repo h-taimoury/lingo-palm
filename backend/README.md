@@ -102,7 +102,10 @@ python manage.py runserver
 ### Courses
 
 - `Course`: title, description, thumbnail, level, and publish state.
-- `Section`: video URL, locally uploaded VTT file, order, and publish state.
+- `Section`: optional Local video URL (`local_video_url`) and Hosted video URL
+  (`hosted_video_url`), locally uploaded VTT file, order, and publish state.
+  Migration `courses.0004` renames the old `video_url` column without losing its
+  values. Both URL fields accept omission or an empty string through the API.
 - `WordSenseMapping`: one teaching unit, linked to one or more senses.
 - `SubtitleWord`: one admin-selected word occurrence. Several rows can share one
   mapping for phrasal verbs or expressions, including non-adjacent words or words
@@ -365,6 +368,24 @@ guards before this migration can run. Future migrations rebuilding these tables
 must preserve/reinstall the guards.
 
 ## Production
+
+### Neon database
+
+Install `requirements/production.txt` on Render; the shared requirements include
+the Psycopg PostgreSQL driver. Set `DATABASE_URL` in Render's environment to the
+connection URL from Neon, retaining `sslmode=require` and any other security
+parameters supplied by Neon. Production requires an explicit PostgreSQL URL.
+Pooled URLs are supported; use a direct URL for migrations and data imports.
+
+Locally, `backend/.env` is ignored by Git. You may keep a `NEON_DATABASE_URL`
+there while preparing deployment, but that variable alone does not switch the
+application to Neon. Only `DATABASE_URL` selects the active database; leaving it
+unset preserves the existing local SQLite default. To use Neon locally, set
+`DATABASE_URL` to the Neon URL in the command's environment before starting Django.
+Never commit real credentials to either example environment file.
+
+Migrations create tables, but do not copy existing SQLite course or dictionary
+data. Transfer that data separately before switching the deployed app to Neon.
 
 Use:
 

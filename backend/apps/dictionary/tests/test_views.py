@@ -79,7 +79,7 @@ def _make_published_section():
         course=course,
         title="Section",
         order=1,
-        video_url="https://example.com/v.mp4",
+        local_video_url="https://example.com/v.mp4",
         subtitle_file="section_subtitles/demo.vtt",
         is_published=True,
     )
@@ -171,7 +171,7 @@ class SenseTranslationFilterTests(APITestCase):
         mapping.senses.set([cls.untranslated, cls.translated])
         draft = Section.objects.create(
             course=section.course, title="Draft", order=2,
-            video_url="https://example.com/draft.mp4",
+            local_video_url="https://example.com/draft.mp4",
             subtitle_file="section_subtitles/draft.vtt",
         )
         mapping = WordSenseMapping.objects.create(section=draft)

@@ -512,7 +512,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
           </p>
         </div>
         <AdminVideoPreview
-          source={section.video_url}
+          source={section.local_video_url}
           cues={cues}
           mappingIndex={mappingIndex}
           selectedKeys={selectedKeys}

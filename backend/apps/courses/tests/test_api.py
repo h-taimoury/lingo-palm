@@ -40,7 +40,7 @@ class CourseApiTests(APITestCase):
             course=self.course,
             title="Demo Section",
             order=1,
-            video_url="https://example.com/video.mp4",
+            local_video_url="https://example.com/video.mp4",
             subtitle_file=SimpleUploadedFile(
                 "demo.vtt",
                 b"WEBVTT\n\n1\n00:00:00.000 --> 00:00:02.000\nLook it up.\n",
@@ -48,6 +48,36 @@ class CourseApiTests(APITestCase):
             ),
             is_published=True,
         )
+
+    def test_section_video_urls_are_optional_on_create(self):
+        self.client.force_authenticate(self.staff)
+        response = self.client.post("/api/courses/sections/", {
+            "course": self.course.pk,
+            "title": "No video yet",
+            "subtitle_file": SimpleUploadedFile("empty.vtt", b"WEBVTT\n\n", content_type="text/vtt"),
+        }, format="multipart")
+        self.assertEqual(response.status_code, 201, response.data)
+        self.assertEqual(response.data["local_video_url"], "")
+        self.assertEqual(response.data["hosted_video_url"], "")
+
+    def test_section_video_urls_can_be_updated_read_and_cleared(self):
+        self.client.force_authenticate(self.staff)
+        url = f"/api/courses/sections/{self.section.pk}/"
+        values = {
+            "local_video_url": "http://localhost:3000/videos/demo.mp4",
+            "hosted_video_url": "https://cdn.example.com/demo.mp4",
+        }
+        response = self.client.patch(url, values, format="json")
+        self.assertEqual(response.status_code, 200, response.data)
+        detail = self.client.get(url).data
+        for field, value in values.items():
+            self.assertEqual(detail[field], value)
+        self.assertNotIn("video_url", detail)
+        response = self.client.patch(url, dict.fromkeys(values, ""), format="json")
+        self.assertEqual(response.status_code, 200, response.data)
+        self.section.refresh_from_db()
+        self.assertEqual(self.section.local_video_url, "")
+        self.assertEqual(self.section.hosted_video_url, "")
 
     def _mapping_payload(self):
         # NOTE: the create serializer's fields are "section" and "senses"

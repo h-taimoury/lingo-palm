@@ -35,7 +35,8 @@ export type SectionFlat = {
   course: number
   title: string
   order: number
-  video_url: string
+  local_video_url: string
+  hosted_video_url: string
   subtitle_file: string
   is_published: boolean
   created_at: string
@@ -69,7 +70,8 @@ export type SectionDetail = {
   course: CourseSummary
   title: string
   order: number
-  video_url: string
+  local_video_url: string
+  hosted_video_url: string
   subtitle_file: string
   is_published: boolean
   word_sense_mappings: WordSenseMapping[]
@@ -81,7 +83,8 @@ export type SectionWriteRequest = {
   course: number
   title: string
   order: number
-  video_url: string
+  local_video_url?: string
+  hosted_video_url?: string
   is_published: boolean
 }
 
