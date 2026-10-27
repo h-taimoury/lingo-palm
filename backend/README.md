@@ -395,3 +395,86 @@ DJANGO_SETTINGS_MODULE=config.settings.production   gunicorn config.wsgi:applica
 
 Production intentionally excludes `apps.scraper_admin`, never imports
 `longman_scraper`, and does not install Playwright.
+
+### Render free demo
+
+The repository-root `render.yaml` creates one free Python web service using
+`backend` as its root directory. It does not create a Render database: Neon is
+the database. Choose a Render region close to your Neon project when creating
+the service. Python stays on the 3.12 series via `backend/.python-version`.
+
+For manual setup, use:
+
+| Setting | Value |
+| --- | --- |
+| Root directory | `backend` |
+| Build command | `bash build.sh` |
+| Start command | `bash start.sh` |
+| Health check | `/healthz/` |
+| Instance | Free |
+
+Set these environment variables in Render, not in Git:
+
+- `DJANGO_SETTINGS_MODULE=config.settings.production`
+- `DJANGO_SECRET_KEY`: generate a long random secret (the Blueprint generates it).
+- `DATABASE_URL`: your direct Neon connection string, retaining SSL parameters.
+- `CSRF_TRUSTED_ORIGINS=https://lingo-palm-frontend.vercel.app`
+
+Render's own hostname is added to `ALLOWED_HOSTS` automatically. Set
+`ALLOWED_HOSTS` only for additional custom hostnames. Leave `JWT_COOKIE_DOMAIN`
+and `CSRF_COOKIE_DOMAIN` unset or empty for the free-domain demo.
+
+The build installs production dependencies, checks deployment settings, and
+collects Django/admin static assets. The start script applies pending migrations
+before starting one Gunicorn worker with four threads. A failed migration stops
+startup. This startup migration approach is for a single-instance demo; move
+migrations to a release/pre-deploy job before scaling. The health check does not
+query Neon, so Render's polling does not keep the database awake.
+
+#### Public course files
+
+Git now includes JPG/JPEG/PNG/WebP thumbnails, VTT subtitles, and MP3 pronunciation
+files under their existing `media/course_thumbnails`, `media/section_subtitles`,
+and `media/pronunciation_audios` directories. Include these newly visible files
+when committing. WhiteNoise serves those bundled directories at `/media/` with
+`DEBUG=False`, plus collected admin assets at `/static/`. Existing database file
+paths are unchanged. Subtitles have the `text/vtt` content type; audio supports
+range requests. All bundled assets are public, just as in development.
+
+Author files locally, commit them, and redeploy. WhiteNoise indexes files at
+startup; runtime uploads are not supported by this deployment workflow and
+Render's ephemeral disk does not preserve them. Do not edit/delete bundled
+course files through the production admin. Newly authored course records must
+also be transferred to Neon: deploying files does not synchronize SQLite data.
+SQLite files, `.env`, and private transfer backups remain ignored by Git.
+
+#### Vercel authentication contract
+
+The free Vercel and Render domains cannot share a cookie domain. The frontend
+must proxy browser `/api/` requests through its own origin to Render, forwarding
+cookies, `Origin`, and `X-CSRFToken`, and relaying every `Set-Cookie` header.
+Browser requests must use relative same-origin API URLs. Server-side requests
+use `DJANGO_ORIGIN=https://<your-service>.onrender.com` and forward cookies.
+The frontend now implements this proxy automatically in production; its local
+development mode keeps direct browser API requests. Set `DJANGO_ORIGIN` in Vercel
+to the actual Render service URL before deploying the frontend.
+No cross-origin CORS allowlist is needed for this proxy arrangement. Do not set
+a cookie domain to `.vercel.app` or `.onrender.com`. If both apps later use
+sibling custom subdomains, the existing shared-domain/CORS settings still work.
+
+#### Local development and verification
+
+Keep using `python manage.py runserver` with development requirements and local
+SQLite. No Render environment variables are required locally. Production file
+middleware and secure-cookie defaults are only enabled by production settings;
+development media serving, scraper routes, and localhost behavior stay intact.
+
+To run deployment regression tests as well, install production dependencies
+alongside development dependencies, then run:
+
+```bash
+python manage.py test config apps.users apps.courses apps.dictionary apps.my_vocabulary
+```
+
+Do not run tests against the Neon database. The default development settings
+use a separate SQLite test database when `DATABASE_URL` is unset.

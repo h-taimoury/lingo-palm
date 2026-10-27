@@ -10,7 +10,7 @@ from rest_framework_simplejwt.serializers import (
 )
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .authentication import enforce_csrf
+from .authentication import CookieJWTAuthentication, enforce_csrf
 from .models import User
 from .serializers import UserSerializer, UserSerializerForAdmins
 
@@ -102,6 +102,11 @@ class LoginView(APIView):
 
     permission_classes = [permissions.AllowAny]
     authentication_classes = []
+
+    def get_authenticate_header(self, request):
+        # Login skips existing cookies, but DRF still needs a challenge header
+        # to preserve AuthenticationFailed as 401 instead of converting to 403.
+        return CookieJWTAuthentication().authenticate_header(request)
 
     def post(self, request):
         serializer = TokenObtainPairSerializer(data=request.data)

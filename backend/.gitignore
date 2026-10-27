@@ -13,6 +13,22 @@ htmlcov/
 staticfiles/
 media/*
 !media/.gitkeep
+# Public, locally authored assets bundled with each Render deployment.
+!media/course_thumbnails/
+media/course_thumbnails/**
+!media/course_thumbnails/**/
+!media/course_thumbnails/**/*.jpg
+!media/course_thumbnails/**/*.jpeg
+!media/course_thumbnails/**/*.png
+!media/course_thumbnails/**/*.webp
+!media/section_subtitles/
+media/section_subtitles/**
+!media/section_subtitles/**/
+!media/section_subtitles/**/*.vtt
+!media/pronunciation_audios/
+media/pronunciation_audios/**
+!media/pronunciation_audios/**/
+!media/pronunciation_audios/**/*.mp3
 .DS_Store
 .idea/
 .vscode/

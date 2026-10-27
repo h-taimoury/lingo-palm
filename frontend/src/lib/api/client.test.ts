@@ -105,3 +105,22 @@ describe("direct Django requests", () => {
     await expect(apiClient.delete("/api/courses/courses/1/")).resolves.toBeNull();
   });
 });
+
+describe("production API proxy", () => {
+  it("uses same-origin URLs even if an old public Django origin is configured", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    expect(buildDjangoBrowserUrl("/api/courses/courses?search=a%2Fb&page=2"))
+      .toBe("/api/courses/courses/?search=a%2Fb&page=2");
+    fetchMock.mockResolvedValueOnce(Response.json({ detail: "Logged in" }));
+    await apiClient.post("/api/users/login/", { email: "demo@example.com" }, { retryOnUnauthorized: false });
+    expect(fetchMock.mock.calls[0][0]).toBe("/api/users/login/");
+    expect(fetchMock.mock.calls[0][1]?.credentials).toBe("include");
+    expect(new Headers(fetchMock.mock.calls[0][1]?.headers).get("X-CSRFToken")).toBe("csrf-test");
+  });
+
+  it("keeps the default localhost URL in development", () => {
+    vi.stubEnv("NODE_ENV", "development");
+    vi.stubEnv("NEXT_PUBLIC_DJANGO_ORIGIN", undefined);
+    expect(buildDjangoBrowserUrl("users/me")).toBe("http://localhost:8000/api/users/me/");
+  });
+});

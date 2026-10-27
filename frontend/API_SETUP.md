@@ -1,4 +1,4 @@
-# Direct Django requests
+# Django requests and deployment
 
 ## Local development
 
@@ -13,10 +13,12 @@ across ports, but not between `localhost` and `127.0.0.1`.
 
 ## Requests and authentication
 
-Client Components use `apiClient`, which calls Django directly using
-`NEXT_PUBLIC_DJANGO_ORIGIN`. It sends cookies with `credentials: "include"`,
-adds the CSRF header for mutations, parses responses, and refreshes/retries
-expired sessions. There is no general `/api/backend/*` gateway.
+Client Components use `apiClient`. During `npm run dev`, it calls Django directly
+using `NEXT_PUBLIC_DJANGO_ORIGIN` (default `http://localhost:8000`). In production
+(`next build` / `next start`), it calls same-origin `/api/*` URLs through the
+Next.js API proxy, even if an old public Django origin is still set. It sends
+cookies, adds the CSRF header for mutations, parses responses, and refreshes/retries
+expired sessions. No page or component needs its own proxy code.
 
 Server Components use `djangoServerFetch` with `DJANGO_ORIGIN`, forwarding
 cookies from the incoming request. If omitted, `DJANGO_ORIGIN` defaults to
@@ -27,40 +29,52 @@ It can be an internal address reachable by the Next.js server.
 it refreshes through Django, forwards `Set-Cookie`, and redirects back so the
 browser can send the new cookies when rendering the page again.
 
-The separate `/api/backend-media/*` route still serves existing Django media
-URLs used by thumbnails and subtitles. Removing the API gateway does not
-change media delivery.
+The more-specific `/api/backend-media/*` route continues to serve Django media
+URLs used by thumbnails and subtitles; the API catch-all does not replace it.
 
-## Production: lingopalm.com and api.lingopalm.com
+## Production: Vercel frontend and Render backend
 
-Use `.env.production.example` as the frontend deployment template. Set
-`NEXT_PUBLIC_DJANGO_ORIGIN=https://api.lingopalm.com` **before building**;
-Next.js embeds public environment variables into the browser bundle.
-Rebuild when changing this address. Use HTTPS on both domains.
+The frontend is `https://lingo-palm-frontend.vercel.app`. In Vercel's project
+settings, set the server-only environment variable below to the actual Render
+URL, then deploy. Use `frontend` as Vercel's root directory and the Next.js preset.
+
+```dotenv
+DJANGO_ORIGIN=https://YOUR-RENDER-SERVICE.onrender.com
+```
+
+Do not use the placeholder literally. No `NEXT_PUBLIC_DJANGO_ORIGIN` is required
+in production. Keep database credentials on Render only. Enable Vercel Fluid
+compute (the default) for the proxy's 120-second duration, allowing time for a
+sleeping Render free service to wake up. The first request may still be slow.
 
 Run Django with `config.settings.production` and the values in
 `backend/.env.production.example`, including:
 
 ```dotenv
-CORS_ALLOWED_ORIGINS=https://lingopalm.com
-CSRF_TRUSTED_ORIGINS=https://lingopalm.com,https://api.lingopalm.com
-JWT_COOKIE_DOMAIN=.lingopalm.com
-CSRF_COOKIE_DOMAIN=.lingopalm.com
+CORS_ALLOWED_ORIGINS=
+CSRF_TRUSTED_ORIGINS=https://lingo-palm-frontend.vercel.app
+JWT_COOKIE_DOMAIN=
+CSRF_COOKIE_DOMAIN=
 ```
 
-Django allows credentialed CORS requests. Its production settings use secure,
-shared-domain JWT and CSRF cookies. JWT cookies remain HttpOnly; the CSRF
-cookie is readable so the frontend can send `X-CSRFToken`. Shared JWT cookies
-also let Next.js authenticate server-rendered pages. Logout expires cookies
-using the same domain used when setting them.
+The proxy forwards cookies, the original `Origin`, and `X-CSRFToken` to Render.
+It relays each `Set-Cookie` separately, so cookies belong to the Vercel frontend
+and are available for server-rendered pages. JWT cookies remain HttpOnly and
+Secure; the CSRF cookie remains readable. Django still checks CSRF on mutations.
+API responses are never cached. The destination is fixed by `DJANGO_ORIGIN`,
+and the proxy does not follow upstream redirects to other hosts.
 
-When migrating a running deployment from host-only gateway cookies, clear the
-old access/refresh/CSRF cookies for both hosts and sign in again. Old host-only
-cookies and new domain cookies can otherwise coexist with the same names.
+Do not set a cookie domain to `.vercel.app` or `.onrender.com`. Preview domains
+need their exact origins added to Django's CSRF allowlist if you want to use them.
+The same proxy approach also works with future custom domains.
+
+When switching an existing deployment from shared-domain cookies, clear the old
+access/refresh/CSRF cookies and sign in again to avoid duplicate cookie names.
 
 ## Verification
 
-- `npm test`: direct API requests, uploads, validation errors, and refresh flows.
+- `npm test`: development requests, production routing, cookie/CSRF forwarding,
+  multipart bodies, validation errors, refresh/logout, and proxy failure cases.
 - `npm run lint`: ESLint.
 - `npm run build`: production build.
 - From `backend`: `.venv/Scripts/python.exe manage.py test apps.users`.
