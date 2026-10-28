@@ -82,7 +82,7 @@ export function VideoPlayerInner({
     source,
     store,
   });
-  useActiveCue({ cues });
+  useActiveCue({ cues, videoRef, subtitleSource });
 
   useEffect(() => {
     setMappings(initialMappings);
