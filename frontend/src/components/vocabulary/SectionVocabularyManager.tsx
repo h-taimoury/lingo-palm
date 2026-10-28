@@ -11,6 +11,7 @@ import type { TaughtSense } from "@/types/api/courses"
 import type { VocabularyBulkActionRequest, VocabularyBulkActionResponse } from "@/types/api/vocabulary"
 
 type NewAction = "set_learned" | "set_already_known"
+const PAGE_SIZE = 20
 
 export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: TaughtSense[] }) {
   const [detailItem, setDetailItem] = useState<TaughtSense | null>(null)
@@ -18,8 +19,14 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
   const [selected, setSelected] = useState<Set<number>>(() => new Set())
   const [busy, setBusy] = useState<NewAction | null>(null)
   const [error, setError] = useState<unknown>(null)
+  const [newPage, setNewPage] = useState(1)
+  const [learnedPage, setLearnedPage] = useState(1)
   const fresh = useMemo(() => items.filter((item) => !item.is_learned), [items])
   const learned = useMemo(() => items.filter((item) => item.is_learned), [items])
+  const currentNewPage = Math.min(newPage, Math.max(1, Math.ceil(fresh.length / PAGE_SIZE)))
+  const currentLearnedPage = Math.min(learnedPage, Math.max(1, Math.ceil(learned.length / PAGE_SIZE)))
+  const visibleFresh = fresh.slice((currentNewPage - 1) * PAGE_SIZE, currentNewPage * PAGE_SIZE)
+  const visibleLearned = learned.slice((currentLearnedPage - 1) * PAGE_SIZE, currentLearnedPage * PAGE_SIZE)
 
   async function run(action: NewAction) {
     if (!selected.size) return
@@ -55,6 +62,7 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
           <div>
             <h2 className="text-xl font-semibold">New senses</h2>
             <p className="mt-1 text-sm text-muted-foreground">Choose senses, then tell LingoPalm whether you learned them here or already knew them.</p>
+            {selected.size > 0 ? <p className="mt-1 text-sm text-muted-foreground" role="status">{selected.size} selected across all pages</p> : null}
           </div>
           <div className="flex gap-2">
             <Button variant="outline" disabled={!selected.size || busy !== null} onClick={() => void run("set_already_known")}>
@@ -69,8 +77,8 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
         </div>
         <div className="mt-4"><ApiErrorMessage error={error} /></div>
         {fresh.length ? (
-          <div className="mt-4 grid gap-3">
-            {fresh.map((item) => {
+          <div className="mt-4 grid max-w-3xl gap-3">
+            {visibleFresh.map((item) => {
               const checked = selected.has(item.sense.id)
               return (
                 <div key={item.sense.id} className="flex items-center gap-3 rounded-xl border bg-card">
@@ -98,12 +106,13 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
         ) : (
           <p className="mt-4 rounded-xl border border-dashed p-7 text-center text-sm text-muted-foreground">You have learned every sense taught in this section.</p>
         )}
+        <SensePagination label="New senses" page={currentNewPage} count={fresh.length} onPageChange={setNewPage} />
       </section>
       <section>
         <h2 className="text-xl font-semibold">Already learned</h2>
         <p className="mt-1 text-sm text-muted-foreground">Current saved state from your vocabulary.</p>
-        <div className="mt-4 grid gap-3">
-          {learned.length ? learned.map((item) => (
+        <div className="mt-4 grid max-w-3xl gap-3">
+          {learned.length ? visibleLearned.map((item) => (
             <div key={item.sense.id} className="flex items-center gap-3 rounded-xl border bg-card">
               <div className="min-w-0 flex-1 p-4"><SenseSummary item={item} /></div>
               {detailsButton(item)}
@@ -112,6 +121,7 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
             <p className="rounded-xl border border-dashed p-7 text-center text-sm text-muted-foreground">Nothing learned here yet.</p>
           )}
         </div>
+        <SensePagination label="Already learned" page={currentLearnedPage} count={learned.length} onPageChange={setLearnedPage} />
       </section>
       {detailItem ? (
         <LearningModal
@@ -124,6 +134,28 @@ export function SectionVocabularyManager({ taughtSenses }: { taughtSenses: Taugh
         />
       ) : null}
     </div>
+  )
+}
+
+function SensePagination({ label, page, count, onPageChange }: {
+  label: string
+  page: number
+  count: number
+  onPageChange: (page: number) => void
+}) {
+  if (count === 0) return null
+  const pages = Math.ceil(count / PAGE_SIZE)
+  return (
+    <nav aria-label={`${label} pagination`} className="mt-5 flex max-w-3xl flex-wrap items-center justify-between gap-3">
+      <p className="text-sm text-muted-foreground" role="status">
+        {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, count)} of {count}
+        {pages > 1 ? ` · Page ${page} of ${pages}` : ""}
+      </p>
+      {pages > 1 ? <div className="flex gap-2">
+        <Button type="button" variant="outline" size="sm" disabled={page === 1} onClick={() => onPageChange(page - 1)}>Previous</Button>
+        <Button type="button" variant="outline" size="sm" disabled={page === pages} onClick={() => onPageChange(page + 1)}>Next</Button>
+      </div> : null}
+    </nav>
   )
 }
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FlashcardDeck } from "@/components/review/FlashcardDeck";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { djangoServerFetch } from "@/lib/api/server";
@@ -17,14 +16,6 @@ export default async function Page() {
       <PageHeader
         title="Flashcard review"
         description="Review up to 10 senses at a time. Click a card to flip between its sense and definition. Marking a card reviewed removes it from the review queue without unlearning it."
-        actions={
-          <Link
-            href="/review/clip"
-            className="text-sm font-medium underline underline-offset-4"
-          >
-            Clip review
-          </Link>
-        }
       />
       <div className="mt-8">
         <FlashcardDeck initialData={data} />

@@ -27,6 +27,10 @@ export function Timeline({ onSeek }: TimelineProps) {
         value={Math.min(currentTime, safeDuration)}
         disabled={safeDuration === 0}
         onChange={(event) => onSeek(Number(event.target.value))}
+        // Release pointer focus so Enter can open the current subtitle's senses.
+        // Keyboard users can still Tab here and seek with the arrow keys.
+        onPointerUp={(event) => event.currentTarget.blur()}
+        onPointerCancel={(event) => event.currentTarget.blur()}
         className="h-1.5 min-w-0 flex-1 cursor-pointer accent-white disabled:cursor-default"
       />
 
