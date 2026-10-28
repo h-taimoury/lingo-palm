@@ -101,14 +101,15 @@ function ProductPreview() {
         </div>
 
         <video
-          className="block h-auto w-full bg-black"
+          className="block aspect-[427/240] h-auto w-full bg-black"
+          width={854}
+          height={480}
           src="/demo.mp4"
           aria-label="Lingo Palm product demo"
           autoPlay
           muted
           loop
           playsInline
-          controls
         />
       </div>
     </div>

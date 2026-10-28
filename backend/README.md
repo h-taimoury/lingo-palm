@@ -416,7 +416,10 @@ For manual setup, use:
 Set these environment variables in Render, not in Git:
 
 - `DJANGO_SETTINGS_MODULE=config.settings.production`
-- `DJANGO_SECRET_KEY`: generate a long random secret (the Blueprint generates it).
+- `DJANGO_SECRET_KEY`: supply a long random secret, generated locally with
+  `python -c "import secrets; print(secrets.token_urlsafe(64))"`. Paste only the
+  generated value into Render. Do not use Render's `generateValue` for this key:
+  its 44-character output falls below Django's 50-character deployment check.
 - `DATABASE_URL`: your direct Neon connection string, retaining SSL parameters.
 - `CSRF_TRUSTED_ORIGINS=https://lingo-palm-frontend.vercel.app`
 

@@ -59,6 +59,12 @@ export function useMediaController({
       store.getState().setCurrentTime(media.currentTime)
     }
 
+    const syncSeeked = () => {
+      // The browser may settle at a different time than the requested target.
+      // Invalidate the cue cache even if currentTime has not changed.
+      store.setState({ currentTime: media.currentTime, activeCueIndex: -1 })
+    }
+
     const syncDuration = () => {
       store.getState().setDuration(
         Number.isFinite(media.duration) ? media.duration : 0,
@@ -104,6 +110,7 @@ export function useMediaController({
     media.addEventListener("pause", syncPause)
     media.addEventListener("timeupdate", syncTime)
     media.addEventListener("seeking", syncTime)
+    media.addEventListener("seeked", syncSeeked)
     media.addEventListener("durationchange", syncDuration)
     media.addEventListener("loadedmetadata", syncDuration)
     media.addEventListener("waiting", syncWaiting)
@@ -119,6 +126,7 @@ export function useMediaController({
       media.removeEventListener("pause", syncPause)
       media.removeEventListener("timeupdate", syncTime)
       media.removeEventListener("seeking", syncTime)
+      media.removeEventListener("seeked", syncSeeked)
       media.removeEventListener("durationchange", syncDuration)
       media.removeEventListener("loadedmetadata", syncDuration)
       media.removeEventListener("waiting", syncWaiting)
