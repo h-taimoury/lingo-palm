@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { LoaderCircle, MoreHorizontal } from "lucide-react";
+import { BookOpen, LoaderCircle, MoreHorizontal, RotateCcw, Bell, BellOff } from "lucide-react";
+import { Menu } from "@base-ui/react/menu";
 import { LearningModal } from "@/components/video-player/learning/LearningModal";
 import type { Sense } from "@/types/api/dictionary";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage";
 import { apiClient } from "@/lib/api/client";
@@ -30,6 +30,9 @@ export function VocabularyListManager({
   const router = useRouter();
   const [selected, setSelected] = useState<Set<number>>(() => new Set());
   const [busy, setBusy] = useState<VocabularyBulkAction | null>(null);
+  const [refreshing, startTransition] = useTransition();
+  const mutationPending = useRef(false);
+  const itemClass = "flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2.5 text-sm outline-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50";
   const [error, setError] = useState<unknown>(null);
   const [detail, setDetail] = useState<{ row: Vocabulary; sense: Sense } | null>(null);
   const [loadingSenseId, setLoadingSenseId] = useState<number | null>(null);
@@ -54,8 +57,9 @@ export function VocabularyListManager({
       if (!controller.signal.aborted) setLoadingSenseId(null);
     }
   }
-  async function run(action: VocabularyBulkAction) {
-    if (!selected.size) return;
+  async function run(action: VocabularyBulkAction, senseIds = [...selected]) {
+    if (!senseIds.length || mutationPending.current || refreshing) return;
+    mutationPending.current = true;
     setBusy(action);
     setError(null);
     try {
@@ -64,19 +68,41 @@ export function VocabularyListManager({
         VocabularyBulkActionRequest
       >("/api/my-vocabulary/vocabulary/bulk-action/", {
         action,
-        sense_ids: [...selected],
+        sense_ids: senseIds,
       });
       setSelected(new Set());
-      router.refresh();
+      startTransition(() => router.refresh());
     } catch (caught) {
       setError(caught);
     } finally {
+      mutationPending.current = false;
       setBusy(null);
     }
   }
   return (
     <div>
       <ApiErrorMessage error={error} />
+      {rows.length ? (
+        <div
+          role="group"
+          aria-label="Actions for selected vocabulary"
+          className="sticky top-[calc(4rem+1px)] z-30 flex flex-wrap gap-2 border-b bg-background py-3"
+        >
+          {actions.map(({ action, label, variant = "outline" }) => (
+            <Button
+              key={action}
+              variant={variant}
+              disabled={!selected.size || busy !== null || refreshing}
+              onClick={() => void run(action)}
+            >
+              {busy === action ? (
+                <LoaderCircle className="size-4 animate-spin" />
+              ) : null}
+              {label}
+            </Button>
+          ))}
+        </div>
+      ) : null}
       {rows.length ? (
         <div className="mt-4 grid gap-3">
           {rows.map((row) => {
@@ -115,28 +141,37 @@ export function VocabularyListManager({
                   <span className="mt-2 block text-sm leading-6">
                     {row.sense.definition}
                   </span>
-                  <span className="mt-3 flex gap-2">
-                    <Badge variant="outline">
-                      {row.already_known ? "Already knew" : "Learned"}
-                    </Badge>
-                    <Badge variant={row.needs_review ? "secondary" : "outline"}>
-                      {row.needs_review ? "Needs review" : "Review off"}
-                    </Badge>
-                  </span>
                 </span>
                 </label>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="icon"
+                <Menu.Root modal={false}>
+                <Menu.Trigger
+                  openOnHover={false}
+                  render={<Button type="button" variant="outline" size="icon" />}
                   className="mr-4 shrink-0 rounded-full hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)] dark:hover:bg-[color-mix(in_oklch,var(--muted),var(--foreground)_8%)]"
-                  aria-label={`View details for ${row.sense.entry.word}, sense ${row.sense.sense_number ?? row.sense.id}`}
-                  aria-haspopup="dialog"
+                  aria-label={`Actions for ${row.sense.entry.word}, sense ${row.sense.sense_number ?? row.sense.id}`}
                   aria-busy={loadingSenseId === row.sense.id}
-                  onClick={() => void showDetails(row)}
                 >
                   {loadingSenseId === row.sense.id ? <LoaderCircle className="animate-spin" aria-hidden="true" /> : <MoreHorizontal aria-hidden="true" />}
-                </Button>
+                </Menu.Trigger>
+                <Menu.Portal>
+                  <Menu.Positioner side="bottom" align="end" sideOffset={8} collisionPadding={12} className="z-50">
+                    <Menu.Popup className="w-52 rounded-xl border bg-popover p-1.5 text-popover-foreground shadow-lg outline-none">
+                      <Menu.Item disabled={busy !== null || refreshing} onClick={() => void run("unset_learned", [row.sense.id])} className={itemClass}>
+                        <RotateCcw className="size-4" aria-hidden="true" />
+                        Unlearn
+                      </Menu.Item>
+                      <Menu.Item disabled={busy !== null || refreshing} onClick={() => void run(row.needs_review ? "unset_needs_review" : "set_needs_review", [row.sense.id])} className={itemClass}>
+                        {row.needs_review ? <BellOff className="size-4" aria-hidden="true" /> : <Bell className="size-4" aria-hidden="true" />}
+                        {row.needs_review ? "Review off" : "Review on"}
+                      </Menu.Item>
+                      <Menu.Separator className="my-1 h-px bg-border" />
+                      <Menu.Item disabled={loadingSenseId === row.sense.id} onClick={() => void showDetails(row)} className={itemClass}>
+                        <BookOpen className="size-4" aria-hidden="true" />View full word
+                      </Menu.Item>
+                    </Menu.Popup>
+                  </Menu.Positioner>
+                </Menu.Portal>
+                </Menu.Root>
               </div>
             );
           })}
@@ -146,26 +181,10 @@ export function VocabularyListManager({
           No senses in this list.
         </p>
       )}
-      {rows.length ? (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {actions.map(({ action, label, variant = "outline" }) => (
-            <Button
-              key={action}
-              variant={variant}
-              disabled={!selected.size || busy !== null}
-              onClick={() => void run(action)}
-            >
-              {busy === action ? (
-                <LoaderCircle className="size-4 animate-spin" />
-              ) : null}
-              {label}
-            </Button>
-          ))}
-        </div>
-      ) : null}
       {detail ? (
         <LearningModal
           presentation="section-vocabulary"
+          initialFullWord
           items={[{ mappingId: detail.sense.id, mappingLabel: detail.sense.entry.word, sense: detail.sense }]}
           activeIndex={0}
           learnedSenseIds={new Set([detail.sense.id])}

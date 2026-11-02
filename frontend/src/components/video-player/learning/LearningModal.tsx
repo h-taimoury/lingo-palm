@@ -21,6 +21,7 @@ export function LearningModal({
   onLearn,
   onAlreadyKnown,
   presentation = "player",
+  initialFullWord = false,
 }: {
   items: LearningItem[];
   activeIndex: number;
@@ -34,11 +35,12 @@ export function LearningModal({
   onLearn?: (senseId: number) => void;
   onAlreadyKnown?: (senseId: number) => void;
   presentation?: "player" | "section-vocabulary";
+  initialFullWord?: boolean;
 }) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
-  const [wordSenseId, setWordSenseId] = useState<number | null>(null);
+  const [wordSenseId, setWordSenseId] = useState<number | null>(() => initialFullWord ? items[activeIndex]?.sense.id ?? null : null);
   const fullWordButton = useRef<HTMLButtonElement>(null);
   const backButton = useRef<HTMLButtonElement>(null);
   const senseScrollTop = useRef(0);

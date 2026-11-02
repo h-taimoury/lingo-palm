@@ -87,10 +87,10 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
         target.isContentEditable || target.closest("input, textarea, select, [role='textbox']")
       )) return;
 
-      const key = event.key.toLowerCase();
-      if (key !== "a" && key !== "b") return;
-      const accent = key === "b" ? "British" : "American";
-      const url = key === "b" ? pronunciation?.br_audio : pronunciation?.am_audio;
+      const code = event.code;
+      if (code !== "KeyA" && code !== "KeyB") return;
+      const accent = code === "KeyB" ? "British" : "American";
+      const url = code === "KeyB" ? pronunciation?.br_audio : pronunciation?.am_audio;
       if (!url) return;
       event.preventDefault();
       playPronunciation(accent, url);

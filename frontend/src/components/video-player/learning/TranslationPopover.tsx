@@ -16,7 +16,7 @@ export function TranslationPopover({ translation, keyboardShortcuts = false }: {
     if (!keyboardShortcuts) return;
     function onKeyDown(event: KeyboardEvent) {
       if (event.defaultPrevented || event.repeat || event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
-      if (event.key.toLowerCase() !== "t") return;
+      if (event.code !== "KeyT") return;
       const target = event.target;
       if (target instanceof HTMLElement && (
         target.isContentEditable || target.closest("input, textarea, select, [role='textbox']")
