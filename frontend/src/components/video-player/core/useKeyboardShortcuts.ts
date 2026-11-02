@@ -34,6 +34,20 @@ export function useKeyboardShortcuts({
       return
     }
 
+    // Capture Enter before focused controls or the full-word view consume it.
+    function onEnterKeyDown(event: KeyboardEvent) {
+      if (event.key !== "Enter" || event.isComposing || shouldIgnoreAllShortcuts(event.target)) {
+        return
+      }
+
+      event.preventDefault()
+      event.stopPropagation()
+      if (event.repeat) return
+
+      if (controller.modalMode === "closed") controller.openCueModal()
+      else controller.closeModal()
+    }
+
     function onKeyDown(event: KeyboardEvent) {
       if (shouldIgnoreAllShortcuts(event.target)) {
         return
@@ -43,14 +57,7 @@ export function useKeyboardShortcuts({
       const isNativeActionTarget = isButtonOrLink(event.target)
 
       if (controller.modalMode !== "closed") {
-        if (key === "enter") {
-          if (isNativeActionTarget) {
-            return
-          }
-
-          event.preventDefault()
-          controller.closeModal()
-        } else if (key === "arrowleft") {
+        if (key === "arrowleft") {
           event.preventDefault()
           controller.previousSense()
         } else if (key === "arrowright") {
@@ -61,12 +68,11 @@ export function useKeyboardShortcuts({
         return
       }
 
-      if (isNativeActionTarget && (key === "enter" || key === " ")) {
+      if (isNativeActionTarget && key === " ") {
         return
       }
 
       if (
-        key === "enter" ||
         key === " " ||
         key === "k" ||
         key === "j" ||
@@ -81,9 +87,6 @@ export function useKeyboardShortcuts({
       }
 
       switch (key) {
-        case "enter":
-          controller.openCueModal()
-          break
         case " ":
         case "k":
           controller.togglePlay()
@@ -108,9 +111,13 @@ export function useKeyboardShortcuts({
       }
     }
 
+    window.addEventListener("keydown", onEnterKeyDown, true)
     window.addEventListener("keydown", onKeyDown)
 
-    return () => window.removeEventListener("keydown", onKeyDown)
+    return () => {
+      window.removeEventListener("keydown", onEnterKeyDown, true)
+      window.removeEventListener("keydown", onKeyDown)
+    }
   }, [controller, enabled])
 }
 
