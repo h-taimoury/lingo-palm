@@ -36,7 +36,7 @@ export function AccountMenu({ userLabel }: { userLabel: string }) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="max-w-24 truncate text-sm text-muted-foreground sm:max-w-36" title={userLabel}>
+      <span className="hidden max-w-36 truncate text-sm text-muted-foreground sm:block" title={userLabel}>
         {userLabel}
       </span>
     <Menu.Root modal={false}>

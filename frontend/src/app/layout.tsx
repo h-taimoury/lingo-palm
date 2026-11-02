@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { ToastProvider } from "@/components/providers/ToastProvider";
-import { bNazanin } from "@/lib/fonts";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
+import { bNazanin, geist, geistMono } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: { default: "LingoPalm", template: "%s · LingoPalm" },
