@@ -17,7 +17,7 @@ class VocabularyPagination(PageNumberPagination):
 
 class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """A user's own learned-senses collection. Reads use plain list
-    (optionally filtered by ?needs_review=true|false). All writes go through
+    (optionally filtered by needs_review and already_known booleans). All writes go through
     bulk-action: the user selects one or more senses and applies one of a
     fixed set of actions to them (see services.ACTIONS).
     """
@@ -26,7 +26,7 @@ class VocabularyViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = VocabularySerializer
     pagination_class = VocabularyPagination
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ("needs_review",)
+    filterset_fields = ("needs_review", "already_known")
 
     def get_queryset(self):
         return Vocabulary.objects.filter(user=self.request.user).select_related(

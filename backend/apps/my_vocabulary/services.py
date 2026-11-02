@@ -5,10 +5,10 @@ from .models import Vocabulary
 User = get_user_model()
 
 
-def _upsert(user: User, sense_ids: set[int], already_known: bool, needs_review: bool):
+def _upsert(user: User, sense_ids: set[int], already_known: bool, needs_review: bool, *, preserve_review: bool = False):
     """Create rows for any sense_ids the user doesn't have yet (with the given
     field values baked in at creation), and update only the sense_ids that
-    already had a row, to the same field values.
+    already had a row, preserving their review preference when requested.
     """
     if not sense_ids:
         return Vocabulary.objects.none()
@@ -34,9 +34,10 @@ def _upsert(user: User, sense_ids: set[int], already_known: bool, needs_review: 
         )
 
     if existing_ids:
-        Vocabulary.objects.filter(user=user, sense_id__in=existing_ids).update(
-            already_known=already_known, needs_review=needs_review
-        )
+        fields = {"already_known": already_known}
+        if not preserve_review:
+            fields["needs_review"] = needs_review
+        Vocabulary.objects.filter(user=user, sense_id__in=existing_ids).update(**fields)
 
     return Vocabulary.objects.filter(user=user, sense_id__in=sense_ids).select_related(
         "sense__entry"
@@ -72,9 +73,9 @@ def _delete(user: User, sense_ids: set[int]) -> set[int]:
 
 
 ACTIONS = {
-    "set_already_known": lambda user, ids: _upsert(user, ids, True, False),
+    "set_already_known": lambda user, ids: _upsert(user, ids, True, False, preserve_review=True),
     "unset_already_known": lambda user, ids: _update_existing(
-        user, ids, already_known=False, needs_review=True
+        user, ids, already_known=False
     ),
     "set_learned": lambda user, ids: _upsert(user, ids, False, True),
     "unset_learned": _delete,

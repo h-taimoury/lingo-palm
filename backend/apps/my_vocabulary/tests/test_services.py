@@ -34,6 +34,17 @@ class VocabularyServiceTests(TestCase):
             Vocabulary.objects.filter(user=self.user, sense=self.sense_2).exists()
         )
 
+    def test_already_known_actions_preserve_each_senses_review_preference(self):
+        Vocabulary.objects.create(user=self.user, sense=self.sense_1, needs_review=True)
+        Vocabulary.objects.create(user=self.user, sense=self.sense_2, needs_review=False)
+        for action, expected_known in [("set_already_known", True), ("unset_already_known", False)]:
+            with self.subTest(action=action):
+                apply_bulk_action(self.user, action, {self.sense_1, self.sense_2})
+                for sense, expected_review in [(self.sense_1, True), (self.sense_2, False)]:
+                    vocab = Vocabulary.objects.get(user=self.user, sense=sense)
+                    self.assertEqual(vocab.already_known, expected_known)
+                    self.assertEqual(vocab.needs_review, expected_review)
+
     def test_unset_already_known_never_creates_rows(self):
         apply_bulk_action(self.user, "unset_already_known", {self.sense_1})
         self.assertFalse(Vocabulary.objects.filter(user=self.user).exists())

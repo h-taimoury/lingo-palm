@@ -71,6 +71,29 @@ class VocabularyBulkActionApiTests(APITestCase):
         self.assertTrue(vocab.already_known)
         self.assertFalse(vocab.needs_review)
 
+    def test_learning_source_and_review_filters_combine(self):
+        rows = []
+        for known in (True, False):
+            for review in (True, False):
+                sense = Sense.objects.create(entry=self.entry, title=f"filter_{known}_{review}", definition="test")
+                row = Vocabulary.objects.create(user=self.user, sense=sense, already_known=known, needs_review=review)
+                rows.append(row)
+        other_user = get_user_model().objects.create_user(email="other@example.com", password="password123")
+        Vocabulary.objects.create(user=other_user, sense=rows[0].sense, already_known=True, needs_review=True)
+        for known in (None, True, False):
+            for review in (None, True, False):
+                with self.subTest(known=known, review=review):
+                    params = {}
+                    if known is not None:
+                        params["already_known"] = str(known).lower()
+                    if review is not None:
+                        params["needs_review"] = str(review).lower()
+                    response = self.client.get("/api/my-vocabulary/vocabulary/", params)
+                    self.assertEqual(response.status_code, 200)
+                    expected = {row.id for row in rows if (known is None or row.already_known == known) and (review is None or row.needs_review == review)}
+                    self.assertEqual(response.data["count"], len(expected))
+                    self.assertEqual({row["id"] for row in response.data["results"]}, expected)
+
     def test_unset_already_known_only_updates_existing_rows(self):
         Vocabulary.objects.create(
             user=self.user, sense=self.sense_1, already_known=True, needs_review=False
@@ -87,7 +110,7 @@ class VocabularyBulkActionApiTests(APITestCase):
         )
         vocab = Vocabulary.objects.get(user=self.user, sense=self.sense_1)
         self.assertFalse(vocab.already_known)
-        self.assertTrue(vocab.needs_review)
+        self.assertFalse(vocab.needs_review)
 
     def test_set_needs_review_and_unset_needs_review(self):
         Vocabulary.objects.create(
