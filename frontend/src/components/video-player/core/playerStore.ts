@@ -10,6 +10,8 @@ import type {
 export const PLAYER_PREFERENCES_STORAGE_KEY = "lingopalm.player.preferences"
 
 export type PlayerStoreState = PlayerState & {
+  showShortTranslations: boolean
+  toggleShortTranslations: () => void
   setCurrentTime: (value: number) => void
   setDuration: (value: number) => void
   setPlaying: (value: boolean) => void
@@ -64,6 +66,9 @@ const initialState: PlayerState = {
 export function createPlayerStore() {
   return createStore<PlayerStoreState>()((set) => ({
     ...initialState,
+    showShortTranslations: false,
+    toggleShortTranslations: () =>
+      set((state) => ({ showShortTranslations: !state.showShortTranslations })),
 
     setCurrentTime: (currentTime) => set({ currentTime }),
     setDuration: (duration) => set({ duration }),

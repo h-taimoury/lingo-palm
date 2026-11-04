@@ -45,6 +45,7 @@ class SenseSummarySerializer(serializers.ModelSerializer):
             "sense_number",
             "definition",
             "translation",
+            "short_translation",
             "entry",
         )
 
@@ -90,6 +91,7 @@ class SenseSerializer(serializers.ModelSerializer):
             "title",
             "definition",
             "translation",
+            "short_translation",
             "lex_unit",
             "geo",
             "register",
@@ -97,6 +99,11 @@ class SenseSerializer(serializers.ModelSerializer):
             "opposites",
             "examples",
         )
+
+    def validate_short_translation(self, value):
+        if len(value.split()) > 2:
+            raise serializers.ValidationError("Use at most two words.")
+        return value
 
     def validate_synonyms(self, value):  # noqa: ANN201
         _validate_string_list(value)

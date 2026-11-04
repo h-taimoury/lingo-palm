@@ -71,6 +71,7 @@ class Sense(models.Model):
     title = models.CharField(max_length=255)
     definition = models.TextField()
     translation = models.TextField(null=True, blank=True)
+    short_translation = models.CharField(max_length=100, blank=True, default="")
     lex_unit = models.CharField(max_length=500, null=True, blank=True)
     geo = models.CharField(max_length=100, null=True, blank=True)
     register = models.CharField(max_length=100, null=True, blank=True)

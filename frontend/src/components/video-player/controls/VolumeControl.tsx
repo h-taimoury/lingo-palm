@@ -35,7 +35,8 @@ export function VolumeControl({
 
       <input
         aria-label="Volume"
-        title="Volume"
+        title="Volume (↑ / ↓)"
+        aria-keyshortcuts="ArrowUp ArrowDown"
         type="range"
         min={0}
         max={1}

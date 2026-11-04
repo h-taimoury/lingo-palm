@@ -30,6 +30,8 @@ export function PlayerControls({
 }: PlayerControlsProps) {
   const isPlaying = usePlayerStore((state) => state.isPlaying);
   const isEnded = usePlayerStore((state) => state.isEnded);
+  const showShortTranslations = usePlayerStore((state) => state.showShortTranslations);
+  const toggleShortTranslations = usePlayerStore((state) => state.toggleShortTranslations);
 
   return (
     <div
@@ -66,6 +68,16 @@ export function PlayerControls({
         <div className="flex-1" />
 
         <PlaybackRate onChange={onPlaybackRateChange} />
+        <button
+          type="button"
+          onClick={toggleShortTranslations}
+          aria-label="Short Persian translations"
+          aria-pressed={showShortTranslations}
+          title={showShortTranslations ? "Hide short translations" : "Show short translations"}
+          className={`inline-flex h-9 items-center justify-center rounded-md px-2 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${showShortTranslations ? "bg-amber-300 text-black" : "text-white hover:bg-white/15"}`}
+        >
+          T
+        </button>
         {onToggleTheater ? <TheaterButton onToggle={onToggleTheater} /> : null}
         <FullscreenButton onToggle={onToggleFullscreen} />
       </div>

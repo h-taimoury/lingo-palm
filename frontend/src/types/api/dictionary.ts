@@ -28,6 +28,7 @@ export type SenseSummary = {
   sense_number: number | null;
   definition: string;
   translation: string | null;
+  short_translation?: string;
   entry: EntrySummary;
 };
 

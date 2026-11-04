@@ -182,6 +182,7 @@ export function VideoPlayerInner({
     () => ({
       togglePlay: controller.togglePlay,
       seekBy: controller.seekBy,
+      adjustVolume: controller.adjustVolume,
       toggleMute: controller.toggleMute,
       toggleFullscreen: controller.toggleFullscreen,
       toggleTheater,

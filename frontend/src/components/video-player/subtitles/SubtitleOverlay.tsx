@@ -20,11 +20,18 @@ export function SubtitleOverlay({
   onOpenMapping,
 }: SubtitleOverlayProps) {
   const activeCueIndex = usePlayerStore((state) => state.activeCueIndex);
+  const showShortTranslations = usePlayerStore((state) => state.showShortTranslations);
 
   const mappedCues = useMemo(
     () => annotateCuesWithMappings(cues, mappings),
     [cues, mappings],
   );
+
+  const shortTranslations = useMemo(() => new Map(
+    mappings
+      .filter((mapping) => mapping.senses.length === 1 && mapping.senses[0].short_translation?.trim())
+      .map((mapping) => [mapping.id, mapping.senses[0].short_translation!.trim()]),
+  ), [mappings]);
 
   const cue = mappedCues[activeCueIndex];
 
@@ -34,7 +41,11 @@ export function SubtitleOverlay({
 
   return (
     <div className="pointer-events-none absolute inset-x-4 bottom-20 z-30 flex justify-center [container-type:inline-size]">
-      <SubtitleCue cue={cue} onOpenMapping={onOpenMapping} />
+      <SubtitleCue
+        cue={cue}
+        shortTranslations={showShortTranslations ? shortTranslations : undefined}
+        onOpenMapping={onOpenMapping}
+      />
     </div>
   );
 }

@@ -229,6 +229,12 @@ export function useMediaController({
     [videoRef],
   )
 
+  const adjustVolume = useCallback((amount: number) => {
+    const media = videoRef.current
+    if (!media) return
+    setVolume((media.muted ? 0 : media.volume) + amount)
+  }, [setVolume, videoRef])
+
   const toggleMute = useCallback(() => {
     const media = videoRef.current
     if (!media) return
@@ -264,6 +270,7 @@ export function useMediaController({
       seekTo,
       seekBy,
       setVolume,
+      adjustVolume,
       toggleMute,
       setPlaybackRate,
       toggleFullscreen,
@@ -275,6 +282,7 @@ export function useMediaController({
       seekTo,
       setPlaybackRate,
       setVolume,
+      adjustVolume,
       toggleFullscreen,
       toggleMute,
       togglePlay,

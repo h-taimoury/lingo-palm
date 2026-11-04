@@ -7,6 +7,7 @@ import type { LearningModalMode } from "@/types/player"
 type KeyboardController = {
   togglePlay: () => void
   seekBy: (seconds: number) => void
+  adjustVolume: (amount: number) => void
   toggleMute: () => void
   toggleFullscreen: () => Promise<void>
   toggleTheater: () => void
@@ -34,18 +35,31 @@ export function useKeyboardShortcuts({
       return
     }
 
-    // Capture Enter before focused controls or the full-word view consume it.
-    function onEnterKeyDown(event: KeyboardEvent) {
-      if (event.key !== "Enter" || event.isComposing || shouldIgnoreAllShortcuts(event.target)) {
-        return
-      }
+    // Handle player actions before focused buttons, sliders, or menus consume them.
+    function onPlayerKeyDown(event: KeyboardEvent) {
+      if (event.isComposing || isTypingTarget(event.target)) return
+      const key = event.key
+      if (!["Enter", " ", "ArrowUp", "ArrowDown"].includes(key)) return
+      if (key === " " && controller.modalMode !== "closed") return
 
       event.preventDefault()
       event.stopPropagation()
+      if (key === "ArrowUp" || key === "ArrowDown") {
+        controller.adjustVolume(key === "ArrowUp" ? 0.05 : -0.05)
+        return
+      }
       if (event.repeat) return
-
-      if (controller.modalMode === "closed") controller.openCueModal()
+      if (key === " ") controller.togglePlay()
+      else if (controller.modalMode === "closed") controller.openCueModal()
       else controller.closeModal()
+    }
+
+    function onPlayerKeyUp(event: KeyboardEvent) {
+      if (isTypingTarget(event.target)) return
+      if (event.key === "Enter" || (event.key === " " && controller.modalMode === "closed")) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
     }
 
     function onKeyDown(event: KeyboardEvent) {
@@ -54,7 +68,6 @@ export function useKeyboardShortcuts({
       }
 
       const key = event.key.toLowerCase()
-      const isNativeActionTarget = isButtonOrLink(event.target)
 
       if (controller.modalMode !== "closed") {
         if (key === "arrowleft") {
@@ -68,12 +81,8 @@ export function useKeyboardShortcuts({
         return
       }
 
-      if (isNativeActionTarget && key === " ") {
-        return
-      }
 
       if (
-        key === " " ||
         key === "k" ||
         key === "j" ||
         key === "l" ||
@@ -87,7 +96,6 @@ export function useKeyboardShortcuts({
       }
 
       switch (key) {
-        case " ":
         case "k":
           controller.togglePlay()
           break
@@ -111,11 +119,13 @@ export function useKeyboardShortcuts({
       }
     }
 
-    window.addEventListener("keydown", onEnterKeyDown, true)
+    window.addEventListener("keydown", onPlayerKeyDown, true)
+    window.addEventListener("keyup", onPlayerKeyUp, true)
     window.addEventListener("keydown", onKeyDown)
 
     return () => {
-      window.removeEventListener("keydown", onEnterKeyDown, true)
+      window.removeEventListener("keydown", onPlayerKeyDown, true)
+      window.removeEventListener("keyup", onPlayerKeyUp, true)
       window.removeEventListener("keydown", onKeyDown)
     }
   }, [controller, enabled])
@@ -133,9 +143,8 @@ function shouldIgnoreAllShortcuts(target: EventTarget | null) {
   return ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)
 }
 
-function isButtonOrLink(target: EventTarget | null) {
-  return (
-    target instanceof HTMLElement &&
-    Boolean(target.closest("button, a"))
-  )
+function isTypingTarget(target: EventTarget | null) {
+  if (!(target instanceof HTMLElement)) return false
+  if (target.isContentEditable || target.closest("textarea, [role='textbox']")) return true
+  return target.tagName === "INPUT" && !["range", "button", "checkbox", "radio", "submit", "reset"].includes((target as HTMLInputElement).type)
 }
