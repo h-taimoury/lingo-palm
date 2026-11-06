@@ -5,6 +5,8 @@ import { Pause, Play, RotateCcw } from "lucide-react";
 import { usePlayerStore } from "@/components/video-player/PlayerProvider";
 import { FullscreenButton } from "@/components/video-player/controls/FullscreenButton";
 import { PlaybackRate } from "@/components/video-player/controls/PlaybackRate";
+import { LevelControl } from "@/components/video-player/controls/LevelControl";
+import type { SenseLevel } from "@/types/api/dictionary";
 import { TheaterButton } from "@/components/video-player/controls/TheaterButton";
 import { Timeline } from "@/components/video-player/controls/Timeline";
 import { VolumeControl } from "@/components/video-player/controls/VolumeControl";
@@ -17,6 +19,10 @@ type PlayerControlsProps = {
   onPlaybackRateChange: (rate: number) => void;
   onToggleFullscreen: () => void;
   onToggleTheater?: () => void;
+  selectedLevels?: readonly SenseLevel[];
+  onLevelsChange?: (levels: SenseLevel[]) => void;
+  levelMenuOpen?: boolean;
+  onLevelMenuOpenChange?: (open: boolean) => void;
 };
 
 export function PlayerControls({
@@ -27,6 +33,10 @@ export function PlayerControls({
   onPlaybackRateChange,
   onToggleFullscreen,
   onToggleTheater,
+  selectedLevels,
+  onLevelsChange,
+  levelMenuOpen,
+  onLevelMenuOpenChange,
 }: PlayerControlsProps) {
   const isPlaying = usePlayerStore((state) => state.isPlaying);
   const isEnded = usePlayerStore((state) => state.isEnded);
@@ -35,7 +45,7 @@ export function PlayerControls({
 
   return (
     <div
-      className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-3 pb-3 pt-12 sm:px-4"
+      className={`absolute inset-x-0 bottom-0 ${levelMenuOpen ? "z-40" : "z-20"} bg-gradient-to-t from-black/90 via-black/55 to-transparent px-3 pb-3 pt-12 sm:px-4`}
       data-player-interactive="true"
       onClick={(event) => event.stopPropagation()}
       onDoubleClick={(event) => event.stopPropagation()}
@@ -74,10 +84,16 @@ export function PlayerControls({
           aria-label="Short Persian translations"
           aria-pressed={showShortTranslations}
           title={showShortTranslations ? "Hide short translations" : "Show short translations"}
-          className={`inline-flex h-9 items-center justify-center rounded-md px-2 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${showShortTranslations ? "bg-amber-300 text-black" : "text-white hover:bg-white/15"}`}
+          className={`inline-flex h-9 items-center justify-center rounded-md border-b-2 px-2 text-sm font-semibold text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${showShortTranslations ? "border-amber-300" : "border-transparent"}`}
         >
           T
         </button>
+        {selectedLevels && onLevelsChange && onLevelMenuOpenChange ? <LevelControl
+          selectedLevels={selectedLevels}
+          onChange={onLevelsChange}
+          open={Boolean(levelMenuOpen)}
+          onOpenChange={onLevelMenuOpenChange}
+        /> : null}
         {onToggleTheater ? <TheaterButton onToggle={onToggleTheater} /> : null}
         <FullscreenButton onToggle={onToggleFullscreen} />
       </div>

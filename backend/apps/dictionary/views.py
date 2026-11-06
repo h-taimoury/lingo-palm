@@ -1,12 +1,25 @@
+from django.db import transaction
 from django.db.models import Case, IntegerField, Q, Value, When
+from django.db.models.functions import Trim
 from django.utils.cache import patch_cache_control, patch_vary_headers
 from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.permissions import IsAdminUser
+from rest_framework.exceptions import ValidationError
+from rest_framework import serializers
 
 from .models import Entry, Sense
 from .permissions import IsStaffOrAuthenticatedReadOnly
 from .serializers import EntrySerializer, SenseSerializer
+
+
+class TranslationReviewRowSerializer(serializers.Serializer):
+    id = serializers.IntegerField(min_value=1)
+    expected_translation = serializers.CharField(allow_null=True, allow_blank=True, trim_whitespace=False)
+    expected_short_translation = serializers.CharField(allow_null=True, allow_blank=True, trim_whitespace=False)
+    translation = serializers.CharField(allow_blank=True, trim_whitespace=False)
+    short_translation = serializers.CharField(allow_blank=True, max_length=100, trim_whitespace=False)
 
 
 class EntryViewSet(viewsets.ModelViewSet):
@@ -63,6 +76,57 @@ class SenseViewSet(viewsets.ModelViewSet):
         "sense_number",
         "id",
     )
+
+    @action(detail=False, methods=["get"], url_path="translation-review", permission_classes=[IsAdminUser])
+    def translation_review(self, request):
+        senses = Sense.objects.select_related("entry").annotate(
+            clean_translation=Trim("translation")
+        ).filter(
+            Q(translation__isnull=True) | Q(clean_translation="") | Q(short_translation__isnull=True)
+        )
+        section_id = request.query_params.get("section_id", "").strip()
+        if section_id:
+            section_id = serializers.IntegerField(min_value=1).run_validation(section_id)
+            # Use a subquery so repeated mappings cannot duplicate a sense in the random batch.
+            senses = senses.filter(pk__in=Sense.objects.filter(
+                word_mappings__section_id=section_id
+            ).values("pk"))
+        else:
+            senses = senses.filter(pk__in=Sense.objects.filter(
+                word_mappings__isnull=False
+            ).values("pk"))
+        if request.query_params.get("count_only") == "true":
+            return Response({"remaining": senses.count()})
+        senses = senses.order_by("?")[:30]
+        return Response(self.get_serializer(senses, many=True).data)
+
+    @action(detail=False, methods=["post"], url_path="translation-review-save", permission_classes=[IsAdminUser])
+    def translation_review_save(self, request):
+        serializer = TranslationReviewRowSerializer(data=request.data, many=True, allow_empty=False)
+        serializer.is_valid(raise_exception=True)
+        rows = serializer.validated_data
+        ids = [row["id"] for row in rows]
+        if len(rows) > 30 or len(set(ids)) != len(ids):
+            raise ValidationError("Provide at most 30 unique senses.")
+        with transaction.atomic():
+            senses = Sense.objects.select_for_update().in_bulk(ids)
+            for row in rows:
+                sense = senses.get(row["id"])
+                if sense is None:
+                    raise ValidationError("A sense no longer exists. Reload the batch.")
+                for field in ("translation", "short_translation"):
+                    current = getattr(sense, field)
+                    if current not in (row["expected_" + field], row[field]):
+                        return Response(
+                            {"detail": f"Sense {sense.pk} changed since export. Reload before saving."},
+                            status=status.HTTP_409_CONFLICT,
+                        )
+            for row in rows:
+                sense = senses[row["id"]]
+                sense.translation = row["translation"]
+                sense.short_translation = row["short_translation"]
+                sense.save(update_fields=["translation", "short_translation"])
+        return Response({"saved": len(rows)})
 
     def filter_queryset(self, queryset):  # noqa: ANN001, ANN201
         queryset = super().filter_queryset(queryset)

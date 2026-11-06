@@ -1,0 +1,131 @@
+LINGO PALM — PERSIAN SENSE TRANSLATION GUIDE
+
+PURPOSE
+Given English dictionary sense data, propose a Persian full translation (translation) and a Persian short translation (short_translation). Work from the supplied sense even when no Persian translation exists. These translations belong to the dictionary sense and must remain useful across courses, sections, and contexts.
+
+UNDERSTAND THE SENSE
+- Treat the exact English definition as the primary authority.
+- Read entry.word, part_of_speech, sense_number, title, lex_unit, register, geo, examples, and other supplied fields when available. Do not invent missing fields or sense numbers.
+- Translate the specific sense, not the headword's most common meaning.
+- If lex_unit identifies an expression or phrasal verb, translate that expression's defined meaning rather than the isolated headword.
+- Examples can clarify the definition, but a video cue or example must not narrow the translation to a single scene.
+- Preserve distinctions between separate senses of the same word.
+- An existing Persian translation can help, but check it against the English definition. Do not assume it is complete or accurate.
+- If essential information is missing or contradictory, state the uncertainty or ask for clarification rather than inventing a meaning.
+- Do not translate every field into the output. Use supporting fields to understand the sense; translate the meaning defined by the sense.
+- For a cross-reference definition such as "a celebrity", translate the referenced meaning if it is clear. If the reference is ambiguous and its definition is unavailable, request the missing information.
+- When grammatical labels conflict with an expression's meaning, preserve the supplied metadata and translate the expression naturally. For example, an idiom stored under a noun can require a Persian verb phrase.
+
+JSON BATCH INPUT AND OUTPUT
+The user supplies JSON containing 30 senses. Return the same 30 senses as valid JSON, with translation and short_translation included in every sense.
+- Preserve the input structure, any outer wrapper, the order of the senses, all IDs, and all other fields and values. Do not omit senses or return only the changed fields.
+- If translation contains nonblank text, preserve it exactly. Do not remove, rewrite, normalize, or regenerate it. Generate only the missing short translation for that sense.
+- If translation is absent, null, empty, or whitespace-only, generate a full Persian translation using this guide.
+- If short_translation is absent or null, try to generate a short Persian translation using this guide. If no suitable short equivalent exists, return null. It is completely acceptable to find no suitable short translation; never force an inaccurate or unnatural gloss.
+- If short_translation already contains text, preserve it exactly unless the user explicitly requests revision. Preserve an existing "" as a prior Skip.
+- Return both translation and short_translation inside each original sense object. Do not add separate proposal fields, explanations, review-status fields, or invented metadata.
+- Use JSON strings for generated translations. Use JSON null (the equivalent of Python None) when you cannot find a suitable short translation. Do not output bare None, which is invalid JSON, or the strings "None", "Skip", or "null".
+- Return only valid JSON, without Markdown fences, introductory text, or trailing commentary. Escape JSON special characters correctly. Persian characters can appear directly in the strings.
+- If the supplied batch has a different number of senses, preserve its actual count. Do not fabricate or duplicate records to reach 30.
+- The returned JSON contains generated proposals for the user's review. Producing it does not mean that anything has been approved or saved to a database.
+
+In this JSON workflow, null means the AI could not propose a suitable short translation. This differs from the stored database convention below, where null means unreviewed and "" means reviewed and skipped. A reviewer or importer must interpret the returned null accordingly; it is not automatically a saved Skip. Preserve existing empty strings as prior skips. The JSON rules take precedence over the default review format below.
+
+FULL TRANSLATION — translation
+1. Prefer a concise, accurate Persian word or phrase when it conveys the sense well. A full translation does not have to be long.
+2. When a concise equivalent would lose meaning, translate the definition faithfully. Retain qualifiers, restrictions, usage notes, and distinct sub-senses.
+3. For a full verb definition, begin with the action or verb phrase. Example: احساس خشم یا دلخوری کردن در مورد یک وضعیت ... . Avoid placing all the objects before the verb.
+4. Preserve indefinite nouns. Translate "a situation" as یک وضعیت or وضعیتی, rather than simply وضعیت.
+5. Translate "etc" as و غیره, never و مانند آن.
+6. In usage definitions, explicitly render "used" as استفاده میشه. For example, "used to say ..." becomes استفاده میشه برای بیان ... . Do not omit it and start only with برای. Preserve notes such as "used by or to children."
+7. Do not add an ezafe mark after final ه. Write درباره, خانه, برنامه rather than دربارهٔ, خانهٔ, برنامهٔ. Do not substitute an added ی for that mark. This rule does not remove legitimate letters in words such as شیء or رأی.
+8. Natural colloquial explanations are welcome, including استفاده میشه and می‌خوای. Choose wording appropriate to the sense and its register.
+9. Label distinct sub-senses آ) ب) پ) ت) ث) and so on. Keep all the supplied sub-senses represented.
+10. Translate "to be able to" as قادر بودن به…, never توانستن.
+11. Preserve the user's approved wording, spelling, punctuation, and register exactly, even when you would phrase it differently. Do not silently edit approved answers.
+12. Apply clear preferences learned from user edits to later suggestions. Do not infer a new general rule from one ambiguous edit.
+
+The full translation has no one- or two-word limit. Do not shorten it at the expense of accuracy merely because a short_translation is also requested.
+The rule about translating usage-definition "used" applies to wording such as "used to say" or "used by children"; it is not a mechanical replacement for the English past-habit construction "used to".
+
+SHORT TRANSLATION — short_translation
+1. Suggest one natural Persian word whenever possible. Otherwise use at most two words.
+2. Aim for a readable, immediately understandable gloss that can appear above a subtitle word or phrase during playback.
+3. Base the gloss on the exact dictionary definition, not the current video cue, sentence, course, or section.
+4. A full Persian translation is not required first. Derive the short translation directly from the English definition when necessary.
+5. Do not mechanically truncate a full translation. Choose an equivalent that conveys the sense.
+6. Respect the part of speech and expression meaning where natural Persian allows it. For verbs, a concise infinitive phrase often works well.
+7. If one sense contains several distinct sub-meanings, use a short equivalent only if it reasonably covers them. Do not select just one sub-meaning because it fits a particular scene.
+8. Do not force a short translation when it would be misleading, excessively vague, unnatural, or lose an essential distinction. Recommend Skip instead. A full translation can still be provided.
+9. Multi-word English terms and separated phrasal verbs can receive short translations. The English word count does not determine whether a short Persian equivalent is possible.
+10. Prefer one equivalent. Avoid lists of alternatives or slash-separated meanings just to fit several ideas into the short field.
+11. Use normal Persian spelling and spacing. Do not join separate words, remove spaces, or insert artificial half-spaces to evade the two-word limit. Legitimate Persian compounds may use normal half-spaces.
+12. Apply the Persian spelling preferences above, including the rule against added ezafe marks after final ه.
+13. The user may explicitly approve a longer exception. Preserve that exact answer, but keep new suggestions within the one- or two-word target.
+14. Preserve the core meaning, polarity, and register. Do not replace a precise sense with a broadly related word, turn a neutral meaning into an insult, or add a stronger emotional meaning.
+15. A short gloss need not reproduce explanatory wording such as "used to say", examples, or sub-sense labels. Those details belong in the full translation. The gloss must still be compatible with them.
+16. For a sense that includes both doing an action and causing someone else to do it, check that the proposed Persian wording does not misleadingly restrict the meaning to one grammatical use. Recommend Skip if no compact equivalent works.
+
+EXAMPLES OF THE DISTINCTION
+These illustrate decisions, not mandatory translations for every occurrence of these English words.
+
+Word: valley | Part of speech: noun
+Definition: an area of lower land between two lines of hills or mountains, usually with a river flowing through it
+translation: دره
+short_translation suggestion: دره
+Reason: A conventional Persian equivalent captures the sense, so both fields can be identical.
+
+Word: come on | Part of speech: phrasal verb | Expression: come on!
+Definition: a) used to tell someone to hurry b) used to encourage someone to do something c) used to tell someone that you know that what they have just said was not true or right d) used to make someone angry enough to want to fight you
+translation: آ) استفاده میشه برای گفتن به کسی که عجله کنه ب) استفاده میشه برای تشویق کسی به انجام کاری پ) استفاده میشه برای گفتن به کسی که می‌دونی حرفی که همین الان زده درست یا واقعی نبوده ت) استفاده میشه برای عصبانی کردن کسی تا حدی که بخواد باهات دعوا کنه
+short_translation suggestion: Skip
+Reason: A single short Persian equivalent would cover only some of the listed uses. Do not select one based on a movie scene.
+
+Spacing check:
+دیر یا زود is three words. Do not write دیر یا‌زود to make it look like two.
+دست‌کم گرفتن uses a normal Persian compound and is an acceptable two-word form when it matches the sense.
+Do not use لطفاً as a shortcut for "out of the goodness of somebody's heart"; it changes a description of someone's motive into a polite request.
+
+SHORT-TRANSLATION REVIEW STATE
+The field has three distinct meanings:
+- null: no review has been completed yet.
+- "": reviewed and skipped because no suitable short translation was selected.
+- Nonempty text: an approved short translation.
+
+These are stored review states. A nonempty generated suggestion is still a proposal until approved. Keep the proposal separate from any supplied stored value.
+This null-versus-empty-string convention applies specifically to short_translation. Do not assume that translation has the same review-state convention.
+
+When proposing a gloss, make clear that it is a suggestion awaiting review. A generated proposal is not automatically an approved database value.
+Outside the JSON workflow, if recommending Skip, present Skip as the recommendation. Persist "" only after the user chooses Skip or explicitly authorizes automatic decisions.
+Do not use null to represent a completed Skip.
+Do not automatically reconsider an empty-string value as though it were unreviewed. Revisit it only when requested.
+Preserve existing approved translations unless the user asks to revise them.
+
+PRESENTING RESULTS
+- Identify each supplied sense by its word, part of speech, sense number, and lex_unit when available. Use "unnumbered" if no sense number is supplied.
+- If displaying the English definition for review, reproduce it exactly. Do not substitute your own English paraphrase or add an interpretation of a video cue.
+- Clearly distinguish the proposed full Persian translation from the proposed short Persian translation.
+- For the short translation, provide either one proposed gloss or Skip.
+- If reviewing several senses, keep their identities separate. Never combine different senses of the same word into one result.
+- Follow the user's requested output format. When none is specified, use a simple record for each sense with its identity, exact definition, proposed translation, and proposed short_translation or Skip.
+- Preserve a supplied sense ID in structured or multi-sense output so proposals can be matched to the correct record. Never invent an ID.
+- Keep explanations out of the translation field values. Add a brief separate note only when needed to explain a Skip, ambiguity, or conflict.
+- Do not add database operations, save claims, or unrelated workflow instructions to a translation-only response.
+
+Default review format:
+Word / expression:
+Part of speech:
+Sense number:
+Exact definition:
+Full translation proposal:
+Short translation proposal: [one Persian gloss or Skip]
+
+If a field is already approved, identify it as existing rather than presenting it as a new proposal. If short_translation is already "", identify it as previously skipped. Generate only the fields still requested or awaiting review.
+
+FINAL CHECK BEFORE PRESENTING
+Does each proposal match the exact sense?
+Does the full translation preserve important qualifiers, usage notes, and sub-senses?
+Is the short suggestion natural and no more than two words, without manipulated spacing?
+Would the short suggestion still work outside the current scene?
+If a short equivalent is misleading, have you recommended Skip?
+Have you preserved any approved user wording exactly?

@@ -44,6 +44,7 @@ class SenseSummarySerializer(serializers.ModelSerializer):
             "title",
             "sense_number",
             "definition",
+            "level",
             "translation",
             "short_translation",
             "entry",
@@ -90,6 +91,7 @@ class SenseSerializer(serializers.ModelSerializer):
             "sense_number",
             "title",
             "definition",
+            "level",
             "translation",
             "short_translation",
             "lex_unit",
@@ -101,7 +103,7 @@ class SenseSerializer(serializers.ModelSerializer):
         )
 
     def validate_short_translation(self, value):
-        if len(value.split()) > 2:
+        if value is not None and len(value.split()) > 2:
             raise serializers.ValidationError("Use at most two words.")
         return value
 

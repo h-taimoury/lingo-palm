@@ -22,13 +22,16 @@ export type EntrySummary = {
   pronunciation: Pronunciation | null;
 };
 
+export type SenseLevel = "A" | "B" | "C";
+
 export type SenseSummary = {
   id: number;
   title: string;
   sense_number: number | null;
   definition: string;
+  level?: SenseLevel | null;
   translation: string | null;
-  short_translation?: string;
+  short_translation?: string | null;
   entry: EntrySummary;
 };
 
@@ -74,6 +77,7 @@ export type CreateSenseRequest = {
   sense_number?: number | null;
   title: string;
   definition: string;
+  level?: SenseLevel | null;
   translation?: string | null;
   lex_unit?: string | null;
   geo?: string | null;

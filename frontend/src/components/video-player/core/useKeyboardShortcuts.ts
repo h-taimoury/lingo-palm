@@ -140,11 +140,14 @@ function shouldIgnoreAllShortcuts(target: EventTarget | null) {
     return true
   }
 
+  if (target.closest("[data-player-native-keys='true']")) return true
+
   return ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)
 }
 
 function isTypingTarget(target: EventTarget | null) {
   if (!(target instanceof HTMLElement)) return false
+  if (target.closest("[data-player-native-keys='true']")) return true
   if (target.isContentEditable || target.closest("textarea, [role='textbox']")) return true
   return target.tagName === "INPUT" && !["range", "button", "checkbox", "radio", "submit", "reset"].includes((target as HTMLInputElement).type)
 }

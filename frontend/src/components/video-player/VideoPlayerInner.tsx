@@ -13,6 +13,8 @@ import { useActiveCue } from "@/components/video-player/core/useActiveCue";
 import { useKeyboardShortcuts } from "@/components/video-player/core/useKeyboardShortcuts";
 import { useMediaController } from "@/components/video-player/core/useMediaController";
 import { LearningModal } from "@/components/video-player/learning/LearningModal";
+import { filterMappingsByLevel, SENSE_LEVELS } from "@/components/video-player/learning/mappingLevels";
+import type { SenseLevel } from "@/types/api/dictionary";
 import {
   cueHasMappings,
   getCueLearningItems,
@@ -51,6 +53,12 @@ export function VideoPlayerInner({
   const controlsTimer = useRef<number | null>(null);
   const [cues, setCues] = useState<SubtitleCue[]>([]);
   const [mappings, setMappings] = useState(initialMappings);
+  const [selectedLevels, setSelectedLevels] = useState<SenseLevel[]>(() => [...SENSE_LEVELS]);
+  const [levelMenuOpen, setLevelMenuOpen] = useState(false);
+  const visibleMappings = useMemo(
+    () => filterMappingsByLevel(mappings, selectedLevels),
+    [mappings, selectedLevels],
+  );
   const [learnedSenseIds, setLearnedSenseIds] = useState<Set<number>>(
     () => new Set(initialLearnedSenseIds),
   );
@@ -116,17 +124,17 @@ export function VideoPlayerInner({
     () =>
       modalMode === "mapping"
         ? getMappingLearningItems(
-            mappings.find((m) => m.id === activeMappingId),
+            visibleMappings.find((m) => m.id === activeMappingId),
             activeCue,
           )
         : modalMode === "cue"
-          ? getCueLearningItems(activeCue, mappings)
+          ? getCueLearningItems(activeCue, visibleMappings)
           : [],
-    [modalMode, mappings, activeMappingId, activeCue],
+    [modalMode, visibleMappings, activeMappingId, activeCue],
   );
   const hasCueMappings = useMemo(
-    () => cueHasMappings(activeCue, mappings),
-    [activeCue, mappings],
+    () => cueHasMappings(activeCue, visibleMappings),
+    [activeCue, visibleMappings],
   );
 
   const closeLearningModal = useCallback(() => {
@@ -202,7 +210,7 @@ export function VideoPlayerInner({
       nextSense,
     ],
   );
-  useKeyboardShortcuts({ enabled: true, controller: keyboardController });
+  useKeyboardShortcuts({ enabled: !levelMenuOpen, controller: keyboardController });
 
   const clearHideTimer = useCallback(() => {
     if (controlsTimer.current !== null) {
@@ -212,18 +220,18 @@ export function VideoPlayerInner({
   }, []);
   const scheduleHide = useCallback(() => {
     clearHideTimer();
-    if (!isPlaying || modalMode !== "closed") return;
+    if (!isPlaying || modalMode !== "closed" || levelMenuOpen) return;
     controlsTimer.current = window.setTimeout(() => {
       setControlsVisible(false);
       controlsTimer.current = null;
     }, 2500);
-  }, [clearHideTimer, isPlaying, modalMode]);
+  }, [clearHideTimer, isPlaying, modalMode, levelMenuOpen]);
   useEffect(() => {
-    if (!isPlaying || modalMode !== "closed") {
+    if (!isPlaying || modalMode !== "closed" || levelMenuOpen) {
       setControlsVisible(true);
       clearHideTimer();
     } else scheduleHide();
-  }, [isPlaying, modalMode, clearHideTimer, scheduleHide]);
+  }, [isPlaying, modalMode, levelMenuOpen, clearHideTimer, scheduleHide]);
   useEffect(() => clearHideTimer, [clearHideTimer]);
 
   async function markSenseLearned(senseId: number, alreadyKnown = false) {
@@ -256,7 +264,7 @@ export function VideoPlayerInner({
         (modalMode === "mapping" &&
           activeMappingId !== null &&
           removedIds.has(activeMappingId)) ||
-        (modalMode === "cue" && !cueHasMappings(activeCue, nextMappings))
+        (modalMode === "cue" && !cueHasMappings(activeCue, filterMappingsByLevel(nextMappings, selectedLevels)))
       )
         closeLearningModal();
       router.refresh();
@@ -319,7 +327,7 @@ export function VideoPlayerInner({
         />
         <SubtitleOverlay
           cues={cues}
-          mappings={mappings}
+          mappings={visibleMappings}
           onOpenMapping={openMappingModal}
         />
         {modalMode === "closed" && hasCueMappings ? (
@@ -380,6 +388,10 @@ export function VideoPlayerInner({
             onPlaybackRateChange={controller.setPlaybackRate}
             onToggleFullscreen={() => void controller.toggleFullscreen()}
             onToggleTheater={toggleTheater}
+            selectedLevels={selectedLevels}
+            onLevelsChange={setSelectedLevels}
+            levelMenuOpen={levelMenuOpen}
+            onLevelMenuOpenChange={setLevelMenuOpen}
           />
         </div>
         {modalMode !== "closed" ? (

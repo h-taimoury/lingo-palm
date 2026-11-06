@@ -7,8 +7,8 @@ import { useKeyboardShortcuts } from "./useKeyboardShortcuts"
 
 class ElementStub {
   isContentEditable = false
-  constructor(public tagName: string, public type = "") {}
-  closest() { return null }
+  constructor(public tagName: string, public type = "", public nativeKeys = false) {}
+  closest(selector: string) { return this.nativeKeys && selector.includes("data-player-native-keys") ? this : null }
 }
 
 afterEach(() => vi.unstubAllGlobals())
@@ -51,6 +51,20 @@ it.each(["BUTTON", "range", "SELECT"])("handles focused %s controls before nativ
   press("ArrowDown")
   expect(controller.adjustVolume.mock.calls).toEqual([[0.05], [-0.05]])
   expect(press("Enter", false, new ElementStub("INPUT", "text")).preventDefault).not.toHaveBeenCalled()
+  const levelButton = new ElementStub("BUTTON", "", true)
+  const levelCheckbox = new ElementStub("INPUT", "checkbox", true)
+  controller.openCueModal.mockClear()
+  controller.togglePlay.mockClear()
+  for (const target of [levelButton, levelCheckbox]) {
+    for (const key of ["Enter", " ", "ArrowDown"]) {
+      expect(press(key, false, target).preventDefault).not.toHaveBeenCalled()
+    }
+    const event = { key: "l", target, preventDefault: vi.fn() }
+    listeners.get("keydown-false")!(event as unknown as KeyboardEvent)
+    expect(event.preventDefault).not.toHaveBeenCalled()
+  }
+  expect(controller.openCueModal).not.toHaveBeenCalled()
+  expect(controller.togglePlay).not.toHaveBeenCalled()
   cleanup?.()
   expect(listeners.size).toBe(0)
 })
