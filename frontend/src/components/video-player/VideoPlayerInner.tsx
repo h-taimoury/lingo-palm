@@ -155,6 +155,7 @@ export function VideoPlayerInner({
   );
   const openCueModal = useCallback(() => {
     if (!hasCueMappings) return;
+    setLevelMenuOpen(false);
     const wasPlaying = Boolean(videoRef.current && !videoRef.current.paused);
     videoRef.current?.pause();
     setLearningError(null);
@@ -210,7 +211,7 @@ export function VideoPlayerInner({
       nextSense,
     ],
   );
-  useKeyboardShortcuts({ enabled: !levelMenuOpen, controller: keyboardController });
+  useKeyboardShortcuts({ enabled: true, controller: keyboardController });
 
   const clearHideTimer = useCallback(() => {
     if (controlsTimer.current !== null) {

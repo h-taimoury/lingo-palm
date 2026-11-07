@@ -26,7 +26,9 @@ export function LevelControl({ selectedLevels, onChange, open, onOpenChange }: L
 
   useEffect(() => {
     if (!open) return;
-    rootRef.current?.querySelector<HTMLInputElement>("input")?.focus();
+    if (document.activeElement === triggerRef.current) {
+      rootRef.current?.querySelector<HTMLInputElement>("input")?.focus();
+    }
     function dismissOutside(event: PointerEvent) {
       if (event.target instanceof Node && !rootRef.current?.contains(event.target)) {
         onOpenChange(false);
@@ -39,8 +41,11 @@ export function LevelControl({ selectedLevels, onChange, open, onOpenChange }: L
   return (
     <div
       ref={rootRef}
-      className="relative"
-      data-player-native-keys="true"
+      tabIndex={-1}
+      className="relative outline-none"
+      onClick={(event) => {
+        if (event.detail > 0) rootRef.current?.focus({ preventScroll: true });
+      }}
       onKeyDown={(event) => {
         if (event.key === "Escape" && open) {
           event.preventDefault();
@@ -52,6 +57,7 @@ export function LevelControl({ selectedLevels, onChange, open, onOpenChange }: L
     >
       <button
         ref={triggerRef}
+        data-player-native-keys="true"
         type="button"
         aria-label="Mapping levels"
         aria-haspopup="dialog"
@@ -66,6 +72,7 @@ export function LevelControl({ selectedLevels, onChange, open, onOpenChange }: L
       {open ? (
         <div
           id={panelId}
+          data-player-native-keys="true"
           role="dialog"
           aria-label="Mapping levels"
           className="absolute bottom-full right-0 mb-3 w-56 rounded-lg border border-white/20 bg-zinc-950/95 p-3 text-sm text-white shadow-xl"

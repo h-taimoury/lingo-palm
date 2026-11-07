@@ -30,6 +30,20 @@ export default async function SectionPage({ params }: Props) {
   const learnedIds = taught
     .filter((row) => row.is_learned)
     .map((row) => row.sense.id);
+  const newSenseCounts = { A: 0, B: 0, C: 0, unassigned: 0 };
+  for (const row of taught) {
+    if (!row.is_learned) {
+      newSenseCounts[row.sense.level ?? "unassigned"] += 1;
+    }
+  }
+  const levelCounts = [
+    { label: "Beginner", count: newSenseCounts.A, color: "text-green-700 dark:text-green-400" },
+    { label: "Intermediate", count: newSenseCounts.B, color: "text-yellow-700 dark:text-yellow-400" },
+    { label: "Advanced", count: newSenseCounts.C, color: "text-red-700 dark:text-red-400" },
+    ...(newSenseCounts.unassigned
+      ? [{ label: "Unassigned", count: newSenseCounts.unassigned, color: "" }]
+      : []),
+  ];
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <Link
@@ -60,6 +74,15 @@ export default async function SectionPage({ params }: Props) {
                 <p className="mt-1 text-sm text-muted-foreground">new senses to learn</p>
               </div>
             </div>
+
+            <dl aria-label="New senses by level" className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              {levelCounts.map(({ label, count, color }) => (
+                <div key={label} className="flex items-baseline gap-1.5">
+                  <dt className="text-muted-foreground">{label}</dt>
+                  <dd className={`font-medium tabular-nums ${color}`}>{count}</dd>
+                </div>
+              ))}
+            </dl>
 
             <div className="mt-5">
               <div className="mb-2 flex flex-wrap items-center justify-between gap-2 text-sm">
