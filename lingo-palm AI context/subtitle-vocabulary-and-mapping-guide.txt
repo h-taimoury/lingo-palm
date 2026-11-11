@@ -1,4 +1,12 @@
 FARDIN'S SUBTITLE VOCABULARY AND MAPPING GUIDE
+SAME-WORD SENSE RULE — 2026-11-11 (explicit user correction)
+Never substitute a sense from another word when the selected dictionary word
+lacks a fitting sense. For example, 'got it' mapped through 'get' must not use
+a sense belonging to 'understand'. Nearest-sense fallbacks must stay within the
+selected word's stored senses; do not force an unrelated definition. If none
+fits, leave the occurrence unmapped and explain the gap. Preserve subtitle
+groups and positions. This overrides earlier cross-word fallback examples.
+
 Version 1.5 — 2026-10-23
 Reusable instructions for an AI assistant
 

@@ -107,3 +107,23 @@ it("supports Cmd and ends a grouping gesture on window blur or cue navigation", 
   click("keep", true);
   expect(word("keep").props["aria-label"]).toBe("keep (group 4)");
 });
+
+it("copies the selections JSON only after validating the subtitle version", async () => {
+  const writeText = vi.fn().mockResolvedValue(undefined);
+  vi.stubGlobal("navigator", { clipboard: { writeText } });
+  const copyButton = () => elements(render()).find(el => text(el.props.children) === "Copy selections JSON")!;
+  const copy = () => copyButton().props.onClick!({ ctrlKey: false, metaKey: false });
+
+  expect(copyButton().props.disabled).toBe(true);
+  click("keep");
+  harness.get.mockResolvedValueOnce({ ...context, subtitle_sha256: "b".repeat(64) });
+  await copy();
+  expect(writeText).not.toHaveBeenCalled();
+
+  await copy();
+  expect(JSON.parse(writeText.mock.calls[0][0])).toMatchObject({
+    subtitle_sha256: context.subtitle_sha256,
+    selections: [{ cue_id: 1, subtitle_word: "keep", token_indices: [0] }],
+  });
+  expect(text(render())).toContain("Selections JSON copied to clipboard.");
+});

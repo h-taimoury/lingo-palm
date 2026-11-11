@@ -25,11 +25,11 @@ export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mapp
   const groupSequence = useRef(0);
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
-  const [exported, setExported] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const base = `/api/courses/sections/${sectionId}/bulk-mappings`;
   const count = Object.keys(selected).length;
-  useUnsavedChangesWarning(count > 0 && !exported);
+  useUnsavedChangesWarning(count > 0 && !copied);
 
   useEffect(() => {
     const endGroup = () => { gesture.current = null; };
@@ -73,7 +73,7 @@ export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mapp
     }
     const group = gesture.current?.group;
     setSelected(previous => toggleSelection(previous, key, group));
-    setExported(false);
+    setCopied(false);
   }
 
   function navigate(delta: number) {
@@ -81,20 +81,18 @@ export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mapp
     setIndex(value => value + delta);
   }
 
-  async function download() {
+  async function copySelections() {
     if (!context) return;
     setBusy(true); setError(null);
     try {
       const current = await apiClient.get<SelectionContext>(`${base}/context/`);
       if (current.subtitle_sha256 !== context.subtitle_sha256) throw new Error("The subtitles changed. Reload this page before selecting words from the updated file.");
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard access is unavailable. Open this page using HTTPS or localhost and try again.");
+      }
       const data = selectionExport(context, selected, mappedSelectionKeys(context, mappings));
-      const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
-      const anchor = document.createElement("a");
-      anchor.href = url;
-      anchor.download = `section-${sectionId}-selected-vocabulary.json`;
-      anchor.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-      setExported(true);
+      await navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+      setCopied(true);
     } catch (caught) { setError(caught); }
     finally { setBusy(false); }
   }
@@ -114,10 +112,10 @@ export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mapp
     {context && cue ? <>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <p role="status">{count} word occurrences selected</p>
-        <Button disabled={!count || busy} onClick={download}>{busy ? "Validating…" : "Export selections JSON"}</Button>
+        <Button disabled={!count || busy} onClick={copySelections}>{busy ? "Copying…" : "Copy selections JSON"}</Button>
       </div>
-      <p className="text-sm text-muted-foreground">Click a word to select it individually. Hold Ctrl (Cmd on Mac) while clicking the words of a phrase: they share a color and group number. Release the key to finish the group; hold it again to start another. Words can be non-adjacent but must be in the same cue. Click a selected word without Ctrl to remove it. Send the exported JSON to your AI assistant; each group stays together as one mapping. Export before leaving this page to keep your selections.</p>
-      {exported ? <p role="status" className="text-sm text-emerald-700 dark:text-emerald-300">Selections exported.</p> : null}
+      <p className="text-sm text-muted-foreground">Click a word to select it individually. Hold Ctrl (Cmd on Mac) while clicking the words of a phrase: they share a color and group number. Release the key to finish the group; hold it again to start another. Words can be non-adjacent but must be in the same cue. Click a selected word without Ctrl to remove it. Copy the JSON before leaving this page and paste it into your AI chat. Each group stays together as one mapping.</p>
+      {copied ? <p role="status" className="text-sm text-emerald-700 dark:text-emerald-300">Selections JSON copied to clipboard.</p> : null}
       <div className="flex flex-wrap gap-4 text-sm">
         <span className="rounded bg-emerald-100 px-3 py-1 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">Already mapped · locked</span>
         <span className="rounded bg-amber-100 px-3 py-1 text-amber-900 dark:bg-amber-950 dark:text-amber-200">Selected · click to remove</span>

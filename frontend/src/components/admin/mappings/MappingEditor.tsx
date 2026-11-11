@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import { GripHorizontal, LoaderCircle, Search, Trash2, X } from "lucide-react"
 import toast from "react-hot-toast"
 
@@ -80,6 +80,13 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
   const [previewError, setPreviewError] = useState<unknown>(null)
   const [senseMapping, setSenseMapping] = useState<WordSenseMapping | null>(null)
   const [senseIndex, setSenseIndex] = useState(0)
+  const scrapeInputRef = useRef<HTMLInputElement>(null)
+
+  useLayoutEffect(() => {
+    if (mappingDialogOpen) {
+      scrapeInputRef.current?.scrollIntoView({ block: "center", inline: "nearest" })
+    }
+  }, [mappingDialogOpen])
 
   useEffect(() => {
     if (previewSenseId === null || !mappingDialogOpen) return
@@ -829,6 +836,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                   <form onSubmit={scrapeSelectedWord} className="mt-3 flex flex-col gap-2 sm:flex-row">
                     <Input
                       autoFocus
+                      ref={scrapeInputRef}
                       value={scrapeWord}
                       onChange={(event) => setScrapeWord(event.target.value)}
                       placeholder="Word to scrape"

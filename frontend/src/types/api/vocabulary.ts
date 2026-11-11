@@ -2,7 +2,7 @@ import type { SenseSummary } from "@/types/api/dictionary"
 
 export type Vocabulary = {
   id: number
-  sense: SenseSummary
+  sense: SenseSummary & { lex_unit: string | null }
   already_known: boolean
   needs_review: boolean
   created_at: string

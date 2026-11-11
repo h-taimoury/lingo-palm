@@ -7,10 +7,15 @@ from .models import Vocabulary
 from .services import ACTIONS
 
 
+class VocabularySenseSerializer(SenseSummarySerializer):
+    class Meta(SenseSummarySerializer.Meta):
+        fields = (*SenseSummarySerializer.Meta.fields, "lex_unit")
+
+
 class VocabularySerializer(serializers.ModelSerializer):
     """This serializer has only be used for SERIALIZATION of Vocabulary objects, both for 'list' action or for the custom action (bulk_action) response. It is not used for deserialization."""
 
-    sense = SenseSummarySerializer(read_only=True)
+    sense = VocabularySenseSerializer(read_only=True)
 
     class Meta:
         model = Vocabulary
