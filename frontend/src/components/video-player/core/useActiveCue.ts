@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 
 import { usePlayerStore } from "@/components/video-player/PlayerProvider"
-import { findActiveCueIndex } from "@/lib/subtitles"
 import type { SubtitleCue } from "@/types/subtitles"
 
 type UseActiveCueOptions = {
@@ -18,39 +17,14 @@ export function useActiveCue({ cues }: UseActiveCueOptions) {
   )
 
   useEffect(() => {
-    if (cues.length === 0) {
-      if (activeCueIndex !== -1) {
-        setActiveCueIndex(-1)
-      }
-      return
+    // Cues can overlap. Pick the last active cue in file order even after a seek.
+    let index = cues.length - 1
+    while (index >= 0) {
+      const cue = cues[index]
+      if (cue.startTime <= currentTime && currentTime < cue.endTime) break
+      index -= 1
     }
-
-    const currentCue = cues[activeCueIndex]
-
-    if (
-      currentCue &&
-      currentTime >= currentCue.startTime &&
-      currentTime < currentCue.endTime
-    ) {
-      return
-    }
-
-    const nextCue = cues[activeCueIndex + 1]
-
-    if (
-      nextCue &&
-      currentTime >= nextCue.startTime &&
-      currentTime < nextCue.endTime
-    ) {
-      setActiveCueIndex(activeCueIndex + 1)
-      return
-    }
-
-    const nextIndex = findActiveCueIndex(cues, currentTime)
-
-    if (nextIndex !== activeCueIndex) {
-      setActiveCueIndex(nextIndex)
-    }
+    if (index !== activeCueIndex) setActiveCueIndex(index)
   }, [
     activeCueIndex,
     cues,
