@@ -3,6 +3,7 @@ from rest_framework.test import APITestCase
 
 from apps.dictionary.models import Entry, Sense
 from apps.my_vocabulary.models import Vocabulary
+from apps.my_vocabulary.serializers import VocabularyBulkActionSerializer
 
 
 class VocabularyBulkActionApiTests(APITestCase):
@@ -144,6 +145,29 @@ class VocabularyBulkActionApiTests(APITestCase):
     def test_sense_ids_required_and_non_empty(self):
         response = self._bulk({"action": "set_learned", "sense_ids": []})
         self.assertEqual(response.status_code, 400)
+
+    def test_missing_sense_rejects_entire_bulk_action(self):
+        missing_id = max(self.sense_1.pk, self.sense_2.pk, self.other_sense.pk) + 1
+        response = self._bulk(
+            {"action": "set_learned", "sense_ids": [self.sense_1.pk, missing_id]}
+        )
+
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("sense_ids", response.data)
+        self.assertFalse(Vocabulary.objects.filter(user=self.user).exists())
+
+    def test_bulk_action_validates_multiple_senses_in_one_query(self):
+        ids = [self.sense_2.pk, self.sense_1.pk, self.sense_2.pk]
+        serializer = VocabularyBulkActionSerializer(
+            data={"action": "set_learned", "sense_ids": ids}
+        )
+
+        with self.assertNumQueries(1):
+            self.assertTrue(serializer.is_valid(), serializer.errors)
+
+        self.assertEqual(
+            [sense.pk for sense in serializer.validated_data["sense_ids"]], ids
+        )
 
     def test_list_filters_by_needs_review(self):
         Vocabulary.objects.create(user=self.user, sense=self.sense_1, needs_review=True)

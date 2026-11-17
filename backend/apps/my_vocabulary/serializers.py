@@ -30,6 +30,17 @@ class VocabularyBulkActionSerializer(serializers.Serializer):
     """
 
     action = serializers.ChoiceField(choices=tuple(ACTIONS.keys()))
-    sense_ids = serializers.PrimaryKeyRelatedField(
-        queryset=Sense.objects.all(), many=True, allow_empty=False
+    sense_ids = serializers.ListField(
+        child=serializers.IntegerField(min_value=-(2**63), max_value=2**63 - 1),
+        allow_empty=False,
     )
+
+    def validate_sense_ids(self, ids):
+        senses = Sense.objects.in_bulk(ids)
+        for sense_id in ids:
+            if sense_id not in senses:
+                raise serializers.ValidationError(
+                    f'Invalid pk "{sense_id}" - object does not exist.',
+                    code="does_not_exist",
+                )
+        return [senses[sense_id] for sense_id in ids]
