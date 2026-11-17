@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 import { DictionaryEntryCard } from "@/components/admin/dictionary/DictionaryEntryCard";
-import { DictionarySearchForm } from "@/components/admin/dictionary/DictionarySearchForm";
 import { EntryForm } from "@/components/admin/dictionary/EntryForm";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Pagination } from "@/components/shared/Pagination";
+import { SearchForm } from "@/components/shared/SearchForm";
 import { buttonVariants } from "@/components/ui/button";
 import { getDictionaryEntries } from "@/lib/admin/server";
 import { buildUrl, firstSearchParam, parsePositivePage } from "@/lib/courses/query";
@@ -61,7 +61,12 @@ export default async function Page({
         </div>
       </details>
 
-      <DictionarySearchForm search={search} />
+      <SearchForm
+        action="/admin/dictionary"
+        search={search}
+        label="Search dictionary"
+        placeholder="Search word, part of speech or sense title"
+      />
 
       <div className="mt-6 grid gap-5">
         {data.results.map((entry) => (
