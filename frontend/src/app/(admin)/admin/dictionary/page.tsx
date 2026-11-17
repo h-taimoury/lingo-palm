@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { Pagination } from "@/components/shared/Pagination";
 import { buttonVariants } from "@/components/ui/button";
 import { getDictionaryEntries } from "@/lib/admin/server";
-import { parsePositivePage, buildUrl } from "@/lib/courses/query";
+import { buildUrl, firstSearchParam, parsePositivePage } from "@/lib/courses/query";
 import { publicEnv } from "@/lib/env";
 import { cn } from "@/lib/utils";
 
@@ -15,13 +15,13 @@ export default async function Page({
   searchParams,
 }: {
   searchParams: Promise<{
-    page?: string;
-    search?: string;
+    page?: string | string[];
+    search?: string | string[];
   }>;
 }) {
   const params = await searchParams;
   const page = parsePositivePage(params.page);
-  const search = (params.search ?? "").trim();
+  const search = (firstSearchParam(params.search) ?? "").trim();
 
   const data = await getDictionaryEntries(
     page,
