@@ -61,6 +61,7 @@ export type SubtitleWordInput = Omit<SubtitleWord, "id" | "mapping">
 export type WordSenseMapping = {
   id: number
   senses: Sense[]
+  translation: string | null
   subtitle_words: SubtitleWord[]
   created_at: string
 }
@@ -91,10 +92,11 @@ export type SectionWriteRequest = {
 export type CreateWordSenseMappingRequest = {
   section: number
   senses: number[]
+  translation?: string | null
   subtitle_words: SubtitleWordInput[]
 }
 
-export type UpdateWordSenseMappingRequest = { sense_ids: number[] }
+export type UpdateWordSenseMappingRequest = { sense_ids?: number[]; translation?: string | null }
 
 export type CreateSubtitleWordRequest = SubtitleWordInput & { mapping: number }
 export type UpdateSubtitleWordRequest = Partial<CreateSubtitleWordRequest>

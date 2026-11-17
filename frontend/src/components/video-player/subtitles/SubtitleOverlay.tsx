@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { usePlayerStore } from "@/components/video-player/PlayerProvider";
 import { SubtitleCue } from "@/components/video-player/subtitles/SubtitleCue";
 import { annotateCuesWithMappings } from "@/lib/subtitles";
+import { getMappingTranslation } from "@/lib/subtitles/mappings";
 import type { WordSenseMapping } from "@/types/api/courses";
 import type { SubtitleCue as CanonicalSubtitleCue } from "@/types/subtitles";
 
@@ -29,8 +30,7 @@ export function SubtitleOverlay({
 
   const shortTranslations = useMemo(() => new Map(
     mappings
-      .filter((mapping) => mapping.senses.length === 1 && mapping.senses[0].short_translation?.trim())
-      .map((mapping) => [mapping.id, mapping.senses[0].short_translation!.trim()]),
+      .map((mapping) => [mapping.id, getMappingTranslation(mapping)]),
   ), [mappings]);
 
   const cue = mappedCues[activeCueIndex];

@@ -102,11 +102,6 @@ class SenseSerializer(serializers.ModelSerializer):
             "examples",
         )
 
-    def validate_short_translation(self, value):
-        if value is not None and len(value.split()) > 2:
-            raise serializers.ValidationError("Use at most two words.")
-        return value
-
     def validate_synonyms(self, value):  # noqa: ANN201
         _validate_string_list(value)
         return value

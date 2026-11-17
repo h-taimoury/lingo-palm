@@ -183,10 +183,10 @@ class SenseTranslationFilterTests(APITestCase):
     def test_filter_includes_used_untranslated_senses_once_including_drafts(self):
         response = self.client.get("/api/dictionary/senses/?needs_translation=true")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data["count"], 2)
+        self.assertEqual(response.data["count"], 1)
         self.assertEqual(
             [sense["id"] for sense in response.data["results"]],
-            [self.untranslated.id, self.blank.id],
+            [self.untranslated.id],
         )
 
     def test_omitted_or_false_filter_keeps_all_senses(self):
@@ -205,8 +205,7 @@ class SenseTranslationFilterTests(APITestCase):
         self.untranslated.refresh_from_db()
         self.assertEqual(self.untranslated.translation, "دویدن")
         response = self.client.get("/api/dictionary/senses/?needs_translation=true")
-        self.assertEqual(response.data["count"], 1)
-        self.assertEqual(response.data["results"][0]["id"], self.blank.id)
+        self.assertEqual(response.data["count"], 0)
 
 
 class EntryDeletionGuardTests(APITestCase):

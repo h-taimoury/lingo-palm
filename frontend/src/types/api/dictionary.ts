@@ -79,6 +79,7 @@ export type CreateSenseRequest = {
   definition: string;
   level?: SenseLevel | null;
   translation?: string | null;
+  short_translation?: string | null;
   lex_unit?: string | null;
   geo?: string | null;
   register?: string | null;

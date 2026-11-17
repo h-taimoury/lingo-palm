@@ -11,6 +11,7 @@ function mapping(id: number, word: string, levels: Sense["level"][]): WordSenseM
   return {
     id,
     created_at: "",
+    translation: null,
     senses: levels.map((level, index) => ({ id: id * 10 + index, level, entry: { word } }) as Sense),
     subtitle_words: [{ id, mapping: id, word, cue_id: cues[0].cueId, position_in_cue: 1,
       cue_start_time: 0, cue_end_time: 2, previous_cue_start_time: null,

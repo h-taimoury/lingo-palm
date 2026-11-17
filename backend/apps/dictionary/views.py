@@ -1,6 +1,5 @@
 from django.db import transaction
 from django.db.models import Case, IntegerField, Q, Value, When
-from django.db.models.functions import Trim
 from django.utils.cache import patch_cache_control, patch_vary_headers
 from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
@@ -79,10 +78,8 @@ class SenseViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=["get"], url_path="translation-review", permission_classes=[IsAdminUser])
     def translation_review(self, request):
-        senses = Sense.objects.select_related("entry").annotate(
-            clean_translation=Trim("translation")
-        ).filter(
-            Q(translation__isnull=True) | Q(clean_translation="") | Q(short_translation__isnull=True)
+        senses = Sense.objects.select_related("entry").filter(
+            Q(translation__isnull=True) | Q(short_translation__isnull=True)
         )
         section_id = request.query_params.get("section_id", "").strip()
         if section_id:
@@ -146,7 +143,7 @@ class SenseViewSet(viewsets.ModelViewSet):
         queryset = Sense.objects.select_related("entry").all()
         if self.request.query_params.get("needs_translation", "").lower() == "true":
             queryset = queryset.filter(
-                Q(translation__isnull=True) | Q(translation=""),
+                translation__isnull=True,
                 word_mappings__isnull=False,
             ).distinct()
         return queryset

@@ -70,6 +70,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
   const [busy, setBusy] = useState(false)
 
   const [activeId, setActiveId] = useState<number | null>(null)
+  const [translation, setTranslation] = useState("")
   const [selectedKeys, setSelectedKeys] = useState<Set<string>>(() => new Set())
   const [selectedSenses, setSelectedSenses] = useState<Map<number, SenseSummary>>(
     () => new Map(),
@@ -189,9 +190,10 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
     () => active?.senses.map((sense) => sense.id) ?? [],
     [active],
   )
-  const dirty = active
+  const translationChanged = translation.trim() !== (active?.translation?.trim() ?? "")
+  const dirty = translationChanged || (active
     ? !sameSet(selectedKeys, originalKeys) || !sameIds(selectedSenses, originalSenseIds)
-    : selectedKeys.size > 0 || selectedSenses.size > 0
+    : selectedKeys.size > 0 || selectedSenses.size > 0)
 
   useUnsavedChangesWarning(dirty)
 
@@ -223,6 +225,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
 
   function resetWorking() {
     setActiveId(null)
+    setTranslation("")
     setSelectedKeys(new Set())
     setSelectedSenses(new Map())
     setSearch("")
@@ -242,6 +245,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
     }
 
     setActiveId(mapping.id)
+    setTranslation(mapping.translation ?? "")
     setSelectedKeys(new Set(mapping.subtitle_words.map(wordKey)))
     setSelectedSenses(new Map(mapping.senses.map((sense) => [sense.id, sense])))
     setSearch("")
@@ -390,6 +394,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
         const payload: CreateWordSenseMappingRequest = {
           section: section.id,
           senses: [...selectedSenses.keys()],
+          translation: translation.trim() || null,
           subtitle_words: subtitleWords,
         }
         await apiClient.post<WordSenseMapping, CreateWordSenseMappingRequest>(
@@ -397,10 +402,12 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
           payload,
         )
       } else {
+        const payload: UpdateWordSenseMappingRequest = {}
         if (!sameIds(selectedSenses, originalSenseIds)) {
-          const payload: UpdateWordSenseMappingRequest = {
-            sense_ids: [...selectedSenses.keys()],
-          }
+          payload.sense_ids = [...selectedSenses.keys()]
+        }
+        if (translationChanged) payload.translation = translation.trim() || null
+        if (Object.keys(payload).length) {
           await apiClient.patch(
             `/api/courses/word-sense-mappings/${active.id}/`,
             payload,
@@ -453,6 +460,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
         const current = freshMappings.find((mapping) => mapping.id === activeId)
         if (current) {
           setActiveId(current.id)
+          setTranslation(current.translation ?? "")
           setSelectedKeys(new Set(current.subtitle_words.map(wordKey)))
           setSelectedSenses(new Map(current.senses.map((sense) => [sense.id, sense])))
           setSearch("")
@@ -500,7 +508,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
 
       toast.success(`"${word}" was scraped successfully.`)
       setScrapeWord("")
-      setSearch(word)
+      setSearch(word.replaceAll("-", " "))
     } catch (error) {
       setScrapeError(error)
     } finally {
@@ -686,7 +694,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
           role="presentation"
           onMouseDown={(event) => {
-            if (event.target === event.currentTarget) closeMappingDialog()
+            if (event.target === event.currentTarget) resetWorking()
           }}
         >
           <div
@@ -708,7 +716,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => closeMappingDialog()}
+                onClick={resetWorking}
                 aria-label="Close mapping dialog"
               >
                 <X className="size-4" />
@@ -825,6 +833,18 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                     ))
                   )}
                 </div>
+              </section>
+
+              <section>
+                <Label htmlFor="mapping-translation">Mapping translation (optional)</Label>
+                <Input
+                  id="mapping-translation"
+                  dir="auto"
+                  value={translation}
+                  disabled={busy}
+                  onChange={(event) => setTranslation(event.target.value)}
+                  className="mt-2"
+                />
               </section>
 
               {publicEnv.enableScraper ? (

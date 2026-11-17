@@ -73,6 +73,7 @@ class WordSenseMapping(models.Model):
         Sense,
         related_name="word_mappings",
     )
+    translation = models.TextField(null=True, blank=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

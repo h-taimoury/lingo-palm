@@ -77,8 +77,9 @@ class Sense(models.Model):
         blank=True,
         default=None,
     )
+    # None means the full translation is pending review. "" means it was skipped.
     translation = models.TextField(null=True, blank=True)
-    # None = not reviewed; "" = reviewed and skipped; text = approved short translation.
+    # None means the short translation is pending review. "" means it was skipped.
     short_translation = models.CharField(max_length=100, null=True, blank=True, default=None)
     lex_unit = models.CharField(max_length=500, null=True, blank=True)
     geo = models.CharField(max_length=100, null=True, blank=True)

@@ -149,7 +149,10 @@ class ScraperServiceTests(TestCase):
         scrape_word_mock.side_effect = fake_scrape
         entries = scrape_and_save_word("book")
         self.assertEqual(len(entries), 1)
-        self.assertEqual(entries[0].senses.get().title, "book_n_1")
+        sense = entries[0].senses.get()
+        self.assertEqual(sense.title, "book_n_1")
+        self.assertIsNone(sense.translation)
+        self.assertIsNone(sense.short_translation)
         self.assertEqual(entries[0].level, {"tooltip": "Core vocabulary: High-frequency", "indicator": "●●●"})
 
     @patch("apps.scraper_admin.services.scrape_word")

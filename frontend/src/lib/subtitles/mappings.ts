@@ -10,6 +10,15 @@ import type {
   SubtitleToken,
 } from "@/types/subtitles"
 
+export function getMappingTranslation(mapping: {
+  translation: string | null
+  senses: Pick<WordSenseMapping["senses"][number], "short_translation">[]
+}): string {
+  return mapping.translation?.trim()
+    || (mapping.senses.length === 1 ? mapping.senses[0].short_translation?.trim() : "")
+    || ""
+}
+
 export function buildSubtitleMappingIndex(
   mappings: WordSenseMapping[],
 ): SubtitleMappingIndex {

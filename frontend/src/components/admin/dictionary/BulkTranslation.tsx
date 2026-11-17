@@ -100,15 +100,13 @@ export function BulkTranslation() {
       const next = source.map(sense => {
         const proposal = proposals.get(sense.id);
         if (!proposal) throw new Error(`Missing exported sense ${sense.id}. IDs must match the export.`);
-        function decision(field: Field): Decision {
-          const existing = sense[field];
-          const retained = field === "translation" ? Boolean(existing?.trim()) : existing != null;
-          const value = retained ? existing! : (proposal![field] as string | null) ?? "";
+        const decision = (field: Field): Decision => {
+          const value = sense[field] ?? (proposal[field] as string | null) ?? "";
           return {
             value: value.trim() ? value : "",
             status: !value.trim() ? "skipped" : field === "short_translation" && value.length > 100 ? "pending" : "confirmed",
           };
-        }
+        };
         return { sense, translation: decision("translation"), short_translation: decision("short_translation") };
       });
       setBatch(source);
@@ -149,7 +147,7 @@ export function BulkTranslation() {
       onChange={event => setSectionId(event.target.value)} />
     </div>
     <p role="status" className="text-xs text-muted-foreground">
-      {!validSection ? "Enter a positive integer." : countResult?.key !== countKey ? "Counting remaining senses…" : countResult.failed ? "Could not load remaining count." : `${countResult.remaining?.toLocaleString()} senses need translation ${section ? `in section ${section}` : "across all sections"}.`}
+      {!validSection ? "Enter a positive integer." : countResult?.key !== countKey ? "Counting remaining senses…" : countResult.failed ? "Could not load remaining count." : `${countResult.remaining?.toLocaleString()} senses used ${section ? `in section ${section}` : "in at least one section"} need translation.`}
     </p>
   </div>;
 

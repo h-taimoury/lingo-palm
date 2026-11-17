@@ -121,6 +121,7 @@ class CourseApiTests(APITestCase):
         )
         self.assertEqual(response.status_code, 201, response.data)
         self.assertEqual(len(response.data["subtitle_words"]), 2)
+        self.assertIsNone(response.data["translation"])
 
         self.client.force_authenticate(self.learner)
         section_response = self.client.get(f"/api/courses/sections/{self.section.id}/")
@@ -131,6 +132,30 @@ class CourseApiTests(APITestCase):
             [word["word"] for word in mappings[0]["subtitle_words"]],
             ["look", "up"],
         )
+
+    def test_mapping_translation_can_be_created_edited_and_cleared(self):
+        self.client.force_authenticate(self.staff)
+        response = self.client.post(
+            "/api/courses/word-sense-mappings/",
+            {**self._mapping_payload(), "translation": "Look upward"},
+            format="json",
+        )
+        self.assertEqual(response.status_code, 201, response.data)
+        self.assertEqual(response.data["translation"], "Look upward")
+        url = f"/api/courses/word-sense-mappings/{response.data['id']}/"
+        response = self.client.patch(url, {"translation": "Search for"}, format="json")
+        self.assertEqual(response.status_code, 200, response.data)
+        self.assertEqual([sense["id"] for sense in response.data["senses"]], [self.sense.id])
+
+        self.client.force_authenticate(self.learner)
+        section = self.client.get(f"/api/courses/sections/{self.section.id}/")
+        self.assertEqual(section.data["word_sense_mappings"][0]["translation"], "Search for")
+        self.assertEqual(self.client.patch(url, {"translation": None}, format="json").status_code, 403)
+
+        self.client.force_authenticate(self.staff)
+        response = self.client.patch(url, {"translation": None}, format="json")
+        self.assertEqual(response.status_code, 200, response.data)
+        self.assertIsNone(response.data["translation"])
 
     def test_learner_cannot_read_unpublished_section(self):
         self.section.is_published = False

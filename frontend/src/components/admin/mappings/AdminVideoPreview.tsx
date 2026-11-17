@@ -8,6 +8,7 @@ import { PlayerProvider, usePlayerStore, usePlayerStoreApi } from "@/components/
 import { PlayerControls } from "@/components/video-player/controls/PlayerControls"
 import { useMediaController } from "@/components/video-player/core/useMediaController"
 import { findActiveCueIndex } from "@/lib/subtitles/findActiveCue"
+import { getMappingTranslation } from "@/lib/subtitles/mappings"
 import { cn } from "@/lib/utils"
 import type { WordSenseMapping } from "@/types/api/courses"
 import type { SubtitleCue, SubtitleMappingIndex, SubtitleToken } from "@/types/subtitles"
@@ -47,9 +48,28 @@ function AdminVideoPreviewInner({
   const error = usePlayerStore((state) => state.error)
   const status = usePlayerStore((state) => state.status)
   const currentTime = usePlayerStore((state) => state.currentTime)
+  const showShortTranslations = usePlayerStore((state) => state.showShortTranslations)
   const controller = useMediaController({ videoRef: ref, containerRef, source, store })
   const activeCueIndex = findActiveCueIndex(cues, currentTime)
   const activeCue = activeCueIndex >= 0 ? cues[activeCueIndex] : null
+  const runs: { mapping: WordSenseMapping | undefined; tokens: SubtitleToken[] }[] = []
+  for (const token of activeCue?.tokens ?? []) {
+    const mapping = mappingIndex.get(token.key)
+    const previous = runs.at(-1)
+    if (mapping && previous?.mapping?.id === mapping.id) {
+      previous.tokens.push(token)
+    } else {
+      runs.push({ mapping, tokens: [token] })
+    }
+  }
+  const longestRuns = new Map<number, (typeof runs)[number]>()
+  for (const run of runs) {
+    if (!run.mapping) continue
+    const longest = longestRuns.get(run.mapping.id)
+    if (!longest || run.tokens.length > longest.tokens.length) {
+      longestRuns.set(run.mapping.id, run)
+    }
+  }
 
   return (
     <div>
@@ -85,43 +105,66 @@ function AdminVideoPreviewInner({
 
         {activeCue ? (
           <div className="pointer-events-none absolute inset-x-0 bottom-24 z-30 flex justify-center px-3 sm:px-8">
-            <div className="pointer-events-auto flex max-w-[92%] flex-wrap justify-center gap-x-1.5 gap-y-1 rounded-lg bg-black/70 px-3 py-2 text-center text-lg font-medium text-white shadow-lg backdrop-blur-sm sm:text-xl">
-              {activeCue.tokens.map((token) => {
-                const mapped = mappingIndex.get(token.key)
-                const selected = selectedKeys.has(token.key)
+            <div className={cn(
+              "pointer-events-auto flex max-w-[92%] flex-wrap justify-center gap-x-1.5 gap-y-1 rounded-lg bg-black/70 px-3 py-2 text-center text-lg font-medium text-white shadow-lg backdrop-blur-sm sm:text-xl",
+              showShortTranslations && "gap-y-5 pt-5",
+            )}>
+              {runs.map((run) => {
+                const { mapping: mapped, tokens } = run
                 const belongsActive = mapped?.id === activeMappingId
+                const translation = showShortTranslations && mapped && longestRuns.get(mapped.id) === run
+                  ? getMappingTranslation(mapped)
+                  : ""
 
                 return (
-                  <button
-                    key={token.key}
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      ref.current?.pause()
-                      if (mapped && event.ctrlKey && onMappedSenseClick) {
-                        onMappedSenseClick(mapped)
-                        return
-                      }
-                      if (mapped && mapped.id !== activeMappingId && onMappedTokenClick) {
-                        onMappedTokenClick(mapped)
-                        return
-                      }
-                      onTokenClick(token)
-                    }}
+                  <div
+                    key={tokens[0].key}
                     className={cn(
-                      "rounded px-1.5 py-0.5 ring-1 ring-inset transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white",
-                      mapped
-                        ? mappingColor(mapped.id)
-                        : selected
-                          ? "bg-primary text-primary-foreground ring-primary"
-                          : "bg-white/10 text-white ring-white/20 hover:bg-white/25",
+                      "relative flex max-w-full flex-wrap justify-center rounded",
+                      mapped && "ring-1 ring-inset",
+                      mapped && mappingColor(mapped.id),
                       belongsActive && "ring-2 ring-white",
                     )}
-                    aria-pressed={selected || belongsActive}
-                    title={mapped ? `Edit mapping #${mapped.id} · Ctrl-click to view senses` : "Select this subtitle occurrence"}
                   >
-                    {token.word}
-                  </button>
+                    {tokens.map((token) => {
+                      const selected = selectedKeys.has(token.key)
+                      return (
+                        <button
+                          key={token.key}
+                          type="button"
+                          onClick={(event) => {
+                            event.stopPropagation()
+                            ref.current?.pause()
+                            if (mapped && event.ctrlKey && onMappedSenseClick) {
+                              onMappedSenseClick(mapped)
+                              return
+                            }
+                            if (mapped && mapped.id !== activeMappingId && onMappedTokenClick) {
+                              onMappedTokenClick(mapped)
+                              return
+                            }
+                            onTokenClick(token)
+                          }}
+                          className={cn(
+                            "relative max-w-full rounded px-1.5 py-0.5 transition [overflow-wrap:anywhere] focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white",
+                            !mapped && "ring-1 ring-inset",
+                            !mapped && (selected
+                              ? "bg-primary text-primary-foreground ring-primary"
+                              : "bg-white/10 text-white ring-white/20 hover:bg-white/25"),
+                          )}
+                          aria-pressed={selected || belongsActive}
+                          title={mapped ? `Edit mapping #${mapped.id} · Ctrl-click to view senses` : "Select this subtitle occurrence"}
+                        >
+                          {token.word}
+                        </button>
+                      )
+                    })}
+                    {translation ? (
+                      <span lang="fa" dir="rtl" className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black/90 px-1 text-[0.65em] font-medium leading-tight text-white">
+                        {translation}
+                      </span>
+                    ) : null}
+                  </div>
                 )
               })}
             </div>

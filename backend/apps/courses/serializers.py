@@ -204,13 +204,13 @@ class WordSenseMappingSerializer(serializers.ModelSerializer):
             "id",
             "senses",
             "sense_ids",
+            "translation",
             "subtitle_words",
             "created_at",
         )
         read_only_fields = ("created_at",)
 
     def validate_sense_ids(self, value):  # noqa: ANN001, ANN201
-        # Pay attention that this serializer is not used for creating a new WordSenseMapping instance, but for reading the existing ones,updating and deleting them (RUD operations). Note that the only field in WordSenseMapping model instances that can get updated here is 'senses' field because we haven't included the 'section' field here on purpose because we don't want to let the section of a mapping to get updated. If the senses field is getting updated, we need to check that it's not an empty list and at least one sense is provided.
         if not value:
             raise serializers.ValidationError("At least one sense is required.")
         return value
@@ -238,7 +238,7 @@ class WordSenseMappingCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WordSenseMapping
-        fields = ("section", "senses", "subtitle_words")
+        fields = ("section", "senses", "translation", "subtitle_words")
 
     def validate_senses(self, value):
         if not value:
@@ -256,7 +256,9 @@ class WordSenseMappingCreateSerializer(serializers.ModelSerializer):
             senses = validated_data["senses"]
             words = validated_data.pop("subtitle_words")
             validate_subtitle_occurrences(section.pk, words)
-            mapping = WordSenseMapping.objects.create(section=section)
+            mapping = WordSenseMapping.objects.create(
+                section=section, translation=validated_data.get("translation")
+            )
             mapping.senses.set(senses)
             SubtitleWord.objects.bulk_create(
                 [SubtitleWord(mapping=mapping, **word) for word in words]

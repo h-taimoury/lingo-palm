@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Check, LoaderCircle, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage";
@@ -184,19 +184,34 @@ function Flashcard({
   onPronunciation: () => void;
 }) {
   const [halfTurns, setHalfTurns] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+  const [overflows, setOverflows] = useState(false);
+  const definitionRef = useRef<HTMLSpanElement>(null);
+  const definitionId = useId();
   const flipped = halfTurns % 2 === 1;
   const meaningLabel =
     row.sense.sense_number != null
       ? `Meaning number ${row.sense.sense_number} of word ${row.sense.entry.word} as ${row.sense.entry.part_of_speech}`
       : "Vocabulary sense";
 
+  useEffect(() => {
+    const definition = definitionRef.current;
+    if (!definition || expanded) return;
+    const measure = () => setOverflows(definition.scrollHeight > definition.clientHeight + 1);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(definition);
+    return () => observer.disconnect();
+  }, [row.sense.definition, expanded]);
+
   function flipCard() {
+    setExpanded(false);
     setHalfTurns((value) => value + 1);
     onPronunciation();
   }
   return (
-    <div className="w-full max-w-64">
-      <div className="group relative w-full rounded-2xl text-center transition-transform duration-200 [perspective:1200px] motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
+    <div className={`relative aspect-square min-h-60 w-full max-w-64 ${expanded ? "z-10" : ""}`}>
+      <div className="group absolute inset-0 rounded-2xl text-center transition-transform duration-200 [perspective:1200px] motion-safe:hover:-translate-y-1 motion-reduce:transition-none">
         <button
           type="button"
           onClick={flipCard}
@@ -205,13 +220,13 @@ function Flashcard({
           className="absolute inset-0 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         />
         <span
-          className="pointer-events-none grid w-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] motion-reduce:transition-none"
+          className="pointer-events-none relative block h-full w-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] motion-reduce:transition-none"
           style={{ transform: `rotateY(${halfTurns * 180}deg)` }}
         >
           <span
             aria-hidden={flipped}
             inert={flipped}
-            className="relative col-start-1 row-start-1 flex min-h-64 min-w-0 flex-col items-center justify-center overflow-hidden rounded-2xl border border-t-4 border-orange-200 border-t-primary bg-linear-to-br from-orange-50 via-white to-amber-100 px-4 py-6 text-card-foreground shadow-md shadow-orange-950/10 transition-shadow [backface-visibility:hidden] [-webkit-backface-visibility:hidden] group-hover:shadow-lg group-hover:shadow-orange-950/15 dark:border-orange-900 dark:border-t-primary dark:from-orange-950 dark:via-card dark:to-amber-950 dark:shadow-black/25"
+            className="absolute inset-0 flex min-w-0 flex-col items-center justify-center overflow-hidden rounded-2xl border border-t-4 border-orange-200 border-t-primary bg-linear-to-br from-orange-50 via-white to-amber-100 px-4 py-6 text-card-foreground shadow-md shadow-orange-950/10 transition-shadow [backface-visibility:hidden] [-webkit-backface-visibility:hidden] group-hover:shadow-lg group-hover:shadow-orange-950/15 dark:border-orange-900 dark:border-t-primary dark:from-orange-950 dark:via-card dark:to-amber-950 dark:shadow-black/25"
           >
             <span className="max-w-full text-3xl font-bold tracking-tight text-orange-950 [overflow-wrap:anywhere] dark:text-orange-50">
               {row.sense.entry.word}
@@ -232,16 +247,31 @@ function Flashcard({
           <span
             aria-hidden={!flipped}
             inert={!flipped}
-            className="relative col-start-1 row-start-1 flex min-h-64 min-w-0 flex-col items-center justify-center rounded-2xl border border-t-4 border-orange-200 border-t-primary bg-linear-to-br from-amber-50 to-orange-100 px-4 pb-4 pt-12 text-orange-950 shadow-md shadow-orange-950/10 transition-shadow [transform:rotateY(180deg)] [backface-visibility:hidden] [-webkit-backface-visibility:hidden] group-hover:shadow-lg group-hover:shadow-orange-950/15 dark:border-orange-900 dark:border-t-primary dark:from-amber-950 dark:to-orange-950 dark:text-orange-50 dark:shadow-black/25"
+            className="absolute inset-x-0 top-0 flex min-h-full min-w-0 flex-col items-center rounded-2xl border border-t-4 border-orange-200 border-t-primary bg-linear-to-br from-amber-50 to-orange-100 px-4 pb-4 pt-12 text-orange-950 shadow-md shadow-orange-950/10 transition-shadow [transform:rotateY(180deg)] [backface-visibility:hidden] [-webkit-backface-visibility:hidden] group-hover:shadow-lg group-hover:shadow-orange-950/15 dark:border-orange-900 dark:border-t-primary dark:from-amber-950 dark:to-orange-950 dark:text-orange-50 dark:shadow-black/25"
           >
             <Quote
               aria-hidden="true"
-              className="absolute left-5 top-5 size-6 text-primary/40"
+              className="absolute left-5 top-3 size-6 text-primary/40"
             />
-            <span className="flex flex-1 items-center max-w-full text-base font-medium leading-7 [overflow-wrap:anywhere]">
+            <span
+              ref={definitionRef}
+              id={definitionId}
+              className={`w-full text-left text-base font-medium leading-6 [overflow-wrap:anywhere] ${expanded ? "block" : "line-clamp-4"}`}
+            >
               {row.sense.definition}
             </span>
-            <span className="pointer-events-auto mt-auto flex min-h-9 shrink-0 flex-wrap items-center justify-center gap-2 pt-4 [&>button]:ml-0">
+            {expanded || overflows ? (
+              <button
+                type="button"
+                aria-expanded={expanded}
+                aria-controls={definitionId}
+                onClick={() => setExpanded((value) => !value)}
+                className="pointer-events-auto mt-2 cursor-pointer rounded-sm text-xs font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring"
+              >
+                {expanded ? "Show less" : "Show more"}
+              </button>
+            ) : null}
+            <span className="pointer-events-auto mt-auto flex min-h-9 shrink-0 flex-wrap items-center justify-center gap-2 pt-2 [&>button]:ml-0">
               {/* Keep the trigger on both sides of a flip; reset only its popup state. */}
               {row.sense.translation?.trim() ? (
                 <TranslationPopover

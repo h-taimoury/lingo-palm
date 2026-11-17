@@ -35,7 +35,14 @@ class TranslationReviewTests(APITestCase):
         self.assertEqual([row["id"] for row in response.data], [self.first.pk])
         self.second.translation = ""
         self.second.save()
-        self.assertEqual(len(self.client.get(url).data), 2)
+        self.assertEqual([row["id"] for row in self.client.get(url).data], [self.first.pk])
+        self.assertEqual(self.client.get(url, {"count_only": "true"}).data, {"remaining": 1})
+        self.second.short_translation = None
+        self.second.save()
+        self.assertCountEqual(
+            [row["id"] for row in self.client.get(url).data],
+            [self.first.pk, self.second.pk],
+        )
         self.assertEqual(self.client.get(url, {"count_only": "true"}).data, {"remaining": 2})
         self.user.is_staff = False
         self.user.save()
@@ -75,13 +82,13 @@ class TranslationReviewTests(APITestCase):
             self.assertEqual(self.client.get(url, {"section_id": invalid}).status_code, 400)
 
     def test_skips_and_retries(self):
-        rows = [self.row(self.first, short_translation="")]
+        rows = [self.row(self.first, translation="", short_translation="")]
         url = "/api/dictionary/senses/translation-review-save/"
         self.assertEqual(self.client.post(url, rows, format="json").status_code, 200)
         self.assertEqual(self.client.post(url, rows, format="json").status_code, 200)
         self.first.refresh_from_db()
         self.assertEqual(self.first.short_translation, "")
-        self.assertEqual(self.first.translation, "full")
+        self.assertEqual(self.first.translation, "")
 
     def test_duplicate_ids_rejected(self):
         row = self.row(self.first)

@@ -45,11 +45,11 @@ FULL TRANSLATION — translation
 11. Preserve the user's approved wording, spelling, punctuation, and register exactly, even when you would phrase it differently. Do not silently edit approved answers.
 12. Apply clear preferences learned from user edits to later suggestions. Do not infer a new general rule from one ambiguous edit.
 
-The full translation has no one- or two-word limit. Do not shorten it at the expense of accuracy merely because a short_translation is also requested.
+Do not shorten the full translation at the expense of accuracy merely because a short_translation is also requested.
 The rule about translating usage-definition "used" applies to wording such as "used to say" or "used by children"; it is not a mechanical replacement for the English past-habit construction "used to".
 
 SHORT TRANSLATION — short_translation
-1. Suggest one natural Persian word whenever possible. Otherwise use at most two words.
+1. Suggest a concise, natural Persian equivalent using as many words as the meaning requires.
 2. Aim for a readable, immediately understandable gloss that can appear above a subtitle word or phrase during playback.
 3. Base the gloss on the exact dictionary definition, not the current video cue, sentence, course, or section.
 4. A full Persian translation is not required first. Derive the short translation directly from the English definition when necessary.
@@ -59,9 +59,9 @@ SHORT TRANSLATION — short_translation
 8. Do not force a short translation when it would be misleading, excessively vague, unnatural, or lose an essential distinction. Recommend Skip instead. A full translation can still be provided.
 9. Multi-word English terms and separated phrasal verbs can receive short translations. The English word count does not determine whether a short Persian equivalent is possible.
 10. Prefer one equivalent. Avoid lists of alternatives or slash-separated meanings just to fit several ideas into the short field.
-11. Use normal Persian spelling and spacing. Do not join separate words, remove spaces, or insert artificial half-spaces to evade the two-word limit. Legitimate Persian compounds may use normal half-spaces.
+11. Use normal Persian spelling and spacing, including standard half-spaces in Persian compounds.
 12. Apply the Persian spelling preferences above, including the rule against added ezafe marks after final ه.
-13. The user may explicitly approve a longer exception. Preserve that exact answer, but keep new suggestions within the one- or two-word target.
+13. Preserve the exact wording of a short translation the user approves.
 14. Preserve the core meaning, polarity, and register. Do not replace a precise sense with a broadly related word, turn a neutral meaning into an insult, or add a stronger emotional meaning.
 15. A short gloss need not reproduce explanatory wording such as "used to say", examples, or sub-sense labels. Those details belong in the full translation. The gloss must still be compatible with them.
 16. For a sense that includes both doing an action and causing someone else to do it, check that the proposed Persian wording does not misleadingly restrict the meaning to one grammatical use. Recommend Skip if no compact equivalent works.
@@ -83,7 +83,7 @@ Reason: A single short Persian equivalent would cover only some of the listed us
 
 Spacing check:
 دیر یا زود is three words. Do not write دیر یا‌زود to make it look like two.
-دست‌کم گرفتن uses a normal Persian compound and is an acceptable two-word form when it matches the sense.
+دست‌کم گرفتن uses a normal Persian compound and is suitable when it matches the sense.
 Do not use لطفاً as a shortcut for "out of the goodness of somebody's heart"; it changes a description of someone's motive into a polite request.
 
 SHORT-TRANSLATION REVIEW STATE
@@ -125,7 +125,7 @@ If a field is already approved, identify it as existing rather than presenting i
 FINAL CHECK BEFORE PRESENTING
 Does each proposal match the exact sense?
 Does the full translation preserve important qualifiers, usage notes, and sub-senses?
-Is the short suggestion natural and no more than two words, without manipulated spacing?
+Is the short suggestion concise and natural, with standard Persian spacing?
 Would the short suggestion still work outside the current scene?
 If a short equivalent is misleading, have you recommended Skip?
 Have you preserved any approved user wording exactly?

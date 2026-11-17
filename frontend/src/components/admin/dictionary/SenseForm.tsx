@@ -75,6 +75,10 @@ export function SenseForm({
       opposites: list(form.get("opposites")),
       examples: parseExamples(form.get("examples")),
     };
+    for (const field of ["translation", "short_translation"] as const) {
+      const value = String(form.get(field) ?? "").trim();
+      if (value !== (sense?.[field] ?? "").trim()) body[field] = value;
+    }
     setBusy(true);
     setError(null);
     try {
@@ -107,11 +111,13 @@ export function SenseForm({
             Sense no.
           </Label>
           <Input
+            key={sense?.sense_number ?? ""}
             id={`sense-number-${sense?.id ?? "new"}-${entryId}`}
             name="sense_number"
             type="number"
             min={1}
             step={1}
+            placeholder="2"
             defaultValue={sense?.sense_number ?? ""}
           />
         </div>
@@ -120,8 +126,10 @@ export function SenseForm({
             Unique title
           </Label>
           <Input
+            key={sense?.title ?? ""}
             id={`sense-title-${sense?.id ?? "new"}-${entryId}`}
             name="title"
+            placeholder="blade_n_3"
             defaultValue={sense?.title ?? ""}
             required
           />
@@ -134,27 +142,56 @@ export function SenseForm({
         <Textarea
           id={`sense-def-${sense?.id ?? "new"}-${entryId}`}
           name="definition"
+          placeholder="a single thin flat piece of grass"
           defaultValue={sense?.definition ?? ""}
           required
           rows={4}
         />
       </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor={`translation-${sense?.id ?? "new"}-${entryId}`}>Translation</Label>
+          <Textarea
+            id={`translation-${sense?.id ?? "new"}-${entryId}`}
+            name="translation"
+            dir="rtl"
+            rows={2}
+            defaultValue={sense?.translation ?? ""}
+            placeholder="چیز خوبی که انتظارش رو نداشتی"
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor={`short-translation-${sense?.id ?? "new"}-${entryId}`}>Short translation</Label>
+          <Input
+            key={sense?.short_translation ?? ""}
+            id={`short-translation-${sense?.id ?? "new"}-${entryId}`}
+            name="short_translation"
+            dir="rtl"
+            maxLength={100}
+            defaultValue={sense?.short_translation ?? ""}
+            placeholder="امتیاز اضافی"
+          />
+        </div>
+      </div>
       <div className="grid gap-4 sm:grid-cols-3">
         <Field
           name="lex_unit"
           label="Lexical unit"
+          placeholder="blade of grass"
           value={sense?.lex_unit}
           id={`${sense?.id ?? "new"}-${entryId}`}
         />
         <Field
           name="geo"
           label="Geography"
+          placeholder="British English"
           value={sense?.geo}
           id={`${sense?.id ?? "new"}-${entryId}`}
         />
         <Field
           name="register"
           label="Register"
+          placeholder="old-fashioned"
           value={sense?.register}
           id={`${sense?.id ?? "new"}-${entryId}`}
         />
@@ -165,8 +202,10 @@ export function SenseForm({
             Synonyms
           </Label>
           <Input
+            key={sense?.synonyms.join(", ") ?? ""}
             id={`syn-${sense?.id ?? "new"}-${entryId}`}
             name="synonyms"
+            placeholder="imitate, take off"
             defaultValue={sense?.synonyms.join(", ") ?? ""}
           />
         </div>
@@ -175,8 +214,10 @@ export function SenseForm({
             Opposites
           </Label>
           <Input
+            key={sense?.opposites.join(", ") ?? ""}
             id={`opp-${sense?.id ?? "new"}-${entryId}`}
             name="opposites"
+            placeholder="difficult, hard"
             defaultValue={sense?.opposites.join(", ") ?? ""}
           />
         </div>
@@ -191,12 +232,11 @@ export function SenseForm({
           defaultValue={sense ? examplesToText(sense.examples) : ""}
           rows={4}
           placeholder={
-            "One per line. Optional usage: example text || usage note"
+            "The blade of the knife flashed in the moonlight. || blade of\na razor blade"
           }
         />
         <p className="text-xs text-muted-foreground">
-          The “|| usage” format preserves Django’s example usage metadata during
-          edits.
+          Enter one example per line. Add “||” followed by a usage note if needed.
         </p>
       </div>
       <Button type="submit" className="w-fit" disabled={busy}>
@@ -211,16 +251,18 @@ function Field({
   label,
   value,
   id,
+  placeholder,
 }: {
   name: string;
   label: string;
   value?: string | null;
   id: string;
+  placeholder: string;
 }) {
   return (
     <div className="space-y-2">
       <Label htmlFor={`${name}-${id}`}>{label}</Label>
-      <Input id={`${name}-${id}`} name={name} defaultValue={value ?? ""} />
+      <Input key={value ?? ""} id={`${name}-${id}`} name={name} defaultValue={value ?? ""} placeholder={placeholder} />
     </div>
   );
 }
