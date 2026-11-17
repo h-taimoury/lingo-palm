@@ -34,13 +34,19 @@ class EntryViewSet(viewsets.ModelViewSet):
     ordering = ("word", "homonym_num", "part_of_speech", "id")
 
     def get_queryset(self):  # noqa: ANN201
-        return Entry.objects.prefetch_related("senses").all()
+        queryset = Entry.objects.all()
+        if self.action == "full_word":
+            return queryset
+        return queryset.prefetch_related("senses")
 
     @action(detail=True, methods=["get"], url_path="full-word")
     def full_word(self, request, pk=None):
         entry = self.get_object()
-        entries = self.get_queryset().filter(word__iexact=entry.word).order_by(
-            "part_of_speech", "homonym_num", "id"
+        entries = (
+            self.get_queryset()
+            .filter(word__iexact=entry.word)
+            .order_by("part_of_speech", "homonym_num", "id")
+            .prefetch_related("senses")
         )
         response = Response(self.get_serializer(entries, many=True).data)
         patch_cache_control(response, private=True, max_age=86400)

@@ -50,7 +50,8 @@ class EntryViewSetPermissionTests(APITestCase):
         )
         Sense.objects.create(entry=self.entry, title="run_verb_2", sense_number=2, definition="operate")
         self.client.force_authenticate(self.learner)
-        response = self.client.get(f"/api/dictionary/entries/{self.entry.id}/full-word/")
+        with self.assertNumQueries(3):
+            response = self.client.get(f"/api/dictionary/entries/{self.entry.id}/full-word/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response["Cache-Control"], "private, max-age=86400")
         self.assertIn("Cookie", response["Vary"])
