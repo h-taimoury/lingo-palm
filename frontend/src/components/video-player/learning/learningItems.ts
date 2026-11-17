@@ -76,15 +76,3 @@ export function getCueLearningItems(
     getMappingLearningItems(mapping, cue),
   )
 }
-
-export function cueHasMappings(
-  cue: SubtitleCue | undefined,
-  mappings: WordSenseMapping[],
-) {
-  return Boolean(
-    cue &&
-      mappings.some((mapping) =>
-        mapping.subtitle_words.some((word) => word.cue_id === cue.cueId),
-      ),
-  )
-}

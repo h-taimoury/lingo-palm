@@ -16,7 +16,6 @@ import { LearningModal } from "@/components/video-player/learning/LearningModal"
 import { filterMappingsByLevel, SENSE_LEVELS } from "@/components/video-player/learning/mappingLevels";
 import type { SenseLevel } from "@/types/api/dictionary";
 import {
-  cueHasMappings,
   getCueLearningItems,
   getMappingLearningItems,
 } from "@/components/video-player/learning/learningItems";
@@ -76,11 +75,9 @@ export function VideoPlayerInner({
   const modalMode = usePlayerStore((s) => s.modalMode);
   const activeMappingId = usePlayerStore((s) => s.activeMappingId);
   const activeSenseIndex = usePlayerStore((s) => s.activeSenseIndex);
-  const wasPlayingBeforeModal = usePlayerStore((s) => s.wasPlayingBeforeModal);
   const toggleTheater = usePlayerStore((s) => s.toggleTheater);
   const openMappingState = usePlayerStore((s) => s.openMappingModal);
   const openCueState = usePlayerStore((s) => s.openCueModal);
-  const closeModalState = usePlayerStore((s) => s.closeLearningModal);
   const nextSenseState = usePlayerStore((s) => s.nextSense);
   const previousSenseState = usePlayerStore((s) => s.previousSense);
   const setActiveSenseIndex = usePlayerStore((s) => s.setActiveSenseIndex);
@@ -120,6 +117,11 @@ export function VideoPlayerInner({
   }, [subtitleSource]);
 
   const activeCue = cues[activeCueIndex];
+  const cueLearningItems = useMemo(
+    () => getCueLearningItems(activeCue, visibleMappings),
+    [activeCue, visibleMappings],
+  );
+  const hasCueLearningItems = cueLearningItems.length > 0;
   const learningItems = useMemo(
     () =>
       modalMode === "mapping"
@@ -128,21 +130,17 @@ export function VideoPlayerInner({
             activeCue,
           )
         : modalMode === "cue"
-          ? getCueLearningItems(activeCue, visibleMappings)
+          ? cueLearningItems
           : [],
-    [modalMode, visibleMappings, activeMappingId, activeCue],
-  );
-  const hasCueMappings = useMemo(
-    () => cueHasMappings(activeCue, visibleMappings),
-    [activeCue, visibleMappings],
+    [modalMode, visibleMappings, activeMappingId, activeCue, cueLearningItems],
   );
 
   const closeLearningModal = useCallback(() => {
-    const resume = wasPlayingBeforeModal;
-    closeModalState();
-    setLearningError(null);
-    if (resume) void controller.play();
-  }, [wasPlayingBeforeModal, closeModalState, controller]);
+    const state = store.getState();
+    if (state.modalMode === "closed") return;
+    state.closeLearningModal();
+    if (state.wasPlayingBeforeModal) void controller.play();
+  }, [store, controller]);
   const openMappingModal = useCallback(
     (mappingId: number) => {
       const wasPlaying = Boolean(videoRef.current && !videoRef.current.paused);
@@ -154,14 +152,14 @@ export function VideoPlayerInner({
     [openMappingState],
   );
   const openCueModal = useCallback(() => {
-    if (!hasCueMappings) return;
+    if (!hasCueLearningItems) return;
     setLevelMenuOpen(false);
     const wasPlaying = Boolean(videoRef.current && !videoRef.current.paused);
     videoRef.current?.pause();
     setLearningError(null);
     openCueState(wasPlaying);
     setControlsVisible(true);
-  }, [hasCueMappings, openCueState]);
+  }, [hasCueLearningItems, openCueState]);
   const nextSense = useCallback(
     () => nextSenseState(learningItems.length),
     [nextSenseState, learningItems.length],
@@ -252,22 +250,9 @@ export function VideoPlayerInner({
       nextLearned.add(senseId);
       setLearnedSenseIds(nextLearned);
       if (alreadyKnown) setKnownSenseIds((current) => new Set([...current, senseId]));
-      const removedIds = new Set<number>();
-      const nextMappings = mappings.filter((mapping) => {
-        const fullyLearned = mapping.senses.every((sense) =>
-          nextLearned.has(sense.id),
-        );
-        if (fullyLearned) removedIds.add(mapping.id);
-        return !fullyLearned;
-      });
-      setMappings(nextMappings);
-      if (
-        (modalMode === "mapping" &&
-          activeMappingId !== null &&
-          removedIds.has(activeMappingId)) ||
-        (modalMode === "cue" && !cueHasMappings(activeCue, filterMappingsByLevel(nextMappings, selectedLevels)))
-      )
-        closeLearningModal();
+      setMappings((current) => current.filter((mapping) =>
+        mapping.senses.some((sense) => !nextLearned.has(sense.id)),
+      ));
       router.refresh();
     } catch (error) {
       setLearningError(
@@ -331,7 +316,7 @@ export function VideoPlayerInner({
           mappings={visibleMappings}
           onOpenMapping={openMappingModal}
         />
-        {modalMode === "closed" && hasCueMappings ? (
+        {modalMode === "closed" && hasCueLearningItems ? (
           <button
             type="button"
             data-player-interactive="true"
