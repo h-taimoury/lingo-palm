@@ -16,7 +16,7 @@ export function VocabularyFilterFields({ value, source, disabled, onChange }: {
     <label className="flex items-center gap-3 whitespace-nowrap text-sm font-medium">
       Review status
     <span className="relative inline-grid">
-      <span aria-hidden="true" className="invisible col-start-1 row-start-1 pl-2 pr-6">Needs review</span>
+      <span aria-hidden="true" className="invisible col-start-1 row-start-1 pl-2 pr-6">In review</span>
       <span aria-hidden="true" className="invisible col-start-1 row-start-1 pl-2 pr-6">Already knew</span>
     <select
       aria-label="Filter vocabulary by review status"
@@ -27,7 +27,7 @@ export function VocabularyFilterFields({ value, source, disabled, onChange }: {
       className="col-start-1 row-start-1 h-10 w-full min-w-0 appearance-none rounded-md border border-input bg-background pl-2 pr-6 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
     >
       <option value="all">All</option>
-      <option value="review">Needs review</option>
+      <option value="review">In review</option>
       <option value="stable">Review off</option>
     </select>
       <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-1.5 top-1/2 size-3 -translate-y-1/2" />
@@ -36,7 +36,7 @@ export function VocabularyFilterFields({ value, source, disabled, onChange }: {
     <label className="flex items-center gap-3 whitespace-nowrap text-sm font-medium">
       Prior knowledge
       <span className="relative inline-grid">
-        <span aria-hidden="true" className="invisible col-start-1 row-start-1 pl-2 pr-6">Needs review</span>
+        <span aria-hidden="true" className="invisible col-start-1 row-start-1 pl-2 pr-6">In review</span>
         <span aria-hidden="true" className="invisible col-start-1 row-start-1 pl-2 pr-6">Already knew</span>
       <select
         aria-busy={disabled}

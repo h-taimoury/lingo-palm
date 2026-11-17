@@ -2,7 +2,7 @@ from django.db.models import Prefetch
 from rest_framework import filters, viewsets
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
-from .permissions import IsStaffOrPublishedReadOnly
+from .permissions import IsStaffOrPublishedReadOnly, visible_courses
 from .serializers import (
     CourseSerializer,
     CourseSummarySerializer,
@@ -24,7 +24,7 @@ class CourseViewSet(viewsets.ModelViewSet):
     permission_classes = (IsStaffOrPublishedReadOnly,)
     filter_backends = (filters.SearchFilter, filters.OrderingFilter)
     search_fields = ("title", "description", "level")
-    ordering_fields = ("title", "level", "created_at")
+    ordering_fields = ("title", "level", "created_at", "is_free", "id")
     ordering = ("title", "id")
 
     def get_serializer_class(self):  # noqa: ANN201
@@ -45,7 +45,7 @@ class CourseViewSet(viewsets.ModelViewSet):
         course_queryset = Course.objects.all()
         if not self.request.user.is_staff:
             section_queryset = section_queryset.filter(is_published=True)
-            course_queryset = course_queryset.filter(is_published=True)
+            course_queryset = course_queryset.filter(visible_courses(self.request.user))
 
         return course_queryset.prefetch_related(
             Prefetch("sections", queryset=section_queryset)
@@ -76,7 +76,7 @@ class SectionViewSet(viewsets.ModelViewSet):
         )
         if self.request.user.is_staff:
             return queryset
-        return queryset.filter(is_published=True, course__is_published=True)
+        return queryset.filter(visible_courses(self.request.user, "course__"), is_published=True)
 
     @action(detail=True, methods=["get"], url_path="taught-senses")
     def taught_senses(self, request, pk=None):
@@ -135,8 +135,8 @@ class WordSenseMappingViewSet(viewsets.ModelViewSet):
         if self.request.user.is_staff:
             return queryset
         return queryset.filter(
+            visible_courses(self.request.user, "section__course__"),
             section__is_published=True,
-            section__course__is_published=True,
         )
 
 
@@ -159,6 +159,6 @@ class SubtitleWordViewSet(viewsets.ModelViewSet):
         if self.request.user.is_staff:
             return queryset
         return queryset.filter(
+            visible_courses(self.request.user, "mapping__section__course__"),
             mapping__section__is_published=True,
-            mapping__section__course__is_published=True,
         )

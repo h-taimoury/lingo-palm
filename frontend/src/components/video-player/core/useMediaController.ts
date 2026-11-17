@@ -11,12 +11,14 @@ import {
 import { usePlayerStore } from "@/components/video-player/PlayerProvider"
 import type { PlayerStore } from "@/components/video-player/core/playerStore"
 import { useHls } from "@/components/video-player/core/useHls"
+import type { PlaybackRange } from "@/types/player"
 
 type UseMediaControllerOptions = {
   videoRef: RefObject<HTMLVideoElement | null>
   containerRef: RefObject<HTMLDivElement | null>
   source: string
   store: PlayerStore
+  range?: PlaybackRange
 }
 
 export function useMediaController({
@@ -24,8 +26,10 @@ export function useMediaController({
   containerRef,
   source,
   store,
+  range,
 }: UseMediaControllerOptions) {
   const [video, setVideo] = useState<HTMLVideoElement | null>(null)
+  const [expanded, setExpanded] = useState(false)
 
   const volume = usePlayerStore((state) => state.volume)
   const isMuted = usePlayerStore((state) => state.isMuted)
@@ -35,7 +39,7 @@ export function useMediaController({
     setVideo(videoRef.current)
   }, [videoRef])
 
-  useHls({ video, source, store })
+  useHls({ video, source, store, startPosition: range?.start })
 
   useEffect(() => {
     const media = videoRef.current
@@ -56,19 +60,37 @@ export function useMediaController({
     }
 
     const syncTime = () => {
+      if (range && media.readyState >= 1) {
+        const end = Math.min(media.duration, range.end)
+        const atEnd = media.currentTime >= end
+        store.getState().setEnded(atEnd)
+        if (atEnd) {
+          media.pause()
+          if (media.currentTime > end) media.currentTime = end
+        }
+      }
       store.getState().setCurrentTime(media.currentTime)
     }
 
     const syncSeeked = () => {
       // The browser may settle at a different time than the requested target.
       // Invalidate the cue cache even if currentTime has not changed.
-      store.setState({ currentTime: media.currentTime, activeCueIndex: -1 })
+      syncTime()
+      store.getState().setActiveCueIndex(-1)
     }
 
     const syncDuration = () => {
       store.getState().setDuration(
         Number.isFinite(media.duration) ? media.duration : 0,
       )
+    }
+
+    const syncMetadata = () => {
+      syncDuration()
+      if (!range || !Number.isFinite(media.duration)) return
+      media.pause()
+      media.currentTime = Math.min(range.start, media.duration)
+      store.setState({ currentTime: media.currentTime, activeCueIndex: -1, isEnded: false })
     }
 
     const syncWaiting = () => {
@@ -79,7 +101,9 @@ export function useMediaController({
     const syncReady = () => {
       store.getState().setBuffering(false)
       store.getState().setStatus("ready")
-      store.getState().setError(null)
+      store.getState().setError(range && range.start >= media.duration
+        ? { message: "This clip starts after the end of the section video." }
+        : null)
     }
 
     const syncVolume = () => {
@@ -112,7 +136,7 @@ export function useMediaController({
     media.addEventListener("seeking", syncTime)
     media.addEventListener("seeked", syncSeeked)
     media.addEventListener("durationchange", syncDuration)
-    media.addEventListener("loadedmetadata", syncDuration)
+    media.addEventListener("loadedmetadata", syncMetadata)
     media.addEventListener("waiting", syncWaiting)
     media.addEventListener("canplay", syncReady)
     media.addEventListener("playing", syncReady)
@@ -121,6 +145,8 @@ export function useMediaController({
     media.addEventListener("ended", syncEnded)
     media.addEventListener("error", syncError)
 
+    if (range && media.readyState >= 1) syncMetadata()
+
     return () => {
       media.removeEventListener("play", syncPlay)
       media.removeEventListener("pause", syncPause)
@@ -128,7 +154,7 @@ export function useMediaController({
       media.removeEventListener("seeking", syncTime)
       media.removeEventListener("seeked", syncSeeked)
       media.removeEventListener("durationchange", syncDuration)
-      media.removeEventListener("loadedmetadata", syncDuration)
+      media.removeEventListener("loadedmetadata", syncMetadata)
       media.removeEventListener("waiting", syncWaiting)
       media.removeEventListener("canplay", syncReady)
       media.removeEventListener("playing", syncReady)
@@ -137,7 +163,7 @@ export function useMediaController({
       media.removeEventListener("ended", syncEnded)
       media.removeEventListener("error", syncError)
     }
-  }, [source, store, videoRef])
+  }, [range, source, store, videoRef])
 
   useEffect(() => {
     const media = videoRef.current
@@ -164,18 +190,24 @@ export function useMediaController({
     const media = videoRef.current
     if (!media) return
 
-    if (media.ended) {
+    if (range) {
+      if (media.readyState < 1 || range.start >= media.duration) return
+      if (media.currentTime < range.start || media.currentTime >= Math.min(media.duration, range.end)) {
+        media.currentTime = range.start
+      }
+    } else if (media.ended) {
       media.currentTime = 0
     }
 
     try {
       await media.play()
-    } catch {
+    } catch (error) {
+      if (range && error instanceof DOMException && error.name === "AbortError") return
       store.getState().setError({
         message: "Playback could not start. Try pressing play again.",
       })
     }
-  }, [store, videoRef])
+  }, [range, store, videoRef])
 
   const pause = useCallback(() => {
     videoRef.current?.pause()
@@ -201,10 +233,10 @@ export function useMediaController({
         ? media.duration
         : Number.POSITIVE_INFINITY
 
-      media.currentTime = Math.min(Math.max(0, seconds), duration)
+      media.currentTime = Math.min(Math.max(range?.start ?? 0, seconds), range?.end ?? duration, duration)
       store.getState().setCurrentTime(media.currentTime)
     },
-    [store, videoRef],
+    [range, store, videoRef],
   )
 
   const seekBy = useCallback(
@@ -254,13 +286,38 @@ export function useMediaController({
     const container = containerRef.current
     if (!container) return
 
-    if (document.fullscreenElement === container) {
+    if (expanded) {
+      setExpanded(false)
+      store.getState().setFullscreen(false)
+    } else if (document.fullscreenElement === container) {
       await document.exitFullscreen()
     } else {
-      await container.requestFullscreen()
+      if (container.requestFullscreen) {
+        try {
+          await container.requestFullscreen()
+          container.focus({ preventScroll: true })
+          return
+        } catch {
+          if (!range) return
+        }
+      }
+      if (!range) return
+      setExpanded(true)
+      store.getState().setFullscreen(true)
     }
     container.focus({ preventScroll: true })
-  }, [containerRef])
+  }, [containerRef, expanded, range, store])
+
+  useEffect(() => {
+    if (!expanded) return
+    const dialog = containerRef.current?.closest("dialog")
+    const exitExpanded = (event: Event) => {
+      event.preventDefault()
+      void toggleFullscreen()
+    }
+    dialog?.addEventListener("cancel", exitExpanded)
+    return () => dialog?.removeEventListener("cancel", exitExpanded)
+  }, [containerRef, expanded, toggleFullscreen])
 
   return useMemo(
     () => ({
@@ -274,6 +331,7 @@ export function useMediaController({
       toggleMute,
       setPlaybackRate,
       toggleFullscreen,
+      expanded,
     }),
     [
       pause,
@@ -284,6 +342,7 @@ export function useMediaController({
       setVolume,
       adjustVolume,
       toggleFullscreen,
+      expanded,
       toggleMute,
       togglePlay,
     ],

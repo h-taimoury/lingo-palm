@@ -10,6 +10,7 @@ import type { SenseLevel } from "@/types/api/dictionary";
 import { TheaterButton } from "@/components/video-player/controls/TheaterButton";
 import { Timeline } from "@/components/video-player/controls/Timeline";
 import { VolumeControl } from "@/components/video-player/controls/VolumeControl";
+import type { PlaybackRange } from "@/types/player";
 
 type PlayerControlsProps = {
   onTogglePlay: () => void;
@@ -23,6 +24,7 @@ type PlayerControlsProps = {
   onLevelsChange?: (levels: SenseLevel[]) => void;
   levelMenuOpen?: boolean;
   onLevelMenuOpenChange?: (open: boolean) => void;
+  range?: PlaybackRange;
 };
 
 export function PlayerControls({
@@ -37,6 +39,7 @@ export function PlayerControls({
   onLevelsChange,
   levelMenuOpen,
   onLevelMenuOpenChange,
+  range,
 }: PlayerControlsProps) {
   const isPlaying = usePlayerStore((state) => state.isPlaying);
   const isEnded = usePlayerStore((state) => state.isEnded);
@@ -50,7 +53,7 @@ export function PlayerControls({
       onClick={(event) => event.stopPropagation()}
       onDoubleClick={(event) => event.stopPropagation()}
     >
-      <Timeline onSeek={onSeek} />
+      <Timeline onSeek={onSeek} range={range} />
 
       <div className="mt-2 flex items-center gap-1">
         <button
@@ -78,7 +81,7 @@ export function PlayerControls({
         <div className="flex-1" />
 
         <PlaybackRate onChange={onPlaybackRateChange} />
-        <button
+        {!range && <button
           type="button"
           onClick={toggleShortTranslations}
           aria-label="Short Persian translations"
@@ -87,7 +90,7 @@ export function PlayerControls({
           className={`inline-flex h-9 items-center justify-center rounded-md border-b-2 px-2 text-sm font-semibold text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${showShortTranslations ? "border-amber-300" : "border-transparent"}`}
         >
           T
-        </button>
+        </button>}
         {selectedLevels && onLevelsChange && onLevelMenuOpenChange ? <LevelControl
           selectedLevels={selectedLevels}
           onChange={onLevelsChange}

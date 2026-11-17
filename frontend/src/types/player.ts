@@ -35,3 +35,4 @@ export type PlayerState = PlayerPreferences & {
   activeSenseIndex: number
   wasPlayingBeforeModal: boolean
 }
+export type PlaybackRange = { start: number; end: number }

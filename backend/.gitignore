@@ -13,6 +13,10 @@ htmlcov/
 staticfiles/
 media/*
 !media/.gitkeep
+!media/sample-courses/
+media/sample-courses/*
+!media/sample-courses/Sintel/
+!media/sample-courses/Sprite-Fright/
 # Public, locally authored assets bundled with each Render deployment.
 !media/course_thumbnails/
 media/course_thumbnails/**

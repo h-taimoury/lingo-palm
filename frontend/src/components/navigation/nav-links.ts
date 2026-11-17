@@ -30,9 +30,15 @@ export const learnerNavLinks: readonly NavItem[] = [
   },
   {
     title: "Review",
-    href: "/review/flashcard",
+    href: "/review",
     icon: "review",
     activePrefix: "/review",
+  },
+  {
+    title: "My progress",
+    href: "/my-progress",
+    icon: "analytics",
+    activePrefix: "/my-progress",
   },
 ]
 

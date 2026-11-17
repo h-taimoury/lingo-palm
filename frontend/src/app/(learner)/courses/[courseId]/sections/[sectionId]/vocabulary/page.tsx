@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionVocabularyManager } from "@/components/vocabulary/SectionVocabularyManager";
 import { PageHeader } from "@/components/shared/PageHeader";
+import { getOptionalCurrentUser } from "@/lib/auth/getOptionalCurrentUser";
+import { loginHref } from "@/lib/auth/redirects";
 import {
   getLearnerSection,
   getSectionTaughtSenses,
@@ -15,9 +17,10 @@ export default async function Page({
 }) {
   const { courseId, sectionId } = await params;
   const returnTo = `/courses/${courseId}/sections/${sectionId}/vocabulary`;
-  const [section, taught] = await Promise.all([
+  const [section, taught, user] = await Promise.all([
     getLearnerSection(courseId, sectionId, returnTo),
     getSectionTaughtSenses(sectionId, returnTo),
+    getOptionalCurrentUser(returnTo),
   ]);
 
   return (
@@ -31,6 +34,7 @@ export default async function Page({
       <div className="mt-5">
         <SectionVocabularyManager
           taughtSenses={taught}
+          signInHref={user ? undefined : loginHref(returnTo)}
           header={
             <PageHeader
               eyebrow={section.course.title}

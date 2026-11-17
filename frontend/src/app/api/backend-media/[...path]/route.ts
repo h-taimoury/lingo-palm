@@ -9,13 +9,15 @@ const PREFIX = "/api/backend-media/"
 
 export async function GET(request: NextRequest) {
   const relative = request.nextUrl.pathname.slice(PREFIX.length)
+  const upstreamPath = relative.startsWith("/sample-courses/") || relative.startsWith("sample-courses/")
+    ? `/${relative.replace(/^\//, "")}` : `/media/${relative}`
   const headers = new Headers()
   const range = request.headers.get("range")
   if (range) headers.set("Range", range)
 
   let upstream: Response
   try {
-    upstream = await fetch(buildDjangoUrl(`/media/${relative}`), {
+    upstream = await fetch(buildDjangoUrl(upstreamPath), {
       headers,
       cache: "no-store",
     })

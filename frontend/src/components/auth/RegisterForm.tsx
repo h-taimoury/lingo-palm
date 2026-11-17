@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiClient } from "@/lib/api/client";
-import type { RegisterRequest, User } from "@/types/api/users";
+import type { RegisterRequest } from "@/types/api/users";
+import type { DetailResponse } from "@/types/api/common";
 
 export function RegisterForm() {
   const router = useRouter();
@@ -24,18 +25,21 @@ export function RegisterForm() {
       last_name: String(form.get("last_name") ?? ""),
       email: String(form.get("email") ?? ""),
       password: String(form.get("password") ?? ""),
+      password_confirm: String(form.get("password_confirm") ?? ""),
     };
+    if (body.password !== body.password_confirm) {
+      setError(new Error("Passwords do not match."));
+      return;
+    }
     setBusy(true);
     setError(null);
     try {
-      await apiClient.post<User, RegisterRequest>(
+      await apiClient.post<DetailResponse, RegisterRequest>(
         "/api/users/register/",
         body,
         { retryOnUnauthorized: false },
       );
-      router.replace("/courses");
-      // I commented this out. I really don't know if it's necessary or not. I think it might be necessary, but I don't know for sure. If you find that after logging in, the page doesn't update to show the user as logged in, then uncomment this line.
-      // router.refresh();
+      router.replace(`/verify-email?${new URLSearchParams({ email: body.email, sent: "1" })}`);
     } catch (caught) {
       setError(caught);
     } finally {
@@ -85,6 +89,10 @@ export function RegisterForm() {
           autoComplete="new-password"
           required
         />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="register_password_confirm">Confirm password</Label>
+        <Input id="register_password_confirm" name="password_confirm" type="password" autoComplete="new-password" required />
       </div>
       <Button className="w-full" type="submit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}

@@ -1,6 +1,6 @@
 from django.conf import settings
 from rest_framework.authentication import CSRFCheck
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import AuthenticationFailed, PermissionDenied
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
@@ -38,3 +38,9 @@ class CookieJWTAuthentication(JWTAuthentication):
         validated_token = self.get_validated_token(raw_token.encode("utf-8"))
 
         return self.get_user(validated_token), validated_token
+
+    def get_user(self, validated_token):
+        user = super().get_user(validated_token)
+        if not user.email_verified and not user.is_staff:
+            raise AuthenticationFailed("Verify your email before signing in.", code="email_not_verified")
+        return user

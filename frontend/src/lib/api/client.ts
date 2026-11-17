@@ -11,6 +11,7 @@ import {
 export type ApiRequestOptions = Omit<RequestInit, "body"> & {
   body?: unknown;
   retryOnUnauthorized?: boolean;
+  redirectOnUnauthorized?: boolean;
 };
 
 function serializeBody(body: unknown): string | FormData | undefined {
@@ -87,6 +88,7 @@ async function request<T>(
     body,
     headers: incomingHeaders,
     retryOnUnauthorized = true,
+    redirectOnUnauthorized = true,
     ...fetchOptions
   } = options;
 
@@ -116,10 +118,14 @@ async function request<T>(
     }
     return request<T>(path, { ...options, retryOnUnauthorized: false });
   }
-  if (response.status === 401) redirectToLogin();
+  if (response.status === 401 && redirectOnUnauthorized) redirectToLogin();
 
   const data = await parseResponse(response);
   if (!response.ok) {
+    if (response.status === 401 && !redirectOnUnauthorized) {
+      const detail = typeof data === "object" && data !== null && "detail" in data ? String(data.detail) : "Check your email and password.";
+      throw new ApiError({ status: 401, message: detail });
+    }
     const error = createApiError(response.status, data);
     throw error;
   }

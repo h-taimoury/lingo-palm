@@ -41,4 +41,30 @@ describe("settled media seeks", () => {
     video.dispatchEvent(new Event("seeked"))
     expect(store.getState().currentTime).toBe(settledTime)
   })
+
+  it("seeks to the clip start, stops at its end, and replays from its start", async () => {
+    const video = Object.assign(new EventTarget(), {
+      currentTime: 0, duration: 60, readyState: 1, paused: true, ended: false,
+      play: vi.fn(), pause: vi.fn(),
+    })
+    const store = mocks.store!
+    const controller = useMediaController({
+      videoRef: { current: video as unknown as HTMLVideoElement },
+      containerRef: { current: null }, source: "lesson.m3u8", store,
+      range: { start: 20, end: 24 },
+    })
+    const cleanup = mocks.effects[1]()
+    expect(video.currentTime).toBe(20)
+    controller.seekBy(-10)
+    expect(video.currentTime).toBe(20)
+    video.currentTime = 24.2
+    video.dispatchEvent(new Event("timeupdate"))
+    expect(video.currentTime).toBe(24)
+    expect(store.getState().isEnded).toBe(true)
+    expect(video.pause).toHaveBeenCalledTimes(2)
+    await controller.play()
+    expect(video.currentTime).toBe(20)
+    expect(video.play).toHaveBeenCalledOnce()
+    cleanup?.()
+  })
 })

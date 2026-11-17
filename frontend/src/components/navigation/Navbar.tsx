@@ -10,7 +10,7 @@ type NavbarProps = {
   links: readonly NavItem[];
   utilityLinks?: readonly NavItem[];
   contextLabel?: string;
-  userLabel: string;
+  userLabel?: string;
 };
 
 export function Navbar({
@@ -65,7 +65,7 @@ export function Navbar({
             />
           ))}
           </div>
-          <AccountMenu userLabel={userLabel} />
+          {userLabel ? <AccountMenu userLabel={userLabel} /> : <Link className="text-sm font-medium underline-offset-4 hover:underline" href="/login">Sign in</Link>}
 
         <div className="lg:hidden">
           <NavbarMenuSheet

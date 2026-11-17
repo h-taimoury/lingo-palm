@@ -12,7 +12,7 @@ class SectionInline(admin.TabularInline):
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ("title", "level", "is_published", "section_count", "created_at")
-    list_filter = ("is_published", "level")
+    list_filter = ("is_published", "is_free", "level")
     search_fields = ("title", "description")
     inlines = (SectionInline,)
 

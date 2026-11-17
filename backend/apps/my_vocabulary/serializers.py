@@ -1,9 +1,11 @@
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
 from rest_framework import serializers
 
 from apps.dictionary.models import Sense
 from apps.dictionary.serializers import SenseSummarySerializer
 
-from .models import Vocabulary
+from .models import Vocabulary, VocabularyReview
 from .services import ACTIONS
 
 
@@ -19,7 +21,34 @@ class VocabularySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vocabulary
-        fields = ("id", "sense", "already_known", "needs_review", "created_at")
+        fields = (
+            "id", "sense", "already_known", "needs_review", "created_at", "learned_at",
+            "review_due_at", "reviewed_at", "review_version",
+        )
+        read_only_fields = fields
+
+
+class ReviewAnswerSerializer(serializers.Serializer):
+    submission_id = serializers.UUIDField()
+    rating = serializers.ChoiceField(choices=(1, 3))
+    version = serializers.IntegerField(min_value=0)
+
+
+class ProgressQuerySerializer(serializers.Serializer):
+    days = serializers.ChoiceField(choices=(7, 30, 90), default=30)
+    timezone = serializers.CharField(default="UTC", max_length=100)
+
+    def validate_timezone(self, value):
+        try:
+            return ZoneInfo(value)
+        except (ZoneInfoNotFoundError, ValueError):
+            raise serializers.ValidationError("Choose a valid IANA time zone.")
+
+
+class VocabularyReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VocabularyReview
+        fields = ("submission_id", "rating", "reviewed_at", "due_at", "version")
         read_only_fields = fields
 
 

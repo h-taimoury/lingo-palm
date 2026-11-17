@@ -9,6 +9,8 @@ import {
   getSectionTaughtSenses,
 } from "@/lib/courses/learner";
 import { proxyDjangoMediaUrl } from "@/lib/media.server";
+import { getOptionalCurrentUser } from "@/lib/auth/getOptionalCurrentUser";
+import { loginHref } from "@/lib/auth/redirects";
 
 type Props = { params: Promise<{ courseId: string; sectionId: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -23,9 +25,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SectionPage({ params }: Props) {
   const { courseId, sectionId } = await params;
   const returnTo = `/courses/${courseId}/sections/${sectionId}`;
-  const [section, taught] = await Promise.all([
+  const [section, taught, user] = await Promise.all([
     getLearnerSection(courseId, sectionId, returnTo),
     getSectionTaughtSenses(sectionId, returnTo),
+    getOptionalCurrentUser(returnTo),
   ]);
   const learnedIds = taught
     .filter((row) => row.is_learned)
@@ -122,6 +125,7 @@ export default async function SectionPage({ params }: Props) {
             initialLearnedSenseIds={learnedIds}
             initialKnownSenseIds={taught.filter((row) => row.already_known).map((row) => row.sense.id)}
             title={section.title}
+            signInHref={user ? undefined : loginHref(returnTo)}
           />
         </div>
       </div>

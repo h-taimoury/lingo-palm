@@ -1,6 +1,9 @@
 from contextlib import contextmanager
+from urllib.parse import urlsplit
 
+from django.conf import settings
 from django.db import IntegrityError, transaction
+from django.urls import reverse
 from rest_framework import serializers
 
 from apps.dictionary.models import Sense
@@ -8,6 +11,7 @@ from apps.dictionary.serializers import SenseSerializer
 from apps.my_vocabulary.models import Vocabulary
 
 from .models import Course, Section, SubtitleWord, WordSenseMapping
+from .permissions import has_paid_access
 
 
 @contextmanager
@@ -117,38 +121,25 @@ class SectionSummarySerializer(SectionProgressMixin, serializers.ModelSerializer
         )
 
 
-class CourseSerializer(serializers.ModelSerializer):
+class CourseSummarySerializer(serializers.ModelSerializer):
+    has_access = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Course
+        fields = ("id", "title", "description", "thumbnail", "level", "is_published", "is_free", "has_access", "created_at")
+        read_only_fields = ("created_at",)
+
+    def get_has_access(self, obj):
+        request = self.context.get("request")
+        return bool(request and (request.user.is_staff or (obj.is_published and (obj.is_free or has_paid_access(request.user)))))
+
+
+class CourseSerializer(CourseSummarySerializer):
 
     sections = SectionSummarySerializer(many=True, read_only=True)
 
-    class Meta:
-        model = Course
-        fields = (
-            "id",
-            "title",
-            "description",
-            "thumbnail",
-            "level",
-            "is_published",
-            "created_at",
-            "sections",
-        )
-        read_only_fields = ("created_at",)
-
-
-class CourseSummarySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Course
-        fields = (
-            "id",
-            "title",
-            "description",
-            "thumbnail",
-            "level",
-            "is_published",
-            "created_at",
-        )
-        read_only_fields = ("created_at",)
+    class Meta(CourseSummarySerializer.Meta):
+        fields = CourseSummarySerializer.Meta.fields + ("sections",)
 
 
 class SubtitleWordSerializer(serializers.ModelSerializer):
@@ -274,7 +265,25 @@ class WordSenseMappingCreateSerializer(serializers.ModelSerializer):
         return WordSenseMappingSerializer(instance, context=self.context).data
 
 
-class SectionSerializer(serializers.ModelSerializer):
+class ProtectedSectionMediaMixin:
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if not settings.COURSE_SUBSCRIPTIONS_ENABLED:
+            return data
+        if instance.subtitle_file:
+            data["subtitle_file"] = reverse("section-subtitle", args=[instance.pk])
+        base = reverse("section-video", args=[instance.pk])
+        selected = instance.local_video_url if settings.DEBUG else instance.hosted_video_url
+        if selected:
+            data["playback_url"] = base + ("_main.m3u8" if urlsplit(selected).path.lower().endswith(".m3u8") else "")
+        request = self.context.get("request")
+        if not request or not request.user.is_staff:
+            for field in ("local_video_url", "hosted_video_url"):
+                data[field] = ""
+        return data
+
+
+class SectionSerializer(ProtectedSectionMediaMixin, serializers.ModelSerializer):
 
     class Meta:
         model = Section
@@ -305,7 +314,7 @@ class TaughtSenseSerializer(serializers.Serializer):
     needs_review = serializers.BooleanField(allow_null=True)
 
 
-class SectionDetailSerializer(SectionProgressMixin, serializers.ModelSerializer):
+class SectionDetailSerializer(ProtectedSectionMediaMixin, SectionProgressMixin, serializers.ModelSerializer):
     course = CourseSummarySerializer(read_only=True)
     word_sense_mappings = serializers.SerializerMethodField()
     new_words_count = serializers.SerializerMethodField()

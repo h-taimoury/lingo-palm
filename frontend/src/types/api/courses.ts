@@ -9,6 +9,8 @@ export type CourseSummary = {
   thumbnail: string | null
   level: CourseLevel
   is_published: boolean
+  is_free?: boolean
+  has_access?: boolean
   created_at: string
 }
 
@@ -28,6 +30,7 @@ export type CourseWriteRequest = {
   description: string
   level: CourseLevel
   is_published: boolean
+  is_free?: boolean
 }
 
 export type SectionFlat = {
@@ -73,6 +76,7 @@ export type SectionDetail = {
   order: number
   local_video_url: string
   hosted_video_url: string
+  playback_url?: string
   subtitle_file: string
   is_published: boolean
   word_sense_mappings: WordSenseMapping[]

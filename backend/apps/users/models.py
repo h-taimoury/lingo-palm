@@ -1,4 +1,7 @@
+import uuid
+
 from django.db import models
+from django.db.models.functions import Lower
 from django.contrib.auth.models import (
     AbstractBaseUser,
     PermissionsMixin,
@@ -13,6 +16,9 @@ class UserManager(BaseUserManager):
     for authentication instead of usernames.
     """
 
+    def get_by_natural_key(self, email):
+        return self.get(email__iexact=email)
+
     def create_user(self, email, password, **extra_fields):
         """
         Creates and saves a User with the given email and password.
@@ -20,9 +26,7 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError("The Email must be set")
 
-        email = self.normalize_email(
-            email
-        )  # The normalize_email method is a quite simple method provided by BaseUserManager which normalizes the email address by lowercasing the domain part of it.
+        email = self.normalize_email(email).lower()
         user = self.model(email=email, **extra_fields)
         user.set_password(
             password
@@ -49,9 +53,13 @@ class UserManager(BaseUserManager):
 # --- Custom User Model ---
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
+    email_verified = models.BooleanField(default=False)
+    pending_email = models.EmailField(blank=True)
+    verification_id = models.UUIDField(default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    subscription_ends_at = models.DateTimeField(null=True, blank=True)
 
     # Required fields for Django's permission system
     is_staff = models.BooleanField(
@@ -73,6 +81,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"
+        constraints = [models.UniqueConstraint(Lower("email"), name="users_email_case_insensitive")]
 
     def __str__(self):
         return self.email
@@ -87,3 +96,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         """Returns the short name for the user."""
         return self.first_name
+
+
+class AuthRateLimit(models.Model):
+    key = models.CharField(primary_key=True, max_length=64)
+    attempts = models.PositiveIntegerField(default=0)
+    expires_at = models.DateTimeField(db_index=True)

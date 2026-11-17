@@ -14,10 +14,11 @@ async function proxy(request: Request, context: Context) {
   }
 
   // The destination is server-configured; a caller cannot select another host.
-  const target = new URL(`/api/${path.map(encodeURIComponent).join("/")}/`, serverEnv.djangoOrigin);
+  const videoAsset = path[0] === "courses" && path[1] === "sections" && path[3] === "video" && path.length > 4;
+  const target = new URL(`/api/${path.map(encodeURIComponent).join("/")}${videoAsset ? "" : "/"}`, serverEnv.djangoOrigin);
   target.search = new URL(request.url).search;
   const headers = new Headers();
-  for (const name of ["accept", "content-type", "cookie", "x-csrftoken", "origin", "referer"]) {
+  for (const name of ["accept", "content-type", "cookie", "x-csrftoken", "origin", "referer", "range"]) {
     const value = request.headers.get(name);
     if (value) headers.set(name, value);
   }
@@ -39,14 +40,20 @@ async function proxy(request: Request, context: Context) {
   }
 
   const outgoing = new Headers({ "Cache-Control": "private, no-store" });
-  for (const name of ["content-type", "content-disposition", "allow", "www-authenticate", "retry-after"]) {
+  for (const name of ["content-type", "content-disposition", "allow", "www-authenticate", "retry-after", "content-range", "accept-ranges"]) {
     const value = upstream.headers.get(name);
     if (value) outgoing.set(name, value);
+  }
+  if (upstream.headers.has("content-range") && upstream.headers.has("content-length")) {
+    outgoing.set("Content-Length", upstream.headers.get("content-length")!);
   }
   const location = upstream.headers.get("location");
   if (location) {
     const redirect = new URL(location, target);
-    if (redirect.origin !== target.origin || !redirect.pathname.startsWith("/api/")) {
+    const paymentReturn = target.pathname === "/api/billing/return/" && (
+      redirect.pathname === "/plans" || /^\/payments\/[a-f0-9-]{36}$/u.test(redirect.pathname)
+    );
+    if (redirect.origin !== target.origin || (!paymentReturn && !redirect.pathname.startsWith("/api/"))) {
       await upstream.body?.cancel();
       return Response.json({ detail: "Unexpected backend redirect." }, { status: 502 });
     }

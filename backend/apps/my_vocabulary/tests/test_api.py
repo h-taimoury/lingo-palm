@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.utils.dateparse import parse_datetime
 from rest_framework.test import APITestCase
 
 from apps.dictionary.models import Entry, Sense
@@ -71,6 +72,14 @@ class VocabularyBulkActionApiTests(APITestCase):
         vocab = Vocabulary.objects.get(user=self.user, sense=self.sense_1)
         self.assertTrue(vocab.already_known)
         self.assertFalse(vocab.needs_review)
+        self.assertIsNone(response.data[0]["learned_at"])
+
+    def test_set_learned_exposes_learning_date(self):
+        response = self._bulk({"action": "set_learned", "sense_ids": [self.sense_1.id]})
+        self.assertEqual(response.status_code, 200, response.data)
+        vocab = Vocabulary.objects.get(user=self.user, sense=self.sense_1)
+        self.assertIsNotNone(vocab.learned_at)
+        self.assertEqual(parse_datetime(response.data[0]["learned_at"]), vocab.learned_at)
 
     def test_learning_source_and_review_filters_combine(self):
         rows = []

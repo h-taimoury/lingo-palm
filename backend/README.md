@@ -13,8 +13,9 @@ Django/DRF backend for the Lingo Palm language-learning project.
 
 **Decision:** authentication uses JWTs stored in httpOnly cookies
 (`access_token` / `refresh_token`, names configurable via `JWT_ACCESS_COOKIE_NAME`
-/ `JWT_REFRESH_COOKIE_NAME`), obtained through `POST /api/users/login/` or
-`POST /api/users/register/`. Requests are authenticated by
+/ `JWT_REFRESH_COOKIE_NAME`), obtained through `POST /api/users/login/` after
+email verification. Registration sends a verification email without signing the user in.
+Requests are authenticated by
 `apps.users.authentication.CookieJWTAuthentication`, which reads the access
 token from the cookie (SimpleJWT still does the actual validation). Unsafe
 methods (POST/PUT/PATCH/DELETE) additionally require Django's CSRF token
@@ -31,6 +32,72 @@ admin (to decide whether to show admin UI) without being able to write it.
 `is_active` is not exposed on `/me/`. Both `is_staff` and `is_active` are
 writable on `UserSerializerForAdmins`, used only by the admin-only
 `/api/users/` list/detail views (`IsAdminUser`-gated).
+
+## Email verification and password recovery
+
+Registration requires `password` and `password_confirm`. It creates an unverified
+account and sends a single-use verification link valid for 24 hours. Regular users
+must verify before signing in, including existing test accounts. Staff and
+superuser accounts can sign in without email verification; granting staff access
+does not automatically mark their email as verified. Password recovery still
+requires a verified email address for every account.
+
+A superuser can verify another account at `/admin/users`: open **Edit**, check
+**Mark email as verified**, then **Save user**. The same control is available under
+**Personal information → Email verified** in Django admin when editing an
+unverified user. Ordinary staff cannot use this control, and a superuser cannot
+manually verify their own address through it. It verifies the current login email,
+clears any pending email change, and invalidates previous verification links.
+
+Password reset links expire after 30 minutes and can only be used once. Resetting
+or changing a password immediately invalidates existing access and refresh tokens
+on every device. Verification and recovery requests have a 60-second email
+cooldown, five requests per email per hour, and shared database-backed IP limits.
+
+Profile changes to email or password require `current_password`; a new password
+also requires `password_confirm`. A changed email is kept in `pending_email` until
+verified, while the current address remains usable. Resend requests use the
+current login email and deliver to the pending address when one exists. Changing
+or resetting a password cancels an earlier pending email change. Names can still
+be updated without entering a password.
+
+In development, emails and their links appear in the Django console. Tests use
+Django's in-memory email backend; no real messages are sent by the test suite.
+
+For a paid VPS, configure the values in `.env.production.example`:
+
+- `FRONTEND_ORIGIN`: the exact HTTPS frontend origin used in email links.
+- `DEFAULT_FROM_EMAIL`: a sender authorized by your email provider.
+- `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`: SMTP relay credentials.
+- `EMAIL_USE_TLS=True` and `EMAIL_USE_SSL=False` for STARTTLS on port 587, or
+  `EMAIL_USE_TLS=False` and `EMAIL_USE_SSL=True` for implicit TLS on port 465.
+- `AUTH_NUM_PROXIES=1` when Nginx is the sole trusted reverse proxy.
+
+Set `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` for the production domain as well.
+Configure the sending domain's SPF/DKIM records with your provider. Then run
+`python manage.py migrate` and restart Django and the frontend. The migration
+adds a case-insensitive uniqueness constraint on login emails; it does not delete
+accounts or mark them verified.
+
+On a single-domain VPS, send `/api/` directly to Django. This preserves each
+visitor's IP for rate limits instead of grouping visitors behind the Next.js
+API proxy. For example, inside your existing HTTPS Nginx server block:
+
+```nginx
+location /api/ {
+    proxy_pass http://127.0.0.1:8000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $remote_addr;
+}
+```
+
+Keep Django bound to loopback or a private socket and overwrite the forwarded
+header as shown; otherwise callers could spoof their IP to bypass limits. Set
+the frontend's server-only `DJANGO_ORIGIN` to Django's internal origin. Keep
+the other Nginx routes for the frontend and media as configured for your site.
+Production settings require the frontend origin and SMTP configuration so a
+missing email setup is caught before accepting registrations.
 
 ## Expected folder layout
 
@@ -118,7 +185,12 @@ python manage.py runserver
   knew this sense before using the platform, so it shouldn't count toward
   "learned via the site" activity stats), `needs_review` (whether this
   sense should currently surface in review/flashcard-style features), and
-  `created_at`. `already_known` and `needs_review` are independent booleans
+  `created_at`. `learned_at` records when the sense becomes learned on the
+  platform, including through "Clear already knew". Repeated learning actions
+  and reviews preserve it; "Already knew" clears it. Unlearning deletes the
+  record, so learning again records a new date. Migration `my_vocabulary.0004`
+  backfills existing learned senses from `created_at` as an estimate and leaves
+  already-known senses undated. `already_known` and `needs_review` are independent booleans
   — the backend never forces one to be the logical negation of the other at
   the database level, though certain bulk actions set both together (see
   API overview below). Unique constraint on (`user`, `sense`).
@@ -146,7 +218,12 @@ split — every authenticated user, staff or not, only ever sees and affects
 their own vocabulary rows.
 
 ```text
-POST           /api/users/register/           (public — creates a user, sets auth cookies)
+POST           /api/users/register/           (public — requires password_confirm; creates an unverified user and sends email)
+POST           /api/users/verify-email/        (public — consumes a verification token)
+POST           /api/users/resend-verification/ (public — requests a verification email)
+POST           /api/users/correct-email/       (public — corrects an unverified account's email using its password)
+POST           /api/users/forgot-password/     (public — requests reset instructions; generic response)
+POST           /api/users/reset-password/      (public — uid, token, password, password_confirm)
 POST           /api/users/login/               (public — sets auth cookies)
 POST           /api/users/refresh/             (public — rotates the refresh cookie; requires CSRF header)
 POST           /api/users/logout/              (public — clears auth cookies; requires CSRF header)
@@ -273,8 +350,8 @@ Request:
 
 | action | effect | applies to |
 |---|---|---|
-| `set_already_known` | `already_known=True`, `needs_review=False` | creates a row if none exists |
-| `unset_already_known` | `already_known=False`, `needs_review=True` | existing rows only |
+| `set_already_known` | `already_known=True`, clears `learned_at`; preserves existing review preference (new rows: `needs_review=False`) | creates a row if none exists |
+| `unset_already_known` | `already_known=False`, sets `learned_at` if missing; preserves review preference | existing rows only |
 | `set_learned` | `already_known=False`, `needs_review=True` (defaults) | creates a row if none exists |
 | `unset_learned` | deletes the row entirely | existing rows only (others silently ignored) |
 | `set_needs_review` | `needs_review=True` only, `already_known` untouched | existing rows only |
@@ -476,8 +553,50 @@ To run deployment regression tests as well, install production dependencies
 alongside development dependencies, then run:
 
 ```bash
-python manage.py test config apps.users apps.courses apps.dictionary apps.my_vocabulary
+python manage.py test config apps.users apps.courses apps.dictionary apps.my_vocabulary apps.billing
 ```
 
 Do not run tests against the Neon database. The default development settings
 use a separate SQLite test database when `DATABASE_URL` is unset.
+
+### Subscription checkout
+
+Leave `BILLING_MODE=disabled` and `COURSE_SUBSCRIPTIONS_ENABLED=False` on the
+current demo. For local tests, use a separate SQLite database and put these
+values in your local environment before starting Django and Next.js:
+
+```dotenv
+COURSE_SUBSCRIPTIONS_ENABLED=True
+BILLING_MODE=sandbox
+ZARINPAL_MERCHANT_ID=<a newly generated UUID>
+BILLING_CALLBACK_ORIGIN=http://localhost:3000
+BILLING_SUPPORT_EMAIL=help@example.test
+```
+
+Run `python manage.py migrate` and `python manage.py runserver`. Sign in through
+Next.js and visit `/plans`. Local videos under `backend/media/sample-courses/`
+use the `/sample-courses/...` path stored in a section's local video URL, and
+play through the authorized media route when subscriptions are enabled.
+
+Run `python manage.py reconcile_payments` in the same settings and database to
+exercise recovery without relying on the browser return. Schedule this command
+on the production host before enabling live checkout. Start with a one-minute
+schedule and confirm the observed completion time fits the verification window
+and rate limits for your ZarinPal terminal. Monitor scheduler failures and the
+command's unresolved order references. To pause new sales while allowing
+recovery, use private live mode without giving the designated test account to
+customers.
+
+Production requires an approved merchant ID, HTTPS callback origin, approved
+backend outbound IPs, and your customer support email. Set `BILLING_MODE=private-live`
+and `BILLING_TEST_BUYER_EMAIL` to a controlled active account for the private
+purchase. Configure merchant-paid fees in ZarinPal. Set `BILLING_MODE=live` and
+enable the paid access policy once you have checked the charge, resulting expiry,
+and settlement. Follow [the validation guide](../specs/004-course-subscriptions/quickstart.md).
+
+Before the paid launch, set `PRIVATE_VIDEO_ORIGIN` to your protected HTTPS
+storage origin. Store each hosted video under `/sections/<section-id>/`, using an
+entry file at that directory's root and relative HLS child paths. If the origin
+uses a bearer token, configure `PRIVATE_VIDEO_TOKEN` on the backend. Check that
+the original origin denies access outside the backend and that old public URLs
+do not serve the paid files. A public origin cannot enforce subscription access.

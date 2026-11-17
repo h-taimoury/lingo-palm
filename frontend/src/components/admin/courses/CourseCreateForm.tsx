@@ -22,6 +22,7 @@ export function CourseCreateForm() {
       "is_published",
       form.get("is_published") === "on" ? "true" : "false",
     );
+    form.set("is_free", form.get("is_free") === "on" ? "true" : "false");
     const thumbnail = form.get("thumbnail");
     if (!(thumbnail instanceof File) || !thumbnail.size)
       form.delete("thumbnail");
@@ -76,6 +77,9 @@ export function CourseCreateForm() {
       <label className="flex items-center gap-2 text-sm">
         <input type="checkbox" name="is_published" className="size-4" /> Publish
         immediately
+      </label>
+      <label className="flex items-center gap-2 text-sm">
+        <input type="checkbox" name="is_free" className="size-4" /> Free for everyone
       </label>
       <Button type="submit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}

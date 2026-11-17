@@ -1,5 +1,7 @@
 from django.test import TestCase, override_settings
 from rest_framework.test import APIClient
+from .emails import verification_token
+from .models import User
 
 
 @override_settings(
@@ -21,10 +23,16 @@ class ProxyAuthTests(TestCase):
         }
         response = client.post(
             "/api/users/register/",
-            {"email": "demo@example.com", "password": "Example-strong-924!"},
+            {"email": "demo@example.com", "password": "Example-strong-924!", "password_confirm": "Example-strong-924!"},
             format="json", **headers,
         )
         self.assertEqual(response.status_code, 201)
+        self.assertNotIn("access_token", response.cookies)
+        user = User.objects.get(email="demo@example.com")
+        verified = client.post("/api/users/verify-email/", {"token": verification_token(user)}, format="json", **headers)
+        self.assertEqual(verified.status_code, 200)
+        response = client.post("/api/users/login/", {"email": user.email, "password": "Example-strong-924!"}, format="json", **headers)
+        self.assertEqual(response.status_code, 200)
         for name in ("access_token", "refresh_token", "csrftoken"):
             self.assertEqual(response.cookies[name]["domain"], "")
             self.assertTrue(response.cookies[name]["secure"])

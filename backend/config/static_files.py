@@ -12,11 +12,10 @@ from whitenoise.middleware import WhiteNoiseMiddleware
 class BundledFilesMiddleware(WhiteNoiseMiddleware):
     def __init__(self, get_response):
         super().__init__(get_response)
-        for directory in (
-            "course_thumbnails",
-            "section_subtitles",
-            "pronunciation_audios",
-        ):
+        directories = ["course_thumbnails", "pronunciation_audios"]
+        if not settings.COURSE_SUBSCRIPTIONS_ENABLED:
+            directories.append("section_subtitles")
+        for directory in directories:
             root = Path(settings.MEDIA_ROOT) / directory
             if root.is_dir():
                 self.add_files(root, prefix=f"{settings.MEDIA_URL.rstrip('/')}/{directory}/")

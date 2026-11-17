@@ -1,32 +1,36 @@
 "use client"
 
 import { usePlayerStore } from "@/components/video-player/PlayerProvider"
+import type { PlaybackRange } from "@/types/player"
 
 type TimelineProps = {
   onSeek: (seconds: number) => void
+  range?: PlaybackRange
 }
 
-export function Timeline({ onSeek }: TimelineProps) {
+export function Timeline({ onSeek, range }: TimelineProps) {
   const currentTime = usePlayerStore((state) => state.currentTime)
   const duration = usePlayerStore((state) => state.duration)
 
-  const safeDuration = duration > 0 ? duration : 0
+  const start = range?.start ?? 0
+  const safeDuration = Math.max(0, Math.min(duration, range?.end ?? duration) - start)
+  const elapsed = Math.min(Math.max(0, currentTime - start), safeDuration)
 
   return (
     <div className="flex items-center gap-3">
       <span className="w-11 text-right text-xs tabular-nums text-white/80">
-        {formatTime(currentTime)}
+        {formatTime(elapsed)}
       </span>
 
       <input
         aria-label="Video progress"
         type="range"
         min={0}
-        max={safeDuration || 0}
+        max={safeDuration}
         step={0.1}
-        value={Math.min(currentTime, safeDuration)}
+        value={elapsed}
         disabled={safeDuration === 0}
-        onChange={(event) => onSeek(Number(event.target.value))}
+        onChange={(event) => onSeek(start + Number(event.target.value))}
         // Release pointer focus so Enter can open the current subtitle's senses.
         // Keyboard users can still Tab here and seek with the arrow keys.
         onPointerUp={(event) => event.currentTarget.blur()}
@@ -35,7 +39,7 @@ export function Timeline({ onSeek }: TimelineProps) {
       />
 
       <span className="w-11 text-xs tabular-nums text-white/80">
-        {formatTime(duration)}
+        {formatTime(safeDuration)}
       </span>
     </div>
   )

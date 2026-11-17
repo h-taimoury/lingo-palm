@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { GraduationCap, LoaderCircle, TriangleAlert } from "lucide-react";
+import { ChevronLeft, ChevronRight, GraduationCap, LoaderCircle, TriangleAlert } from "lucide-react";
 
 import {
   usePlayerStore,
@@ -20,37 +20,42 @@ import {
   getMappingLearningItems,
 } from "@/components/video-player/learning/learningItems";
 import { SubtitleOverlay } from "@/components/video-player/subtitles/SubtitleOverlay";
+import type { VideoPlayerProps } from "@/components/video-player/VideoPlayer";
 import { apiClient } from "@/lib/api/client";
 import { ApiError } from "@/lib/api/errors";
 import { loadVtt } from "@/lib/subtitles";
 import { cn } from "@/lib/utils";
-import type { WordSenseMapping } from "@/types/api/courses";
 import type {
   VocabularyBulkActionRequest,
   VocabularyBulkActionResponse,
 } from "@/types/api/vocabulary";
 import type { SubtitleCue } from "@/types/subtitles";
 
+const noSenseIds: number[] = [];
+const noCues: SubtitleCue[] = [];
+
 export function VideoPlayerInner({
   source,
   subtitleSource,
   mappings: initialMappings,
-  initialLearnedSenseIds = [],
+  initialLearnedSenseIds = noSenseIds,
   initialKnownSenseIds,
   title,
-}: {
-  source: string;
-  subtitleSource?: string | null;
-  mappings: WordSenseMapping[];
-  initialLearnedSenseIds?: number[];
-  initialKnownSenseIds?: number[];
-  title?: string;
-}) {
+  signInHref,
+  clip,
+}: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const controlsTimer = useRef<number | null>(null);
-  const [cues, setCues] = useState<SubtitleCue[]>([]);
+  const [subtitleTrack, setSubtitleTrack] = useState<{
+    source: string;
+    cues: SubtitleCue[];
+    error?: string;
+  } | null>(null);
+  const currentTrack = subtitleTrack?.source === subtitleSource ? subtitleTrack : null;
+  const cues = currentTrack?.cues ?? noCues;
+  const subtitleError = currentTrack?.error;
   const [mappings, setMappings] = useState(initialMappings);
   const [selectedLevels, setSelectedLevels] = useState<SenseLevel[]>(() => [...SENSE_LEVELS]);
   const [levelMenuOpen, setLevelMenuOpen] = useState(false);
@@ -64,7 +69,6 @@ export function VideoPlayerInner({
   const [learningError, setLearningError] = useState<string | null>(null);
   const [knownSenseIds, setKnownSenseIds] = useState(() => new Set(initialKnownSenseIds));
   const [learningBusy, setLearningBusy] = useState(false);
-  const [subtitleError, setSubtitleError] = useState<string | null>(null);
   const [controlsVisible, setControlsVisible] = useState(true);
   const store = usePlayerStoreApi();
   const status = usePlayerStore((s) => s.status);
@@ -86,6 +90,7 @@ export function VideoPlayerInner({
     containerRef,
     source,
     store,
+    range: clip?.range,
   });
   useActiveCue({ cues });
 
@@ -95,23 +100,19 @@ export function VideoPlayerInner({
     setKnownSenseIds(new Set(initialKnownSenseIds));
   }, [initialMappings, initialLearnedSenseIds, initialKnownSenseIds]);
   useEffect(() => {
-    if (!subtitleSource) {
-      setCues([]);
-      setSubtitleError(null);
-      return;
-    }
+    if (!subtitleSource) return;
     const abort = new AbortController();
     void loadVtt(subtitleSource, abort.signal)
       .then((parsed) => {
-        setCues(parsed.cues);
-        setSubtitleError(null);
+        if (!abort.signal.aborted) setSubtitleTrack({ source: subtitleSource, cues: parsed.cues });
       })
       .catch((error: unknown) => {
         if (abort.signal.aborted) return;
-        setCues([]);
-        setSubtitleError(
-          error instanceof Error ? error.message : "Unable to load subtitles.",
-        );
+        setSubtitleTrack({
+          source: subtitleSource,
+          cues: noCues,
+          error: error instanceof Error ? error.message : "Unable to load subtitles.",
+        });
       });
     return () => abort.abort();
   }, [subtitleSource]);
@@ -192,7 +193,7 @@ export function VideoPlayerInner({
       adjustVolume: controller.adjustVolume,
       toggleMute: controller.toggleMute,
       toggleFullscreen: controller.toggleFullscreen,
-      toggleTheater,
+      toggleTheater: clip ? () => {} : toggleTheater,
       modalMode,
       openCueModal,
       closeModal: closeLearningModal,
@@ -201,6 +202,7 @@ export function VideoPlayerInner({
     }),
     [
       controller,
+      clip,
       toggleTheater,
       modalMode,
       openCueModal,
@@ -234,6 +236,10 @@ export function VideoPlayerInner({
   useEffect(() => clearHideTimer, [clearHideTimer]);
 
   async function markSenseLearned(senseId: number, alreadyKnown = false) {
+    if (signInHref) {
+      router.push(signInHref);
+      return;
+    }
     if (learningBusy || learnedSenseIds.has(senseId)) return;
     setLearningBusy(true);
     setLearningError(null);
@@ -297,7 +303,12 @@ export function VideoPlayerInner({
       <div
         ref={containerRef}
         tabIndex={-1}
-        className="group relative aspect-video w-full overflow-hidden rounded-xl bg-black shadow-sm outline-none [&:fullscreen]:rounded-none [&:fullscreen]:shadow-none"
+        className={cn(
+          "group overflow-hidden bg-black outline-none",
+          controller.expanded
+            ? "fixed inset-0 z-50 h-dvh w-screen"
+            : "relative aspect-video w-full rounded-xl shadow-sm [&:fullscreen]:rounded-none [&:fullscreen]:shadow-none",
+        )}
         onMouseMove={revealControls}
         onMouseLeave={() => isPlaying && scheduleHide()}
         onTouchStart={revealControls}
@@ -316,6 +327,38 @@ export function VideoPlayerInner({
           mappings={visibleMappings}
           onOpenMapping={openMappingModal}
         />
+        {clip ? (
+          <nav
+            aria-label="Video examples"
+            data-player-interactive="true"
+            data-player-native-keys="true"
+            className="absolute right-2 top-2 z-40 flex items-center gap-1 rounded-md bg-black/75 p-1 text-white"
+          >
+            <button
+              type="button"
+              aria-label="Previous clip"
+              title="Previous clip"
+              disabled={!clip.onPrevious}
+              onClick={clip.onPrevious}
+              className="grid size-9 place-items-center rounded hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-white disabled:opacity-40"
+            >
+              <ChevronLeft aria-hidden="true" />
+            </button>
+            <span className="px-1 text-sm tabular-nums" aria-live="polite">
+              {clip.position} / {clip.count}
+            </span>
+            <button
+              type="button"
+              aria-label="Next clip"
+              title="Next clip"
+              disabled={!clip.onNext}
+              onClick={clip.onNext}
+              className="grid size-9 place-items-center rounded hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-white disabled:opacity-40"
+            >
+              <ChevronRight aria-hidden="true" />
+            </button>
+          </nav>
+        ) : null}
         {modalMode === "closed" && hasCueLearningItems ? (
           <button
             type="button"
@@ -361,7 +404,7 @@ export function VideoPlayerInner({
           className={cn(
             "transition-opacity duration-200",
             modalMode !== "closed" && "pointer-events-none",
-            controlsVisible || !isPlaying
+            clip || controlsVisible || !isPlaying
               ? "opacity-100"
               : "pointer-events-none opacity-0",
           )}
@@ -373,11 +416,12 @@ export function VideoPlayerInner({
             onToggleMute={controller.toggleMute}
             onPlaybackRateChange={controller.setPlaybackRate}
             onToggleFullscreen={() => void controller.toggleFullscreen()}
-            onToggleTheater={toggleTheater}
-            selectedLevels={selectedLevels}
+            onToggleTheater={clip ? undefined : toggleTheater}
+            selectedLevels={clip ? undefined : selectedLevels}
             onLevelsChange={setSelectedLevels}
             levelMenuOpen={levelMenuOpen}
             onLevelMenuOpenChange={setLevelMenuOpen}
+            range={clip?.range}
           />
         </div>
         {modalMode !== "closed" ? (

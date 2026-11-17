@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 from apps.dictionary.models import Sense
 
@@ -18,6 +19,11 @@ class Vocabulary(models.Model):
     already_known = models.BooleanField(default=False)
     needs_review = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    learned_at = models.DateTimeField(null=True, blank=True, editable=False)
+    review_due_at = models.DateTimeField(default=timezone.now)
+    reviewed_at = models.DateTimeField(null=True, blank=True)
+    review_state = models.JSONField(default=dict, blank=True, editable=False)
+    review_version = models.PositiveIntegerField(default=0, editable=False)
 
     class Meta:
         ordering = ["-created_at", "id"]
@@ -26,6 +32,27 @@ class Vocabulary(models.Model):
                 fields=["user", "sense"], name="unique_user_sense_vocabulary"
             )
         ]
+        indexes = [
+            models.Index(fields=["user", "needs_review", "review_due_at"], name="vocabulary_review_due"),
+        ]
 
     def __str__(self) -> str:
         return f"{self.user} — {self.sense}"
+
+
+class VocabularyReview(models.Model):
+    vocabulary = models.ForeignKey(Vocabulary, related_name="reviews", on_delete=models.CASCADE)
+    submission_id = models.UUIDField()
+    rating = models.PositiveSmallIntegerField(choices=[(1, "Forgot"), (3, "Remembered")])
+    reviewed_at = models.DateTimeField()
+    due_at = models.DateTimeField()
+    version = models.PositiveIntegerField()
+
+    class Meta:
+        ordering = ["reviewed_at", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["vocabulary", "submission_id"], name="unique_review_submission"
+            ),
+            models.UniqueConstraint(fields=["vocabulary", "version"], name="unique_review_version"),
+        ]

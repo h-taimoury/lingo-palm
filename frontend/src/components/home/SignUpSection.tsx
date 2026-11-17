@@ -34,7 +34,7 @@ export function SignUpSection({ user }: { user: User | null }) {
               <ArrowRight data-icon="inline-end" className="size-4" />
             </Link>
             <Link
-              href={user ? "/review/flashcard" : "/login"}
+              href={user ? "/review" : "/login"}
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "h-11 border-white/15 bg-white/5 px-6 text-base text-orange-50 hover:bg-white/10 hover:text-white",

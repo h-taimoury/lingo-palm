@@ -21,7 +21,10 @@ async function notFoundAware<T>(promise: Promise<T>) {
 }
 
 export function getLearnerCourses(page: number, search = "") {
-  const query = new URLSearchParams({ page: String(page) });
+  const query = new URLSearchParams({
+    page: String(page),
+    ordering: "-is_free,title,id",
+  });
   if (search) query.set("search", search);
   return djangoServerFetch<PaginatedResponse<CourseSummary>>(
     `/api/courses/courses/?${query}`,

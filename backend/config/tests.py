@@ -53,6 +53,13 @@ class DeploymentFileTests(SimpleTestCase):
                 if url.endswith(".vtt"):
                     self.assertTrue(response["Content-Type"].startswith("text/vtt"))
 
+    @override_settings(COURSE_SUBSCRIPTIONS_ENABLED=True)
+    def test_subscription_mode_removes_public_subtitle_paths(self):
+        self.assertEqual(self.client.get("/media/section_subtitles/course/section.vtt", secure=True).status_code, 404)
+        thumbnail = self.client.get("/media/course_thumbnails/course.jpg", secure=True)
+        self.assertEqual(thumbnail.status_code, 200)
+        self.assertEqual(b"".join(thumbnail.streaming_content), b"thumbnail")
+
     def test_audio_supports_range_head_and_conditional_requests(self):
         url = "/media/pronunciation_audios/word.mp3"
         head = self.client.head(url, secure=True)

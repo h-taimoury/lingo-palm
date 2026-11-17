@@ -11,9 +11,10 @@ type UseHlsOptions = {
   video: HTMLVideoElement | null
   source: string
   store: PlayerStore
+  startPosition?: number
 }
 
-export function useHls({ video, source, store }: UseHlsOptions) {
+export function useHls({ video, source, store, startPosition }: UseHlsOptions) {
   useEffect(() => {
     if (!video || !source) {
       return
@@ -22,7 +23,7 @@ export function useHls({ video, source, store }: UseHlsOptions) {
     store.getState().resetForSource()
     const diagnostics = hlsDiagnosticOptions(typeof window === "undefined" ? "" : window.location.search)
     const isHls = getMediaSourceKind(source) === "hls"
-    const forceJs = diagnostics.forceJs && Hls.isSupported()
+    const preferJs = (diagnostics.forceJs || startPosition !== undefined) && Hls.isSupported()
     let stopDiagnostics: (() => void) | undefined
 
     const clearSource = () => {
@@ -34,7 +35,7 @@ export function useHls({ video, source, store }: UseHlsOptions) {
 
     if (
       !isHls ||
-      (!forceJs && video.canPlayType("application/vnd.apple.mpegurl"))
+      (!preferJs && video.canPlayType("application/vnd.apple.mpegurl"))
     ) {
       if (diagnostics.enabled) stopDiagnostics = attachHlsDiagnostics(video, store, isHls ? "native-hls" : "progressive")
       video.setAttribute("src", source)
@@ -50,7 +51,12 @@ export function useHls({ video, source, store }: UseHlsOptions) {
       return
     }
 
-    const hls = new Hls()
+    const hls = new Hls(startPosition === undefined ? undefined : {
+      startPosition,
+      testBandwidth: false,
+      maxBufferLength: 5,
+      maxMaxBufferLength: 5,
+    })
     if (diagnostics.enabled) stopDiagnostics = attachHlsDiagnostics(video, store, "hls.js", hls)
 
     hls.on(Hls.Events.ERROR, (_event, data) => {
@@ -82,5 +88,5 @@ export function useHls({ video, source, store }: UseHlsOptions) {
       hls.destroy()
       clearSource()
     }
-  }, [source, store, video])
+  }, [source, startPosition, store, video])
 }

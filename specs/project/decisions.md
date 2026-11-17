@@ -42,7 +42,7 @@ Recorded: 2026-10-04, from the owner's answers in this planning conversation. In
 | ID | Decision |
 | --- | --- |
 | D21 | Anyone can register. This is not an invitation-only release. |
-| D22 | All published courses are free for signed-in users. Payments and subscriptions are outside the first release to avoid their added complexity. |
+| D22 | Original first-release decision: all published courses are free for signed-in users. The owner adopted a different access model for the paid launch on 2026-11-17. See [004: Course subscriptions](../004-course-subscriptions/spec.md). |
 | D23 | The owner and other trusted administrators can create and edit all courses. There are no separate teacher-owned course permissions for this release. |
 | D24 | Saved changes to published courses become visible immediately. A separate draft-and-republish system for edits is not required. |
 | D25 | Keep the English interface for the first release. A Persian interface and language switching are possible later additions. Optional Persian meaning translations remain in scope now. |

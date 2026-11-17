@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest"
 const mocks = vi.hoisted(() => ({
   effect: null as (() => void | (() => void)) | null,
   supported: true,
+  options: [] as unknown[],
   instances: [] as Array<{
     loadSource: ReturnType<typeof vi.fn>
     attachMedia: ReturnType<typeof vi.fn>
@@ -24,14 +25,17 @@ vi.mock("hls.js", () => ({
     attachMedia = vi.fn()
     destroy = vi.fn()
     on = vi.fn()
-    constructor() { mocks.instances.push(this) }
+    constructor(options: unknown) {
+      mocks.instances.push(this)
+      mocks.options.push(options)
+    }
   },
 }))
 
 import { createPlayerStore } from "./playerStore"
 import { useHls } from "./useHls"
 
-function MountSource(source: string, nativeHls = false) {
+function MountSource(source: string, nativeHls = false, startPosition?: number) {
   const video = {
     src: "",
     setAttribute: vi.fn(),
@@ -42,7 +46,7 @@ function MountSource(source: string, nativeHls = false) {
   }
   const store = createPlayerStore()
   store.getState().setError({ message: "Previous source failed" })
-  useHls({ video: video as unknown as HTMLVideoElement, source, store })
+  useHls({ video: video as unknown as HTMLVideoElement, source, store, startPosition })
   const cleanup = mocks.effect?.()
   return { video, store, cleanup }
 }
@@ -51,6 +55,7 @@ describe("shared admin and lesson media loading", () => {
   beforeEach(() => {
     mocks.effect = null
     mocks.instances = []
+    mocks.options = []
     mocks.supported = true
   })
 
@@ -86,6 +91,13 @@ describe("shared admin and lesson media loading", () => {
     expect(mocks.instances).toHaveLength(0)
     cleanup?.()
     expect(video.removeAttribute).toHaveBeenCalledWith("src")
+  })
+
+  it("uses hls.js for clip startup even when native HLS is available", () => {
+    MountSource("https://stream.example/lesson.m3u8", true, 42.7)
+    expect(mocks.options).toEqual([{
+      startPosition: 42.7, testBandwidth: false, maxBufferLength: 5, maxMaxBufferLength: 5,
+    }])
   })
 
   it("reports unsupported HLS", () => {

@@ -5,7 +5,7 @@ import type { VocabularyBulkAction } from "@/types/api/vocabulary"
 import { SectionVocabularyManager } from "./SectionVocabularyManager"
 import { VocabularyActionsMenu } from "./VocabularyActionsMenu"
 
-const harness = vi.hoisted(() => ({ cursor: 0, state: [] as unknown[], post: vi.fn(), query: "" }))
+const harness = vi.hoisted(() => ({ cursor: 0, state: [] as unknown[], post: vi.fn(), push: vi.fn(), query: "" }))
 
 vi.mock("react", async (original) => ({
   ...await original<typeof import("react")>(),
@@ -24,18 +24,27 @@ vi.mock("react", async (original) => ({
   },
 }))
 vi.mock("@/lib/api/client", () => ({ apiClient: { post: harness.post } }))
-vi.mock("next/navigation", () => ({ useSearchParams: () => new URLSearchParams(harness.query) }))
+vi.mock("next/navigation", () => ({ useSearchParams: () => new URLSearchParams(harness.query), useRouter: () => ({ push: harness.push }) }))
 
 beforeEach(() => {
   harness.state = []
   harness.query = ""
   harness.post.mockReset()
+  harness.push.mockReset()
 })
 
-function renderTabs(taughtSenses: TaughtSense[]) {
+function renderTabs(taughtSenses: TaughtSense[], signInHref?: string) {
   harness.cursor = 0
-  return SectionVocabularyManager({ taughtSenses, header: null }).props.children[0]
+  return SectionVocabularyManager({ taughtSenses, header: null, signInHref }).props.children[0]
 }
+
+it("sends guests to sign in before saving a sense", async () => {
+  const signInHref = "/login?returnTo=%2Fcourses";
+  const tabs = renderTabs([], signInHref);
+  await tabs.props.children[1].props.children.props.onAction("set_learned", [17]);
+  expect(harness.push).toHaveBeenCalledExactlyOnceWith(signInHref);
+  expect(harness.post).not.toHaveBeenCalled();
+});
 
 it("defaults to New senses and activates Already learned from the URL", () => {
   expect(renderTabs([]).props.value).toBe("new")

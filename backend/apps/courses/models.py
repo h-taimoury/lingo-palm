@@ -21,6 +21,7 @@ class Course(models.Model):
         max_length=50, choices=COURSE_LEVEL_CHOICES, default="Beginner"
     )
     is_published = models.BooleanField(default=False, db_index=True)
+    is_free = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

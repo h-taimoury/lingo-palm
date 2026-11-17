@@ -23,6 +23,7 @@ export function CourseEditor({ course }: { course: CourseDetail }) {
       description: String(form.get("description") ?? ""),
       level: String(form.get("level")) as CourseWriteRequest["level"],
       is_published: form.get("is_published") === "on",
+      is_free: form.get("is_free") === "on",
     };
     setBusy(true);
     setError(null);
@@ -78,6 +79,9 @@ export function CourseEditor({ course }: { course: CourseDetail }) {
           className="size-4"
         />{" "}
         Published
+      </label>
+      <label className="flex items-center gap-2 text-sm">
+        <input type="checkbox" name="is_free" defaultChecked={course.is_free} className="size-4" /> Free for everyone
       </label>
       <Button type="submit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}

@@ -1,7 +1,10 @@
 from datetime import timedelta
 from pathlib import Path
+from urllib.parse import urlsplit
+from uuid import UUID
 
 import environ
+from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 
@@ -39,6 +42,7 @@ LOCAL_APPS = [
     "apps.dictionary",
     "apps.courses",
     "apps.my_vocabulary",
+    "apps.billing",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -96,6 +100,19 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = "users.User"
+AUTHENTICATION_BACKENDS = ["apps.users.backends.VerifiedEmailBackend"]
+
+FRONTEND_ORIGIN = env.str("FRONTEND_ORIGIN", default="http://localhost:3000").rstrip("/")
+PASSWORD_RESET_TIMEOUT = 30 * 60
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = env.str("EMAIL_HOST", default="")
+EMAIL_PORT = env.int("EMAIL_PORT", default=587)
+EMAIL_HOST_USER = env.str("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD", default="")
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)
+EMAIL_USE_SSL = env.bool("EMAIL_USE_SSL", default=False)
+EMAIL_TIMEOUT = 10
+DEFAULT_FROM_EMAIL = env.str("DEFAULT_FROM_EMAIL", default="LingoPalm <noreply@lingopalm.com>")
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
@@ -107,9 +124,37 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
+COURSE_SUBSCRIPTIONS_ENABLED = env.bool("COURSE_SUBSCRIPTIONS_ENABLED", default=False)
+CLIP_REVIEW_ENABLED = env.bool("CLIP_REVIEW_ENABLED", default=False)
+BILLING_MODE = env.str("BILLING_MODE", default="disabled")
+ZARINPAL_MERCHANT_ID = env.str("ZARINPAL_MERCHANT_ID", default="")
+BILLING_CALLBACK_ORIGIN = env.str("BILLING_CALLBACK_ORIGIN", default="").rstrip("/")
+BILLING_SUPPORT_EMAIL = env.str("BILLING_SUPPORT_EMAIL", default="")
+BILLING_TEST_BUYER_EMAIL = env.str("BILLING_TEST_BUYER_EMAIL", default="")
+PRIVATE_VIDEO_ORIGIN = env.str("PRIVATE_VIDEO_ORIGIN", default="")
+PRIVATE_VIDEO_TOKEN = env.str("PRIVATE_VIDEO_TOKEN", default="")
+
+if BILLING_MODE not in ("disabled", "sandbox", "private-live", "live"):
+    raise ImproperlyConfigured("Unknown BILLING_MODE.")
+if BILLING_MODE != "disabled":
+    try:
+        UUID(ZARINPAL_MERCHANT_ID)
+    except ValueError as exc:
+        raise ImproperlyConfigured("ZARINPAL_MERCHANT_ID must be a UUID.") from exc
+    callback = urlsplit(BILLING_CALLBACK_ORIGIN)
+    allowed_schemes = ("https", "http") if BILLING_MODE == "sandbox" else ("https",)
+    if (callback.scheme not in allowed_schemes or not callback.hostname or callback.username is not None
+            or callback.path or callback.query or callback.fragment):
+        raise ImproperlyConfigured("BILLING_CALLBACK_ORIGIN must be an origin.")
+    if BILLING_MODE in ("private-live", "live") and not BILLING_SUPPORT_EMAIL:
+        raise ImproperlyConfigured("Live billing requires BILLING_SUPPORT_EMAIL.")
+    if BILLING_MODE == "private-live" and not BILLING_TEST_BUYER_EMAIL:
+        raise ImproperlyConfigured("Private live billing requires BILLING_TEST_BUYER_EMAIL.")
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
+    "NUM_PROXIES": env.int("AUTH_NUM_PROXIES", default=0),
     # This was for before storing tokens in http-only cookies:
     # "DEFAULT_AUTHENTICATION_CLASSES": (
     #     "rest_framework_simplejwt.authentication.JWTAuthentication",
@@ -124,6 +169,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
+    "CHECK_REVOKE_TOKEN": True,
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(weeks=2),
     "ROTATE_REFRESH_TOKENS": True,

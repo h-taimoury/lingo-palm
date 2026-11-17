@@ -15,6 +15,7 @@ const harness = vi.hoisted(() => ({
   play: vi.fn(),
   post: vi.fn(),
   refresh: vi.fn(),
+  push: vi.fn(),
 }));
 
 vi.mock("react", async (original) => ({
@@ -43,7 +44,7 @@ vi.mock("react", async (original) => ({
   useMemo: (factory: () => unknown) => factory(),
   useCallback: (callback: unknown) => callback,
 }));
-vi.mock("next/navigation", () => ({ useRouter: () => ({ refresh: harness.refresh }) }));
+vi.mock("next/navigation", () => ({ useRouter: () => ({ refresh: harness.refresh, push: harness.push }) }));
 vi.mock("./PlayerProvider", () => ({
   usePlayerStore: (selector: (state: PlayerStoreState) => unknown) => selector(harness.store!.getState()),
   usePlayerStoreApi: () => harness.store,
@@ -114,6 +115,14 @@ beforeEach(() => {
   ));
 });
 afterEach(() => vi.unstubAllGlobals());
+
+it("shows the guest's lesson senses and asks them to sign in before saving", async () => {
+  const props = { ...playerProps("book"), signInHref: "/login?returnTo=%2Fcourses" };
+  await loadLesson(props);
+  await openCueModal(props, false).onLearn(17);
+  expect(harness.push).toHaveBeenCalledExactlyOnceWith(props.signInHref);
+  expect(harness.post).not.toHaveBeenCalled();
+});
 
 it("keeps the cue vocabulary button hidden when no mapping matches the subtitle text", async () => {
   const props = playerProps("look");

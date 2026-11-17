@@ -98,6 +98,14 @@ describe("direct Django requests", () => {
     });
   });
 
+  it("keeps invalid login credentials on the form without refreshing or redirecting", async () => {
+    fetchMock.mockResolvedValueOnce(Response.json({ detail: "No active account found with the given credentials" }, { status: 401 }));
+    await expect(apiClient.post("/api/users/login/", {}, { retryOnUnauthorized: false, redirectOnUnauthorized: false }))
+      .rejects.toMatchObject({ status: 401, message: "No active account found with the given credentials" });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(assign).not.toHaveBeenCalled();
+  });
+
   it("reports connection failures and supports empty delete responses", async () => {
     fetchMock.mockRejectedValueOnce(new TypeError("Failed to fetch"));
     await expect(apiClient.get("/api/users/me/")).rejects.toBeInstanceOf(ApiError);

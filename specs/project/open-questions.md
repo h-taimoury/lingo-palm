@@ -19,7 +19,7 @@ Recorded: 2026-10-04. Keep undecided ideas separate from first-release requireme
 | Video clip review | Deferred from the first release; exists in the earlier product concept. |
 | Persian interface and language switching | Possible future addition, not a first-release requirement. |
 | Structured or scheduled review | Possible future addition; method remains open. |
-| Payments and subscriptions | Excluded from the first release; no future business model was confirmed. |
+| Payments and subscriptions | Decided for the paid launch. See [004: Course subscriptions](../004-course-subscriptions/spec.md). |
 
 ## Questions to resolve when relevant
 

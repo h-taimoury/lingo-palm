@@ -147,15 +147,18 @@ class OccurrenceMigrationTests(TransactionTestCase):
             self.assertEqual(WordModel.objects.count(), 2)
             duplicate.delete()
             duplicate = None
-            MigrationExecutor(connection).migrate(new_target)
-            updated = SubtitleWord.objects.get(pk=original.pk)
+            executor = MigrationExecutor(connection)
+            executor.migrate(new_target)
+            migrated_words = executor.loader.project_state(new_target).apps.get_model("courses", "SubtitleWord")
+            updated = migrated_words.objects.get(pk=original.pk)
             self.assertEqual(updated.section_id, section.pk)
             self.assertEqual(updated.mapping_id, first.pk)
             for name, value in fields.items():
                 self.assertEqual(getattr(updated, name), value)
             with self.assertRaises(IntegrityError), transaction.atomic():
-                SubtitleWord.objects.create(mapping_id=second.pk, **fields)
+                migrated_words.objects.create(section_id=section.pk, mapping_id=second.pk, **fields)
         finally:
             if duplicate is not None:
                 duplicate.delete()
-            MigrationExecutor(connection).migrate(new_target)
+            executor = MigrationExecutor(connection)
+            executor.migrate(executor.loader.graph.leaf_nodes())

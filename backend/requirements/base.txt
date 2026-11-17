@@ -6,3 +6,4 @@ django-environ>=0.14,<0.15
 psycopg[binary]>=3.2,<4
 django-filter>=25.2,<26.0
 Pillow>=12.3,<13.0
+fsrs==6.3.3

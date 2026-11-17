@@ -10,7 +10,7 @@ import {
 } from "react";
 import { Tabs } from "@base-ui/react/tabs";
 import { Info, LoaderCircle, SlidersHorizontal } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { VocabularyActionsMenu } from "./VocabularyActionsMenu";
 import {
   VocabularyFilterFields,
@@ -46,11 +46,14 @@ export function SectionVocabularyManager({
   taughtSenses,
   header,
   allLearned = false,
+  signInHref,
 }: {
   taughtSenses: VocabularyItem[];
   header: ReactNode;
   allLearned?: boolean;
+  signInHref?: string;
 }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const view = searchParams.get("view") === "learned" ? "learned" : "new";
   const [items, setItems] = useState(taughtSenses);
@@ -89,6 +92,10 @@ export function SectionVocabularyManager({
   }
 
   async function run(action: VocabularyBulkAction, ids: number[]) {
+    if (signInHref) {
+      router.push(signInHref);
+      return;
+    }
     setBusy(true);
     try {
       const result = await apiClient.post<
@@ -678,7 +685,7 @@ function SenseCard({
                 variant="secondary"
                 className="bg-amber-500/10 text-amber-700 dark:text-amber-300"
               >
-                Needs review
+                In review
               </Badge>
             ) : null}
           </div>

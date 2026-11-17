@@ -1,4 +1,8 @@
 from django.contrib.auth import get_user_model
+from datetime import timedelta
+from pathlib import Path
+from django.conf import settings
+from django.utils import timezone
 from tempfile import TemporaryDirectory
 from django.test import override_settings
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -48,6 +52,72 @@ class CourseApiTests(APITestCase):
             ),
             is_published=True,
         )
+
+    @override_settings(COURSE_SUBSCRIPTIONS_ENABLED=True)
+    def test_guest_catalog_can_order_free_courses_before_pagination(self):
+        Course.objects.bulk_create([
+            Course(title=f"A paid course {index:02}", is_published=True)
+            for index in range(20)
+        ])
+        free = Course.objects.create(title="Z free course", is_published=True, is_free=True)
+        Course.objects.create(title="Z unpublished course", is_free=True)
+        response = self.client.get("/api/courses/courses/", {
+            "search": "course",
+            "ordering": "-is_free,title,id",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["count"], 22)
+        self.assertEqual(response.data["results"][0]["id"], free.id)
+        self.assertEqual(response.data["results"][1]["title"], "A paid course 00")
+
+    @override_settings(COURSE_SUBSCRIPTIONS_ENABLED=True)
+    def test_guest_catalog_and_lesson_access(self):
+        section_path = f"/api/courses/sections/{self.section.pk}/"
+        catalog = self.client.get("/api/courses/courses/").data["results"]
+        self.assertEqual(len(catalog), 1)
+        self.assertFalse(catalog[0]["has_access"])
+        self.assertEqual(self.client.get(section_path).status_code, 404)
+        self.assertEqual(self.client.get(section_path + "taught-senses/").status_code, 404)
+        self.course.is_free = True
+        self.course.save(update_fields=["is_free"])
+        self.assertEqual(self.client.get(section_path).status_code, 200)
+        self.assertEqual(self.client.get(section_path + "taught-senses/").status_code, 200)
+        self.assertNotEqual(self.client.post("/api/courses/courses/", {"title": "Guest"}).status_code, 201)
+        self.course.is_published = False
+        self.course.save(update_fields=["is_published"])
+        self.assertEqual(self.client.get(section_path).status_code, 404)
+
+    @override_settings(COURSE_SUBSCRIPTIONS_ENABLED=True)
+    def test_paid_lesson_relocks_at_expiry(self):
+        section_path = f"/api/courses/sections/{self.section.pk}/"
+        self.client.force_authenticate(self.learner)
+        self.learner.subscription_ends_at = timezone.now() + timedelta(days=1)
+        self.assertEqual(self.client.get(section_path).status_code, 200)
+        self.learner.subscription_ends_at = timezone.now()
+        self.assertEqual(self.client.get(section_path).status_code, 404)
+
+    @override_settings(COURSE_SUBSCRIPTIONS_ENABLED=True, DEBUG=True)
+    def test_direct_media_requires_access_and_video_has_byte_ranges(self):
+        sample = Path(settings.MEDIA_ROOT) / "sample-courses" / "sample.mp4"
+        sample.parent.mkdir()
+        sample.write_bytes(b"sample video data")
+        self.section.local_video_url = "http://localhost:3000/sample-courses/sample.mp4"
+        self.section.save(update_fields=["local_video_url"])
+        section_path = f"/api/courses/sections/{self.section.pk}/"
+        for name in ("subtitle/", "video/"):
+            self.assertEqual(self.client.get(section_path + name).status_code, 404)
+        self.course.is_free = True
+        self.course.save(update_fields=["is_free"])
+        subtitle = self.client.get(section_path + "subtitle/")
+        self.assertIn(b"WEBVTT", b"".join(subtitle.streaming_content))
+        self.assertEqual(subtitle["Cache-Control"], "private, no-store")
+        video = self.client.get(section_path + "video/", HTTP_RANGE="bytes=7-11")
+        self.assertEqual(video.status_code, 206)
+        self.assertEqual(video["Content-Range"], "bytes 7-11/17")
+        self.assertEqual(b"".join(video.streaming_content), b"video")
+        self.course.is_free = False
+        self.course.save(update_fields=["is_free"])
+        self.assertEqual(self.client.get(section_path + "video/").status_code, 404)
 
     def test_section_video_urls_are_optional_on_create(self):
         self.client.force_authenticate(self.staff)

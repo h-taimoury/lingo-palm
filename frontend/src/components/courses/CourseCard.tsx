@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ImageIcon } from "lucide-react";
+import { ImageIcon, Lock } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -13,6 +13,8 @@ const levelStyles: Record<CourseSummary["level"], string> = {
   Advanced: "border-rose-300/60 bg-rose-600 text-white",
 };
 
+const badgeSize = "h-6 rounded-full border px-2.5 text-xs font-medium";
+
 export function CourseCard({
   course,
   thumbnail,
@@ -20,9 +22,10 @@ export function CourseCard({
   course: CourseSummary;
   thumbnail: string | null;
 }) {
+  const locked = course.has_access === false;
   return (
     <Link
-      href={`/courses/${course.id}`}
+      href={locked ? "/plans" : `/courses/${course.id}`}
       className="group mx-auto block w-full max-w-70 rounded-2xl lg:max-w-78 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
     >
       <Card className="h-full gap-4 rounded-2xl border border-orange-200 bg-orange-100 p-4 shadow-xl ring-0 transition duration-200 group-hover:-translate-y-1 group-hover:shadow-2xl">
@@ -54,15 +57,18 @@ export function CourseCard({
             {course.description || "No description yet."}
           </p>
 
-          <div className="mt-auto pt-5">
-            <Badge
-              className={cn(
-                "h-6 rounded-full border px-2.5 text-xs font-medium",
-                levelStyles[course.level],
-              )}
-            >
+          <div className="mt-auto flex min-h-14 items-center justify-between gap-2 pt-5">
+            <Badge className={cn(badgeSize, levelStyles[course.level])}>
               {course.level}
             </Badge>
+            {locked ? (
+              <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl border border-orange-300 bg-orange-50 text-orange-950 transition-colors group-hover:bg-orange-200">
+                <Lock className="size-5.5" aria-hidden="true" />
+                <span className="sr-only">Subscription required. Open subscription plans.</span>
+              </span>
+            ) : course.is_free ? (
+              <Badge className={cn(badgeSize, "border-teal-200 bg-teal-100 text-teal-900")}>Free</Badge>
+            ) : null}
           </div>
         </div>
       </Card>

@@ -41,8 +41,8 @@ class PublicUserAPITests(TestCase):
         }
 
     def test_create_valid_user_success(self):
-        """Test creating a user stores JWTs in HttpOnly cookies."""
-        res = self.client.post(REGISTER_URL, self.payload)
+        """Registration creates an unverified account without logging it in."""
+        res = self.client.post(REGISTER_URL, {**self.payload, "password_confirm": self.payload["password"]})
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
 
@@ -54,14 +54,9 @@ class PublicUserAPITests(TestCase):
         self.assertNotIn("refresh", res.data)
         self.assertNotIn("password", res.data)
 
-        self.assertIn("access_token", res.cookies)
-        self.assertIn("refresh_token", res.cookies)
-
-        self.assertTrue(res.cookies["access_token"]["httponly"])
-        self.assertTrue(res.cookies["refresh_token"]["httponly"])
-
-        self.assertIn("csrftoken", res.cookies)
-        self.assertFalse(res.cookies["csrftoken"]["httponly"])
+        self.assertFalse(user.email_verified)
+        self.assertNotIn("access_token", res.cookies)
+        self.assertNotIn("refresh_token", res.cookies)
 
     def test_create_user_missing_password_fails(self):
         """Test creating a user with a missing required password fails validation."""
@@ -93,7 +88,7 @@ class PublicUserAPITests(TestCase):
 
     def test_login_user_success(self):
         """Test logging in stores JWTs in HttpOnly cookies."""
-        User.objects.create_user(**self.payload)
+        User.objects.create_user(**self.payload, email_verified=True)
 
         login_payload = {
             "email": self.payload["email"],
@@ -138,6 +133,7 @@ class PrivateUserMeTests(TestCase):
             password="TestPassword123",
             first_name="Auth",
             last_name="User",
+            email_verified=True,
         )
         self.client = APIClient()
         self.client.force_authenticate(user=self.user)
@@ -180,7 +176,7 @@ class PrivateUserMeTests(TestCase):
     def test_update_me_password_success(self):
         """Test PATCH /api/users/me/ can update the password."""
         new_password = "NewSecurePassword456"
-        payload = {"password": new_password}
+        payload = {"password": new_password, "password_confirm": new_password, "current_password": "TestPassword123"}
         res = self.client.patch(ME_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
@@ -194,6 +190,7 @@ class PrivateUserMeTests(TestCase):
             "id": 999,
             "created_at": "2000-01-01T00:00:00Z",
             "email": "new@example.com",  # include a valid field to make the request pass
+            "current_password": "TestPassword123",
         }
         res = self.client.patch(ME_URL, payload)
 
@@ -201,7 +198,8 @@ class PrivateUserMeTests(TestCase):
         self.user.refresh_from_db()
         self.assertNotEqual(self.user.id, 999)
         self.assertEqual(self.user.created_at.date(), original_created_at.date())
-        self.assertEqual(self.user.email, "new@example.com")
+        self.assertEqual(self.user.email, "auth@example.com")
+        self.assertEqual(self.user.pending_email, "new@example.com")
 
     def test_unauthenticated_request_rejected(self):
         """Test GET /api/users/me/ requires authentication."""
