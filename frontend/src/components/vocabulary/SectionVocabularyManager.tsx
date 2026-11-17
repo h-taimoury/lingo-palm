@@ -554,17 +554,17 @@ function SensePagination({
 
 function SenseCard({
   item,
-  selected = false,
-  disabled = false,
-  showShortTranslation = false,
+  selected,
+  disabled,
+  showShortTranslation,
   onToggle,
   details,
 }: {
   item: VocabularyItem;
-  selected?: boolean;
-  disabled?: boolean;
-  showShortTranslation?: boolean;
-  onToggle?: () => void;
+  selected: boolean;
+  disabled: boolean;
+  showShortTranslation: boolean;
+  onToggle: () => void;
   details: ReactNode;
 }) {
   const { sense } = item;
@@ -609,22 +609,18 @@ function SenseCard({
         className={`absolute inset-x-0 top-0 min-h-full rounded-xl border bg-card p-4 ${expanded ? "shadow-xl" : "shadow-sm"} ${selected ? "border-primary ring-1 ring-primary" : ""}`}
       >
         <div className="pr-8">
-          {onToggle ? (
-            <label
-              className={`flex min-w-0 items-center gap-2 after:absolute after:inset-0 ${disabled ? "cursor-wait" : "cursor-pointer"}`}
-            >
-              <input
-                type="checkbox"
-                checked={selected}
-                disabled={disabled}
-                onChange={onToggle}
-                className="size-4 shrink-0 cursor-inherit accent-primary"
-              />
-              {heading}
-            </label>
-          ) : (
-            heading
-          )}
+          <label
+            className={`flex min-w-0 items-center gap-2 after:absolute after:inset-0 ${disabled ? "cursor-wait" : "cursor-pointer"}`}
+          >
+            <input
+              type="checkbox"
+              checked={selected}
+              disabled={disabled}
+              onChange={onToggle}
+              className="size-4 shrink-0 cursor-inherit accent-primary"
+            />
+            {heading}
+          </label>
         </div>
         {details}
         {showShortTranslation ? (
