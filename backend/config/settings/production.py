@@ -7,7 +7,10 @@ frontend_origin = urlsplit(FRONTEND_ORIGIN)
 if (frontend_origin.scheme != "https" or not frontend_origin.hostname or frontend_origin.username is not None
         or frontend_origin.path or frontend_origin.query or frontend_origin.fragment):
     raise ImproperlyConfigured("FRONTEND_ORIGIN must be the frontend HTTPS origin.")
-if not EMAIL_HOST or not env.str("DEFAULT_FROM_EMAIL", default=""):
+if env.bool("DEMO_EMAIL_CONSOLE", default=False):
+    # Demo only: account email links appear in server logs instead of being sent.
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+elif not EMAIL_HOST or not env.str("DEFAULT_FROM_EMAIL", default=""):
     raise ImproperlyConfigured("Production requires EMAIL_HOST and DEFAULT_FROM_EMAIL for account emails.")
 if EMAIL_USE_TLS and EMAIL_USE_SSL:
     raise ImproperlyConfigured("Enable either EMAIL_USE_TLS or EMAIL_USE_SSL, not both.")

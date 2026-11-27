@@ -66,6 +66,13 @@ Django's in-memory email backend; no real messages are sent by the test suite.
 
 For a paid VPS, configure the values in `.env.production.example`:
 
+For a demo without an email provider, set `DEMO_EMAIL_CONSOLE=True` and
+`FRONTEND_ORIGIN` to the live frontend origin. Account emails are written to
+server logs instead of delivered, so SMTP credentials are not required. You can
+continue verifying test accounts in Django admin. Logs contain verification and
+password-reset links; keep them private. Disable this setting when configuring
+real email delivery.
+
 - `FRONTEND_ORIGIN`: the exact HTTPS frontend origin used in email links.
 - `DEFAULT_FROM_EMAIL`: a sender authorized by your email provider.
 - `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`: SMTP relay credentials.
