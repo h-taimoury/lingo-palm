@@ -21,15 +21,24 @@ vi.mock("@/components/video-player/controls/PlayerControls", () => ({
 }));
 
 const { cues } = parseVtt("WEBVTT\n\n00:00:00.000 --> 00:00:05.000\npush them too far\n");
-const mapping = {
+const mapping: WordSenseMapping = {
   id: 7,
+  created_at: "2026-11-27T00:00:00Z",
   translation: "translation-marker",
   senses: [],
   // Deliberately reverse storage order: placement must follow subtitle order.
   subtitle_words: [...cues[0].tokens].reverse().filter(token => token.word !== "them").map(token => ({
+    id: token.index,
+    mapping: 7,
+    cue_start_time: cues[0].startTime,
+    cue_end_time: cues[0].endTime,
+    previous_cue_start_time: null,
+    previous_cue_end_time: null,
+    next_cue_start_time: null,
+    next_cue_end_time: null,
     cue_id: token.cueId, word: token.word, position_in_cue: token.positionInCue,
   })),
-} as WordSenseMapping;
+};
 
 it.each(["admin", "learner"])("places the %s translation above the first group even when a later group is longer", player => {
   const html = renderToStaticMarkup(player === "admin"
