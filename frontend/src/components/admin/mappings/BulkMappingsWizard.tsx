@@ -9,6 +9,7 @@ import type { Entry } from "@/types/api/dictionary";
 import type { ScrapeResponse } from "@/types/api/scraper";
 import { isWordNotFound, ScrapeRetriesExhausted, withScrapeRetry } from "./scrapeRetry";
 import { useUnsavedChangesWarning } from "./useUnsavedChangesWarning";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type Suggestion = {
   id: string;
@@ -67,6 +68,8 @@ function JsonInput({
   onChange: (value: string) => void;
   disabled: boolean;
 }) {
+  const t = useTranslations();
+
   const [fileError, setFileError] = useState("");
   return (
     <div className="space-y-3">
@@ -83,7 +86,7 @@ function JsonInput({
             setFileError("");
             try {
               if (file.size > 5 * 1024 * 1024)
-                throw new Error("Choose a JSON file smaller than 5 MB.");
+                throw new Error(t("Choose a JSON file smaller than 5 MB."));
               onChange(await file.text());
             } catch (caught) {
               setFileError(
@@ -97,8 +100,7 @@ function JsonInput({
         />
       </label>
       <label className="block text-sm font-medium">
-        Or paste JSON
-        <textarea
+        {t("Or paste JSON")}<textarea
           value={value}
           disabled={disabled}
           onChange={(event) => onChange(event.target.value)}
@@ -116,6 +118,8 @@ function JsonInput({
 }
 
 export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
+  const t = useTranslations();
+
   const [step, setStep] = useState(0);
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -262,7 +266,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
             if (!found.length) {
               if (!publicEnv.enableScraper)
                 throw new Error(
-                  "Scraping is disabled in this environment. Run this step on your local authoring server.",
+                  t("Scraping is disabled in this environment. Run this step on your local authoring server."),
                 );
               log(`Scraping ${item.scrape_term}…`);
               const response = await apiClient.post<ScrapeResponse>(
@@ -281,7 +285,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
           if (!found || (controller.signal.aborted && !found.length)) break;
           if (!found.some((entry) => entry.senses.length))
             throw new Error(
-              `No senses were returned for ${item.dictionary_word}. Review its dictionary URL.`,
+              t("No senses were returned for {0}. Review its dictionary URL.", { 0: item.dictionary_word }),
             );
           readyCount++;
           clearFailure(key);
@@ -315,7 +319,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
             continue;
           }
           failedCount++;
-          const message = caught instanceof Error ? caught.message : "Dictionary preparation failed.";
+          const message = caught instanceof Error ? caught.message : t("Dictionary preparation failed.");
           if (mounted.current) {
             setFailures((previous) => ({ ...previous, [key]: message }));
             setExported(false);
@@ -336,7 +340,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
         suggestions: readySuggestions,
       });
       if (!navigator.clipboard?.writeText) {
-        throw new Error("Clipboard access is unavailable. Open this page using HTTPS or localhost and try again.");
+        throw new Error(t("Clipboard access is unavailable. Open this page using HTTPS or localhost and try again."));
       }
       await navigator.clipboard.writeText(JSON.stringify(data, null, 2));
       setExported(true);
@@ -346,7 +350,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
   return (
     <div className="mt-8 space-y-6">
       <ol
-        aria-label="Bulk mappings steps"
+        aria-label={t("Bulk mappings steps")}
         className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4"
       >
         {steps.map((label, position) => (
@@ -369,29 +373,27 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 setError(null);
               }}
             >
-              {position + 1}. {label}
+              {position + 1}. {t(label)}
             </Button>
           </li>
         ))}
       </ol>
       <ApiErrorMessage error={error} />
       {failedSuggestions.length > 0 && step >= 2 ? (
-        <aside className="space-y-3 rounded-lg border p-4" aria-label="Failed dictionary words">
-          <p>{failedSuggestions.length} failed words are excluded from mapping export until successfully prepared.</p>
+        <aside className="space-y-3 rounded-lg border p-4" aria-label={t("Failed dictionary words")}>
+          <p>{t("{0} failed words are excluded from mapping export until successfully prepared.", { 0: failedSuggestions.length })}</p>
           <ul className="max-h-48 overflow-y-auto text-sm">
             {failedSuggestions.map((item) => (
               <li key={wordKey(item)}><strong>{item.dictionary_word}</strong>: {failures[wordKey(item)]}</li>
             ))}
           </ul>
           <Button disabled={busy} variant="outline" onClick={() => void prepareDictionary(failedSuggestions)}>
-            Retry failed words
-          </Button>
+            {t("Retry failed words")}</Button>
         </aside>
       ) : null}
       {busy ? (
         <p role="status" className="text-sm text-muted-foreground">
-          Working… Please keep this page open.
-        </p>
+          {t("Working… Please keep this page open.")}</p>
       ) : null}
       <section
         className="space-y-5 rounded-xl border bg-card p-5 sm:p-7"
@@ -401,12 +403,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
         {step === 0 ? (
           <>
             <p className="text-sm leading-6 text-muted-foreground">
-              Download this section’s subtitle context and give it to the
-              assistant with your subtitles. Ask for B2-and-above vocabulary,
-              selecting only the main word in each expression or phrasal verb.
-              Use main dictionary headwords without checking URLs online.
-              Import the resulting suggestions array here.
-            </p>
+              {t("Download this section’s subtitle context and give it to the assistant with your subtitles. Ask for B2-and-above vocabulary, selecting only the main word in each expression or phrasal verb. Use main dictionary headwords without checking URLs online. Import the resulting suggestions array here.")}</p>
             <Button
               variant="outline"
               disabled={busy}
@@ -419,10 +416,9 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 )
               }
             >
-              Download subtitle context
-            </Button>
+              {t("Download subtitle context")}</Button>
             <JsonInput
-              label="Suggestions JSON file"
+              label={t("Suggestions JSON file")}
               value={input}
               onChange={setInput}
               disabled={busy}
@@ -431,41 +427,34 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
               disabled={busy || !input.trim()}
               onClick={() => void importSuggestions()}
             >
-              Validate and review suggestions
-            </Button>
+              {t("Validate and review suggestions")}</Button>
             {suggestions.length ? (
               <p className="text-sm text-muted-foreground">
-                Importing another file restarts this wizard’s review. Existing
-                database mappings are never removed.
-              </p>
+                {t("Importing another file restarts this wizard’s review. Existing database mappings are never removed.")}</p>
             ) : null}
           </>
         ) : null}
         {step === 1 && current ? (
           <>
             <p className="text-sm text-muted-foreground">
-              Suggestion {index + 1} of {suggestions.length} · {reviewed}{" "}
-              reviewed · {accepted.length} kept
-            </p>
+              {t("Suggestion {0} of {1} · {2} reviewed · {3} kept", { 0: index + 1, 1: suggestions.length, 2: reviewed, 3: accepted.length })}</p>
             <article className="space-y-4 rounded-xl border bg-muted/20 p-5">
               <div className="flex flex-wrap items-center gap-3">
                 <h3 className="text-2xl font-semibold">
                   {current.subtitle_word}
                 </h3>
                 <span className="rounded-full bg-secondary px-3 py-1 text-xs">
-                  {decisions[current.id] ?? "Not reviewed"}
+                  {decisions[current.id] ?? t("Not reviewed")}
                 </span>
               </div>
               <p className="whitespace-pre-wrap text-lg leading-8">
                 {current.cue_text}
               </p>
               <p className="text-xs text-muted-foreground">
-                Cue {current.cue_id} · {current.start_time}s–{current.end_time}s
-                · Token indices: {current.token_indices.join(", ")}
+                {t("Cue {0} · {1}s–{2}s · Token indices:", { 0: current.cue_id, 1: current.start_time, 2: current.end_time })} {current.token_indices.join(", ")}
               </p>
               <p className="text-sm">
-                Dictionary word: <strong>{current.dictionary_word}</strong> ·
-                Scrape term: <strong>{current.scrape_term}</strong>
+                {t("Dictionary word:")} <strong>{current.dictionary_word}</strong>  {t("· Scrape term:")} <strong>{current.scrape_term}</strong>
               </p>
               <a
                 href={current.longman_url}
@@ -473,8 +462,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 rel="noreferrer"
                 className="inline-block break-all text-sm text-primary underline underline-offset-4"
               >
-                Check Longman entry ↗
-              </a>
+                {t("Check Longman entry ↗")}</a>
             </article>
             <div className="flex flex-wrap gap-2">
               <Button
@@ -482,26 +470,19 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 disabled={index === 0}
                 onClick={() => setIndex(index - 1)}
               >
-                Previous
-              </Button>
+                {t("Previous")}</Button>
               <Button
                 variant="outline"
                 disabled={index === suggestions.length - 1}
                 onClick={() => setIndex(index + 1)}
               >
-                Next
-              </Button>
+                {t("Next")}</Button>
               <Button variant="destructive" onClick={() => decide("remove")}>
-                Remove and next
-              </Button>
-              <Button onClick={() => decide("keep")}>Keep and next</Button>
+                {t("Remove and next")}</Button>
+              <Button onClick={() => decide("keep")}>{t("Keep and next")}</Button>
             </div>
             <p className="text-sm text-muted-foreground">
-              Remove excludes this occurrence only. You can return to it and
-              choose Keep. No dictionary entries are deleted.
-              Continuing to the dictionary automatically keeps all unreviewed
-              words and preserves your removals.
-            </p>
+              {t("Remove excludes this occurrence only. You can return to it and choose Keep. No dictionary entries are deleted. Continuing to the dictionary automatically keeps all unreviewed words and preserves your removals.")}</p>
             <Button
               variant="outline"
               disabled={!accepted.length}
@@ -512,46 +493,32 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 )
               }
             >
-              Save accepted suggestions
-            </Button>
+              {t("Save accepted suggestions")}</Button>
             <Button
-              className="ml-2"
+              className="ms-2"
               onClick={continueToDictionary}
             >
-              Continue to dictionary
-            </Button>
+              {t("Continue to dictionary")}</Button>
           </>
         ) : null}
         {step === 2 ? (
           <>
             {!accepted.length ? (
               <p className="text-sm text-muted-foreground">
-                All suggestions have been removed. Return to Review vocabulary
-                and keep at least one word to prepare the dictionary.
-              </p>
+                {t("All suggestions have been removed. Return to Review vocabulary and keep at least one word to prepare the dictionary.")}</p>
             ) : null}
             <p className="text-sm text-muted-foreground">
-              Accepted occurrences share one dictionary lookup per word.
-              Existing entries are reused; missing entries are scraped
-              sequentially. Temporary loading or audio failures retry up to three
-              times, after 3, 8, and 15 seconds. After these retries, failed words
-              are recorded and preparation continues. Other failures are logged and
-              skipped immediately without pausing. Failed words are excluded from
-              export; you can retry them after the run finishes.
-            </p>
+              {t("Accepted occurrences share one dictionary lookup per word. Existing entries are reused; missing entries are scraped sequentially. Temporary loading or audio failures retry up to three times, after 3, 8, and 15 seconds. After these retries, failed words are recorded and preparation continues. Other failures are logged and skipped immediately without pausing. Failed words are excluded from export; you can retry them after the run finishes.")}</p>
             {!publicEnv.enableScraper ? (
               <p className="text-sm text-amber-700">
-                Scraping is disabled here. Existing dictionary entries can still
-                be prepared.
-              </p>
+                {t("Scraping is disabled here. Existing dictionary entries can still be prepared.")}</p>
             ) : null}
             <div className="flex flex-wrap gap-2">
               <Button
                 disabled={busy || !accepted.length}
                 onClick={() => void prepareDictionary()}
               >
-                Prepare / retry remaining words
-              </Button>
+                {t("Prepare / retry remaining words")}</Button>
               {busy ? (
                 <Button
                   variant="outline"
@@ -563,7 +530,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                     setLogs((previous) => [...previous, "Stop requested. No more retries or words will start; any active request will finish first."]);
                   }}
                 >
-                  {stopping ? "Stopping…" : "Stop retries / preparation"}
+                  {stopping ? t("Stopping…") : t("Stop retries / preparation")}
                 </Button>
               ) : null}
               <Button
@@ -571,8 +538,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 disabled={busy || !prepared}
                 onClick={() => setStep(3)}
               >
-                Continue to sense selection
-              </Button>
+                {t("Continue to sense selection")}</Button>
             </div>
             <div
               role="log"
@@ -587,7 +553,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                   </p>
                 ))
               ) : (
-                <p>No requests started yet.</p>
+                <p>{t("No requests started yet.")}</p>
               )}
             </div>
           </>
@@ -595,27 +561,19 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
         {step === 3 ? (
           <>
             <p className="text-sm leading-6 text-muted-foreground">
-              Copy the final accepted words as JSON after dictionary preparation.
-              Paste the JSON into your chat with the assistant, who can read your dictionary database
-              to select the correct meanings,
-              then upload its completed mapping JSON below. You can return
-              directly to this step later; the file contains its own section and
-              subtitle checks.
-            </p>
+              {t("Copy the final accepted words as JSON after dictionary preparation. Paste the JSON into your chat with the assistant, who can read your dictionary database to select the correct meanings, then upload its completed mapping JSON below. You can return directly to this step later; the file contains its own section and subtitle checks.")}</p>
             <Button
               variant="outline"
               disabled={busy || !prepared}
               onClick={() => void exportSenses()}
             >
-              Copy accepted words for sense selection
-            </Button>
+              {t("Copy accepted words for sense selection")}</Button>
             {exported ? (
               <p role="status" className="text-sm text-emerald-700">
-                JSON copied to clipboard. Paste it into your chat for sense selection.
-              </p>
+                {t("JSON copied to clipboard. Paste it into your chat for sense selection.")}</p>
             ) : null}
             <JsonInput
-              label="Completed mappings JSON file"
+              label={t("Completed mappings JSON file")}
               value={finalInput}
               onChange={(value) => {
                 setFinalInput(value);
@@ -640,18 +598,13 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 })
               }
             >
-              Validate and preview mappings
-            </Button>
+              {t("Validate and preview mappings")}</Button>
             {preview && !result ? (
               <div className="space-y-3">
                 <p>
-                  {preview.ready} ready · {preview.skipped} overlapping mappings
-                  skipped
-                </p>
+                  {t("{0} ready · {1} overlapping mappings skipped", { 0: preview.ready, 1: preview.skipped })}</p>
                 <p className="text-sm text-muted-foreground">
-                  Existing mappings are preserved. The server checks overlaps
-                  again when creating mappings.
-                </p>
+                  {t("Existing mappings are preserved. The server checks overlaps again when creating mappings.")}</p>
                 <Button
                   disabled={busy || !preview.ready}
                   onClick={() =>
@@ -665,8 +618,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                     })
                   }
                 >
-                  Create {preview.ready} mappings
-                </Button>
+                  {t("Create {0} mappings", { 0: preview.ready })}</Button>
               </div>
             ) : null}
             {result ? (
@@ -674,9 +626,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                 role="status"
                 className="rounded-lg bg-emerald-50 p-4 text-emerald-900"
               >
-                Created {result.created} mappings. Skipped {result.skipped}.
-                Existing mappings were preserved.
-              </p>
+                {t("Created {0} mappings. Skipped {1}. Existing mappings were preserved.", { 0: result.created, 1: result.skipped })}</p>
             ) : null}
             {result || preview ? (
               <ul className="max-h-96 space-y-2 overflow-y-auto text-sm">
@@ -685,8 +635,7 @@ export function BulkMappingsWizard({ sectionId }: { sectionId: number }) {
                     key={`${item.suggestion_id}-${index}`}
                     className="rounded-lg border p-3"
                   >
-                    <strong>{item.subtitle_word}</strong> · Cue {item.cue_id} ·{" "}
-                    {item.status} · Sense IDs: {item.sense_ids.join(", ")}
+                    <strong>{item.subtitle_word}</strong>  {t("· Cue {0} · {1} · Sense IDs:", { 0: item.cue_id, 1: item.status })} {item.sense_ids.join(", ")}
                     {item.reason ? (
                       <p className="text-muted-foreground">{item.reason}</p>
                     ) : null}

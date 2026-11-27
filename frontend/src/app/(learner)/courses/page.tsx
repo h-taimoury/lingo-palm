@@ -10,8 +10,12 @@ import {
   buildUrl,
 } from "@/lib/courses/query";
 import { proxyDjangoMediaUrl } from "@/lib/media.server";
+import { getTranslations } from "@/lib/i18n/server";
 
-export const metadata: Metadata = { title: "Courses" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return { title: t("Courses") };
+}
 export default async function CoursesPage({
   searchParams,
 }: {
@@ -20,6 +24,8 @@ export default async function CoursesPage({
     search?: string | string[];
   }>;
 }) {
+  const t = await getTranslations();
+
   const params = await searchParams;
   const page = parsePositivePage(params.page);
   const search = (firstSearchParam(params.search) ?? "").trim();
@@ -27,8 +33,8 @@ export default async function CoursesPage({
   return (
     <div className="mx-auto max-w-7xl px-4 py-9 pb-20 sm:px-6 lg:px-8">
       <PageHeader
-        title="Courses"
-        description="Choose a course and learn through its published video sections."
+        title={t("Courses")}
+        description={t("Choose a course and learn through its published video sections.")}
       />
       <CourseSearchForm search={search} />
       <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -42,8 +48,7 @@ export default async function CoursesPage({
       </div>
       {!data.results.length ? (
         <p className="mt-8 rounded-xl border border-dashed p-8 text-center text-muted-foreground">
-          No courses match your search.
-        </p>
+          {t("No courses match your search.")}</p>
       ) : null}
       <Pagination
         page={page}

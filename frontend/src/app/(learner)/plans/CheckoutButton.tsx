@@ -5,8 +5,11 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage";
 import { apiClient } from "@/lib/api/client";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function CheckoutButton() {
+  const t = useTranslations();
+
   const router = useRouter();
   const reference = useRef<string | null>(null);
   const inFlight = useRef(false);
@@ -32,5 +35,5 @@ export function CheckoutButton() {
     }
   }
 
-  return <><ApiErrorMessage error={error} /><Button disabled={busy} onClick={checkout}>{busy ? "Opening checkout…" : "Pay with ZarinPal"}</Button></>;
+  return <><ApiErrorMessage error={error} /><Button disabled={busy} onClick={checkout}>{busy ? t("Opening checkout…") : t("Pay with ZarinPal")}</Button></>;
 }

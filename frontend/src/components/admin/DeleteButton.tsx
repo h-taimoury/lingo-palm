@@ -7,6 +7,7 @@ import { LoaderCircle, Trash2 } from "lucide-react"
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage"
 import { Button } from "@/components/ui/button"
 import { apiClient } from "@/lib/api/client"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function DeleteButton({
   endpoint,
@@ -19,6 +20,8 @@ export function DeleteButton({
   redirectTo?: string
   label?: string
 }) {
+  const t = useTranslations();
+
   const router = useRouter()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<unknown>(null)
@@ -53,7 +56,7 @@ export function DeleteButton({
         ) : (
           <Trash2 className="size-4" />
         )}
-        {busy ? "Deleting…" : label}
+        {busy ? t("Deleting…") : label}
       </Button>
       {error ? <ApiErrorMessage error={error} /> : null}
     </div>

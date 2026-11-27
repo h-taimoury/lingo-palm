@@ -30,6 +30,7 @@ import type {
   VocabularyBulkActionResponse,
 } from "@/types/api/vocabulary";
 import type { SubtitleCue } from "@/types/subtitles";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 const noSenseIds: number[] = [];
 const noCues: SubtitleCue[] = [];
@@ -44,6 +45,8 @@ export function VideoPlayerInner({
   signInHref,
   clip,
 }: VideoPlayerProps) {
+  const t = useTranslations();
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -317,7 +320,7 @@ export function VideoPlayerInner({
       >
         <video
           ref={videoRef}
-          aria-label={title ? `Video: ${title}` : "Lesson video"}
+          aria-label={title ? t("Video: {0}", { 0: title }) : t("Lesson video")}
           playsInline
           preload="metadata"
           className="h-full w-full bg-black object-contain"
@@ -329,15 +332,15 @@ export function VideoPlayerInner({
         />
         {clip ? (
           <nav
-            aria-label="Video examples"
+            aria-label={t("Video examples")}
             data-player-interactive="true"
             data-player-native-keys="true"
             className="absolute right-2 top-2 z-40 flex items-center gap-1 rounded-md bg-black/75 p-1 text-white"
           >
             <button
               type="button"
-              aria-label="Previous clip"
-              title="Previous clip"
+              aria-label={t("Previous clip")}
+              title={t("Previous clip")}
               disabled={!clip.onPrevious}
               onClick={clip.onPrevious}
               className="grid size-9 place-items-center rounded hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-white disabled:opacity-40"
@@ -349,8 +352,8 @@ export function VideoPlayerInner({
             </span>
             <button
               type="button"
-              aria-label="Next clip"
-              title="Next clip"
+              aria-label={t("Next clip")}
+              title={t("Next clip")}
               disabled={!clip.onNext}
               onClick={clip.onNext}
               className="grid size-9 place-items-center rounded hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-white disabled:opacity-40"
@@ -368,8 +371,8 @@ export function VideoPlayerInner({
               openCueModal();
             }}
             className="absolute right-3 top-3 z-20 grid size-10 place-items-center rounded-full bg-black/65 text-white shadow-md hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            aria-label="Open vocabulary for current subtitle"
-            title="Learn current subtitle (Enter)"
+            aria-label={t("Open vocabulary for current subtitle")}
+            title={t("Learn current subtitle (Enter)")}
           >
             <GraduationCap className="size-5" />
           </button>
@@ -385,7 +388,7 @@ export function VideoPlayerInner({
           <div className="absolute inset-0 z-30 grid place-items-center bg-black/80 p-6 text-center text-white">
             <div>
               <TriangleAlert className="mx-auto size-8" />
-              <p className="mt-3 font-medium">Unable to play this video</p>
+              <p className="mt-3 font-medium">{t("Unable to play this video")}</p>
               <p className="mt-1 text-sm text-white/70">{mediaError.message}</p>
             </div>
           </div>
@@ -396,8 +399,7 @@ export function VideoPlayerInner({
             data-player-interactive="true"
             className="absolute left-3 top-3 z-20 max-w-sm rounded-md bg-black/70 px-3 py-2 text-xs text-white/80"
           >
-            Subtitles unavailable: {subtitleError}
-          </div>
+            {t("Subtitles unavailable: {0}", { 0: subtitleError })}</div>
         ) : null}
         <div
           aria-hidden={modalMode !== "closed"}

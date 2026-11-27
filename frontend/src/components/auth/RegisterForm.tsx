@@ -11,8 +11,11 @@ import { Label } from "@/components/ui/label";
 import { apiClient } from "@/lib/api/client";
 import type { RegisterRequest } from "@/types/api/users";
 import type { DetailResponse } from "@/types/api/common";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function RegisterForm() {
+  const t = useTranslations();
+
   const router = useRouter();
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
@@ -28,7 +31,7 @@ export function RegisterForm() {
       password_confirm: String(form.get("password_confirm") ?? ""),
     };
     if (body.password !== body.password_confirm) {
-      setError(new Error("Passwords do not match."));
+      setError(new Error(t("Passwords do not match.")));
       return;
     }
     setBusy(true);
@@ -52,7 +55,7 @@ export function RegisterForm() {
       <ApiErrorMessage error={error} />
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="first_name">First name</Label>
+          <Label htmlFor="first_name">{t("First name")}</Label>
           <Input
             id="first_name"
             name="first_name"
@@ -61,7 +64,7 @@ export function RegisterForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="last_name">Last name</Label>
+          <Label htmlFor="last_name">{t("Last name")}</Label>
           <Input
             id="last_name"
             name="last_name"
@@ -71,7 +74,7 @@ export function RegisterForm() {
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="register_email">Email</Label>
+        <Label htmlFor="register_email">{t("Email")}</Label>
         <Input
           id="register_email"
           name="email"
@@ -81,7 +84,7 @@ export function RegisterForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="register_password">Password</Label>
+        <Label htmlFor="register_password">{t("Password")}</Label>
         <Input
           id="register_password"
           name="password"
@@ -91,12 +94,12 @@ export function RegisterForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="register_password_confirm">Confirm password</Label>
+        <Label htmlFor="register_password_confirm">{t("Confirm password")}</Label>
         <Input id="register_password_confirm" name="password_confirm" type="password" autoComplete="new-password" required />
       </div>
       <Button className="w-full" type="submit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-        {busy ? "Creating account…" : "Create account"}
+        {busy ? t("Creating account…") : t("Create account")}
       </Button>
     </form>
   );

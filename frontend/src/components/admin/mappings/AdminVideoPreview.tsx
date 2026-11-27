@@ -12,6 +12,7 @@ import { getMappingTranslation } from "@/lib/subtitles/mappings"
 import { cn } from "@/lib/utils"
 import type { WordSenseMapping } from "@/types/api/courses"
 import type { SubtitleCue, SubtitleMappingIndex, SubtitleToken } from "@/types/subtitles"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export type AdminVideoPreviewProps = {
   source: string
@@ -42,6 +43,8 @@ function AdminVideoPreviewInner({
   onMappedTokenClick,
   onMappedSenseClick,
 }: AdminVideoPreviewProps) {
+  const t = useTranslations();
+
   const ref = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const store = usePlayerStoreApi()
@@ -62,12 +65,11 @@ function AdminVideoPreviewInner({
       runs.push({ mapping, tokens: [token] })
     }
   }
-  const longestRuns = new Map<number, (typeof runs)[number]>()
+  const firstRuns = new Map<number, (typeof runs)[number]>()
   for (const run of runs) {
     if (!run.mapping) continue
-    const longest = longestRuns.get(run.mapping.id)
-    if (!longest || run.tokens.length > longest.tokens.length) {
-      longestRuns.set(run.mapping.id, run)
+    if (!firstRuns.has(run.mapping.id)) {
+      firstRuns.set(run.mapping.id, run)
     }
   }
 
@@ -76,7 +78,7 @@ function AdminVideoPreviewInner({
       <div
         ref={containerRef}
         tabIndex={0}
-        aria-label="Section video preview"
+        aria-label={t("Section video preview")}
         className="relative aspect-video overflow-hidden rounded-xl bg-black outline-none focus-visible:ring-2 focus-visible:ring-ring [&:fullscreen]:rounded-none"
         onKeyDown={(event) => {
           const target = event.target as HTMLElement
@@ -96,7 +98,7 @@ function AdminVideoPreviewInner({
       >
         <video
           ref={ref}
-          aria-label="Section preview video"
+          aria-label={t("Section preview video")}
           playsInline
           preload="metadata"
           className="h-full w-full bg-black object-contain"
@@ -112,7 +114,7 @@ function AdminVideoPreviewInner({
               {runs.map((run) => {
                 const { mapping: mapped, tokens } = run
                 const belongsActive = mapped?.id === activeMappingId
-                const translation = showShortTranslations && mapped && longestRuns.get(mapped.id) === run
+                const translation = showShortTranslations && mapped && firstRuns.get(mapped.id) === run
                   ? getMappingTranslation(mapped)
                   : ""
 
@@ -153,7 +155,7 @@ function AdminVideoPreviewInner({
                               : "bg-white/10 text-white ring-white/20 hover:bg-white/25"),
                           )}
                           aria-pressed={selected || belongsActive}
-                          title={mapped ? `Edit mapping #${mapped.id} · Ctrl-click to view senses` : "Select this subtitle occurrence"}
+                          title={mapped ? t("Edit mapping #{0} · Ctrl-click to view senses", { 0: mapped.id }) : t("Select this subtitle occurrence")}
                         >
                           {token.word}
                         </button>
@@ -172,7 +174,7 @@ function AdminVideoPreviewInner({
         ) : null}
         {(status === "loading" || status === "buffering") && !error ? (
           <div className="pointer-events-none absolute inset-0 grid place-items-center">
-            <LoaderCircle className="size-8 animate-spin text-white" aria-label="Loading video" />
+            <LoaderCircle className="size-8 animate-spin text-white" aria-label={t("Loading video")} />
           </div>
         ) : null}
         {error ? (
@@ -190,8 +192,7 @@ function AdminVideoPreviewInner({
         />
       </div>
       <p className="mt-2 text-xs text-muted-foreground">
-        Every word in the active subtitle cue is selectable. Existing mapped words open their mapping for editing.
-      </p>
+        {t("Every word in the active subtitle cue is selectable. Existing mapped words open their mapping for editing.")}</p>
     </div>
   )
 }

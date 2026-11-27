@@ -8,12 +8,15 @@ import { getAdminCourses } from "@/lib/admin/server";
 import { parsePositivePage, buildUrl } from "@/lib/courses/query";
 import { cn } from "@/lib/utils";
 import { CourseSearchForm } from "@/components/admin/courses/CourseSearchForm";
+import { getTranslations } from "@/lib/i18n/server";
 
 export default async function Page({
   searchParams,
 }: {
   searchParams: Promise<{ page?: string; search?: string }>;
 }) {
+  const t = await getTranslations();
+
   const params = await searchParams;
   const page = parsePositivePage(params.page);
   const search = (params.search ?? "").trim();
@@ -22,12 +25,11 @@ export default async function Page({
   return (
     <div className="mx-auto max-w-7xl px-4 py-9 sm:px-6 lg:px-8">
       <PageHeader
-        title="Courses"
-        description="Staff can see drafts as well as published courses."
+        title={t("Courses")}
+        description={t("Staff can see drafts as well as published courses.")}
         actions={
           <Link href="/admin/courses/create" className={cn(buttonVariants())}>
-            Create course
-          </Link>
+            {t("Create course")}</Link>
         }
       />
       <CourseSearchForm search={search} />
@@ -50,20 +52,19 @@ export default async function Page({
                   <Badge
                     variant={course.is_published ? "secondary" : "outline"}
                   >
-                    {course.is_published ? "Published" : "Draft"}
+                    {course.is_published ? t("Published") : t("Draft")}
                   </Badge>
                 </div>
               </div>
               <DeleteButton
                 endpoint={`/api/courses/courses/${course.id}/`}
-                confirmation={`Delete “${course.title}” and every section/mapping inside it?`}
+                confirmation={t("Delete “{0}” and every section/mapping inside it?", { 0: course.title })}
               />
             </div>
           ))
         ) : (
           <p className="p-8 text-center text-sm text-muted-foreground">
-            No courses found.
-          </p>
+            {t("No courses found.")}</p>
         )}
       </div>
       <Pagination

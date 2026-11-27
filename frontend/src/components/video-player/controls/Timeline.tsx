@@ -2,6 +2,7 @@
 
 import { usePlayerStore } from "@/components/video-player/PlayerProvider"
 import type { PlaybackRange } from "@/types/player"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type TimelineProps = {
   onSeek: (seconds: number) => void
@@ -9,6 +10,8 @@ type TimelineProps = {
 }
 
 export function Timeline({ onSeek, range }: TimelineProps) {
+  const t = useTranslations();
+
   const currentTime = usePlayerStore((state) => state.currentTime)
   const duration = usePlayerStore((state) => state.duration)
 
@@ -18,12 +21,12 @@ export function Timeline({ onSeek, range }: TimelineProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="w-11 text-right text-xs tabular-nums text-white/80">
+      <span className="w-11 text-end text-xs tabular-nums text-white/80">
         {formatTime(elapsed)}
       </span>
 
       <input
-        aria-label="Video progress"
+        aria-label={t("Video progress")}
         type="range"
         min={0}
         max={safeDuration}

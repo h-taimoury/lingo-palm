@@ -30,11 +30,14 @@ class SchedulingTests(APITestCase):
         fields.setdefault("review_due_at", self.now)
         return Vocabulary.objects.create(user=self.user, sense=sense, **fields)
 
-    def answer(self, card=None, rating=3, version=0, submission=None):
+    def answer(self, card=None, rating=3, version=0, submission=None, review_id=None):
         card = card or self.card
+        payload = {"rating": rating, "version": version, "submission_id": str(submission or uuid4())}
+        if review_id is not None:
+            payload["review_id"] = review_id
         return self.client.post(
             f"/api/my-vocabulary/vocabulary/{card.pk}/review/",
-            {"rating": rating, "version": version, "submission_id": str(submission or uuid4())},
+            payload,
             format="json",
         )
 
@@ -184,3 +187,100 @@ class SchedulingTests(APITestCase):
         self.assertIsNone(self.card.reviewed_at)
         self.assertFalse(self.card.review_state)
         self.assertFalse(self.card.reviews.exists())
+
+    def test_correct_clear_and_reselect_replace_one_repetition_at_its_original_time(self):
+        first = self.answer().data
+        self.mock_now.return_value = self.now + timedelta(hours=2)
+        changed = self.answer(rating=1, version=1, review_id=first["id"])
+        self.assertEqual(changed.status_code, 200, changed.data)
+        self.card.refresh_from_db()
+        self.assertEqual(self.card.review_due_at, self.now + timedelta(minutes=1))
+        self.assertEqual(self.card.reviewed_at, self.now)
+        self.assertEqual(changed.data["id"], first["id"])
+
+        cleared = self.answer(rating=None, version=2, review_id=first["id"])
+        self.assertEqual(cleared.status_code, 200, cleared.data)
+        self.card.refresh_from_db()
+        self.assertEqual(self.card.review_due_at, self.now)
+        self.assertIsNone(self.card.reviewed_at)
+        self.assertIsNone(cleared.data["reviewed_at"])
+        self.assertEqual(self.card.review_state, {})
+        self.assertTrue(self.card.needs_review)
+        self.assertEqual(self.card.reviews.filter(rating__isnull=False).count(), 0)
+        self.assertIn(self.card.pk, [row["id"] for row in self.batch().data["results"]])
+
+        restored = self.answer(version=3, review_id=first["id"])
+        self.assertEqual(restored.status_code, 200, restored.data)
+        self.card.refresh_from_db()
+        self.assertEqual(self.card.review_due_at, self.now + timedelta(minutes=10))
+        self.assertEqual(self.card.review_state["last_review"], self.now.isoformat())
+        self.assertEqual(self.card.review_version, 4)
+        self.assertEqual(self.card.reviews.count(), 1)
+        self.assertEqual(self.card.reviews.get().previous_state, {})
+
+    def test_clearing_a_followup_restores_the_exact_previous_memory_state(self):
+        self.answer()
+        self.card.refresh_from_db()
+        before = (self.card.review_state, self.card.review_due_at, self.card.reviewed_at)
+        self.mock_now.return_value = self.now + timedelta(days=3)
+        followup = self.answer(version=1).data
+        cleared = self.answer(rating=None, version=2, review_id=followup["id"])
+        self.assertEqual(cleared.status_code, 200, cleared.data)
+        self.card.refresh_from_db()
+        self.assertEqual((self.card.review_state, self.card.review_due_at, self.card.reviewed_at), before)
+        self.assertEqual(self.card.reviews.filter(rating__isnull=False).count(), 1)
+        self.assertEqual(self.card.review_version, 3)
+
+    def test_corrections_and_clear_retries_are_idempotent(self):
+        first = self.answer().data
+        submission = uuid4()
+        change = dict(rating=1, version=1, review_id=first["id"], submission=submission)
+        response = self.answer(**change)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["submission_id"], str(submission))
+        self.assertEqual(self.answer(**change).data, response.data)
+        self.assertEqual(self.answer(**{**change, "rating": 3}).status_code, 409)
+        clear = dict(rating=None, version=2, review_id=first["id"], submission=uuid4())
+        cleared = self.answer(**clear)
+        self.assertEqual(cleared.status_code, 200)
+        self.assertEqual(self.answer(**clear).data, cleared.data)
+        self.assertEqual(self.answer(**change).status_code, 409)
+        self.card.refresh_from_db()
+        self.assertEqual(self.card.review_version, 3)
+        self.assertEqual(self.card.reviews.count(), 1)
+
+    def test_only_the_latest_owned_unchanged_review_can_be_corrected(self):
+        first = self.answer().data
+        other = self.make_card()
+        other_review = self.answer(other).data
+        self.assertEqual(self.answer(version=1, review_id=other_review["id"]).status_code, 404)
+        self.assertEqual(self.answer(version=0, review_id=first["id"]).status_code, 409)
+        other.user = self.other_user
+        other.save(update_fields=["user"])
+        self.assertEqual(self.answer(other, version=1, review_id=other_review["id"]).status_code, 404)
+        self.mock_now.return_value = self.now + timedelta(days=3)
+        latest = self.answer(version=1).data
+        self.assertEqual(self.answer(version=2, review_id=first["id"]).status_code, 409)
+        apply_bulk_action(self.user, "unset_needs_review", [self.card.sense])
+        self.assertEqual(self.answer(version=3, review_id=latest["id"]).status_code, 409)
+        self.assertEqual(self.card.reviews.count(), 2)
+
+    def test_correction_validation_and_legacy_reviews(self):
+        self.assertEqual(self.answer(rating=None).status_code, 400)
+        self.assertEqual(self.answer(review_id=0).status_code, 400)
+        first = self.answer().data
+        self.card.reviews.update(previous_state=None, previous_due_at=None)
+        self.assertEqual(self.answer(version=1, review_id=first["id"]).status_code, 409)
+        self.card.refresh_from_db()
+        self.assertEqual(self.card.review_version, 1)
+
+    def test_correction_schedule_and_answer_roll_back_together(self):
+        first = self.answer().data
+        with patch.object(VocabularyReview, "save", side_effect=RuntimeError):
+            with self.assertRaises(RuntimeError):
+                self.answer(rating=None, version=1, review_id=first["id"])
+        self.card.refresh_from_db()
+        self.assertEqual(self.card.review_due_at, self.now + timedelta(minutes=10))
+        self.assertEqual(self.card.review_version, 1)
+        self.assertEqual(self.card.reviews.get().rating, 3)
+        self.assertEqual(self.card.reviews.get().version, 1)

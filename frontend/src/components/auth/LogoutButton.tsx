@@ -7,8 +7,11 @@ import { LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { apiClient } from "@/lib/api/client"
 import type { DetailResponse } from "@/types/api/common"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function LogoutButton({ className }: { className?: string }) {
+  const t = useTranslations();
+
   const router = useRouter()
   const [busy, setBusy] = useState(false)
 
@@ -30,7 +33,7 @@ export function LogoutButton({ className }: { className?: string }) {
       }}
     >
       <LogOut className="size-4" />
-      {busy ? "Signing out…" : "Sign out"}
+      {busy ? t("Signing out…") : t("Sign out")}
     </Button>
   )
 }

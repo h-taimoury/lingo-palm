@@ -132,6 +132,16 @@
   :lang(fa) {
     font-family: var(--font-b-nazanin), Tahoma, serif;
   }
+  :lang(en) {
+    font-family: var(--font-sans), Arial, sans-serif;
+  }
+  :is(input, textarea)[dir="auto"] {
+    unicode-bidi: plaintext;
+  }
+  input:is([type="email"], [type="url"], [type="password"], [type="number"]) {
+    direction: ltr;
+    text-align: left;
+  }
   /* I added this to make every enabled button in the app have the cursor:pointer effect: */
   :is(
       button,

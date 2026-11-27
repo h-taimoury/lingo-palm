@@ -94,3 +94,8 @@ it("allows retrying a failed request and then displays the review action", async
   await vi.waitFor(() => expect(text(render())).toContain("Start review"));
   expect(harness.get).toHaveBeenCalledTimes(2);
 });
+
+vi.mock("@/lib/i18n/LocaleProvider", async () => {
+  const { createTranslator } = await import("@/lib/i18n/messages");
+  return { useLocale: () => "en", useTranslations: () => createTranslator("en") };
+});

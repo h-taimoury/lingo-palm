@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiClient } from "@/lib/api/client";
 import type { SectionFlat } from "@/types/api/courses";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function SectionCreateForm({
   courseId,
@@ -17,6 +18,8 @@ export function SectionCreateForm({
   courseId: number;
   defaultOrder: number;
 }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -44,24 +47,23 @@ export function SectionCreateForm({
       setBusy(false);
     }
   }
-  if (!open) return <Button onClick={() => setOpen(true)}>Add section</Button>;
+  if (!open) return <Button onClick={() => setOpen(true)}>{t("Add section")}</Button>;
   return (
     <div className="w-full rounded-xl border bg-card p-5">
       <div className="flex items-center justify-between">
-        <h3 className="font-semibold">New section</h3>
+        <h3 className="font-semibold">{t("New section")}</h3>
         <Button variant="ghost" size="sm" onClick={() => setOpen(false)}>
-          Cancel
-        </Button>
+          {t("Cancel")}</Button>
       </div>
       <form onSubmit={submit} className="mt-4 grid gap-4">
         <ApiErrorMessage error={error} />
         <div className="grid gap-4 sm:grid-cols-[1fr_120px]">
           <div className="space-y-2">
-            <Label htmlFor="new_section_title">Title</Label>
+            <Label htmlFor="new_section_title">{t("Title")}</Label>
             <Input id="new_section_title" name="title" required />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="new_section_order">Order</Label>
+            <Label htmlFor="new_section_order">{t("Order")}</Label>
             <Input
               id="new_section_order"
               name="order"
@@ -73,7 +75,7 @@ export function SectionCreateForm({
           </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="new_local_video_url">Local video URL</Label>
+          <Label htmlFor="new_local_video_url">{t("Local video URL")}</Label>
           <Input
             id="new_local_video_url"
             name="local_video_url"
@@ -81,12 +83,10 @@ export function SectionCreateForm({
             placeholder="http://localhost:3000/videos/demo.mp4"
           />
           <p className="text-xs text-muted-foreground">
-            For a Next.js public file during development, use an absolute URL
-            such as http://localhost:3000/videos/demo.mp4.
-          </p>
+            {t("For a Next.js public file during development, use an absolute URL such as http://localhost:3000/videos/demo.mp4.")}</p>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="new_hosted_video_url">Hosted video URL</Label>
+          <Label htmlFor="new_hosted_video_url">{t("Hosted video URL")}</Label>
           <Input
             id="new_hosted_video_url"
             name="hosted_video_url"
@@ -95,7 +95,7 @@ export function SectionCreateForm({
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="new_subtitle">WebVTT subtitle file</Label>
+          <Label htmlFor="new_subtitle">{t("WebVTT subtitle file")}</Label>
           <Input
             id="new_subtitle"
             name="subtitle_file"
@@ -106,11 +106,10 @@ export function SectionCreateForm({
         </div>
         <label className="flex items-center gap-2 text-sm">
           <input className="size-4" type="checkbox" name="is_published" />{" "}
-          Published
-        </label>
+          {t("Published")}</label>
         <Button type="submit" disabled={busy}>
           {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-          {busy ? "Creating…" : "Create section"}
+          {busy ? t("Creating…") : t("Create section")}
         </Button>
       </form>
     </div>

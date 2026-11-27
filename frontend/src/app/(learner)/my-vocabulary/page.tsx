@@ -2,10 +2,16 @@ import type { Metadata } from "next"
 import { PageHeader } from "@/components/shared/PageHeader"
 import { SectionVocabularyManager } from "@/components/vocabulary/SectionVocabularyManager"
 import { getAllVocabulary } from "@/lib/vocabulary/server"
+import { getTranslations } from "@/lib/i18n/server";
 
-export const metadata: Metadata = { title: "My vocabulary" }
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return { title: t("My vocabulary") };
+}
 
 export default async function Page() {
+  const t = await getTranslations();
+
   const rows = await getAllVocabulary("/my-vocabulary")
 
   return (
@@ -18,7 +24,7 @@ export default async function Page() {
           already_known: row.already_known,
           needs_review: row.needs_review,
         }))}
-        header={<PageHeader title="My vocabulary" description="Manage all your learned dictionary senses." />}
+        header={<PageHeader title={t("My vocabulary")} description={t("Manage all your learned dictionary senses.")} />}
       />
     </div>
   )

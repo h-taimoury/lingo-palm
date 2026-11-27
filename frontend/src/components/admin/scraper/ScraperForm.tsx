@@ -15,8 +15,11 @@ import type {
   ScrapeRequest,
   ScrapeResponse,
 } from "@/types/api/scraper";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function ScraperForm() {
+  const t = useTranslations();
+
   const [result, setResult] = useState<ScrapeResponse | null>(null);
   const [busy, setBusy] = useState<"scrape" | "reject" | null>(null);
   const [error, setError] = useState<unknown>(null);
@@ -41,7 +44,7 @@ export function ScraperForm() {
   async function reject() {
     if (
       !result ||
-      !window.confirm("Reject and delete every entry returned by this scrape?")
+      !window.confirm(t("Reject and delete every entry returned by this scrape?"))
     )
       return;
     setBusy("reject");
@@ -70,15 +73,14 @@ export function ScraperForm() {
     <div>
       <form onSubmit={scrape} className="flex max-w-xl items-end gap-3">
         <div className="flex-1 space-y-2">
-          <Label htmlFor="scrape_word">Word</Label>
+          <Label htmlFor="scrape_word">{t("Word")}</Label>
           <Input id="scrape_word" name="word" required placeholder="book" />
         </div>
         <Button type="submit" disabled={busy !== null}>
           {busy === "scrape" ? (
             <LoaderCircle className="size-4 animate-spin" />
           ) : null}
-          Scrape
-        </Button>
+          {t("Scrape")}</Button>
       </form>
       <div className="mt-5">
         <ApiErrorMessage error={error} />
@@ -91,11 +93,9 @@ export function ScraperForm() {
       {result ? (
         <section className="mt-7 rounded-xl border bg-card">
           <div className="border-b p-5">
-            <h2 className="font-semibold">Review scraped data</h2>
+            <h2 className="font-semibold">{t("Review scraped data")}</h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              The scraper has already saved these entries in Django. Keep them,
-              or reject the whole returned batch.
-            </p>
+              {t("The scraper has already saved these entries in Django. Keep them, or reject the whole returned batch.")}</p>
           </div>
           <div className="divide-y">
             {result.entries.map((entry) => (
@@ -123,7 +123,7 @@ export function ScraperForm() {
             ))}
           </div>
           <div className="flex flex-wrap gap-2 border-t p-5">
-            <Button onClick={() => setResult(null)}>Keep entries</Button>
+            <Button onClick={() => setResult(null)}>{t("Keep entries")}</Button>
             <Button
               variant="destructive"
               disabled={busy !== null}
@@ -132,8 +132,7 @@ export function ScraperForm() {
               {busy === "reject" ? (
                 <LoaderCircle className="size-4 animate-spin" />
               ) : null}
-              Reject scraped entries
-            </Button>
+              {t("Reject scraped entries")}</Button>
           </div>
         </section>
       ) : null}

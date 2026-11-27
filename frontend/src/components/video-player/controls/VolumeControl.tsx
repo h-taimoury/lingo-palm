@@ -3,6 +3,7 @@
 import { Volume2, VolumeX } from "lucide-react"
 
 import { usePlayerStore } from "@/components/video-player/PlayerProvider"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type VolumeControlProps = {
   onToggleMute: () => void
@@ -13,6 +14,8 @@ export function VolumeControl({
   onToggleMute,
   onVolumeChange,
 }: VolumeControlProps) {
+  const t = useTranslations();
+
   const volume = usePlayerStore((state) => state.volume)
   const isMuted = usePlayerStore((state) => state.isMuted)
 
@@ -22,7 +25,7 @@ export function VolumeControl({
         type="button"
         onClick={onToggleMute}
         className="inline-flex size-9 items-center justify-center rounded-md text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        aria-label={isMuted ? "Unmute" : "Mute"}
+        aria-label={isMuted ? t("Unmute") : t("Mute")}
         title={`${isMuted ? "Unmute" : "Mute"} (M)`}
         aria-keyshortcuts="M"
       >
@@ -34,8 +37,8 @@ export function VolumeControl({
       </button>
 
       <input
-        aria-label="Volume"
-        title="Volume (↑ / ↓)"
+        aria-label={t("Volume")}
+        title={t("Volume (↑ / ↓)")}
         aria-keyshortcuts="ArrowUp ArrowDown"
         type="range"
         min={0}

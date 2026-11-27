@@ -11,6 +11,7 @@ import { TheaterButton } from "@/components/video-player/controls/TheaterButton"
 import { Timeline } from "@/components/video-player/controls/Timeline";
 import { VolumeControl } from "@/components/video-player/controls/VolumeControl";
 import type { PlaybackRange } from "@/types/player";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type PlayerControlsProps = {
   onTogglePlay: () => void;
@@ -41,6 +42,8 @@ export function PlayerControls({
   onLevelMenuOpenChange,
   range,
 }: PlayerControlsProps) {
+  const t = useTranslations();
+
   const isPlaying = usePlayerStore((state) => state.isPlaying);
   const isEnded = usePlayerStore((state) => state.isEnded);
   const showShortTranslations = usePlayerStore((state) => state.showShortTranslations);
@@ -60,8 +63,8 @@ export function PlayerControls({
           type="button"
           onClick={onTogglePlay}
           className="inline-flex size-9 items-center justify-center rounded-md text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          aria-label={isEnded ? "Replay" : isPlaying ? "Pause" : "Play"}
-          title={`${isEnded ? "Replay" : isPlaying ? "Pause" : "Play"} (Space / K)`}
+          aria-label={isEnded ? t("Replay") : isPlaying ? t("Pause") : t("Play")}
+          title={t("{0} (Space / K)", { 0: isEnded ? t("Replay") : isPlaying ? t("Pause") : t("Play") })}
           aria-keyshortcuts="Space K"
         >
           {isEnded ? (
@@ -84,9 +87,9 @@ export function PlayerControls({
         {!range && <button
           type="button"
           onClick={toggleShortTranslations}
-          aria-label="Short Persian translations"
+          aria-label={t("Short Persian translations")}
           aria-pressed={showShortTranslations}
-          title={showShortTranslations ? "Hide short translations" : "Show short translations"}
+          title={showShortTranslations ? t("Hide short translations") : t("Show short translations")}
           className={`inline-flex h-9 items-center justify-center rounded-md border-b-2 px-2 text-sm font-semibold text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${showShortTranslations ? "border-amber-300" : "border-transparent"}`}
         >
           T

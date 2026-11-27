@@ -8,13 +8,19 @@ import {
   getLearnerSection,
   getSectionTaughtSenses,
 } from "@/lib/courses/learner";
+import { getTranslations } from "@/lib/i18n/server";
 
-export const metadata: Metadata = { title: "Section vocabulary" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return { title: t("Section vocabulary") };
+}
 export default async function Page({
   params,
 }: {
   params: Promise<{ courseId: string; sectionId: string }>;
 }) {
+  const t = await getTranslations();
+
   const { courseId, sectionId } = await params;
   const returnTo = `/courses/${courseId}/sections/${sectionId}/vocabulary`;
   const [section, taught, user] = await Promise.all([
@@ -29,8 +35,7 @@ export default async function Page({
         href={`/courses/${courseId}/sections/${sectionId}`}
         className="text-sm text-muted-foreground hover:text-foreground"
       >
-        ← Back to lesson
-      </Link>
+        {t("← Back to lesson")}</Link>
       <div className="mt-5">
         <SectionVocabularyManager
           taughtSenses={taught}
@@ -38,8 +43,8 @@ export default async function Page({
           header={
             <PageHeader
               eyebrow={section.course.title}
-              title={`Vocabulary in ${section.title}`}
-              description="Each card is an exact dictionary sense taught by this section."
+              title={t("Vocabulary in {0}", { 0: section.title })}
+              description={t("Each card is an exact dictionary sense taught by this section.")}
             />
           }
         />

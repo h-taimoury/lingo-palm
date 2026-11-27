@@ -9,10 +9,13 @@ import { apiClient } from "@/lib/api/client";
 import { getSectionVideoUrl } from "@/lib/courses/video";
 import type { WordSenseMapping } from "@/types/api/courses";
 import type { ReviewClipsResponse, Vocabulary } from "@/types/api/vocabulary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 const noMappings: WordSenseMapping[] = [];
 
 export function ClipReviewDialog({ card, onClose }: { card: Vocabulary; onClose: () => void }) {
+  const t = useTranslations();
+
   const dialog = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   const [result, setResult] = useState<ReviewClipsResponse | null>(null);
@@ -48,13 +51,12 @@ export function ClipReviewDialog({ card, onClose }: { card: Vocabulary; onClose:
     >
       <div className="mb-3 flex items-center justify-between gap-3">
         <h2 id={titleId} className="text-lg font-semibold wrap-anywhere">
-          Video examples for {card.sense.entry.word}
-        </h2>
+          {t("Video examples for {0}", { 0: card.sense.entry.word })}</h2>
         <Button
           type="button"
           variant="ghost"
           size="icon"
-          aria-label="Close video examples"
+          aria-label={t("Close video examples")}
           data-player-native-keys="true"
           onClick={() => dialog.current?.close()}
         >
@@ -79,10 +81,10 @@ export function ClipReviewDialog({ card, onClose }: { card: Vocabulary; onClose:
       ) : !error && (
         <p role="status" className="text-sm text-muted-foreground">
           {!result
-            ? "Checking for video examples…"
+            ? t("Checking for video examples…")
             : result.available
-              ? "There are no video examples available for this sense."
-              : "Video examples are coming soon."}
+              ? t("There are no video examples available for this sense.")
+              : t("Video examples are coming soon.")}
         </p>
       )}
     </dialog>

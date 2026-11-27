@@ -43,10 +43,15 @@ class Vocabulary(models.Model):
 class VocabularyReview(models.Model):
     vocabulary = models.ForeignKey(Vocabulary, related_name="reviews", on_delete=models.CASCADE)
     submission_id = models.UUIDField()
-    rating = models.PositiveSmallIntegerField(choices=[(1, "Forgot"), (3, "Remembered")])
+    # Cleared answers retain their restore data and retry token without counting as a repetition.
+    rating = models.PositiveSmallIntegerField(choices=[(1, "Forgot"), (3, "Remembered")], null=True)
     reviewed_at = models.DateTimeField()
     due_at = models.DateTimeField()
     version = models.PositiveIntegerField()
+    previous_state = models.JSONField(null=True, editable=False)
+    previous_due_at = models.DateTimeField(null=True, editable=False)
+    previous_reviewed_at = models.DateTimeField(null=True, editable=False)
+    last_submission_id = models.UUIDField(null=True, editable=False)
 
     class Meta:
         ordering = ["reviewed_at", "id"]
@@ -55,4 +60,7 @@ class VocabularyReview(models.Model):
                 fields=["vocabulary", "submission_id"], name="unique_review_submission"
             ),
             models.UniqueConstraint(fields=["vocabulary", "version"], name="unique_review_version"),
+            models.UniqueConstraint(
+                fields=["vocabulary", "last_submission_id"], name="unique_review_correction",
+            ),
         ]

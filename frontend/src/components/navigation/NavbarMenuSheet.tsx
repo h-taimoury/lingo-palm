@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 
 import type { NavItem } from "./nav-links"
 import { SheetLink } from "./SheetLink"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type NavbarMenuSheetProps = {
   links: readonly NavItem[]
@@ -18,6 +19,8 @@ export function NavbarMenuSheet({
   utilityLinks,
   contextLabel,
 }: NavbarMenuSheetProps) {
+  const t = useTranslations();
+
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleId = useId()
   const pathname = usePathname()
@@ -53,7 +56,7 @@ export function NavbarMenuSheet({
         type="button"
         onClick={openMenu}
         className="inline-flex size-10 items-center justify-center rounded-xl text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
-        aria-label="Open navigation menu"
+        aria-label={t("Open navigation menu")}
         aria-haspopup="dialog"
       >
         <Menu className="size-5" aria-hidden="true" />
@@ -75,21 +78,21 @@ export function NavbarMenuSheet({
                 LingoPalm
               </p>
               <p className="text-xs font-medium text-primary">
-                {contextLabel ? `${contextLabel} navigation` : "Navigation"}
+                {contextLabel ? t("{0} navigation", { 0: t(contextLabel) }) : t("Navigation")}
               </p>
             </div>
             <button
               type="button"
               onClick={closeMenu}
               className="inline-flex size-10 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              aria-label="Close navigation menu"
+              aria-label={t("Close navigation menu")}
             >
               <X className="size-5" aria-hidden="true" />
             </button>
           </div>
 
           <div className="flex-1 overflow-y-auto px-4 py-5">
-            <nav aria-label="Primary navigation" className="space-y-1">
+            <nav aria-label={t("Primary navigation")} className="space-y-1">
               {links.map((item) => (
                 <SheetLink key={item.href} item={item} onNavigate={closeMenu} />
               ))}
@@ -98,9 +101,8 @@ export function NavbarMenuSheet({
             {utilityLinks.length > 0 ? (
               <div className="mt-6 border-t pt-5">
                 <p className="mb-2 px-3.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  More
-                </p>
-                <nav aria-label="Secondary navigation" className="space-y-1">
+                  {t("More")}</p>
+                <nav aria-label={t("Secondary navigation")} className="space-y-1">
                   {utilityLinks.map((item) => (
                     <SheetLink key={item.href} item={item} onNavigate={closeMenu} />
                   ))}

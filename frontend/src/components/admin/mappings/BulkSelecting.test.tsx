@@ -127,3 +127,8 @@ it("copies the selections JSON only after validating the subtitle version", asyn
   });
   expect(text(render())).toContain("Selections JSON copied to clipboard.");
 });
+
+vi.mock("@/lib/i18n/LocaleProvider", async () => {
+  const { createTranslator } = await import("@/lib/i18n/messages");
+  return { useLocale: () => "en", useTranslations: () => createTranslator("en") };
+});

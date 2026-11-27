@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiClient } from "@/lib/api/client";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function SubtitleUpload({
   sectionId,
@@ -18,6 +19,8 @@ export function SubtitleUpload({
   current: string;
   mappingCount: number;
 }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -39,18 +42,15 @@ export function SubtitleUpload({
   }
   return (
     <form onSubmit={submit} className="space-y-4 rounded-xl border bg-card p-5">
-      <h2 className="text-lg font-semibold">Subtitle file</h2>
+      <h2 className="text-lg font-semibold">{t("Subtitle file")}</h2>
       <p className="break-all text-xs text-muted-foreground">{current}</p>
       {mappingCount > 0 ? (
         <p className="rounded-md border border-amber-500/30 bg-amber-500/10 p-3 text-sm">
-          This section already has {mappingCount} mapping
-          {mappingCount === 1 ? "" : "s"}. Replacing the VTT may invalidate
-          stored cue/word identities and affect existing mappings.
-        </p>
+          {t("This section already has {0} mapping", { 0: mappingCount })}{mappingCount === 1 ? "" : "s"}{t(". Replacing the VTT may invalidate stored cue/word identities and affect existing mappings.")}</p>
       ) : null}
       <ApiErrorMessage error={error} />
       <div className="space-y-2">
-        <Label htmlFor="subtitle_file">Replacement .vtt</Label>
+        <Label htmlFor="subtitle_file">{t("Replacement .vtt")}</Label>
         <Input
           id="subtitle_file"
           disabled={busy}
@@ -62,7 +62,7 @@ export function SubtitleUpload({
       </div>
       <Button type="submit" variant="outline" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-        {busy ? "Uploading…" : "Replace VTT"}
+        {busy ? t("Uploading…") : t("Replace VTT")}
       </Button>
     </form>
   );

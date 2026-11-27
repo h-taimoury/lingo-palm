@@ -4,8 +4,15 @@ import { useEffect, useId, useRef, useState } from "react";
 import { Popover } from "@base-ui/react/popover";
 import { Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
-export function TranslationPopover({ translation, keyboardShortcuts = false }: { translation: string; keyboardShortcuts?: boolean }) {
+export function TranslationPopover({ translation, keyboardShortcuts = false, size = "sm" }: {
+  translation: string;
+  keyboardShortcuts?: boolean;
+  size?: "sm" | "xs";
+}) {
+  const t = useTranslations();
+
   const [open, setOpen] = useState(false);
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
   const trigger = useRef<HTMLButtonElement>(null);
@@ -55,14 +62,13 @@ export function TranslationPopover({ translation, keyboardShortcuts = false }: {
       <Popover.Trigger
         id={triggerId}
         ref={trigger}
-        title={`Show or hide Persian translation${keyboardShortcuts ? " (T)" : ""}`}
+        title={t("Show or hide Persian translation{0}", { 0: keyboardShortcuts ? " (T)" : "" })}
         aria-keyshortcuts={keyboardShortcuts ? "T" : undefined}
-        render={<Button type="button" variant="outline" size="sm" />}
-        className="ml-2 align-middle border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 hover:text-primary dark:bg-primary/5 dark:hover:bg-primary/10 data-[popup-open]:bg-primary/10"
+        render={<Button type="button" variant="outline" size={size} />}
+        className="ms-2 align-middle border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 hover:text-primary dark:bg-primary/5 dark:hover:bg-primary/10 data-[popup-open]:bg-primary/10"
       >
         <Languages aria-hidden="true" />
-        Translation
-      </Popover.Trigger>
+        {t("Translation")}</Popover.Trigger>
       {/* Stay inside the dialog and fullscreen element for focus containment. */}
       <Popover.Portal container={portalContainer ?? undefined}>
       <Popover.Positioner positionMethod="fixed" side="bottom" align="end" sideOffset={8} collisionPadding={12} className="z-50">

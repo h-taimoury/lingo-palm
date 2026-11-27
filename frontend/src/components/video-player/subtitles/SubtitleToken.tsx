@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type SubtitleTokenProps = {
   text: string;
@@ -9,6 +10,8 @@ type SubtitleTokenProps = {
 };
 
 export function SubtitleToken({ text, shortTranslation, mappingId, mappingIndex, onOpenMapping }: SubtitleTokenProps) {
+  const t = useTranslations();
+
   if (mappingId === null) {
     return <span data-subtitle-text>{text}</span>;
   }
@@ -26,7 +29,7 @@ export function SubtitleToken({ text, shortTranslation, mappingId, mappingIndex,
       }}
       dir="ltr"
       className={`relative pointer-events-auto cursor-pointer rounded-sm font-semibold transition hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black ${shortTranslation ? "inline-block max-w-full whitespace-normal leading-normal" : ""}`}
-      aria-label={`Learn ${text}`}
+      aria-label={t("Learn {0}", { 0: text })}
     >
       <span
         className="box-decoration-clone rounded-sm px-0.5"

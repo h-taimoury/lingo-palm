@@ -7,6 +7,7 @@ import { apiClient } from "@/lib/api/client";
 import type { WordSenseMapping } from "@/types/api/courses";
 import { mappedSelectionKeys, selectionKey, selectionExport, toggleSelection, type VocabularySelection, type SelectionContext } from "@/lib/subtitles/bulkSelecting";
 import { useUnsavedChangesWarning } from "./useUnsavedChangesWarning";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 const phraseColors = [
   "border-violet-400 bg-violet-100 text-violet-950 dark:bg-violet-950 dark:text-violet-100",
@@ -18,6 +19,8 @@ const groupNumber = (group: string) => Number(group.split("-").at(-1));
 const groupColor = (group: string) => phraseColors[(groupNumber(group) - 1) % phraseColors.length];
 
 export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mappings: WordSenseMapping[] }) {
+  const t = useTranslations();
+
   const [context, setContext] = useState<SelectionContext | null>(null);
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<VocabularySelection>({});
@@ -86,9 +89,9 @@ export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mapp
     setBusy(true); setError(null);
     try {
       const current = await apiClient.get<SelectionContext>(`${base}/context/`);
-      if (current.subtitle_sha256 !== context.subtitle_sha256) throw new Error("The subtitles changed. Reload this page before selecting words from the updated file.");
+      if (current.subtitle_sha256 !== context.subtitle_sha256) throw new Error(t("The subtitles changed. Reload this page before selecting words from the updated file."));
       if (!navigator.clipboard?.writeText) {
-        throw new Error("Clipboard access is unavailable. Open this page using HTTPS or localhost and try again.");
+        throw new Error(t("Clipboard access is unavailable. Open this page using HTTPS or localhost and try again."));
       }
       const data = selectionExport(context, selected, mappedSelectionKeys(context, mappings));
       await navigator.clipboard.writeText(JSON.stringify(data, null, 2));
@@ -108,24 +111,24 @@ export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mapp
   }
   return <div className="mt-8 space-y-6">
     {error ? <ApiErrorMessage error={error} /> : null}
-    {!context ? <div role="status">{error ? <Button onClick={() => setAttempt(value => value + 1)}>Retry loading subtitles</Button> : "Loading subtitles…"}</div> : null}
+    {!context ? <div role="status">{error ? <Button onClick={() => setAttempt(value => value + 1)}>{t("Retry loading subtitles")}</Button> : t("Loading subtitles…")}</div> : null}
     {context && cue ? <>
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p role="status">{count} word occurrences selected</p>
-        <Button disabled={!count || busy} onClick={copySelections}>{busy ? "Copying…" : "Copy selections JSON"}</Button>
+        <p role="status">{t("{0} word occurrences selected", { 0: count })}</p>
+        <Button disabled={!count || busy} onClick={copySelections}>{busy ? t("Copying…") : t("Copy selections JSON")}</Button>
       </div>
-      <p className="text-sm text-muted-foreground">Click a word to select it individually. Hold Ctrl (Cmd on Mac) while clicking the words of a phrase: they share a color and group number. Release the key to finish the group; hold it again to start another. Words can be non-adjacent but must be in the same cue. Click a selected word without Ctrl to remove it. Copy the JSON before leaving this page and paste it into your AI chat. Each group stays together as one mapping.</p>
-      {copied ? <p role="status" className="text-sm text-emerald-700 dark:text-emerald-300">Selections JSON copied to clipboard.</p> : null}
+      <p className="text-sm text-muted-foreground">{t("Click a word to select it individually. Hold Ctrl (Cmd on Mac) while clicking the words of a phrase: they share a color and group number. Release the key to finish the group; hold it again to start another. Words can be non-adjacent but must be in the same cue. Click a selected word without Ctrl to remove it. Copy the JSON before leaving this page and paste it into your AI chat. Each group stays together as one mapping.")}</p>
+      {copied ? <p role="status" className="text-sm text-emerald-700 dark:text-emerald-300">{t("Selections JSON copied to clipboard.")}</p> : null}
       <div className="flex flex-wrap gap-4 text-sm">
-        <span className="rounded bg-emerald-100 px-3 py-1 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">Already mapped · locked</span>
-        <span className="rounded bg-amber-100 px-3 py-1 text-amber-900 dark:bg-amber-950 dark:text-amber-200">Selected · click to remove</span>
+        <span className="rounded bg-emerald-100 px-3 py-1 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">{t("Already mapped · locked")}</span>
+        <span className="rounded bg-amber-100 px-3 py-1 text-amber-900 dark:bg-amber-950 dark:text-amber-200">{t("Selected · click to remove")}</span>
       </div>
       <div className="flex items-center justify-between gap-3">
-        <Button variant="outline" disabled={index === 0} onClick={() => navigate(-1)}>Previous (D)</Button>
-        <p aria-live="polite" className="text-center text-sm">Cue {cue.cue_id} · {index + 1} of {context.cues.length}</p>
-        <Button variant="outline" disabled={index === context.cues.length - 1} onClick={() => navigate(1)}>Next (F)</Button>
+        <Button variant="outline" disabled={index === 0} onClick={() => navigate(-1)}>{t("Previous (D)")}</Button>
+        <p aria-live="polite" className="text-center text-sm">{t("Cue {0} · {1} of {2}", { 0: cue.cue_id, 1: index + 1, 2: context.cues.length })}</p>
+        <Button variant="outline" disabled={index === context.cues.length - 1} onClick={() => navigate(1)}>{t("Next (F)")}</Button>
       </div>
-      <section aria-label={`Subtitle cue ${cue.cue_id}`} className="rounded-xl border bg-card p-6 sm:p-10">
+      <section aria-label={t("Subtitle cue {0}", { 0: cue.cue_id })} className="rounded-xl border bg-card p-6 sm:p-10">
         <div className="flex min-h-32 flex-wrap content-center justify-center gap-2 text-xl leading-relaxed sm:text-2xl">
           {cue.tokens.map(token => {
             const key = selectionKey(cue.cue_id, token.index);
@@ -136,14 +139,14 @@ export function BulkSelecting({ sectionId, mappings }: { sectionId: number; mapp
             const label = token.word.replace(/<[^>]*>/g, "");
             return <button key={key} type="button" disabled={locked || busy || !/[a-zA-Z]/.test(label)} aria-pressed={chosen}
               aria-label={`${label}${locked ? " (already mapped)" : group ? ` (group ${groupNumber(group)})` : chosen ? " (selected)" : ""}`}
-              title={locked ? "Already mapped" : chosen ? "Remove selection" : "Select word"}
+              title={locked ? t("Already mapped") : chosen ? t("Remove selection") : t("Select word")}
               className={`select-none rounded-md border px-2 py-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${locked ? "border-emerald-300 bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200" : group ? groupColor(group) : chosen ? "border-amber-400 bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200" : "border-transparent hover:border-border hover:bg-muted"}`}
-              onClick={event => update(cue.cue_id, key, event.ctrlKey || event.metaKey)}>{label}{group && !locked ? <sup className="ml-1 text-xs">{groupNumber(group)}</sup> : null}</button>;
+              onClick={event => update(cue.cue_id, key, event.ctrlKey || event.metaKey)}>{label}{group && !locked ? <sup className="ms-1 text-xs">{groupNumber(group)}</sup> : null}</button>;
           })}
         </div>
-        {cueGroups.size ? <ul aria-label="Selected phrase groups" className="mt-4 flex flex-wrap gap-2">
+        {cueGroups.size ? <ul aria-label={t("Selected phrase groups")} className="mt-4 flex flex-wrap gap-2">
           {[...cueGroups].map(([group, words]) => <li key={group} className={`rounded-md border px-3 py-1 text-sm ${groupColor(group)}`}>
-            Group {groupNumber(group)}: {words.join(" … ")}
+            {t("Group")} {groupNumber(group)}: {words.join(" … ")}
           </li>)}
         </ul> : null}
       </section>

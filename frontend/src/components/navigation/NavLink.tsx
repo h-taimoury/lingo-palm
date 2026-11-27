@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,6 +14,7 @@ type NavLinkProps = {
 };
 
 export function NavLink({ item, className }: NavLinkProps) {
+  const t = useTranslations();
   const pathname = usePathname();
   const active = isNavItemActive(pathname, item);
 
@@ -29,7 +31,7 @@ export function NavLink({ item, className }: NavLinkProps) {
       )}
     >
       <NavIcon name={item.icon} className="size-4" />
-      {item.title}
+      {t(item.title)}
     </Link>
   );
 }

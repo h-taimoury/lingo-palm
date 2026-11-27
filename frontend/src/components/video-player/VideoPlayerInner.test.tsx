@@ -169,3 +169,8 @@ it("does not resume twice if the learner closes the panel while saving", async (
   expect(harness.store!.getState().modalMode).toBe("closed");
   expect(harness.play).toHaveBeenCalledTimes(1);
 });
+
+vi.mock("@/lib/i18n/LocaleProvider", async () => {
+  const { createTranslator } = await import("@/lib/i18n/messages");
+  return { useLocale: () => "en", useTranslations: () => createTranslator("en") };
+});

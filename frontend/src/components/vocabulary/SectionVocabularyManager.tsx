@@ -31,6 +31,7 @@ import type {
   VocabularyBulkActionRequest,
   VocabularyBulkActionResponse,
 } from "@/types/api/vocabulary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type VocabularyItem = Omit<TaughtSense, "sense"> & { sense: Sense | Vocabulary["sense"] };
 
@@ -53,6 +54,8 @@ export function SectionVocabularyManager({
   allLearned?: boolean;
   signInHref?: string;
 }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const view = searchParams.get("view") === "learned" ? "learned" : "new";
@@ -135,7 +138,7 @@ export function SectionVocabularyManager({
         variant="outline"
         size="icon"
         className="absolute right-3 top-3 z-10 size-8 cursor-pointer rounded-full hover:bg-accent"
-        aria-label={`View details for ${item.sense.entry.word}, sense ${item.sense.sense_number ?? item.sense.id}`}
+        aria-label={t("View details for {0}, sense {1}", { 0: item.sense.entry.word, 1: item.sense.sense_number ?? item.sense.id })}
         aria-haspopup="dialog"
         aria-busy={loadingSenseId === item.sense.id}
         onClick={() => void openDetails(item)}
@@ -175,15 +178,13 @@ export function SectionVocabularyManager({
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
             <div className="min-w-0">{header}</div>
             <Tabs.List
-              aria-label="Section vocabulary"
+              aria-label={t("Section vocabulary")}
               className="inline-flex shrink-0 flex-wrap gap-1 rounded-lg bg-muted p-1"
             >
               <Tabs.Tab value="new" className={tabClassName}>
-                New senses
-              </Tabs.Tab>
+                {t("New senses")}</Tabs.Tab>
               <Tabs.Tab value="learned" className={tabClassName}>
-                Already learned
-              </Tabs.Tab>
+                {t("Already learned")}</Tabs.Tab>
             </Tabs.List>
           </div>
           <Tabs.Panel value="new" keepMounted className="mt-4">
@@ -251,6 +252,8 @@ function SectionSenseList({
   initialReview?: string | null;
   initialSource?: string | null;
 }) {
+  const t = useTranslations();
+
   const [selected, setSelected] = useState<Set<number>>(() => new Set());
   const [error, setError] = useState<unknown>(null);
   const [page, setPage] = useState(initialPage);
@@ -281,7 +284,7 @@ function SectionSenseList({
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE,
   );
-  const label = learned ? "Already learned" : "New senses";
+  const label = learned ? t("Already learned") : t("New senses");
   const senseType = learned ? "learned" : "new";
   const emptyMessage = learned
     ? level === "all" && review === "all" && source === "all"
@@ -335,18 +338,13 @@ function SectionSenseList({
           <h2 className="text-xl font-semibold">{label}</h2>
           {learned ? (
             <p className="mt-1 text-sm text-muted-foreground">
-              Current saved state from your vocabulary.
-            </p>
+              {t("Current saved state from your vocabulary.")}</p>
           ) : (
             <>
               <p className="mt-1 text-sm text-muted-foreground">
-                Choose senses, then tell LingoPalm whether you learned them here
-                or already knew them.
-              </p>
+                {t("Choose senses, then tell LingoPalm whether you learned them here or already knew them.")}</p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Know most of a level? Select all, unselect unfamiliar senses, then
-                choose Already knew.
-              </p>
+                {t("Know most of a level? Select all, unselect unfamiliar senses, then choose Already knew.")}</p>
             </>
           )}
         </div>
@@ -361,8 +359,8 @@ function SectionSenseList({
             variant="ghost"
             size="icon"
             className={`size-9 rounded-full border transition-colors ${showControls ? "border-primary/20 bg-primary/10 text-primary hover:bg-primary/15" : "border-border text-muted-foreground hover:bg-accent"}`}
-            aria-label={showControls ? "Hide controls" : "Show controls"}
-            title={showControls ? "Hide controls" : "Show controls"}
+            aria-label={showControls ? t("Hide controls") : t("Show controls")}
+            title={showControls ? t("Hide controls") : t("Show controls")}
             aria-expanded={showControls}
             aria-controls={controlsId}
             onClick={() => setShowControls((visible) => !visible)}
@@ -373,8 +371,7 @@ function SectionSenseList({
             className="text-sm tabular-nums text-muted-foreground"
             role="status"
           >
-            {selected.size} {senseType} senses selected across all pages
-          </p>
+            {t("{0} {1} senses selected across all pages", { 0: selected.size, 1: t(senseType) })}</p>
           <VocabularyActionsMenu
             actions={learned ? undefined : newSenseActions}
             disabled={!selected.size}
@@ -389,8 +386,7 @@ function SectionSenseList({
           className={`${showControls ? "flex" : "hidden"} w-full flex-wrap items-center gap-x-8 gap-y-4`}
         >
           <label className="flex items-center gap-3 text-sm font-medium">
-            Level
-            <select
+            {t("Level")}<select
               value={level}
               disabled={busy}
               onChange={(event) => {
@@ -399,10 +395,10 @@ function SectionSenseList({
               }}
               className="h-9 rounded-md border border-input bg-background px-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
             >
-              <option value="all">All levels</option>
-              <option value="A">Beginner</option>
-              <option value="B">Intermediate</option>
-              <option value="C">Advanced</option>
+              <option value="all">{t("All levels")}</option>
+              <option value="A">{t("Beginner")}</option>
+              <option value="B">{t("Intermediate")}</option>
+              <option value="C">{t("Advanced")}</option>
             </select>
           </label>
           {learned ? (
@@ -428,8 +424,7 @@ function SectionSenseList({
               setSelected(new Set(filtered.map((item) => item.sense.id)))
             }
           >
-            Select all ({filtered.length})
-          </Button>
+            {t("Select all ({0})", { 0: filtered.length })}</Button>
           <Button
             type="button"
             variant="ghost"
@@ -437,8 +432,7 @@ function SectionSenseList({
             disabled={busy || !selected.size}
             onClick={() => setSelected(new Set())}
           >
-            Unselect all
-          </Button>
+            {t("Unselect all")}</Button>
           <label className="flex cursor-pointer items-center gap-2 text-sm">
             <input
               type="checkbox"
@@ -448,8 +442,7 @@ function SectionSenseList({
               }
               className="size-4 cursor-pointer accent-primary"
             />
-            Show short translation
-          </label>
+            {t("Show short translation")}</label>
         </div>
       </div>
       <div className="mt-4">
@@ -481,7 +474,7 @@ function SectionSenseList({
         </div>
       ) : (
         <p className="mt-4 rounded-xl border border-dashed p-7 text-center text-sm text-muted-foreground">
-          {emptyMessage}
+          {t(emptyMessage)}
         </p>
       )}
       {filtered.length > 0 ? (
@@ -512,25 +505,23 @@ function SensePagination({
   count: number;
   onPageChange: (page: number) => void;
 }) {
+  const t = useTranslations();
+
   if (count === 0) return null;
   const pages = Math.ceil(count / PAGE_SIZE);
   return (
     <nav
-      aria-label={`${label} pagination`}
+      aria-label={t("{0} pagination", { 0: label })}
       className="flex w-full flex-wrap items-center gap-3"
     >
       <div className="grid shrink-0 whitespace-nowrap text-sm tabular-nums text-muted-foreground">
         <span aria-hidden="true" className="invisible col-start-1 row-start-1">
-          {count}
-          {"\u2013"}
-          {count} of {count} {senseType} senses
-          {pages > 1 ? ` \u00b7 Page ${pages} of ${pages}` : ""}
+          {t("{0} – {1} of {2} {3} senses", { 0: count, 1: count, 2: count, 3: t(senseType) })}{pages > 1 ? t(" · Page {0} of {1}", { 0: pages, 1: pages }) : ""}
         </span>
         <p className="col-start-1 row-start-1" role="status">
           {(page - 1) * PAGE_SIZE + 1}
           {"\u2013"}
-          {Math.min(page * PAGE_SIZE, count)} of {count} {senseType} senses
-          {pages > 1 ? ` \u00b7 Page ${page} of ${pages}` : ""}
+          {Math.min(page * PAGE_SIZE, count)}  {t("of {0} {1} senses", { 0: count, 1: senseType })}{pages > 1 ? t(" · Page {0} of {1}", { 0: page, 1: pages }) : ""}
         </p>
       </div>
       {pages > 1 ? (
@@ -542,8 +533,7 @@ function SensePagination({
             disabled={page === 1}
             onClick={() => onPageChange(page - 1)}
           >
-            Previous
-          </Button>
+            {t("Previous")}</Button>
           <Button
             type="button"
             variant="outline"
@@ -551,8 +541,7 @@ function SensePagination({
             disabled={page === pages}
             onClick={() => onPageChange(page + 1)}
           >
-            Next
-          </Button>
+            {t("Next")}</Button>
         </div>
       ) : null}
     </nav>
@@ -574,6 +563,8 @@ function SenseCard({
   onToggle: () => void;
   details: ReactNode;
 }) {
+  const t = useTranslations();
+
   const { sense } = item;
   const [expanded, setExpanded] = useState(false);
   const [overflows, setOverflows] = useState(false);
@@ -596,14 +587,13 @@ function SenseCard({
       className="block min-w-0 truncate leading-6"
       title={`${sense.entry.word} ${sense.entry.part_of_speech}${sense.sense_number != null ? ` - Sense ${sense.sense_number}` : ""}`}
     >
-      <strong>{sense.entry.word}</strong>{" "}
+      <bdi lang="en"><strong>{sense.entry.word}</strong></bdi>{" "}
       <span className="text-sm italic text-muted-foreground">
         {sense.entry.part_of_speech}
       </span>{" "}
       {sense.sense_number != null ? (
         <span className="text-xs text-muted-foreground">
-          Sense {sense.sense_number}
-        </span>
+          {t("Sense {0}", { 0: sense.sense_number })}</span>
       ) : null}
     </span>
   );
@@ -615,7 +605,7 @@ function SenseCard({
       <div
         className={`absolute inset-x-0 top-0 min-h-full rounded-xl border bg-card p-4 ${expanded ? "shadow-xl" : "shadow-sm"} ${selected ? "border-primary ring-1 ring-primary" : ""}`}
       >
-        <div className="pr-8">
+        <div className="pe-8">
           <label
             className={`flex min-w-0 items-center gap-2 after:absolute after:inset-0 ${disabled ? "cursor-wait" : "cursor-pointer"}`}
           >
@@ -641,6 +631,8 @@ function SenseCard({
         ) : null}
         <div className={`mt-2 ${expanded ? "" : "h-[4.5rem]"}`}>
           <p
+            lang="en"
+            dir="ltr"
             ref={definitionRef}
             id={definitionId}
             className={`break-words text-sm leading-6 ${expanded ? "" : "line-clamp-3"}`}
@@ -664,7 +656,7 @@ function SenseCard({
               onClick={() => setExpanded(!expanded)}
               className="relative z-10 cursor-pointer rounded-sm text-xs font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              {expanded ? "Show less" : "Show more..."}
+              {expanded ? t("Show less") : t("Show more...")}
             </button>
           ) : null}
         </div>
@@ -675,18 +667,16 @@ function SenseCard({
                 variant="secondary"
                 className="bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
               >
-                Already knew
-              </Badge>
+                {t("Already knew")}</Badge>
             ) : (
-              <Badge variant="outline">Learned</Badge>
+              <Badge variant="outline">{t("Learned")}</Badge>
             )}
             {item.needs_review ? (
               <Badge
                 variant="secondary"
                 className="bg-amber-500/10 text-amber-700 dark:text-amber-300"
               >
-                In review
-              </Badge>
+                {t("In review")}</Badge>
             ) : null}
           </div>
         ) : null}

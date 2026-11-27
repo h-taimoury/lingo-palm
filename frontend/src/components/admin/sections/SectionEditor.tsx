@@ -9,8 +9,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiClient } from "@/lib/api/client";
 import type { SectionDetail } from "@/types/api/courses";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function SectionEditor({ section }: { section: SectionDetail }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -37,10 +40,10 @@ export function SectionEditor({ section }: { section: SectionDetail }) {
   }
   return (
     <form onSubmit={submit} className="space-y-4 rounded-xl border bg-card p-5">
-      <h2 className="text-lg font-semibold">Section details</h2>
+      <h2 className="text-lg font-semibold">{t("Section details")}</h2>
       <ApiErrorMessage error={error} />
       <div className="space-y-2">
-        <Label htmlFor="section_title">Title</Label>
+        <Label htmlFor="section_title">{t("Title")}</Label>
         <Input
           id="section_title"
           name="title"
@@ -49,7 +52,7 @@ export function SectionEditor({ section }: { section: SectionDetail }) {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="section_order">Order</Label>
+        <Label htmlFor="section_order">{t("Order")}</Label>
         <Input
           id="section_order"
           name="order"
@@ -60,7 +63,7 @@ export function SectionEditor({ section }: { section: SectionDetail }) {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="section_video">Local video URL</Label>
+        <Label htmlFor="section_video">{t("Local video URL")}</Label>
         <Input
           id="section_video"
           name="local_video_url"
@@ -68,12 +71,10 @@ export function SectionEditor({ section }: { section: SectionDetail }) {
           defaultValue={section.local_video_url}
         />
         <p className="text-xs text-muted-foreground">
-          Progressive files and .m3u8 HLS streams are supported by the lesson
-          player.
-        </p>
+          {t("Progressive files and .m3u8 HLS streams are supported by the lesson player.")}</p>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="section_hosted_video">Hosted video URL</Label>
+        <Label htmlFor="section_hosted_video">{t("Hosted video URL")}</Label>
         <Input
           id="section_hosted_video"
           name="hosted_video_url"
@@ -89,11 +90,10 @@ export function SectionEditor({ section }: { section: SectionDetail }) {
           name="is_published"
           defaultChecked={section.is_published}
         />{" "}
-        Published
-      </label>
+        {t("Published")}</label>
       <Button type="submit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-        {busy ? "Saving…" : "Save section"}
+        {busy ? t("Saving…") : t("Save section")}
       </Button>
     </form>
   );

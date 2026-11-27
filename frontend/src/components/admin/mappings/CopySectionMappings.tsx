@@ -6,8 +6,11 @@ import { Button } from "@/components/ui/button"
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage"
 import { apiClient } from "@/lib/api/client"
 import type { SectionDetail } from "@/types/api/courses"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function CopySectionMappings({ sectionId }: { sectionId: number }) {
+  const t = useTranslations();
+
   const locked = useRef(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<unknown>(null)
@@ -48,10 +51,10 @@ export function CopySectionMappings({ sectionId }: { sectionId: number }) {
       const json = JSON.stringify(data, null, 2)
       try {
         await navigator.clipboard.writeText(json)
-        setMessage(`Copied ${data.mappings.length} saved mappings as JSON.`)
+        setMessage(t("Copied {0} saved mappings as JSON.", { 0: data.mappings.length }))
       } catch {
         setManualJson(json)
-        setMessage("Clipboard access was blocked. Select and copy the JSON below.")
+        setMessage(t("Clipboard access was blocked. Select and copy the JSON below."))
       }
     } catch (caught) {
       setError(caught)
@@ -65,15 +68,14 @@ export function CopySectionMappings({ sectionId }: { sectionId: number }) {
     <div className="my-4 space-y-2">
       <Button type="button" variant="outline" disabled={busy} onClick={() => void copyMappings()}>
         {busy ? <LoaderCircle className="size-4 animate-spin" aria-hidden="true" /> : <Copy className="size-4" aria-hidden="true" />}
-        {busy ? "Fetching mappings…" : "Copy section mappings JSON"}
+        {busy ? t("Fetching mappings…") : t("Copy section mappings JSON")}
       </Button>
-      <p className="text-xs text-muted-foreground">Copies all saved mappings from the backend. Save any mapping edits first. Provide the matching subtitle file separately.</p>
+      <p className="text-xs text-muted-foreground">{t("Copies all saved mappings from the backend. Save any mapping edits first. Provide the matching subtitle file separately.")}</p>
       {message ? <p role="status" className="text-sm text-muted-foreground">{message}</p> : null}
       <ApiErrorMessage error={error} />
       {manualJson ? (
         <label className="block text-sm font-medium">
-          Section mappings JSON
-          <textarea
+          {t("Section mappings JSON")}<textarea
             readOnly
             value={manualJson}
             onFocus={(event) => event.currentTarget.select()}

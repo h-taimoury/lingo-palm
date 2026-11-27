@@ -1,6 +1,7 @@
 "use client"
 
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type SenseNavigationProps = {
   index: number
@@ -15,30 +16,32 @@ export function SenseNavigation({
   onPrevious,
   onNext,
 }: SenseNavigationProps) {
+  const t = useTranslations();
+
   return (
-    <div className="flex shrink-0 items-center gap-1" role="group" aria-label="Sense navigation">
+    <div dir="ltr" className="flex shrink-0 items-center gap-1" role="group" aria-label={t("Sense navigation")}>
       <button
         type="button"
         disabled={index <= 0}
         onClick={onPrevious}
-        aria-label="Previous sense"
-        title="Previous sense (←)"
+        aria-label={t("Previous sense")}
+        title={t("Previous sense (←)")}
         aria-keyshortcuts="ArrowLeft"
         className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-default disabled:opacity-40"
       >
-        <ChevronLeft className="size-5" aria-hidden="true" />
+        <ChevronLeft className="size-5 rtl:rotate-180" aria-hidden="true" />
       </button>
 
       <button
         type="button"
         disabled={index >= count - 1}
         onClick={onNext}
-        aria-label="Next sense"
-        title="Next sense (→)"
+        aria-label={t("Next sense")}
+        title={t("Next sense (→)")}
         aria-keyshortcuts="ArrowRight"
         className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-default disabled:opacity-40"
       >
-        <ChevronRight className="size-5" aria-hidden="true" />
+        <ChevronRight className="size-5 rtl:rotate-180" aria-hidden="true" />
       </button>
     </div>
   )

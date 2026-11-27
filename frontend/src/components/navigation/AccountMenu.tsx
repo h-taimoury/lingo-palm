@@ -8,8 +8,11 @@ import { LoaderCircle, LogOut, Settings, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ApiErrorMessage } from "@/components/shared/ApiErrorMessage";
 import { apiClient } from "@/lib/api/client";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function AccountMenu({ userLabel }: { userLabel: string }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -44,8 +47,8 @@ export function AccountMenu({ userLabel }: { userLabel: string }) {
         openOnHover={false}
         render={<Button variant="outline" size="icon" />}
         className="size-10 rounded-full bg-muted/40 text-muted-foreground hover:text-foreground data-[popup-open]:bg-accent data-[popup-open]:text-foreground"
-        aria-label="Your account"
-        title="Your account"
+        aria-label={t("Your account")}
+        title={t("Your account")}
       >
         <UserRound className="size-5" aria-hidden="true" />
       </Menu.Trigger>
@@ -54,13 +57,12 @@ export function AccountMenu({ userLabel }: { userLabel: string }) {
           <Menu.Popup className="w-64 max-w-[calc(100vw-2rem)] rounded-xl border bg-popover p-1.5 text-popover-foreground shadow-lg outline-none">
             <Menu.Group>
               <Menu.LinkItem render={<Link href="/account" />} className={itemClass}>
-                <Settings className="size-4" aria-hidden="true" />Account settings
-              </Menu.LinkItem>
+                <Settings className="size-4" aria-hidden="true" />{t("Account settings")}</Menu.LinkItem>
             </Menu.Group>
             <Menu.Separator className="my-1 h-px bg-border" />
             <Menu.Item disabled={busy} closeOnClick={false} onClick={() => void signOut()} className={itemClass}>
               {busy ? <LoaderCircle className="size-4 animate-spin" aria-hidden="true" /> : <LogOut className="size-4" aria-hidden="true" />}
-              {busy ? "Signing out…" : "Sign out"}
+              {busy ? t("Signing out…") : t("Sign out")}
             </Menu.Item>
             {error ? <div className="p-2"><ApiErrorMessage error={error} /></div> : null}
           </Menu.Popup>

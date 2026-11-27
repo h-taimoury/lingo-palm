@@ -5,6 +5,7 @@ import { useState, useTransition, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { buildUrl } from "@/lib/courses/query";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type SearchFormProps = {
   action: string;
@@ -18,6 +19,8 @@ export function SearchForm(props: SearchFormProps) {
 }
 
 function SearchFormFields({ action, search, placeholder, label }: SearchFormProps) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [value, setValue] = useState(search);
   const [pending, startTransition] = useTransition();
@@ -62,8 +65,7 @@ function SearchFormFields({ action, search, placeholder, label }: SearchFormProp
         className="min-w-0 flex-1"
       />
       <Button type="submit" disabled={!canSearch} className="w-20 shrink-0">
-        Search
-      </Button>
+        {t("Search")}</Button>
       <div className="w-16 shrink-0">
         {search ? (
           <Button
@@ -76,8 +78,7 @@ function SearchFormFields({ action, search, placeholder, label }: SearchFormProp
               navigate("");
             }}
           >
-            Clear
-          </Button>
+            {t("Clear")}</Button>
         ) : null}
       </div>
     </form>

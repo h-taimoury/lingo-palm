@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ReviewSession } from "@/components/review/ReviewSession";
+import { ReviewContent } from "@/components/review/ReviewContent";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { djangoServerFetch } from "@/lib/api/server";
-import type { ReviewBatch } from "@/types/api/vocabulary";
+import type { PaginatedResponse } from "@/types/api/common";
+import type { ReviewBatch, Vocabulary } from "@/types/api/vocabulary";
+import { getTranslations } from "@/lib/i18n/server";
 
-export const metadata: Metadata = { title: "Review" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return { title: t("Review") };
+}
 export default async function Page() {
-  const data = await djangoServerFetch<ReviewBatch>(
-    "/api/my-vocabulary/vocabulary/review-batch/",
-    { returnTo: "/review" },
-  );
+  const t = await getTranslations();
+
+  const [batch, vocabulary] = await Promise.all([
+    djangoServerFetch<ReviewBatch>(
+      "/api/my-vocabulary/vocabulary/review-batch/",
+      { returnTo: "/review" },
+    ),
+    djangoServerFetch<PaginatedResponse<Vocabulary>>(
+      "/api/my-vocabulary/vocabulary/?needs_review=true&page_size=10&page=1",
+      { returnTo: "/review" },
+    ),
+  ]);
   return (
-    <div className="mx-auto max-w-5xl px-4 py-9 sm:px-6">
+    <div className="mx-auto max-w-5xl px-4 pb-24 pt-9 sm:px-6">
       <PageHeader
-        title="Review"
-        description="Recall the meaning, flip the card, then choose Forgot or Remembered to schedule your next review."
+        title={t("Review")}
+        description={t("Review what’s due now, then explore all the senses in your review schedule.")}
       />
-      <Link href="/review/all" className="mt-4 inline-block text-sm font-medium underline underline-offset-4">
-        View all review senses
-      </Link>
-      <div className="mt-8">
-        <ReviewSession initialData={data} />
-      </div>
+      <ReviewContent initialBatch={batch} initialVocabulary={vocabulary} />
     </div>
   );
 }

@@ -133,3 +133,8 @@ it("lets learners select a word by its checkbox and clears selection after savin
   })
   expect(renderNewList().some((control) => control.props.item?.sense.id === 17)).toBe(false)
 })
+
+vi.mock("@/lib/i18n/LocaleProvider", async () => {
+  const { createTranslator } = await import("@/lib/i18n/messages");
+  return { useLocale: () => "en", useTranslations: () => createTranslator("en") };
+});

@@ -4,8 +4,11 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { djangoServerFetch } from "@/lib/api/server";
 import type { PaginatedResponse } from "@/types/api/common";
 import type { Sense } from "@/types/api/dictionary";
+import { getTranslations } from "@/lib/i18n/server";
 
 export default async function Page() {
+  const t = await getTranslations();
+
   const initial = await djangoServerFetch<PaginatedResponse<Sense>>(
     "/api/dictionary/senses/?needs_translation=true",
     { returnTo: "/admin/dictionary/translate" },
@@ -14,15 +17,13 @@ export default async function Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-9 sm:px-6 lg:px-8">
       <Link href="/admin/dictionary" className="text-sm text-muted-foreground hover:text-foreground">
-        ← Back to the dictionary
-      </Link>
+        {t("← Back to the dictionary")}</Link>
       <PageHeader
-        title="Translate senses"
-        description="Give each meaning its Persian translation. These senses are used in your sections and are waiting to be translated."
+        title={t("Translate senses")}
+        description={t("Give each meaning its Persian translation. These senses are used in your sections and are waiting to be translated.")}
       />
       <Link href="/admin/dictionary/translate/bulk-translate" className="mt-4 inline-block text-sm font-medium text-primary underline underline-offset-4">
-        Bulk translation
-      </Link>
+        {t("Bulk translation")}</Link>
       <TranslationQueue initial={initial} />
     </div>
   );

@@ -10,8 +10,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { apiClient } from "@/lib/api/client";
 import type { CourseDetail, CourseWriteRequest } from "@/types/api/courses";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function CourseEditor({ course }: { course: CourseDetail }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -38,10 +41,10 @@ export function CourseEditor({ course }: { course: CourseDetail }) {
   }
   return (
     <form onSubmit={submit} className="space-y-4 rounded-xl border bg-card p-5">
-      <h2 className="text-lg font-semibold">Course details</h2>
+      <h2 className="text-lg font-semibold">{t("Course details")}</h2>
       <ApiErrorMessage error={error} />
       <div className="space-y-2">
-        <Label htmlFor="edit_course_title">Title</Label>
+        <Label htmlFor="edit_course_title">{t("Title")}</Label>
         <Input
           id="edit_course_title"
           name="title"
@@ -50,7 +53,7 @@ export function CourseEditor({ course }: { course: CourseDetail }) {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="edit_course_desc">Description</Label>
+        <Label htmlFor="edit_course_desc">{t("Description")}</Label>
         <Textarea
           id="edit_course_desc"
           name="description"
@@ -59,16 +62,16 @@ export function CourseEditor({ course }: { course: CourseDetail }) {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="edit_course_level">Level</Label>
+        <Label htmlFor="edit_course_level">{t("Level")}</Label>
         <select
           id="edit_course_level"
           name="level"
           defaultValue={course.level}
           className="h-9 w-full rounded-md border bg-background px-3 text-sm"
         >
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
+          <option value="Beginner">{t("Beginner")}</option>
+          <option value="Intermediate">{t("Intermediate")}</option>
+          <option value="Advanced">{t("Advanced")}</option>
         </select>
       </div>
       <label className="flex items-center gap-2 text-sm">
@@ -78,14 +81,12 @@ export function CourseEditor({ course }: { course: CourseDetail }) {
           defaultChecked={course.is_published}
           className="size-4"
         />{" "}
-        Published
-      </label>
+        {t("Published")}</label>
       <label className="flex items-center gap-2 text-sm">
-        <input type="checkbox" name="is_free" defaultChecked={course.is_free} className="size-4" /> Free for everyone
-      </label>
+        <input type="checkbox" name="is_free" defaultChecked={course.is_free} className="size-4" />  {t("Free for everyone")}</label>
       <Button type="submit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-        {busy ? "Saving…" : "Save course"}
+        {busy ? t("Saving…") : t("Save course")}
       </Button>
     </form>
   );

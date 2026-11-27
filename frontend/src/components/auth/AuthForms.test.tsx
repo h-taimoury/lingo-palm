@@ -144,3 +144,8 @@ it("only submits a manual verification grant when the superuser control is avail
     expect(harness.patch.mock.calls[0][1].email_verified).toBe(canVerifyEmail ? true : undefined);
   }
 });
+
+vi.mock("@/lib/i18n/LocaleProvider", async () => {
+  const { createTranslator } = await import("@/lib/i18n/messages");
+  return { useLocale: () => "en", useTranslations: () => createTranslator("en") };
+});

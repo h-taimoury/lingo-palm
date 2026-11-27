@@ -32,6 +32,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Interface languages
+
+The navbar and authentication pages offer English and فارسی. English is the default; the `lingopalm_language` cookie remembers an explicit choice for one year across all routes. Persian uses right-to-left layout and the bundled Persian font. Lesson text, dictionary definitions, subtitles, and authored course content stay in their original language.
+
+Use `await getTranslations()` from `src/lib/i18n/server.ts` in server components and `useTranslations()` from `src/lib/i18n/LocaleProvider.tsx` in client components. Pass the existing English text to `t()`, with substitutions such as `t("Page {0} of {1}", { 0: page, 1: pages })`, and add its Persian translation in `src/lib/i18n/fa.json`. Keep API values and identifiers independent of translated labels. Unknown server messages fall back to their original text.
+
+`npm test` checks translation coverage, language persistence, server locale selection, and rendering in both languages.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

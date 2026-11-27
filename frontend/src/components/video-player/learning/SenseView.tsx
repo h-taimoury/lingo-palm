@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TranslationPopover } from "@/components/video-player/learning/TranslationPopover";
 import type { Sense } from "@/types/api/dictionary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type Accent = "British" | "American";
 
@@ -36,6 +37,8 @@ export function SenseView(props: SenseViewProps) {
 }
 
 function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carousel", showHeader = true, keyboardShortcuts = true, showMetadata = false, showTranslation = false, translationPlacement = "header", active = true, currentSense = false, frequencyLabels = [] }: SenseViewProps) {
+  const t = useTranslations();
+
   const [exampleIndex, setExampleIndex] = useState(0);
   const [playingAccent, setPlayingAccent] = useState<Accent | null>(null);
   const [audioError, setAudioError] = useState(false);
@@ -119,16 +122,16 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
   }
 
   return (
-    <div>
+    <div dir="ltr">
       {showHeader ? <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
         <div className="min-w-0 leading-relaxed">
           <h3 className="inline text-3xl font-bold tracking-tight text-primary">
-            {sense.entry.word}
+            <bdi lang="en">{sense.entry.word}</bdi>
           </h3>
 
           {pronunciation?.text ? (
             <span
-              className="ml-3 inline-block align-baseline font-[Arial] text-base text-zinc-600 dark:text-zinc-300"
+              className="ms-3 inline-block align-baseline font-[Arial] text-base text-zinc-600 dark:text-zinc-300"
             >
               {pronunciation.text}
             </span>
@@ -138,13 +141,13 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
               title={sense.entry.level.tooltip}
               aria-label={sense.entry.level.tooltip}
               tabIndex={0}
-              className="ml-2 inline-block cursor-help whitespace-nowrap align-baseline text-sm tracking-wider text-red-600 outline-none focus-visible:ring-2 focus-visible:ring-red-400 dark:text-red-400"
+              className="ms-2 inline-block cursor-help whitespace-nowrap align-baseline text-sm tracking-wider text-red-600 outline-none focus-visible:ring-2 focus-visible:ring-red-400 dark:text-red-400"
             >
               {sense.entry.level.indicator}
             </span>
           ) : null}
           {frequencyLabels.length ? (
-            <span className="ml-2 inline-flex items-center gap-1.5 align-baseline">
+            <span className="ms-2 inline-flex items-center gap-1.5 align-baseline">
               {Array.from(new Set(frequencyLabels)).map((label) => {
                 const code = label.trim().toUpperCase();
                 const match = /^([SW])([123])$/.exec(code);
@@ -166,23 +169,23 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
             </span>
           ) : null}
           <EntryVariant variant={sense.entry.variant} />
-          <span className="ml-3 inline-block font-semibold italic text-emerald-700 dark:text-emerald-400">
+          <span className="ms-3 inline-block font-semibold italic text-emerald-700 dark:text-emerald-400">
             {sense.entry.part_of_speech}
           </span>
           {sense.entry.inflections ? (
-            <span className="ml-2 inline-block text-sm text-muted-foreground">
+            <span className="ms-2 inline-block text-sm text-muted-foreground">
               {sense.entry.inflections}
             </span>
           ) : null}
           {sense.entry.register ? (
-            <span className="ml-2 inline-block italic text-purple-700 dark:text-purple-400">
+            <span className="ms-2 inline-block italic text-purple-700 dark:text-purple-400">
               {sense.entry.register}
             </span>
           ) : null}
           <span
-            className="ml-2 inline-flex items-center gap-2 align-middle"
+            className="ms-2 inline-flex items-center gap-2 align-middle"
             role="group"
-            aria-label="Pronunciation audio"
+            aria-label={t("Pronunciation audio")}
           >
             <PronunciationButton
               accent="British"
@@ -201,8 +204,8 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
           </span>
           {showTranslation && translationPlacement === "header" && active && sense.translation?.trim() ? <TranslationPopover translation={sense.translation} keyboardShortcuts={keyboardShortcuts} /> : null}
           {learned ? (
-            <Badge variant="secondary" className="ml-2">
-              {alreadyKnown ? "Already knew" : "Already learned"}
+            <Badge variant="secondary" className="ms-2">
+              {alreadyKnown ? t("Already knew") : t("Already learned")}
             </Badge>
           ) : null}
         </div>
@@ -211,38 +214,37 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
       : null}
       {audioError ? (
         <p role="status" className="mt-2 text-xs text-destructive">
-          The pronunciation audio could not be played.
-        </p>
+          {t("The pronunciation audio could not be played.")}</p>
       ) : null}
 
-      <div className="mt-2 pl-4 sm:pl-6">
-      {currentSense ? <p className="mb-1 text-xs font-medium text-primary">You were reading this sense</p> : null}
+      <div className="mt-2 ps-4 sm:ps-6">
+      {currentSense ? <p className="mb-1 text-xs font-medium text-primary">{t("You were reading this sense")}</p> : null}
       <div className="text-base leading-7 text-zinc-800 dark:text-zinc-200">
         {sense.sense_number ? (
-          <span className="mr-2 font-bold">{sense.sense_number}</span>
+          <span className="me-2 font-bold">{sense.sense_number}</span>
         ) : null}
 
         {sense.lex_unit?.trim() ? (
-          <span className="mr-2 font-medium italic text-amber-700 dark:text-amber-300">
+          <span className="me-2 font-medium italic text-amber-700 dark:text-amber-300">
             {sense.lex_unit}
           </span>
         ) : null}
 
-        {sense.geo?.trim() ? <span className="mr-2 italic text-blue-700 dark:text-blue-400">{sense.geo}</span> : null}
-        {sense.register ? <span className="mr-2 italic text-purple-700 dark:text-purple-400">{sense.register}</span> : null}
-        {sense.definition}
+        {sense.geo?.trim() ? <span className="me-2 italic text-blue-700 dark:text-blue-400">{sense.geo}</span> : null}
+        {sense.register ? <span className="me-2 italic text-purple-700 dark:text-purple-400">{sense.register}</span> : null}
+        <span lang="en" dir="ltr">{sense.definition}</span>
         {sense.synonyms.length ? (
           <>
-            {" "}<span className="rounded-sm bg-yellow-400 px-1 py-0.5 text-sm font-bold text-white" aria-label="Synonyms">SYN</span>{" "}
+            {" "}<span className="rounded-sm bg-yellow-400 px-1 py-0.5 text-sm font-bold text-white" aria-label={t("Synonyms")}>SYN</span>{" "}
             <span className="font-semibold text-zinc-950 dark:text-zinc-50">{sense.synonyms.join(", ")}</span>
           </>
         ) : null}
         {showTranslation && translationPlacement === "definition" && active && sense.translation?.trim() ? <TranslationPopover translation={sense.translation} keyboardShortcuts={keyboardShortcuts} /> : null}
       </div>
-      {showMetadata && sense.opposites.length ? <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium">Opposites:</span> {sense.opposites.join(", ")}</p> : null}
+      {showMetadata && sense.opposites.length ? <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium">{t("Opposites:")}</span> {sense.opposites.join(", ")}</p> : null}
 
       {examplesMode === "all" && examples.length > 0 ? (
-        <ul aria-label="Examples" className="mt-2 space-y-2 rounded-xl border bg-muted/20 px-5 py-2">
+        <ul aria-label={t("Examples")} className="mt-2 space-y-2 rounded-xl border bg-muted/20 px-5 py-2">
           {examples.map((example, index) => (
             <li key={index} className="flex items-start gap-3">
               <span
@@ -258,7 +260,7 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
                   </p>
                 ) : null}
                 <p className="text-base leading-7 text-zinc-500 dark:text-zinc-400">
-                  {example.text}
+                  <span lang="en" dir="ltr">{example.text}</span>
                 </p>
               </div>
             </li>
@@ -304,8 +306,8 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
                     size="icon-sm"
                     disabled={exampleIndex === 0}
                     onClick={showPreviousExample}
-                    aria-label="Previous example"
-                    title="Previous example"
+                    aria-label={t("Previous example")}
+                    title={t("Previous example")}
                   >
                     <ChevronLeft aria-hidden="true" />
                   </Button>
@@ -318,16 +320,15 @@ function SenseViewContent({ sense, learned, alreadyKnown, examplesMode = "carous
                     size="icon-sm"
                     disabled={exampleIndex === examples.length - 1}
                     onClick={showNextExample}
-                    aria-label="Next example"
-                    title="Next example"
+                    aria-label={t("Next example")}
+                    title={t("Next example")}
                   >
                     <ChevronRight aria-hidden="true" />
                   </Button>
                 </div>
                 {examples.length > 1 ? (
                   <p className="mt-1 text-center text-xs text-muted-foreground sm:hidden">
-                    Swipe to see the next example
-                  </p>
+                    {t("Swipe to see the next example")}</p>
                 ) : null}
               </div>
           </div>
@@ -350,6 +351,8 @@ function PronunciationButton({
   keyboardShortcuts: boolean;
   onPlay: (accent: Accent, url: string | null | undefined) => void;
 }) {
+  const t = useTranslations();
+
   const available = Boolean(url);
   const shortcut = accent === "British" ? "B" : "A";
 
@@ -368,13 +371,13 @@ function PronunciationButton({
       onClick={() => onPlay(accent, url)}
       aria-label={
         available
-          ? `Play ${accent} pronunciation`
-          : `${accent} pronunciation unavailable`
+          ? t("Play {0} pronunciation", { 0: t(accent) })
+          : t("{0} pronunciation unavailable", { 0: t(accent) })
       }
       title={
         available
-          ? `Play ${accent} pronunciation${keyboardShortcuts ? ` (${shortcut})` : ""}`
-          : `${accent} pronunciation unavailable`
+          ? t("Play {0} pronunciation{1}", { 0: t(accent), 1: keyboardShortcuts ? ` (${shortcut})` : "" })
+          : t("{0} pronunciation unavailable", { 0: t(accent) })
       }
     >
       <svg

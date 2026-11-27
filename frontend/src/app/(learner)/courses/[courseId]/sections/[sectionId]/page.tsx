@@ -11,6 +11,7 @@ import {
 import { proxyDjangoMediaUrl } from "@/lib/media.server";
 import { getOptionalCurrentUser } from "@/lib/auth/getOptionalCurrentUser";
 import { loginHref } from "@/lib/auth/redirects";
+import { getTranslations } from "@/lib/i18n/server";
 
 type Props = { params: Promise<{ courseId: string; sectionId: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -23,6 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: section.title };
 }
 export default async function SectionPage({ params }: Props) {
+  const t = await getTranslations();
+
   const { courseId, sectionId } = await params;
   const returnTo = `/courses/${courseId}/sections/${sectionId}`;
   const [section, taught, user] = await Promise.all([
@@ -40,11 +43,11 @@ export default async function SectionPage({ params }: Props) {
     }
   }
   const levelCounts = [
-    { label: "Beginner", count: newSenseCounts.A, color: "text-green-700 dark:text-green-400" },
-    { label: "Intermediate", count: newSenseCounts.B, color: "text-yellow-700 dark:text-yellow-400" },
-    { label: "Advanced", count: newSenseCounts.C, color: "text-red-700 dark:text-red-400" },
+    { label: t("Beginner"), count: newSenseCounts.A, color: "text-green-700 dark:text-green-400" },
+    { label: t("Intermediate"), count: newSenseCounts.B, color: "text-yellow-700 dark:text-yellow-400" },
+    { label: t("Advanced"), count: newSenseCounts.C, color: "text-red-700 dark:text-red-400" },
     ...(newSenseCounts.unassigned
-      ? [{ label: "Unassigned", count: newSenseCounts.unassigned, color: "" }]
+      ? [{ label: t("Unassigned"), count: newSenseCounts.unassigned, color: "" }]
       : []),
   ];
   return (
@@ -53,7 +56,7 @@ export default async function SectionPage({ params }: Props) {
         href={`/courses/${courseId}`}
         className="inline-flex items-center gap-1.5 rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
-        <ArrowLeft className="size-4 shrink-0" aria-hidden="true" />
+        <ArrowLeft className="size-4 shrink-0 rtl:rotate-180" aria-hidden="true" />
         {section.course.title}
       </Link>
 
@@ -74,11 +77,11 @@ export default async function SectionPage({ params }: Props) {
                 <p className="text-2xl font-semibold leading-none tabular-nums">
                   {section.new_words_count ?? 0}
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">new senses to learn</p>
+                <p className="mt-1 text-sm text-muted-foreground">{t("new senses to learn")}</p>
               </div>
             </div>
 
-            <dl aria-label="New senses by level" className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            <dl aria-label={t("New senses by level")} className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
               {levelCounts.map(({ label, count, color }) => (
                 <div key={label} className="flex items-baseline gap-1.5">
                   <dt className="text-muted-foreground">{label}</dt>
@@ -89,12 +92,11 @@ export default async function SectionPage({ params }: Props) {
 
             <div className="mt-5">
               <div className="mb-2 flex flex-wrap items-center justify-between gap-2 text-sm">
-                <span className="text-muted-foreground">Vocabulary progress</span>
+                <span className="text-muted-foreground">{t("Vocabulary progress")}</span>
                 <span className="font-medium tabular-nums">
-                  {section.learned_percentage ?? 0}% learned
-                </span>
+                  {t("{0}% learned", { 0: section.learned_percentage ?? 0 })}</span>
               </div>
-              <Progress value={section.learned_percentage ?? 0} aria-label="Vocabulary learned" />
+              <Progress value={section.learned_percentage ?? 0} aria-label={t("Vocabulary learned")} />
             </div>
           </div>
 
@@ -107,13 +109,12 @@ export default async function SectionPage({ params }: Props) {
                 <BookOpen className="size-5" aria-hidden="true" />
               </span>
               <span className="flex flex-col">
-                <span className="font-medium">Section vocabulary</span>
+                <span className="font-medium">{t("Section vocabulary")}</span>
                 <span className="text-sm text-muted-foreground">
-                  Review every word in this section
-                </span>
+                  {t("Review every word in this section")}</span>
               </span>
             </span>
-            <ArrowRight className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            <ArrowRight className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 rtl:rotate-180" aria-hidden="true" />
           </Link>
         </section>
 

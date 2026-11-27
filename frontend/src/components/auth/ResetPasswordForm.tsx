@@ -8,8 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiClient } from "@/lib/api/client";
 import type { DetailResponse } from "@/types/api/common";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function ResetPasswordForm({ uid, token }: { uid: string; token: string }) {
+  const t = useTranslations();
+
   const [error, setError] = useState<unknown>(null);
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
@@ -18,7 +21,7 @@ export function ResetPasswordForm({ uid, token }: { uid: string; token: string }
     const form = new FormData(event.currentTarget);
     const password = String(form.get("password") ?? "");
     const password_confirm = String(form.get("password_confirm") ?? "");
-    if (password !== password_confirm) { setError(new Error("Passwords do not match.")); return; }
+    if (password !== password_confirm) { setError(new Error(t("Passwords do not match."))); return; }
     setBusy(true);
     setError(null);
     try {
@@ -28,13 +31,13 @@ export function ResetPasswordForm({ uid, token }: { uid: string; token: string }
     } catch (caught) { setError(caught); }
     finally { setBusy(false); }
   }
-  return message ? <div role="status" className="space-y-4"><p>{message}</p><Link href="/login" className="underline underline-offset-4">Sign in</Link></div> : (
+  return message ? <div role="status" className="space-y-4"><p>{t(message)}</p><Link href="/login" className="underline underline-offset-4">{t("Sign in")}</Link></div> : (
     <form onSubmit={submit} className="space-y-5">
       <ApiErrorMessage error={error} />
-      <div className="space-y-2"><Label htmlFor="reset_password">New password</Label><Input id="reset_password" name="password" type="password" autoComplete="new-password" required /></div>
-      <div className="space-y-2"><Label htmlFor="reset_confirm">Confirm password</Label><Input id="reset_confirm" name="password_confirm" type="password" autoComplete="new-password" required /></div>
-      <Button className="w-full" disabled={busy}>{busy ? "Resetting…" : "Reset password"}</Button>
-      <Link href="/forgot-password" className="block text-sm underline underline-offset-4">Request a new reset link</Link>
+      <div className="space-y-2"><Label htmlFor="reset_password">{t("New password")}</Label><Input id="reset_password" name="password" type="password" autoComplete="new-password" required /></div>
+      <div className="space-y-2"><Label htmlFor="reset_confirm">{t("Confirm password")}</Label><Input id="reset_confirm" name="password_confirm" type="password" autoComplete="new-password" required /></div>
+      <Button className="w-full" disabled={busy}>{busy ? t("Resetting…") : t("Reset password")}</Button>
+      <Link href="/forgot-password" className="block text-sm underline underline-offset-4">{t("Request a new reset link")}</Link>
     </form>
   );
 }

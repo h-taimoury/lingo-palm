@@ -141,3 +141,8 @@ it("continues after a word returns no senses", async () => {
   expect(text(render())).toContain("No senses were returned");
   await click("Continue to sense selection");
 });
+
+vi.mock("@/lib/i18n/LocaleProvider", async () => {
+  const { createTranslator } = await import("@/lib/i18n/messages");
+  return { useLocale: () => "en", useTranslations: () => createTranslator("en") };
+});

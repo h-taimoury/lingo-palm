@@ -2,7 +2,7 @@ from datetime import datetime, time, timedelta
 
 from django.contrib.auth import get_user_model
 from django.db import transaction
-from django.db.models import Case, Count, F, IntegerField, Value, When
+from django.db.models import Case, Count, F, IntegerField, Q, Value, When
 from django.db.models.functions import Coalesce, TruncDate
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
@@ -181,16 +181,24 @@ def get_progress(user, *, days, tz):
 
 
 @transaction.atomic
-def record_review(user, vocabulary_id, *, submission_id, rating, version):
+def record_review(user, vocabulary_id, *, submission_id, rating, version, review_id=None):
     User.objects.select_for_update().get(pk=user.pk)
     vocabulary = get_object_or_404(Vocabulary, user=user, pk=vocabulary_id)
-    previous = vocabulary.reviews.filter(submission_id=submission_id).first()
+    previous = vocabulary.reviews.filter(
+        Q(submission_id=submission_id) | Q(last_submission_id=submission_id),
+    ).first()
     if previous:
-        if previous.rating != rating or previous.version != version + 1:
+        if (
+            previous.rating != rating or previous.version != version + 1
+            or (review_id is not None and previous.pk != review_id)
+        ):
             raise ReviewConflict("This review submission was already used with a different answer.")
         return previous
     if not vocabulary.needs_review or vocabulary.review_version != version:
         raise ReviewConflict()
+
+    if review_id is not None:
+        return _correct_review(vocabulary, review_id, submission_id, rating, version)
 
     now = timezone.now()
     if vocabulary.review_due_at > now:
@@ -208,4 +216,34 @@ def record_review(user, vocabulary_id, *, submission_id, rating, version):
     return VocabularyReview.objects.create(
         vocabulary=vocabulary, submission_id=submission_id, rating=rating,
         reviewed_at=now, due_at=card.due, version=version + 1,
+        previous_state=vocabulary.review_state, previous_due_at=vocabulary.review_due_at,
+        previous_reviewed_at=vocabulary.reviewed_at,
     )
+
+
+def _correct_review(vocabulary, review_id, submission_id, rating, version):
+    review = get_object_or_404(vocabulary.reviews, pk=review_id)
+    if review.version != version or review.previous_state is None or review.previous_due_at is None:
+        raise ReviewConflict("This review can no longer be changed. Load a new batch to continue.")
+
+    if rating is None:
+        state, due, reviewed_at = review.previous_state, review.previous_due_at, review.previous_reviewed_at
+    else:
+        card = Card.from_dict(review.previous_state) if review.previous_state else Card(
+            card_id=vocabulary.pk, due=review.previous_due_at,
+        )
+        # A correction replaces the original repetition at its original time.
+        card, _ = SCHEDULER.review_card(card, Rating(rating), review_datetime=review.reviewed_at)
+        state, due, reviewed_at = card.to_dict(), card.due, review.reviewed_at
+
+    updated = Vocabulary.objects.filter(pk=vocabulary.pk, review_version=version).update(
+        review_state=state, review_due_at=due, reviewed_at=reviewed_at, review_version=version + 1,
+    )
+    if not updated:
+        raise ReviewConflict()
+    review.rating = rating
+    review.due_at = due
+    review.version = version + 1
+    review.last_submission_id = submission_id
+    review.save(update_fields=["rating", "due_at", "version", "last_submission_id"])
+    return review

@@ -14,8 +14,11 @@ import { safeReturnTo } from "@/lib/auth/redirects";
 import { ApiError } from "@/lib/api/errors";
 import type { DetailResponse } from "@/types/api/common";
 import type { LoginRequest } from "@/types/api/users";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function LoginForm() {
+  const t = useTranslations();
+
   const router = useRouter();
   const params = useSearchParams();
   const [error, setError] = useState<unknown>(null);
@@ -53,7 +56,7 @@ export function LoginForm() {
     <form onSubmit={submit} className="space-y-5">
       <ApiErrorMessage error={error} />
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{t("Email")}</Label>
         <Input
           id="email"
           name="email"
@@ -64,7 +67,7 @@ export function LoginForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">{t("Password")}</Label>
         <Input
           id="password"
           name="password"
@@ -74,12 +77,12 @@ export function LoginForm() {
         />
       </div>
       <div className="flex flex-wrap justify-between gap-2 text-sm">
-        <Link href="/forgot-password" className="underline underline-offset-4">Forgot password?</Link>
-        <Link href="/verify-email" className="underline underline-offset-4">Verify email</Link>
+        <Link href="/forgot-password" className="underline underline-offset-4">{t("Forgot password?")}</Link>
+        <Link href="/verify-email" className="underline underline-offset-4">{t("Verify email")}</Link>
       </div>
       <Button className="w-full" type="submit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-        {busy ? "Signing in…" : "Sign in"}
+        {busy ? t("Signing in…") : t("Sign in")}
       </Button>
     </form>
   );

@@ -5,6 +5,7 @@ import { GripHorizontal, LoaderCircle, Search, Trash2, X } from "lucide-react"
 import toast from "react-hot-toast"
 
 import { AdminVideoPreview } from "@/components/admin/mappings/AdminVideoPreview"
+import { SenseTranslationEditor } from "./SenseTranslationEditor"
 import { mappingColor } from "@/components/admin/mappings/mappingStyles"
 import { useUnsavedChangesWarning } from "@/components/admin/mappings/useUnsavedChangesWarning"
 import { LearningModal } from "@/components/video-player/learning/LearningModal"
@@ -14,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { apiClient } from "@/lib/api/client"
 import { publicEnv } from "@/lib/env"
+import { getSectionVideoUrl } from "@/lib/courses/video"
 import {
   buildSubtitleMappingIndex,
   createSubtitleTokenKey,
@@ -33,6 +35,7 @@ import type {
 import type { Sense, SenseSummary } from "@/types/api/dictionary"
 import type { ScrapeRequest, ScrapeResponse } from "@/types/api/scraper"
 import type { SubtitleCue, SubtitleToken } from "@/types/subtitles"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 function wordKey(word: SubtitleWord) {
   return createSubtitleTokenKey({
@@ -63,6 +66,8 @@ type TrayDragState = {
 }
 
 export function MappingEditor({ section }: { section: SectionDetail }) {
+  const t = useTranslations();
+
   const [cues, setCues] = useState<SubtitleCue[]>([])
   const [mappings, setMappings] = useState(section.word_sense_mappings)
   const [loadError, setLoadError] = useState<unknown>(null)
@@ -240,7 +245,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
   }
 
   function openMapping(mapping: WordSenseMapping) {
-    if (dirty && activeId !== mapping.id && !window.confirm("Discard your current unsaved mapping changes?")) {
+    if (dirty && activeId !== mapping.id && !window.confirm(t("Discard your current unsaved mapping changes?"))) {
       return
     }
 
@@ -373,11 +378,11 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
 
   async function save() {
     if (!selectedKeys.size) {
-      setActionError(new Error("Select at least one subtitle occurrence."))
+      setActionError(new Error(t("Select at least one subtitle occurrence.")))
       return
     }
     if (!selectedSenses.size) {
-      setActionError(new Error("Select at least one dictionary sense."))
+      setActionError(new Error(t("Select at least one dictionary sense.")))
       return
     }
 
@@ -388,7 +393,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
       if (!active) {
         const subtitleWords = [...selectedKeys].map((key) => {
           const found = tokenLookup.get(key)
-          if (!found) throw new Error("A selected subtitle token no longer exists.")
+          if (!found) throw new Error(t("A selected subtitle token no longer exists."))
           return tokenToSubtitleWordInput(found.token, found.cue)
         })
         const payload: CreateWordSenseMappingRequest = {
@@ -421,7 +426,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
         for (const key of selectedKeys) {
           if (originalByKey.has(key)) continue
           const found = tokenLookup.get(key)
-          if (!found) throw new Error("A selected subtitle token no longer exists.")
+          if (!found) throw new Error(t("A selected subtitle token no longer exists."))
           const body: CreateSubtitleWordRequest = {
             mapping: active.id,
             ...tokenToSubtitleWordInput(found.token, found.cue),
@@ -449,10 +454,10 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
       setActionError(
         new Error(
           active
-            ? `Some mapping changes may already have been saved. The editor reloaded Django's current state. ${error instanceof Error ? error.message : ""}`
+            ? t("Some mapping changes may already have been saved. The editor reloaded Django's current state. {0}", { 0: error instanceof Error ? error.message : "" })
             : error instanceof Error
               ? error.message
-              : "Unable to create mapping.",
+              : t("Unable to create mapping."),
         ),
       )
 
@@ -506,7 +511,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
         { word },
       )
 
-      toast.success(`"${word}" was scraped successfully.`)
+      toast.success(t("\"{0}\" was scraped successfully.", { 0: word }))
       setScrapeWord("")
       setSearch(word.replaceAll("-", " "))
     } catch (error) {
@@ -520,14 +525,12 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
     <div className="space-y-8">
       <section>
         <div className="mb-4">
-          <h3 className="font-semibold">Select while watching</h3>
+          <h3 className="font-semibold">{t("Select while watching")}</h3>
           <p className="mt-1 text-sm text-muted-foreground">
-            Play the section normally. Every word in the current subtitle cue is clickable for admins.
-            Your selection is shared with the transcript below.
-          </p>
+            {t("Play the section normally. Every word in the current subtitle cue is clickable for admins. Your selection is shared with the transcript below.")}</p>
         </div>
         <AdminVideoPreview
-          source={section.local_video_url}
+          source={getSectionVideoUrl(section)}
           cues={cues}
           mappingIndex={mappingIndex}
           selectedKeys={selectedKeys}
@@ -540,12 +543,9 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
 
       <section className="rounded-xl border bg-card">
         <div className="border-b p-4">
-          <h3 className="font-semibold">Select from the full transcript</h3>
+          <h3 className="font-semibold">{t("Select from the full transcript")}</h3>
           <p className="mt-1 text-sm text-muted-foreground">
-            This is the original selection method. Read all cues and click/tap exact occurrences.
-            Selection may span cues. Clicking an already mapped occurrence opens that mapping.
-            {" "}Ctrl-click a mapped word to view its senses without editing.
-          </p>
+            {t("This is the original selection method. Read all cues and click/tap exact occurrences. Selection may span cues. Clicking an already mapped occurrence opens that mapping.")}{" "}{t("Ctrl-click a mapped word to view its senses without editing.")}</p>
         </div>
 
         <div className="max-h-[720px] space-y-4 overflow-y-auto p-4">
@@ -555,7 +555,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
             cues.map((cue) => (
               <div key={cue.cueId} className="rounded-lg border p-3">
                 <div className="mb-2 flex items-center justify-between gap-3 text-xs text-muted-foreground">
-                  <span>Cue {cue.cueId}</span>
+                  <span>{t("Cue {0}", { 0: cue.cueId })}</span>
                   <span>
                     {cue.startTime.toFixed(2)}–{cue.endTime.toFixed(2)}
                   </span>
@@ -571,7 +571,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                         key={token.key}
                         type="button"
                         onClick={(event) => clickToken(token, event.ctrlKey)}
-                        title={mapped ? "Click to edit mapping; Ctrl-click to view senses" : "Select this subtitle occurrence"}
+                        title={mapped ? t("Click to edit mapping; Ctrl-click to view senses") : t("Select this subtitle occurrence")}
                         className={cn(
                           "rounded px-1.5 py-0.5 text-sm ring-1 ring-inset transition",
                           mapped
@@ -596,7 +596,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
 
       {mappings.length ? (
         <section>
-          <p className="mb-2 text-sm font-medium">Existing mappings ({mappings.length})</p>
+          <p className="mb-2 text-sm font-medium">{t("Existing mappings ({0})", { 0: mappings.length })}</p>
           <div className="flex flex-wrap gap-2">
             {mappings.map((mapping) => (
               <button
@@ -633,11 +633,11 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
               onPointerMove={handleTrayPointerMove}
               onPointerUp={finishTrayDrag}
               onPointerCancel={finishTrayDrag}
-              aria-label="Drag selected words box"
-              title="Drag to move"
+              aria-label={t("Drag selected words box")}
+              title={t("Drag to move")}
             >
               <GripHorizontal className="size-5" />
-              <span className="ml-2 text-[11px] font-medium">Drag to move</span>
+              <span className="ms-2 text-[11px] font-medium">{t("Drag to move")}</span>
             </div>
 
             <div className="p-4">
@@ -645,8 +645,8 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                 <div className="min-w-0">
                   <p className="text-sm font-semibold">
                     {active
-                      ? `Editing mapping #${active.id}`
-                      : `${selectedKeys.size} selected word${selectedKeys.size === 1 ? "" : "s"}`}
+                      ? t("Editing mapping #{0}", { 0: active.id })
+                      : t("{0} selected word{1}", { 0: selectedKeys.size, 1: selectedKeys.size === 1 ? "" : "s" })}
                   </p>
                   <div className="mt-2 flex max-h-24 flex-wrap gap-2 overflow-y-auto">
                     {selectedOccurrences.map(({ token, cue }) => (
@@ -655,12 +655,11 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                         type="button"
                         onClick={() => removeSelectedKey(token.key)}
                         className="rounded-full border bg-muted px-2.5 py-1 text-xs hover:bg-accent"
-                        title="Remove from selection"
+                        title={t("Remove from selection")}
                       >
                         {token.word}{" "}
                         <span className="text-muted-foreground">
-                          · cue {cue.cueId}
-                        </span>{" "}
+                          {t("· cue {0}", { 0: cue.cueId })}</span>{" "}
                         ×
                       </button>
                     ))}
@@ -671,7 +670,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                   variant="ghost"
                   size="icon"
                   onClick={resetWorking}
-                  aria-label="Clear selected words"
+                  aria-label={t("Clear selected words")}
                 >
                   <X className="size-4" />
                 </Button>
@@ -680,8 +679,8 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
               <div className="mt-3 flex justify-end">
                 <Button onClick={() => setMappingDialogOpen(true)}>
                   {active
-                    ? "Edit mapping"
-                    : `Map ${selectedKeys.size} selected word${selectedKeys.size === 1 ? "" : "s"}`}
+                    ? t("Edit mapping")
+                    : t("Map {0} selected word{1}", { 0: selectedKeys.size, 1: selectedKeys.size === 1 ? "" : "s" })}
                 </Button>
               </div>
             </div>
@@ -707,17 +706,16 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
             <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b bg-background p-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  {active ? `Editing mapping #${active.id}` : "New mapping"}
+                  {active ? t("Editing mapping #{0}", { 0: active.id }) : t("New mapping")}
                 </p>
                 <h3 id="mapping-dialog-title" className="mt-1 text-xl font-semibold">
-                  Map selected subtitle words
-                </h3>
+                  {t("Map selected subtitle words")}</h3>
               </div>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={resetWorking}
-                aria-label="Close mapping dialog"
+                aria-label={t("Close mapping dialog")}
               >
                 <X className="size-4" />
               </Button>
@@ -726,8 +724,8 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
             <div className="space-y-6 p-5">
               <section>
                 <div className="flex items-center justify-between gap-3">
-                  <h4 className="text-sm font-semibold">Selected subtitle occurrences</h4>
-                  <span className="text-xs text-muted-foreground">{selectedKeys.size} selected</span>
+                  <h4 className="text-sm font-semibold">{t("Selected subtitle occurrences")}</h4>
+                  <span className="text-xs text-muted-foreground">{t("{0} selected", { 0: selectedKeys.size })}</span>
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {selectedOccurrences.map(({ token, cue }) => (
@@ -737,14 +735,14 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                       onClick={() => removeSelectedKey(token.key)}
                       className="rounded-full border bg-muted px-2.5 py-1 text-xs hover:bg-accent"
                     >
-                      {token.word} <span className="text-muted-foreground">· cue {cue.cueId}</span> ×
+                      {token.word} <span className="text-muted-foreground">{t("· cue {0}", { 0: cue.cueId })}</span> ×
                     </button>
                   ))}
                 </div>
               </section>
 
               <section>
-                <h4 className="text-sm font-semibold">Selected dictionary senses</h4>
+                <h4 className="text-sm font-semibold">{t("Selected dictionary senses")}</h4>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {[...selectedSenses.values()].map((sense) => (
                     <div
@@ -758,7 +756,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                           setPreviewSense(null)
                           setPreviewSenseId(sense.id)
                         }}
-                        aria-label={`View sense: ${sense.entry.word}: ${sense.title}`}
+                        aria-label={t("View sense: {0}: {1}", { 0: sense.entry.word, 1: sense.title })}
                         className="rounded-l-full px-2.5 py-1.5 hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
                       >
                         {sense.entry.word}: {sense.title}
@@ -769,7 +767,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                           if (previewSenseId === sense.id) closeSensePreview()
                           toggleSense(sense)
                         }}
-                        aria-label={`Remove sense: ${sense.entry.word}: ${sense.title}`}
+                        aria-label={t("Remove sense: {0}: {1}", { 0: sense.entry.word, 1: sense.title })}
                         className="rounded-r-full border-l p-1.5 hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
                       >
                         <X className="size-3.5" aria-hidden="true" />
@@ -777,36 +775,35 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                     </div>
                   ))}
                   {!selectedSenses.size ? (
-                    <p className="text-sm text-muted-foreground">No senses selected yet.</p>
+                    <p className="text-sm text-muted-foreground">{t("No senses selected yet.")}</p>
                   ) : null}
                 </div>
                 {previewSenseId !== null && !previewSense ? (
-                  <p role="status" className="mt-2 text-sm text-muted-foreground">Loading sense details…</p>
+                  <p role="status" className="mt-2 text-sm text-muted-foreground">{t("Loading sense details…")}</p>
                 ) : null}
                 <ApiErrorMessage error={previewError} />
               </section>
 
               <section>
-                <Label htmlFor="sense-search">Search database senses</Label>
+                <Label htmlFor="sense-search">{t("Search database senses")}</Label>
                 <div className="relative mt-2">
                   <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                   <Input
                     id="sense-search"
                     value={search}
                     onChange={(event) => setSearch(event.target.value)}
-                    className="pl-9"
-                    placeholder="word, title, definition…"
+                    className="ps-9"
+                    placeholder={t("word, title, definition…")}
                   />
                 </div>
                 {search.trim().length === 1 ? (
-                  <p className="mt-1 text-xs text-muted-foreground">Type at least 2 characters.</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{t("Type at least 2 characters.")}</p>
                 ) : null}
 
                 <div className="mt-3 max-h-64 space-y-2 overflow-y-auto">
                   {searching ? (
                     <p className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <LoaderCircle className="size-4 animate-spin" /> Searching…
-                    </p>
+                      <LoaderCircle className="size-4 animate-spin" />  {t("Searching…")}</p>
                   ) : (
                     results.map((sense) => (
                       <button
@@ -814,7 +811,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                         key={sense.id}
                         onClick={() => toggleSense(sense)}
                         className={cn(
-                          "w-full rounded-lg border p-3 text-left text-sm",
+                          "w-full rounded-lg border p-3 text-start text-sm",
                           selectedSenses.has(sense.id) && "border-primary bg-primary/5",
                         )}
                       >
@@ -822,7 +819,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                         <span className="italic text-muted-foreground">
                           {sense.entry.part_of_speech}
                         </span>
-                        <span className="ml-2 text-xs text-muted-foreground">{sense.title}</span>
+                        <span className="ms-2 text-xs text-muted-foreground">{sense.title}</span>
                         {sense.lex_unit ? (
                           <span className="mt-1 block text-sm italic text-blue-600">
                             {sense.lex_unit}
@@ -836,7 +833,7 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
               </section>
 
               <section>
-                <Label htmlFor="mapping-translation">Mapping translation (optional)</Label>
+                <Label htmlFor="mapping-translation">{t("Mapping translation (optional)")}</Label>
                 <Input
                   id="mapping-translation"
                   dir="auto"
@@ -849,22 +846,21 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
 
               {publicEnv.enableScraper ? (
                 <section className="rounded-xl border bg-muted/30 p-4">
-                  <h4 className="font-semibold">Word missing from the dictionary?</h4>
+                  <h4 className="font-semibold">{t("Word missing from the dictionary?")}</h4>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Scrape it here without leaving the section editor. Scraped entries are saved to Django immediately.
-                  </p>
+                    {t("Scrape it here without leaving the section editor. Scraped entries are saved to Django immediately.")}</p>
                   <form onSubmit={scrapeSelectedWord} className="mt-3 flex flex-col gap-2 sm:flex-row">
                     <Input
                       autoFocus
                       ref={scrapeInputRef}
                       value={scrapeWord}
                       onChange={(event) => setScrapeWord(event.target.value)}
-                      placeholder="Word to scrape"
+                      placeholder={t("Word to scrape")}
                       required
                     />
                     <Button type="submit" disabled={scraping}>
                       {scraping ? <LoaderCircle className="size-4 animate-spin" /> : null}
-                      {scraping ? "Scraping…" : "Scrape word"}
+                      {scraping ? t("Scraping…") : t("Scrape word")}
                     </Button>
                   </form>
                   <div className="mt-3">
@@ -884,20 +880,18 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
                     disabled={busy}
                     onClick={() => void deleteMapping()}
                   >
-                    <Trash2 className="size-4" /> Delete mapping
-                  </Button>
+                    <Trash2 className="size-4" />  {t("Delete mapping")}</Button>
                 ) : null}
               </div>
               <div className="flex gap-2">
                 <Button variant="outline" onClick={() => closeMappingDialog()}>
-                  Keep selecting
-                </Button>
+                  {t("Keep selecting")}</Button>
                 <Button
                   disabled={busy || !selectedKeys.size || !selectedSenses.size}
                   onClick={() => void save()}
                 >
                   {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-                  {active ? "Save mapping" : "Create mapping"}
+                  {active ? t("Save mapping") : t("Create mapping")}
                 </Button>
               </div>
             </div>
@@ -915,6 +909,18 @@ export function MappingEditor({ section }: { section: SectionDetail }) {
             knownSenseIds={new Set<number>()}
             onClose={closeSensePreview}
             presentation="section-vocabulary"
+            senseActions={(sense) => <SenseTranslationEditor sense={sense} onSaved={(saved) => {
+              const updateSenses = (senses: Sense[]) => senses.map((item) => item.id === saved.id ? saved : item)
+              setMappings((current) => current.map((mapping) => ({ ...mapping, senses: updateSenses(mapping.senses) })))
+              setSenseMapping((current) => current ? { ...current, senses: updateSenses(current.senses) } : null)
+              setPreviewSense((current) => current?.id === saved.id ? saved : current)
+              setSelectedSenses((current) => {
+                if (!current.has(saved.id)) return current
+                const next = new Map(current)
+                next.set(saved.id, saved)
+                return next
+              })
+            }} />}
           />
         </div>
       ) : null}

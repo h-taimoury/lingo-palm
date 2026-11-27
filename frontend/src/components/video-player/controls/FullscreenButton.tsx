@@ -3,12 +3,15 @@
 import { Maximize, Minimize } from "lucide-react"
 
 import { usePlayerStore } from "@/components/video-player/PlayerProvider"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type FullscreenButtonProps = {
   onToggle: () => void
 }
 
 export function FullscreenButton({ onToggle }: FullscreenButtonProps) {
+  const t = useTranslations();
+
   const isFullscreen = usePlayerStore((state) => state.isFullscreen)
 
   return (
@@ -16,8 +19,8 @@ export function FullscreenButton({ onToggle }: FullscreenButtonProps) {
       type="button"
       onClick={onToggle}
       className="inline-flex size-9 items-center justify-center rounded-md text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-      aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-      title={`${isFullscreen ? "Exit fullscreen" : "Enter fullscreen"} (F)`}
+      aria-label={isFullscreen ? t("Exit fullscreen") : t("Enter fullscreen")}
+      title={`${isFullscreen ? t("Exit fullscreen") : t("Enter fullscreen")} (F)`}
       aria-keyshortcuts="F"
     >
       {isFullscreen ? (

@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -13,6 +14,7 @@ type SheetLinkProps = {
 }
 
 export function SheetLink({ item, onNavigate }: SheetLinkProps) {
+  const t = useTranslations();
   const pathname = usePathname()
   const active = isNavItemActive(pathname, item)
 
@@ -35,7 +37,7 @@ export function SheetLink({ item, onNavigate }: SheetLinkProps) {
       >
         <NavIcon name={item.icon} className="size-4.5" />
       </span>
-      {item.title}
+      {t(item.title)}
     </Link>
   )
 }

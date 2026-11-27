@@ -1,13 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function Footer({ isAuthenticated }: { isAuthenticated: boolean }) {
+  const t = useTranslations();
+
   return (
     <footer className="border-t bg-muted/25">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <Link
           href="/"
           className="flex w-fit items-center gap-2.5 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          aria-label="LingoPalm home"
+          aria-label={t("LingoPalm home")}
         >
           <span className="grid size-8 place-items-center rounded-lg bg-primary text-[0.65rem] font-bold text-primary-foreground">
             LP
@@ -16,35 +21,31 @@ export function Footer({ isAuthenticated }: { isAuthenticated: boolean }) {
         </Link>
 
         <nav
-          aria-label="Footer"
+          aria-label={t("Footer")}
           className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground"
         >
           <a
             className="transition-colors hover:text-foreground"
             href="#how-it-works"
           >
-            How it works
-          </a>
+            {t("How it works")}</a>
           <a
             className="transition-colors hover:text-foreground"
             href="#features"
           >
-            Features
-          </a>
+            {t("Features")}</a>
           {isAuthenticated ? (
             <>
               <Link
                 className="transition-colors hover:text-foreground"
                 href="/courses"
               >
-                Courses
-              </Link>
+                {t("Courses")}</Link>
               <Link
                 className="transition-colors hover:text-foreground"
                 href="/my-vocabulary"
               >
-                My vocabulary
-              </Link>
+                {t("My vocabulary")}</Link>
             </>
           ) : (
             <>
@@ -52,14 +53,12 @@ export function Footer({ isAuthenticated }: { isAuthenticated: boolean }) {
                 className="transition-colors hover:text-foreground"
                 href="/login"
               >
-                Sign in
-              </Link>
+                {t("Sign in")}</Link>
               <Link
                 className="transition-colors hover:text-foreground"
                 href="/register"
               >
-                Create account
-              </Link>
+                {t("Create account")}</Link>
             </>
           )}
         </nav>

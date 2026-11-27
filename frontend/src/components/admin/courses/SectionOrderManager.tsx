@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { apiClient } from "@/lib/api/client";
 import type { SectionSummary } from "@/types/api/courses";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function SectionOrderManager({
   courseId,
@@ -17,6 +18,8 @@ export function SectionOrderManager({
   courseId: number;
   sections: SectionSummary[];
 }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [orders, setOrders] = useState<Record<number, number>>(() =>
     Object.fromEntries(sections.map((section) => [section.id, section.order])),
@@ -52,8 +55,7 @@ export function SectionOrderManager({
   if (!sections.length) {
     return (
       <p className="rounded-xl border border-dashed p-7 text-sm text-muted-foreground">
-        No sections yet.
-      </p>
+        {t("No sections yet.")}</p>
     );
   }
 
@@ -66,7 +68,7 @@ export function SectionOrderManager({
             className="flex flex-wrap items-center gap-3 p-4"
           >
             <Input
-              aria-label={`Order for ${section.title}`}
+              aria-label={t("Order for {0}", { 0: section.title })}
               type="number"
               min={0}
               className="w-24"
@@ -86,9 +88,7 @@ export function SectionOrderManager({
                 {section.title}
               </Link>
               <p className="text-xs text-muted-foreground">
-                {section.is_published ? "Published" : "Draft"} ·{" "}
-                {section.new_words_count ?? 0} new senses
-              </p>
+                {section.is_published ? t("Published") : t("Draft")}  {t("· {0} new senses", { 0: section.new_words_count ?? 0 })}</p>
             </div>
           </div>
         ))}
@@ -104,7 +104,7 @@ export function SectionOrderManager({
           }
           onClick={() => void save()}
         >
-          {busy ? "Saving…" : "Save order changes"}
+          {busy ? t("Saving…") : t("Save order changes")}
         </Button>
       </div>
     </div>

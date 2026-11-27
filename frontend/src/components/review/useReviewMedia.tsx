@@ -3,8 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { ClipReviewDialog } from "@/components/review/ClipReviewDialog";
 import type { Vocabulary } from "@/types/api/vocabulary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function useReviewMedia(activeCardOrPage?: number) {
+  const t = useTranslations();
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [audioError, setAudioError] = useState(false);
   const [clipCard, setClipCard] = useState<Vocabulary | null>(null);
@@ -38,8 +41,7 @@ export function useReviewMedia(activeCardOrPage?: number) {
     openClips,
     media: <>
       {audioError ? <p role="status" className="mb-4 text-sm text-destructive">
-        The American pronunciation audio could not be played.
-      </p> : null}
+        {t("The American pronunciation audio could not be played.")}</p> : null}
       {clipCard ? <ClipReviewDialog card={clipCard} onClose={() => setClipCard(null)} /> : null}
     </>,
   };

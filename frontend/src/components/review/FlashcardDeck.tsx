@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, X } from "lucide-react";
 import { Flashcard } from "@/components/review/Flashcard";
 import { ReviewDueTime } from "@/components/review/ReviewDueTime";
 import { useReviewMedia } from "@/components/review/useReviewMedia";
@@ -11,9 +11,11 @@ import { apiClient } from "@/lib/api/client";
 import type { PaginatedResponse } from "@/types/api/common";
 import type {
   Vocabulary,
+  ReviewAnswerResponse,
   VocabularyBulkActionRequest,
   VocabularyBulkActionResponse,
 } from "@/types/api/vocabulary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 const PAGE_SIZE = 10;
 const reviewPagePath = (page: number) =>
@@ -21,9 +23,15 @@ const reviewPagePath = (page: number) =>
 
 export function FlashcardDeck({
   initialData,
+  reviewUpdates = {},
+  onStopReviewing,
 }: {
   initialData: PaginatedResponse<Vocabulary>;
+  reviewUpdates?: Record<number, ReviewAnswerResponse>;
+  onStopReviewing?: (vocabularyId: number) => void;
 }) {
+  const t = useTranslations();
+
   const [data, setData] = useState(initialData);
   const [page, setPage] = useState(1);
   const [busy, setBusy] = useState(false);
@@ -72,6 +80,7 @@ export function FlashcardDeck({
         count: remainingCount,
         results: current.results.filter((item) => item.id !== row.id),
       }));
+      onStopReviewing?.(row.id);
       const nextData = await apiClient.get<PaginatedResponse<Vocabulary>>(
         reviewPagePath(targetPage),
       );
@@ -96,13 +105,11 @@ export function FlashcardDeck({
           disabled={busy}
           onClick={() => void loadPage(Math.min(page, totalPages))}
         >
-          Retry loading cards
-        </Button>
+          {t("Retry loading cards")}</Button>
       ) : null}
       {!data.count ? (
         <p className="rounded-xl border border-dashed p-10 text-center text-muted-foreground">
-          You have no senses enrolled in review.
-        </p>
+          {t("You have no senses enrolled in review.")}</p>
       ) : (
         <>
           <div className="grid grid-cols-1 items-start justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -114,23 +121,28 @@ export function FlashcardDeck({
                   onClips={() => openClips(row)}
                   actions={<Button
                     type="button"
-                    size="sm"
-                    variant="outline"
+                    size="xs"
+                    variant="ghost"
+                    className="border-red-700/30 text-red-700 hover:border-red-700/50 hover:bg-red-500/10 hover:text-red-800 dark:border-red-400/30 dark:text-red-400 dark:hover:border-red-400/50 dark:hover:bg-red-400/10 dark:hover:text-red-300"
                     disabled={busy}
                     onClick={() => void stopReviewing(row)}
                   >
-                    {stoppingId === row.id ? <LoaderCircle aria-hidden="true" className="size-4 animate-spin" /> : null}
-                    Stop reviewing
-                  </Button>}
+                    {stoppingId === row.id
+                      ? <LoaderCircle aria-hidden="true" className="size-3 animate-spin" />
+                      : <X aria-hidden="true" className="size-3" />}
+                    {t("Stop reviewing")}</Button>}
                 />
                 <p className="mt-3 text-center text-xs text-muted-foreground">
-                  Next review · <ReviewDueTime value={row.review_due_at} />
+                  {t("Next review ·")} <ReviewDueTime value={
+                    reviewUpdates[row.id] && reviewUpdates[row.id].version >= row.review_version
+                      ? reviewUpdates[row.id].due_at : row.review_due_at
+                  } />
                 </p>
               </div>
             ))}
           </div>
           <nav
-            aria-label="Flashcard pages"
+            aria-label={t("Review list pages")}
             className="mt-8 flex flex-wrap items-center justify-center gap-4"
           >
             <Button
@@ -138,19 +150,15 @@ export function FlashcardDeck({
               disabled={page <= 1 || busy}
               onClick={() => void loadPage(page - 1)}
             >
-              Previous
-            </Button>
+              {t("Previous")}</Button>
             <span aria-live="polite" className="text-sm text-muted-foreground">
-              Page {Math.min(page, totalPages)} of {totalPages} | {data.count}{" "}
-              senses
-            </span>
+              {t("Page")} {Math.min(page, totalPages)}  {t("of {0} | {1} senses", { 0: totalPages, 1: data.count })}</span>
             <Button
               variant="outline"
               disabled={page >= totalPages || busy}
               onClick={() => void loadPage(page + 1)}
             >
-              Next
-            </Button>
+              {t("Next")}</Button>
           </nav>
         </>
       )}

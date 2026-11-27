@@ -1,12 +1,14 @@
 "use client";
 
-import { type KeyboardEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { type KeyboardEvent, type ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowLeft, BookOpen, Brain, Check, LoaderCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SenseNavigation } from "@/components/video-player/learning/SenseNavigation";
 import { SenseView } from "@/components/video-player/learning/SenseView";
 import { WordDetails } from "@/components/video-player/learning/WordDetails";
 import type { LearningItem } from "@/components/video-player/learning/learningItems";
+import type { Sense } from "@/types/api/dictionary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function LearningModal({
   items,
@@ -21,6 +23,7 @@ export function LearningModal({
   onLearn,
   onAlreadyKnown,
   presentation = "player",
+  senseActions,
 }: {
   items: LearningItem[];
   activeIndex: number;
@@ -34,7 +37,10 @@ export function LearningModal({
   onLearn?: (senseId: number) => void;
   onAlreadyKnown?: (senseId: number) => void;
   presentation?: "player" | "section-vocabulary";
+  senseActions?: (sense: Sense) => ReactNode;
 }) {
+  const t = useTranslations();
+
   const dialogRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
@@ -62,19 +68,14 @@ export function LearningModal({
   }
   const isVocabulary = presentation === "section-vocabulary";
   useEffect(() => {
-    if (!isVocabulary) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = previousOverflow; };
-  }, [isVocabulary]);
-  useEffect(() => {
+    if (isVocabulary) return;
     previousFocus.current =
       document.activeElement instanceof HTMLElement
         ? document.activeElement
         : null;
     scrollRef.current?.focus({ preventScroll: true });
     return () => previousFocus.current?.focus();
-  }, []);
+  }, [isVocabulary]);
   if (!item) return null;
   function keyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (showingWord) event.stopPropagation();
@@ -109,7 +110,7 @@ export function LearningModal({
       first?.focus();
     }
   }
-  return (
+  const content = (
     <div
       className={`${isVocabulary ? "fixed z-50" : "absolute z-40"} inset-0 flex items-center justify-center bg-black/75 p-3 sm:p-6`}
       data-player-interactive="true"
@@ -123,7 +124,7 @@ export function LearningModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby={isVocabulary || showingWord ? undefined : "learning-modal-title"}
-        aria-label={showingWord ? `Full word: ${item.sense.entry.word}` : isVocabulary ? `Details for ${item.sense.entry.word}` : undefined}
+        aria-label={showingWord ? t("Full word: {0}", { 0: item.sense.entry.word }) : isVocabulary ? t("Details for {0}", { 0: item.sense.entry.word }) : undefined}
         tabIndex={-1}
         onKeyDown={keyDown}
         className="flex max-h-[92%] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-background p-1 text-foreground shadow-2xl"
@@ -134,17 +135,16 @@ export function LearningModal({
           className="min-h-0 overflow-y-auto overscroll-contain p-4 outline-none [scrollbar-color:var(--muted-foreground)_transparent] [scrollbar-width:thin] [scrollbar-gutter:stable] sm:p-5"
         >
           <div className={`${showingWord ? "mb-5" : "mb-2"} flex items-center justify-between gap-4`}>
-            {showingWord ? <Button ref={backButton} variant="ghost" size="sm" onClick={backToSense} title="Back to sense (Esc)" aria-keyshortcuts="Escape"><ArrowLeft aria-hidden="true" />Back to sense</Button> : !isVocabulary ? <h2
+            {showingWord ? <Button ref={backButton} variant="ghost" size="sm" onClick={backToSense} title={t("Back to sense (Esc)")} aria-keyshortcuts="Escape"><ArrowLeft aria-hidden="true" />{t("Back to sense")}</Button> : !isVocabulary ? <h2
               id="learning-modal-title"
               className="grid min-w-0 text-xs font-normal leading-5 text-muted-foreground"
             >
               {items.map((labelItem, index) => (
                 <span key={`${labelItem.mappingId}-${labelItem.sense.id}-${index}`} className={`col-start-1 row-start-1 transition-none ${index === activeIndex ? "opacity-100" : "opacity-0 pointer-events-none"}`} aria-hidden={index !== activeIndex}>
-                  From subtitle: “{labelItem.mappingLabel}”
-                </span>
+                  {t("From subtitle: “{0}”", { 0: labelItem.mappingLabel })}</span>
               ))}
             </h2> : null}
-            <div className="ml-auto flex shrink-0 items-center gap-8">
+            <div className="ms-auto flex shrink-0 items-center gap-8">
               {!showingWord && onPrevious && onNext ? <SenseNavigation
                 index={activeIndex}
                 count={items.length}
@@ -157,8 +157,8 @@ export function LearningModal({
                 size="icon"
                 className="rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground dark:hover:bg-accent"
                 onClick={onClose}
-                aria-label={isVocabulary ? "Close sense details" : "Close learning dialog"}
-                title={showingWord ? "Close dialog" : "Close dialog (Esc)"}
+                aria-label={isVocabulary ? t("Close sense details") : t("Close learning dialog")}
+                title={showingWord ? t("Close dialog") : t("Close dialog (Esc)")}
                 aria-keyshortcuts={showingWord ? undefined : "Escape"}
               >
                 <X className="size-5" />
@@ -186,12 +186,13 @@ export function LearningModal({
             showTranslation
             active={selected && !showingWord}
           />
+          {senseActions?.(item.sense)}
           {error ? (
             <p
               role="alert"
               className="mt-5 rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive"
             >
-              {error}
+              {t(error)}
             </p>
           ) : null}
             <div
@@ -207,20 +208,18 @@ export function LearningModal({
                 className="border-primary/20 bg-primary/10 text-primary hover:bg-primary/20 hover:text-primary dark:bg-primary/10 dark:hover:bg-primary/20"
                 disabled={isSubmitting}
                 onClick={() => onLearn?.(item.sense.id)}
-                title="I have learned this meaning."
+                title={t("I have learned this meaning.")}
               >
-                <Check aria-hidden="true" />Learned
-              </Button>
+                <Check aria-hidden="true" />{t("Learned")}</Button>
               <Button
                 type="button"
                 variant="outline"
                 size="sm"
                 disabled={isSubmitting}
                 onClick={() => onAlreadyKnown?.(item.sense.id)}
-                title="I already knew this meaning."
+                title={t("I already knew this meaning.")}
               >
-                <Brain aria-hidden="true" />Already knew
-              </Button>
+                <Brain aria-hidden="true" />{t("Already knew")}</Button>
               {isSubmitting ? (
                 <span
                   role="status"
@@ -230,14 +229,13 @@ export function LearningModal({
                     className="size-3.5 animate-spin"
                     aria-hidden="true"
                   />
-                  Saving…
-                </span>
+                  {t("Saving…")}</span>
               ) : null}
             </>
           ) : null}
               <Button
                 ref={selected ? fullWordButton : undefined}
-                title="View all entries and senses for this word"
+                title={t("View all entries and senses for this word")}
                 type="button"
                 variant="outline"
                 size="sm"
@@ -247,8 +245,7 @@ export function LearningModal({
                   if (scrollRef.current) scrollRef.current.scrollTop = 0;
                 }}
               >
-                <BookOpen aria-hidden="true" />View full word
-              </Button>
+                <BookOpen aria-hidden="true" />{t("View full word")}</Button>
             </div>
           </div>
             );
@@ -258,5 +255,23 @@ export function LearningModal({
         </div>
       </div>
     </div>
+  );
+  return isVocabulary ? <VocabularyDialog>{content}</VocabularyDialog> : content;
+}
+
+function VocabularyDialog({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    const dialog = ref.current;
+    if (dialog && !dialog.open) dialog.showModal();
+    return () => dialog?.close();
+  }, []);
+  return (
+    <dialog
+      ref={ref}
+      className="m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 text-inherit backdrop:bg-transparent"
+    >
+      {children}
+    </dialog>
   );
 }

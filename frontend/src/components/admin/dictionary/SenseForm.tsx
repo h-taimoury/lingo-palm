@@ -15,6 +15,7 @@ import type {
   SenseExample,
   UpdateSenseRequest,
 } from "@/types/api/dictionary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 function list(value: FormDataEntryValue | null) {
   return String(value ?? "")
@@ -56,6 +57,8 @@ export function SenseForm({
   sense?: Sense;
   onDone?: () => void;
 }) {
+  const t = useTranslations();
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -108,8 +111,7 @@ export function SenseForm({
       <div className="grid gap-4 sm:grid-cols-[130px_1fr]">
         <div className="space-y-2">
           <Label htmlFor={`sense-number-${sense?.id ?? "new"}-${entryId}`}>
-            Sense no.
-          </Label>
+            {t("Sense no.")}</Label>
           <Input
             key={sense?.sense_number ?? ""}
             id={`sense-number-${sense?.id ?? "new"}-${entryId}`}
@@ -123,8 +125,7 @@ export function SenseForm({
         </div>
         <div className="space-y-2">
           <Label htmlFor={`sense-title-${sense?.id ?? "new"}-${entryId}`}>
-            Unique title
-          </Label>
+            {t("Unique title")}</Label>
           <Input
             key={sense?.title ?? ""}
             id={`sense-title-${sense?.id ?? "new"}-${entryId}`}
@@ -137,8 +138,7 @@ export function SenseForm({
       </div>
       <div className="space-y-2">
         <Label htmlFor={`sense-def-${sense?.id ?? "new"}-${entryId}`}>
-          Definition
-        </Label>
+          {t("Definition")}</Label>
         <Textarea
           id={`sense-def-${sense?.id ?? "new"}-${entryId}`}
           name="definition"
@@ -150,10 +150,11 @@ export function SenseForm({
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor={`translation-${sense?.id ?? "new"}-${entryId}`}>Translation</Label>
+          <Label htmlFor={`translation-${sense?.id ?? "new"}-${entryId}`}>{t("Translation")}</Label>
           <Textarea
             id={`translation-${sense?.id ?? "new"}-${entryId}`}
             name="translation"
+            lang="fa"
             dir="rtl"
             rows={2}
             defaultValue={sense?.translation ?? ""}
@@ -161,11 +162,12 @@ export function SenseForm({
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor={`short-translation-${sense?.id ?? "new"}-${entryId}`}>Short translation</Label>
+          <Label htmlFor={`short-translation-${sense?.id ?? "new"}-${entryId}`}>{t("Short translation")}</Label>
           <Input
             key={sense?.short_translation ?? ""}
             id={`short-translation-${sense?.id ?? "new"}-${entryId}`}
             name="short_translation"
+            lang="fa"
             dir="rtl"
             maxLength={100}
             defaultValue={sense?.short_translation ?? ""}
@@ -176,21 +178,21 @@ export function SenseForm({
       <div className="grid gap-4 sm:grid-cols-3">
         <Field
           name="lex_unit"
-          label="Lexical unit"
+          label={t("Lexical unit")}
           placeholder="blade of grass"
           value={sense?.lex_unit}
           id={`${sense?.id ?? "new"}-${entryId}`}
         />
         <Field
           name="geo"
-          label="Geography"
+          label={t("Geography")}
           placeholder="British English"
           value={sense?.geo}
           id={`${sense?.id ?? "new"}-${entryId}`}
         />
         <Field
           name="register"
-          label="Register"
+          label={t("Register")}
           placeholder="old-fashioned"
           value={sense?.register}
           id={`${sense?.id ?? "new"}-${entryId}`}
@@ -199,8 +201,7 @@ export function SenseForm({
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor={`syn-${sense?.id ?? "new"}-${entryId}`}>
-            Synonyms
-          </Label>
+            {t("Synonyms")}</Label>
           <Input
             key={sense?.synonyms.join(", ") ?? ""}
             id={`syn-${sense?.id ?? "new"}-${entryId}`}
@@ -211,8 +212,7 @@ export function SenseForm({
         </div>
         <div className="space-y-2">
           <Label htmlFor={`opp-${sense?.id ?? "new"}-${entryId}`}>
-            Opposites
-          </Label>
+            {t("Opposites")}</Label>
           <Input
             key={sense?.opposites.join(", ") ?? ""}
             id={`opp-${sense?.id ?? "new"}-${entryId}`}
@@ -224,8 +224,7 @@ export function SenseForm({
       </div>
       <div className="space-y-2">
         <Label htmlFor={`examples-${sense?.id ?? "new"}-${entryId}`}>
-          Examples
-        </Label>
+          {t("Examples")}</Label>
         <Textarea
           id={`examples-${sense?.id ?? "new"}-${entryId}`}
           name="examples"
@@ -236,12 +235,11 @@ export function SenseForm({
           }
         />
         <p className="text-xs text-muted-foreground">
-          Enter one example per line. Add “||” followed by a usage note if needed.
-        </p>
+          {t("Enter one example per line. Add “||” followed by a usage note if needed.")}</p>
       </div>
       <Button type="submit" className="w-fit" disabled={busy}>
         {busy ? <LoaderCircle className="size-4 animate-spin" /> : null}
-        {busy ? "Saving…" : sense ? "Save sense" : "Create sense"}
+        {busy ? t("Saving…") : sense ? t("Save sense") : t("Create sense")}
       </Button>
     </form>
   );

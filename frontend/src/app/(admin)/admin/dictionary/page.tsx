@@ -10,6 +10,7 @@ import { getDictionaryEntries } from "@/lib/admin/server";
 import { buildUrl, firstSearchParam, parsePositivePage } from "@/lib/courses/query";
 import { publicEnv } from "@/lib/env";
 import { cn } from "@/lib/utils";
+import { getTranslations } from "@/lib/i18n/server";
 
 export default async function Page({
   searchParams,
@@ -19,6 +20,8 @@ export default async function Page({
     search?: string | string[];
   }>;
 }) {
+  const t = await getTranslations();
+
   const params = await searchParams;
   const page = parsePositivePage(params.page);
   const search = (firstSearchParam(params.search) ?? "").trim();
@@ -32,20 +35,18 @@ export default async function Page({
   return (
     <div className="mx-auto max-w-6xl px-4 py-9 sm:px-6 lg:px-8">
       <PageHeader
-        title="Dictionary"
-        description="Entries group a word and part of speech; course learning targets individual senses."
+        title={t("Dictionary")}
+        description={t("Entries group a word and part of speech; course learning targets individual senses.")}
         actions={
           <>
             <Link href="/admin/dictionary/translate" className={cn(buttonVariants({ variant: "outline" }))}>
-              Translate senses
-            </Link>
+              {t("Translate senses")}</Link>
           {publicEnv.enableScraper ? (
             <Link
               href="/admin/dictionary/scrape"
               className={cn(buttonVariants())}
             >
-              Scrape word
-            </Link>
+              {t("Scrape word")}</Link>
           ) : null}
           </>
         }
@@ -53,8 +54,7 @@ export default async function Page({
 
       <details className="mt-6 rounded-xl border bg-card">
         <summary className="cursor-pointer p-4 font-medium">
-          Create an entry manually
-        </summary>
+          {t("Create an entry manually")}</summary>
 
         <div className="border-t p-5">
           <EntryForm />
@@ -64,8 +64,8 @@ export default async function Page({
       <SearchForm
         action="/admin/dictionary"
         search={search}
-        label="Search dictionary"
-        placeholder="Search word, part of speech or sense title"
+        label={t("Search dictionary")}
+        placeholder={t("Search word, part of speech or sense title")}
       />
 
       <div className="mt-6 grid gap-5">
@@ -75,8 +75,7 @@ export default async function Page({
 
         {!data.results.length ? (
           <p className="rounded-xl border border-dashed p-8 text-center text-muted-foreground">
-            No dictionary entries found.
-          </p>
+            {t("No dictionary entries found.")}</p>
         ) : null}
       </div>
 

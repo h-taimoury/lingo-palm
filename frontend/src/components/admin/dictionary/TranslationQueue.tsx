@@ -10,8 +10,11 @@ import { SenseView } from "@/components/video-player/learning/SenseView";
 import { apiClient } from "@/lib/api/client";
 import type { PaginatedResponse } from "@/types/api/common";
 import type { Sense, UpdateSenseRequest } from "@/types/api/dictionary";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function TranslationQueue({ initial }: { initial: PaginatedResponse<Sense> }) {
+  const t = useTranslations();
+
   const [queue, setQueue] = useState(initial.results);
   const [remaining, setRemaining] = useState(initial.count);
   const [saved, setSaved] = useState(0);
@@ -73,7 +76,7 @@ export function TranslationQueue({ initial }: { initial: PaginatedResponse<Sense
         delete next[sense.id];
         return next;
       });
-      setNotice(`Translation saved for ${sense.entry.word}.`);
+      setNotice(t("Translation saved for {0}.", { 0: sense.entry.word }));
       if (reviewing) {
         setReviewing(false);
       } else {
@@ -93,8 +96,8 @@ export function TranslationQueue({ initial }: { initial: PaginatedResponse<Sense
   return (
     <div className="mt-8 space-y-4" aria-busy={busy}>
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-muted/30 px-4 py-3 text-sm">
-        <span className="flex items-center gap-2 font-medium"><Languages className="size-4 text-primary" aria-hidden="true" />{remaining} remaining</span>
-        <span className="text-muted-foreground">{saved} translated this session</span>
+        <span className="flex items-center gap-2 font-medium"><Languages className="size-4 text-primary" aria-hidden="true" />{t("{0} remaining", { 0: remaining })}</span>
+        <span className="text-muted-foreground">{t("{0} translated this session", { 0: saved })}</span>
       </div>
       <p role="status" className="sr-only">{notice}</p>
       <ApiErrorMessage error={error} />
@@ -102,15 +105,15 @@ export function TranslationQueue({ initial }: { initial: PaginatedResponse<Sense
       {sense ? (
         <article key={sense.id} className="overflow-hidden rounded-2xl border bg-card shadow-sm motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-right-2 motion-safe:duration-200">
           <div className="border-b px-5 py-3 text-xs font-medium text-muted-foreground sm:px-7">
-            {reviewing ? "Editing your previous translation" : "Next meaning"}
-            <span className="ml-2 break-all font-normal">· {sense.title}</span>
+            {reviewing ? t("Editing your previous translation") : t("Next meaning")}
+            <span className="ms-2 break-all font-normal">· {sense.title}</span>
           </div>
           <div className="p-5 sm:p-7">
             <SenseView sense={sense} learned={false} examplesMode="all" showMetadata keyboardShortcuts={false} />
           </div>
           <form onSubmit={submit} className="space-y-4 border-t bg-primary/5 p-5 sm:p-7">
             <div className="space-y-2">
-              <Label htmlFor="persian-translation">Persian translation <span lang="fa" dir="rtl" className="text-base font-normal text-muted-foreground">ترجمهٔ فارسی</span></Label>
+              <Label htmlFor="persian-translation">{t("Persian translation")} <span lang="fa" dir="rtl" className="text-base font-normal text-muted-foreground">ترجمهٔ فارسی</span></Label>
               <Input
                 ref={input}
                 id="persian-translation"
@@ -128,26 +131,26 @@ export function TranslationQueue({ initial }: { initial: PaginatedResponse<Sense
                   if (event.key === "Enter" && (event.nativeEvent.isComposing || event.repeat)) event.preventDefault();
                 }}
               />
-              <p id="translation-hint" className="text-xs text-muted-foreground">Press Enter to save {reviewing ? "and return to the queue" : "and continue"}. Skip keeps your draft in this session.</p>
+              <p id="translation-hint" className="text-xs text-muted-foreground">{t("Press Enter to save")} {reviewing ? t("and return to the queue") : t("and continue")}{t(". Skip keeps your draft in this session.")}</p>
             </div>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex gap-2">
                 {reviewing ? (
-                  <Button type="button" variant="ghost" disabled={busy} onClick={() => { setReviewing(false); setError(null); }}>Back to queue</Button>
+                  <Button type="button" variant="ghost" disabled={busy} onClick={() => { setReviewing(false); setError(null); }}>{t("Back to queue")}</Button>
                 ) : (
                   <>
-                    <Button type="button" variant="ghost" disabled={busy || !previous} onClick={() => { setReviewing(true); setError(null); }}><ArrowLeft />Previous</Button>
+                    <Button type="button" variant="ghost" disabled={busy || !previous} onClick={() => { setReviewing(true); setError(null); }}><ArrowLeft />{t("Previous")}</Button>
                     <Button type="button" variant="outline" disabled={busy || queue.length < 2} onClick={() => {
                       setQueue([...queue.slice(1), sense]);
                       setError(null);
-                      setNotice("Sense moved to the back of this batch.");
-                    }}><SkipForward />Skip</Button>
+                      setNotice(t("Sense moved to the back of this batch."));
+                    }}><SkipForward />{t("Skip")}</Button>
                   </>
                 )}
               </div>
               <Button type="submit" size="lg" disabled={busy || !translation.trim()}>
                 {busy ? <LoaderCircle className="animate-spin" /> : <Check />}
-                {busy ? "Saving…" : reviewing ? "Save correction" : "Save & next"}
+                {busy ? t("Saving…") : reviewing ? t("Save correction") : t("Save & next")}
               </Button>
             </div>
           </form>
@@ -155,11 +158,11 @@ export function TranslationQueue({ initial }: { initial: PaginatedResponse<Sense
       ) : (
         <div className="rounded-2xl border bg-card p-10 text-center shadow-sm">
           {busy ? <LoaderCircle className="mx-auto size-8 animate-spin text-primary" /> : <Check className="mx-auto size-8 text-primary" />}
-          <h2 className="mt-4 text-xl font-semibold">{busy ? "Loading next senses…" : loadFailed ? "Couldn’t load the next senses" : "All caught up!"}</h2>
-          <p className="mt-2 text-sm text-muted-foreground">{loadFailed ? "Your saved translations are safe. Try loading the queue again." : busy ? "Getting your next batch ready." : "Every sense used in a section now has a translation."}</p>
+          <h2 className="mt-4 text-xl font-semibold">{busy ? t("Loading next senses…") : loadFailed ? t("Couldn’t load the next senses") : t("All caught up!")}</h2>
+          <p className="mt-2 text-sm text-muted-foreground">{loadFailed ? t("Your saved translations are safe. Try loading the queue again.") : busy ? t("Getting your next batch ready.") : t("Every sense used in a section now has a translation.")}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-3">
-            {previous ? <Button variant="outline" disabled={busy} onClick={() => { setReviewing(true); setError(null); }}><ArrowLeft />Previous</Button> : null}
-            <Button variant="outline" disabled={busy} onClick={() => void reload()}>{loadFailed ? "Try again" : "Check again"}<ArrowRight /></Button>
+            {previous ? <Button variant="outline" disabled={busy} onClick={() => { setReviewing(true); setError(null); }}><ArrowLeft />{t("Previous")}</Button> : null}
+            <Button variant="outline" disabled={busy} onClick={() => void reload()}>{loadFailed ? t("Try again") : t("Check again")}<ArrowRight /></Button>
           </div>
         </div>
       )}

@@ -1,8 +1,11 @@
+"use client";
+
 import { Fragment } from "react"
 import { Menu } from "@base-ui/react/menu"
 import { ChevronDown, LoaderCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { VocabularyBulkAction } from "@/types/api/vocabulary"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 type Action = { action: VocabularyBulkAction; label: string; variant?: "destructive" }
 
@@ -21,6 +24,8 @@ export function VocabularyActionsMenu({ actions = learnedVocabularyActions, disa
   onAction: (action: VocabularyBulkAction) => void
   align?: "start" | "end"
 }) {
+  const t = useTranslations();
+
   return (
     <Menu.Root modal={false}>
       <Menu.Trigger
@@ -29,8 +34,7 @@ export function VocabularyActionsMenu({ actions = learnedVocabularyActions, disa
         render={<Button type="button" variant="outline" className="text-base" />}
       >
         {busy ? <LoaderCircle className="size-4 animate-spin" aria-hidden="true" /> : null}
-        Actions for selected
-        <ChevronDown className="size-4" aria-hidden="true" />
+        {t("Actions for selected")}<ChevronDown className="size-4" aria-hidden="true" />
       </Menu.Trigger>
       <Menu.Portal>
         <Menu.Positioner side="bottom" align={align} sideOffset={8} collisionPadding={12} className="z-50">
@@ -43,7 +47,7 @@ export function VocabularyActionsMenu({ actions = learnedVocabularyActions, disa
                   onClick={() => onAction(action)}
                   className={`flex cursor-pointer items-center rounded-lg px-3 py-2.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 ${variant === "destructive" ? "text-destructive data-[highlighted]:bg-destructive/10" : "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"}`}
                 >
-                  {label}
+                  {t(label)}
                 </Menu.Item>
               </Fragment>
             ))}

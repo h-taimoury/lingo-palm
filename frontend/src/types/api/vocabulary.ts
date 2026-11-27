@@ -38,14 +38,16 @@ export type ReviewRating = 1 | 3
 
 export type ReviewAnswerRequest = {
   submission_id: string
-  rating: ReviewRating
+  rating: ReviewRating | null
   version: number
+  review_id?: number
 }
 
 export type ReviewAnswerResponse = {
+  id: number
   submission_id: string
-  rating: ReviewRating
-  reviewed_at: string
+  rating: ReviewRating | null
+  reviewed_at: string | null
   due_at: string
   version: number
 }

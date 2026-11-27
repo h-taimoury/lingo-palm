@@ -1,3 +1,4 @@
+import { getTranslations } from "@/lib/i18n/server";
 import type { Metadata } from "next";
 
 import { Features } from "@/components/home/Features";
@@ -9,11 +10,14 @@ import { SignUpSection } from "@/components/home/SignUpSection";
 import { LearnerNav } from "@/components/navigation/LearnerNav";
 import { getOptionalCurrentUser } from "@/lib/auth/getOptionalCurrentUser";
 
-export const metadata: Metadata = {
-  title: "Learn English through authentic video",
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+  title: t("Learn English through authentic video"),
   description:
-    "Learn exact English meanings from authentic videos, curated interactive subtitles, and focused vocabulary review.",
+    t("Learn exact English meanings from authentic videos, curated interactive subtitles, and focused vocabulary review."),
 };
+}
 
 export default async function HomePage() {
   const user = await getOptionalCurrentUser("/");

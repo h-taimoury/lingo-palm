@@ -30,8 +30,14 @@ class VocabularySerializer(serializers.ModelSerializer):
 
 class ReviewAnswerSerializer(serializers.Serializer):
     submission_id = serializers.UUIDField()
-    rating = serializers.ChoiceField(choices=(1, 3))
+    rating = serializers.ChoiceField(choices=(1, 3), allow_null=True)
     version = serializers.IntegerField(min_value=0)
+    review_id = serializers.IntegerField(min_value=1, required=False)
+
+    def validate(self, attrs):
+        if attrs["rating"] is None and "review_id" not in attrs:
+            raise serializers.ValidationError("Choose a saved review to clear its answer.")
+        return attrs
 
 
 class ProgressQuerySerializer(serializers.Serializer):
@@ -46,9 +52,19 @@ class ProgressQuerySerializer(serializers.Serializer):
 
 
 class VocabularyReviewSerializer(serializers.ModelSerializer):
+    submission_id = serializers.SerializerMethodField()
+    reviewed_at = serializers.SerializerMethodField()
+
+    def get_submission_id(self, review):
+        return str(review.last_submission_id or review.submission_id)
+
+    def get_reviewed_at(self, review):
+        value = review.previous_reviewed_at if review.rating is None else review.reviewed_at
+        return serializers.DateTimeField().to_representation(value) if value else None
+
     class Meta:
         model = VocabularyReview
-        fields = ("submission_id", "rating", "reviewed_at", "due_at", "version")
+        fields = ("id", "submission_id", "rating", "reviewed_at", "due_at", "version")
         read_only_fields = fields
 
 

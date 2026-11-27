@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { CheckCircle2, CirclePlay } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import type { SectionSummary } from "@/types/api/courses";
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 export function SectionList({
   courseId,
@@ -10,11 +13,12 @@ export function SectionList({
   courseId: number;
   sections: SectionSummary[];
 }) {
+  const t = useTranslations();
+
   if (!sections.length)
     return (
       <div className="rounded-xl border border-dashed p-8 text-center text-sm text-muted-foreground">
-        No published sections yet.
-      </div>
+        {t("No published sections yet.")}</div>
     );
   return (
     <div className="grid gap-3">
@@ -36,7 +40,7 @@ export function SectionList({
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-semibold group-hover:underline">
+                  <h3 dir="auto" className="font-semibold group-hover:underline">
                     {section.title}
                   </h3>
                 </div>
@@ -45,13 +49,12 @@ export function SectionList({
                     value={learned}
                     className="h-2 flex-1 [&_[data-slot=progress-track]]:bg-white"
                   />
-                  <span className="w-10 text-right text-xs tabular-nums text-muted-foreground">
+                  <span className="w-10 text-end text-xs tabular-nums text-muted-foreground">
                     {learned}%
                   </span>
                 </div>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  {section.new_words_count ?? 0} new senses
-                </p>
+                  {t("{0} new senses", { 0: section.new_words_count ?? 0 })}</p>
               </div>
             </div>
           </Link>

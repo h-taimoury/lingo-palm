@@ -1,4 +1,7 @@
+"use client";
+
 import { Captions, Clapperboard, Layers3 } from "lucide-react"
+import { useTranslations } from "@/lib/i18n/LocaleProvider";
 
 const steps = [
   {
@@ -22,17 +25,17 @@ const steps = [
 ]
 
 export function HowItWorks() {
+  const t = useTranslations();
+
   return (
     <section id="how-it-works" className="scroll-mt-20 border-y bg-muted/35 py-20 sm:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">How it works</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">{t("How it works")}</p>
           <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            From watching to remembering in three simple steps
-          </h2>
+            {t("From watching to remembering in three simple steps")}</h2>
           <p className="mt-4 text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
-            LingoPalm connects the scene, the subtitle occurrence, and the precise meaning you want to learn.
-          </p>
+            {t("LingoPalm connects the scene, the subtitle occurrence, and the precise meaning you want to learn.")}</p>
         </div>
 
         <ol className="mt-12 grid gap-5 md:grid-cols-3">
@@ -44,8 +47,8 @@ export function HowItWorks() {
               <span className="grid size-11 place-items-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-primary/20">
                 <Icon className="size-5" aria-hidden="true" />
               </span>
-              <h3 className="mt-6 text-xl font-semibold tracking-tight">{title}</h3>
-              <p className="mt-3 leading-7 text-muted-foreground">{description}</p>
+              <h3 className="mt-6 text-xl font-semibold tracking-tight">{t(title)}</h3>
+              <p className="mt-3 leading-7 text-muted-foreground">{t(description)}</p>
             </li>
           ))}
         </ol>
